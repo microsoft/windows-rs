@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXsltProcessor(::windows::runtime::IInspectable);
+pub struct IXsltProcessor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXsltProcessor {
     type Vtable = IXsltProcessor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2070179903, 21772, 18630, [169, 15, 147, 165, 185, 100, 81, 143]);
@@ -20,7 +20,7 @@ pub struct IXsltProcessor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXsltProcessor2(::windows::runtime::IInspectable);
+pub struct IXsltProcessor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXsltProcessor2 {
     type Vtable = IXsltProcessor2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2376358998, 38821, 17611, [168, 190, 39, 216, 98, 128, 199, 10]);
@@ -39,7 +39,7 @@ pub struct IXsltProcessor2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXsltProcessorFactory(::windows::runtime::IInspectable);
+pub struct IXsltProcessorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXsltProcessorFactory {
     type Vtable = IXsltProcessorFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(658589376, 39505, 18019, [191, 48, 14, 247, 66, 20, 111, 32]);
@@ -58,8 +58,8 @@ pub struct IXsltProcessorFactory_abi(
 );
 #[doc = "*Required features: `Data_Xml_Xsl`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct XsltProcessor(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct XsltProcessor(pub ::windows::runtime::IInspectable);
 impl XsltProcessor {
     #[cfg(feature = "Data_Xml_Dom")]
     #[doc = "*Required features: `Data_Xml_Xsl`, `Data_Xml_Dom`*"]
@@ -101,6 +101,46 @@ unsafe impl ::windows::runtime::Interface for XsltProcessor {
 }
 impl ::windows::runtime::RuntimeName for XsltProcessor {
     const NAME: &'static str = "Windows.Data.Xml.Xsl.XsltProcessor";
+}
+impl ::std::convert::From<XsltProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: XsltProcessor) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&XsltProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: &XsltProcessor) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XsltProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a XsltProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<XsltProcessor> for ::windows::runtime::IInspectable {
+    fn from(value: XsltProcessor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&XsltProcessor> for ::windows::runtime::IInspectable {
+    fn from(value: &XsltProcessor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XsltProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XsltProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for XsltProcessor {}
 unsafe impl ::std::marker::Sync for XsltProcessor {}

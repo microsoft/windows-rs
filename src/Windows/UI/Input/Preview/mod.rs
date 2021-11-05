@@ -3,7 +3,7 @@
 pub mod Injection;
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInputActivationListenerPreviewStatics(::windows::runtime::IInspectable);
+pub struct IInputActivationListenerPreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputActivationListenerPreviewStatics {
     type Vtable = IInputActivationListenerPreviewStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4032109797, 3558, 23520, [165, 137, 247, 55, 32, 26, 69, 130]);

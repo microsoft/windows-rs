@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Services_Cortana`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CortanaActionableInsights(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CortanaActionableInsights(pub ::windows::runtime::IInspectable);
 impl CortanaActionableInsights {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "System")]
@@ -116,12 +116,52 @@ unsafe impl ::windows::runtime::Interface for CortanaActionableInsights {
 impl ::windows::runtime::RuntimeName for CortanaActionableInsights {
     const NAME: &'static str = "Windows.Services.Cortana.CortanaActionableInsights";
 }
+impl ::std::convert::From<CortanaActionableInsights> for ::windows::runtime::IUnknown {
+    fn from(value: CortanaActionableInsights) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CortanaActionableInsights> for ::windows::runtime::IUnknown {
+    fn from(value: &CortanaActionableInsights) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CortanaActionableInsights {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CortanaActionableInsights {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CortanaActionableInsights> for ::windows::runtime::IInspectable {
+    fn from(value: CortanaActionableInsights) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CortanaActionableInsights> for ::windows::runtime::IInspectable {
+    fn from(value: &CortanaActionableInsights) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CortanaActionableInsights {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CortanaActionableInsights {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CortanaActionableInsights {}
 unsafe impl ::std::marker::Sync for CortanaActionableInsights {}
 #[doc = "*Required features: `Services_Cortana`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CortanaActionableInsightsOptions(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CortanaActionableInsightsOptions(pub ::windows::runtime::IInspectable);
 impl CortanaActionableInsightsOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -172,6 +212,46 @@ unsafe impl ::windows::runtime::Interface for CortanaActionableInsightsOptions {
 }
 impl ::windows::runtime::RuntimeName for CortanaActionableInsightsOptions {
     const NAME: &'static str = "Windows.Services.Cortana.CortanaActionableInsightsOptions";
+}
+impl ::std::convert::From<CortanaActionableInsightsOptions> for ::windows::runtime::IUnknown {
+    fn from(value: CortanaActionableInsightsOptions) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CortanaActionableInsightsOptions> for ::windows::runtime::IUnknown {
+    fn from(value: &CortanaActionableInsightsOptions) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CortanaActionableInsightsOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CortanaActionableInsightsOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CortanaActionableInsightsOptions> for ::windows::runtime::IInspectable {
+    fn from(value: CortanaActionableInsightsOptions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CortanaActionableInsightsOptions> for ::windows::runtime::IInspectable {
+    fn from(value: &CortanaActionableInsightsOptions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CortanaActionableInsightsOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CortanaActionableInsightsOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for CortanaActionableInsightsOptions {}
 unsafe impl ::std::marker::Sync for CortanaActionableInsightsOptions {}
@@ -231,8 +311,8 @@ impl ::windows::runtime::DefaultType for CortanaPermissionsChangeResult {
 }
 #[doc = "*Required features: `Services_Cortana`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CortanaPermissionsManager(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CortanaPermissionsManager(pub ::windows::runtime::IInspectable);
 impl CortanaPermissionsManager {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Services_Cortana`*"]
@@ -296,12 +376,52 @@ unsafe impl ::windows::runtime::Interface for CortanaPermissionsManager {
 impl ::windows::runtime::RuntimeName for CortanaPermissionsManager {
     const NAME: &'static str = "Windows.Services.Cortana.CortanaPermissionsManager";
 }
+impl ::std::convert::From<CortanaPermissionsManager> for ::windows::runtime::IUnknown {
+    fn from(value: CortanaPermissionsManager) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CortanaPermissionsManager> for ::windows::runtime::IUnknown {
+    fn from(value: &CortanaPermissionsManager) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CortanaPermissionsManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CortanaPermissionsManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CortanaPermissionsManager> for ::windows::runtime::IInspectable {
+    fn from(value: CortanaPermissionsManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CortanaPermissionsManager> for ::windows::runtime::IInspectable {
+    fn from(value: &CortanaPermissionsManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CortanaPermissionsManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CortanaPermissionsManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CortanaPermissionsManager {}
 unsafe impl ::std::marker::Sync for CortanaPermissionsManager {}
 #[doc = "*Required features: `Services_Cortana`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CortanaSettings(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CortanaSettings(pub ::windows::runtime::IInspectable);
 impl CortanaSettings {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Services_Cortana`*"]
@@ -358,11 +478,51 @@ unsafe impl ::windows::runtime::Interface for CortanaSettings {
 impl ::windows::runtime::RuntimeName for CortanaSettings {
     const NAME: &'static str = "Windows.Services.Cortana.CortanaSettings";
 }
+impl ::std::convert::From<CortanaSettings> for ::windows::runtime::IUnknown {
+    fn from(value: CortanaSettings) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CortanaSettings> for ::windows::runtime::IUnknown {
+    fn from(value: &CortanaSettings) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CortanaSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CortanaSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CortanaSettings> for ::windows::runtime::IInspectable {
+    fn from(value: CortanaSettings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CortanaSettings> for ::windows::runtime::IInspectable {
+    fn from(value: &CortanaSettings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CortanaSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CortanaSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CortanaSettings {}
 unsafe impl ::std::marker::Sync for CortanaSettings {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICortanaActionableInsights(::windows::runtime::IInspectable);
+pub struct ICortanaActionableInsights(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaActionableInsights {
     type Vtable = ICortanaActionableInsights_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2501822129, 64643, 22637, [139, 132, 36, 82, 200, 152, 22, 37]);
@@ -395,7 +555,7 @@ pub struct ICortanaActionableInsights_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICortanaActionableInsightsOptions(::windows::runtime::IInspectable);
+pub struct ICortanaActionableInsightsOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaActionableInsightsOptions {
     type Vtable = ICortanaActionableInsightsOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2864888783, 38786, 21536, [184, 30, 122, 229, 106, 243, 24, 21]);
@@ -418,7 +578,7 @@ pub struct ICortanaActionableInsightsOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICortanaActionableInsightsStatics(::windows::runtime::IInspectable);
+pub struct ICortanaActionableInsightsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaActionableInsightsStatics {
     type Vtable = ICortanaActionableInsightsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3051279378, 40239, 23733, [155, 5, 53, 106, 11, 131, 108, 16]);
@@ -438,7 +598,7 @@ pub struct ICortanaActionableInsightsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICortanaPermissionsManager(::windows::runtime::IInspectable);
+pub struct ICortanaPermissionsManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaPermissionsManager {
     type Vtable = ICortanaPermissionsManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(420688096, 34453, 17290, [149, 69, 61, 164, 232, 34, 221, 180]);
@@ -462,7 +622,7 @@ pub struct ICortanaPermissionsManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICortanaPermissionsManagerStatics(::windows::runtime::IInspectable);
+pub struct ICortanaPermissionsManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaPermissionsManagerStatics {
     type Vtable = ICortanaPermissionsManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1991370362, 45125, 17428, [157, 109, 42, 211, 165, 254, 58, 126]);
@@ -480,7 +640,7 @@ pub struct ICortanaPermissionsManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICortanaSettings(::windows::runtime::IInspectable);
+pub struct ICortanaSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaSettings {
     type Vtable = ICortanaSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423274407, 32866, 16628, [171, 231, 222, 223, 214, 151, 176, 25]);
@@ -500,7 +660,7 @@ pub struct ICortanaSettings_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICortanaSettingsStatics(::windows::runtime::IInspectable);
+pub struct ICortanaSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaSettingsStatics {
     type Vtable = ICortanaSettingsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2334969214, 11968, 17517, [146, 133, 51, 240, 124, 232, 172, 4]);

@@ -546,8 +546,8 @@ pub unsafe fn DdqCreateSession(accesslevel: DdqAccessLevel) -> ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqExtractDiagnosticReport<'a, Param0: ::windows::runtime::IntoParam<'a, super::HDIAGNOSTIC_DATA_QUERY_SESSION>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hsession: Param0, reportstoretype: u32, reportkey: Param2, destinationpath: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -646,8 +646,8 @@ pub unsafe fn DdqGetDiagnosticDataAccessLevelAllowed() -> ::windows::runtime::Re
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticRecordAtIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::HDIAGNOSTIC_RECORD>>(hrecord: Param0, index: u32) -> ::windows::runtime::Result<DIAGNOSTIC_DATA_RECORD> {
     #[cfg(windows)]
@@ -662,8 +662,8 @@ pub unsafe fn DdqGetDiagnosticRecordAtIndex<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticRecordBinaryDistribution<'a, Param0: ::windows::runtime::IntoParam<'a, super::HDIAGNOSTIC_DATA_QUERY_SESSION>>(hsession: Param0, producernames: *const super::super::Foundation::PWSTR, producernamecount: u32, topnbinaries: u32, binarystats: *mut *mut DIAGNOSTIC_DATA_EVENT_BINARY_STATS, statcount: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -677,8 +677,8 @@ pub unsafe fn DdqGetDiagnosticRecordBinaryDistribution<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticRecordCategoryAtIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>>(hcategorydescription: Param0, index: u32) -> ::windows::runtime::Result<DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION> {
     #[cfg(windows)]
@@ -723,8 +723,8 @@ pub unsafe fn DdqGetDiagnosticRecordCount<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticRecordLocaleTagAtIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>>(htagdescription: Param0, index: u32) -> ::windows::runtime::Result<DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION> {
     #[cfg(windows)]
@@ -754,8 +754,8 @@ pub unsafe fn DdqGetDiagnosticRecordLocaleTagCount<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticRecordLocaleTags<'a, Param0: ::windows::runtime::IntoParam<'a, super::HDIAGNOSTIC_DATA_QUERY_SESSION>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hsession: Param0, locale: Param1) -> ::windows::runtime::Result<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION> {
     #[cfg(windows)]
@@ -770,8 +770,8 @@ pub unsafe fn DdqGetDiagnosticRecordLocaleTags<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticRecordPage<'a, Param0: ::windows::runtime::IntoParam<'a, super::HDIAGNOSTIC_DATA_QUERY_SESSION>>(hsession: Param0, searchcriteria: *const DIAGNOSTIC_DATA_SEARCH_CRITERIA, offset: u32, pagerecordcount: u32, baserowid: i64) -> ::windows::runtime::Result<super::HDIAGNOSTIC_RECORD> {
     #[cfg(windows)]
@@ -786,8 +786,8 @@ pub unsafe fn DdqGetDiagnosticRecordPage<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticRecordPayload<'a, Param0: ::windows::runtime::IntoParam<'a, super::HDIAGNOSTIC_DATA_QUERY_SESSION>>(hsession: Param0, rowid: i64) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -802,8 +802,8 @@ pub unsafe fn DdqGetDiagnosticRecordPayload<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticRecordProducerAtIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>>(hproducerdescription: Param0, index: u32) -> ::windows::runtime::Result<DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION> {
     #[cfg(windows)]
@@ -818,8 +818,8 @@ pub unsafe fn DdqGetDiagnosticRecordProducerAtIndex<'a, Param0: ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticRecordProducerCategories<'a, Param0: ::windows::runtime::IntoParam<'a, super::HDIAGNOSTIC_DATA_QUERY_SESSION>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hsession: Param0, producername: Param1) -> ::windows::runtime::Result<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION> {
     #[cfg(windows)]
@@ -864,8 +864,8 @@ pub unsafe fn DdqGetDiagnosticRecordProducers<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticRecordStats<'a, Param0: ::windows::runtime::IntoParam<'a, super::HDIAGNOSTIC_DATA_QUERY_SESSION>>(hsession: Param0, searchcriteria: *const DIAGNOSTIC_DATA_SEARCH_CRITERIA, recordcount: *mut u32, minrowid: *mut i64, maxrowid: *mut i64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -879,8 +879,8 @@ pub unsafe fn DdqGetDiagnosticRecordStats<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticRecordSummary<'a, Param0: ::windows::runtime::IntoParam<'a, super::HDIAGNOSTIC_DATA_QUERY_SESSION>>(hsession: Param0, producernames: *const super::super::Foundation::PWSTR, producernamecount: u32) -> ::windows::runtime::Result<DIAGNOSTIC_DATA_GENERAL_STATS> {
     #[cfg(windows)]
@@ -895,8 +895,8 @@ pub unsafe fn DdqGetDiagnosticRecordSummary<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticRecordTagDistribution<'a, Param0: ::windows::runtime::IntoParam<'a, super::HDIAGNOSTIC_DATA_QUERY_SESSION>>(hsession: Param0, producernames: *const super::super::Foundation::PWSTR, producernamecount: u32, tagstats: *mut *mut DIAGNOSTIC_DATA_EVENT_TAG_STATS, statcount: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -925,8 +925,8 @@ pub unsafe fn DdqGetDiagnosticReport<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqGetDiagnosticReportAtIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::HDIAGNOSTIC_REPORT>>(hreport: Param0, index: u32) -> ::windows::runtime::Result<DIAGNOSTIC_REPORT_DATA> {
     #[cfg(windows)]
@@ -1001,8 +1001,8 @@ pub unsafe fn DdqGetTranscriptConfiguration<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdqIsDiagnosticRecordSampledIn<'a, Param0: ::windows::runtime::IntoParam<'a, super::HDIAGNOSTIC_DATA_QUERY_SESSION>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hsession: Param0,

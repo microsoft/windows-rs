@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Management_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ApplicationDataManager(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ApplicationDataManager(pub ::windows::runtime::IInspectable);
 impl ApplicationDataManager {
     #[cfg(feature = "Storage")]
     #[doc = "*Required features: `Management_Core`, `Storage`*"]
@@ -27,11 +27,51 @@ unsafe impl ::windows::runtime::Interface for ApplicationDataManager {
 impl ::windows::runtime::RuntimeName for ApplicationDataManager {
     const NAME: &'static str = "Windows.Management.Core.ApplicationDataManager";
 }
+impl ::std::convert::From<ApplicationDataManager> for ::windows::runtime::IUnknown {
+    fn from(value: ApplicationDataManager) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ApplicationDataManager> for ::windows::runtime::IUnknown {
+    fn from(value: &ApplicationDataManager) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ApplicationDataManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ApplicationDataManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ApplicationDataManager> for ::windows::runtime::IInspectable {
+    fn from(value: ApplicationDataManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ApplicationDataManager> for ::windows::runtime::IInspectable {
+    fn from(value: &ApplicationDataManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ApplicationDataManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ApplicationDataManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ApplicationDataManager {}
 unsafe impl ::std::marker::Sync for ApplicationDataManager {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationDataManager(::windows::runtime::IInspectable);
+pub struct IApplicationDataManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationDataManager {
     type Vtable = IApplicationDataManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1959855154, 11929, 16384, [154, 58, 100, 48, 126, 133, 129, 41]);
@@ -48,7 +88,7 @@ pub struct IApplicationDataManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationDataManagerStatics(::windows::runtime::IInspectable);
+pub struct IApplicationDataManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationDataManagerStatics {
     type Vtable = IApplicationDataManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(504914659, 27022, 18849, [151, 82, 222, 233, 73, 37, 185, 179]);

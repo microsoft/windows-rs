@@ -265,6 +265,36 @@ pub const AE_ACCLIMITEXCD: u32 = 17u32;
 pub const AE_ACCRESTRICT: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_ACLMOD: u32 = 12u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_ACLMOD {
+    pub ae_am_compname: u32,
+    pub ae_am_username: u32,
+    pub ae_am_resname: u32,
+    pub ae_am_action: u32,
+    pub ae_am_datalen: u32,
+}
+impl AE_ACLMOD {}
+impl ::std::default::Default for AE_ACLMOD {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_ACLMOD {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_ACLMOD").field("ae_am_compname", &self.ae_am_compname).field("ae_am_username", &self.ae_am_username).field("ae_am_resname", &self.ae_am_resname).field("ae_am_action", &self.ae_am_action).field("ae_am_datalen", &self.ae_am_datalen).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_ACLMOD {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_am_compname == other.ae_am_compname && self.ae_am_username == other.ae_am_username && self.ae_am_resname == other.ae_am_resname && self.ae_am_action == other.ae_am_action && self.ae_am_datalen == other.ae_am_datalen
+    }
+}
+impl ::std::cmp::Eq for AE_ACLMOD {}
+unsafe impl ::windows::runtime::Abi for AE_ACLMOD {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_ACLMODFAIL: u32 = 19u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -283,12 +313,138 @@ pub const AE_AUTODIS: u32 = 2u32;
 pub const AE_BADPW: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_CLOSEFILE: u32 = 9u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_CLOSEFILE {
+    pub ae_cf_compname: u32,
+    pub ae_cf_username: u32,
+    pub ae_cf_resname: u32,
+    pub ae_cf_fileid: u32,
+    pub ae_cf_duration: u32,
+    pub ae_cf_reason: u32,
+}
+impl AE_CLOSEFILE {}
+impl ::std::default::Default for AE_CLOSEFILE {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_CLOSEFILE {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_CLOSEFILE")
+            .field("ae_cf_compname", &self.ae_cf_compname)
+            .field("ae_cf_username", &self.ae_cf_username)
+            .field("ae_cf_resname", &self.ae_cf_resname)
+            .field("ae_cf_fileid", &self.ae_cf_fileid)
+            .field("ae_cf_duration", &self.ae_cf_duration)
+            .field("ae_cf_reason", &self.ae_cf_reason)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_CLOSEFILE {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_cf_compname == other.ae_cf_compname && self.ae_cf_username == other.ae_cf_username && self.ae_cf_resname == other.ae_cf_resname && self.ae_cf_fileid == other.ae_cf_fileid && self.ae_cf_duration == other.ae_cf_duration && self.ae_cf_reason == other.ae_cf_reason
+    }
+}
+impl ::std::cmp::Eq for AE_CLOSEFILE {}
+unsafe impl ::windows::runtime::Abi for AE_CLOSEFILE {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_CONNREJ: u32 = 6u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_CONNREJ {
+    pub ae_cr_compname: u32,
+    pub ae_cr_username: u32,
+    pub ae_cr_netname: u32,
+    pub ae_cr_reason: u32,
+}
+impl AE_CONNREJ {}
+impl ::std::default::Default for AE_CONNREJ {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_CONNREJ {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_CONNREJ").field("ae_cr_compname", &self.ae_cr_compname).field("ae_cr_username", &self.ae_cr_username).field("ae_cr_netname", &self.ae_cr_netname).field("ae_cr_reason", &self.ae_cr_reason).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_CONNREJ {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_cr_compname == other.ae_cr_compname && self.ae_cr_username == other.ae_cr_username && self.ae_cr_netname == other.ae_cr_netname && self.ae_cr_reason == other.ae_cr_reason
+    }
+}
+impl ::std::cmp::Eq for AE_CONNREJ {}
+unsafe impl ::windows::runtime::Abi for AE_CONNREJ {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_CONNSTART: u32 = 4u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_CONNSTART {
+    pub ae_ct_compname: u32,
+    pub ae_ct_username: u32,
+    pub ae_ct_netname: u32,
+    pub ae_ct_connid: u32,
+}
+impl AE_CONNSTART {}
+impl ::std::default::Default for AE_CONNSTART {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_CONNSTART {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_CONNSTART").field("ae_ct_compname", &self.ae_ct_compname).field("ae_ct_username", &self.ae_ct_username).field("ae_ct_netname", &self.ae_ct_netname).field("ae_ct_connid", &self.ae_ct_connid).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_CONNSTART {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_ct_compname == other.ae_ct_compname && self.ae_ct_username == other.ae_ct_username && self.ae_ct_netname == other.ae_ct_netname && self.ae_ct_connid == other.ae_ct_connid
+    }
+}
+impl ::std::cmp::Eq for AE_CONNSTART {}
+unsafe impl ::windows::runtime::Abi for AE_CONNSTART {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_CONNSTOP: u32 = 5u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_CONNSTOP {
+    pub ae_cp_compname: u32,
+    pub ae_cp_username: u32,
+    pub ae_cp_netname: u32,
+    pub ae_cp_connid: u32,
+    pub ae_cp_reason: u32,
+}
+impl AE_CONNSTOP {}
+impl ::std::default::Default for AE_CONNSTOP {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_CONNSTOP {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_CONNSTOP").field("ae_cp_compname", &self.ae_cp_compname).field("ae_cp_username", &self.ae_cp_username).field("ae_cp_netname", &self.ae_cp_netname).field("ae_cp_connid", &self.ae_cp_connid).field("ae_cp_reason", &self.ae_cp_reason).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_CONNSTOP {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_cp_compname == other.ae_cp_compname && self.ae_cp_username == other.ae_cp_username && self.ae_cp_netname == other.ae_cp_netname && self.ae_cp_connid == other.ae_cp_connid && self.ae_cp_reason == other.ae_cp_reason
+    }
+}
+impl ::std::cmp::Eq for AE_CONNSTOP {}
+unsafe impl ::windows::runtime::Abi for AE_CONNSTOP {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_DELETE: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -374,14 +530,101 @@ pub const AE_LIM_LOGONHOURS: u32 = 1u32;
 pub const AE_LIM_UNKNOWN: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_LOCKOUT: u32 = 20u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_LOCKOUT {
+    pub ae_lk_compname: u32,
+    pub ae_lk_username: u32,
+    pub ae_lk_action: u32,
+    pub ae_lk_bad_pw_count: u32,
+}
+impl AE_LOCKOUT {}
+impl ::std::default::Default for AE_LOCKOUT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_LOCKOUT {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_LOCKOUT").field("ae_lk_compname", &self.ae_lk_compname).field("ae_lk_username", &self.ae_lk_username).field("ae_lk_action", &self.ae_lk_action).field("ae_lk_bad_pw_count", &self.ae_lk_bad_pw_count).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_LOCKOUT {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_lk_compname == other.ae_lk_compname && self.ae_lk_username == other.ae_lk_username && self.ae_lk_action == other.ae_lk_action && self.ae_lk_bad_pw_count == other.ae_lk_bad_pw_count
+    }
+}
+impl ::std::cmp::Eq for AE_LOCKOUT {}
+unsafe impl ::windows::runtime::Abi for AE_LOCKOUT {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_MOD: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_NETLOGDENIED: u32 = 16u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_NETLOGOFF: u32 = 15u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_NETLOGOFF {
+    pub ae_nf_compname: u32,
+    pub ae_nf_username: u32,
+    pub ae_nf_reserved1: u32,
+    pub ae_nf_reserved2: u32,
+}
+impl AE_NETLOGOFF {}
+impl ::std::default::Default for AE_NETLOGOFF {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_NETLOGOFF {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_NETLOGOFF").field("ae_nf_compname", &self.ae_nf_compname).field("ae_nf_username", &self.ae_nf_username).field("ae_nf_reserved1", &self.ae_nf_reserved1).field("ae_nf_reserved2", &self.ae_nf_reserved2).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_NETLOGOFF {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_nf_compname == other.ae_nf_compname && self.ae_nf_username == other.ae_nf_username && self.ae_nf_reserved1 == other.ae_nf_reserved1 && self.ae_nf_reserved2 == other.ae_nf_reserved2
+    }
+}
+impl ::std::cmp::Eq for AE_NETLOGOFF {}
+unsafe impl ::windows::runtime::Abi for AE_NETLOGOFF {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_NETLOGON: u32 = 14u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_NETLOGON {
+    pub ae_no_compname: u32,
+    pub ae_no_username: u32,
+    pub ae_no_privilege: u32,
+    pub ae_no_authflags: u32,
+}
+impl AE_NETLOGON {}
+impl ::std::default::Default for AE_NETLOGON {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_NETLOGON {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_NETLOGON").field("ae_no_compname", &self.ae_no_compname).field("ae_no_username", &self.ae_no_username).field("ae_no_privilege", &self.ae_no_privilege).field("ae_no_authflags", &self.ae_no_authflags).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_NETLOGON {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_no_compname == other.ae_no_compname && self.ae_no_username == other.ae_no_username && self.ae_no_privilege == other.ae_no_privilege && self.ae_no_authflags == other.ae_no_authflags
+    }
+}
+impl ::std::cmp::Eq for AE_NETLOGON {}
+unsafe impl ::windows::runtime::Abi for AE_NETLOGON {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_NOACCESSPERM: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -390,20 +633,212 @@ pub const AE_NORMAL: u32 = 0u32;
 pub const AE_NORMAL_CLOSE: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_RESACCESS: u32 = 7u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_RESACCESS {
+    pub ae_ra_compname: u32,
+    pub ae_ra_username: u32,
+    pub ae_ra_resname: u32,
+    pub ae_ra_operation: u32,
+    pub ae_ra_returncode: u32,
+    pub ae_ra_restype: u32,
+    pub ae_ra_fileid: u32,
+}
+impl AE_RESACCESS {}
+impl ::std::default::Default for AE_RESACCESS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_RESACCESS {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_RESACCESS")
+            .field("ae_ra_compname", &self.ae_ra_compname)
+            .field("ae_ra_username", &self.ae_ra_username)
+            .field("ae_ra_resname", &self.ae_ra_resname)
+            .field("ae_ra_operation", &self.ae_ra_operation)
+            .field("ae_ra_returncode", &self.ae_ra_returncode)
+            .field("ae_ra_restype", &self.ae_ra_restype)
+            .field("ae_ra_fileid", &self.ae_ra_fileid)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_RESACCESS {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_ra_compname == other.ae_ra_compname && self.ae_ra_username == other.ae_ra_username && self.ae_ra_resname == other.ae_ra_resname && self.ae_ra_operation == other.ae_ra_operation && self.ae_ra_returncode == other.ae_ra_returncode && self.ae_ra_restype == other.ae_ra_restype && self.ae_ra_fileid == other.ae_ra_fileid
+    }
+}
+impl ::std::cmp::Eq for AE_RESACCESS {}
+unsafe impl ::windows::runtime::Abi for AE_RESACCESS {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_RESACCESS2: u32 = 18u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_RESACCESSREJ: u32 = 8u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_RESACCESSREJ {
+    pub ae_rr_compname: u32,
+    pub ae_rr_username: u32,
+    pub ae_rr_resname: u32,
+    pub ae_rr_operation: u32,
+}
+impl AE_RESACCESSREJ {}
+impl ::std::default::Default for AE_RESACCESSREJ {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_RESACCESSREJ {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_RESACCESSREJ").field("ae_rr_compname", &self.ae_rr_compname).field("ae_rr_username", &self.ae_rr_username).field("ae_rr_resname", &self.ae_rr_resname).field("ae_rr_operation", &self.ae_rr_operation).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_RESACCESSREJ {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_rr_compname == other.ae_rr_compname && self.ae_rr_username == other.ae_rr_username && self.ae_rr_resname == other.ae_rr_resname && self.ae_rr_operation == other.ae_rr_operation
+    }
+}
+impl ::std::cmp::Eq for AE_RESACCESSREJ {}
+unsafe impl ::windows::runtime::Abi for AE_RESACCESSREJ {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SERVICESTAT: u32 = 11u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_SERVICESTAT {
+    pub ae_ss_compname: u32,
+    pub ae_ss_username: u32,
+    pub ae_ss_svcname: u32,
+    pub ae_ss_status: u32,
+    pub ae_ss_code: u32,
+    pub ae_ss_text: u32,
+    pub ae_ss_returnval: u32,
+}
+impl AE_SERVICESTAT {}
+impl ::std::default::Default for AE_SERVICESTAT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_SERVICESTAT {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_SERVICESTAT")
+            .field("ae_ss_compname", &self.ae_ss_compname)
+            .field("ae_ss_username", &self.ae_ss_username)
+            .field("ae_ss_svcname", &self.ae_ss_svcname)
+            .field("ae_ss_status", &self.ae_ss_status)
+            .field("ae_ss_code", &self.ae_ss_code)
+            .field("ae_ss_text", &self.ae_ss_text)
+            .field("ae_ss_returnval", &self.ae_ss_returnval)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_SERVICESTAT {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_ss_compname == other.ae_ss_compname && self.ae_ss_username == other.ae_ss_username && self.ae_ss_svcname == other.ae_ss_svcname && self.ae_ss_status == other.ae_ss_status && self.ae_ss_code == other.ae_ss_code && self.ae_ss_text == other.ae_ss_text && self.ae_ss_returnval == other.ae_ss_returnval
+    }
+}
+impl ::std::cmp::Eq for AE_SERVICESTAT {}
+unsafe impl ::windows::runtime::Abi for AE_SERVICESTAT {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SESSDIS: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SESSLOGOFF: u32 = 2u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_SESSLOGOFF {
+    pub ae_sf_compname: u32,
+    pub ae_sf_username: u32,
+    pub ae_sf_reason: u32,
+}
+impl AE_SESSLOGOFF {}
+impl ::std::default::Default for AE_SESSLOGOFF {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_SESSLOGOFF {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_SESSLOGOFF").field("ae_sf_compname", &self.ae_sf_compname).field("ae_sf_username", &self.ae_sf_username).field("ae_sf_reason", &self.ae_sf_reason).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_SESSLOGOFF {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_sf_compname == other.ae_sf_compname && self.ae_sf_username == other.ae_sf_username && self.ae_sf_reason == other.ae_sf_reason
+    }
+}
+impl ::std::cmp::Eq for AE_SESSLOGOFF {}
+unsafe impl ::windows::runtime::Abi for AE_SESSLOGOFF {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SESSLOGON: u32 = 1u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_SESSLOGON {
+    pub ae_so_compname: u32,
+    pub ae_so_username: u32,
+    pub ae_so_privilege: u32,
+}
+impl AE_SESSLOGON {}
+impl ::std::default::Default for AE_SESSLOGON {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_SESSLOGON {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_SESSLOGON").field("ae_so_compname", &self.ae_so_compname).field("ae_so_username", &self.ae_so_username).field("ae_so_privilege", &self.ae_so_privilege).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_SESSLOGON {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_so_compname == other.ae_so_compname && self.ae_so_username == other.ae_so_username && self.ae_so_privilege == other.ae_so_privilege
+    }
+}
+impl ::std::cmp::Eq for AE_SESSLOGON {}
+unsafe impl ::windows::runtime::Abi for AE_SESSLOGON {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SESSPWERR: u32 = 3u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_SESSPWERR {
+    pub ae_sp_compname: u32,
+    pub ae_sp_username: u32,
+}
+impl AE_SESSPWERR {}
+impl ::std::default::Default for AE_SESSPWERR {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_SESSPWERR {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_SESSPWERR").field("ae_sp_compname", &self.ae_sp_compname).field("ae_sp_username", &self.ae_sp_username).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_SESSPWERR {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_sp_compname == other.ae_sp_compname && self.ae_sp_username == other.ae_sp_username
+    }
+}
+impl ::std::cmp::Eq for AE_SESSPWERR {}
+unsafe impl ::windows::runtime::Abi for AE_SESSPWERR {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SES_CLOSE: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -414,10 +849,74 @@ pub const AE_SRVPAUSED: u32 = 1u32;
 pub const AE_SRVSTART: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SRVSTATUS: u32 = 0u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_SRVSTATUS {
+    pub ae_sv_status: u32,
+}
+impl AE_SRVSTATUS {}
+impl ::std::default::Default for AE_SRVSTATUS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_SRVSTATUS {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_SRVSTATUS").field("ae_sv_status", &self.ae_sv_status).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_SRVSTATUS {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_sv_status == other.ae_sv_status
+    }
+}
+impl ::std::cmp::Eq for AE_SRVSTATUS {}
+unsafe impl ::windows::runtime::Abi for AE_SRVSTATUS {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SRVSTOP: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_UASMOD: u32 = 13u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_UASMOD {
+    pub ae_um_compname: u32,
+    pub ae_um_username: u32,
+    pub ae_um_resname: u32,
+    pub ae_um_rectype: u32,
+    pub ae_um_action: u32,
+    pub ae_um_datalen: u32,
+}
+impl AE_UASMOD {}
+impl ::std::default::Default for AE_UASMOD {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_UASMOD {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_UASMOD")
+            .field("ae_um_compname", &self.ae_um_compname)
+            .field("ae_um_username", &self.ae_um_username)
+            .field("ae_um_resname", &self.ae_um_resname)
+            .field("ae_um_rectype", &self.ae_um_rectype)
+            .field("ae_um_action", &self.ae_um_action)
+            .field("ae_um_datalen", &self.ae_um_datalen)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_UASMOD {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_um_compname == other.ae_um_compname && self.ae_um_username == other.ae_um_username && self.ae_um_resname == other.ae_um_resname && self.ae_um_rectype == other.ae_um_rectype && self.ae_um_action == other.ae_um_action && self.ae_um_datalen == other.ae_um_datalen
+    }
+}
+impl ::std::cmp::Eq for AE_UASMOD {}
+unsafe impl ::windows::runtime::Abi for AE_UASMOD {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_UAS_GROUP: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -2386,8 +2885,8 @@ impl ::std::cmp::Eq for GROUP_USERS_INFO_1 {}
 unsafe impl ::windows::runtime::Abi for GROUP_USERS_INFO_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNetScheduleAccountInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszservername: Param0, ccaccount: u32, wszaccount: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2460,8 +2959,8 @@ unsafe impl ::windows::runtime::Abi for HLOG {
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IEnumNetCfgBindingInterface(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IEnumNetCfgBindingInterface(pub ::windows::runtime::IUnknown);
 impl IEnumNetCfgBindingInterface {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<INetCfgBindingInterface>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2485,6 +2984,26 @@ unsafe impl ::windows::runtime::Interface for IEnumNetCfgBindingInterface {
     type Vtable = IEnumNetCfgBindingInterface_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474512, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<IEnumNetCfgBindingInterface> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumNetCfgBindingInterface) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IEnumNetCfgBindingInterface> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumNetCfgBindingInterface) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumNetCfgBindingInterface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumNetCfgBindingInterface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetCfgBindingInterface_abi(
@@ -2498,8 +3017,8 @@ pub struct IEnumNetCfgBindingInterface_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IEnumNetCfgBindingPath(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IEnumNetCfgBindingPath(pub ::windows::runtime::IUnknown);
 impl IEnumNetCfgBindingPath {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<INetCfgBindingPath>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2523,6 +3042,26 @@ unsafe impl ::windows::runtime::Interface for IEnumNetCfgBindingPath {
     type Vtable = IEnumNetCfgBindingPath_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474513, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<IEnumNetCfgBindingPath> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumNetCfgBindingPath) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IEnumNetCfgBindingPath> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumNetCfgBindingPath) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumNetCfgBindingPath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumNetCfgBindingPath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetCfgBindingPath_abi(
@@ -2536,8 +3075,8 @@ pub struct IEnumNetCfgBindingPath_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IEnumNetCfgComponent(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IEnumNetCfgComponent(pub ::windows::runtime::IUnknown);
 impl IEnumNetCfgComponent {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<INetCfgComponent>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2561,6 +3100,26 @@ unsafe impl ::windows::runtime::Interface for IEnumNetCfgComponent {
     type Vtable = IEnumNetCfgComponent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474514, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<IEnumNetCfgComponent> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumNetCfgComponent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IEnumNetCfgComponent> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumNetCfgComponent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumNetCfgComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumNetCfgComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetCfgComponent_abi(
@@ -2578,8 +3137,8 @@ pub const INTERFACE_INFO_REVISION_1: u32 = 1u32;
 pub const INVALID_TRACEID: u32 = 4294967295u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfg(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfg(pub ::windows::runtime::IUnknown);
 impl INetCfg {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Initialize(&self, pvreserved: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -2617,6 +3176,26 @@ unsafe impl ::windows::runtime::Interface for INetCfg {
     type Vtable = INetCfg_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474515, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfg> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfg) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfg> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfg) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfg {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfg {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfg_abi(
@@ -2634,8 +3213,8 @@ pub struct INetCfg_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgBindingInterface(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgBindingInterface(pub ::windows::runtime::IUnknown);
 impl INetCfgBindingInterface {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2658,6 +3237,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgBindingInterface {
     type Vtable = INetCfgBindingInterface_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474516, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgBindingInterface> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgBindingInterface) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgBindingInterface> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgBindingInterface) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgBindingInterface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgBindingInterface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgBindingInterface_abi(
@@ -2671,8 +3270,8 @@ pub struct INetCfgBindingInterface_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgBindingPath(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgBindingPath(pub ::windows::runtime::IUnknown);
 impl INetCfgBindingPath {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn IsSamePathAs<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, ppath: Param0) -> ::windows::runtime::Result<()> {
@@ -2717,6 +3316,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgBindingPath {
     type Vtable = INetCfgBindingPath_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474518, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgBindingPath> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgBindingPath) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgBindingPath> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgBindingPath) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgBindingPath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgBindingPath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgBindingPath_abi(
@@ -2736,8 +3355,8 @@ pub struct INetCfgBindingPath_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgClass(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgClass(pub ::windows::runtime::IUnknown);
 impl INetCfgClass {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2755,6 +3374,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgClass {
     type Vtable = INetCfgClass_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474519, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgClass> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgClass) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgClass> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgClass) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgClass {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgClass {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgClass_abi(
@@ -2767,8 +3406,8 @@ pub struct INetCfgClass_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgClassSetup(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgClassSetup(pub ::windows::runtime::IUnknown);
 impl INetCfgClassSetup {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2792,6 +3431,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgClassSetup {
     type Vtable = INetCfgClassSetup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474525, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgClassSetup> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgClassSetup) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgClassSetup> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgClassSetup) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgClassSetup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgClassSetup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgClassSetup_abi(
@@ -2807,8 +3466,8 @@ pub struct INetCfgClassSetup_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgClassSetup2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgClassSetup2(pub ::windows::runtime::IUnknown);
 impl INetCfgClassSetup2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2836,6 +3495,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgClassSetup2 {
     type Vtable = INetCfgClassSetup2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474528, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgClassSetup2> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgClassSetup2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgClassSetup2> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgClassSetup2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgClassSetup2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgClassSetup2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<INetCfgClassSetup2> for INetCfgClassSetup {
     fn from(value: INetCfgClassSetup2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2848,12 +3527,12 @@ impl ::std::convert::From<&INetCfgClassSetup2> for INetCfgClassSetup {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INetCfgClassSetup> for INetCfgClassSetup2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INetCfgClassSetup> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INetCfgClassSetup>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INetCfgClassSetup> for &INetCfgClassSetup2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INetCfgClassSetup> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INetCfgClassSetup>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2872,8 +3551,8 @@ pub struct INetCfgClassSetup2_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponent(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponent(pub ::windows::runtime::IUnknown);
 impl INetCfgComponent {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2946,6 +3625,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponent {
     type Vtable = INetCfgComponent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474521, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgComponent> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponent> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponent_abi(
@@ -2975,8 +3674,8 @@ pub struct INetCfgComponent_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponentBindings(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponentBindings(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentBindings {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn BindTo<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::runtime::Result<()> {
@@ -3017,6 +3716,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponentBindings {
     type Vtable = INetCfgComponentBindings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474526, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgComponentBindings> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponentBindings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponentBindings> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponentBindings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentBindings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentBindings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentBindings_abi(
@@ -3035,8 +3754,8 @@ pub struct INetCfgComponentBindings_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponentControl(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponentControl(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentControl {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -3060,6 +3779,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponentControl {
     type Vtable = INetCfgComponentControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493535, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
+impl ::std::convert::From<INetCfgComponentControl> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponentControl) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponentControl> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponentControl) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentControl_abi(
@@ -3074,8 +3813,8 @@ pub struct INetCfgComponentControl_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponentNotifyBinding(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponentNotifyBinding(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentNotifyBinding {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn QueryBindingPath<'a, Param1: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::runtime::Result<()> {
@@ -3090,6 +3829,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponentNotifyBinding {
     type Vtable = INetCfgComponentNotifyBinding_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493537, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
+impl ::std::convert::From<INetCfgComponentNotifyBinding> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponentNotifyBinding) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponentNotifyBinding> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponentNotifyBinding) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentNotifyBinding {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentNotifyBinding {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentNotifyBinding_abi(
@@ -3101,8 +3860,8 @@ pub struct INetCfgComponentNotifyBinding_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponentNotifyGlobal(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponentNotifyGlobal(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentNotifyGlobal {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetSupportedNotifications(&self) -> ::windows::runtime::Result<u32> {
@@ -3126,6 +3885,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponentNotifyGlobal {
     type Vtable = INetCfgComponentNotifyGlobal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493538, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
+impl ::std::convert::From<INetCfgComponentNotifyGlobal> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponentNotifyGlobal) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponentNotifyGlobal> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponentNotifyGlobal) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentNotifyGlobal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentNotifyGlobal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentNotifyGlobal_abi(
@@ -3139,8 +3918,8 @@ pub struct INetCfgComponentNotifyGlobal_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponentPropertyUi(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponentPropertyUi(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentPropertyUi {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn QueryPropertyUi<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkreserved: Param0) -> ::windows::runtime::Result<()> {
@@ -3173,6 +3952,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponentPropertyUi {
     type Vtable = INetCfgComponentPropertyUi_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493536, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
+impl ::std::convert::From<INetCfgComponentPropertyUi> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponentPropertyUi) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponentPropertyUi> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponentPropertyUi) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentPropertyUi {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentPropertyUi {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentPropertyUi_abi(
@@ -3190,8 +3989,8 @@ pub struct INetCfgComponentPropertyUi_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponentSetup(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponentSetup(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentSetup {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Install(&self, dwsetupflags: u32) -> ::windows::runtime::Result<()> {
@@ -3215,6 +4014,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponentSetup {
     type Vtable = INetCfgComponentSetup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493539, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
+impl ::std::convert::From<INetCfgComponentSetup> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponentSetup) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponentSetup> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponentSetup) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentSetup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentSetup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentSetup_abi(
@@ -3229,8 +4048,8 @@ pub struct INetCfgComponentSetup_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponentSysPrep(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponentSysPrep(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentSysPrep {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -3247,6 +4066,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponentSysPrep {
     type Vtable = INetCfgComponentSysPrep_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474522, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgComponentSysPrep> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponentSysPrep) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponentSysPrep> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponentSysPrep) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentSysPrep {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentSysPrep {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentSysPrep_abi(
@@ -3260,8 +4099,8 @@ pub struct INetCfgComponentSysPrep_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponentUpperEdge(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponentUpperEdge(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentUpperEdge {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetInterfaceIdsForAdapter<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
@@ -3280,6 +4119,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponentUpperEdge {
     type Vtable = INetCfgComponentUpperEdge_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493540, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
+impl ::std::convert::From<INetCfgComponentUpperEdge> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponentUpperEdge) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponentUpperEdge> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponentUpperEdge) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentUpperEdge {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentUpperEdge {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentUpperEdge_abi(
@@ -3292,8 +4151,8 @@ pub struct INetCfgComponentUpperEdge_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgLock(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgLock(pub ::windows::runtime::IUnknown);
 impl INetCfgLock {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -3316,6 +4175,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgLock {
     type Vtable = INetCfgLock_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474527, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgLock> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgLock) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgLock> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgLock) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgLock {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgLock {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgLock_abi(
@@ -3330,8 +4209,8 @@ pub struct INetCfgLock_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgPnpReconfigCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgPnpReconfigCallback(pub ::windows::runtime::IUnknown);
 impl INetCfgPnpReconfigCallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -3342,6 +4221,26 @@ impl INetCfgPnpReconfigCallback {
 unsafe impl ::windows::runtime::Interface for INetCfgPnpReconfigCallback {
     type Vtable = INetCfgPnpReconfigCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2374286645, 57895, 4562, [183, 0, 0, 160, 201, 138, 106, 133]);
+}
+impl ::std::convert::From<INetCfgPnpReconfigCallback> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgPnpReconfigCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgPnpReconfigCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgPnpReconfigCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgPnpReconfigCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgPnpReconfigCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3354,8 +4253,8 @@ pub struct INetCfgPnpReconfigCallback_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgSysPrep(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgSysPrep(pub ::windows::runtime::IUnknown);
 impl INetCfgSysPrep {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -3382,6 +4281,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgSysPrep {
     type Vtable = INetCfgSysPrep_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474520, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgSysPrep> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgSysPrep) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgSysPrep> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgSysPrep) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgSysPrep {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgSysPrep {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgSysPrep_abi(
@@ -3399,8 +4318,8 @@ pub struct INetCfgSysPrep_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetLanConnectionUiInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetLanConnectionUiInfo(pub ::windows::runtime::IUnknown);
 impl INetLanConnectionUiInfo {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetDeviceGuid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -3412,6 +4331,26 @@ unsafe impl ::windows::runtime::Interface for INetLanConnectionUiInfo {
     type Vtable = INetLanConnectionUiInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226086, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetLanConnectionUiInfo> for ::windows::runtime::IUnknown {
+    fn from(value: INetLanConnectionUiInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetLanConnectionUiInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &INetLanConnectionUiInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetLanConnectionUiInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetLanConnectionUiInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetLanConnectionUiInfo_abi(
@@ -3422,8 +4361,8 @@ pub struct INetLanConnectionUiInfo_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetRasConnectionIpUiInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetRasConnectionIpUiInfo(pub ::windows::runtime::IUnknown);
 impl INetRasConnectionIpUiInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -3435,6 +4374,26 @@ impl INetRasConnectionIpUiInfo {
 unsafe impl ::windows::runtime::Interface for INetRasConnectionIpUiInfo {
     type Vtable = INetRasConnectionIpUiInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4209889112, 12798, 4561, [170, 210, 0, 128, 95, 193, 39, 14]);
+}
+impl ::std::convert::From<INetRasConnectionIpUiInfo> for ::windows::runtime::IUnknown {
+    fn from(value: INetRasConnectionIpUiInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetRasConnectionIpUiInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &INetRasConnectionIpUiInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetRasConnectionIpUiInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetRasConnectionIpUiInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3451,8 +4410,8 @@ pub const IPX_PROTOCOL_BASE: u32 = 131071u32;
 pub const IPX_PROTOCOL_RIP: u32 = 131072u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IProvisioningDomain(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IProvisioningDomain(pub ::windows::runtime::IUnknown);
 impl IProvisioningDomain {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -3470,6 +4429,26 @@ unsafe impl ::windows::runtime::Interface for IProvisioningDomain {
     type Vtable = IProvisioningDomain_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3379543376, 9437, 4568, [137, 251, 0, 144, 75, 46, 169, 198]);
 }
+impl ::std::convert::From<IProvisioningDomain> for ::windows::runtime::IUnknown {
+    fn from(value: IProvisioningDomain) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IProvisioningDomain> for ::windows::runtime::IUnknown {
+    fn from(value: &IProvisioningDomain) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProvisioningDomain {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProvisioningDomain {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvisioningDomain_abi(
@@ -3483,8 +4462,8 @@ pub struct IProvisioningDomain_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IProvisioningProfileWireless(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IProvisioningProfileWireless(pub ::windows::runtime::IUnknown);
 impl IProvisioningProfileWireless {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -3496,6 +4475,26 @@ impl IProvisioningProfileWireless {
 unsafe impl ::windows::runtime::Interface for IProvisioningProfileWireless {
     type Vtable = IProvisioningProfileWireless_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3379543377, 9437, 4568, [137, 251, 0, 144, 75, 46, 169, 198]);
+}
+impl ::std::convert::From<IProvisioningProfileWireless> for ::windows::runtime::IUnknown {
+    fn from(value: IProvisioningProfileWireless) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IProvisioningProfileWireless> for ::windows::runtime::IUnknown {
+    fn from(value: &IProvisioningProfileWireless) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProvisioningProfileWireless {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProvisioningProfileWireless {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3510,8 +4509,8 @@ pub struct IProvisioningProfileWireless_abi(
 pub const IR_PROMISCUOUS: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const IR_PROMISCUOUS_MULTICAST: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn I_NetLogonControl2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, functioncode: u32, querylevel: u32, data: *const u8, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -3858,8 +4857,8 @@ pub const LOGFLAGS_SEEK: u32 = 2u32;
 pub const LOWER_GET_HINT_MASK: u32 = 65280u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const LOWER_HINT_MASK: u32 = 255u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LogErrorA(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PSTR, dwerrorcode: u32) {
     #[cfg(windows)]
@@ -3873,8 +4872,8 @@ pub unsafe fn LogErrorA(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstri
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PWSTR, dwerrorcode: u32) {
     #[cfg(windows)]
@@ -3888,8 +4887,8 @@ pub unsafe fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstri
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PSTR) {
     #[cfg(windows)]
@@ -3903,8 +4902,8 @@ pub unsafe fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PWSTR) {
     #[cfg(windows)]
@@ -6583,8 +7582,8 @@ pub const NWSAP_EVENT_WANSEM_FAIL: i32 = -1073733298i32;
 pub const NWSAP_EVENT_WANSOCKET_FAILED: i32 = -1073733297i32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const NWSAP_EVENT_WSASTARTUP_FAILED: i32 = -1073733323i32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAccessAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6598,8 +7597,8 @@ pub unsafe fn NetAccessAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAccessDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, resource: Param1) -> u32 {
     #[cfg(windows)]
@@ -6613,8 +7612,8 @@ pub unsafe fn NetAccessDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAccessEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, basepath: Param1, recursive: u32, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6638,8 +7637,8 @@ pub unsafe fn NetAccessEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAccessGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, resource: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -6653,8 +7652,8 @@ pub unsafe fn NetAccessGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAccessGetUserPerms<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, ugname: Param1, resource: Param2, perms: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6668,8 +7667,8 @@ pub unsafe fn NetAccessGetUserPerms<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAccessSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, resource: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6683,8 +7682,8 @@ pub unsafe fn NetAccessSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAddAlternateComputerName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, alternatename: Param1, domainaccount: Param2, domainaccountpassword: Param3, reserved: u32) -> u32 {
     #[cfg(windows)]
@@ -6698,8 +7697,8 @@ pub unsafe fn NetAddAlternateComputerName<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAddServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, accountname: Param1, password: Param2, flags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6713,8 +7712,8 @@ pub unsafe fn NetAddServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAlertRaise<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(alerttype: Param0, buffer: *const ::std::ffi::c_void, buffersize: u32) -> u32 {
     #[cfg(windows)]
@@ -6728,8 +7727,8 @@ pub unsafe fn NetAlertRaise<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAlertRaiseEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(alerttype: Param0, variableinfo: *const ::std::ffi::c_void, variableinfosize: u32, servicename: Param3) -> u32 {
     #[cfg(windows)]
@@ -6799,8 +7798,8 @@ pub unsafe fn NetApiBufferSize(buffer: *const ::std::ffi::c_void, bytecount: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAuditClear<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, backupfile: Param1, service: Param2) -> u32 {
     #[cfg(windows)]
@@ -6814,8 +7813,8 @@ pub unsafe fn NetAuditClear<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAuditRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, service: Param1, auditloghandle: *mut HLOG, offset: u32, reserved1: *mut u32, reserved2: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxlen: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6841,8 +7840,8 @@ pub unsafe fn NetAuditRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAuditWrite<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(r#type: u32, buf: *mut u8, numbytes: u32, service: Param3, reserved: *mut u8) -> u32 {
     #[cfg(windows)]
@@ -6856,8 +7855,8 @@ pub unsafe fn NetAuditWrite<'a, Param3: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetConfigGet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, component: Param1, parameter: Param2, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -6871,8 +7870,8 @@ pub unsafe fn NetConfigGet<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetConfigGetAll<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, component: Param1, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -6886,8 +7885,8 @@ pub unsafe fn NetConfigGetAll<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetConfigSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, reserved1: Param1, component: Param2, level: u32, reserved2: u32, buf: *mut u8, reserved3: u32) -> u32 {
     #[cfg(windows)]
@@ -6901,8 +7900,8 @@ pub unsafe fn NetConfigSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetCreateProvisioningPackage(pprovisioningparams: *const NETSETUP_PROVISIONING_PARAMS, pppackagebindata: *mut *mut u8, pdwpackagebindatasize: *mut u32, pppackagetextdata: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -6916,8 +7915,8 @@ pub unsafe fn NetCreateProvisioningPackage(pprovisioningparams: *const NETSETUP_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetEnumerateComputerNames<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: *mut u32, computernames: *mut *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -6931,8 +7930,8 @@ pub unsafe fn NetEnumerateComputerNames<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetEnumerateServiceAccounts<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6946,8 +7945,8 @@ pub unsafe fn NetEnumerateServiceAccounts<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetErrorLogClear<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, backupfile: Param1, reserved: *const u8) -> u32 {
     #[cfg(windows)]
@@ -6961,8 +7960,8 @@ pub unsafe fn NetErrorLogClear<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetErrorLogRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, reserved1: Param1, errorloghandle: *const HLOG, offset: u32, reserved2: *const u32, reserved3: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxsize: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6988,8 +7987,8 @@ pub unsafe fn NetErrorLogRead<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetErrorLogWrite<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved1: *const u8, code: u32, component: Param2, buffer: *const u8, numbytes: u32, msgbuf: *const u8, strcount: u32, reserved2: *const u8) -> u32 {
     #[cfg(windows)]
@@ -7003,8 +8002,8 @@ pub unsafe fn NetErrorLogWrite<'a, Param2: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn NetFreeAadJoinInformation(pjoininfo: *const DSREG_JOIN_INFO) {
     #[cfg(windows)]
@@ -7018,8 +8017,8 @@ pub unsafe fn NetFreeAadJoinInformation(pjoininfo: *const DSREG_JOIN_INFO) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn NetGetAadJoinInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pcsztenantid: Param0) -> ::windows::runtime::Result<*mut DSREG_JOIN_INFO> {
     #[cfg(windows)]
@@ -7034,8 +8033,8 @@ pub unsafe fn NetGetAadJoinInformation<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGetAnyDCName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, domainname: Param1, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -7049,8 +8048,8 @@ pub unsafe fn NetGetAnyDCName<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGetDCName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, domainname: Param1, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -7064,8 +8063,8 @@ pub unsafe fn NetGetDCName<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGetDisplayInformationIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, prefix: Param2, index: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7079,8 +8078,8 @@ pub unsafe fn NetGetDisplayInformationIndex<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGetJoinInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpnamebuffer: *mut super::super::Foundation::PWSTR, buffertype: *mut NETSETUP_JOIN_STATUS) -> u32 {
     #[cfg(windows)]
@@ -7094,8 +8093,8 @@ pub unsafe fn NetGetJoinInformation<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGetJoinableOUs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpdomain: Param1, lpaccount: Param2, lppassword: Param3, oucount: *mut u32, ous: *mut *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -7109,8 +8108,8 @@ pub unsafe fn NetGetJoinableOUs<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7124,8 +8123,8 @@ pub unsafe fn NetGroupAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupAddUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, username: Param2) -> u32 {
     #[cfg(windows)]
@@ -7139,8 +8138,8 @@ pub unsafe fn NetGroupAddUser<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1) -> u32 {
     #[cfg(windows)]
@@ -7154,8 +8153,8 @@ pub unsafe fn NetGroupDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupDelUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, username: Param2) -> u32 {
     #[cfg(windows)]
@@ -7169,8 +8168,8 @@ pub unsafe fn NetGroupDelUser<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32 {
     #[cfg(windows)]
@@ -7184,8 +8183,8 @@ pub unsafe fn NetGroupEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -7199,8 +8198,8 @@ pub unsafe fn NetGroupGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupGetUsers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32 {
     #[cfg(windows)]
@@ -7214,8 +8213,8 @@ pub unsafe fn NetGroupGetUsers<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7229,8 +8228,8 @@ pub unsafe fn NetGroupSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupSetUsers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, totalentries: u32) -> u32 {
     #[cfg(windows)]
@@ -7244,8 +8243,8 @@ pub unsafe fn NetGroupSetUsers<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetIsServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, accountname: Param1, isservice: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7259,8 +8258,8 @@ pub unsafe fn NetIsServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetJoinDomain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     lpserver: Param0,
@@ -7281,8 +8280,8 @@ pub unsafe fn NetJoinDomain<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7296,8 +8295,8 @@ pub unsafe fn NetLocalGroupAdd<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupAddMember<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(servername: Param0, groupname: Param1, membersid: Param2) -> u32 {
     #[cfg(windows)]
@@ -7311,8 +8310,8 @@ pub unsafe fn NetLocalGroupAddMember<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupAddMembers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, totalentries: u32) -> u32 {
     #[cfg(windows)]
@@ -7326,8 +8325,8 @@ pub unsafe fn NetLocalGroupAddMembers<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1) -> u32 {
     #[cfg(windows)]
@@ -7341,8 +8340,8 @@ pub unsafe fn NetLocalGroupDel<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupDelMember<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(servername: Param0, groupname: Param1, membersid: Param2) -> u32 {
     #[cfg(windows)]
@@ -7356,8 +8355,8 @@ pub unsafe fn NetLocalGroupDelMember<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupDelMembers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, totalentries: u32) -> u32 {
     #[cfg(windows)]
@@ -7371,8 +8370,8 @@ pub unsafe fn NetLocalGroupDelMembers<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32 {
     #[cfg(windows)]
@@ -7386,8 +8385,8 @@ pub unsafe fn NetLocalGroupEnum<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -7401,8 +8400,8 @@ pub unsafe fn NetLocalGroupGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupGetMembers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, localgroupname: Param1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32 {
     #[cfg(windows)]
@@ -7416,8 +8415,8 @@ pub unsafe fn NetLocalGroupGetMembers<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7431,8 +8430,8 @@ pub unsafe fn NetLocalGroupSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupSetMembers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, totalentries: u32) -> u32 {
     #[cfg(windows)]
@@ -7446,8 +8445,8 @@ pub unsafe fn NetLocalGroupSetMembers<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetMessageBufferSend<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, msgname: Param1, fromname: Param2, buf: *const u8, buflen: u32) -> u32 {
     #[cfg(windows)]
@@ -7461,8 +8460,8 @@ pub unsafe fn NetMessageBufferSend<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetMessageNameAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, msgname: Param1) -> u32 {
     #[cfg(windows)]
@@ -7476,8 +8475,8 @@ pub unsafe fn NetMessageNameAdd<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetMessageNameDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, msgname: Param1) -> u32 {
     #[cfg(windows)]
@@ -7491,8 +8490,8 @@ pub unsafe fn NetMessageNameDel<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetMessageNameEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *const *const u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7506,8 +8505,8 @@ pub unsafe fn NetMessageNameEnum<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetMessageNameGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, msgname: Param1, level: u32, bufptr: *const *const u8) -> u32 {
     #[cfg(windows)]
@@ -7521,8 +8520,8 @@ pub unsafe fn NetMessageNameGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetProvisionComputerAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     lpdomain: Param0,
@@ -7555,8 +8554,8 @@ pub unsafe fn NetProvisionComputerAccount<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 pub const NetProvisioning: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(715306494, 47174, 19719, [129, 12, 178, 30, 228, 83, 32, 227]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetQueryDisplayInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: *mut u32, sortedbuffer: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -7570,8 +8569,8 @@ pub unsafe fn NetQueryDisplayInformation<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetQueryServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, accountname: Param1, infolevel: u32, buffer: *mut *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7585,8 +8584,8 @@ pub unsafe fn NetQueryServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetRemoteComputerSupports<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7600,8 +8599,8 @@ pub unsafe fn NetRemoteComputerSupports<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetRemoteTOD<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, bufferptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -7615,8 +8614,8 @@ pub unsafe fn NetRemoteTOD<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetRemoveAlternateComputerName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, alternatename: Param1, domainaccount: Param2, domainaccountpassword: Param3, reserved: u32) -> u32 {
     #[cfg(windows)]
@@ -7630,8 +8629,8 @@ pub unsafe fn NetRemoveAlternateComputerName<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetRemoveServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, accountname: Param1, flags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7645,8 +8644,8 @@ pub unsafe fn NetRemoveServiceAccount<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetRenameMachineInDomain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpnewmachinename: Param1, lpaccount: Param2, lppassword: Param3, frenameoptions: u32) -> u32 {
     #[cfg(windows)]
@@ -7660,8 +8659,8 @@ pub unsafe fn NetRenameMachineInDomain<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplExportDirAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7675,8 +8674,8 @@ pub unsafe fn NetReplExportDirAdd<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplExportDirDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1) -> u32 {
     #[cfg(windows)]
@@ -7690,8 +8689,8 @@ pub unsafe fn NetReplExportDirDel<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplExportDirEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7705,8 +8704,8 @@ pub unsafe fn NetReplExportDirEnum<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplExportDirGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -7720,8 +8719,8 @@ pub unsafe fn NetReplExportDirGetInfo<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplExportDirLock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1) -> u32 {
     #[cfg(windows)]
@@ -7735,8 +8734,8 @@ pub unsafe fn NetReplExportDirLock<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplExportDirSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7750,8 +8749,8 @@ pub unsafe fn NetReplExportDirSetInfo<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplExportDirUnlock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, unlockforce: u32) -> u32 {
     #[cfg(windows)]
@@ -7765,8 +8764,8 @@ pub unsafe fn NetReplExportDirUnlock<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -7780,8 +8779,8 @@ pub unsafe fn NetReplGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplImportDirAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7795,8 +8794,8 @@ pub unsafe fn NetReplImportDirAdd<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplImportDirDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1) -> u32 {
     #[cfg(windows)]
@@ -7810,8 +8809,8 @@ pub unsafe fn NetReplImportDirDel<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplImportDirEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7825,8 +8824,8 @@ pub unsafe fn NetReplImportDirEnum<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplImportDirGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -7840,8 +8839,8 @@ pub unsafe fn NetReplImportDirGetInfo<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplImportDirLock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1) -> u32 {
     #[cfg(windows)]
@@ -7855,8 +8854,8 @@ pub unsafe fn NetReplImportDirLock<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplImportDirUnlock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, unlockforce: u32) -> u32 {
     #[cfg(windows)]
@@ -7870,8 +8869,8 @@ pub unsafe fn NetReplImportDirUnlock<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7885,8 +8884,8 @@ pub unsafe fn NetReplSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetRequestOfflineDomainJoin<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pprovisionbindata: *const u8, cbprovisionbindatasize: u32, dwoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: Param3) -> u32 {
     #[cfg(windows)]
@@ -7900,8 +8899,8 @@ pub unsafe fn NetRequestOfflineDomainJoin<'a, Param3: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetRequestProvisioningPackageInstall<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: Param3, pvreserved: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -7915,8 +8914,8 @@ pub unsafe fn NetRequestProvisioningPackageInstall<'a, Param3: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetScheduleJobAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, buffer: *mut u8, jobid: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7930,8 +8929,8 @@ pub unsafe fn NetScheduleJobAdd<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetScheduleJobDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, minjobid: u32, maxjobid: u32) -> u32 {
     #[cfg(windows)]
@@ -7945,8 +8944,8 @@ pub unsafe fn NetScheduleJobDel<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetScheduleJobEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, pointertobuffer: *mut *mut u8, prefferedmaximumlength: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7960,8 +8959,8 @@ pub unsafe fn NetScheduleJobEnum<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetScheduleJobGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, jobid: u32, pointertobuffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -7975,8 +8974,8 @@ pub unsafe fn NetScheduleJobGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerComputerNameAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, emulateddomainname: Param1, emulatedservername: Param2) -> u32 {
     #[cfg(windows)]
@@ -7990,8 +8989,8 @@ pub unsafe fn NetServerComputerNameAdd<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerComputerNameDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, emulatedservername: Param1) -> u32 {
     #[cfg(windows)]
@@ -8005,8 +9004,8 @@ pub unsafe fn NetServerComputerNameDel<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerDiskEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8020,8 +9019,8 @@ pub unsafe fn NetServerDiskEnum<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: NET_SERVER_TYPE, domain: Param7, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8045,8 +9044,8 @@ pub unsafe fn NetServerEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8060,8 +9059,8 @@ pub unsafe fn NetServerGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parmerror: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8075,8 +9074,8 @@ pub unsafe fn NetServerSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerTransportAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *const u8) -> u32 {
     #[cfg(windows)]
@@ -8090,8 +9089,8 @@ pub unsafe fn NetServerTransportAdd<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerTransportAddEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *const u8) -> u32 {
     #[cfg(windows)]
@@ -8105,8 +9104,8 @@ pub unsafe fn NetServerTransportAddEx<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerTransportDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *const u8) -> u32 {
     #[cfg(windows)]
@@ -8120,8 +9119,8 @@ pub unsafe fn NetServerTransportDel<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerTransportEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8135,8 +9134,8 @@ pub unsafe fn NetServerTransportEnum<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServiceControl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, service: Param1, opcode: u32, arg: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8150,8 +9149,8 @@ pub unsafe fn NetServiceControl<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServiceEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8165,8 +9164,8 @@ pub unsafe fn NetServiceEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServiceGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, service: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8180,8 +9179,8 @@ pub unsafe fn NetServiceGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServiceInstall<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, service: Param1, argc: u32, argv: *const super::super::Foundation::PWSTR, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8195,8 +9194,8 @@ pub unsafe fn NetServiceInstall<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetSetPrimaryComputerName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, primaryname: Param1, domainaccount: Param2, domainaccountpassword: Param3, reserved: u32) -> u32 {
     #[cfg(windows)]
@@ -8210,8 +9209,8 @@ pub unsafe fn NetSetPrimaryComputerName<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUnjoinDomain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpaccount: Param1, lppassword: Param2, funjoinoptions: u32) -> u32 {
     #[cfg(windows)]
@@ -8239,8 +9238,8 @@ pub unsafe fn NetUseAdd(servername: *const i8, levelflags: u32, buf: *const u8, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUseDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, usename: Param1, forcelevelflags: FORCE_LEVEL_FLAGS) -> u32 {
     #[cfg(windows)]
@@ -8254,8 +9253,8 @@ pub unsafe fn NetUseDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUseEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, levelflags: u32, bufptr: *mut *mut u8, preferedmaximumsize: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8269,8 +9268,8 @@ pub unsafe fn NetUseEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUseGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, usename: Param1, levelflags: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8284,8 +9283,8 @@ pub unsafe fn NetUseGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8299,8 +9298,8 @@ pub unsafe fn NetUserAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserChangePassword<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, username: Param1, oldpassword: Param2, newpassword: Param3) -> u32 {
     #[cfg(windows)]
@@ -8314,8 +9313,8 @@ pub unsafe fn NetUserChangePassword<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1) -> u32 {
     #[cfg(windows)]
@@ -8329,8 +9328,8 @@ pub unsafe fn NetUserDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, filter: NET_USER_ENUM_FILTER_FLAGS, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8344,8 +9343,8 @@ pub unsafe fn NetUserEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserGetGroups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8359,8 +9358,8 @@ pub unsafe fn NetUserGetGroups<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8374,8 +9373,8 @@ pub unsafe fn NetUserGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserGetLocalGroups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, flags: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8389,8 +9388,8 @@ pub unsafe fn NetUserGetLocalGroups<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserModalsGet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8404,8 +9403,8 @@ pub unsafe fn NetUserModalsGet<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserModalsSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8419,8 +9418,8 @@ pub unsafe fn NetUserModalsSet<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserSetGroups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, buf: *const u8, num_entries: u32) -> u32 {
     #[cfg(windows)]
@@ -8434,8 +9433,8 @@ pub unsafe fn NetUserSetGroups<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8449,8 +9448,8 @@ pub unsafe fn NetUserSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetValidateName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpname: Param1, lpaccount: Param2, lppassword: Param3, nametype: NETSETUP_NAME_TYPE) -> u32 {
     #[cfg(windows)]
@@ -8464,8 +9463,8 @@ pub unsafe fn NetValidateName<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetValidatePasswordPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, qualifier: *mut ::std::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::std::ffi::c_void, outputarg: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -8493,8 +9492,8 @@ pub unsafe fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::std::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetWkstaGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8508,8 +9507,8 @@ pub unsafe fn NetWkstaGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetWkstaSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buffer: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8537,8 +9536,8 @@ pub unsafe fn NetWkstaTransportAdd(servername: *const i8, level: u32, buf: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetWkstaTransportDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, transportname: Param1, ucond: FORCE_LEVEL_FLAGS) -> u32 {
     #[cfg(windows)]
@@ -8566,8 +9565,8 @@ pub unsafe fn NetWkstaTransportEnum(servername: *const i8, level: u32, bufptr: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetWkstaUserEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8581,8 +9580,8 @@ pub unsafe fn NetWkstaUserEnum<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetWkstaUserGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8596,8 +9595,8 @@ pub unsafe fn NetWkstaUserGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetWkstaUserSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9392,8 +10391,8 @@ unsafe impl ::windows::runtime::Abi for RTR_TOC_ENTRY {
 pub const RTUTILS_MAX_PROTOCOL_DLL_LEN: u32 = 48u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const RTUTILS_MAX_PROTOCOL_NAME_LEN: u32 = 40u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterAssert<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfailedassertion: Param0, pszfilename: Param1, dwlinenumber: u32, pszmessage: Param3) {
     #[cfg(windows)]
@@ -9407,8 +10406,8 @@ pub unsafe fn RouterAssert<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
@@ -9422,8 +10421,8 @@ pub unsafe fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -9437,8 +10436,8 @@ pub unsafe fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogDeregisterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0) {
     #[cfg(windows)]
@@ -9452,8 +10451,8 @@ pub unsafe fn RouterLogDeregisterA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogDeregisterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0) {
     #[cfg(windows)]
@@ -9467,8 +10466,8 @@ pub unsafe fn RouterLogDeregisterW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwerrorcode: u32) {
     #[cfg(windows)]
@@ -9482,8 +10481,8 @@ pub unsafe fn RouterLogEventA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventDataA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwdatabytes: u32, lpdatabytes: *mut u8) {
     #[cfg(windows)]
@@ -9497,8 +10496,8 @@ pub unsafe fn RouterLogEventDataA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventDataW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwdatabytes: u32, lpdatabytes: *mut u8) {
     #[cfg(windows)]
@@ -9512,8 +10511,8 @@ pub unsafe fn RouterLogEventDataW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hloghandle: Param0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: Param4) {
     #[cfg(windows)]
@@ -9527,8 +10526,8 @@ pub unsafe fn RouterLogEventExA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hloghandle: Param0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: Param4) {
     #[cfg(windows)]
@@ -9542,8 +10541,8 @@ pub unsafe fn RouterLogEventExW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventStringA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwerrorcode: u32, dwerrorindex: u32) {
     #[cfg(windows)]
@@ -9557,8 +10556,8 @@ pub unsafe fn RouterLogEventStringA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventStringW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwerrorcode: u32, dwerrorindex: u32) {
     #[cfg(windows)]
@@ -9572,8 +10571,8 @@ pub unsafe fn RouterLogEventStringW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventValistExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hloghandle: Param0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: Param4, arglist: *mut i8) {
     #[cfg(windows)]
@@ -9587,8 +10586,8 @@ pub unsafe fn RouterLogEventValistExA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventValistExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hloghandle: Param0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: Param4, arglist: *mut i8) {
     #[cfg(windows)]
@@ -9602,8 +10601,8 @@ pub unsafe fn RouterLogEventValistExW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwerrorcode: u32) {
     #[cfg(windows)]
@@ -9617,8 +10616,8 @@ pub unsafe fn RouterLogEventW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogRegisterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszsource: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -9632,8 +10631,8 @@ pub unsafe fn RouterLogRegisterA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogRegisterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszsource: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -14354,8 +15353,8 @@ pub const SW_AUTOPROF_LOAD_MASK: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const SW_AUTOPROF_SAVE_MASK: u32 = 2u32;
 pub const ServiceAccountPasswordGUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(640588233, 24928, 18545, [172, 236, 78, 97, 115, 107, 111, 33]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetNetScheduleAccountInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszservername: Param0, pwszaccount: Param1, pwszpassword: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14544,8 +15543,8 @@ pub unsafe fn TraceDeregisterW(dwtraceid: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceDumpExA<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: Param5, lpszprefix: Param6) -> u32 {
     #[cfg(windows)]
@@ -14559,8 +15558,8 @@ pub unsafe fn TraceDumpExA<'a, Param5: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceDumpExW<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: Param5, lpszprefix: Param6) -> u32 {
     #[cfg(windows)]
@@ -14574,8 +15573,8 @@ pub unsafe fn TraceDumpExW<'a, Param5: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceGetConsoleA(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -14589,8 +15588,8 @@ pub unsafe fn TraceGetConsoleA(dwtraceid: u32, lphconsole: *mut super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceGetConsoleW(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -14604,8 +15603,8 @@ pub unsafe fn TraceGetConsoleW(dwtraceid: u32, lphconsole: *mut super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TracePrintfA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, lpszformat: Param1) -> u32 {
     #[cfg(windows)]
@@ -14619,8 +15618,8 @@ pub unsafe fn TracePrintfA<'a, Param1: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TracePrintfExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, dwflags: u32, lpszformat: Param2) -> u32 {
     #[cfg(windows)]
@@ -14634,8 +15633,8 @@ pub unsafe fn TracePrintfExA<'a, Param2: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TracePrintfExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, dwflags: u32, lpszformat: Param2) -> u32 {
     #[cfg(windows)]
@@ -14649,8 +15648,8 @@ pub unsafe fn TracePrintfExW<'a, Param2: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TracePrintfW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, lpszformat: Param1) -> u32 {
     #[cfg(windows)]
@@ -14664,8 +15663,8 @@ pub unsafe fn TracePrintfW<'a, Param1: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TracePutsExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, dwflags: u32, lpszstring: Param2) -> u32 {
     #[cfg(windows)]
@@ -14679,8 +15678,8 @@ pub unsafe fn TracePutsExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TracePutsExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, dwflags: u32, lpszstring: Param2) -> u32 {
     #[cfg(windows)]
@@ -14694,8 +15693,8 @@ pub unsafe fn TracePutsExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceRegisterExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszcallername: Param0, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -14709,8 +15708,8 @@ pub unsafe fn TraceRegisterExA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceRegisterExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszcallername: Param0, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -14724,8 +15723,8 @@ pub unsafe fn TraceRegisterExW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceVprintfExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, dwflags: u32, lpszformat: Param2, arglist: *mut i8) -> u32 {
     #[cfg(windows)]
@@ -14739,8 +15738,8 @@ pub unsafe fn TraceVprintfExA<'a, Param2: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceVprintfExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, dwflags: u32, lpszformat: Param2, arglist: *mut i8) -> u32 {
     #[cfg(windows)]
@@ -18817,6 +19816,7 @@ pub const WKSTA_VER_MAJOR_PARMNUM: u32 = 4u32;
 pub const WKSTA_VER_MINOR_PARMNUM: u32 = 5u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const WKSTA_WRKHEURISTICS_PARMNUM: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub type WORKERFUNCTION = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const WZC_PROFILE_API_ERROR_FAILED_TO_LOAD_SCHEMA: u32 = 34u32;

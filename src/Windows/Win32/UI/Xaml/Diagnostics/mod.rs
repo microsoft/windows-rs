@@ -137,8 +137,8 @@ unsafe impl ::windows::runtime::Abi for EnumType {
 }
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IBitmapData(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IBitmapData(pub ::windows::runtime::IUnknown);
 impl IBitmapData {
     #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn CopyBytesTo(&self, sourceoffsetinbytes: u32, maxbytestocopy: u32, pvbytes: *mut u8, numberofbytescopied: *mut u32) -> ::windows::runtime::Result<()> {
@@ -166,6 +166,26 @@ unsafe impl ::windows::runtime::Interface for IBitmapData {
     type Vtable = IBitmapData_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3517140722, 51928, 17973, [163, 210, 252, 218, 141, 63, 60, 175]);
 }
+impl ::std::convert::From<IBitmapData> for ::windows::runtime::IUnknown {
+    fn from(value: IBitmapData) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IBitmapData> for ::windows::runtime::IUnknown {
+    fn from(value: &IBitmapData) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBitmapData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBitmapData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapData_abi(
@@ -181,8 +201,8 @@ pub struct IBitmapData_abi(
 );
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVisualTreeService(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVisualTreeService(pub ::windows::runtime::IUnknown);
 impl IVisualTreeService {
     #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn AdviseVisualTreeChange<'a, Param0: ::windows::runtime::IntoParam<'a, IVisualTreeServiceCallback>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
@@ -243,6 +263,26 @@ unsafe impl ::windows::runtime::Interface for IVisualTreeService {
     type Vtable = IVisualTreeService_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2777919770, 53631, 18619, [143, 102, 131, 145, 7, 49, 200, 165]);
 }
+impl ::std::convert::From<IVisualTreeService> for ::windows::runtime::IUnknown {
+    fn from(value: IVisualTreeService) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVisualTreeService> for ::windows::runtime::IUnknown {
+    fn from(value: &IVisualTreeService) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVisualTreeService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVisualTreeService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualTreeService_abi(
@@ -268,8 +308,8 @@ pub struct IVisualTreeService_abi(
 );
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVisualTreeService2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVisualTreeService2(pub ::windows::runtime::IUnknown);
 impl IVisualTreeService2 {
     #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn AdviseVisualTreeChange<'a, Param0: ::windows::runtime::IntoParam<'a, IVisualTreeServiceCallback>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
@@ -350,6 +390,26 @@ unsafe impl ::windows::runtime::Interface for IVisualTreeService2 {
     type Vtable = IVisualTreeService2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(319770934, 60483, 20321, [137, 199, 152, 1, 163, 109, 46, 149]);
 }
+impl ::std::convert::From<IVisualTreeService2> for ::windows::runtime::IUnknown {
+    fn from(value: IVisualTreeService2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVisualTreeService2> for ::windows::runtime::IUnknown {
+    fn from(value: &IVisualTreeService2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVisualTreeService2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVisualTreeService2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IVisualTreeService2> for IVisualTreeService {
     fn from(value: IVisualTreeService2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -362,12 +422,12 @@ impl ::std::convert::From<&IVisualTreeService2> for IVisualTreeService {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVisualTreeService> for IVisualTreeService2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVisualTreeService> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVisualTreeService>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVisualTreeService> for &IVisualTreeService2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVisualTreeService> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVisualTreeService>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -400,8 +460,8 @@ pub struct IVisualTreeService2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVisualTreeService3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVisualTreeService3(pub ::windows::runtime::IUnknown);
 impl IVisualTreeService3 {
     #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn AdviseVisualTreeChange<'a, Param0: ::windows::runtime::IntoParam<'a, IVisualTreeServiceCallback>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
@@ -501,6 +561,26 @@ unsafe impl ::windows::runtime::Interface for IVisualTreeService3 {
     type Vtable = IVisualTreeService3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(242861792, 34208, 19432, [180, 26, 101, 92, 241, 253, 25, 189]);
 }
+impl ::std::convert::From<IVisualTreeService3> for ::windows::runtime::IUnknown {
+    fn from(value: IVisualTreeService3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVisualTreeService3> for ::windows::runtime::IUnknown {
+    fn from(value: &IVisualTreeService3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVisualTreeService3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVisualTreeService3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IVisualTreeService3> for IVisualTreeService2 {
     fn from(value: IVisualTreeService3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -513,12 +593,12 @@ impl ::std::convert::From<&IVisualTreeService3> for IVisualTreeService2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVisualTreeService2> for IVisualTreeService3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVisualTreeService2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVisualTreeService2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVisualTreeService2> for &IVisualTreeService3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVisualTreeService2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVisualTreeService2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IVisualTreeService3> for IVisualTreeService {
@@ -533,12 +613,12 @@ impl ::std::convert::From<&IVisualTreeService3> for IVisualTreeService {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVisualTreeService> for IVisualTreeService3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVisualTreeService> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVisualTreeService>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVisualTreeService> for &IVisualTreeService3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVisualTreeService> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVisualTreeService>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -577,8 +657,8 @@ pub struct IVisualTreeService3_abi(
 );
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVisualTreeServiceCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVisualTreeServiceCallback(pub ::windows::runtime::IUnknown);
 impl IVisualTreeServiceCallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
@@ -589,6 +669,26 @@ impl IVisualTreeServiceCallback {
 unsafe impl ::windows::runtime::Interface for IVisualTreeServiceCallback {
     type Vtable = IVisualTreeServiceCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860157233, 32996, 20460, [143, 59, 85, 63, 135, 180, 150, 110]);
+}
+impl ::std::convert::From<IVisualTreeServiceCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IVisualTreeServiceCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVisualTreeServiceCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IVisualTreeServiceCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVisualTreeServiceCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVisualTreeServiceCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -601,8 +701,8 @@ pub struct IVisualTreeServiceCallback_abi(
 );
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVisualTreeServiceCallback2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVisualTreeServiceCallback2(pub ::windows::runtime::IUnknown);
 impl IVisualTreeServiceCallback2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
@@ -619,6 +719,26 @@ unsafe impl ::windows::runtime::Interface for IVisualTreeServiceCallback2 {
     type Vtable = IVisualTreeServiceCallback2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3134843784, 44663, 17303, [185, 72, 95, 162, 219, 10, 25, 234]);
 }
+impl ::std::convert::From<IVisualTreeServiceCallback2> for ::windows::runtime::IUnknown {
+    fn from(value: IVisualTreeServiceCallback2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVisualTreeServiceCallback2> for ::windows::runtime::IUnknown {
+    fn from(value: &IVisualTreeServiceCallback2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVisualTreeServiceCallback2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVisualTreeServiceCallback2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IVisualTreeServiceCallback2> for IVisualTreeServiceCallback {
     fn from(value: IVisualTreeServiceCallback2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -631,12 +751,12 @@ impl ::std::convert::From<&IVisualTreeServiceCallback2> for IVisualTreeServiceCa
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVisualTreeServiceCallback> for IVisualTreeServiceCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVisualTreeServiceCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVisualTreeServiceCallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVisualTreeServiceCallback> for &IVisualTreeServiceCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVisualTreeServiceCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVisualTreeServiceCallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -652,8 +772,8 @@ pub struct IVisualTreeServiceCallback2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IXamlDiagnostics(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IXamlDiagnostics(pub ::windows::runtime::IUnknown);
 impl IXamlDiagnostics {
     #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn GetDispatcher(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
@@ -701,6 +821,26 @@ unsafe impl ::windows::runtime::Interface for IXamlDiagnostics {
     type Vtable = IXamlDiagnostics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(415883958, 16195, 16662, [159, 43, 255, 147, 93, 119, 112, 210]);
 }
+impl ::std::convert::From<IXamlDiagnostics> for ::windows::runtime::IUnknown {
+    fn from(value: IXamlDiagnostics) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IXamlDiagnostics> for ::windows::runtime::IUnknown {
+    fn from(value: &IXamlDiagnostics) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXamlDiagnostics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXamlDiagnostics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlDiagnostics_abi(
@@ -718,8 +858,8 @@ pub struct IXamlDiagnostics_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pinitializationdata: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitializeXamlDiagnostic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(endpointname: Param0, pid: u32, wszdllxamldiagnostics: Param2, wsztapdllname: Param3, tapclsid: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -733,8 +873,8 @@ pub unsafe fn InitializeXamlDiagnostic<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitializeXamlDiagnosticsEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
     endpointname: Param0,

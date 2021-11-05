@@ -28,7 +28,7 @@ impl ::windows::runtime::RuntimeName for GameControllerProviderInfo {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameControllerProviderInfoStatics(::windows::runtime::IInspectable);
+pub struct IGameControllerProviderInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerProviderInfoStatics {
     type Vtable = IGameControllerProviderInfoStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(199354053, 55741, 17646, [131, 98, 72, 139, 46, 70, 75, 251]);

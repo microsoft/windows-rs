@@ -34,8 +34,8 @@ impl TypeTree {
         Self { namespace, types: BTreeMap::new(), namespaces: BTreeMap::new(), include: false }
     }
 
-    pub fn struct_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
-        self.types.values().map(|entry| entry.def.iter()).flatten().for_each(|def| def.struct_features(features, keys));
+    pub fn features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
+        self.types.values().map(|entry| entry.def.iter()).flatten().for_each(|def| def.features(features, keys));
     }
 
     pub fn insert_namespace(&mut self, namespace: &'static str, pos: usize) -> &mut Self {

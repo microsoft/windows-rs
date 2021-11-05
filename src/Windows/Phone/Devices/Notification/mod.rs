@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVibrationDevice(::windows::runtime::IInspectable);
+pub struct IVibrationDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVibrationDevice {
     type Vtable = IVibrationDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(457860501, 53197, 19976, [146, 251, 193, 144, 109, 4, 73, 140]);
@@ -21,7 +21,7 @@ pub struct IVibrationDevice_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVibrationDeviceStatics(::windows::runtime::IInspectable);
+pub struct IVibrationDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVibrationDeviceStatics {
     type Vtable = IVibrationDeviceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(858772209, 7273, 19601, [148, 158, 75, 182, 122, 133, 189, 199]);
@@ -39,8 +39,8 @@ pub struct IVibrationDeviceStatics_abi(
 );
 #[doc = "*Required features: `Phone_Devices_Notification`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct VibrationDevice(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct VibrationDevice(pub ::windows::runtime::IInspectable);
 impl VibrationDevice {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Phone_Devices_Notification`, `Foundation`*"]
@@ -74,6 +74,46 @@ unsafe impl ::windows::runtime::Interface for VibrationDevice {
 }
 impl ::windows::runtime::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Phone.Devices.Notification.VibrationDevice";
+}
+impl ::std::convert::From<VibrationDevice> for ::windows::runtime::IUnknown {
+    fn from(value: VibrationDevice) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&VibrationDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &VibrationDevice) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VibrationDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VibrationDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<VibrationDevice> for ::windows::runtime::IInspectable {
+    fn from(value: VibrationDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&VibrationDevice> for ::windows::runtime::IInspectable {
+    fn from(value: &VibrationDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VibrationDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VibrationDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for VibrationDevice {}
 unsafe impl ::std::marker::Sync for VibrationDevice {}

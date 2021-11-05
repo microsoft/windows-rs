@@ -3,7 +3,7 @@
 pub mod Core;
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILocalContentSuggestionSettings(::windows::runtime::IInspectable);
+pub struct ILocalContentSuggestionSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalContentSuggestionSettings {
     type Vtable = ILocalContentSuggestionSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4004425826, 29757, 17774, [132, 163, 35, 240, 111, 45, 21, 215]);
@@ -28,7 +28,7 @@ pub struct ILocalContentSuggestionSettings_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchPane(::windows::runtime::IInspectable);
+pub struct ISearchPane(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPane {
     type Vtable = ISearchPane_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4255968312, 14080, 19827, [145, 161, 47, 153, 134, 116, 35, 138]);
@@ -79,9 +79,9 @@ pub struct ISearchPane_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, query: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel_Search`*"]
-pub struct ISearchPaneQueryChangedEventArgs(::windows::runtime::IInspectable);
+pub struct ISearchPaneQueryChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneQueryChangedEventArgs {
     type Vtable = ISearchPaneQueryChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1007046633, 9041, 16968, [165, 41, 113, 16, 244, 100, 167, 133]);
@@ -118,6 +118,46 @@ impl ISearchPaneQueryChangedEventArgs {
 unsafe impl ::windows::runtime::RuntimeType for ISearchPaneQueryChangedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{3c064fe9-2351-4248-a529-7110f464a785}");
 }
+impl ::std::convert::From<ISearchPaneQueryChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: ISearchPaneQueryChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ISearchPaneQueryChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &ISearchPaneQueryChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchPaneQueryChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchPaneQueryChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ISearchPaneQueryChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: ISearchPaneQueryChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISearchPaneQueryChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &ISearchPaneQueryChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISearchPaneQueryChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISearchPaneQueryChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchPaneQueryChangedEventArgs_abi(
@@ -133,7 +173,7 @@ pub struct ISearchPaneQueryChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchPaneQueryLinguisticDetails(::windows::runtime::IInspectable);
+pub struct ISearchPaneQueryLinguisticDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneQueryLinguisticDetails {
     type Vtable = ISearchPaneQueryLinguisticDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2197505550, 2368, 19309, [184, 208, 100, 43, 48, 152, 158, 21]);
@@ -154,7 +194,7 @@ pub struct ISearchPaneQueryLinguisticDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchPaneQuerySubmittedEventArgs(::windows::runtime::IInspectable);
+pub struct ISearchPaneQuerySubmittedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneQuerySubmittedEventArgs {
     type Vtable = ISearchPaneQuerySubmittedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(339453180, 59845, 18230, [145, 178, 232, 235, 156, 184, 131, 86]);
@@ -173,7 +213,7 @@ pub struct ISearchPaneQuerySubmittedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails(::windows::runtime::IInspectable);
+pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails {
     type Vtable = ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1175229157, 19506, 17720, [164, 212, 182, 180, 64, 13, 20, 15]);
@@ -191,7 +231,7 @@ pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchPaneResultSuggestionChosenEventArgs(::windows::runtime::IInspectable);
+pub struct ISearchPaneResultSuggestionChosenEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneResultSuggestionChosenEventArgs {
     type Vtable = ISearchPaneResultSuggestionChosenEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3358682304, 44754, 16864, [188, 224, 194, 108, 167, 79, 133, 236]);
@@ -209,7 +249,7 @@ pub struct ISearchPaneResultSuggestionChosenEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchPaneStatics(::windows::runtime::IInspectable);
+pub struct ISearchPaneStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneStatics {
     type Vtable = ISearchPaneStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2507320817, 36637, 18463, [161, 91, 198, 22, 85, 241, 106, 14]);
@@ -227,7 +267,7 @@ pub struct ISearchPaneStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchPaneStaticsWithHideThisApplication(::windows::runtime::IInspectable);
+pub struct ISearchPaneStaticsWithHideThisApplication(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneStaticsWithHideThisApplication {
     type Vtable = ISearchPaneStaticsWithHideThisApplication_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(7546928, 20721, 19715, [153, 172, 198, 100, 76, 142, 216, 181]);
@@ -245,7 +285,7 @@ pub struct ISearchPaneStaticsWithHideThisApplication_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchPaneSuggestionsRequest(::windows::runtime::IInspectable);
+pub struct ISearchPaneSuggestionsRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneSuggestionsRequest {
     type Vtable = ISearchPaneSuggestionsRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2175863580, 58721, 16531, [155, 77, 42, 212, 130, 121, 74, 83]);
@@ -265,7 +305,7 @@ pub struct ISearchPaneSuggestionsRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchPaneSuggestionsRequestDeferral(::windows::runtime::IInspectable);
+pub struct ISearchPaneSuggestionsRequestDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneSuggestionsRequestDeferral {
     type Vtable = ISearchPaneSuggestionsRequestDeferral_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2697988599, 34632, 20194, [173, 68, 175, 166, 190, 153, 124, 81]);
@@ -283,7 +323,7 @@ pub struct ISearchPaneSuggestionsRequestDeferral_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchPaneSuggestionsRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct ISearchPaneSuggestionsRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneSuggestionsRequestedEventArgs {
     type Vtable = ISearchPaneSuggestionsRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3365636655, 44118, 17504, [141, 47, 128, 2, 59, 236, 79, 197]);
@@ -301,7 +341,7 @@ pub struct ISearchPaneSuggestionsRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchPaneVisibilityChangedEventArgs(::windows::runtime::IInspectable);
+pub struct ISearchPaneVisibilityChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchPaneVisibilityChangedEventArgs {
     type Vtable = ISearchPaneVisibilityChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1011691590, 44107, 18930, [151, 214, 2, 14, 97, 130, 203, 156]);
@@ -319,7 +359,7 @@ pub struct ISearchPaneVisibilityChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchQueryLinguisticDetails(::windows::runtime::IInspectable);
+pub struct ISearchQueryLinguisticDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchQueryLinguisticDetails {
     type Vtable = ISearchQueryLinguisticDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1184964699, 27081, 18245, [183, 47, 168, 164, 252, 143, 36, 174]);
@@ -340,7 +380,7 @@ pub struct ISearchQueryLinguisticDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchQueryLinguisticDetailsFactory(::windows::runtime::IInspectable);
+pub struct ISearchQueryLinguisticDetailsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchQueryLinguisticDetailsFactory {
     type Vtable = ISearchQueryLinguisticDetailsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3402023864, 15460, 19965, [173, 159, 71, 158, 77, 64, 101, 164]);
@@ -359,7 +399,7 @@ pub struct ISearchQueryLinguisticDetailsFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchSuggestionCollection(::windows::runtime::IInspectable);
+pub struct ISearchSuggestionCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchSuggestionCollection {
     type Vtable = ISearchSuggestionCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(842697291, 64490, 17478, [171, 188, 61, 167, 145, 95, 221, 58]);
@@ -383,7 +423,7 @@ pub struct ISearchSuggestionCollection_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchSuggestionsRequest(::windows::runtime::IInspectable);
+pub struct ISearchSuggestionsRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchSuggestionsRequest {
     type Vtable = ISearchSuggestionsRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1313744551, 17637, 16441, [144, 153, 96, 0, 234, 209, 240, 198]);
@@ -403,7 +443,7 @@ pub struct ISearchSuggestionsRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchSuggestionsRequestDeferral(::windows::runtime::IInspectable);
+pub struct ISearchSuggestionsRequestDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchSuggestionsRequestDeferral {
     type Vtable = ISearchSuggestionsRequestDeferral_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3071645865, 49253, 17773, [168, 69, 30, 204, 236, 93, 194, 139]);
@@ -421,8 +461,8 @@ pub struct ISearchSuggestionsRequestDeferral_abi(
 );
 #[doc = "*Required features: `ApplicationModel_Search`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LocalContentSuggestionSettings(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LocalContentSuggestionSettings(pub ::windows::runtime::IInspectable);
 impl LocalContentSuggestionSettings {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -486,13 +526,53 @@ unsafe impl ::windows::runtime::Interface for LocalContentSuggestionSettings {
 impl ::windows::runtime::RuntimeName for LocalContentSuggestionSettings {
     const NAME: &'static str = "Windows.ApplicationModel.Search.LocalContentSuggestionSettings";
 }
+impl ::std::convert::From<LocalContentSuggestionSettings> for ::windows::runtime::IUnknown {
+    fn from(value: LocalContentSuggestionSettings) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LocalContentSuggestionSettings> for ::windows::runtime::IUnknown {
+    fn from(value: &LocalContentSuggestionSettings) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LocalContentSuggestionSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LocalContentSuggestionSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LocalContentSuggestionSettings> for ::windows::runtime::IInspectable {
+    fn from(value: LocalContentSuggestionSettings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LocalContentSuggestionSettings> for ::windows::runtime::IInspectable {
+    fn from(value: &LocalContentSuggestionSettings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LocalContentSuggestionSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LocalContentSuggestionSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct SearchContract(pub u8);
 #[doc = "*Required features: `ApplicationModel_Search`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SearchPane(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SearchPane(pub ::windows::runtime::IInspectable);
 impl SearchPane {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_Search`*"]
@@ -725,10 +805,50 @@ unsafe impl ::windows::runtime::Interface for SearchPane {
 impl ::windows::runtime::RuntimeName for SearchPane {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPane";
 }
+impl ::std::convert::From<SearchPane> for ::windows::runtime::IUnknown {
+    fn from(value: SearchPane) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SearchPane> for ::windows::runtime::IUnknown {
+    fn from(value: &SearchPane) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchPane {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SearchPane {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SearchPane> for ::windows::runtime::IInspectable {
+    fn from(value: SearchPane) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SearchPane> for ::windows::runtime::IInspectable {
+    fn from(value: &SearchPane) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchPane {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchPane {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `ApplicationModel_Search`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SearchPaneQueryChangedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SearchPaneQueryChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl SearchPaneQueryChangedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_Search`*"]
@@ -768,6 +888,46 @@ unsafe impl ::windows::runtime::Interface for SearchPaneQueryChangedEventArgs {
 impl ::windows::runtime::RuntimeName for SearchPaneQueryChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneQueryChangedEventArgs";
 }
+impl ::std::convert::From<SearchPaneQueryChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: SearchPaneQueryChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SearchPaneQueryChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &SearchPaneQueryChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchPaneQueryChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SearchPaneQueryChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SearchPaneQueryChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: SearchPaneQueryChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SearchPaneQueryChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &SearchPaneQueryChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchPaneQueryChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchPaneQueryChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<SearchPaneQueryChangedEventArgs> for ISearchPaneQueryChangedEventArgs {
     fn from(value: SearchPaneQueryChangedEventArgs) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -792,8 +952,8 @@ unsafe impl ::std::marker::Send for SearchPaneQueryChangedEventArgs {}
 unsafe impl ::std::marker::Sync for SearchPaneQueryChangedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Search`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SearchPaneQueryLinguisticDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SearchPaneQueryLinguisticDetails(pub ::windows::runtime::IInspectable);
 impl SearchPaneQueryLinguisticDetails {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_Search`, `Foundation_Collections`*"]
@@ -831,12 +991,52 @@ unsafe impl ::windows::runtime::Interface for SearchPaneQueryLinguisticDetails {
 impl ::windows::runtime::RuntimeName for SearchPaneQueryLinguisticDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneQueryLinguisticDetails";
 }
+impl ::std::convert::From<SearchPaneQueryLinguisticDetails> for ::windows::runtime::IUnknown {
+    fn from(value: SearchPaneQueryLinguisticDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SearchPaneQueryLinguisticDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &SearchPaneQueryLinguisticDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchPaneQueryLinguisticDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SearchPaneQueryLinguisticDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SearchPaneQueryLinguisticDetails> for ::windows::runtime::IInspectable {
+    fn from(value: SearchPaneQueryLinguisticDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SearchPaneQueryLinguisticDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &SearchPaneQueryLinguisticDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchPaneQueryLinguisticDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchPaneQueryLinguisticDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SearchPaneQueryLinguisticDetails {}
 unsafe impl ::std::marker::Sync for SearchPaneQueryLinguisticDetails {}
 #[doc = "*Required features: `ApplicationModel_Search`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SearchPaneQuerySubmittedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SearchPaneQuerySubmittedEventArgs(pub ::windows::runtime::IInspectable);
 impl SearchPaneQuerySubmittedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_Search`*"]
@@ -876,12 +1076,52 @@ unsafe impl ::windows::runtime::Interface for SearchPaneQuerySubmittedEventArgs 
 impl ::windows::runtime::RuntimeName for SearchPaneQuerySubmittedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneQuerySubmittedEventArgs";
 }
+impl ::std::convert::From<SearchPaneQuerySubmittedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: SearchPaneQuerySubmittedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SearchPaneQuerySubmittedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &SearchPaneQuerySubmittedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchPaneQuerySubmittedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SearchPaneQuerySubmittedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SearchPaneQuerySubmittedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: SearchPaneQuerySubmittedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SearchPaneQuerySubmittedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &SearchPaneQuerySubmittedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchPaneQuerySubmittedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchPaneQuerySubmittedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SearchPaneQuerySubmittedEventArgs {}
 unsafe impl ::std::marker::Sync for SearchPaneQuerySubmittedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Search`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SearchPaneResultSuggestionChosenEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SearchPaneResultSuggestionChosenEventArgs(pub ::windows::runtime::IInspectable);
 impl SearchPaneResultSuggestionChosenEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_Search`*"]
@@ -903,12 +1143,52 @@ unsafe impl ::windows::runtime::Interface for SearchPaneResultSuggestionChosenEv
 impl ::windows::runtime::RuntimeName for SearchPaneResultSuggestionChosenEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneResultSuggestionChosenEventArgs";
 }
+impl ::std::convert::From<SearchPaneResultSuggestionChosenEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: SearchPaneResultSuggestionChosenEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SearchPaneResultSuggestionChosenEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &SearchPaneResultSuggestionChosenEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchPaneResultSuggestionChosenEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SearchPaneResultSuggestionChosenEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SearchPaneResultSuggestionChosenEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: SearchPaneResultSuggestionChosenEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SearchPaneResultSuggestionChosenEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &SearchPaneResultSuggestionChosenEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchPaneResultSuggestionChosenEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchPaneResultSuggestionChosenEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SearchPaneResultSuggestionChosenEventArgs {}
 unsafe impl ::std::marker::Sync for SearchPaneResultSuggestionChosenEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Search`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SearchPaneSuggestionsRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SearchPaneSuggestionsRequest(pub ::windows::runtime::IInspectable);
 impl SearchPaneSuggestionsRequest {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_Search`*"]
@@ -948,12 +1228,52 @@ unsafe impl ::windows::runtime::Interface for SearchPaneSuggestionsRequest {
 impl ::windows::runtime::RuntimeName for SearchPaneSuggestionsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneSuggestionsRequest";
 }
+impl ::std::convert::From<SearchPaneSuggestionsRequest> for ::windows::runtime::IUnknown {
+    fn from(value: SearchPaneSuggestionsRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SearchPaneSuggestionsRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &SearchPaneSuggestionsRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchPaneSuggestionsRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SearchPaneSuggestionsRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SearchPaneSuggestionsRequest> for ::windows::runtime::IInspectable {
+    fn from(value: SearchPaneSuggestionsRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SearchPaneSuggestionsRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &SearchPaneSuggestionsRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchPaneSuggestionsRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchPaneSuggestionsRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SearchPaneSuggestionsRequest {}
 unsafe impl ::std::marker::Sync for SearchPaneSuggestionsRequest {}
 #[doc = "*Required features: `ApplicationModel_Search`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SearchPaneSuggestionsRequestDeferral(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SearchPaneSuggestionsRequestDeferral(pub ::windows::runtime::IInspectable);
 impl SearchPaneSuggestionsRequestDeferral {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_Search`*"]
@@ -972,12 +1292,52 @@ unsafe impl ::windows::runtime::Interface for SearchPaneSuggestionsRequestDeferr
 impl ::windows::runtime::RuntimeName for SearchPaneSuggestionsRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneSuggestionsRequestDeferral";
 }
+impl ::std::convert::From<SearchPaneSuggestionsRequestDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: SearchPaneSuggestionsRequestDeferral) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SearchPaneSuggestionsRequestDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: &SearchPaneSuggestionsRequestDeferral) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchPaneSuggestionsRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SearchPaneSuggestionsRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SearchPaneSuggestionsRequestDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: SearchPaneSuggestionsRequestDeferral) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SearchPaneSuggestionsRequestDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: &SearchPaneSuggestionsRequestDeferral) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchPaneSuggestionsRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchPaneSuggestionsRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SearchPaneSuggestionsRequestDeferral {}
 unsafe impl ::std::marker::Sync for SearchPaneSuggestionsRequestDeferral {}
 #[doc = "*Required features: `ApplicationModel_Search`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SearchPaneSuggestionsRequestedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SearchPaneSuggestionsRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl SearchPaneSuggestionsRequestedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_Search`*"]
@@ -1026,6 +1386,46 @@ unsafe impl ::windows::runtime::Interface for SearchPaneSuggestionsRequestedEven
 impl ::windows::runtime::RuntimeName for SearchPaneSuggestionsRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneSuggestionsRequestedEventArgs";
 }
+impl ::std::convert::From<SearchPaneSuggestionsRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: SearchPaneSuggestionsRequestedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SearchPaneSuggestionsRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &SearchPaneSuggestionsRequestedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchPaneSuggestionsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SearchPaneSuggestionsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SearchPaneSuggestionsRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: SearchPaneSuggestionsRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SearchPaneSuggestionsRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &SearchPaneSuggestionsRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchPaneSuggestionsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchPaneSuggestionsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SearchPaneSuggestionsRequestedEventArgs> for ISearchPaneQueryChangedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SearchPaneSuggestionsRequestedEventArgs) -> ::windows::runtime::Result<Self> {
@@ -1052,8 +1452,8 @@ unsafe impl ::std::marker::Send for SearchPaneSuggestionsRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for SearchPaneSuggestionsRequestedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Search`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SearchPaneVisibilityChangedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SearchPaneVisibilityChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl SearchPaneVisibilityChangedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_Search`*"]
@@ -1075,12 +1475,52 @@ unsafe impl ::windows::runtime::Interface for SearchPaneVisibilityChangedEventAr
 impl ::windows::runtime::RuntimeName for SearchPaneVisibilityChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneVisibilityChangedEventArgs";
 }
+impl ::std::convert::From<SearchPaneVisibilityChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: SearchPaneVisibilityChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SearchPaneVisibilityChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &SearchPaneVisibilityChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchPaneVisibilityChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SearchPaneVisibilityChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SearchPaneVisibilityChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: SearchPaneVisibilityChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SearchPaneVisibilityChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &SearchPaneVisibilityChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchPaneVisibilityChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchPaneVisibilityChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SearchPaneVisibilityChangedEventArgs {}
 unsafe impl ::std::marker::Sync for SearchPaneVisibilityChangedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Search`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SearchQueryLinguisticDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SearchQueryLinguisticDetails(pub ::windows::runtime::IInspectable);
 impl SearchQueryLinguisticDetails {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_Search`, `Foundation_Collections`*"]
@@ -1130,12 +1570,52 @@ unsafe impl ::windows::runtime::Interface for SearchQueryLinguisticDetails {
 impl ::windows::runtime::RuntimeName for SearchQueryLinguisticDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchQueryLinguisticDetails";
 }
+impl ::std::convert::From<SearchQueryLinguisticDetails> for ::windows::runtime::IUnknown {
+    fn from(value: SearchQueryLinguisticDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SearchQueryLinguisticDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &SearchQueryLinguisticDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchQueryLinguisticDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SearchQueryLinguisticDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SearchQueryLinguisticDetails> for ::windows::runtime::IInspectable {
+    fn from(value: SearchQueryLinguisticDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SearchQueryLinguisticDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &SearchQueryLinguisticDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchQueryLinguisticDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchQueryLinguisticDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SearchQueryLinguisticDetails {}
 unsafe impl ::std::marker::Sync for SearchQueryLinguisticDetails {}
 #[doc = "*Required features: `ApplicationModel_Search`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SearchSuggestionCollection(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SearchSuggestionCollection(pub ::windows::runtime::IInspectable);
 impl SearchSuggestionCollection {
     #[doc = "*Required features: `ApplicationModel_Search`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
@@ -1185,12 +1665,52 @@ unsafe impl ::windows::runtime::Interface for SearchSuggestionCollection {
 impl ::windows::runtime::RuntimeName for SearchSuggestionCollection {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionCollection";
 }
+impl ::std::convert::From<SearchSuggestionCollection> for ::windows::runtime::IUnknown {
+    fn from(value: SearchSuggestionCollection) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SearchSuggestionCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &SearchSuggestionCollection) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchSuggestionCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SearchSuggestionCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SearchSuggestionCollection> for ::windows::runtime::IInspectable {
+    fn from(value: SearchSuggestionCollection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SearchSuggestionCollection> for ::windows::runtime::IInspectable {
+    fn from(value: &SearchSuggestionCollection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchSuggestionCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchSuggestionCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SearchSuggestionCollection {}
 unsafe impl ::std::marker::Sync for SearchSuggestionCollection {}
 #[doc = "*Required features: `ApplicationModel_Search`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SearchSuggestionsRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SearchSuggestionsRequest(pub ::windows::runtime::IInspectable);
 impl SearchSuggestionsRequest {
     #[doc = "*Required features: `ApplicationModel_Search`*"]
     pub fn IsCanceled(&self) -> ::windows::runtime::Result<bool> {
@@ -1227,12 +1747,52 @@ unsafe impl ::windows::runtime::Interface for SearchSuggestionsRequest {
 impl ::windows::runtime::RuntimeName for SearchSuggestionsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionsRequest";
 }
+impl ::std::convert::From<SearchSuggestionsRequest> for ::windows::runtime::IUnknown {
+    fn from(value: SearchSuggestionsRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SearchSuggestionsRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &SearchSuggestionsRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchSuggestionsRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SearchSuggestionsRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SearchSuggestionsRequest> for ::windows::runtime::IInspectable {
+    fn from(value: SearchSuggestionsRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SearchSuggestionsRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &SearchSuggestionsRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchSuggestionsRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchSuggestionsRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SearchSuggestionsRequest {}
 unsafe impl ::std::marker::Sync for SearchSuggestionsRequest {}
 #[doc = "*Required features: `ApplicationModel_Search`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SearchSuggestionsRequestDeferral(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SearchSuggestionsRequestDeferral(pub ::windows::runtime::IInspectable);
 impl SearchSuggestionsRequestDeferral {
     #[doc = "*Required features: `ApplicationModel_Search`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
@@ -1249,6 +1809,46 @@ unsafe impl ::windows::runtime::Interface for SearchSuggestionsRequestDeferral {
 }
 impl ::windows::runtime::RuntimeName for SearchSuggestionsRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionsRequestDeferral";
+}
+impl ::std::convert::From<SearchSuggestionsRequestDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: SearchSuggestionsRequestDeferral) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SearchSuggestionsRequestDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: &SearchSuggestionsRequestDeferral) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchSuggestionsRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SearchSuggestionsRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SearchSuggestionsRequestDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: SearchSuggestionsRequestDeferral) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SearchSuggestionsRequestDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: &SearchSuggestionsRequestDeferral) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchSuggestionsRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchSuggestionsRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for SearchSuggestionsRequestDeferral {}
 unsafe impl ::std::marker::Sync for SearchSuggestionsRequestDeferral {}

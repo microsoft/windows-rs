@@ -7,7 +7,7 @@ use bindings::Windows::Foundation::{IReference, IStringable, PropertyValue};
 /// interface.
 #[repr(transparent)]
 #[derive(Clone, PartialEq, Eq)]
-pub struct IInspectable(IUnknown);
+pub struct IInspectable(pub IUnknown);
 
 impl IInspectable {
     /// Returns the canonical type name for the underlying object.

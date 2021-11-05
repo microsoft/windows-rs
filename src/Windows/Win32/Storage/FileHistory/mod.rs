@@ -218,8 +218,8 @@ unsafe impl ::windows::runtime::Abi for FhBackupStopReason {
 }
 pub const FhConfigMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3980639036, 2537, 18826, [157, 246, 33, 119, 36, 76, 109, 180]);
 pub const FhReassociation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1299353141, 5882, 17184, [158, 139, 191, 215, 16, 10, 136, 70]);
-#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_System_WindowsProgramming`*"]
+#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceBlockBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>>(pipe: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -233,8 +233,8 @@ pub unsafe fn FhServiceBlockBackup<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_System_WindowsProgramming`*"]
+#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceClosePipe<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>>(pipe: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -248,8 +248,8 @@ pub unsafe fn FhServiceClosePipe<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn FhServiceOpenPipe<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(startserviceifstopped: Param0) -> ::windows::runtime::Result<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE> {
     #[cfg(windows)]
@@ -264,8 +264,8 @@ pub unsafe fn FhServiceOpenPipe<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_System_WindowsProgramming`*"]
+#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceReloadConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>>(pipe: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -279,8 +279,8 @@ pub unsafe fn FhServiceReloadConfiguration<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn FhServiceStartBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pipe: Param0, lowpriorityio: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -294,8 +294,8 @@ pub unsafe fn FhServiceStartBackup<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn FhServiceStopBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pipe: Param0, stoptracking: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -309,8 +309,8 @@ pub unsafe fn FhServiceStopBackup<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_System_WindowsProgramming`*"]
+#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceUnblockBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>>(pipe: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -326,8 +326,8 @@ pub unsafe fn FhServiceUnblockBackup<'a, Param0: ::windows::runtime::IntoParam<'
 }
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFhConfigMgr(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFhConfigMgr(pub ::windows::runtime::IUnknown);
 impl IFhConfigMgr {
     #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
     pub unsafe fn LoadConfiguration(&self) -> ::windows::runtime::Result<()> {
@@ -402,6 +402,26 @@ unsafe impl ::windows::runtime::Interface for IFhConfigMgr {
     type Vtable = IFhConfigMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1784670811, 49039, 20197, [184, 195, 68, 216, 160, 215, 51, 28]);
 }
+impl ::std::convert::From<IFhConfigMgr> for ::windows::runtime::IUnknown {
+    fn from(value: IFhConfigMgr) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFhConfigMgr> for ::windows::runtime::IUnknown {
+    fn from(value: &IFhConfigMgr) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFhConfigMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFhConfigMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFhConfigMgr_abi(
@@ -432,8 +452,8 @@ pub struct IFhConfigMgr_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFhReassociation(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFhReassociation(pub ::windows::runtime::IUnknown);
 impl IFhReassociation {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
@@ -465,6 +485,26 @@ unsafe impl ::windows::runtime::Interface for IFhReassociation {
     type Vtable = IFhReassociation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1698996874, 63117, 18348, [145, 239, 22, 178, 179, 106, 163, 238]);
 }
+impl ::std::convert::From<IFhReassociation> for ::windows::runtime::IUnknown {
+    fn from(value: IFhReassociation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFhReassociation> for ::windows::runtime::IUnknown {
+    fn from(value: &IFhReassociation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFhReassociation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFhReassociation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFhReassociation_abi(
@@ -483,8 +523,8 @@ pub struct IFhReassociation_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFhScopeIterator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFhScopeIterator(pub ::windows::runtime::IUnknown);
 impl IFhScopeIterator {
     #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
     pub unsafe fn MoveToNextItem(&self) -> ::windows::runtime::Result<()> {
@@ -501,6 +541,26 @@ unsafe impl ::windows::runtime::Interface for IFhScopeIterator {
     type Vtable = IFhScopeIterator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(832023502, 21290, 17606, [134, 21, 243, 102, 101, 102, 167, 32]);
 }
+impl ::std::convert::From<IFhScopeIterator> for ::windows::runtime::IUnknown {
+    fn from(value: IFhScopeIterator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFhScopeIterator> for ::windows::runtime::IUnknown {
+    fn from(value: &IFhScopeIterator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFhScopeIterator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFhScopeIterator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFhScopeIterator_abi(
@@ -513,8 +573,8 @@ pub struct IFhScopeIterator_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFhTarget(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFhTarget(pub ::windows::runtime::IUnknown);
 impl IFhTarget {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
@@ -531,6 +591,26 @@ impl IFhTarget {
 unsafe impl ::windows::runtime::Interface for IFhTarget {
     type Vtable = IFhTarget_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3631834621, 11181, 18007, [189, 59, 149, 103, 235, 48, 12, 237]);
+}
+impl ::std::convert::From<IFhTarget> for ::windows::runtime::IUnknown {
+    fn from(value: IFhTarget) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFhTarget> for ::windows::runtime::IUnknown {
+    fn from(value: &IFhTarget) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFhTarget {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFhTarget {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

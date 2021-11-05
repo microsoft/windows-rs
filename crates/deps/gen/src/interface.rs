@@ -50,7 +50,8 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
         } else {
             let interfaces = interfaces(def);
             let methods = InterfaceInfo::gen_methods(&interfaces, gen);
-            let (async_get, future) = gen_async(def, &interfaces, gen);
+            let (async_get, future) = gen_async(def, &interfaces, gen, &TokenStream::new());
+            let inspectable = gen_inspectable(&name, &constraints, &TokenStream::new());
             let iterator = gen_iterator(def, &interfaces, gen);
 
             let send_sync = if async_kind(def) == AsyncKind::None {
@@ -73,6 +74,7 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
                     const SIGNATURE: ::windows::runtime::ConstBuffer = #type_signature;
                 }
                 #future
+                #inspectable
                 #(#conversions)*
                 #send_sync
                 #iterator
@@ -82,14 +84,14 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
         let derive = if is_exclusive {
             quote! {}
         } else {
-            quote! { #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug, ::windows::runtime::DeriveInterface)] }
+            quote! { #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)] }
         };
 
         quote! {
             #[repr(transparent)]
             #derive
             #doc
-            pub struct #name(::windows::runtime::IInspectable, #(#struct_phantoms,)*) where #constraints;
+            pub struct #name(pub ::windows::runtime::IInspectable, #(#struct_phantoms,)*) where #constraints;
             unsafe impl<#constraints> ::windows::runtime::Interface for #name {
                 type Vtable = #abi_name;
                 const IID: ::windows::runtime::GUID = #guid;
@@ -113,7 +115,7 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
             #[doc(hidden)]
-            pub struct #name(::windows::runtime::IInspectable, #(#struct_phantoms,)*) where #constraints;
+            pub struct #name(pub ::windows::runtime::IInspectable, #(#struct_phantoms,)*) where #constraints;
             unsafe impl<#constraints> ::windows::runtime::Interface for #name {
                 type Vtable = <::windows::runtime::IUnknown as ::windows::runtime::Interface>::Vtable;
                 const IID: ::windows::runtime::GUID = #guid;

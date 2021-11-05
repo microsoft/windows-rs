@@ -2980,6 +2980,7 @@ pub const E_UAC_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRES
 pub const E_UNEXPECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147418113i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const FACILTIY_MUI_ERROR_CODE: u32 = 11u32;
+#[doc = "*Required features: `Win32_Foundation`*"]
 pub type FARPROC = unsafe extern "system" fn() -> isize;
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const FA_E_HOMEGROUP_NOT_AVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2144927198i32 as _);
@@ -4528,6 +4529,7 @@ pub const NAP_E_STILL_BOUND: ::windows::runtime::HRESULT = ::windows::runtime::H
 pub const NAP_E_TOO_MANY_CALLS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2144927728i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const NAP_S_CERT_ALREADY_PRESENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2555917i32 as _);
+#[doc = "*Required features: `Win32_Foundation`*"]
 pub type NEARPROC = unsafe extern "system" fn() -> isize;
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const NOERROR: u32 = 0u32;
@@ -5313,6 +5315,7 @@ unsafe impl ::windows::runtime::Abi for POINTS {
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const PRESENTATION_ERROR_LOST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2004811775i32 as _);
+#[doc = "*Required features: `Win32_Foundation`*"]
 pub type PROC = unsafe extern "system" fn() -> isize;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]

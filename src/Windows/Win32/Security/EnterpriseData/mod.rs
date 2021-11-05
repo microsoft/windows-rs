@@ -105,8 +105,8 @@ unsafe impl ::windows::runtime::Abi for HTHREAD_NETWORK_CONTEXT {
 }
 #[doc = "*Required features: `Win32_Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IProtectionPolicyManagerInterop(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IProtectionPolicyManagerInterop(pub ::windows::runtime::IUnknown);
 impl IProtectionPolicyManagerInterop {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_EnterpriseData`, `Win32_Foundation`*"]
@@ -125,6 +125,26 @@ unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerInterop {
     type Vtable = IProtectionPolicyManagerInterop_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1179804957, 49662, 19361, [159, 10, 192, 245, 101, 150, 247, 33]);
 }
+impl ::std::convert::From<IProtectionPolicyManagerInterop> for ::windows::runtime::IUnknown {
+    fn from(value: IProtectionPolicyManagerInterop) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IProtectionPolicyManagerInterop> for ::windows::runtime::IUnknown {
+    fn from(value: &IProtectionPolicyManagerInterop) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProtectionPolicyManagerInterop {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProtectionPolicyManagerInterop {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManagerInterop_abi(
@@ -141,8 +161,8 @@ pub struct IProtectionPolicyManagerInterop_abi(
 );
 #[doc = "*Required features: `Win32_Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IProtectionPolicyManagerInterop2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IProtectionPolicyManagerInterop2(pub ::windows::runtime::IUnknown);
 impl IProtectionPolicyManagerInterop2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_EnterpriseData`, `Win32_Foundation`*"]
@@ -205,6 +225,26 @@ unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerInterop2 {
     type Vtable = IProtectionPolicyManagerInterop2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(360512484, 42893, 16726, [179, 132, 97, 253, 172, 65, 230, 134]);
 }
+impl ::std::convert::From<IProtectionPolicyManagerInterop2> for ::windows::runtime::IUnknown {
+    fn from(value: IProtectionPolicyManagerInterop2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IProtectionPolicyManagerInterop2> for ::windows::runtime::IUnknown {
+    fn from(value: &IProtectionPolicyManagerInterop2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProtectionPolicyManagerInterop2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProtectionPolicyManagerInterop2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManagerInterop2_abi(
@@ -229,8 +269,8 @@ pub struct IProtectionPolicyManagerInterop2_abi(
 );
 #[doc = "*Required features: `Win32_Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IProtectionPolicyManagerInterop3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IProtectionPolicyManagerInterop3(pub ::windows::runtime::IUnknown);
 impl IProtectionPolicyManagerInterop3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_EnterpriseData`, `Win32_Foundation`*"]
@@ -355,6 +395,26 @@ unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerInterop3 {
     type Vtable = IProtectionPolicyManagerInterop3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3250600243, 45976, 19859, [176, 253, 41, 114, 173, 248, 2, 194]);
 }
+impl ::std::convert::From<IProtectionPolicyManagerInterop3> for ::windows::runtime::IUnknown {
+    fn from(value: IProtectionPolicyManagerInterop3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IProtectionPolicyManagerInterop3> for ::windows::runtime::IUnknown {
+    fn from(value: &IProtectionPolicyManagerInterop3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProtectionPolicyManagerInterop3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProtectionPolicyManagerInterop3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManagerInterop3_abi(
@@ -390,8 +450,8 @@ pub struct IProtectionPolicyManagerInterop3_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, sourceitemlistunk: ::windows::runtime::RawPtr, processid: u32, auditinfounk: ::windows::runtime::RawPtr, messagefromapp: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, behavior: u32, riid: *const ::windows::runtime::GUID, asyncoperation: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_EnterpriseData`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ProtectFileToEnterpriseIdentity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(fileorfolderpath: Param0, identity: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -433,8 +493,8 @@ impl ::std::convert::From<i32> for SRPHOSTING_VERSION {
 unsafe impl ::windows::runtime::Abi for SRPHOSTING_VERSION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_EnterpriseData`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -448,8 +508,8 @@ pub unsafe fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_EnterpriseData`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SrpCreateThreadNetworkContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(enterpriseid: Param0) -> ::windows::runtime::Result<HTHREAD_NETWORK_CONTEXT> {
     #[cfg(windows)]
@@ -478,8 +538,8 @@ pub unsafe fn SrpDisablePermissiveModeFileEncryption() -> ::windows::runtime::Re
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Appx"))]
 #[doc = "*Required features: `Win32_Security_EnterpriseData`, `Win32_Foundation`, `Win32_Storage_Packaging_Appx`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Appx"))]
 #[inline]
 pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -494,8 +554,8 @@ pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Sto
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_EnterpriseData`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SrpEnablePermissiveModeFileEncryption<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(enterpriseid: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -509,8 +569,8 @@ pub unsafe fn SrpEnablePermissiveModeFileEncryption<'a, Param0: ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_EnterpriseData`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SrpGetEnterpriseIds<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(tokenhandle: Param0, numberofbytes: *mut u32, enterpriseids: *mut super::super::Foundation::PWSTR, enterpriseidcount: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -524,8 +584,8 @@ pub unsafe fn SrpGetEnterpriseIds<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_EnterpriseData`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SrpGetEnterprisePolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(tokenhandle: Param0) -> ::windows::runtime::Result<ENTERPRISE_DATA_POLICIES> {
     #[cfg(windows)]
@@ -568,8 +628,8 @@ pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_EnterpriseData`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SrpIsTokenService<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(tokenhandle: Param0, istokenservice: *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -583,8 +643,8 @@ pub unsafe fn SrpIsTokenService<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_EnterpriseData`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SrpSetTokenEnterpriseId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(tokenhandle: Param0, enterpriseid: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -598,8 +658,8 @@ pub unsafe fn SrpSetTokenEnterpriseId<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_EnterpriseData`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnprotectFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(fileorfolderpath: Param0, options: *const FILE_UNPROTECT_OPTIONS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

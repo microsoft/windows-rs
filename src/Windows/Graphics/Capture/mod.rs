@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Graphics_Capture`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct Direct3D11CaptureFrame(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct Direct3D11CaptureFrame(pub ::windows::runtime::IInspectable);
 impl Direct3D11CaptureFrame {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_Capture`, `Foundation`*"]
@@ -47,6 +47,46 @@ unsafe impl ::windows::runtime::Interface for Direct3D11CaptureFrame {
 impl ::windows::runtime::RuntimeName for Direct3D11CaptureFrame {
     const NAME: &'static str = "Windows.Graphics.Capture.Direct3D11CaptureFrame";
 }
+impl ::std::convert::From<Direct3D11CaptureFrame> for ::windows::runtime::IUnknown {
+    fn from(value: Direct3D11CaptureFrame) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&Direct3D11CaptureFrame> for ::windows::runtime::IUnknown {
+    fn from(value: &Direct3D11CaptureFrame) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Direct3D11CaptureFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Direct3D11CaptureFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<Direct3D11CaptureFrame> for ::windows::runtime::IInspectable {
+    fn from(value: Direct3D11CaptureFrame) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Direct3D11CaptureFrame> for ::windows::runtime::IInspectable {
+    fn from(value: &Direct3D11CaptureFrame) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Direct3D11CaptureFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Direct3D11CaptureFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<Direct3D11CaptureFrame> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -77,8 +117,8 @@ unsafe impl ::std::marker::Send for Direct3D11CaptureFrame {}
 unsafe impl ::std::marker::Sync for Direct3D11CaptureFrame {}
 #[doc = "*Required features: `Graphics_Capture`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct Direct3D11CaptureFramePool(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct Direct3D11CaptureFramePool(pub ::windows::runtime::IInspectable);
 impl Direct3D11CaptureFramePool {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_Capture`, `Foundation`*"]
@@ -167,6 +207,46 @@ unsafe impl ::windows::runtime::Interface for Direct3D11CaptureFramePool {
 impl ::windows::runtime::RuntimeName for Direct3D11CaptureFramePool {
     const NAME: &'static str = "Windows.Graphics.Capture.Direct3D11CaptureFramePool";
 }
+impl ::std::convert::From<Direct3D11CaptureFramePool> for ::windows::runtime::IUnknown {
+    fn from(value: Direct3D11CaptureFramePool) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&Direct3D11CaptureFramePool> for ::windows::runtime::IUnknown {
+    fn from(value: &Direct3D11CaptureFramePool) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Direct3D11CaptureFramePool {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Direct3D11CaptureFramePool {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<Direct3D11CaptureFramePool> for ::windows::runtime::IInspectable {
+    fn from(value: Direct3D11CaptureFramePool) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Direct3D11CaptureFramePool> for ::windows::runtime::IInspectable {
+    fn from(value: &Direct3D11CaptureFramePool) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Direct3D11CaptureFramePool {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Direct3D11CaptureFramePool {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<Direct3D11CaptureFramePool> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -238,8 +318,8 @@ impl ::windows::runtime::DefaultType for GraphicsCaptureAccessKind {
 }
 #[doc = "*Required features: `Graphics_Capture`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct GraphicsCaptureItem(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct GraphicsCaptureItem(pub ::windows::runtime::IInspectable);
 impl GraphicsCaptureItem {
     #[doc = "*Required features: `Graphics_Capture`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -314,12 +394,52 @@ unsafe impl ::windows::runtime::Interface for GraphicsCaptureItem {
 impl ::windows::runtime::RuntimeName for GraphicsCaptureItem {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureItem";
 }
+impl ::std::convert::From<GraphicsCaptureItem> for ::windows::runtime::IUnknown {
+    fn from(value: GraphicsCaptureItem) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&GraphicsCaptureItem> for ::windows::runtime::IUnknown {
+    fn from(value: &GraphicsCaptureItem) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GraphicsCaptureItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GraphicsCaptureItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<GraphicsCaptureItem> for ::windows::runtime::IInspectable {
+    fn from(value: GraphicsCaptureItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GraphicsCaptureItem> for ::windows::runtime::IInspectable {
+    fn from(value: &GraphicsCaptureItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GraphicsCaptureItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GraphicsCaptureItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GraphicsCaptureItem {}
 unsafe impl ::std::marker::Sync for GraphicsCaptureItem {}
 #[doc = "*Required features: `Graphics_Capture`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct GraphicsCapturePicker(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct GraphicsCapturePicker(pub ::windows::runtime::IInspectable);
 impl GraphicsCapturePicker {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -348,12 +468,52 @@ unsafe impl ::windows::runtime::Interface for GraphicsCapturePicker {
 impl ::windows::runtime::RuntimeName for GraphicsCapturePicker {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCapturePicker";
 }
+impl ::std::convert::From<GraphicsCapturePicker> for ::windows::runtime::IUnknown {
+    fn from(value: GraphicsCapturePicker) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&GraphicsCapturePicker> for ::windows::runtime::IUnknown {
+    fn from(value: &GraphicsCapturePicker) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GraphicsCapturePicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GraphicsCapturePicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<GraphicsCapturePicker> for ::windows::runtime::IInspectable {
+    fn from(value: GraphicsCapturePicker) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GraphicsCapturePicker> for ::windows::runtime::IInspectable {
+    fn from(value: &GraphicsCapturePicker) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GraphicsCapturePicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GraphicsCapturePicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GraphicsCapturePicker {}
 unsafe impl ::std::marker::Sync for GraphicsCapturePicker {}
 #[doc = "*Required features: `Graphics_Capture`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct GraphicsCaptureSession(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct GraphicsCaptureSession(pub ::windows::runtime::IInspectable);
 impl GraphicsCaptureSession {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_Capture`, `Foundation`*"]
@@ -414,6 +574,46 @@ unsafe impl ::windows::runtime::Interface for GraphicsCaptureSession {
 impl ::windows::runtime::RuntimeName for GraphicsCaptureSession {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureSession";
 }
+impl ::std::convert::From<GraphicsCaptureSession> for ::windows::runtime::IUnknown {
+    fn from(value: GraphicsCaptureSession) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&GraphicsCaptureSession> for ::windows::runtime::IUnknown {
+    fn from(value: &GraphicsCaptureSession) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GraphicsCaptureSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GraphicsCaptureSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<GraphicsCaptureSession> for ::windows::runtime::IInspectable {
+    fn from(value: GraphicsCaptureSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GraphicsCaptureSession> for ::windows::runtime::IInspectable {
+    fn from(value: &GraphicsCaptureSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GraphicsCaptureSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GraphicsCaptureSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<GraphicsCaptureSession> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -444,7 +644,7 @@ unsafe impl ::std::marker::Send for GraphicsCaptureSession {}
 unsafe impl ::std::marker::Sync for GraphicsCaptureSession {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDirect3D11CaptureFrame(::windows::runtime::IInspectable);
+pub struct IDirect3D11CaptureFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3D11CaptureFrame {
     type Vtable = IDirect3D11CaptureFrame_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199597603, 14554, 19250, [172, 243, 250, 151, 52, 173, 128, 14]);
@@ -466,7 +666,7 @@ pub struct IDirect3D11CaptureFrame_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDirect3D11CaptureFramePool(::windows::runtime::IInspectable);
+pub struct IDirect3D11CaptureFramePool(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3D11CaptureFramePool {
     type Vtable = IDirect3D11CaptureFramePool_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(619408674, 6517, 16942, [130, 231, 120, 13, 189, 141, 223, 36]);
@@ -493,7 +693,7 @@ pub struct IDirect3D11CaptureFramePool_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDirect3D11CaptureFramePoolStatics(::windows::runtime::IInspectable);
+pub struct IDirect3D11CaptureFramePoolStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3D11CaptureFramePoolStatics {
     type Vtable = IDirect3D11CaptureFramePoolStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2005140842, 26538, 19795, [174, 84, 16, 136, 213, 168, 202, 33]);
@@ -512,7 +712,7 @@ pub struct IDirect3D11CaptureFramePoolStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDirect3D11CaptureFramePoolStatics2(::windows::runtime::IInspectable);
+pub struct IDirect3D11CaptureFramePoolStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3D11CaptureFramePoolStatics2 {
     type Vtable = IDirect3D11CaptureFramePoolStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1486557247, 27580, 24053, [169, 145, 2, 226, 139, 59, 102, 213]);
@@ -531,7 +731,7 @@ pub struct IDirect3D11CaptureFramePoolStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureAccessStatics(::windows::runtime::IInspectable);
+pub struct IGraphicsCaptureAccessStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureAccessStatics {
     type Vtable = IGraphicsCaptureAccessStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1950274416, 1772, 20544, [165, 138, 144, 31, 15, 117, 112, 149]);
@@ -550,7 +750,7 @@ pub struct IGraphicsCaptureAccessStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureItem(::windows::runtime::IInspectable);
+pub struct IGraphicsCaptureItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureItem {
     type Vtable = IGraphicsCaptureItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2042886491, 12791, 20162, [164, 100, 99, 46, 245, 211, 7, 96]);
@@ -573,7 +773,7 @@ pub struct IGraphicsCaptureItem_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureItemStatics(::windows::runtime::IInspectable);
+pub struct IGraphicsCaptureItemStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureItemStatics {
     type Vtable = IGraphicsCaptureItemStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2826878629, 17788, 22408, [171, 71, 12, 241, 211, 99, 126, 116]);
@@ -592,7 +792,7 @@ pub struct IGraphicsCaptureItemStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureItemStatics2(::windows::runtime::IInspectable);
+pub struct IGraphicsCaptureItemStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureItemStatics2 {
     type Vtable = IGraphicsCaptureItemStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(999468233, 58756, 22626, [191, 92, 156, 49, 108, 109, 45, 187]);
@@ -612,7 +812,7 @@ pub struct IGraphicsCaptureItemStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGraphicsCapturePicker(::windows::runtime::IInspectable);
+pub struct IGraphicsCapturePicker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCapturePicker {
     type Vtable = IGraphicsCapturePicker_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1511461299, 44409, 19274, [147, 54, 19, 24, 253, 222, 53, 57]);
@@ -631,7 +831,7 @@ pub struct IGraphicsCapturePicker_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureSession(::windows::runtime::IInspectable);
+pub struct IGraphicsCaptureSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureSession {
     type Vtable = IGraphicsCaptureSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2169389737, 63247, 19159, [147, 155, 253, 220, 198, 235, 136, 13]);
@@ -649,7 +849,7 @@ pub struct IGraphicsCaptureSession_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureSession2(::windows::runtime::IInspectable);
+pub struct IGraphicsCaptureSession2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureSession2 {
     type Vtable = IGraphicsCaptureSession2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(741977664, 32046, 20548, [128, 78, 139, 103, 153, 212, 207, 158]);
@@ -668,7 +868,7 @@ pub struct IGraphicsCaptureSession2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureSession3(::windows::runtime::IInspectable);
+pub struct IGraphicsCaptureSession3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureSession3 {
     type Vtable = IGraphicsCaptureSession3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4073576806, 8878, 24225, [149, 150, 58, 40, 147, 68, 195, 190]);
@@ -687,7 +887,7 @@ pub struct IGraphicsCaptureSession3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureSessionStatics(::windows::runtime::IInspectable);
+pub struct IGraphicsCaptureSessionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureSessionStatics {
     type Vtable = IGraphicsCaptureSessionStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(572826944, 22900, 18858, [178, 50, 8, 130, 83, 111, 76, 181]);

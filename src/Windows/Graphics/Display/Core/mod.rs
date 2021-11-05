@@ -116,8 +116,8 @@ impl ::windows::runtime::DefaultType for HdmiDisplayHdrOption {
 }
 #[doc = "*Required features: `Graphics_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct HdmiDisplayInformation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct HdmiDisplayInformation(pub ::windows::runtime::IInspectable);
 impl HdmiDisplayInformation {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Graphics_Display_Core`, `Foundation_Collections`*"]
@@ -209,12 +209,52 @@ unsafe impl ::windows::runtime::Interface for HdmiDisplayInformation {
 impl ::windows::runtime::RuntimeName for HdmiDisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayInformation";
 }
+impl ::std::convert::From<HdmiDisplayInformation> for ::windows::runtime::IUnknown {
+    fn from(value: HdmiDisplayInformation) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&HdmiDisplayInformation> for ::windows::runtime::IUnknown {
+    fn from(value: &HdmiDisplayInformation) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HdmiDisplayInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HdmiDisplayInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<HdmiDisplayInformation> for ::windows::runtime::IInspectable {
+    fn from(value: HdmiDisplayInformation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HdmiDisplayInformation> for ::windows::runtime::IInspectable {
+    fn from(value: &HdmiDisplayInformation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HdmiDisplayInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HdmiDisplayInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HdmiDisplayInformation {}
 unsafe impl ::std::marker::Sync for HdmiDisplayInformation {}
 #[doc = "*Required features: `Graphics_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct HdmiDisplayMode(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct HdmiDisplayMode(pub ::windows::runtime::IInspectable);
 impl HdmiDisplayMode {
     #[doc = "*Required features: `Graphics_Display_Core`*"]
     pub fn ResolutionWidthInRawPixels(&self) -> ::windows::runtime::Result<u32> {
@@ -323,6 +363,46 @@ unsafe impl ::windows::runtime::Interface for HdmiDisplayMode {
 impl ::windows::runtime::RuntimeName for HdmiDisplayMode {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayMode";
 }
+impl ::std::convert::From<HdmiDisplayMode> for ::windows::runtime::IUnknown {
+    fn from(value: HdmiDisplayMode) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&HdmiDisplayMode> for ::windows::runtime::IUnknown {
+    fn from(value: &HdmiDisplayMode) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HdmiDisplayMode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HdmiDisplayMode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<HdmiDisplayMode> for ::windows::runtime::IInspectable {
+    fn from(value: HdmiDisplayMode) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HdmiDisplayMode> for ::windows::runtime::IInspectable {
+    fn from(value: &HdmiDisplayMode) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HdmiDisplayMode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HdmiDisplayMode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HdmiDisplayMode {}
 unsafe impl ::std::marker::Sync for HdmiDisplayMode {}
 #[doc = "*Required features: `Graphics_Display_Core`*"]
@@ -351,7 +431,7 @@ impl ::windows::runtime::DefaultType for HdmiDisplayPixelEncoding {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHdmiDisplayInformation(::windows::runtime::IInspectable);
+pub struct IHdmiDisplayInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayInformation {
     type Vtable = IHdmiDisplayInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(319503370, 62821, 18286, [171, 213, 234, 5, 174, 231, 76, 105]);
@@ -383,7 +463,7 @@ pub struct IHdmiDisplayInformation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHdmiDisplayInformationStatics(::windows::runtime::IInspectable);
+pub struct IHdmiDisplayInformationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayInformationStatics {
     type Vtable = IHdmiDisplayInformationStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1827058272, 62506, 18965, [145, 76, 123, 142, 42, 90, 101, 223]);
@@ -401,7 +481,7 @@ pub struct IHdmiDisplayInformationStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHdmiDisplayMode(::windows::runtime::IInspectable);
+pub struct IHdmiDisplayMode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayMode {
     type Vtable = IHdmiDisplayMode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(201774509, 7056, 20305, [153, 129, 239, 90, 28, 13, 223, 102]);
@@ -429,7 +509,7 @@ pub struct IHdmiDisplayMode_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHdmiDisplayMode2(::windows::runtime::IInspectable);
+pub struct IHdmiDisplayMode2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayMode2 {
     type Vtable = IHdmiDisplayMode2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(130895519, 19260, 17080, [132, 231, 137, 83, 104, 113, 138, 242]);

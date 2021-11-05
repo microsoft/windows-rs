@@ -47,8 +47,8 @@ impl ::windows::runtime::DefaultType for ExtendedExecutionForegroundResult {
 }
 #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ExtendedExecutionForegroundRevokedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ExtendedExecutionForegroundRevokedEventArgs(pub ::windows::runtime::IInspectable);
 impl ExtendedExecutionForegroundRevokedEventArgs {
     #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<ExtendedExecutionForegroundRevokedReason> {
@@ -68,6 +68,46 @@ unsafe impl ::windows::runtime::Interface for ExtendedExecutionForegroundRevoked
 }
 impl ::windows::runtime::RuntimeName for ExtendedExecutionForegroundRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedEventArgs";
+}
+impl ::std::convert::From<ExtendedExecutionForegroundRevokedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: ExtendedExecutionForegroundRevokedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ExtendedExecutionForegroundRevokedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &ExtendedExecutionForegroundRevokedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ExtendedExecutionForegroundRevokedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ExtendedExecutionForegroundRevokedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ExtendedExecutionForegroundRevokedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: ExtendedExecutionForegroundRevokedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ExtendedExecutionForegroundRevokedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &ExtendedExecutionForegroundRevokedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ExtendedExecutionForegroundRevokedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ExtendedExecutionForegroundRevokedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for ExtendedExecutionForegroundRevokedEventArgs {}
 unsafe impl ::std::marker::Sync for ExtendedExecutionForegroundRevokedEventArgs {}
@@ -95,8 +135,8 @@ impl ::windows::runtime::DefaultType for ExtendedExecutionForegroundRevokedReaso
 }
 #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ExtendedExecutionForegroundSession(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ExtendedExecutionForegroundSession(pub ::windows::runtime::IInspectable);
 impl ExtendedExecutionForegroundSession {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -172,6 +212,46 @@ unsafe impl ::windows::runtime::Interface for ExtendedExecutionForegroundSession
 impl ::windows::runtime::RuntimeName for ExtendedExecutionForegroundSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundSession";
 }
+impl ::std::convert::From<ExtendedExecutionForegroundSession> for ::windows::runtime::IUnknown {
+    fn from(value: ExtendedExecutionForegroundSession) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ExtendedExecutionForegroundSession> for ::windows::runtime::IUnknown {
+    fn from(value: &ExtendedExecutionForegroundSession) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ExtendedExecutionForegroundSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ExtendedExecutionForegroundSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ExtendedExecutionForegroundSession> for ::windows::runtime::IInspectable {
+    fn from(value: ExtendedExecutionForegroundSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ExtendedExecutionForegroundSession> for ::windows::runtime::IInspectable {
+    fn from(value: &ExtendedExecutionForegroundSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ExtendedExecutionForegroundSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ExtendedExecutionForegroundSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ExtendedExecutionForegroundSession> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -202,7 +282,7 @@ unsafe impl ::std::marker::Send for ExtendedExecutionForegroundSession {}
 unsafe impl ::std::marker::Sync for ExtendedExecutionForegroundSession {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IExtendedExecutionForegroundRevokedEventArgs(::windows::runtime::IInspectable);
+pub struct IExtendedExecutionForegroundRevokedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExtendedExecutionForegroundRevokedEventArgs {
     type Vtable = IExtendedExecutionForegroundRevokedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2960972096, 38231, 44708, [44, 153, 189, 213, 109, 155, 228, 97]);
@@ -220,7 +300,7 @@ pub struct IExtendedExecutionForegroundRevokedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IExtendedExecutionForegroundSession(::windows::runtime::IInspectable);
+pub struct IExtendedExecutionForegroundSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExtendedExecutionForegroundSession {
     type Vtable = IExtendedExecutionForegroundSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4227088609, 40208, 16897, [176, 30, 200, 50, 117, 41, 111, 46]);

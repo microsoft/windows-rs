@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreAcquireLicenseResult(::windows::runtime::IInspectable);
+pub struct IStoreAcquireLicenseResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreAcquireLicenseResult {
     type Vtable = IStoreAcquireLicenseResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4225209453, 61504, 19635, [154, 57, 41, 188, 236, 219, 226, 45]);
@@ -20,7 +20,7 @@ pub struct IStoreAcquireLicenseResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreAppLicense(::windows::runtime::IInspectable);
+pub struct IStoreAppLicense(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreAppLicense {
     type Vtable = IStoreAppLicense_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4085905886, 29632, 17870, [155, 171, 178, 254, 62, 94, 175, 211]);
@@ -49,7 +49,7 @@ pub struct IStoreAppLicense_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreAppLicense2(::windows::runtime::IInspectable);
+pub struct IStoreAppLicense2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreAppLicense2 {
     type Vtable = IStoreAppLicense2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3026611857, 17475, 16563, [153, 63, 40, 144, 68, 53, 189, 198]);
@@ -67,7 +67,7 @@ pub struct IStoreAppLicense2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreAvailability(::windows::runtime::IInspectable);
+pub struct IStoreAvailability(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreAvailability {
     type Vtable = IStoreAvailability_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4194698021, 4093, 17555, [173, 67, 241, 249, 145, 143, 105, 250]);
@@ -93,7 +93,7 @@ pub struct IStoreAvailability_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreCanAcquireLicenseResult(::windows::runtime::IInspectable);
+pub struct IStoreCanAcquireLicenseResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreCanAcquireLicenseResult {
     type Vtable = IStoreCanAcquireLicenseResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(979975603, 136, 18479, [134, 213, 189, 70, 82, 38, 99, 173]);
@@ -113,7 +113,7 @@ pub struct IStoreCanAcquireLicenseResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreCollectionData(::windows::runtime::IInspectable);
+pub struct IStoreCollectionData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreCollectionData {
     type Vtable = IStoreCollectionData_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2326053811, 23475, 17434, [42, 180, 77, 171, 115, 213, 206, 103]);
@@ -142,7 +142,7 @@ pub struct IStoreCollectionData_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreConsumableResult(::windows::runtime::IInspectable);
+pub struct IStoreConsumableResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreConsumableResult {
     type Vtable = IStoreConsumableResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3932007282, 27136, 16466, [190, 91, 191, 218, 180, 67, 51, 82]);
@@ -163,7 +163,7 @@ pub struct IStoreConsumableResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreContext(::windows::runtime::IInspectable);
+pub struct IStoreContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreContext {
     type Vtable = IStoreContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2895689406, 62717, 18706, [186, 189, 80, 53, 229, 232, 188, 171]);
@@ -222,7 +222,7 @@ pub struct IStoreContext_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreContext2(::windows::runtime::IInspectable);
+pub struct IStoreContext2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreContext2 {
     type Vtable = IStoreContext2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(414995674, 31705, 17708, [145, 22, 59, 189, 6, 255, 198, 58]);
@@ -241,7 +241,7 @@ pub struct IStoreContext2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreContext3(::windows::runtime::IInspectable);
+pub struct IStoreContext3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreContext3 {
     type Vtable = IStoreContext3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3798083274, 6657, 18224, [133, 166, 236, 200, 150, 228, 174, 56]);
@@ -285,7 +285,7 @@ pub struct IStoreContext3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreContext4(::windows::runtime::IInspectable);
+pub struct IStoreContext4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreContext4 {
     type Vtable = IStoreContext4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2946264937, 48801, 19444, [142, 116, 174, 3, 226, 6, 198, 176]);
@@ -306,7 +306,7 @@ pub struct IStoreContext4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreContextStatics(::windows::runtime::IInspectable);
+pub struct IStoreContextStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreContextStatics {
     type Vtable = IStoreContextStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2617699935, 5568, 20082, [147, 48, 214, 25, 28, 235, 209, 156]);
@@ -326,7 +326,7 @@ pub struct IStoreContextStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreImage(::windows::runtime::IInspectable);
+pub struct IStoreImage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreImage {
     type Vtable = IStoreImage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(136303176, 44468, 19300, [169, 147, 120, 71, 137, 146, 110, 213]);
@@ -349,7 +349,7 @@ pub struct IStoreImage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreLicense(::windows::runtime::IInspectable);
+pub struct IStoreLicense(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreLicense {
     type Vtable = IStoreLicense_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(651990393, 19535, 20272, [188, 137, 100, 159, 96, 227, 96, 85]);
@@ -372,7 +372,7 @@ pub struct IStoreLicense_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorePackageInstallOptions(::windows::runtime::IInspectable);
+pub struct IStorePackageInstallOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePackageInstallOptions {
     type Vtable = IStorePackageInstallOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(490562316, 3277, 17629, [140, 89, 128, 129, 10, 114, 153, 115]);
@@ -391,7 +391,7 @@ pub struct IStorePackageInstallOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorePackageLicense(::windows::runtime::IInspectable);
+pub struct IStorePackageLicense(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePackageLicense {
     type Vtable = IStorePackageLicense_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(205936404, 5345, 18803, [189, 20, 247, 119, 36, 39, 30, 153]);
@@ -416,7 +416,7 @@ pub struct IStorePackageLicense_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorePackageUpdate(::windows::runtime::IInspectable);
+pub struct IStorePackageUpdate(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePackageUpdate {
     type Vtable = IStorePackageUpdate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(336568656, 15551, 18997, [185, 31, 72, 39, 28, 49, 176, 114]);
@@ -436,7 +436,7 @@ pub struct IStorePackageUpdate_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorePackageUpdateResult(::windows::runtime::IInspectable);
+pub struct IStorePackageUpdateResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePackageUpdateResult {
     type Vtable = IStorePackageUpdateResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885056749, 25081, 18579, [180, 254, 207, 25, 22, 3, 175, 123]);
@@ -456,7 +456,7 @@ pub struct IStorePackageUpdateResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorePackageUpdateResult2(::windows::runtime::IInspectable);
+pub struct IStorePackageUpdateResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePackageUpdateResult2 {
     type Vtable = IStorePackageUpdateResult2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(119341358, 48226, 20270, [135, 234, 153, 216, 1, 174, 175, 152]);
@@ -475,7 +475,7 @@ pub struct IStorePackageUpdateResult2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorePrice(::windows::runtime::IInspectable);
+pub struct IStorePrice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePrice {
     type Vtable = IStorePrice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1438291140, 5617, 16508, [143, 6, 0, 99, 128, 244, 223, 11]);
@@ -499,7 +499,7 @@ pub struct IStorePrice_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreProduct(::windows::runtime::IInspectable);
+pub struct IStoreProduct(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreProduct {
     type Vtable = IStoreProduct_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(839789650, 55136, 17674, [164, 43, 103, 209, 233, 1, 172, 144]);
@@ -542,7 +542,7 @@ pub struct IStoreProduct_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreProductOptions(::windows::runtime::IInspectable);
+pub struct IStoreProductOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreProductOptions {
     type Vtable = IStoreProductOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1530175737, 41235, 18449, [131, 38, 22, 25, 156, 146, 127, 49]);
@@ -561,7 +561,7 @@ pub struct IStoreProductOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreProductPagedQueryResult(::windows::runtime::IInspectable);
+pub struct IStoreProductPagedQueryResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreProductPagedQueryResult {
     type Vtable = IStoreProductPagedQueryResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3374782661, 19925, 18537, [164, 98, 236, 198, 135, 46, 67, 197]);
@@ -584,7 +584,7 @@ pub struct IStoreProductPagedQueryResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreProductQueryResult(::windows::runtime::IInspectable);
+pub struct IStoreProductQueryResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreProductQueryResult {
     type Vtable = IStoreProductQueryResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3624265413, 54358, 20470, [128, 73, 144, 118, 213, 22, 95, 115]);
@@ -604,7 +604,7 @@ pub struct IStoreProductQueryResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreProductResult(::windows::runtime::IInspectable);
+pub struct IStoreProductResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreProductResult {
     type Vtable = IStoreProductResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3077001075, 15495, 20193, [130, 1, 244, 40, 53, 155, 211, 175]);
@@ -623,7 +623,7 @@ pub struct IStoreProductResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorePurchaseProperties(::windows::runtime::IInspectable);
+pub struct IStorePurchaseProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePurchaseProperties {
     type Vtable = IStorePurchaseProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2204268787, 65415, 17252, [165, 180, 253, 33, 83, 235, 228, 59]);
@@ -644,7 +644,7 @@ pub struct IStorePurchaseProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorePurchasePropertiesFactory(::windows::runtime::IInspectable);
+pub struct IStorePurchasePropertiesFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePurchasePropertiesFactory {
     type Vtable = IStorePurchasePropertiesFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2808673694, 65277, 18591, [154, 23, 34, 165, 147, 230, 139, 157]);
@@ -662,7 +662,7 @@ pub struct IStorePurchasePropertiesFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorePurchaseResult(::windows::runtime::IInspectable);
+pub struct IStorePurchaseResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePurchaseResult {
     type Vtable = IStorePurchaseResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2916255058, 63850, 17981, [167, 187, 194, 11, 79, 202, 105, 82]);
@@ -681,7 +681,7 @@ pub struct IStorePurchaseResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreQueueItem(::windows::runtime::IInspectable);
+pub struct IStoreQueueItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreQueueItem {
     type Vtable = IStoreQueueItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1456849707, 63536, 17043, [145, 136, 202, 210, 220, 222, 115, 87]);
@@ -710,7 +710,7 @@ pub struct IStoreQueueItem_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreQueueItem2(::windows::runtime::IInspectable);
+pub struct IStoreQueueItem2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreQueueItem2 {
     type Vtable = IStoreQueueItem2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1766399144, 6868, 17532, [173, 140, 169, 80, 53, 246, 77, 130]);
@@ -733,7 +733,7 @@ pub struct IStoreQueueItem2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreQueueItemCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct IStoreQueueItemCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreQueueItemCompletedEventArgs {
     type Vtable = IStoreQueueItemCompletedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(306700140, 46154, 17307, [187, 7, 29, 48, 3, 208, 5, 194]);
@@ -751,7 +751,7 @@ pub struct IStoreQueueItemCompletedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreQueueItemStatus(::windows::runtime::IInspectable);
+pub struct IStoreQueueItemStatus(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreQueueItemStatus {
     type Vtable = IStoreQueueItemStatus_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2614524271, 40131, 20163, [178, 239, 123, 228, 51, 179, 1, 116]);
@@ -772,7 +772,7 @@ pub struct IStoreQueueItemStatus_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreRateAndReviewResult(::windows::runtime::IInspectable);
+pub struct IStoreRateAndReviewResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreRateAndReviewResult {
     type Vtable = IStoreRateAndReviewResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2636160342, 42677, 16673, [155, 97, 238, 109, 15, 189, 189, 187]);
@@ -793,7 +793,7 @@ pub struct IStoreRateAndReviewResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreRequestHelperStatics(::windows::runtime::IInspectable);
+pub struct IStoreRequestHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreRequestHelperStatics {
     type Vtable = IStoreRequestHelperStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1827005945, 41161, 19244, [150, 166, 161, 113, 198, 48, 3, 141]);
@@ -812,7 +812,7 @@ pub struct IStoreRequestHelperStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreSendRequestResult(::windows::runtime::IInspectable);
+pub struct IStoreSendRequestResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreSendRequestResult {
     type Vtable = IStoreSendRequestResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3342515808, 33394, 17666, [138, 105, 110, 117, 21, 58, 66, 153]);
@@ -831,7 +831,7 @@ pub struct IStoreSendRequestResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreSendRequestResult2(::windows::runtime::IInspectable);
+pub struct IStoreSendRequestResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreSendRequestResult2 {
     type Vtable = IStoreSendRequestResult2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(687941999, 49328, 18896, [142, 141, 170, 148, 10, 249, 193, 11]);
@@ -850,7 +850,7 @@ pub struct IStoreSendRequestResult2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreSku(::windows::runtime::IInspectable);
+pub struct IStoreSku(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreSku {
     type Vtable = IStoreSku_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(964587349, 17472, 20227, [134, 60, 145, 243, 254, 200, 61, 121]);
@@ -893,7 +893,7 @@ pub struct IStoreSku_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreSubscriptionInfo(::windows::runtime::IInspectable);
+pub struct IStoreSubscriptionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreSubscriptionInfo {
     type Vtable = IStoreSubscriptionInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1099528042, 1369, 17324, [169, 198, 58, 176, 1, 31, 184, 235]);
@@ -915,7 +915,7 @@ pub struct IStoreSubscriptionInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreUninstallStorePackageResult(::windows::runtime::IInspectable);
+pub struct IStoreUninstallStorePackageResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreUninstallStorePackageResult {
     type Vtable = IStoreUninstallStorePackageResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2680830461, 4719, 19674, [184, 1, 19, 70, 184, 208, 162, 96]);
@@ -934,7 +934,7 @@ pub struct IStoreUninstallStorePackageResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoreVideo(::windows::runtime::IInspectable);
+pub struct IStoreVideo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreVideo {
     type Vtable = IStoreVideo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4067209604, 28510, 19906, [136, 108, 60, 99, 8, 60, 47, 148]);
@@ -958,8 +958,8 @@ pub struct IStoreVideo_abi(
 );
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreAcquireLicenseResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreAcquireLicenseResult(pub ::windows::runtime::IInspectable);
 impl StoreAcquireLicenseResult {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn StorePackageLicense(&self) -> ::windows::runtime::Result<StorePackageLicense> {
@@ -988,12 +988,52 @@ unsafe impl ::windows::runtime::Interface for StoreAcquireLicenseResult {
 impl ::windows::runtime::RuntimeName for StoreAcquireLicenseResult {
     const NAME: &'static str = "Windows.Services.Store.StoreAcquireLicenseResult";
 }
+impl ::std::convert::From<StoreAcquireLicenseResult> for ::windows::runtime::IUnknown {
+    fn from(value: StoreAcquireLicenseResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreAcquireLicenseResult> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreAcquireLicenseResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreAcquireLicenseResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreAcquireLicenseResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreAcquireLicenseResult> for ::windows::runtime::IInspectable {
+    fn from(value: StoreAcquireLicenseResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreAcquireLicenseResult> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreAcquireLicenseResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreAcquireLicenseResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreAcquireLicenseResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreAcquireLicenseResult {}
 unsafe impl ::std::marker::Sync for StoreAcquireLicenseResult {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreAppLicense(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreAppLicense(pub ::windows::runtime::IInspectable);
 impl StoreAppLicense {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn SkuStoreId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1089,12 +1129,52 @@ unsafe impl ::windows::runtime::Interface for StoreAppLicense {
 impl ::windows::runtime::RuntimeName for StoreAppLicense {
     const NAME: &'static str = "Windows.Services.Store.StoreAppLicense";
 }
+impl ::std::convert::From<StoreAppLicense> for ::windows::runtime::IUnknown {
+    fn from(value: StoreAppLicense) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreAppLicense> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreAppLicense) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreAppLicense {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreAppLicense {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreAppLicense> for ::windows::runtime::IInspectable {
+    fn from(value: StoreAppLicense) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreAppLicense> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreAppLicense) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreAppLicense {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreAppLicense {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreAppLicense {}
 unsafe impl ::std::marker::Sync for StoreAppLicense {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreAvailability(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreAvailability(pub ::windows::runtime::IInspectable);
 impl StoreAvailability {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn StoreId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1158,12 +1238,52 @@ unsafe impl ::windows::runtime::Interface for StoreAvailability {
 impl ::windows::runtime::RuntimeName for StoreAvailability {
     const NAME: &'static str = "Windows.Services.Store.StoreAvailability";
 }
+impl ::std::convert::From<StoreAvailability> for ::windows::runtime::IUnknown {
+    fn from(value: StoreAvailability) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreAvailability> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreAvailability) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreAvailability {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreAvailability {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreAvailability> for ::windows::runtime::IInspectable {
+    fn from(value: StoreAvailability) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreAvailability> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreAvailability) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreAvailability {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreAvailability {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreAvailability {}
 unsafe impl ::std::marker::Sync for StoreAvailability {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreCanAcquireLicenseResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreCanAcquireLicenseResult(pub ::windows::runtime::IInspectable);
 impl StoreCanAcquireLicenseResult {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
@@ -1200,6 +1320,46 @@ unsafe impl ::windows::runtime::Interface for StoreCanAcquireLicenseResult {
 impl ::windows::runtime::RuntimeName for StoreCanAcquireLicenseResult {
     const NAME: &'static str = "Windows.Services.Store.StoreCanAcquireLicenseResult";
 }
+impl ::std::convert::From<StoreCanAcquireLicenseResult> for ::windows::runtime::IUnknown {
+    fn from(value: StoreCanAcquireLicenseResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreCanAcquireLicenseResult> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreCanAcquireLicenseResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreCanAcquireLicenseResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreCanAcquireLicenseResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreCanAcquireLicenseResult> for ::windows::runtime::IInspectable {
+    fn from(value: StoreCanAcquireLicenseResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreCanAcquireLicenseResult> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreCanAcquireLicenseResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreCanAcquireLicenseResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreCanAcquireLicenseResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreCanAcquireLicenseResult {}
 unsafe impl ::std::marker::Sync for StoreCanAcquireLicenseResult {}
 #[doc = "*Required features: `Services_Store`*"]
@@ -1229,8 +1389,8 @@ impl ::windows::runtime::DefaultType for StoreCanLicenseStatus {
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreCollectionData(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreCollectionData(pub ::windows::runtime::IInspectable);
 impl StoreCollectionData {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn IsTrial(&self) -> ::windows::runtime::Result<bool> {
@@ -1311,12 +1471,52 @@ unsafe impl ::windows::runtime::Interface for StoreCollectionData {
 impl ::windows::runtime::RuntimeName for StoreCollectionData {
     const NAME: &'static str = "Windows.Services.Store.StoreCollectionData";
 }
+impl ::std::convert::From<StoreCollectionData> for ::windows::runtime::IUnknown {
+    fn from(value: StoreCollectionData) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreCollectionData> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreCollectionData) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreCollectionData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreCollectionData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreCollectionData> for ::windows::runtime::IInspectable {
+    fn from(value: StoreCollectionData) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreCollectionData> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreCollectionData) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreCollectionData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreCollectionData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreCollectionData {}
 unsafe impl ::std::marker::Sync for StoreCollectionData {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreConsumableResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreConsumableResult(pub ::windows::runtime::IInspectable);
 impl StoreConsumableResult {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<StoreConsumableStatus> {
@@ -1361,6 +1561,46 @@ unsafe impl ::windows::runtime::Interface for StoreConsumableResult {
 impl ::windows::runtime::RuntimeName for StoreConsumableResult {
     const NAME: &'static str = "Windows.Services.Store.StoreConsumableResult";
 }
+impl ::std::convert::From<StoreConsumableResult> for ::windows::runtime::IUnknown {
+    fn from(value: StoreConsumableResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreConsumableResult> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreConsumableResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreConsumableResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreConsumableResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreConsumableResult> for ::windows::runtime::IInspectable {
+    fn from(value: StoreConsumableResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreConsumableResult> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreConsumableResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreConsumableResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreConsumableResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreConsumableResult {}
 unsafe impl ::std::marker::Sync for StoreConsumableResult {}
 #[doc = "*Required features: `Services_Store`*"]
@@ -1389,8 +1629,8 @@ impl ::windows::runtime::DefaultType for StoreConsumableStatus {
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreContext(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreContext(pub ::windows::runtime::IInspectable);
 impl StoreContext {
     #[cfg(feature = "System")]
     #[doc = "*Required features: `Services_Store`, `System`*"]
@@ -1765,6 +2005,46 @@ unsafe impl ::windows::runtime::Interface for StoreContext {
 impl ::windows::runtime::RuntimeName for StoreContext {
     const NAME: &'static str = "Windows.Services.Store.StoreContext";
 }
+impl ::std::convert::From<StoreContext> for ::windows::runtime::IUnknown {
+    fn from(value: StoreContext) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreContext> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreContext) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreContext> for ::windows::runtime::IInspectable {
+    fn from(value: StoreContext) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreContext> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreContext) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreContext {}
 unsafe impl ::std::marker::Sync for StoreContext {}
 #[repr(C)]
@@ -1798,8 +2078,8 @@ impl ::windows::runtime::DefaultType for StoreDurationUnit {
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreImage(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreImage(pub ::windows::runtime::IInspectable);
 impl StoreImage {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Services_Store`, `Foundation`*"]
@@ -1853,12 +2133,52 @@ unsafe impl ::windows::runtime::Interface for StoreImage {
 impl ::windows::runtime::RuntimeName for StoreImage {
     const NAME: &'static str = "Windows.Services.Store.StoreImage";
 }
+impl ::std::convert::From<StoreImage> for ::windows::runtime::IUnknown {
+    fn from(value: StoreImage) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreImage> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreImage) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreImage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreImage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreImage> for ::windows::runtime::IInspectable {
+    fn from(value: StoreImage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreImage> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreImage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreImage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreImage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreImage {}
 unsafe impl ::std::marker::Sync for StoreImage {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreLicense(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreLicense(pub ::windows::runtime::IInspectable);
 impl StoreLicense {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn SkuStoreId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1912,12 +2232,52 @@ unsafe impl ::windows::runtime::Interface for StoreLicense {
 impl ::windows::runtime::RuntimeName for StoreLicense {
     const NAME: &'static str = "Windows.Services.Store.StoreLicense";
 }
+impl ::std::convert::From<StoreLicense> for ::windows::runtime::IUnknown {
+    fn from(value: StoreLicense) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreLicense> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreLicense) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreLicense {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreLicense {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreLicense> for ::windows::runtime::IInspectable {
+    fn from(value: StoreLicense) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreLicense> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreLicense) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreLicense {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreLicense {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreLicense {}
 unsafe impl ::std::marker::Sync for StoreLicense {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StorePackageInstallOptions(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StorePackageInstallOptions(pub ::windows::runtime::IInspectable);
 impl StorePackageInstallOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1950,12 +2310,52 @@ unsafe impl ::windows::runtime::Interface for StorePackageInstallOptions {
 impl ::windows::runtime::RuntimeName for StorePackageInstallOptions {
     const NAME: &'static str = "Windows.Services.Store.StorePackageInstallOptions";
 }
+impl ::std::convert::From<StorePackageInstallOptions> for ::windows::runtime::IUnknown {
+    fn from(value: StorePackageInstallOptions) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StorePackageInstallOptions> for ::windows::runtime::IUnknown {
+    fn from(value: &StorePackageInstallOptions) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorePackageInstallOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StorePackageInstallOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StorePackageInstallOptions> for ::windows::runtime::IInspectable {
+    fn from(value: StorePackageInstallOptions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StorePackageInstallOptions> for ::windows::runtime::IInspectable {
+    fn from(value: &StorePackageInstallOptions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorePackageInstallOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorePackageInstallOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StorePackageInstallOptions {}
 unsafe impl ::std::marker::Sync for StorePackageInstallOptions {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StorePackageLicense(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StorePackageLicense(pub ::windows::runtime::IInspectable);
 impl StorePackageLicense {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Services_Store`, `Foundation`*"]
@@ -2011,6 +2411,46 @@ unsafe impl ::windows::runtime::Interface for StorePackageLicense {
 impl ::windows::runtime::RuntimeName for StorePackageLicense {
     const NAME: &'static str = "Windows.Services.Store.StorePackageLicense";
 }
+impl ::std::convert::From<StorePackageLicense> for ::windows::runtime::IUnknown {
+    fn from(value: StorePackageLicense) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StorePackageLicense> for ::windows::runtime::IUnknown {
+    fn from(value: &StorePackageLicense) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorePackageLicense {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StorePackageLicense {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StorePackageLicense> for ::windows::runtime::IInspectable {
+    fn from(value: StorePackageLicense) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StorePackageLicense> for ::windows::runtime::IInspectable {
+    fn from(value: &StorePackageLicense) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorePackageLicense {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorePackageLicense {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<StorePackageLicense> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -2041,8 +2481,8 @@ unsafe impl ::std::marker::Send for StorePackageLicense {}
 unsafe impl ::std::marker::Sync for StorePackageLicense {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StorePackageUpdate(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StorePackageUpdate(pub ::windows::runtime::IInspectable);
 impl StorePackageUpdate {
     #[cfg(feature = "ApplicationModel")]
     #[doc = "*Required features: `Services_Store`, `ApplicationModel`*"]
@@ -2072,12 +2512,52 @@ unsafe impl ::windows::runtime::Interface for StorePackageUpdate {
 impl ::windows::runtime::RuntimeName for StorePackageUpdate {
     const NAME: &'static str = "Windows.Services.Store.StorePackageUpdate";
 }
+impl ::std::convert::From<StorePackageUpdate> for ::windows::runtime::IUnknown {
+    fn from(value: StorePackageUpdate) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StorePackageUpdate> for ::windows::runtime::IUnknown {
+    fn from(value: &StorePackageUpdate) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorePackageUpdate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StorePackageUpdate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StorePackageUpdate> for ::windows::runtime::IInspectable {
+    fn from(value: StorePackageUpdate) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StorePackageUpdate> for ::windows::runtime::IInspectable {
+    fn from(value: &StorePackageUpdate) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorePackageUpdate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorePackageUpdate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StorePackageUpdate {}
 unsafe impl ::std::marker::Sync for StorePackageUpdate {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StorePackageUpdateResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StorePackageUpdateResult(pub ::windows::runtime::IInspectable);
 impl StorePackageUpdateResult {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn OverallState(&self) -> ::windows::runtime::Result<StorePackageUpdateState> {
@@ -2115,6 +2595,46 @@ unsafe impl ::windows::runtime::Interface for StorePackageUpdateResult {
 }
 impl ::windows::runtime::RuntimeName for StorePackageUpdateResult {
     const NAME: &'static str = "Windows.Services.Store.StorePackageUpdateResult";
+}
+impl ::std::convert::From<StorePackageUpdateResult> for ::windows::runtime::IUnknown {
+    fn from(value: StorePackageUpdateResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StorePackageUpdateResult> for ::windows::runtime::IUnknown {
+    fn from(value: &StorePackageUpdateResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorePackageUpdateResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StorePackageUpdateResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StorePackageUpdateResult> for ::windows::runtime::IInspectable {
+    fn from(value: StorePackageUpdateResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StorePackageUpdateResult> for ::windows::runtime::IInspectable {
+    fn from(value: &StorePackageUpdateResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorePackageUpdateResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorePackageUpdateResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for StorePackageUpdateResult {}
 unsafe impl ::std::marker::Sync for StorePackageUpdateResult {}
@@ -2193,8 +2713,8 @@ impl ::windows::runtime::DefaultType for StorePackageUpdateStatus {
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StorePrice(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StorePrice(pub ::windows::runtime::IInspectable);
 impl StorePrice {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn FormattedBasePrice(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -2256,12 +2776,52 @@ unsafe impl ::windows::runtime::Interface for StorePrice {
 impl ::windows::runtime::RuntimeName for StorePrice {
     const NAME: &'static str = "Windows.Services.Store.StorePrice";
 }
+impl ::std::convert::From<StorePrice> for ::windows::runtime::IUnknown {
+    fn from(value: StorePrice) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StorePrice> for ::windows::runtime::IUnknown {
+    fn from(value: &StorePrice) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorePrice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StorePrice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StorePrice> for ::windows::runtime::IInspectable {
+    fn from(value: StorePrice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StorePrice> for ::windows::runtime::IInspectable {
+    fn from(value: &StorePrice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorePrice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorePrice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StorePrice {}
 unsafe impl ::std::marker::Sync for StorePrice {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreProduct(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreProduct(pub ::windows::runtime::IInspectable);
 impl StoreProduct {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn StoreId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -2426,12 +2986,52 @@ unsafe impl ::windows::runtime::Interface for StoreProduct {
 impl ::windows::runtime::RuntimeName for StoreProduct {
     const NAME: &'static str = "Windows.Services.Store.StoreProduct";
 }
+impl ::std::convert::From<StoreProduct> for ::windows::runtime::IUnknown {
+    fn from(value: StoreProduct) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreProduct> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreProduct) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreProduct {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreProduct {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreProduct> for ::windows::runtime::IInspectable {
+    fn from(value: StoreProduct) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreProduct> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreProduct) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreProduct {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreProduct {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreProduct {}
 unsafe impl ::std::marker::Sync for StoreProduct {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreProductOptions(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreProductOptions(pub ::windows::runtime::IInspectable);
 impl StoreProductOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2460,12 +3060,52 @@ unsafe impl ::windows::runtime::Interface for StoreProductOptions {
 impl ::windows::runtime::RuntimeName for StoreProductOptions {
     const NAME: &'static str = "Windows.Services.Store.StoreProductOptions";
 }
+impl ::std::convert::From<StoreProductOptions> for ::windows::runtime::IUnknown {
+    fn from(value: StoreProductOptions) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreProductOptions> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreProductOptions) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreProductOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreProductOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreProductOptions> for ::windows::runtime::IInspectable {
+    fn from(value: StoreProductOptions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreProductOptions> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreProductOptions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreProductOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreProductOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreProductOptions {}
 unsafe impl ::std::marker::Sync for StoreProductOptions {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreProductPagedQueryResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreProductPagedQueryResult(pub ::windows::runtime::IInspectable);
 impl StoreProductPagedQueryResult {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Services_Store`, `Foundation_Collections`*"]
@@ -2512,12 +3152,52 @@ unsafe impl ::windows::runtime::Interface for StoreProductPagedQueryResult {
 impl ::windows::runtime::RuntimeName for StoreProductPagedQueryResult {
     const NAME: &'static str = "Windows.Services.Store.StoreProductPagedQueryResult";
 }
+impl ::std::convert::From<StoreProductPagedQueryResult> for ::windows::runtime::IUnknown {
+    fn from(value: StoreProductPagedQueryResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreProductPagedQueryResult> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreProductPagedQueryResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreProductPagedQueryResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreProductPagedQueryResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreProductPagedQueryResult> for ::windows::runtime::IInspectable {
+    fn from(value: StoreProductPagedQueryResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreProductPagedQueryResult> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreProductPagedQueryResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreProductPagedQueryResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreProductPagedQueryResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreProductPagedQueryResult {}
 unsafe impl ::std::marker::Sync for StoreProductPagedQueryResult {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreProductQueryResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreProductQueryResult(pub ::windows::runtime::IInspectable);
 impl StoreProductQueryResult {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Services_Store`, `Foundation_Collections`*"]
@@ -2547,12 +3227,52 @@ unsafe impl ::windows::runtime::Interface for StoreProductQueryResult {
 impl ::windows::runtime::RuntimeName for StoreProductQueryResult {
     const NAME: &'static str = "Windows.Services.Store.StoreProductQueryResult";
 }
+impl ::std::convert::From<StoreProductQueryResult> for ::windows::runtime::IUnknown {
+    fn from(value: StoreProductQueryResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreProductQueryResult> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreProductQueryResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreProductQueryResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreProductQueryResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreProductQueryResult> for ::windows::runtime::IInspectable {
+    fn from(value: StoreProductQueryResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreProductQueryResult> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreProductQueryResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreProductQueryResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreProductQueryResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreProductQueryResult {}
 unsafe impl ::std::marker::Sync for StoreProductQueryResult {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreProductResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreProductResult(pub ::windows::runtime::IInspectable);
 impl StoreProductResult {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn Product(&self) -> ::windows::runtime::Result<StoreProduct> {
@@ -2581,12 +3301,52 @@ unsafe impl ::windows::runtime::Interface for StoreProductResult {
 impl ::windows::runtime::RuntimeName for StoreProductResult {
     const NAME: &'static str = "Windows.Services.Store.StoreProductResult";
 }
+impl ::std::convert::From<StoreProductResult> for ::windows::runtime::IUnknown {
+    fn from(value: StoreProductResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreProductResult> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreProductResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreProductResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreProductResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreProductResult> for ::windows::runtime::IInspectable {
+    fn from(value: StoreProductResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreProductResult> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreProductResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreProductResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreProductResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreProductResult {}
 unsafe impl ::std::marker::Sync for StoreProductResult {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StorePurchaseProperties(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StorePurchaseProperties(pub ::windows::runtime::IInspectable);
 impl StorePurchaseProperties {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2643,12 +3403,52 @@ unsafe impl ::windows::runtime::Interface for StorePurchaseProperties {
 impl ::windows::runtime::RuntimeName for StorePurchaseProperties {
     const NAME: &'static str = "Windows.Services.Store.StorePurchaseProperties";
 }
+impl ::std::convert::From<StorePurchaseProperties> for ::windows::runtime::IUnknown {
+    fn from(value: StorePurchaseProperties) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StorePurchaseProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &StorePurchaseProperties) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorePurchaseProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StorePurchaseProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StorePurchaseProperties> for ::windows::runtime::IInspectable {
+    fn from(value: StorePurchaseProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StorePurchaseProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &StorePurchaseProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorePurchaseProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorePurchaseProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StorePurchaseProperties {}
 unsafe impl ::std::marker::Sync for StorePurchaseProperties {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StorePurchaseResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StorePurchaseResult(pub ::windows::runtime::IInspectable);
 impl StorePurchaseResult {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<StorePurchaseStatus> {
@@ -2676,6 +3476,46 @@ unsafe impl ::windows::runtime::Interface for StorePurchaseResult {
 }
 impl ::windows::runtime::RuntimeName for StorePurchaseResult {
     const NAME: &'static str = "Windows.Services.Store.StorePurchaseResult";
+}
+impl ::std::convert::From<StorePurchaseResult> for ::windows::runtime::IUnknown {
+    fn from(value: StorePurchaseResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StorePurchaseResult> for ::windows::runtime::IUnknown {
+    fn from(value: &StorePurchaseResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorePurchaseResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StorePurchaseResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StorePurchaseResult> for ::windows::runtime::IInspectable {
+    fn from(value: StorePurchaseResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StorePurchaseResult> for ::windows::runtime::IInspectable {
+    fn from(value: &StorePurchaseResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorePurchaseResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorePurchaseResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for StorePurchaseResult {}
 unsafe impl ::std::marker::Sync for StorePurchaseResult {}
@@ -2706,8 +3546,8 @@ impl ::windows::runtime::DefaultType for StorePurchaseStatus {
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreQueueItem(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreQueueItem(pub ::windows::runtime::IInspectable);
 impl StoreQueueItem {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn ProductId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -2809,12 +3649,52 @@ unsafe impl ::windows::runtime::Interface for StoreQueueItem {
 impl ::windows::runtime::RuntimeName for StoreQueueItem {
     const NAME: &'static str = "Windows.Services.Store.StoreQueueItem";
 }
+impl ::std::convert::From<StoreQueueItem> for ::windows::runtime::IUnknown {
+    fn from(value: StoreQueueItem) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreQueueItem> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreQueueItem) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreQueueItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreQueueItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreQueueItem> for ::windows::runtime::IInspectable {
+    fn from(value: StoreQueueItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreQueueItem> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreQueueItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreQueueItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreQueueItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreQueueItem {}
 unsafe impl ::std::marker::Sync for StoreQueueItem {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreQueueItemCompletedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreQueueItemCompletedEventArgs(pub ::windows::runtime::IInspectable);
 impl StoreQueueItemCompletedEventArgs {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<StoreQueueItemStatus> {
@@ -2834,6 +3714,46 @@ unsafe impl ::windows::runtime::Interface for StoreQueueItemCompletedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for StoreQueueItemCompletedEventArgs {
     const NAME: &'static str = "Windows.Services.Store.StoreQueueItemCompletedEventArgs";
+}
+impl ::std::convert::From<StoreQueueItemCompletedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: StoreQueueItemCompletedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreQueueItemCompletedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreQueueItemCompletedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreQueueItemCompletedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreQueueItemCompletedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreQueueItemCompletedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: StoreQueueItemCompletedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreQueueItemCompletedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreQueueItemCompletedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreQueueItemCompletedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreQueueItemCompletedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for StoreQueueItemCompletedEventArgs {}
 unsafe impl ::std::marker::Sync for StoreQueueItemCompletedEventArgs {}
@@ -2922,8 +3842,8 @@ impl ::windows::runtime::DefaultType for StoreQueueItemState {
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreQueueItemStatus(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreQueueItemStatus(pub ::windows::runtime::IInspectable);
 impl StoreQueueItemStatus {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn PackageInstallState(&self) -> ::windows::runtime::Result<StoreQueueItemState> {
@@ -2968,12 +3888,52 @@ unsafe impl ::windows::runtime::Interface for StoreQueueItemStatus {
 impl ::windows::runtime::RuntimeName for StoreQueueItemStatus {
     const NAME: &'static str = "Windows.Services.Store.StoreQueueItemStatus";
 }
+impl ::std::convert::From<StoreQueueItemStatus> for ::windows::runtime::IUnknown {
+    fn from(value: StoreQueueItemStatus) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreQueueItemStatus> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreQueueItemStatus) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreQueueItemStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreQueueItemStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreQueueItemStatus> for ::windows::runtime::IInspectable {
+    fn from(value: StoreQueueItemStatus) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreQueueItemStatus> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreQueueItemStatus) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreQueueItemStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreQueueItemStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreQueueItemStatus {}
 unsafe impl ::std::marker::Sync for StoreQueueItemStatus {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreRateAndReviewResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreRateAndReviewResult(pub ::windows::runtime::IInspectable);
 impl StoreRateAndReviewResult {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
@@ -3017,6 +3977,46 @@ unsafe impl ::windows::runtime::Interface for StoreRateAndReviewResult {
 }
 impl ::windows::runtime::RuntimeName for StoreRateAndReviewResult {
     const NAME: &'static str = "Windows.Services.Store.StoreRateAndReviewResult";
+}
+impl ::std::convert::From<StoreRateAndReviewResult> for ::windows::runtime::IUnknown {
+    fn from(value: StoreRateAndReviewResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreRateAndReviewResult> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreRateAndReviewResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreRateAndReviewResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreRateAndReviewResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreRateAndReviewResult> for ::windows::runtime::IInspectable {
+    fn from(value: StoreRateAndReviewResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreRateAndReviewResult> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreRateAndReviewResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreRateAndReviewResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreRateAndReviewResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for StoreRateAndReviewResult {}
 unsafe impl ::std::marker::Sync for StoreRateAndReviewResult {}
@@ -3065,8 +4065,8 @@ impl ::windows::runtime::RuntimeName for StoreRequestHelper {
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreSendRequestResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreSendRequestResult(pub ::windows::runtime::IInspectable);
 impl StoreSendRequestResult {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn Response(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -3104,12 +4104,52 @@ unsafe impl ::windows::runtime::Interface for StoreSendRequestResult {
 impl ::windows::runtime::RuntimeName for StoreSendRequestResult {
     const NAME: &'static str = "Windows.Services.Store.StoreSendRequestResult";
 }
+impl ::std::convert::From<StoreSendRequestResult> for ::windows::runtime::IUnknown {
+    fn from(value: StoreSendRequestResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreSendRequestResult> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreSendRequestResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreSendRequestResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreSendRequestResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreSendRequestResult> for ::windows::runtime::IInspectable {
+    fn from(value: StoreSendRequestResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreSendRequestResult> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreSendRequestResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreSendRequestResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreSendRequestResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreSendRequestResult {}
 unsafe impl ::std::marker::Sync for StoreSendRequestResult {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreSku(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreSku(pub ::windows::runtime::IInspectable);
 impl StoreSku {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn StoreId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -3281,12 +4321,52 @@ unsafe impl ::windows::runtime::Interface for StoreSku {
 impl ::windows::runtime::RuntimeName for StoreSku {
     const NAME: &'static str = "Windows.Services.Store.StoreSku";
 }
+impl ::std::convert::From<StoreSku> for ::windows::runtime::IUnknown {
+    fn from(value: StoreSku) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreSku> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreSku) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreSku {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreSku {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreSku> for ::windows::runtime::IInspectable {
+    fn from(value: StoreSku) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreSku> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreSku) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreSku {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreSku {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreSku {}
 unsafe impl ::std::marker::Sync for StoreSku {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreSubscriptionInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreSubscriptionInfo(pub ::windows::runtime::IInspectable);
 impl StoreSubscriptionInfo {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn BillingPeriod(&self) -> ::windows::runtime::Result<u32> {
@@ -3339,12 +4419,52 @@ unsafe impl ::windows::runtime::Interface for StoreSubscriptionInfo {
 impl ::windows::runtime::RuntimeName for StoreSubscriptionInfo {
     const NAME: &'static str = "Windows.Services.Store.StoreSubscriptionInfo";
 }
+impl ::std::convert::From<StoreSubscriptionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: StoreSubscriptionInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreSubscriptionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreSubscriptionInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreSubscriptionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreSubscriptionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreSubscriptionInfo> for ::windows::runtime::IInspectable {
+    fn from(value: StoreSubscriptionInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreSubscriptionInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreSubscriptionInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreSubscriptionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreSubscriptionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StoreSubscriptionInfo {}
 unsafe impl ::std::marker::Sync for StoreSubscriptionInfo {}
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreUninstallStorePackageResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreUninstallStorePackageResult(pub ::windows::runtime::IInspectable);
 impl StoreUninstallStorePackageResult {
     #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
@@ -3372,6 +4492,46 @@ unsafe impl ::windows::runtime::Interface for StoreUninstallStorePackageResult {
 }
 impl ::windows::runtime::RuntimeName for StoreUninstallStorePackageResult {
     const NAME: &'static str = "Windows.Services.Store.StoreUninstallStorePackageResult";
+}
+impl ::std::convert::From<StoreUninstallStorePackageResult> for ::windows::runtime::IUnknown {
+    fn from(value: StoreUninstallStorePackageResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreUninstallStorePackageResult> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreUninstallStorePackageResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreUninstallStorePackageResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreUninstallStorePackageResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreUninstallStorePackageResult> for ::windows::runtime::IInspectable {
+    fn from(value: StoreUninstallStorePackageResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreUninstallStorePackageResult> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreUninstallStorePackageResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreUninstallStorePackageResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreUninstallStorePackageResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for StoreUninstallStorePackageResult {}
 unsafe impl ::std::marker::Sync for StoreUninstallStorePackageResult {}
@@ -3402,8 +4562,8 @@ impl ::windows::runtime::DefaultType for StoreUninstallStorePackageStatus {
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StoreVideo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StoreVideo(pub ::windows::runtime::IInspectable);
 impl StoreVideo {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Services_Store`, `Foundation`*"]
@@ -3464,6 +4624,46 @@ unsafe impl ::windows::runtime::Interface for StoreVideo {
 }
 impl ::windows::runtime::RuntimeName for StoreVideo {
     const NAME: &'static str = "Windows.Services.Store.StoreVideo";
+}
+impl ::std::convert::From<StoreVideo> for ::windows::runtime::IUnknown {
+    fn from(value: StoreVideo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StoreVideo> for ::windows::runtime::IUnknown {
+    fn from(value: &StoreVideo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoreVideo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoreVideo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StoreVideo> for ::windows::runtime::IInspectable {
+    fn from(value: StoreVideo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StoreVideo> for ::windows::runtime::IInspectable {
+    fn from(value: &StoreVideo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StoreVideo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StoreVideo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for StoreVideo {}
 unsafe impl ::std::marker::Sync for StoreVideo {}

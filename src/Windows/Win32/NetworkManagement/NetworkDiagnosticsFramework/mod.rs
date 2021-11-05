@@ -141,7 +141,6 @@ unsafe impl ::windows::runtime::Abi for HELPER_ATTRIBUTE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
 pub union HELPER_ATTRIBUTE_0 {
     pub Boolean: super::super::Foundation::BOOL,
     pub Char: u8,
@@ -284,8 +283,8 @@ unsafe impl ::windows::runtime::Abi for HypothesisResult {
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetDiagExtensibleHelper(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetDiagExtensibleHelper(pub ::windows::runtime::IUnknown);
 impl INetDiagExtensibleHelper {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
@@ -296,6 +295,26 @@ impl INetDiagExtensibleHelper {
 unsafe impl ::windows::runtime::Interface for INetDiagExtensibleHelper {
     type Vtable = INetDiagExtensibleHelper_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3232978760, 60405, 4568, [187, 233, 80, 80, 84, 80, 48, 48]);
+}
+impl ::std::convert::From<INetDiagExtensibleHelper> for ::windows::runtime::IUnknown {
+    fn from(value: INetDiagExtensibleHelper) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetDiagExtensibleHelper> for ::windows::runtime::IUnknown {
+    fn from(value: &INetDiagExtensibleHelper) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetDiagExtensibleHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetDiagExtensibleHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -308,8 +327,8 @@ pub struct INetDiagExtensibleHelper_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetDiagHelper(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetDiagHelper(pub ::windows::runtime::IUnknown);
 impl INetDiagHelper {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
@@ -405,6 +424,26 @@ unsafe impl ::windows::runtime::Interface for INetDiagHelper {
     type Vtable = INetDiagHelper_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3232978758, 60405, 4568, [187, 233, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<INetDiagHelper> for ::windows::runtime::IUnknown {
+    fn from(value: INetDiagHelper) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetDiagHelper> for ::windows::runtime::IUnknown {
+    fn from(value: &INetDiagHelper) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetDiagHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetDiagHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetDiagHelper_abi(
@@ -446,8 +485,8 @@ pub struct INetDiagHelper_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetDiagHelperEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetDiagHelperEx(pub ::windows::runtime::IUnknown);
 impl INetDiagHelperEx {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
@@ -467,6 +506,26 @@ unsafe impl ::windows::runtime::Interface for INetDiagHelperEx {
     type Vtable = INetDiagHelperEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2536352589, 58595, 20422, [174, 84, 95, 101, 204, 222, 74, 21]);
 }
+impl ::std::convert::From<INetDiagHelperEx> for ::windows::runtime::IUnknown {
+    fn from(value: INetDiagHelperEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetDiagHelperEx> for ::windows::runtime::IUnknown {
+    fn from(value: &INetDiagHelperEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetDiagHelperEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetDiagHelperEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetDiagHelperEx_abi(
@@ -480,8 +539,8 @@ pub struct INetDiagHelperEx_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetDiagHelperInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetDiagHelperInfo(pub ::windows::runtime::IUnknown);
 impl INetDiagHelperInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
@@ -492,6 +551,26 @@ impl INetDiagHelperInfo {
 unsafe impl ::windows::runtime::Interface for INetDiagHelperInfo {
     type Vtable = INetDiagHelperInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3232978759, 60405, 4568, [187, 233, 80, 80, 84, 80, 48, 48]);
+}
+impl ::std::convert::From<INetDiagHelperInfo> for ::windows::runtime::IUnknown {
+    fn from(value: INetDiagHelperInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetDiagHelperInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &INetDiagHelperInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetDiagHelperInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetDiagHelperInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -504,8 +583,8 @@ pub struct INetDiagHelperInfo_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetDiagHelperUtilFactory(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetDiagHelperUtilFactory(pub ::windows::runtime::IUnknown);
 impl INetDiagHelperUtilFactory {
     #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`*"]
     pub unsafe fn CreateUtilityInstance<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
@@ -516,6 +595,26 @@ impl INetDiagHelperUtilFactory {
 unsafe impl ::windows::runtime::Interface for INetDiagHelperUtilFactory {
     type Vtable = INetDiagHelperUtilFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(273028091, 48215, 16760, [149, 186, 136, 128, 150, 152, 53, 74]);
+}
+impl ::std::convert::From<INetDiagHelperUtilFactory> for ::windows::runtime::IUnknown {
+    fn from(value: INetDiagHelperUtilFactory) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetDiagHelperUtilFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &INetDiagHelperUtilFactory) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetDiagHelperUtilFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetDiagHelperUtilFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -627,8 +726,8 @@ pub unsafe fn NdfCreateConnectivityIncident(handle: *mut *mut ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfCreateDNSIncident<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, querytype: u16, handle: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -642,8 +741,8 @@ pub unsafe fn NdfCreateDNSIncident<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn NdfCreateGroupingIncident<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     cloudname: Param0,
@@ -665,8 +764,8 @@ pub unsafe fn NdfCreateGroupingIncident<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfCreateIncident<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(helperclassname: Param0, celt: u32, attributes: *const HELPER_ATTRIBUTE, handle: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -694,8 +793,8 @@ pub unsafe fn NdfCreateNetConnectionIncident<'a, Param1: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfCreatePnrpIncident<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(cloudname: Param0, peername: Param1, diagnosepublish: Param2, appid: Param3, handle: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -709,8 +808,8 @@ pub unsafe fn NdfCreatePnrpIncident<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfCreateSharingIncident<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncpath: Param0, handle: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -724,8 +823,8 @@ pub unsafe fn NdfCreateSharingIncident<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfCreateWebIncident<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(url: Param0, handle: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -739,8 +838,8 @@ pub unsafe fn NdfCreateWebIncident<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfCreateWebIncidentEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(url: Param0, usewinhttp: Param1, modulename: Param2, handle: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -754,8 +853,8 @@ pub unsafe fn NdfCreateWebIncidentEx<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`, `Win32_Networking_WinSock`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NdfCreateWinSockIncident<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Networking::WinSock::SOCKET>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(sock: Param0, host: Param1, port: u16, appid: Param3, userid: *const super::super::Security::SID, handle: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -769,8 +868,8 @@ pub unsafe fn NdfCreateWinSockIncident<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfDiagnoseIncident(handle: *const ::std::ffi::c_void, rootcausecount: *mut u32, rootcauses: *mut *mut RootCauseInfo, dwwait: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -784,8 +883,8 @@ pub unsafe fn NdfDiagnoseIncident(handle: *const ::std::ffi::c_void, rootcauseco
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfExecuteDiagnosis<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(handle: *const ::std::ffi::c_void, hwnd: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -799,8 +898,8 @@ pub unsafe fn NdfExecuteDiagnosis<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfGetTraceFile(handle: *const ::std::ffi::c_void) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -815,8 +914,8 @@ pub unsafe fn NdfGetTraceFile(handle: *const ::std::ffi::c_void) -> ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfRepairIncident(handle: *const ::std::ffi::c_void, repairex: *const RepairInfoEx, dwwait: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1148,7 +1247,6 @@ unsafe impl ::windows::runtime::Abi for UiInfo {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
 pub union UiInfo_0 {
     pub pwzNull: super::super::Foundation::PWSTR,
     pub ShellInfo: ShellCommandInfo,

@@ -3684,8 +3684,8 @@ pub unsafe fn DirectSoundCaptureCreate8<'a, Param2: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKA>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3699,8 +3699,8 @@ pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: ::std::option::Optio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundCaptureEnumerateW(pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKW>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3742,8 +3742,8 @@ pub unsafe fn DirectSoundCreate8<'a, Param2: ::windows::runtime::IntoParam<'a, :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKA>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3757,8 +3757,8 @@ pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: ::std::option::Option<LPDSE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKW>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3772,8 +3772,8 @@ pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: ::std::option::Option<LPDSE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`, `Win32_Media_Multimedia`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
 #[inline]
 pub unsafe fn DirectSoundFullDuplexCreate<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param9: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
     pcguidcapturedevice: *const ::windows::runtime::GUID,
@@ -3827,6 +3827,7 @@ impl ::std::convert::From<i32> for EAudioConstriction {
 unsafe impl ::windows::runtime::Abi for EAudioConstriction {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub type FNAPONOTIFICATIONCALLBACK = unsafe extern "system" fn(pproperties: *mut APO_REG_PROPERTIES, pvrefdata: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const F_INSTRUMENT_DRUMS: u32 = 2147483648u32;
@@ -3894,12 +3895,32 @@ pub unsafe fn GetDeviceID(pguidsrc: *const ::windows::runtime::GUID) -> ::window
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IApoAcousticEchoCancellation(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IApoAcousticEchoCancellation(pub ::windows::runtime::IUnknown);
 impl IApoAcousticEchoCancellation {}
 unsafe impl ::windows::runtime::Interface for IApoAcousticEchoCancellation {
     type Vtable = IApoAcousticEchoCancellation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(624449369, 12854, 16641, [169, 67, 37, 105, 61, 251, 93, 45]);
+}
+impl ::std::convert::From<IApoAcousticEchoCancellation> for ::windows::runtime::IUnknown {
+    fn from(value: IApoAcousticEchoCancellation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IApoAcousticEchoCancellation> for ::windows::runtime::IUnknown {
+    fn from(value: &IApoAcousticEchoCancellation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IApoAcousticEchoCancellation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IApoAcousticEchoCancellation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3910,8 +3931,8 @@ pub struct IApoAcousticEchoCancellation_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IApoAuxiliaryInputConfiguration(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IApoAuxiliaryInputConfiguration(pub ::windows::runtime::IUnknown);
 impl IApoAuxiliaryInputConfiguration {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn AddAuxiliaryInput(&self, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> ::windows::runtime::Result<()> {
@@ -3931,6 +3952,26 @@ unsafe impl ::windows::runtime::Interface for IApoAuxiliaryInputConfiguration {
     type Vtable = IApoAuxiliaryInputConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1290472107, 64025, 18669, [168, 87, 135, 119, 26, 225, 183, 104]);
 }
+impl ::std::convert::From<IApoAuxiliaryInputConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: IApoAuxiliaryInputConfiguration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IApoAuxiliaryInputConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: &IApoAuxiliaryInputConfiguration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IApoAuxiliaryInputConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IApoAuxiliaryInputConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApoAuxiliaryInputConfiguration_abi(
@@ -3943,8 +3984,8 @@ pub struct IApoAuxiliaryInputConfiguration_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IApoAuxiliaryInputRT(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IApoAuxiliaryInputRT(pub ::windows::runtime::IUnknown);
 impl IApoAuxiliaryInputRT {
     #[cfg(feature = "Win32_System_RemoteDesktop")]
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_System_RemoteDesktop`*"]
@@ -3955,6 +3996,26 @@ impl IApoAuxiliaryInputRT {
 unsafe impl ::windows::runtime::Interface for IApoAuxiliaryInputRT {
     type Vtable = IApoAuxiliaryInputRT_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4166090908, 49527, 18848, [177, 178, 182, 111, 1, 121, 67, 171]);
+}
+impl ::std::convert::From<IApoAuxiliaryInputRT> for ::windows::runtime::IUnknown {
+    fn from(value: IApoAuxiliaryInputRT) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IApoAuxiliaryInputRT> for ::windows::runtime::IUnknown {
+    fn from(value: &IApoAuxiliaryInputRT) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IApoAuxiliaryInputRT {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IApoAuxiliaryInputRT {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3967,8 +4028,8 @@ pub struct IApoAuxiliaryInputRT_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAudioDeviceModulesClient(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAudioDeviceModulesClient(pub ::windows::runtime::IUnknown);
 impl IAudioDeviceModulesClient {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAudioDeviceModulesManager<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, paudiodevicemodulesmanager: Param0) -> ::windows::runtime::Result<()> {
@@ -3978,6 +4039,26 @@ impl IAudioDeviceModulesClient {
 unsafe impl ::windows::runtime::Interface for IAudioDeviceModulesClient {
     type Vtable = IAudioDeviceModulesClient_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2566094252, 53430, 18933, [137, 106, 170, 77, 22, 154, 76, 72]);
+}
+impl ::std::convert::From<IAudioDeviceModulesClient> for ::windows::runtime::IUnknown {
+    fn from(value: IAudioDeviceModulesClient) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAudioDeviceModulesClient> for ::windows::runtime::IUnknown {
+    fn from(value: &IAudioDeviceModulesClient) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioDeviceModulesClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioDeviceModulesClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3989,8 +4070,8 @@ pub struct IAudioDeviceModulesClient_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAudioMediaType(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAudioMediaType(pub ::windows::runtime::IUnknown);
 impl IAudioMediaType {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
@@ -4018,6 +4099,26 @@ unsafe impl ::windows::runtime::Interface for IAudioMediaType {
     type Vtable = IAudioMediaType_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1318682483, 46879, 18328, [135, 59, 237, 125, 252, 241, 91, 77]);
 }
+impl ::std::convert::From<IAudioMediaType> for ::windows::runtime::IUnknown {
+    fn from(value: IAudioMediaType) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAudioMediaType> for ::windows::runtime::IUnknown {
+    fn from(value: &IAudioMediaType) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioMediaType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioMediaType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioMediaType_abi(
@@ -4033,8 +4134,8 @@ pub struct IAudioMediaType_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAudioProcessingObject(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAudioProcessingObject(pub ::windows::runtime::IUnknown);
 impl IAudioProcessingObject {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
@@ -4074,6 +4175,26 @@ unsafe impl ::windows::runtime::Interface for IAudioProcessingObject {
     type Vtable = IAudioProcessingObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4252969769, 9424, 19292, [177, 119, 89, 44, 57, 249, 202, 16]);
 }
+impl ::std::convert::From<IAudioProcessingObject> for ::windows::runtime::IUnknown {
+    fn from(value: IAudioProcessingObject) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAudioProcessingObject> for ::windows::runtime::IUnknown {
+    fn from(value: &IAudioProcessingObject) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioProcessingObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioProcessingObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObject_abi(
@@ -4090,8 +4211,8 @@ pub struct IAudioProcessingObject_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAudioProcessingObjectConfiguration(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAudioProcessingObjectConfiguration(pub ::windows::runtime::IUnknown);
 impl IAudioProcessingObjectConfiguration {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn LockForProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> ::windows::runtime::Result<()> {
@@ -4106,6 +4227,26 @@ unsafe impl ::windows::runtime::Interface for IAudioProcessingObjectConfiguratio
     type Vtable = IAudioProcessingObjectConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(241096709, 43942, 18883, [143, 154, 43, 140, 136, 156, 79, 168]);
 }
+impl ::std::convert::From<IAudioProcessingObjectConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: IAudioProcessingObjectConfiguration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAudioProcessingObjectConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: &IAudioProcessingObjectConfiguration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioProcessingObjectConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioProcessingObjectConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObjectConfiguration_abi(
@@ -4117,8 +4258,8 @@ pub struct IAudioProcessingObjectConfiguration_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAudioProcessingObjectRT(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAudioProcessingObjectRT(pub ::windows::runtime::IUnknown);
 impl IAudioProcessingObjectRT {
     #[cfg(feature = "Win32_System_RemoteDesktop")]
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_System_RemoteDesktop`*"]
@@ -4138,6 +4279,26 @@ unsafe impl ::windows::runtime::Interface for IAudioProcessingObjectRT {
     type Vtable = IAudioProcessingObjectRT_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2652727917, 56764, 20117, [164, 199, 173, 100, 186, 55, 132, 108]);
 }
+impl ::std::convert::From<IAudioProcessingObjectRT> for ::windows::runtime::IUnknown {
+    fn from(value: IAudioProcessingObjectRT) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAudioProcessingObjectRT> for ::windows::runtime::IUnknown {
+    fn from(value: &IAudioProcessingObjectRT) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioProcessingObjectRT {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioProcessingObjectRT {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObjectRT_abi(
@@ -4151,8 +4312,8 @@ pub struct IAudioProcessingObjectRT_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAudioProcessingObjectVBR(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAudioProcessingObjectVBR(pub ::windows::runtime::IUnknown);
 impl IAudioProcessingObjectVBR {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn CalcMaxInputFrames(&self, u32maxoutputframecount: u32) -> ::windows::runtime::Result<u32> {
@@ -4169,6 +4330,26 @@ unsafe impl ::windows::runtime::Interface for IAudioProcessingObjectVBR {
     type Vtable = IAudioProcessingObjectVBR_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2074205071, 30893, 18893, [149, 145, 247, 157, 128, 161, 124, 129]);
 }
+impl ::std::convert::From<IAudioProcessingObjectVBR> for ::windows::runtime::IUnknown {
+    fn from(value: IAudioProcessingObjectVBR) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAudioProcessingObjectVBR> for ::windows::runtime::IUnknown {
+    fn from(value: &IAudioProcessingObjectVBR) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioProcessingObjectVBR {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioProcessingObjectVBR {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObjectVBR_abi(
@@ -4180,12 +4361,32 @@ pub struct IAudioProcessingObjectVBR_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAudioSystemEffects(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAudioSystemEffects(pub ::windows::runtime::IUnknown);
 impl IAudioSystemEffects {}
 unsafe impl ::windows::runtime::Interface for IAudioSystemEffects {
     type Vtable = IAudioSystemEffects_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1604325159, 44502, 18842, [138, 157, 107, 152, 82, 31, 167, 91]);
+}
+impl ::std::convert::From<IAudioSystemEffects> for ::windows::runtime::IUnknown {
+    fn from(value: IAudioSystemEffects) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAudioSystemEffects> for ::windows::runtime::IUnknown {
+    fn from(value: &IAudioSystemEffects) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioSystemEffects {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioSystemEffects {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4196,8 +4397,8 @@ pub struct IAudioSystemEffects_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAudioSystemEffects2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAudioSystemEffects2(pub ::windows::runtime::IUnknown);
 impl IAudioSystemEffects2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
@@ -4208,6 +4409,26 @@ impl IAudioSystemEffects2 {
 unsafe impl ::windows::runtime::Interface for IAudioSystemEffects2 {
     type Vtable = IAudioSystemEffects2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3137247698, 29750, 17614, [158, 14, 77, 137, 175, 191, 255, 86]);
+}
+impl ::std::convert::From<IAudioSystemEffects2> for ::windows::runtime::IUnknown {
+    fn from(value: IAudioSystemEffects2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAudioSystemEffects2> for ::windows::runtime::IUnknown {
+    fn from(value: &IAudioSystemEffects2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioSystemEffects2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioSystemEffects2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<IAudioSystemEffects2> for IAudioSystemEffects {
     fn from(value: IAudioSystemEffects2) -> Self {
@@ -4221,12 +4442,12 @@ impl ::std::convert::From<&IAudioSystemEffects2> for IAudioSystemEffects {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioSystemEffects> for IAudioSystemEffects2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioSystemEffects> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioSystemEffects>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioSystemEffects> for &IAudioSystemEffects2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioSystemEffects> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioSystemEffects>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4240,8 +4461,8 @@ pub struct IAudioSystemEffects2_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAudioSystemEffectsCustomFormats(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAudioSystemEffectsCustomFormats(pub ::windows::runtime::IUnknown);
 impl IAudioSystemEffectsCustomFormats {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetFormatCount(&self) -> ::windows::runtime::Result<u32> {
@@ -4264,6 +4485,26 @@ unsafe impl ::windows::runtime::Interface for IAudioSystemEffectsCustomFormats {
     type Vtable = IAudioSystemEffectsCustomFormats_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2971102772, 47999, 20229, [190, 189, 27, 24, 165, 52, 224, 151]);
 }
+impl ::std::convert::From<IAudioSystemEffectsCustomFormats> for ::windows::runtime::IUnknown {
+    fn from(value: IAudioSystemEffectsCustomFormats) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAudioSystemEffectsCustomFormats> for ::windows::runtime::IUnknown {
+    fn from(value: &IAudioSystemEffectsCustomFormats) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioSystemEffectsCustomFormats {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioSystemEffectsCustomFormats {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSystemEffectsCustomFormats_abi(
@@ -4277,8 +4518,8 @@ pub struct IAudioSystemEffectsCustomFormats_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectMusic(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectMusic(pub ::windows::runtime::IUnknown);
 impl IDirectMusic {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::Result<()> {
@@ -4325,6 +4566,26 @@ unsafe impl ::windows::runtime::Interface for IDirectMusic {
     type Vtable = IDirectMusic_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1698042202, 31533, 4562, [186, 24, 0, 0, 248, 117, 172, 18]);
 }
+impl ::std::convert::From<IDirectMusic> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectMusic) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectMusic> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectMusic) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusic {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectMusic {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusic_abi(
@@ -4347,8 +4608,8 @@ pub struct IDirectMusic_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectMusic8(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectMusic8(pub ::windows::runtime::IUnknown);
 impl IDirectMusic8 {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::Result<()> {
@@ -4400,6 +4661,26 @@ unsafe impl ::windows::runtime::Interface for IDirectMusic8 {
     type Vtable = IDirectMusic8_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(758524407, 33085, 18745, [133, 8, 240, 92, 107, 117, 253, 151]);
 }
+impl ::std::convert::From<IDirectMusic8> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectMusic8) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectMusic8> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectMusic8) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusic8 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectMusic8 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirectMusic8> for IDirectMusic {
     fn from(value: IDirectMusic8) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4412,12 +4693,12 @@ impl ::std::convert::From<&IDirectMusic8> for IDirectMusic {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectMusic> for IDirectMusic8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectMusic> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectMusic>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectMusic> for &IDirectMusic8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectMusic> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectMusic>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4444,8 +4725,8 @@ pub struct IDirectMusic8_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectMusicBuffer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectMusicBuffer(pub ::windows::runtime::IUnknown);
 impl IDirectMusicBuffer {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Flush(&self) -> ::windows::runtime::Result<()> {
@@ -4504,6 +4785,26 @@ unsafe impl ::windows::runtime::Interface for IDirectMusicBuffer {
     type Vtable = IDirectMusicBuffer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497912, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
 }
+impl ::std::convert::From<IDirectMusicBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectMusicBuffer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectMusicBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectMusicBuffer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectMusicBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicBuffer_abi(
@@ -4526,8 +4827,8 @@ pub struct IDirectMusicBuffer_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectMusicCollection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectMusicCollection(pub ::windows::runtime::IUnknown);
 impl IDirectMusicCollection {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetInstrument(&self, dwpatch: u32) -> ::windows::runtime::Result<IDirectMusicInstrument> {
@@ -4544,6 +4845,26 @@ unsafe impl ::windows::runtime::Interface for IDirectMusicCollection {
     type Vtable = IDirectMusicCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497916, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
 }
+impl ::std::convert::From<IDirectMusicCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectMusicCollection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectMusicCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectMusicCollection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectMusicCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicCollection_abi(
@@ -4556,8 +4877,8 @@ pub struct IDirectMusicCollection_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectMusicDownload(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectMusicDownload(pub ::windows::runtime::IUnknown);
 impl IDirectMusicDownload {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetBuffer(&self, ppvbuffer: *mut *mut ::std::ffi::c_void, pdwsize: *mut u32) -> ::windows::runtime::Result<()> {
@@ -4567,6 +4888,26 @@ impl IDirectMusicDownload {
 unsafe impl ::windows::runtime::Interface for IDirectMusicDownload {
     type Vtable = IDirectMusicDownload_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497915, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
+}
+impl ::std::convert::From<IDirectMusicDownload> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectMusicDownload) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectMusicDownload> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectMusicDownload) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicDownload {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectMusicDownload {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4578,12 +4919,32 @@ pub struct IDirectMusicDownload_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectMusicDownloadedInstrument(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectMusicDownloadedInstrument(pub ::windows::runtime::IUnknown);
 impl IDirectMusicDownloadedInstrument {}
 unsafe impl ::windows::runtime::Interface for IDirectMusicDownloadedInstrument {
     type Vtable = IDirectMusicDownloadedInstrument_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497918, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
+}
+impl ::std::convert::From<IDirectMusicDownloadedInstrument> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectMusicDownloadedInstrument) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectMusicDownloadedInstrument> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectMusicDownloadedInstrument) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicDownloadedInstrument {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectMusicDownloadedInstrument {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4594,8 +4955,8 @@ pub struct IDirectMusicDownloadedInstrument_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectMusicInstrument(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectMusicInstrument(pub ::windows::runtime::IUnknown);
 impl IDirectMusicInstrument {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetPatch(&self, pdwpatch: *mut u32) -> ::windows::runtime::Result<()> {
@@ -4610,6 +4971,26 @@ unsafe impl ::windows::runtime::Interface for IDirectMusicInstrument {
     type Vtable = IDirectMusicInstrument_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497917, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
 }
+impl ::std::convert::From<IDirectMusicInstrument> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectMusicInstrument) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectMusicInstrument> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectMusicInstrument) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicInstrument {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectMusicInstrument {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicInstrument_abi(
@@ -4621,8 +5002,8 @@ pub struct IDirectMusicInstrument_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectMusicPort(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectMusicPort(pub ::windows::runtime::IUnknown);
 impl IDirectMusicPort {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn PlayBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicBuffer>>(&self, pbuffer: Param0) -> ::windows::runtime::Result<()> {
@@ -4703,6 +5084,26 @@ unsafe impl ::windows::runtime::Interface for IDirectMusicPort {
     type Vtable = IDirectMusicPort_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(150132937, 14274, 4562, [185, 249, 0, 0, 248, 117, 172, 18]);
 }
+impl ::std::convert::From<IDirectMusicPort> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectMusicPort) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectMusicPort> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectMusicPort) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicPort {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectMusicPort {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicPort_abi(
@@ -4734,8 +5135,8 @@ pub struct IDirectMusicPort_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectMusicPortDownload(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectMusicPortDownload(pub ::windows::runtime::IUnknown);
 impl IDirectMusicPortDownload {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetBuffer(&self, dwdlid: u32) -> ::windows::runtime::Result<IDirectMusicDownload> {
@@ -4768,6 +5169,26 @@ unsafe impl ::windows::runtime::Interface for IDirectMusicPortDownload {
     type Vtable = IDirectMusicPortDownload_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497914, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
 }
+impl ::std::convert::From<IDirectMusicPortDownload> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectMusicPortDownload) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectMusicPortDownload> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectMusicPortDownload) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicPortDownload {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectMusicPortDownload {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicPortDownload_abi(
@@ -4783,8 +5204,8 @@ pub struct IDirectMusicPortDownload_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectMusicSynth(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectMusicSynth(pub ::windows::runtime::IUnknown);
 impl IDirectMusicSynth {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
@@ -4867,6 +5288,26 @@ unsafe impl ::windows::runtime::Interface for IDirectMusicSynth {
     type Vtable = IDirectMusicSynth_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(159528545, 23685, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
 }
+impl ::std::convert::From<IDirectMusicSynth> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectMusicSynth) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectMusicSynth> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectMusicSynth) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicSynth {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectMusicSynth {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicSynth_abi(
@@ -4900,8 +5341,8 @@ pub struct IDirectMusicSynth_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectMusicSynth8(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectMusicSynth8(pub ::windows::runtime::IUnknown);
 impl IDirectMusicSynth8 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
@@ -5018,6 +5459,26 @@ unsafe impl ::windows::runtime::Interface for IDirectMusicSynth8 {
     type Vtable = IDirectMusicSynth8_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1405793829, 10001, 19615, [157, 231, 27, 127, 146, 95, 111, 200]);
 }
+impl ::std::convert::From<IDirectMusicSynth8> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectMusicSynth8) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectMusicSynth8> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectMusicSynth8) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicSynth8 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectMusicSynth8 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirectMusicSynth8> for IDirectMusicSynth {
     fn from(value: IDirectMusicSynth8) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5030,12 +5491,12 @@ impl ::std::convert::From<&IDirectMusicSynth8> for IDirectMusicSynth {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectMusicSynth> for IDirectMusicSynth8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectMusicSynth> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectMusicSynth>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectMusicSynth> for &IDirectMusicSynth8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectMusicSynth> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectMusicSynth>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5077,8 +5538,8 @@ pub struct IDirectMusicSynth8_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectMusicSynthSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectMusicSynthSink(pub ::windows::runtime::IUnknown);
 impl IDirectMusicSynthSink {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Init<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicSynth>>(&self, psynth: Param0) -> ::windows::runtime::Result<()> {
@@ -5121,6 +5582,26 @@ unsafe impl ::windows::runtime::Interface for IDirectMusicSynthSink {
     type Vtable = IDirectMusicSynthSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(159528547, 23685, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
 }
+impl ::std::convert::From<IDirectMusicSynthSink> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectMusicSynthSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectMusicSynthSink> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectMusicSynthSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicSynthSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectMusicSynthSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicSynthSink_abi(
@@ -5141,8 +5622,8 @@ pub struct IDirectMusicSynthSink_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectMusicThru(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectMusicThru(pub ::windows::runtime::IUnknown);
 impl IDirectMusicThru {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn ThruChannel<'a, Param4: ::windows::runtime::IntoParam<'a, IDirectMusicPort>>(&self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: Param4) -> ::windows::runtime::Result<()> {
@@ -5152,6 +5633,26 @@ impl IDirectMusicThru {
 unsafe impl ::windows::runtime::Interface for IDirectMusicThru {
     type Vtable = IDirectMusicThru_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3469824999, 13830, 4562, [185, 249, 0, 0, 248, 117, 172, 18]);
+}
+impl ::std::convert::From<IDirectMusicThru> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectMusicThru) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectMusicThru> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectMusicThru) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicThru {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectMusicThru {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5163,8 +5664,8 @@ pub struct IDirectMusicThru_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSound(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSound(pub ::windows::runtime::IUnknown);
 impl IDirectSound {
     #[cfg(feature = "Win32_Media_Multimedia")]
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
@@ -5208,6 +5709,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSound {
     type Vtable = IDirectSound_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664468099, 18817, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
 }
+impl ::std::convert::From<IDirectSound> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSound) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSound> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSound) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSound {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSound {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSound_abi(
@@ -5227,8 +5748,8 @@ pub struct IDirectSound_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSound3DBuffer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSound3DBuffer(pub ::windows::runtime::IUnknown);
 impl IDirectSound3DBuffer {
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_Direct3D9`*"]
@@ -5320,6 +5841,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSound3DBuffer {
     type Vtable = IDirectSound3DBuffer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664468102, 18817, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
 }
+impl ::std::convert::From<IDirectSound3DBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSound3DBuffer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSound3DBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSound3DBuffer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSound3DBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSound3DBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSound3DBuffer_abi(
@@ -5352,8 +5893,8 @@ pub struct IDirectSound3DBuffer_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSound3DListener(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSound3DListener(pub ::windows::runtime::IUnknown);
 impl IDirectSound3DListener {
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_Direct3D9`*"]
@@ -5431,6 +5972,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSound3DListener {
     type Vtable = IDirectSound3DListener_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664468100, 18817, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
 }
+impl ::std::convert::From<IDirectSound3DListener> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSound3DListener) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSound3DListener> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSound3DListener) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSound3DListener {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSound3DListener {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSound3DListener_abi(
@@ -5460,8 +6021,8 @@ pub struct IDirectSound3DListener_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSound8(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSound8(pub ::windows::runtime::IUnknown);
 impl IDirectSound8 {
     #[cfg(feature = "Win32_Media_Multimedia")]
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
@@ -5510,6 +6071,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSound8 {
     type Vtable = IDirectSound8_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3305799315, 62357, 18484, [158, 246, 127, 169, 157, 229, 9, 102]);
 }
+impl ::std::convert::From<IDirectSound8> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSound8) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSound8> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSound8) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSound8 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSound8 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirectSound8> for IDirectSound {
     fn from(value: IDirectSound8) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5522,12 +6103,12 @@ impl ::std::convert::From<&IDirectSound8> for IDirectSound {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectSound> for IDirectSound8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectSound> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSound>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectSound> for &IDirectSound8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectSound> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSound>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5550,8 +6131,8 @@ pub struct IDirectSound8_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundBuffer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundBuffer(pub ::windows::runtime::IUnknown);
 impl IDirectSoundBuffer {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSBCAPS> {
@@ -5638,6 +6219,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundBuffer {
     type Vtable = IDirectSoundBuffer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664468101, 18817, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
 }
+impl ::std::convert::From<IDirectSoundBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundBuffer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundBuffer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundBuffer_abi(
@@ -5668,8 +6269,8 @@ pub struct IDirectSoundBuffer_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundBuffer8(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundBuffer8(pub ::windows::runtime::IUnknown);
 impl IDirectSoundBuffer8 {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSBCAPS> {
@@ -5768,6 +6369,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundBuffer8 {
     type Vtable = IDirectSoundBuffer8_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1747297353, 29988, 19842, [146, 15, 80, 227, 106, 179, 171, 30]);
 }
+impl ::std::convert::From<IDirectSoundBuffer8> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundBuffer8) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundBuffer8> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundBuffer8) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundBuffer8 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundBuffer8 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirectSoundBuffer8> for IDirectSoundBuffer {
     fn from(value: IDirectSoundBuffer8) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5780,12 +6401,12 @@ impl ::std::convert::From<&IDirectSoundBuffer8> for IDirectSoundBuffer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectSoundBuffer> for IDirectSoundBuffer8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectSoundBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSoundBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectSoundBuffer> for &IDirectSoundBuffer8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectSoundBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSoundBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5821,8 +6442,8 @@ pub struct IDirectSoundBuffer8_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundCapture(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundCapture(pub ::windows::runtime::IUnknown);
 impl IDirectSoundCapture {
     #[cfg(feature = "Win32_Media_Multimedia")]
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
@@ -5843,6 +6464,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundCapture {
     type Vtable = IDirectSoundCapture_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2954954625, 35277, 4560, [175, 8, 0, 160, 201, 37, 205, 22]);
 }
+impl ::std::convert::From<IDirectSoundCapture> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundCapture) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundCapture> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundCapture) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundCapture {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundCapture {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundCapture_abi(
@@ -5856,8 +6497,8 @@ pub struct IDirectSoundCapture_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundCaptureBuffer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundCaptureBuffer(pub ::windows::runtime::IUnknown);
 impl IDirectSoundCaptureBuffer {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSCBCAPS> {
@@ -5904,6 +6545,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundCaptureBuffer {
     type Vtable = IDirectSoundCaptureBuffer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2954954626, 35277, 4560, [175, 8, 0, 160, 201, 37, 205, 22]);
 }
+impl ::std::convert::From<IDirectSoundCaptureBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundCaptureBuffer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundCaptureBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundCaptureBuffer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundCaptureBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundCaptureBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundCaptureBuffer_abi(
@@ -5924,8 +6585,8 @@ pub struct IDirectSoundCaptureBuffer_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundCaptureBuffer8(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundCaptureBuffer8(pub ::windows::runtime::IUnknown);
 impl IDirectSoundCaptureBuffer8 {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSCBCAPS> {
@@ -5980,6 +6641,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundCaptureBuffer8 {
     type Vtable = IDirectSoundCaptureBuffer8_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(10030580, 3515, 18546, [131, 62, 109, 48, 62, 128, 174, 182]);
 }
+impl ::std::convert::From<IDirectSoundCaptureBuffer8> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundCaptureBuffer8) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundCaptureBuffer8> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundCaptureBuffer8) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundCaptureBuffer8 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundCaptureBuffer8 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirectSoundCaptureBuffer8> for IDirectSoundCaptureBuffer {
     fn from(value: IDirectSoundCaptureBuffer8) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5992,12 +6673,12 @@ impl ::std::convert::From<&IDirectSoundCaptureBuffer8> for IDirectSoundCaptureBu
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectSoundCaptureBuffer> for IDirectSoundCaptureBuffer8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectSoundCaptureBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSoundCaptureBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectSoundCaptureBuffer> for &IDirectSoundCaptureBuffer8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectSoundCaptureBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSoundCaptureBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6022,8 +6703,8 @@ pub struct IDirectSoundCaptureBuffer8_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundCaptureFXAec(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundCaptureFXAec(pub ::windows::runtime::IUnknown);
 impl IDirectSoundCaptureFXAec {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
@@ -6050,6 +6731,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundCaptureFXAec {
     type Vtable = IDirectSoundCaptureFXAec_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2910065725, 36925, 19127, [128, 102, 40, 211, 99, 3, 109, 101]);
 }
+impl ::std::convert::From<IDirectSoundCaptureFXAec> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundCaptureFXAec) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundCaptureFXAec> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundCaptureFXAec) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundCaptureFXAec {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundCaptureFXAec {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundCaptureFXAec_abi(
@@ -6065,8 +6766,8 @@ pub struct IDirectSoundCaptureFXAec_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundCaptureFXNoiseSuppress(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundCaptureFXNoiseSuppress(pub ::windows::runtime::IUnknown);
 impl IDirectSoundCaptureFXNoiseSuppress {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
@@ -6088,6 +6789,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundCaptureFXNoiseSuppress
     type Vtable = IDirectSoundCaptureFXNoiseSuppress_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3979419201, 64430, 16757, [150, 37, 205, 8, 84, 246, 147, 202]);
 }
+impl ::std::convert::From<IDirectSoundCaptureFXNoiseSuppress> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundCaptureFXNoiseSuppress) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundCaptureFXNoiseSuppress> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundCaptureFXNoiseSuppress) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundCaptureFXNoiseSuppress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundCaptureFXNoiseSuppress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundCaptureFXNoiseSuppress_abi(
@@ -6102,8 +6823,8 @@ pub struct IDirectSoundCaptureFXNoiseSuppress_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundFXChorus(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundFXChorus(pub ::windows::runtime::IUnknown);
 impl IDirectSoundFXChorus {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxchorus: *const DSFXChorus) -> ::windows::runtime::Result<()> {
@@ -6119,6 +6840,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundFXChorus {
     type Vtable = IDirectSoundFXChorus_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2282242787, 5215, 17382, [169, 52, 167, 24, 6, 229, 5, 71]);
 }
+impl ::std::convert::From<IDirectSoundFXChorus> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundFXChorus) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundFXChorus> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundFXChorus) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXChorus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundFXChorus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXChorus_abi(
@@ -6130,8 +6871,8 @@ pub struct IDirectSoundFXChorus_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundFXCompressor(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundFXCompressor(pub ::windows::runtime::IUnknown);
 impl IDirectSoundFXCompressor {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxcompressor: *const DSFXCompressor) -> ::windows::runtime::Result<()> {
@@ -6147,6 +6888,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundFXCompressor {
     type Vtable = IDirectSoundFXCompressor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1270681940, 25334, 20012, [161, 92, 211, 182, 196, 23, 247, 160]);
 }
+impl ::std::convert::From<IDirectSoundFXCompressor> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundFXCompressor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundFXCompressor> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundFXCompressor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXCompressor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundFXCompressor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXCompressor_abi(
@@ -6158,8 +6919,8 @@ pub struct IDirectSoundFXCompressor_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundFXDistortion(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundFXDistortion(pub ::windows::runtime::IUnknown);
 impl IDirectSoundFXDistortion {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxdistortion: *const DSFXDistortion) -> ::windows::runtime::Result<()> {
@@ -6175,6 +6936,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundFXDistortion {
     type Vtable = IDirectSoundFXDistortion_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2395947814, 17759, 19851, [189, 169, 141, 93, 62, 158, 62, 11]);
 }
+impl ::std::convert::From<IDirectSoundFXDistortion> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundFXDistortion) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundFXDistortion> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundFXDistortion) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXDistortion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundFXDistortion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXDistortion_abi(
@@ -6186,8 +6967,8 @@ pub struct IDirectSoundFXDistortion_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundFXEcho(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundFXEcho(pub ::windows::runtime::IUnknown);
 impl IDirectSoundFXEcho {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxecho: *const DSFXEcho) -> ::windows::runtime::Result<()> {
@@ -6203,6 +6984,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundFXEcho {
     type Vtable = IDirectSoundFXEcho_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2345832159, 20699, 20114, [162, 189, 68, 84, 136, 209, 237, 66]);
 }
+impl ::std::convert::From<IDirectSoundFXEcho> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundFXEcho) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundFXEcho> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundFXEcho) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXEcho {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundFXEcho {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXEcho_abi(
@@ -6214,8 +7015,8 @@ pub struct IDirectSoundFXEcho_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundFXFlanger(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundFXFlanger(pub ::windows::runtime::IUnknown);
 impl IDirectSoundFXFlanger {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxflanger: *const DSFXFlanger) -> ::windows::runtime::Result<()> {
@@ -6231,6 +7032,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundFXFlanger {
     type Vtable = IDirectSoundFXFlanger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2420021368, 11410, 16498, [155, 44, 234, 104, 245, 57, 103, 131]);
 }
+impl ::std::convert::From<IDirectSoundFXFlanger> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundFXFlanger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundFXFlanger> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundFXFlanger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXFlanger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundFXFlanger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXFlanger_abi(
@@ -6242,8 +7063,8 @@ pub struct IDirectSoundFXFlanger_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundFXGargle(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundFXGargle(pub ::windows::runtime::IUnknown);
 impl IDirectSoundFXGargle {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxgargle: *const DSFXGargle) -> ::windows::runtime::Result<()> {
@@ -6259,6 +7080,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundFXGargle {
     type Vtable = IDirectSoundFXGargle_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3591828306, 54818, 4558, [170, 197, 0, 32, 175, 11, 153, 163]);
 }
+impl ::std::convert::From<IDirectSoundFXGargle> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundFXGargle) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundFXGargle> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundFXGargle) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXGargle {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundFXGargle {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXGargle_abi(
@@ -6270,8 +7111,8 @@ pub struct IDirectSoundFXGargle_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundFXI3DL2Reverb(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundFXI3DL2Reverb(pub ::windows::runtime::IUnknown);
 impl IDirectSoundFXI3DL2Reverb {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxi3dl2reverb: *const DSFXI3DL2Reverb) -> ::windows::runtime::Result<()> {
@@ -6305,6 +7146,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundFXI3DL2Reverb {
     type Vtable = IDirectSoundFXI3DL2Reverb_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1259760234, 3430, 17395, [128, 227, 238, 98, 128, 222, 225, 164]);
 }
+impl ::std::convert::From<IDirectSoundFXI3DL2Reverb> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundFXI3DL2Reverb) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundFXI3DL2Reverb> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundFXI3DL2Reverb) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXI3DL2Reverb {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundFXI3DL2Reverb {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXI3DL2Reverb_abi(
@@ -6320,8 +7181,8 @@ pub struct IDirectSoundFXI3DL2Reverb_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundFXParamEq(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundFXParamEq(pub ::windows::runtime::IUnknown);
 impl IDirectSoundFXParamEq {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxparameq: *const DSFXParamEq) -> ::windows::runtime::Result<()> {
@@ -6337,6 +7198,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundFXParamEq {
     type Vtable = IDirectSoundFXParamEq_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3225201150, 65168, 16900, [128, 120, 130, 51, 76, 209, 119, 218]);
 }
+impl ::std::convert::From<IDirectSoundFXParamEq> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundFXParamEq) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundFXParamEq> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundFXParamEq) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXParamEq {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundFXParamEq {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXParamEq_abi(
@@ -6348,8 +7229,8 @@ pub struct IDirectSoundFXParamEq_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundFXWavesReverb(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundFXWavesReverb(pub ::windows::runtime::IUnknown);
 impl IDirectSoundFXWavesReverb {
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxwavesreverb: *const DSFXWavesReverb) -> ::windows::runtime::Result<()> {
@@ -6365,6 +7246,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundFXWavesReverb {
     type Vtable = IDirectSoundFXWavesReverb_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1183157306, 3526, 17891, [183, 96, 212, 238, 241, 108, 179, 37]);
 }
+impl ::std::convert::From<IDirectSoundFXWavesReverb> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundFXWavesReverb) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundFXWavesReverb> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundFXWavesReverb) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXWavesReverb {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundFXWavesReverb {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXWavesReverb_abi(
@@ -6376,8 +7277,8 @@ pub struct IDirectSoundFXWavesReverb_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundFullDuplex(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundFullDuplex(pub ::windows::runtime::IUnknown);
 impl IDirectSoundFullDuplex {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`, `Win32_Media_Multimedia`*"]
@@ -6410,6 +7311,26 @@ unsafe impl ::windows::runtime::Interface for IDirectSoundFullDuplex {
     type Vtable = IDirectSoundFullDuplex_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3989523578, 55979, 16918, [164, 46, 108, 80, 89, 109, 220, 29]);
 }
+impl ::std::convert::From<IDirectSoundFullDuplex> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundFullDuplex) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundFullDuplex> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundFullDuplex) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFullDuplex {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundFullDuplex {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFullDuplex_abi(
@@ -6422,8 +7343,8 @@ pub struct IDirectSoundFullDuplex_abi(
 );
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectSoundNotify(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectSoundNotify(pub ::windows::runtime::IUnknown);
 impl IDirectSoundNotify {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
@@ -6434,6 +7355,26 @@ impl IDirectSoundNotify {
 unsafe impl ::windows::runtime::Interface for IDirectSoundNotify {
     type Vtable = IDirectSoundNotify_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2954954627, 35277, 4560, [175, 8, 0, 160, 201, 37, 205, 22]);
+}
+impl ::std::convert::From<IDirectSoundNotify> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectSoundNotify) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectSoundNotify> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectSoundNotify) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectSoundNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6517,14 +7458,19 @@ impl ::std::cmp::Eq for KSP_PINMODE {}
 unsafe impl ::windows::runtime::Abi for KSP_PINMODE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDSENUMCALLBACKA = unsafe extern "system" fn(param0: *mut ::windows::runtime::GUID, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDSENUMCALLBACKW = unsafe extern "system" fn(param0: *mut ::windows::runtime::GUID, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1 = unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA, param1: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA = unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA, param1: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW = unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA, param1: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]

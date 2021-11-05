@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INotificationActivationCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INotificationActivationCallback(pub ::windows::runtime::IUnknown);
 impl INotificationActivationCallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Notifications`, `Win32_Foundation`*"]
@@ -13,6 +13,26 @@ impl INotificationActivationCallback {
 unsafe impl ::windows::runtime::Interface for INotificationActivationCallback {
     type Vtable = INotificationActivationCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1407391799, 26112, 19073, [147, 149, 117, 207, 254, 116, 111, 148]);
+}
+impl ::std::convert::From<INotificationActivationCallback> for ::windows::runtime::IUnknown {
+    fn from(value: INotificationActivationCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INotificationActivationCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &INotificationActivationCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INotificationActivationCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INotificationActivationCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

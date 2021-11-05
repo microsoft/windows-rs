@@ -81,9 +81,9 @@ impl ::windows::runtime::DefaultType for DisplayId {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Graphics`*"]
-pub struct IGeometrySource2D(::windows::runtime::IInspectable);
+pub struct IGeometrySource2D(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeometrySource2D {
     type Vtable = IGeometrySource2D_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3405740290, 26380, 16769, [166, 36, 218, 151, 114, 3, 184, 69]);
@@ -91,6 +91,46 @@ unsafe impl ::windows::runtime::Interface for IGeometrySource2D {
 impl IGeometrySource2D {}
 unsafe impl ::windows::runtime::RuntimeType for IGeometrySource2D {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{caff7902-670c-4181-a624-da977203b845}");
+}
+impl ::std::convert::From<IGeometrySource2D> for ::windows::runtime::IUnknown {
+    fn from(value: IGeometrySource2D) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IGeometrySource2D> for ::windows::runtime::IUnknown {
+    fn from(value: &IGeometrySource2D) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGeometrySource2D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGeometrySource2D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IGeometrySource2D> for ::windows::runtime::IInspectable {
+    fn from(value: IGeometrySource2D) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IGeometrySource2D> for ::windows::runtime::IInspectable {
+    fn from(value: &IGeometrySource2D) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IGeometrySource2D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IGeometrySource2D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

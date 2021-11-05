@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOcrEngine(::windows::runtime::IInspectable);
+pub struct IOcrEngine(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOcrEngine {
     type Vtable = IOcrEngine_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1511308353, 23414, 12608, [182, 128, 136, 37, 86, 38, 131, 172]);
@@ -22,7 +22,7 @@ pub struct IOcrEngine_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOcrEngineStatics(::windows::runtime::IInspectable);
+pub struct IOcrEngineStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOcrEngineStatics {
     type Vtable = IOcrEngineStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1543481434, 13188, 13632, [153, 64, 105, 145, 32, 212, 40, 168]);
@@ -47,7 +47,7 @@ pub struct IOcrEngineStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOcrLine(::windows::runtime::IInspectable);
+pub struct IOcrLine(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOcrLine {
     type Vtable = IOcrLine_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4432239, 58143, 14884, [137, 156, 212, 68, 189, 8, 129, 36]);
@@ -67,7 +67,7 @@ pub struct IOcrLine_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOcrResult(::windows::runtime::IInspectable);
+pub struct IOcrResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOcrResult {
     type Vtable = IOcrResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2614244786, 5979, 15722, [146, 226, 56, 140, 32, 110, 47, 99]);
@@ -89,7 +89,7 @@ pub struct IOcrResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOcrWord(::windows::runtime::IInspectable);
+pub struct IOcrWord(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOcrWord {
     type Vtable = IOcrWord_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1009403770, 23769, 13605, [186, 42, 35, 209, 224, 166, 138, 29]);
@@ -109,8 +109,8 @@ pub struct IOcrWord_abi(
 );
 #[doc = "*Required features: `Media_Ocr`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct OcrEngine(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct OcrEngine(pub ::windows::runtime::IInspectable);
 impl OcrEngine {
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
     #[doc = "*Required features: `Media_Ocr`, `Foundation`, `Graphics_Imaging`*"]
@@ -183,12 +183,52 @@ unsafe impl ::windows::runtime::Interface for OcrEngine {
 impl ::windows::runtime::RuntimeName for OcrEngine {
     const NAME: &'static str = "Windows.Media.Ocr.OcrEngine";
 }
+impl ::std::convert::From<OcrEngine> for ::windows::runtime::IUnknown {
+    fn from(value: OcrEngine) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&OcrEngine> for ::windows::runtime::IUnknown {
+    fn from(value: &OcrEngine) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OcrEngine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a OcrEngine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<OcrEngine> for ::windows::runtime::IInspectable {
+    fn from(value: OcrEngine) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&OcrEngine> for ::windows::runtime::IInspectable {
+    fn from(value: &OcrEngine) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OcrEngine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OcrEngine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for OcrEngine {}
 unsafe impl ::std::marker::Sync for OcrEngine {}
 #[doc = "*Required features: `Media_Ocr`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct OcrLine(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct OcrLine(pub ::windows::runtime::IInspectable);
 impl OcrLine {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Ocr`, `Foundation_Collections`*"]
@@ -218,12 +258,52 @@ unsafe impl ::windows::runtime::Interface for OcrLine {
 impl ::windows::runtime::RuntimeName for OcrLine {
     const NAME: &'static str = "Windows.Media.Ocr.OcrLine";
 }
+impl ::std::convert::From<OcrLine> for ::windows::runtime::IUnknown {
+    fn from(value: OcrLine) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&OcrLine> for ::windows::runtime::IUnknown {
+    fn from(value: &OcrLine) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OcrLine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a OcrLine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<OcrLine> for ::windows::runtime::IInspectable {
+    fn from(value: OcrLine) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&OcrLine> for ::windows::runtime::IInspectable {
+    fn from(value: &OcrLine) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OcrLine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OcrLine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for OcrLine {}
 unsafe impl ::std::marker::Sync for OcrLine {}
 #[doc = "*Required features: `Media_Ocr`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct OcrResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct OcrResult(pub ::windows::runtime::IInspectable);
 impl OcrResult {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Ocr`, `Foundation_Collections`*"]
@@ -262,12 +342,52 @@ unsafe impl ::windows::runtime::Interface for OcrResult {
 impl ::windows::runtime::RuntimeName for OcrResult {
     const NAME: &'static str = "Windows.Media.Ocr.OcrResult";
 }
+impl ::std::convert::From<OcrResult> for ::windows::runtime::IUnknown {
+    fn from(value: OcrResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&OcrResult> for ::windows::runtime::IUnknown {
+    fn from(value: &OcrResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OcrResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a OcrResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<OcrResult> for ::windows::runtime::IInspectable {
+    fn from(value: OcrResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&OcrResult> for ::windows::runtime::IInspectable {
+    fn from(value: &OcrResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OcrResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OcrResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for OcrResult {}
 unsafe impl ::std::marker::Sync for OcrResult {}
 #[doc = "*Required features: `Media_Ocr`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct OcrWord(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct OcrWord(pub ::windows::runtime::IInspectable);
 impl OcrWord {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Ocr`, `Foundation`*"]
@@ -296,6 +416,46 @@ unsafe impl ::windows::runtime::Interface for OcrWord {
 }
 impl ::windows::runtime::RuntimeName for OcrWord {
     const NAME: &'static str = "Windows.Media.Ocr.OcrWord";
+}
+impl ::std::convert::From<OcrWord> for ::windows::runtime::IUnknown {
+    fn from(value: OcrWord) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&OcrWord> for ::windows::runtime::IUnknown {
+    fn from(value: &OcrWord) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OcrWord {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a OcrWord {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<OcrWord> for ::windows::runtime::IInspectable {
+    fn from(value: OcrWord) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&OcrWord> for ::windows::runtime::IInspectable {
+    fn from(value: &OcrWord) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OcrWord {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OcrWord {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for OcrWord {}
 unsafe impl ::std::marker::Sync for OcrWord {}

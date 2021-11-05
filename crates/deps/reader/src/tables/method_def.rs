@@ -53,7 +53,7 @@ impl MethodDef {
         }
     }
 
-    fn attributes(&self) -> impl Iterator<Item = Attribute> {
+    pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0.file.attributes(HasAttribute::MethodDef(self.clone()))
     }
 
@@ -63,23 +63,6 @@ impl MethodDef {
 
     pub fn is_deprecated(&self) -> bool {
         self.has_attribute("DeprecatedAttribute")
-    }
-
-    pub fn supported_arch(&self) -> Option<&'static str> {
-        self.attributes()
-            .filter_map(|attribute| match attribute.name() {
-                "SupportedArchitectureAttribute" => {
-                    let args = attribute.args();
-                    match &args[0].1 {
-                        ConstantValue::I32(1) => Some("x86"),
-                        ConstantValue::I32(2) => Some("x86_64"),
-                        ConstantValue::I32(4) => Some("aarch64"),
-                        _ => None,
-                    }
-                }
-                _ => None,
-            })
-            .next()
     }
 
     pub fn static_lib(&self) -> Option<String> {

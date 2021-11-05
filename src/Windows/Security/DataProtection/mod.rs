@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataAvailabilityStateChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IUserDataAvailabilityStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAvailabilityStateChangedEventArgs {
     type Vtable = IUserDataAvailabilityStateChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2808447689, 1698, 17011, [168, 3, 131, 76, 159, 135, 251, 235]);
@@ -20,7 +20,7 @@ pub struct IUserDataAvailabilityStateChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataBufferUnprotectResult(::windows::runtime::IInspectable);
+pub struct IUserDataBufferUnprotectResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataBufferUnprotectResult {
     type Vtable = IUserDataBufferUnprotectResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2398949008, 64154, 18084, [163, 119, 1, 206, 191, 30, 116, 216]);
@@ -40,7 +40,7 @@ pub struct IUserDataBufferUnprotectResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataProtectionManager(::windows::runtime::IInspectable);
+pub struct IUserDataProtectionManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataProtectionManager {
     type Vtable = IUserDataProtectionManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(521347965, 46126, 19080, [148, 128, 15, 36, 9, 36, 200, 118]);
@@ -70,7 +70,7 @@ pub struct IUserDataProtectionManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataProtectionManagerStatics(::windows::runtime::IInspectable);
+pub struct IUserDataProtectionManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataProtectionManagerStatics {
     type Vtable = IUserDataProtectionManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2541191400, 28110, 20398, [175, 133, 120, 42, 194, 207, 69, 114]);
@@ -90,7 +90,7 @@ pub struct IUserDataProtectionManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataStorageItemProtectionInfo(::windows::runtime::IInspectable);
+pub struct IUserDataStorageItemProtectionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataStorageItemProtectionInfo {
     type Vtable = IUserDataStorageItemProtectionInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1533444342, 59519, 16545, [177, 157, 166, 24, 122, 12, 102, 47]);
@@ -131,8 +131,8 @@ impl ::windows::runtime::DefaultType for UserDataAvailability {
 }
 #[doc = "*Required features: `Security_DataProtection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UserDataAvailabilityStateChangedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UserDataAvailabilityStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl UserDataAvailabilityStateChangedEventArgs {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Security_DataProtection`, `Foundation`*"]
@@ -154,12 +154,52 @@ unsafe impl ::windows::runtime::Interface for UserDataAvailabilityStateChangedEv
 impl ::windows::runtime::RuntimeName for UserDataAvailabilityStateChangedEventArgs {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs";
 }
+impl ::std::convert::From<UserDataAvailabilityStateChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: UserDataAvailabilityStateChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UserDataAvailabilityStateChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &UserDataAvailabilityStateChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataAvailabilityStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataAvailabilityStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UserDataAvailabilityStateChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: UserDataAvailabilityStateChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserDataAvailabilityStateChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &UserDataAvailabilityStateChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataAvailabilityStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataAvailabilityStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UserDataAvailabilityStateChangedEventArgs {}
 unsafe impl ::std::marker::Sync for UserDataAvailabilityStateChangedEventArgs {}
 #[doc = "*Required features: `Security_DataProtection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UserDataBufferUnprotectResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UserDataBufferUnprotectResult(pub ::windows::runtime::IInspectable);
 impl UserDataBufferUnprotectResult {
     #[doc = "*Required features: `Security_DataProtection`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<UserDataBufferUnprotectStatus> {
@@ -189,6 +229,46 @@ unsafe impl ::windows::runtime::Interface for UserDataBufferUnprotectResult {
 impl ::windows::runtime::RuntimeName for UserDataBufferUnprotectResult {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataBufferUnprotectResult";
 }
+impl ::std::convert::From<UserDataBufferUnprotectResult> for ::windows::runtime::IUnknown {
+    fn from(value: UserDataBufferUnprotectResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UserDataBufferUnprotectResult> for ::windows::runtime::IUnknown {
+    fn from(value: &UserDataBufferUnprotectResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataBufferUnprotectResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataBufferUnprotectResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UserDataBufferUnprotectResult> for ::windows::runtime::IInspectable {
+    fn from(value: UserDataBufferUnprotectResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserDataBufferUnprotectResult> for ::windows::runtime::IInspectable {
+    fn from(value: &UserDataBufferUnprotectResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataBufferUnprotectResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataBufferUnprotectResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UserDataBufferUnprotectResult {}
 unsafe impl ::std::marker::Sync for UserDataBufferUnprotectResult {}
 #[doc = "*Required features: `Security_DataProtection`*"]
@@ -215,8 +295,8 @@ impl ::windows::runtime::DefaultType for UserDataBufferUnprotectStatus {
 }
 #[doc = "*Required features: `Security_DataProtection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UserDataProtectionManager(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UserDataProtectionManager(pub ::windows::runtime::IInspectable);
 impl UserDataProtectionManager {
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     #[doc = "*Required features: `Security_DataProtection`, `Foundation`, `Storage`*"]
@@ -307,12 +387,52 @@ unsafe impl ::windows::runtime::Interface for UserDataProtectionManager {
 impl ::windows::runtime::RuntimeName for UserDataProtectionManager {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataProtectionManager";
 }
+impl ::std::convert::From<UserDataProtectionManager> for ::windows::runtime::IUnknown {
+    fn from(value: UserDataProtectionManager) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UserDataProtectionManager> for ::windows::runtime::IUnknown {
+    fn from(value: &UserDataProtectionManager) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataProtectionManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataProtectionManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UserDataProtectionManager> for ::windows::runtime::IInspectable {
+    fn from(value: UserDataProtectionManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserDataProtectionManager> for ::windows::runtime::IInspectable {
+    fn from(value: &UserDataProtectionManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataProtectionManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataProtectionManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UserDataProtectionManager {}
 unsafe impl ::std::marker::Sync for UserDataProtectionManager {}
 #[doc = "*Required features: `Security_DataProtection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UserDataStorageItemProtectionInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UserDataStorageItemProtectionInfo(pub ::windows::runtime::IInspectable);
 impl UserDataStorageItemProtectionInfo {
     #[doc = "*Required features: `Security_DataProtection`*"]
     pub fn Availability(&self) -> ::windows::runtime::Result<UserDataAvailability> {
@@ -332,6 +452,46 @@ unsafe impl ::windows::runtime::Interface for UserDataStorageItemProtectionInfo 
 }
 impl ::windows::runtime::RuntimeName for UserDataStorageItemProtectionInfo {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataStorageItemProtectionInfo";
+}
+impl ::std::convert::From<UserDataStorageItemProtectionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: UserDataStorageItemProtectionInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UserDataStorageItemProtectionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &UserDataStorageItemProtectionInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataStorageItemProtectionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataStorageItemProtectionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UserDataStorageItemProtectionInfo> for ::windows::runtime::IInspectable {
+    fn from(value: UserDataStorageItemProtectionInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserDataStorageItemProtectionInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &UserDataStorageItemProtectionInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataStorageItemProtectionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataStorageItemProtectionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for UserDataStorageItemProtectionInfo {}
 unsafe impl ::std::marker::Sync for UserDataStorageItemProtectionInfo {}

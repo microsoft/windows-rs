@@ -236,8 +236,8 @@ unsafe impl ::windows::runtime::Abi for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAMWMBufferPass(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAMWMBufferPass(pub ::windows::runtime::IUnknown);
 impl IAMWMBufferPass {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetNotify<'a, Param0: ::windows::runtime::IntoParam<'a, IAMWMBufferPassCallback>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
@@ -247,6 +247,26 @@ impl IAMWMBufferPass {
 unsafe impl ::windows::runtime::Interface for IAMWMBufferPass {
     type Vtable = IAMWMBufferPass_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1842878167, 59200, 16675, [158, 36, 36, 68, 65, 38, 68, 216]);
+}
+impl ::std::convert::From<IAMWMBufferPass> for ::windows::runtime::IUnknown {
+    fn from(value: IAMWMBufferPass) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAMWMBufferPass> for ::windows::runtime::IUnknown {
+    fn from(value: &IAMWMBufferPass) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAMWMBufferPass {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAMWMBufferPass {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -258,8 +278,8 @@ pub struct IAMWMBufferPass_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAMWMBufferPassCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAMWMBufferPassCallback(pub ::windows::runtime::IUnknown);
 impl IAMWMBufferPassCallback {
     #[cfg(feature = "Win32_Graphics_DirectShow")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Graphics_DirectShow`*"]
@@ -270,6 +290,26 @@ impl IAMWMBufferPassCallback {
 unsafe impl ::windows::runtime::Interface for IAMWMBufferPassCallback {
     type Vtable = IAMWMBufferPassCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2992341874, 53970, 17586, [134, 83, 27, 141, 174, 51, 36, 137]);
+}
+impl ::std::convert::From<IAMWMBufferPassCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IAMWMBufferPassCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAMWMBufferPassCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IAMWMBufferPassCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAMWMBufferPassCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAMWMBufferPassCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -282,8 +322,8 @@ pub struct IAMWMBufferPassCallback_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INSNetSourceCreator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INSNetSourceCreator(pub ::windows::runtime::IUnknown);
 impl INSNetSourceCreator {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Initialize(&self) -> ::windows::runtime::Result<()> {
@@ -330,6 +370,26 @@ unsafe impl ::windows::runtime::Interface for INSNetSourceCreator {
     type Vtable = INSNetSourceCreator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(202260608, 36993, 4562, [190, 236, 0, 96, 8, 47, 32, 84]);
 }
+impl ::std::convert::From<INSNetSourceCreator> for ::windows::runtime::IUnknown {
+    fn from(value: INSNetSourceCreator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INSNetSourceCreator> for ::windows::runtime::IUnknown {
+    fn from(value: &INSNetSourceCreator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INSNetSourceCreator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INSNetSourceCreator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INSNetSourceCreator_abi(
@@ -351,8 +411,8 @@ pub struct INSNetSourceCreator_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INSSBuffer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INSSBuffer(pub ::windows::runtime::IUnknown);
 impl INSSBuffer {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLength(&self) -> ::windows::runtime::Result<u32> {
@@ -382,6 +442,26 @@ unsafe impl ::windows::runtime::Interface for INSSBuffer {
     type Vtable = INSSBuffer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3788322084, 983, 4562, [158, 237, 0, 96, 151, 210, 215, 207]);
 }
+impl ::std::convert::From<INSSBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: INSSBuffer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INSSBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: &INSSBuffer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INSSBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INSSBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INSSBuffer_abi(
@@ -396,8 +476,8 @@ pub struct INSSBuffer_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INSSBuffer2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INSSBuffer2(pub ::windows::runtime::IUnknown);
 impl INSSBuffer2 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLength(&self) -> ::windows::runtime::Result<u32> {
@@ -436,6 +516,26 @@ unsafe impl ::windows::runtime::Interface for INSSBuffer2 {
     type Vtable = INSSBuffer2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1330808467, 4149, 17406, [180, 40, 117, 117, 97, 173, 58, 104]);
 }
+impl ::std::convert::From<INSSBuffer2> for ::windows::runtime::IUnknown {
+    fn from(value: INSSBuffer2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INSSBuffer2> for ::windows::runtime::IUnknown {
+    fn from(value: &INSSBuffer2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INSSBuffer2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INSSBuffer2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<INSSBuffer2> for INSSBuffer {
     fn from(value: INSSBuffer2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -448,12 +548,12 @@ impl ::std::convert::From<&INSSBuffer2> for INSSBuffer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer> for INSSBuffer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer> for &INSSBuffer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -472,8 +572,8 @@ pub struct INSSBuffer2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INSSBuffer3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INSSBuffer3(pub ::windows::runtime::IUnknown);
 impl INSSBuffer3 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLength(&self) -> ::windows::runtime::Result<u32> {
@@ -520,6 +620,26 @@ unsafe impl ::windows::runtime::Interface for INSSBuffer3 {
     type Vtable = INSSBuffer3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3363629743, 30142, 19396, [132, 235, 172, 39, 152, 80, 118, 114]);
 }
+impl ::std::convert::From<INSSBuffer3> for ::windows::runtime::IUnknown {
+    fn from(value: INSSBuffer3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INSSBuffer3> for ::windows::runtime::IUnknown {
+    fn from(value: &INSSBuffer3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INSSBuffer3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INSSBuffer3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<INSSBuffer3> for INSSBuffer2 {
     fn from(value: INSSBuffer3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -532,12 +652,12 @@ impl ::std::convert::From<&INSSBuffer3> for INSSBuffer2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer2> for INSSBuffer3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer2> for &INSSBuffer3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<INSSBuffer3> for INSSBuffer {
@@ -552,12 +672,12 @@ impl ::std::convert::From<&INSSBuffer3> for INSSBuffer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer> for INSSBuffer3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer> for &INSSBuffer3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -578,8 +698,8 @@ pub struct INSSBuffer3_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INSSBuffer4(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INSSBuffer4(pub ::windows::runtime::IUnknown);
 impl INSSBuffer4 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLength(&self) -> ::windows::runtime::Result<u32> {
@@ -635,6 +755,26 @@ unsafe impl ::windows::runtime::Interface for INSSBuffer4 {
     type Vtable = INSSBuffer4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3065576794, 13026, 18900, [169, 16, 194, 108, 200, 84, 101, 237]);
 }
+impl ::std::convert::From<INSSBuffer4> for ::windows::runtime::IUnknown {
+    fn from(value: INSSBuffer4) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INSSBuffer4> for ::windows::runtime::IUnknown {
+    fn from(value: &INSSBuffer4) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INSSBuffer4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INSSBuffer4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<INSSBuffer4> for INSSBuffer3 {
     fn from(value: INSSBuffer4) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -647,12 +787,12 @@ impl ::std::convert::From<&INSSBuffer4> for INSSBuffer3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer3> for INSSBuffer4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer3> for &INSSBuffer4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<INSSBuffer4> for INSSBuffer2 {
@@ -667,12 +807,12 @@ impl ::std::convert::From<&INSSBuffer4> for INSSBuffer2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer2> for INSSBuffer4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer2> for &INSSBuffer4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<INSSBuffer4> for INSSBuffer {
@@ -687,12 +827,12 @@ impl ::std::convert::From<&INSSBuffer4> for INSSBuffer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer> for INSSBuffer4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer> for &INSSBuffer4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -715,8 +855,8 @@ pub struct INSSBuffer4_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMAddressAccess(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMAddressAccess(pub ::windows::runtime::IUnknown);
 impl IWMAddressAccess {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAccessEntryCount(&self, aetype: WM_AETYPE) -> ::windows::runtime::Result<u32> {
@@ -741,6 +881,26 @@ unsafe impl ::windows::runtime::Interface for IWMAddressAccess {
     type Vtable = IWMAddressAccess_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3141297033, 5683, 20114, [175, 20, 159, 49, 115, 186, 57, 208]);
 }
+impl ::std::convert::From<IWMAddressAccess> for ::windows::runtime::IUnknown {
+    fn from(value: IWMAddressAccess) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMAddressAccess> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMAddressAccess) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMAddressAccess {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMAddressAccess {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMAddressAccess_abi(
@@ -754,8 +914,8 @@ pub struct IWMAddressAccess_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMAddressAccess2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMAddressAccess2(pub ::windows::runtime::IUnknown);
 impl IWMAddressAccess2 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAccessEntryCount(&self, aetype: WM_AETYPE) -> ::windows::runtime::Result<u32> {
@@ -790,6 +950,26 @@ unsafe impl ::windows::runtime::Interface for IWMAddressAccess2 {
     type Vtable = IWMAddressAccess2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1705525186, 16024, 19789, [129, 181, 42, 116, 40, 134, 179, 61]);
 }
+impl ::std::convert::From<IWMAddressAccess2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMAddressAccess2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMAddressAccess2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMAddressAccess2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMAddressAccess2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMAddressAccess2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMAddressAccess2> for IWMAddressAccess {
     fn from(value: IWMAddressAccess2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -802,12 +982,12 @@ impl ::std::convert::From<&IWMAddressAccess2> for IWMAddressAccess {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMAddressAccess> for IWMAddressAccess2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMAddressAccess> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMAddressAccess>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMAddressAccess> for &IWMAddressAccess2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMAddressAccess> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMAddressAccess>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -827,8 +1007,8 @@ pub struct IWMAddressAccess2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMAuthorizer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMAuthorizer(pub ::windows::runtime::IUnknown);
 impl IWMAuthorizer {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCertCount(&self) -> ::windows::runtime::Result<u32> {
@@ -850,6 +1030,26 @@ unsafe impl ::windows::runtime::Interface for IWMAuthorizer {
     type Vtable = IWMAuthorizer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3652615478, 43437, 20148, [186, 239, 219, 40, 78, 245, 80, 76]);
 }
+impl ::std::convert::From<IWMAuthorizer> for ::windows::runtime::IUnknown {
+    fn from(value: IWMAuthorizer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMAuthorizer> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMAuthorizer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMAuthorizer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMAuthorizer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMAuthorizer_abi(
@@ -862,8 +1062,8 @@ pub struct IWMAuthorizer_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMBackupRestoreProps(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMBackupRestoreProps(pub ::windows::runtime::IUnknown);
 impl IWMBackupRestoreProps {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPropCount(&self) -> ::windows::runtime::Result<u16> {
@@ -899,6 +1099,26 @@ unsafe impl ::windows::runtime::Interface for IWMBackupRestoreProps {
     type Vtable = IWMBackupRestoreProps_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1015942566, 39279, 20467, [161, 175, 72, 56, 249, 55, 126, 46]);
 }
+impl ::std::convert::From<IWMBackupRestoreProps> for ::windows::runtime::IUnknown {
+    fn from(value: IWMBackupRestoreProps) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMBackupRestoreProps> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMBackupRestoreProps) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMBackupRestoreProps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMBackupRestoreProps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMBackupRestoreProps_abi(
@@ -918,8 +1138,8 @@ pub struct IWMBackupRestoreProps_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMBandwidthSharing(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMBandwidthSharing(pub ::windows::runtime::IUnknown);
 impl IWMBandwidthSharing {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows::runtime::Result<()> {
@@ -955,6 +1175,26 @@ unsafe impl ::windows::runtime::Interface for IWMBandwidthSharing {
     type Vtable = IWMBandwidthSharing_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2909358833, 63705, 17144, [188, 71, 112, 49, 27, 12, 79, 158]);
 }
+impl ::std::convert::From<IWMBandwidthSharing> for ::windows::runtime::IUnknown {
+    fn from(value: IWMBandwidthSharing) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMBandwidthSharing> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMBandwidthSharing) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMBandwidthSharing {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMBandwidthSharing {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMBandwidthSharing> for IWMStreamList {
     fn from(value: IWMBandwidthSharing) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -967,12 +1207,12 @@ impl ::std::convert::From<&IWMBandwidthSharing> for IWMStreamList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamList> for IWMBandwidthSharing {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamList> for &IWMBandwidthSharing {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -991,8 +1231,8 @@ pub struct IWMBandwidthSharing_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMClientConnections(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMClientConnections(pub ::windows::runtime::IUnknown);
 impl IWMClientConnections {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetClientCount(&self) -> ::windows::runtime::Result<u32> {
@@ -1009,6 +1249,26 @@ unsafe impl ::windows::runtime::Interface for IWMClientConnections {
     type Vtable = IWMClientConnections_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1942380560, 41625, 16863, [177, 240, 204, 240, 59, 9, 193, 198]);
 }
+impl ::std::convert::From<IWMClientConnections> for ::windows::runtime::IUnknown {
+    fn from(value: IWMClientConnections) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMClientConnections> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMClientConnections) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMClientConnections {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMClientConnections {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMClientConnections_abi(
@@ -1020,8 +1280,8 @@ pub struct IWMClientConnections_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMClientConnections2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMClientConnections2(pub ::windows::runtime::IUnknown);
 impl IWMClientConnections2 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetClientCount(&self) -> ::windows::runtime::Result<u32> {
@@ -1043,6 +1303,26 @@ unsafe impl ::windows::runtime::Interface for IWMClientConnections2 {
     type Vtable = IWMClientConnections2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1083266846, 18177, 17811, [187, 61, 213, 245, 240, 199, 66, 70]);
 }
+impl ::std::convert::From<IWMClientConnections2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMClientConnections2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMClientConnections2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMClientConnections2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMClientConnections2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMClientConnections2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMClientConnections2> for IWMClientConnections {
     fn from(value: IWMClientConnections2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1055,12 +1335,12 @@ impl ::std::convert::From<&IWMClientConnections2> for IWMClientConnections {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMClientConnections> for IWMClientConnections2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMClientConnections> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMClientConnections>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMClientConnections> for &IWMClientConnections2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMClientConnections> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMClientConnections>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1076,8 +1356,8 @@ pub struct IWMClientConnections2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMCodecAMVideoAccelerator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMCodecAMVideoAccelerator(pub ::windows::runtime::IUnknown);
 impl IWMCodecAMVideoAccelerator {
     #[cfg(feature = "Win32_Graphics_DirectShow")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Graphics_DirectShow`*"]
@@ -1098,6 +1378,26 @@ unsafe impl ::windows::runtime::Interface for IWMCodecAMVideoAccelerator {
     type Vtable = IWMCodecAMVideoAccelerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3650019921, 13536, 18989, [147, 18, 155, 76, 120, 141, 159, 161]);
 }
+impl ::std::convert::From<IWMCodecAMVideoAccelerator> for ::windows::runtime::IUnknown {
+    fn from(value: IWMCodecAMVideoAccelerator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMCodecAMVideoAccelerator> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMCodecAMVideoAccelerator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMCodecAMVideoAccelerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMCodecAMVideoAccelerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMCodecAMVideoAccelerator_abi(
@@ -1112,8 +1412,8 @@ pub struct IWMCodecAMVideoAccelerator_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMCodecInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMCodecInfo(pub ::windows::runtime::IUnknown);
 impl IWMCodecInfo {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCodecInfoCount(&self, guidtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<u32> {
@@ -1135,6 +1435,26 @@ unsafe impl ::windows::runtime::Interface for IWMCodecInfo {
     type Vtable = IWMCodecInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2842752030, 13534, 19096, [179, 186, 228, 179, 202, 117, 40, 240]);
 }
+impl ::std::convert::From<IWMCodecInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IWMCodecInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMCodecInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMCodecInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMCodecInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMCodecInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMCodecInfo_abi(
@@ -1147,8 +1467,8 @@ pub struct IWMCodecInfo_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMCodecInfo2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMCodecInfo2(pub ::windows::runtime::IUnknown);
 impl IWMCodecInfo2 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCodecInfoCount(&self, guidtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<u32> {
@@ -1180,6 +1500,26 @@ unsafe impl ::windows::runtime::Interface for IWMCodecInfo2 {
     type Vtable = IWMCodecInfo2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2858803827, 46726, 16470, [145, 236, 221, 118, 141, 77, 247, 16]);
 }
+impl ::std::convert::From<IWMCodecInfo2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMCodecInfo2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMCodecInfo2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMCodecInfo2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMCodecInfo2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMCodecInfo2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMCodecInfo2> for IWMCodecInfo {
     fn from(value: IWMCodecInfo2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1192,12 +1532,12 @@ impl ::std::convert::From<&IWMCodecInfo2> for IWMCodecInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMCodecInfo> for IWMCodecInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMCodecInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMCodecInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMCodecInfo> for &IWMCodecInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMCodecInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMCodecInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1216,8 +1556,8 @@ pub struct IWMCodecInfo2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMCodecInfo3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMCodecInfo3(pub ::windows::runtime::IUnknown);
 impl IWMCodecInfo3 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCodecInfoCount(&self, guidtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<u32> {
@@ -1269,6 +1609,26 @@ unsafe impl ::windows::runtime::Interface for IWMCodecInfo3 {
     type Vtable = IWMCodecInfo3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2119300231, 19859, 20376, [138, 180, 39, 208, 86, 90, 220, 81]);
 }
+impl ::std::convert::From<IWMCodecInfo3> for ::windows::runtime::IUnknown {
+    fn from(value: IWMCodecInfo3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMCodecInfo3> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMCodecInfo3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMCodecInfo3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMCodecInfo3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMCodecInfo3> for IWMCodecInfo2 {
     fn from(value: IWMCodecInfo3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1281,12 +1641,12 @@ impl ::std::convert::From<&IWMCodecInfo3> for IWMCodecInfo2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMCodecInfo2> for IWMCodecInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMCodecInfo2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMCodecInfo2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMCodecInfo2> for &IWMCodecInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMCodecInfo2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMCodecInfo2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMCodecInfo3> for IWMCodecInfo {
@@ -1301,12 +1661,12 @@ impl ::std::convert::From<&IWMCodecInfo3> for IWMCodecInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMCodecInfo> for IWMCodecInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMCodecInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMCodecInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMCodecInfo> for &IWMCodecInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMCodecInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMCodecInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1333,8 +1693,8 @@ pub struct IWMCodecInfo3_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMCodecVideoAccelerator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMCodecVideoAccelerator(pub ::windows::runtime::IUnknown);
 impl IWMCodecVideoAccelerator {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`, `Win32_Graphics_DirectShow`*"]
@@ -1350,6 +1710,26 @@ unsafe impl ::windows::runtime::Interface for IWMCodecVideoAccelerator {
     type Vtable = IWMCodecVideoAccelerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2567324080, 29599, 20116, [168, 8, 152, 136, 218, 143, 117, 175]);
 }
+impl ::std::convert::From<IWMCodecVideoAccelerator> for ::windows::runtime::IUnknown {
+    fn from(value: IWMCodecVideoAccelerator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMCodecVideoAccelerator> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMCodecVideoAccelerator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMCodecVideoAccelerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMCodecVideoAccelerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMCodecVideoAccelerator_abi(
@@ -1362,8 +1742,8 @@ pub struct IWMCodecVideoAccelerator_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMCredentialCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMCredentialCallback(pub ::windows::runtime::IUnknown);
 impl IWMCredentialCallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -1374,6 +1754,26 @@ impl IWMCredentialCallback {
 unsafe impl ::windows::runtime::Interface for IWMCredentialCallback {
     type Vtable = IWMCredentialCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(875433655, 58961, 17676, [151, 91, 42, 206, 44, 144, 196, 142]);
+}
+impl ::std::convert::From<IWMCredentialCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWMCredentialCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMCredentialCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMCredentialCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMCredentialCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMCredentialCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1386,8 +1786,8 @@ pub struct IWMCredentialCallback_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMDRMEditor(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMDRMEditor(pub ::windows::runtime::IUnknown);
 impl IWMDRMEditor {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -1398,6 +1798,26 @@ impl IWMDRMEditor {
 unsafe impl ::windows::runtime::Interface for IWMDRMEditor {
     type Vtable = IWMDRMEditor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4279439036, 42691, 17062, [180, 1, 195, 56, 44, 62, 8, 179]);
+}
+impl ::std::convert::From<IWMDRMEditor> for ::windows::runtime::IUnknown {
+    fn from(value: IWMDRMEditor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMDRMEditor> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMDRMEditor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDRMEditor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMDRMEditor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1410,8 +1830,8 @@ pub struct IWMDRMEditor_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMDRMMessageParser(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMDRMMessageParser(pub ::windows::runtime::IUnknown);
 impl IWMDRMMessageParser {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn ParseRegistrationReqMsg(&self, pbregistrationreqmsg: *const u8, cbregistrationreqmsg: u32, ppdevicecert: *mut ::std::option::Option<INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16) -> ::windows::runtime::Result<()> {
@@ -1427,6 +1847,26 @@ unsafe impl ::windows::runtime::Interface for IWMDRMMessageParser {
     type Vtable = IWMDRMMessageParser_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2805596274, 9632, 19609, [180, 165, 237, 232, 16, 26, 108, 57]);
 }
+impl ::std::convert::From<IWMDRMMessageParser> for ::windows::runtime::IUnknown {
+    fn from(value: IWMDRMMessageParser) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMDRMMessageParser> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMDRMMessageParser) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDRMMessageParser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMDRMMessageParser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDRMMessageParser_abi(
@@ -1439,8 +1879,8 @@ pub struct IWMDRMMessageParser_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMDRMReader(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMDRMReader(pub ::windows::runtime::IUnknown);
 impl IWMDRMReader {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AcquireLicense(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
@@ -1481,6 +1921,26 @@ unsafe impl ::windows::runtime::Interface for IWMDRMReader {
     type Vtable = IWMDRMReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3531765056, 16103, 17196, [177, 76, 220, 23, 240, 133, 211, 179]);
 }
+impl ::std::convert::From<IWMDRMReader> for ::windows::runtime::IUnknown {
+    fn from(value: IWMDRMReader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMDRMReader> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMDRMReader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDRMReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMDRMReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDRMReader_abi(
@@ -1500,8 +1960,8 @@ pub struct IWMDRMReader_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMDRMReader2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMDRMReader2(pub ::windows::runtime::IUnknown);
 impl IWMDRMReader2 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AcquireLicense(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
@@ -1559,6 +2019,26 @@ unsafe impl ::windows::runtime::Interface for IWMDRMReader2 {
     type Vtable = IWMDRMReader2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3204348533, 40733, 16501, [185, 217, 163, 195, 123, 218, 73, 160]);
 }
+impl ::std::convert::From<IWMDRMReader2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMDRMReader2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMDRMReader2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMDRMReader2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDRMReader2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMDRMReader2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMDRMReader2> for IWMDRMReader {
     fn from(value: IWMDRMReader2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1571,12 +2051,12 @@ impl ::std::convert::From<&IWMDRMReader2> for IWMDRMReader {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMReader> for IWMDRMReader2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMReader> for &IWMDRMReader2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1603,8 +2083,8 @@ pub struct IWMDRMReader2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMDRMReader3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMDRMReader3(pub ::windows::runtime::IUnknown);
 impl IWMDRMReader3 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AcquireLicense(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
@@ -1666,6 +2146,26 @@ unsafe impl ::windows::runtime::Interface for IWMDRMReader3 {
     type Vtable = IWMDRMReader3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3766907614, 61927, 20468, [160, 163, 252, 75, 8, 228, 202, 248]);
 }
+impl ::std::convert::From<IWMDRMReader3> for ::windows::runtime::IUnknown {
+    fn from(value: IWMDRMReader3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMDRMReader3> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMDRMReader3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDRMReader3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMDRMReader3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMDRMReader3> for IWMDRMReader2 {
     fn from(value: IWMDRMReader3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1678,12 +2178,12 @@ impl ::std::convert::From<&IWMDRMReader3> for IWMDRMReader2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMReader2> for IWMDRMReader3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMReader2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMReader2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMReader2> for &IWMDRMReader3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMReader2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMReader2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMDRMReader3> for IWMDRMReader {
@@ -1698,12 +2198,12 @@ impl ::std::convert::From<&IWMDRMReader3> for IWMDRMReader {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMReader> for IWMDRMReader3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMReader> for &IWMDRMReader3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1731,8 +2231,8 @@ pub struct IWMDRMReader3_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMDRMTranscryptionManager(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMDRMTranscryptionManager(pub ::windows::runtime::IUnknown);
 impl IWMDRMTranscryptionManager {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CreateTranscryptor(&self) -> ::windows::runtime::Result<IWMDRMTranscryptor> {
@@ -1744,6 +2244,26 @@ unsafe impl ::windows::runtime::Interface for IWMDRMTranscryptionManager {
     type Vtable = IWMDRMTranscryptionManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2980612018, 42224, 16506, [176, 46, 239, 189, 35, 187, 236, 223]);
 }
+impl ::std::convert::From<IWMDRMTranscryptionManager> for ::windows::runtime::IUnknown {
+    fn from(value: IWMDRMTranscryptionManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMDRMTranscryptionManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMDRMTranscryptionManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDRMTranscryptionManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMDRMTranscryptionManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDRMTranscryptionManager_abi(
@@ -1754,8 +2274,8 @@ pub struct IWMDRMTranscryptionManager_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMDRMTranscryptor(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMDRMTranscryptor(pub ::windows::runtime::IUnknown);
 impl IWMDRMTranscryptor {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -1779,6 +2299,26 @@ unsafe impl ::windows::runtime::Interface for IWMDRMTranscryptor {
     type Vtable = IWMDRMTranscryptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1761974352, 28271, 19378, [128, 111, 113, 134, 61, 223, 196, 113]);
 }
+impl ::std::convert::From<IWMDRMTranscryptor> for ::windows::runtime::IUnknown {
+    fn from(value: IWMDRMTranscryptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMDRMTranscryptor> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMDRMTranscryptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDRMTranscryptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMDRMTranscryptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDRMTranscryptor_abi(
@@ -1793,8 +2333,8 @@ pub struct IWMDRMTranscryptor_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMDRMTranscryptor2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMDRMTranscryptor2(pub ::windows::runtime::IUnknown);
 impl IWMDRMTranscryptor2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -1838,6 +2378,26 @@ unsafe impl ::windows::runtime::Interface for IWMDRMTranscryptor2 {
     type Vtable = IWMDRMTranscryptor2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3772400543, 54065, 18794, [190, 206, 24, 229, 186, 197, 221, 35]);
 }
+impl ::std::convert::From<IWMDRMTranscryptor2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMDRMTranscryptor2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMDRMTranscryptor2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMDRMTranscryptor2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDRMTranscryptor2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMDRMTranscryptor2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMDRMTranscryptor2> for IWMDRMTranscryptor {
     fn from(value: IWMDRMTranscryptor2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1850,12 +2410,12 @@ impl ::std::convert::From<&IWMDRMTranscryptor2> for IWMDRMTranscryptor {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMTranscryptor> for IWMDRMTranscryptor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMTranscryptor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMTranscryptor>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMTranscryptor> for &IWMDRMTranscryptor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMTranscryptor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMTranscryptor>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1878,8 +2438,8 @@ pub struct IWMDRMTranscryptor2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMDRMWriter(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMDRMWriter(pub ::windows::runtime::IUnknown);
 impl IWMDRMWriter {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -1906,6 +2466,26 @@ unsafe impl ::windows::runtime::Interface for IWMDRMWriter {
     type Vtable = IWMDRMWriter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3605683664, 4768, 17396, [144, 171, 163, 253, 69, 30, 106, 7]);
 }
+impl ::std::convert::From<IWMDRMWriter> for ::windows::runtime::IUnknown {
+    fn from(value: IWMDRMWriter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMDRMWriter> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMDRMWriter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDRMWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMDRMWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDRMWriter_abi(
@@ -1923,8 +2503,8 @@ pub struct IWMDRMWriter_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMDRMWriter2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMDRMWriter2(pub ::windows::runtime::IUnknown);
 impl IWMDRMWriter2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -1956,6 +2536,26 @@ unsafe impl ::windows::runtime::Interface for IWMDRMWriter2 {
     type Vtable = IWMDRMWriter2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(955153044, 16610, 19984, [170, 63, 51, 253, 50, 16, 237, 91]);
 }
+impl ::std::convert::From<IWMDRMWriter2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMDRMWriter2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMDRMWriter2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMDRMWriter2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDRMWriter2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMDRMWriter2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMDRMWriter2> for IWMDRMWriter {
     fn from(value: IWMDRMWriter2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1968,12 +2568,12 @@ impl ::std::convert::From<&IWMDRMWriter2> for IWMDRMWriter {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMWriter> for IWMDRMWriter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMWriter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMWriter>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMWriter> for &IWMDRMWriter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMWriter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMWriter>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1995,8 +2595,8 @@ pub struct IWMDRMWriter2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMDRMWriter3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMDRMWriter3(pub ::windows::runtime::IUnknown);
 impl IWMDRMWriter3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -2032,6 +2632,26 @@ unsafe impl ::windows::runtime::Interface for IWMDRMWriter3 {
     type Vtable = IWMDRMWriter3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2803384450, 42154, 19934, [172, 156, 231, 93, 189, 17, 23, 206]);
 }
+impl ::std::convert::From<IWMDRMWriter3> for ::windows::runtime::IUnknown {
+    fn from(value: IWMDRMWriter3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMDRMWriter3> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMDRMWriter3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDRMWriter3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMDRMWriter3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMDRMWriter3> for IWMDRMWriter2 {
     fn from(value: IWMDRMWriter3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2044,12 +2664,12 @@ impl ::std::convert::From<&IWMDRMWriter3> for IWMDRMWriter2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMWriter2> for IWMDRMWriter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMWriter2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMWriter2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMWriter2> for &IWMDRMWriter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMWriter2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMWriter2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMDRMWriter3> for IWMDRMWriter {
@@ -2064,12 +2684,12 @@ impl ::std::convert::From<&IWMDRMWriter3> for IWMDRMWriter {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMWriter> for IWMDRMWriter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMWriter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMWriter>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMWriter> for &IWMDRMWriter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMWriter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMWriter>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2092,8 +2712,8 @@ pub struct IWMDRMWriter3_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMDeviceRegistration(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMDeviceRegistration(pub ::windows::runtime::IUnknown);
 impl IWMDeviceRegistration {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RegisterDevice<'a, Param3: ::windows::runtime::IntoParam<'a, DRM_VAL16>>(&self, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: Param3) -> ::windows::runtime::Result<IWMRegisteredDevice> {
@@ -2129,6 +2749,26 @@ unsafe impl ::windows::runtime::Interface for IWMDeviceRegistration {
     type Vtable = IWMDeviceRegistration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4129365763, 36129, 20116, [147, 230, 133, 16, 128, 95, 45, 153]);
 }
+impl ::std::convert::From<IWMDeviceRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: IWMDeviceRegistration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMDeviceRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMDeviceRegistration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDeviceRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMDeviceRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDeviceRegistration_abi(
@@ -2144,8 +2784,8 @@ pub struct IWMDeviceRegistration_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMGetSecureChannel(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMGetSecureChannel(pub ::windows::runtime::IUnknown);
 impl IWMGetSecureChannel {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPeerSecureChannelInterface(&self) -> ::windows::runtime::Result<IWMSecureChannel> {
@@ -2157,6 +2797,26 @@ unsafe impl ::windows::runtime::Interface for IWMGetSecureChannel {
     type Vtable = IWMGetSecureChannel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2495350168, 50130, 4563, [190, 223, 0, 192, 79, 97, 41, 134]);
 }
+impl ::std::convert::From<IWMGetSecureChannel> for ::windows::runtime::IUnknown {
+    fn from(value: IWMGetSecureChannel) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMGetSecureChannel> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMGetSecureChannel) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMGetSecureChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMGetSecureChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMGetSecureChannel_abi(
@@ -2167,8 +2827,8 @@ pub struct IWMGetSecureChannel_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMHeaderInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMHeaderInfo(pub ::windows::runtime::IUnknown);
 impl IWMHeaderInfo {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAttributeCount(&self, wstreamnum: u16) -> ::windows::runtime::Result<u16> {
@@ -2233,6 +2893,26 @@ unsafe impl ::windows::runtime::Interface for IWMHeaderInfo {
     type Vtable = IWMHeaderInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804314, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMHeaderInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IWMHeaderInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMHeaderInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMHeaderInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMHeaderInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMHeaderInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMHeaderInfo_abi(
@@ -2261,8 +2941,8 @@ pub struct IWMHeaderInfo_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMHeaderInfo2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMHeaderInfo2(pub ::windows::runtime::IUnknown);
 impl IWMHeaderInfo2 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAttributeCount(&self, wstreamnum: u16) -> ::windows::runtime::Result<u16> {
@@ -2348,6 +3028,26 @@ unsafe impl ::windows::runtime::Interface for IWMHeaderInfo2 {
     type Vtable = IWMHeaderInfo2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(365926273, 17742, 18478, [179, 147, 133, 250, 228, 135, 168, 16]);
 }
+impl ::std::convert::From<IWMHeaderInfo2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMHeaderInfo2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMHeaderInfo2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMHeaderInfo2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMHeaderInfo2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMHeaderInfo2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMHeaderInfo2> for IWMHeaderInfo {
     fn from(value: IWMHeaderInfo2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2360,12 +3060,12 @@ impl ::std::convert::From<&IWMHeaderInfo2> for IWMHeaderInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMHeaderInfo> for IWMHeaderInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMHeaderInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMHeaderInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMHeaderInfo> for &IWMHeaderInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMHeaderInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMHeaderInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2399,8 +3099,8 @@ pub struct IWMHeaderInfo2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMHeaderInfo3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMHeaderInfo3(pub ::windows::runtime::IUnknown);
 impl IWMHeaderInfo3 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAttributeCount(&self, wstreamnum: u16) -> ::windows::runtime::Result<u16> {
@@ -2519,6 +3219,26 @@ unsafe impl ::windows::runtime::Interface for IWMHeaderInfo3 {
     type Vtable = IWMHeaderInfo3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(365717731, 10188, 20173, [178, 34, 63, 93, 2, 216, 11, 213]);
 }
+impl ::std::convert::From<IWMHeaderInfo3> for ::windows::runtime::IUnknown {
+    fn from(value: IWMHeaderInfo3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMHeaderInfo3> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMHeaderInfo3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMHeaderInfo3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMHeaderInfo3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMHeaderInfo3> for IWMHeaderInfo2 {
     fn from(value: IWMHeaderInfo3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2531,12 +3251,12 @@ impl ::std::convert::From<&IWMHeaderInfo3> for IWMHeaderInfo2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMHeaderInfo2> for IWMHeaderInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMHeaderInfo2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMHeaderInfo2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMHeaderInfo2> for &IWMHeaderInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMHeaderInfo2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMHeaderInfo2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMHeaderInfo3> for IWMHeaderInfo {
@@ -2551,12 +3271,12 @@ impl ::std::convert::From<&IWMHeaderInfo3> for IWMHeaderInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMHeaderInfo> for IWMHeaderInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMHeaderInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMHeaderInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMHeaderInfo> for &IWMHeaderInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMHeaderInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMHeaderInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2601,8 +3321,8 @@ pub struct IWMHeaderInfo3_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMIStreamProps(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMIStreamProps(pub ::windows::runtime::IUnknown);
 impl IWMIStreamProps {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -2613,6 +3333,26 @@ impl IWMIStreamProps {
 unsafe impl ::windows::runtime::Interface for IWMIStreamProps {
     type Vtable = IWMIStreamProps_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1746328275, 11083, 19598, [129, 73, 135, 76, 52, 131, 167, 83]);
+}
+impl ::std::convert::From<IWMIStreamProps> for ::windows::runtime::IUnknown {
+    fn from(value: IWMIStreamProps) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMIStreamProps> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMIStreamProps) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMIStreamProps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMIStreamProps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2625,8 +3365,8 @@ pub struct IWMIStreamProps_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMImageInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMImageInfo(pub ::windows::runtime::IUnknown);
 impl IWMImageInfo {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetImageCount(&self) -> ::windows::runtime::Result<u32> {
@@ -2654,6 +3394,26 @@ unsafe impl ::windows::runtime::Interface for IWMImageInfo {
     type Vtable = IWMImageInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2668274614, 29287, 19849, [136, 242, 186, 145, 90, 165, 196, 198]);
 }
+impl ::std::convert::From<IWMImageInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IWMImageInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMImageInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMImageInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMImageInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMImageInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMImageInfo_abi(
@@ -2666,8 +3426,8 @@ pub struct IWMImageInfo_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMIndexer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMIndexer(pub ::windows::runtime::IUnknown);
 impl IWMIndexer {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -2683,6 +3443,26 @@ unsafe impl ::windows::runtime::Interface for IWMIndexer {
     type Vtable = IWMIndexer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1836899441, 39048, 4563, [142, 220, 0, 192, 79, 97, 9, 207]);
 }
+impl ::std::convert::From<IWMIndexer> for ::windows::runtime::IUnknown {
+    fn from(value: IWMIndexer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMIndexer> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMIndexer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMIndexer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMIndexer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMIndexer_abi(
@@ -2695,8 +3475,8 @@ pub struct IWMIndexer_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMIndexer2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMIndexer2(pub ::windows::runtime::IUnknown);
 impl IWMIndexer2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -2716,6 +3496,26 @@ unsafe impl ::windows::runtime::Interface for IWMIndexer2 {
     type Vtable = IWMIndexer2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3071221314, 25173, 19952, [166, 185, 2, 178, 18, 217, 226, 187]);
 }
+impl ::std::convert::From<IWMIndexer2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMIndexer2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMIndexer2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMIndexer2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMIndexer2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMIndexer2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMIndexer2> for IWMIndexer {
     fn from(value: IWMIndexer2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2728,12 +3528,12 @@ impl ::std::convert::From<&IWMIndexer2> for IWMIndexer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMIndexer> for IWMIndexer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMIndexer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMIndexer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMIndexer> for &IWMIndexer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMIndexer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMIndexer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2749,8 +3549,8 @@ pub struct IWMIndexer2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMInputMediaProps(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMInputMediaProps(pub ::windows::runtime::IUnknown);
 impl IWMInputMediaProps {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -2782,6 +3582,26 @@ unsafe impl ::windows::runtime::Interface for IWMInputMediaProps {
     type Vtable = IWMInputMediaProps_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804309, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMInputMediaProps> for ::windows::runtime::IUnknown {
+    fn from(value: IWMInputMediaProps) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMInputMediaProps> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMInputMediaProps) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMInputMediaProps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMInputMediaProps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMInputMediaProps> for IWMMediaProps {
     fn from(value: IWMInputMediaProps) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2794,12 +3614,12 @@ impl ::std::convert::From<&IWMInputMediaProps> for IWMMediaProps {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMediaProps> for IWMInputMediaProps {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMediaProps> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMediaProps>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMediaProps> for &IWMInputMediaProps {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMediaProps> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMediaProps>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2820,8 +3640,8 @@ pub struct IWMInputMediaProps_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMLanguageList(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMLanguageList(pub ::windows::runtime::IUnknown);
 impl IWMLanguageList {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLanguageCount(&self) -> ::windows::runtime::Result<u16> {
@@ -2844,6 +3664,26 @@ unsafe impl ::windows::runtime::Interface for IWMLanguageList {
     type Vtable = IWMLanguageList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3748151040, 11593, 19854, [146, 183, 251, 25, 246, 160, 220, 87]);
 }
+impl ::std::convert::From<IWMLanguageList> for ::windows::runtime::IUnknown {
+    fn from(value: IWMLanguageList) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMLanguageList> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMLanguageList) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMLanguageList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMLanguageList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMLanguageList_abi(
@@ -2858,8 +3698,8 @@ pub struct IWMLanguageList_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMLicenseBackup(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMLicenseBackup(pub ::windows::runtime::IUnknown);
 impl IWMLicenseBackup {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn BackupLicenses<'a, Param1: ::windows::runtime::IntoParam<'a, IWMStatusCallback>>(&self, dwflags: u32, pcallback: Param1) -> ::windows::runtime::Result<()> {
@@ -2874,6 +3714,26 @@ unsafe impl ::windows::runtime::Interface for IWMLicenseBackup {
     type Vtable = IWMLicenseBackup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(98938015, 16310, 17672, [187, 67, 164, 6, 123, 161, 235, 232]);
 }
+impl ::std::convert::From<IWMLicenseBackup> for ::windows::runtime::IUnknown {
+    fn from(value: IWMLicenseBackup) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMLicenseBackup> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMLicenseBackup) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMLicenseBackup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMLicenseBackup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMLicenseBackup_abi(
@@ -2885,8 +3745,8 @@ pub struct IWMLicenseBackup_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMLicenseRestore(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMLicenseRestore(pub ::windows::runtime::IUnknown);
 impl IWMLicenseRestore {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RestoreLicenses<'a, Param1: ::windows::runtime::IntoParam<'a, IWMStatusCallback>>(&self, dwflags: u32, pcallback: Param1) -> ::windows::runtime::Result<()> {
@@ -2901,6 +3761,26 @@ unsafe impl ::windows::runtime::Interface for IWMLicenseRestore {
     type Vtable = IWMLicenseRestore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3339412276, 41518, 20219, [162, 69, 21, 230, 90, 0, 74, 19]);
 }
+impl ::std::convert::From<IWMLicenseRestore> for ::windows::runtime::IUnknown {
+    fn from(value: IWMLicenseRestore) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMLicenseRestore> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMLicenseRestore) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMLicenseRestore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMLicenseRestore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMLicenseRestore_abi(
@@ -2912,8 +3792,8 @@ pub struct IWMLicenseRestore_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMLicenseRevocationAgent(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMLicenseRevocationAgent(pub ::windows::runtime::IUnknown);
 impl IWMLicenseRevocationAgent {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLRBChallenge(&self, pmachineid: *const u8, dwmachineidlength: u32, pchallenge: *const u8, dwchallengelength: u32, pchallengeoutput: *mut u8, pdwchallengeoutputlength: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2928,6 +3808,26 @@ unsafe impl ::windows::runtime::Interface for IWMLicenseRevocationAgent {
     type Vtable = IWMLicenseRevocationAgent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1768420041, 20006, 19287, [136, 148, 121, 152, 128, 247, 172, 123]);
 }
+impl ::std::convert::From<IWMLicenseRevocationAgent> for ::windows::runtime::IUnknown {
+    fn from(value: IWMLicenseRevocationAgent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMLicenseRevocationAgent> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMLicenseRevocationAgent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMLicenseRevocationAgent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMLicenseRevocationAgent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMLicenseRevocationAgent_abi(
@@ -2939,8 +3839,8 @@ pub struct IWMLicenseRevocationAgent_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMMediaProps(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMMediaProps(pub ::windows::runtime::IUnknown);
 impl IWMMediaProps {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -2962,6 +3862,26 @@ unsafe impl ::windows::runtime::Interface for IWMMediaProps {
     type Vtable = IWMMediaProps_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804302, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMMediaProps> for ::windows::runtime::IUnknown {
+    fn from(value: IWMMediaProps) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMMediaProps> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMMediaProps) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMMediaProps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMMediaProps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMMediaProps_abi(
@@ -2976,8 +3896,8 @@ pub struct IWMMediaProps_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMMetadataEditor(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMMetadataEditor(pub ::windows::runtime::IUnknown);
 impl IWMMetadataEditor {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -2997,6 +3917,26 @@ unsafe impl ::windows::runtime::Interface for IWMMetadataEditor {
     type Vtable = IWMMetadataEditor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804313, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMMetadataEditor> for ::windows::runtime::IUnknown {
+    fn from(value: IWMMetadataEditor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMMetadataEditor> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMMetadataEditor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMMetadataEditor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMMetadataEditor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMMetadataEditor_abi(
@@ -3010,8 +3950,8 @@ pub struct IWMMetadataEditor_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMMetadataEditor2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMMetadataEditor2(pub ::windows::runtime::IUnknown);
 impl IWMMetadataEditor2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -3036,6 +3976,26 @@ unsafe impl ::windows::runtime::Interface for IWMMetadataEditor2 {
     type Vtable = IWMMetadataEditor2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(540868579, 11800, 20447, [181, 157, 110, 113, 83, 5, 52, 207]);
 }
+impl ::std::convert::From<IWMMetadataEditor2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMMetadataEditor2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMMetadataEditor2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMMetadataEditor2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMMetadataEditor2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMMetadataEditor2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMMetadataEditor2> for IWMMetadataEditor {
     fn from(value: IWMMetadataEditor2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3048,12 +4008,12 @@ impl ::std::convert::From<&IWMMetadataEditor2> for IWMMetadataEditor {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMetadataEditor> for IWMMetadataEditor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMetadataEditor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMetadataEditor>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMetadataEditor> for &IWMMetadataEditor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMetadataEditor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMetadataEditor>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3071,8 +4031,8 @@ pub struct IWMMetadataEditor2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMMutualExclusion(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMMutualExclusion(pub ::windows::runtime::IUnknown);
 impl IWMMutualExclusion {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows::runtime::Result<()> {
@@ -3100,6 +4060,26 @@ unsafe impl ::windows::runtime::Interface for IWMMutualExclusion {
     type Vtable = IWMMutualExclusion_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804318, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMMutualExclusion> for ::windows::runtime::IUnknown {
+    fn from(value: IWMMutualExclusion) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMMutualExclusion> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMMutualExclusion) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMMutualExclusion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMMutualExclusion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMMutualExclusion> for IWMStreamList {
     fn from(value: IWMMutualExclusion) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3112,12 +4092,12 @@ impl ::std::convert::From<&IWMMutualExclusion> for IWMStreamList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamList> for IWMMutualExclusion {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamList> for &IWMMutualExclusion {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3134,8 +4114,8 @@ pub struct IWMMutualExclusion_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMMutualExclusion2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMMutualExclusion2(pub ::windows::runtime::IUnknown);
 impl IWMMutualExclusion2 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows::runtime::Result<()> {
@@ -3208,6 +4188,26 @@ unsafe impl ::windows::runtime::Interface for IWMMutualExclusion2 {
     type Vtable = IWMMutualExclusion2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(50509181, 35281, 19362, [133, 201, 22, 111, 44, 83, 235, 145]);
 }
+impl ::std::convert::From<IWMMutualExclusion2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMMutualExclusion2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMMutualExclusion2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMMutualExclusion2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMMutualExclusion2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMMutualExclusion2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMMutualExclusion2> for IWMMutualExclusion {
     fn from(value: IWMMutualExclusion2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3220,12 +4220,12 @@ impl ::std::convert::From<&IWMMutualExclusion2> for IWMMutualExclusion {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMutualExclusion> for IWMMutualExclusion2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMutualExclusion> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMutualExclusion>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMutualExclusion> for &IWMMutualExclusion2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMutualExclusion> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMutualExclusion>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMMutualExclusion2> for IWMStreamList {
@@ -3240,12 +4240,12 @@ impl ::std::convert::From<&IWMMutualExclusion2> for IWMStreamList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamList> for IWMMutualExclusion2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamList> for &IWMMutualExclusion2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3276,8 +4276,8 @@ pub struct IWMMutualExclusion2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMOutputMediaProps(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMOutputMediaProps(pub ::windows::runtime::IUnknown);
 impl IWMOutputMediaProps {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -3309,6 +4309,26 @@ unsafe impl ::windows::runtime::Interface for IWMOutputMediaProps {
     type Vtable = IWMOutputMediaProps_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804311, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMOutputMediaProps> for ::windows::runtime::IUnknown {
+    fn from(value: IWMOutputMediaProps) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMOutputMediaProps> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMOutputMediaProps) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMOutputMediaProps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMOutputMediaProps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMOutputMediaProps> for IWMMediaProps {
     fn from(value: IWMOutputMediaProps) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3321,12 +4341,12 @@ impl ::std::convert::From<&IWMOutputMediaProps> for IWMMediaProps {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMediaProps> for IWMOutputMediaProps {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMediaProps> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMediaProps>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMediaProps> for &IWMOutputMediaProps {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMediaProps> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMediaProps>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3347,8 +4367,8 @@ pub struct IWMOutputMediaProps_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMPacketSize(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMPacketSize(pub ::windows::runtime::IUnknown);
 impl IWMPacketSize {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxPacketSize(&self) -> ::windows::runtime::Result<u32> {
@@ -3364,6 +4384,26 @@ unsafe impl ::windows::runtime::Interface for IWMPacketSize {
     type Vtable = IWMPacketSize_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3455817643, 6287, 16563, [182, 67, 91, 121, 3, 151, 92, 89]);
 }
+impl ::std::convert::From<IWMPacketSize> for ::windows::runtime::IUnknown {
+    fn from(value: IWMPacketSize) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMPacketSize> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMPacketSize) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMPacketSize {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMPacketSize {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPacketSize_abi(
@@ -3375,8 +4415,8 @@ pub struct IWMPacketSize_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMPacketSize2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMPacketSize2(pub ::windows::runtime::IUnknown);
 impl IWMPacketSize2 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxPacketSize(&self) -> ::windows::runtime::Result<u32> {
@@ -3401,6 +4441,26 @@ unsafe impl ::windows::runtime::Interface for IWMPacketSize2 {
     type Vtable = IWMPacketSize2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2348559262, 46662, 16947, [168, 119, 28, 106, 7, 150, 105, 220]);
 }
+impl ::std::convert::From<IWMPacketSize2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMPacketSize2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMPacketSize2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMPacketSize2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMPacketSize2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMPacketSize2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMPacketSize2> for IWMPacketSize {
     fn from(value: IWMPacketSize2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3413,12 +4473,12 @@ impl ::std::convert::From<&IWMPacketSize2> for IWMPacketSize {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMPacketSize> for IWMPacketSize2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMPacketSize> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMPacketSize>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMPacketSize> for &IWMPacketSize2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMPacketSize> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMPacketSize>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3434,8 +4494,8 @@ pub struct IWMPacketSize2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMPlayerHook(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMPlayerHook(pub ::windows::runtime::IUnknown);
 impl IWMPlayerHook {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn PreDecode(&self) -> ::windows::runtime::Result<()> {
@@ -3445,6 +4505,26 @@ impl IWMPlayerHook {
 unsafe impl ::windows::runtime::Interface for IWMPlayerHook {
     type Vtable = IWMPlayerHook_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3854027418, 3868, 20326, [144, 2, 116, 236, 80, 216, 179, 4]);
+}
+impl ::std::convert::From<IWMPlayerHook> for ::windows::runtime::IUnknown {
+    fn from(value: IWMPlayerHook) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMPlayerHook> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMPlayerHook) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMPlayerHook {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMPlayerHook {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3456,8 +4536,8 @@ pub struct IWMPlayerHook_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMPlayerTimestampHook(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMPlayerTimestampHook(pub ::windows::runtime::IUnknown);
 impl IWMPlayerTimestampHook {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn MapTimestamp(&self, rtin: i64) -> ::windows::runtime::Result<i64> {
@@ -3469,6 +4549,26 @@ unsafe impl ::windows::runtime::Interface for IWMPlayerTimestampHook {
     type Vtable = IWMPlayerTimestampHook_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(676859354, 55694, 18640, [183, 174, 105, 228, 115, 160, 40, 37]);
 }
+impl ::std::convert::From<IWMPlayerTimestampHook> for ::windows::runtime::IUnknown {
+    fn from(value: IWMPlayerTimestampHook) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMPlayerTimestampHook> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMPlayerTimestampHook) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMPlayerTimestampHook {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMPlayerTimestampHook {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPlayerTimestampHook_abi(
@@ -3479,8 +4579,8 @@ pub struct IWMPlayerTimestampHook_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMProfile(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMProfile(pub ::windows::runtime::IUnknown);
 impl IWMProfile {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<WMT_VERSION> {
@@ -3571,6 +4671,26 @@ unsafe impl ::windows::runtime::Interface for IWMProfile {
     type Vtable = IWMProfile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804315, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMProfile> for ::windows::runtime::IUnknown {
+    fn from(value: IWMProfile) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMProfile> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMProfile) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMProfile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMProfile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMProfile_abi(
@@ -3602,8 +4722,8 @@ pub struct IWMProfile_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMProfile2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMProfile2(pub ::windows::runtime::IUnknown);
 impl IWMProfile2 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<WMT_VERSION> {
@@ -3699,6 +4819,26 @@ unsafe impl ::windows::runtime::Interface for IWMProfile2 {
     type Vtable = IWMProfile2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132590899, 55630, 19431, [136, 67, 96, 174, 95, 247, 229, 245]);
 }
+impl ::std::convert::From<IWMProfile2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMProfile2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMProfile2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMProfile2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMProfile2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMProfile2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMProfile2> for IWMProfile {
     fn from(value: IWMProfile2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3711,12 +4851,12 @@ impl ::std::convert::From<&IWMProfile2> for IWMProfile {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMProfile> for IWMProfile2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMProfile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMProfile>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMProfile> for &IWMProfile2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMProfile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMProfile>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3751,8 +4891,8 @@ pub struct IWMProfile2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMProfile3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMProfile3(pub ::windows::runtime::IUnknown);
 impl IWMProfile3 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<WMT_VERSION> {
@@ -3903,6 +5043,26 @@ unsafe impl ::windows::runtime::Interface for IWMProfile3 {
     type Vtable = IWMProfile3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15701708, 42081, 17734, [139, 205, 201, 162, 143, 14, 6, 245]);
 }
+impl ::std::convert::From<IWMProfile3> for ::windows::runtime::IUnknown {
+    fn from(value: IWMProfile3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMProfile3> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMProfile3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMProfile3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMProfile3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMProfile3> for IWMProfile2 {
     fn from(value: IWMProfile3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3915,12 +5075,12 @@ impl ::std::convert::From<&IWMProfile3> for IWMProfile2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMProfile2> for IWMProfile3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMProfile2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMProfile2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMProfile2> for &IWMProfile3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMProfile2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMProfile2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMProfile3> for IWMProfile {
@@ -3935,12 +5095,12 @@ impl ::std::convert::From<&IWMProfile3> for IWMProfile {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMProfile> for IWMProfile3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMProfile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMProfile>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMProfile> for &IWMProfile3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMProfile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMProfile>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3987,8 +5147,8 @@ pub struct IWMProfile3_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMProfileManager(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMProfileManager(pub ::windows::runtime::IUnknown);
 impl IWMProfileManager {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CreateEmptyProfile(&self, dwversion: WMT_VERSION) -> ::windows::runtime::Result<IWMProfile> {
@@ -4026,6 +5186,26 @@ unsafe impl ::windows::runtime::Interface for IWMProfileManager {
     type Vtable = IWMProfileManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3513154034, 27808, 18221, [141, 49, 47, 93, 85, 174, 225, 85]);
 }
+impl ::std::convert::From<IWMProfileManager> for ::windows::runtime::IUnknown {
+    fn from(value: IWMProfileManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMProfileManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMProfileManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMProfileManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMProfileManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMProfileManager_abi(
@@ -4043,8 +5223,8 @@ pub struct IWMProfileManager_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMProfileManager2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMProfileManager2(pub ::windows::runtime::IUnknown);
 impl IWMProfileManager2 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CreateEmptyProfile(&self, dwversion: WMT_VERSION) -> ::windows::runtime::Result<IWMProfile> {
@@ -4090,6 +5270,26 @@ unsafe impl ::windows::runtime::Interface for IWMProfileManager2 {
     type Vtable = IWMProfileManager2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2056408657, 29633, 18765, [128, 25, 35, 211, 126, 217, 184, 154]);
 }
+impl ::std::convert::From<IWMProfileManager2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMProfileManager2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMProfileManager2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMProfileManager2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMProfileManager2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMProfileManager2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMProfileManager2> for IWMProfileManager {
     fn from(value: IWMProfileManager2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4102,12 +5302,12 @@ impl ::std::convert::From<&IWMProfileManager2> for IWMProfileManager {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMProfileManager> for IWMProfileManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMProfileManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMProfileManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMProfileManager> for &IWMProfileManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMProfileManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMProfileManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4129,8 +5329,8 @@ pub struct IWMProfileManager2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMProfileManagerLanguage(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMProfileManagerLanguage(pub ::windows::runtime::IUnknown);
 impl IWMProfileManagerLanguage {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetUserLanguageID(&self, wlangid: *mut u16) -> ::windows::runtime::Result<()> {
@@ -4145,6 +5345,26 @@ unsafe impl ::windows::runtime::Interface for IWMProfileManagerLanguage {
     type Vtable = IWMProfileManagerLanguage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3125660792, 32480, 19128, [178, 122, 219, 206, 139, 197, 20, 84]);
 }
+impl ::std::convert::From<IWMProfileManagerLanguage> for ::windows::runtime::IUnknown {
+    fn from(value: IWMProfileManagerLanguage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMProfileManagerLanguage> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMProfileManagerLanguage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMProfileManagerLanguage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMProfileManagerLanguage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMProfileManagerLanguage_abi(
@@ -4156,8 +5376,8 @@ pub struct IWMProfileManagerLanguage_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMPropertyVault(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMPropertyVault(pub ::windows::runtime::IUnknown);
 impl IWMPropertyVault {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPropertyCount(&self, pdwcount: *const u32) -> ::windows::runtime::Result<()> {
@@ -4191,6 +5411,26 @@ unsafe impl ::windows::runtime::Interface for IWMPropertyVault {
     type Vtable = IWMPropertyVault_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1922652793, 20624, 17060, [156, 140, 217, 208, 182, 211, 75, 229]);
 }
+impl ::std::convert::From<IWMPropertyVault> for ::windows::runtime::IUnknown {
+    fn from(value: IWMPropertyVault) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMPropertyVault> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMPropertyVault) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMPropertyVault {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMPropertyVault {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPropertyVault_abi(
@@ -4209,8 +5449,8 @@ pub struct IWMPropertyVault_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMProximityDetection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMProximityDetection(pub ::windows::runtime::IUnknown);
 impl IWMProximityDetection {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StartDetection<'a, Param6: ::windows::runtime::IntoParam<'a, IWMStatusCallback>>(&self, pbregistrationmsg: *const u8, cbregistrationmsg: u32, pblocaladdress: *const u8, cblocaladdress: u32, dwextraportsallowed: u32, ppregistrationresponsemsg: *mut ::std::option::Option<INSSBuffer>, pcallback: Param6, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -4232,6 +5472,26 @@ unsafe impl ::windows::runtime::Interface for IWMProximityDetection {
     type Vtable = IWMProximityDetection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1788860654, 46673, 19440, [184, 73, 125, 78, 206, 121, 162, 177]);
 }
+impl ::std::convert::From<IWMProximityDetection> for ::windows::runtime::IUnknown {
+    fn from(value: IWMProximityDetection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMProximityDetection> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMProximityDetection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMProximityDetection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMProximityDetection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMProximityDetection_abi(
@@ -4242,8 +5502,8 @@ pub struct IWMProximityDetection_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReader(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReader(pub ::windows::runtime::IUnknown);
 impl IWMReader {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -4299,6 +5559,26 @@ unsafe impl ::windows::runtime::Interface for IWMReader {
     type Vtable = IWMReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804310, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMReader> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReader> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReader_abi(
@@ -4320,8 +5600,8 @@ pub struct IWMReader_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReaderAccelerator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReaderAccelerator(pub ::windows::runtime::IUnknown);
 impl IWMReaderAccelerator {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCodecInterface(&self, dwoutputnum: u32, riid: *const ::windows::runtime::GUID, ppvcodecinterface: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -4337,6 +5617,26 @@ unsafe impl ::windows::runtime::Interface for IWMReaderAccelerator {
     type Vtable = IWMReaderAccelerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3185331464, 37965, 19794, [166, 18, 70, 195, 253, 160, 125, 212]);
 }
+impl ::std::convert::From<IWMReaderAccelerator> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReaderAccelerator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReaderAccelerator> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReaderAccelerator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReaderAccelerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReaderAccelerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderAccelerator_abi(
@@ -4349,8 +5649,8 @@ pub struct IWMReaderAccelerator_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReaderAdvanced(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReaderAdvanced(pub ::windows::runtime::IUnknown);
 impl IWMReaderAdvanced {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -4459,6 +5759,26 @@ unsafe impl ::windows::runtime::Interface for IWMReaderAdvanced {
     type Vtable = IWMReaderAdvanced_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804330, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMReaderAdvanced> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReaderAdvanced) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReaderAdvanced> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReaderAdvanced) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReaderAdvanced {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReaderAdvanced {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderAdvanced_abi(
@@ -4501,8 +5821,8 @@ pub struct IWMReaderAdvanced_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReaderAdvanced2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReaderAdvanced2(pub ::windows::runtime::IUnknown);
 impl IWMReaderAdvanced2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -4681,6 +6001,26 @@ unsafe impl ::windows::runtime::Interface for IWMReaderAdvanced2 {
     type Vtable = IWMReaderAdvanced2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2920589637, 47372, 19725, [145, 39, 128, 214, 101, 247, 215, 62]);
 }
+impl ::std::convert::From<IWMReaderAdvanced2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReaderAdvanced2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReaderAdvanced2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReaderAdvanced2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReaderAdvanced2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReaderAdvanced2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMReaderAdvanced2> for IWMReaderAdvanced {
     fn from(value: IWMReaderAdvanced2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4693,12 +6033,12 @@ impl ::std::convert::From<&IWMReaderAdvanced2> for IWMReaderAdvanced {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for IWMReaderAdvanced2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for &IWMReaderAdvanced2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4765,8 +6105,8 @@ pub struct IWMReaderAdvanced2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReaderAdvanced3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReaderAdvanced3(pub ::windows::runtime::IUnknown);
 impl IWMReaderAdvanced3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -4953,6 +6293,26 @@ unsafe impl ::windows::runtime::Interface for IWMReaderAdvanced3 {
     type Vtable = IWMReaderAdvanced3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1572890443, 61515, 19022, [159, 42, 177, 175, 222, 44, 129, 0]);
 }
+impl ::std::convert::From<IWMReaderAdvanced3> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReaderAdvanced3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReaderAdvanced3> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReaderAdvanced3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReaderAdvanced3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReaderAdvanced3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMReaderAdvanced3> for IWMReaderAdvanced2 {
     fn from(value: IWMReaderAdvanced3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4965,12 +6325,12 @@ impl ::std::convert::From<&IWMReaderAdvanced3> for IWMReaderAdvanced2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced2> for IWMReaderAdvanced3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced2> for &IWMReaderAdvanced3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced3> for IWMReaderAdvanced {
@@ -4985,12 +6345,12 @@ impl ::std::convert::From<&IWMReaderAdvanced3> for IWMReaderAdvanced {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for IWMReaderAdvanced3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for &IWMReaderAdvanced3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5059,8 +6419,8 @@ pub struct IWMReaderAdvanced3_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReaderAdvanced4(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReaderAdvanced4(pub ::windows::runtime::IUnknown);
 impl IWMReaderAdvanced4 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -5292,6 +6652,26 @@ unsafe impl ::windows::runtime::Interface for IWMReaderAdvanced4 {
     type Vtable = IWMReaderAdvanced4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2488956578, 4782, 19784, [189, 60, 205, 29, 144, 57, 155, 133]);
 }
+impl ::std::convert::From<IWMReaderAdvanced4> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReaderAdvanced4) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReaderAdvanced4> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReaderAdvanced4) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReaderAdvanced4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReaderAdvanced4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMReaderAdvanced4> for IWMReaderAdvanced3 {
     fn from(value: IWMReaderAdvanced4) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5304,12 +6684,12 @@ impl ::std::convert::From<&IWMReaderAdvanced4> for IWMReaderAdvanced3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced3> for IWMReaderAdvanced4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced3> for &IWMReaderAdvanced4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced4> for IWMReaderAdvanced2 {
@@ -5324,12 +6704,12 @@ impl ::std::convert::From<&IWMReaderAdvanced4> for IWMReaderAdvanced2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced2> for IWMReaderAdvanced4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced2> for &IWMReaderAdvanced4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced4> for IWMReaderAdvanced {
@@ -5344,12 +6724,12 @@ impl ::std::convert::From<&IWMReaderAdvanced4> for IWMReaderAdvanced {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for IWMReaderAdvanced4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for &IWMReaderAdvanced4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5432,8 +6812,8 @@ pub struct IWMReaderAdvanced4_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReaderAdvanced5(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReaderAdvanced5(pub ::windows::runtime::IUnknown);
 impl IWMReaderAdvanced5 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -5669,6 +7049,26 @@ unsafe impl ::windows::runtime::Interface for IWMReaderAdvanced5 {
     type Vtable = IWMReaderAdvanced5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(616844720, 21969, 18862, [165, 204, 241, 56, 21, 227, 99, 99]);
 }
+impl ::std::convert::From<IWMReaderAdvanced5> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReaderAdvanced5) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReaderAdvanced5> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReaderAdvanced5) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReaderAdvanced5 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReaderAdvanced5 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMReaderAdvanced5> for IWMReaderAdvanced4 {
     fn from(value: IWMReaderAdvanced5) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5681,12 +7081,12 @@ impl ::std::convert::From<&IWMReaderAdvanced5> for IWMReaderAdvanced4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced4> for IWMReaderAdvanced5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced4> for &IWMReaderAdvanced5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced5> for IWMReaderAdvanced3 {
@@ -5701,12 +7101,12 @@ impl ::std::convert::From<&IWMReaderAdvanced5> for IWMReaderAdvanced3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced3> for IWMReaderAdvanced5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced3> for &IWMReaderAdvanced5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced5> for IWMReaderAdvanced2 {
@@ -5721,12 +7121,12 @@ impl ::std::convert::From<&IWMReaderAdvanced5> for IWMReaderAdvanced2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced2> for IWMReaderAdvanced5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced2> for &IWMReaderAdvanced5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced5> for IWMReaderAdvanced {
@@ -5741,12 +7141,12 @@ impl ::std::convert::From<&IWMReaderAdvanced5> for IWMReaderAdvanced {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for IWMReaderAdvanced5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for &IWMReaderAdvanced5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5830,8 +7230,8 @@ pub struct IWMReaderAdvanced5_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReaderAdvanced6(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReaderAdvanced6(pub ::windows::runtime::IUnknown);
 impl IWMReaderAdvanced6 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -6071,6 +7471,26 @@ unsafe impl ::windows::runtime::Interface for IWMReaderAdvanced6 {
     type Vtable = IWMReaderAdvanced6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(413329400, 17039, 19149, [138, 0, 230, 70, 57, 188, 147, 222]);
 }
+impl ::std::convert::From<IWMReaderAdvanced6> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReaderAdvanced6) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReaderAdvanced6> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReaderAdvanced6) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReaderAdvanced6 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReaderAdvanced6 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMReaderAdvanced6> for IWMReaderAdvanced5 {
     fn from(value: IWMReaderAdvanced6) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6083,12 +7503,12 @@ impl ::std::convert::From<&IWMReaderAdvanced6> for IWMReaderAdvanced5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced5> for IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced5> for &IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced6> for IWMReaderAdvanced4 {
@@ -6103,12 +7523,12 @@ impl ::std::convert::From<&IWMReaderAdvanced6> for IWMReaderAdvanced4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced4> for IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced4> for &IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced6> for IWMReaderAdvanced3 {
@@ -6123,12 +7543,12 @@ impl ::std::convert::From<&IWMReaderAdvanced6> for IWMReaderAdvanced3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced3> for IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced3> for &IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced6> for IWMReaderAdvanced2 {
@@ -6143,12 +7563,12 @@ impl ::std::convert::From<&IWMReaderAdvanced6> for IWMReaderAdvanced2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced2> for IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced2> for &IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced6> for IWMReaderAdvanced {
@@ -6163,12 +7583,12 @@ impl ::std::convert::From<&IWMReaderAdvanced6> for IWMReaderAdvanced {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for &IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6253,8 +7673,8 @@ pub struct IWMReaderAdvanced6_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReaderAllocatorEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReaderAllocatorEx(pub ::windows::runtime::IUnknown);
 impl IWMReaderAllocatorEx {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AllocateForStreamEx(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::std::option::Option<INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -6269,6 +7689,26 @@ unsafe impl ::windows::runtime::Interface for IWMReaderAllocatorEx {
     type Vtable = IWMReaderAllocatorEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2675322791, 41518, 17037, [147, 201, 172, 130, 243, 170, 254, 90]);
 }
+impl ::std::convert::From<IWMReaderAllocatorEx> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReaderAllocatorEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReaderAllocatorEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReaderAllocatorEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReaderAllocatorEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReaderAllocatorEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderAllocatorEx_abi(
@@ -6280,8 +7720,8 @@ pub struct IWMReaderAllocatorEx_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReaderCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReaderCallback(pub ::windows::runtime::IUnknown);
 impl IWMReaderCallback {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnStatus(&self, status: WMT_STATUS, hr: ::windows::runtime::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -6296,6 +7736,26 @@ unsafe impl ::windows::runtime::Interface for IWMReaderCallback {
     type Vtable = IWMReaderCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804312, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMReaderCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReaderCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReaderCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReaderCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReaderCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReaderCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMReaderCallback> for IWMStatusCallback {
     fn from(value: IWMReaderCallback) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6308,12 +7768,12 @@ impl ::std::convert::From<&IWMReaderCallback> for IWMStatusCallback {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStatusCallback> for IWMReaderCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStatusCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStatusCallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStatusCallback> for &IWMReaderCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStatusCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStatusCallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6327,8 +7787,8 @@ pub struct IWMReaderCallback_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReaderCallbackAdvanced(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReaderCallbackAdvanced(pub ::windows::runtime::IUnknown);
 impl IWMReaderCallbackAdvanced {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnStreamSample<'a, Param4: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, wstreamnum: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: Param4, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -6360,6 +7820,26 @@ unsafe impl ::windows::runtime::Interface for IWMReaderCallbackAdvanced {
     type Vtable = IWMReaderCallbackAdvanced_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804331, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMReaderCallbackAdvanced> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReaderCallbackAdvanced) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReaderCallbackAdvanced> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReaderCallbackAdvanced) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReaderCallbackAdvanced {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReaderCallbackAdvanced {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderCallbackAdvanced_abi(
@@ -6376,8 +7856,8 @@ pub struct IWMReaderCallbackAdvanced_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReaderNetworkConfig(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReaderNetworkConfig(pub ::windows::runtime::IUnknown);
 impl IWMReaderNetworkConfig {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBufferingTime(&self) -> ::windows::runtime::Result<u64> {
@@ -6551,6 +8031,26 @@ unsafe impl ::windows::runtime::Interface for IWMReaderNetworkConfig {
     type Vtable = IWMReaderNetworkConfig_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804332, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMReaderNetworkConfig> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReaderNetworkConfig) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReaderNetworkConfig> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReaderNetworkConfig) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReaderNetworkConfig {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReaderNetworkConfig {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderNetworkConfig_abi(
@@ -6616,8 +8116,8 @@ pub struct IWMReaderNetworkConfig_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReaderNetworkConfig2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReaderNetworkConfig2(pub ::windows::runtime::IUnknown);
 impl IWMReaderNetworkConfig2 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBufferingTime(&self) -> ::windows::runtime::Result<u64> {
@@ -6858,6 +8358,26 @@ unsafe impl ::windows::runtime::Interface for IWMReaderNetworkConfig2 {
     type Vtable = IWMReaderNetworkConfig2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3648628819, 1067, 16464, [131, 135, 201, 57, 219, 34, 1, 63]);
 }
+impl ::std::convert::From<IWMReaderNetworkConfig2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReaderNetworkConfig2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReaderNetworkConfig2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReaderNetworkConfig2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReaderNetworkConfig2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReaderNetworkConfig2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMReaderNetworkConfig2> for IWMReaderNetworkConfig {
     fn from(value: IWMReaderNetworkConfig2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6870,12 +8390,12 @@ impl ::std::convert::From<&IWMReaderNetworkConfig2> for IWMReaderNetworkConfig {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderNetworkConfig> for IWMReaderNetworkConfig2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderNetworkConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderNetworkConfig>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderNetworkConfig> for &IWMReaderNetworkConfig2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderNetworkConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderNetworkConfig>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6964,8 +8484,8 @@ pub struct IWMReaderNetworkConfig2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReaderPlaylistBurn(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReaderPlaylistBurn(pub ::windows::runtime::IUnknown);
 impl IWMReaderPlaylistBurn {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -6990,6 +8510,26 @@ unsafe impl ::windows::runtime::Interface for IWMReaderPlaylistBurn {
     type Vtable = IWMReaderPlaylistBurn_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4069262080, 39850, 17527, [168, 70, 23, 68, 217, 203, 245, 51]);
 }
+impl ::std::convert::From<IWMReaderPlaylistBurn> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReaderPlaylistBurn) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReaderPlaylistBurn> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReaderPlaylistBurn) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReaderPlaylistBurn {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReaderPlaylistBurn {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderPlaylistBurn_abi(
@@ -7004,8 +8544,8 @@ pub struct IWMReaderPlaylistBurn_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReaderStreamClock(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReaderStreamClock(pub ::windows::runtime::IUnknown);
 impl IWMReaderStreamClock {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetTime(&self, pcnsnow: *const u64) -> ::windows::runtime::Result<()> {
@@ -7025,6 +8565,26 @@ unsafe impl ::windows::runtime::Interface for IWMReaderStreamClock {
     type Vtable = IWMReaderStreamClock_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804333, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMReaderStreamClock> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReaderStreamClock) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReaderStreamClock> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReaderStreamClock) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReaderStreamClock {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReaderStreamClock {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderStreamClock_abi(
@@ -7037,8 +8597,8 @@ pub struct IWMReaderStreamClock_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReaderTimecode(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReaderTimecode(pub ::windows::runtime::IUnknown);
 impl IWMReaderTimecode {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetTimecodeRangeCount(&self, wstreamnum: u16) -> ::windows::runtime::Result<u16> {
@@ -7054,6 +8614,26 @@ unsafe impl ::windows::runtime::Interface for IWMReaderTimecode {
     type Vtable = IWMReaderTimecode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4083802864, 57473, 20454, [132, 80, 184, 16, 178, 244, 16, 209]);
 }
+impl ::std::convert::From<IWMReaderTimecode> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReaderTimecode) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReaderTimecode> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReaderTimecode) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReaderTimecode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReaderTimecode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMReaderTimecode_abi(
@@ -7065,8 +8645,8 @@ pub struct IWMReaderTimecode_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMReaderTypeNegotiation(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMReaderTypeNegotiation(pub ::windows::runtime::IUnknown);
 impl IWMReaderTypeNegotiation {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn TryOutputProps<'a, Param1: ::windows::runtime::IntoParam<'a, IWMOutputMediaProps>>(&self, dwoutputnum: u32, poutput: Param1) -> ::windows::runtime::Result<()> {
@@ -7076,6 +8656,26 @@ impl IWMReaderTypeNegotiation {
 unsafe impl ::windows::runtime::Interface for IWMReaderTypeNegotiation {
     type Vtable = IWMReaderTypeNegotiation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4257109394, 33185, 16874, [147, 189, 115, 92, 173, 26, 220, 5]);
+}
+impl ::std::convert::From<IWMReaderTypeNegotiation> for ::windows::runtime::IUnknown {
+    fn from(value: IWMReaderTypeNegotiation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMReaderTypeNegotiation> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMReaderTypeNegotiation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMReaderTypeNegotiation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMReaderTypeNegotiation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7087,8 +8687,8 @@ pub struct IWMReaderTypeNegotiation_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMRegisterCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMRegisterCallback(pub ::windows::runtime::IUnknown);
 impl IWMRegisterCallback {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Advise<'a, Param0: ::windows::runtime::IntoParam<'a, IWMStatusCallback>>(&self, pcallback: Param0, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -7103,6 +8703,26 @@ unsafe impl ::windows::runtime::Interface for IWMRegisterCallback {
     type Vtable = IWMRegisterCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3477807001, 19938, 20041, [163, 99, 37, 39, 64, 217, 155, 193]);
 }
+impl ::std::convert::From<IWMRegisterCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWMRegisterCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMRegisterCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMRegisterCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMRegisterCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMRegisterCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMRegisterCallback_abi(
@@ -7114,8 +8734,8 @@ pub struct IWMRegisterCallback_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMRegisteredDevice(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMRegisteredDevice(pub ::windows::runtime::IUnknown);
 impl IWMRegisteredDevice {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetDeviceSerialNumber(&self) -> ::windows::runtime::Result<DRM_VAL16> {
@@ -7195,6 +8815,26 @@ unsafe impl ::windows::runtime::Interface for IWMRegisteredDevice {
     type Vtable = IWMRegisteredDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2756721644, 21768, 16712, [151, 172, 191, 167, 87, 96, 167, 13]);
 }
+impl ::std::convert::From<IWMRegisteredDevice> for ::windows::runtime::IUnknown {
+    fn from(value: IWMRegisteredDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMRegisteredDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMRegisteredDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMRegisteredDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMRegisteredDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMRegisteredDevice_abi(
@@ -7226,8 +8866,8 @@ pub struct IWMRegisteredDevice_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMSBufferAllocator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMSBufferAllocator(pub ::windows::runtime::IUnknown);
 impl IWMSBufferAllocator {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AllocateBuffer(&self, dwmaxbuffersize: u32) -> ::windows::runtime::Result<INSSBuffer> {
@@ -7244,6 +8884,26 @@ unsafe impl ::windows::runtime::Interface for IWMSBufferAllocator {
     type Vtable = IWMSBufferAllocator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1628454052, 8243, 4562, [158, 241, 0, 96, 151, 210, 215, 207]);
 }
+impl ::std::convert::From<IWMSBufferAllocator> for ::windows::runtime::IUnknown {
+    fn from(value: IWMSBufferAllocator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMSBufferAllocator> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMSBufferAllocator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMSBufferAllocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMSBufferAllocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMSBufferAllocator_abi(
@@ -7255,8 +8915,8 @@ pub struct IWMSBufferAllocator_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMSInternalAdminNetSource(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMSInternalAdminNetSource(pub ::windows::runtime::IUnknown);
 impl IWMSInternalAdminNetSource {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -7323,6 +8983,26 @@ unsafe impl ::windows::runtime::Interface for IWMSInternalAdminNetSource {
     type Vtable = IWMSInternalAdminNetSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2343714399, 53543, 19195, [141, 2, 174, 91, 102, 213, 76, 120]);
 }
+impl ::std::convert::From<IWMSInternalAdminNetSource> for ::windows::runtime::IUnknown {
+    fn from(value: IWMSInternalAdminNetSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMSInternalAdminNetSource> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMSInternalAdminNetSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMSInternalAdminNetSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMSInternalAdminNetSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMSInternalAdminNetSource_abi(
@@ -7349,8 +9029,8 @@ pub struct IWMSInternalAdminNetSource_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMSInternalAdminNetSource2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMSInternalAdminNetSource2(pub ::windows::runtime::IUnknown);
 impl IWMSInternalAdminNetSource2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -7413,6 +9093,26 @@ unsafe impl ::windows::runtime::Interface for IWMSInternalAdminNetSource2 {
     type Vtable = IWMSInternalAdminNetSource2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3880605891, 53111, 19281, [175, 23, 116, 70, 135, 196, 62, 174]);
 }
+impl ::std::convert::From<IWMSInternalAdminNetSource2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMSInternalAdminNetSource2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMSInternalAdminNetSource2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMSInternalAdminNetSource2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMSInternalAdminNetSource2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMSInternalAdminNetSource2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMSInternalAdminNetSource2_abi(
@@ -7451,8 +9151,8 @@ pub struct IWMSInternalAdminNetSource2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMSInternalAdminNetSource3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMSInternalAdminNetSource3(pub ::windows::runtime::IUnknown);
 impl IWMSInternalAdminNetSource3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -7599,6 +9299,26 @@ unsafe impl ::windows::runtime::Interface for IWMSInternalAdminNetSource3 {
     type Vtable = IWMSInternalAdminNetSource3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1801703566, 17808, 17583, [158, 179, 87, 255, 30, 115, 191, 128]);
 }
+impl ::std::convert::From<IWMSInternalAdminNetSource3> for ::windows::runtime::IUnknown {
+    fn from(value: IWMSInternalAdminNetSource3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMSInternalAdminNetSource3> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMSInternalAdminNetSource3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMSInternalAdminNetSource3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMSInternalAdminNetSource3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMSInternalAdminNetSource3> for IWMSInternalAdminNetSource2 {
     fn from(value: IWMSInternalAdminNetSource3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7611,12 +9331,12 @@ impl ::std::convert::From<&IWMSInternalAdminNetSource3> for IWMSInternalAdminNet
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMSInternalAdminNetSource2> for IWMSInternalAdminNetSource3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMSInternalAdminNetSource2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMSInternalAdminNetSource2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMSInternalAdminNetSource2> for &IWMSInternalAdminNetSource3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMSInternalAdminNetSource2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMSInternalAdminNetSource2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7691,8 +9411,8 @@ pub struct IWMSInternalAdminNetSource3_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMSecureChannel(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMSecureChannel(pub ::windows::runtime::IUnknown);
 impl IWMSecureChannel {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCertCount(&self) -> ::windows::runtime::Result<u32> {
@@ -7760,6 +9480,26 @@ unsafe impl ::windows::runtime::Interface for IWMSecureChannel {
     type Vtable = IWMSecureChannel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(656431498, 53490, 16777, [189, 16, 145, 196, 110, 240, 147, 111]);
 }
+impl ::std::convert::From<IWMSecureChannel> for ::windows::runtime::IUnknown {
+    fn from(value: IWMSecureChannel) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMSecureChannel> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMSecureChannel) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMSecureChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMSecureChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMSecureChannel> for IWMAuthorizer {
     fn from(value: IWMSecureChannel) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7772,12 +9512,12 @@ impl ::std::convert::From<&IWMSecureChannel> for IWMAuthorizer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMAuthorizer> for IWMSecureChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMAuthorizer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMAuthorizer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMAuthorizer> for &IWMSecureChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMAuthorizer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMAuthorizer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7804,8 +9544,8 @@ pub struct IWMSecureChannel_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMStatusCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMStatusCallback(pub ::windows::runtime::IUnknown);
 impl IWMStatusCallback {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnStatus(&self, status: WMT_STATUS, hr: ::windows::runtime::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -7815,6 +9555,26 @@ impl IWMStatusCallback {
 unsafe impl ::windows::runtime::Interface for IWMStatusCallback {
     type Vtable = IWMStatusCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1836899440, 39048, 4563, [142, 220, 0, 192, 79, 97, 9, 207]);
+}
+impl ::std::convert::From<IWMStatusCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWMStatusCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMStatusCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMStatusCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMStatusCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMStatusCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7826,8 +9586,8 @@ pub struct IWMStatusCallback_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMStreamConfig(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMStreamConfig(pub ::windows::runtime::IUnknown);
 impl IWMStreamConfig {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -7886,6 +9646,26 @@ unsafe impl ::windows::runtime::Interface for IWMStreamConfig {
     type Vtable = IWMStreamConfig_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804316, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMStreamConfig> for ::windows::runtime::IUnknown {
+    fn from(value: IWMStreamConfig) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMStreamConfig> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMStreamConfig) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMStreamConfig {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMStreamConfig {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMStreamConfig_abi(
@@ -7910,8 +9690,8 @@ pub struct IWMStreamConfig_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMStreamConfig2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMStreamConfig2(pub ::windows::runtime::IUnknown);
 impl IWMStreamConfig2 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -7996,6 +9776,26 @@ unsafe impl ::windows::runtime::Interface for IWMStreamConfig2 {
     type Vtable = IWMStreamConfig2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1988679883, 64525, 17341, [148, 89, 90, 141, 236, 32, 12, 250]);
 }
+impl ::std::convert::From<IWMStreamConfig2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMStreamConfig2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMStreamConfig2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMStreamConfig2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMStreamConfig2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMStreamConfig2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMStreamConfig2> for IWMStreamConfig {
     fn from(value: IWMStreamConfig2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8008,12 +9808,12 @@ impl ::std::convert::From<&IWMStreamConfig2> for IWMStreamConfig {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamConfig> for IWMStreamConfig2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamConfig>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamConfig> for &IWMStreamConfig2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamConfig>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8046,8 +9846,8 @@ pub struct IWMStreamConfig2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMStreamConfig3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMStreamConfig3(pub ::windows::runtime::IUnknown);
 impl IWMStreamConfig3 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -8142,6 +9942,26 @@ unsafe impl ::windows::runtime::Interface for IWMStreamConfig3 {
     type Vtable = IWMStreamConfig3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3407233284, 15017, 17831, [154, 201, 77, 174, 225, 49, 214, 225]);
 }
+impl ::std::convert::From<IWMStreamConfig3> for ::windows::runtime::IUnknown {
+    fn from(value: IWMStreamConfig3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMStreamConfig3> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMStreamConfig3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMStreamConfig3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMStreamConfig3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMStreamConfig3> for IWMStreamConfig2 {
     fn from(value: IWMStreamConfig3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8154,12 +9974,12 @@ impl ::std::convert::From<&IWMStreamConfig3> for IWMStreamConfig2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamConfig2> for IWMStreamConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamConfig2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamConfig2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamConfig2> for &IWMStreamConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamConfig2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamConfig2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMStreamConfig3> for IWMStreamConfig {
@@ -8174,12 +9994,12 @@ impl ::std::convert::From<&IWMStreamConfig3> for IWMStreamConfig {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamConfig> for IWMStreamConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamConfig>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamConfig> for &IWMStreamConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamConfig>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8216,8 +10036,8 @@ pub struct IWMStreamConfig3_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMStreamList(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMStreamList(pub ::windows::runtime::IUnknown);
 impl IWMStreamList {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows::runtime::Result<()> {
@@ -8236,6 +10056,26 @@ unsafe impl ::windows::runtime::Interface for IWMStreamList {
     type Vtable = IWMStreamList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804317, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMStreamList> for ::windows::runtime::IUnknown {
+    fn from(value: IWMStreamList) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMStreamList> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMStreamList) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMStreamList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMStreamList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMStreamList_abi(
@@ -8248,8 +10088,8 @@ pub struct IWMStreamList_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMStreamPrioritization(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMStreamPrioritization(pub ::windows::runtime::IUnknown);
 impl IWMStreamPrioritization {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -8266,6 +10106,26 @@ unsafe impl ::windows::runtime::Interface for IWMStreamPrioritization {
     type Vtable = IWMStreamPrioritization_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2350669968, 63912, 18248, [142, 195, 221, 17, 8, 186, 30, 119]);
 }
+impl ::std::convert::From<IWMStreamPrioritization> for ::windows::runtime::IUnknown {
+    fn from(value: IWMStreamPrioritization) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMStreamPrioritization> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMStreamPrioritization) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMStreamPrioritization {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMStreamPrioritization {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMStreamPrioritization_abi(
@@ -8279,8 +10139,8 @@ pub struct IWMStreamPrioritization_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMSyncReader(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMSyncReader(pub ::windows::runtime::IUnknown);
 impl IWMSyncReader {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -8387,6 +10247,26 @@ unsafe impl ::windows::runtime::Interface for IWMSyncReader {
     type Vtable = IWMSyncReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2476208417, 30469, 19913, [176, 73, 152, 182, 152, 24, 132, 20]);
 }
+impl ::std::convert::From<IWMSyncReader> for ::windows::runtime::IUnknown {
+    fn from(value: IWMSyncReader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMSyncReader> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMSyncReader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMSyncReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMSyncReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMSyncReader_abi(
@@ -8423,8 +10303,8 @@ pub struct IWMSyncReader_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMSyncReader2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMSyncReader2(pub ::windows::runtime::IUnknown);
 impl IWMSyncReader2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
@@ -8558,6 +10438,26 @@ unsafe impl ::windows::runtime::Interface for IWMSyncReader2 {
     type Vtable = IWMSyncReader2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4209851681, 7019, 19191, [140, 182, 62, 24, 155, 188, 24, 123]);
 }
+impl ::std::convert::From<IWMSyncReader2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMSyncReader2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMSyncReader2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMSyncReader2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMSyncReader2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMSyncReader2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMSyncReader2> for IWMSyncReader {
     fn from(value: IWMSyncReader2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8570,12 +10470,12 @@ impl ::std::convert::From<&IWMSyncReader2> for IWMSyncReader {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMSyncReader> for IWMSyncReader2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMSyncReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMSyncReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMSyncReader> for &IWMSyncReader2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMSyncReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMSyncReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8620,8 +10520,8 @@ pub struct IWMSyncReader2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMVideoMediaProps(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMVideoMediaProps(pub ::windows::runtime::IUnknown);
 impl IWMVideoMediaProps {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -8661,6 +10561,26 @@ unsafe impl ::windows::runtime::Interface for IWMVideoMediaProps {
     type Vtable = IWMVideoMediaProps_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804303, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMVideoMediaProps> for ::windows::runtime::IUnknown {
+    fn from(value: IWMVideoMediaProps) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMVideoMediaProps> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMVideoMediaProps) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMVideoMediaProps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMVideoMediaProps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMVideoMediaProps> for IWMMediaProps {
     fn from(value: IWMVideoMediaProps) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8673,12 +10593,12 @@ impl ::std::convert::From<&IWMVideoMediaProps> for IWMMediaProps {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMediaProps> for IWMVideoMediaProps {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMediaProps> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMediaProps>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMediaProps> for &IWMVideoMediaProps {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMediaProps> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMediaProps>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8699,8 +10619,8 @@ pub struct IWMVideoMediaProps_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMWatermarkInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMWatermarkInfo(pub ::windows::runtime::IUnknown);
 impl IWMWatermarkInfo {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetWatermarkEntryCount(&self, wmettype: WMT_WATERMARK_ENTRY_TYPE) -> ::windows::runtime::Result<u32> {
@@ -8718,6 +10638,26 @@ unsafe impl ::windows::runtime::Interface for IWMWatermarkInfo {
     type Vtable = IWMWatermarkInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1867083874, 62178, 17956, [142, 167, 157, 212, 13, 129, 252, 141]);
 }
+impl ::std::convert::From<IWMWatermarkInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IWMWatermarkInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMWatermarkInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMWatermarkInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMWatermarkInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMWatermarkInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMWatermarkInfo_abi(
@@ -8730,8 +10670,8 @@ pub struct IWMWatermarkInfo_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMWriter(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMWriter(pub ::windows::runtime::IUnknown);
 impl IWMWriter {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetProfileByID(&self, guidprofile: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
@@ -8796,6 +10736,26 @@ unsafe impl ::windows::runtime::Interface for IWMWriter {
     type Vtable = IWMWriter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804308, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMWriter> for ::windows::runtime::IUnknown {
+    fn from(value: IWMWriter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMWriter> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMWriter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMWriter_abi(
@@ -8819,8 +10779,8 @@ pub struct IWMWriter_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMWriterAdvanced(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMWriterAdvanced(pub ::windows::runtime::IUnknown);
 impl IWMWriterAdvanced {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSinkCount(&self) -> ::windows::runtime::Result<u32> {
@@ -8879,6 +10839,26 @@ unsafe impl ::windows::runtime::Interface for IWMWriterAdvanced {
     type Vtable = IWMWriterAdvanced_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804323, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMWriterAdvanced> for ::windows::runtime::IUnknown {
+    fn from(value: IWMWriterAdvanced) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMWriterAdvanced> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMWriterAdvanced) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMWriterAdvanced {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMWriterAdvanced {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMWriterAdvanced_abi(
@@ -8901,8 +10881,8 @@ pub struct IWMWriterAdvanced_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMWriterAdvanced2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMWriterAdvanced2(pub ::windows::runtime::IUnknown);
 impl IWMWriterAdvanced2 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSinkCount(&self) -> ::windows::runtime::Result<u32> {
@@ -8971,6 +10951,26 @@ unsafe impl ::windows::runtime::Interface for IWMWriterAdvanced2 {
     type Vtable = IWMWriterAdvanced2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2519581164, 49222, 19896, [156, 199, 38, 206, 174, 80, 8, 23]);
 }
+impl ::std::convert::From<IWMWriterAdvanced2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMWriterAdvanced2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMWriterAdvanced2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMWriterAdvanced2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMWriterAdvanced2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMWriterAdvanced2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMWriterAdvanced2> for IWMWriterAdvanced {
     fn from(value: IWMWriterAdvanced2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8983,12 +10983,12 @@ impl ::std::convert::From<&IWMWriterAdvanced2> for IWMWriterAdvanced {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterAdvanced> for IWMWriterAdvanced2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterAdvanced>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterAdvanced> for &IWMWriterAdvanced2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterAdvanced>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9017,8 +11017,8 @@ pub struct IWMWriterAdvanced2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMWriterAdvanced3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMWriterAdvanced3(pub ::windows::runtime::IUnknown);
 impl IWMWriterAdvanced3 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSinkCount(&self) -> ::windows::runtime::Result<u32> {
@@ -9096,6 +11096,26 @@ unsafe impl ::windows::runtime::Interface for IWMWriterAdvanced3 {
     type Vtable = IWMWriterAdvanced3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752240941, 31799, 20086, [157, 59, 89, 38, 17, 131, 162, 46]);
 }
+impl ::std::convert::From<IWMWriterAdvanced3> for ::windows::runtime::IUnknown {
+    fn from(value: IWMWriterAdvanced3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMWriterAdvanced3> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMWriterAdvanced3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMWriterAdvanced3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMWriterAdvanced3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMWriterAdvanced3> for IWMWriterAdvanced2 {
     fn from(value: IWMWriterAdvanced3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9108,12 +11128,12 @@ impl ::std::convert::From<&IWMWriterAdvanced3> for IWMWriterAdvanced2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterAdvanced2> for IWMWriterAdvanced3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterAdvanced2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterAdvanced2> for &IWMWriterAdvanced3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterAdvanced2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMWriterAdvanced3> for IWMWriterAdvanced {
@@ -9128,12 +11148,12 @@ impl ::std::convert::From<&IWMWriterAdvanced3> for IWMWriterAdvanced {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterAdvanced> for IWMWriterAdvanced3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterAdvanced>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterAdvanced> for &IWMWriterAdvanced3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterAdvanced>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9164,8 +11184,8 @@ pub struct IWMWriterAdvanced3_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMWriterFileSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMWriterFileSink(pub ::windows::runtime::IUnknown);
 impl IWMWriterFileSink {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnHeader<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pheader: Param0) -> ::windows::runtime::Result<()> {
@@ -9200,6 +11220,26 @@ unsafe impl ::windows::runtime::Interface for IWMWriterFileSink {
     type Vtable = IWMWriterFileSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804325, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMWriterFileSink> for ::windows::runtime::IUnknown {
+    fn from(value: IWMWriterFileSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMWriterFileSink> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMWriterFileSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMWriterFileSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMWriterFileSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMWriterFileSink> for IWMWriterSink {
     fn from(value: IWMWriterFileSink) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9212,12 +11252,12 @@ impl ::std::convert::From<&IWMWriterFileSink> for IWMWriterSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for IWMWriterFileSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for &IWMWriterFileSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9237,8 +11277,8 @@ pub struct IWMWriterFileSink_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMWriterFileSink2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMWriterFileSink2(pub ::windows::runtime::IUnknown);
 impl IWMWriterFileSink2 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnHeader<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pheader: Param0) -> ::windows::runtime::Result<()> {
@@ -9307,6 +11347,26 @@ unsafe impl ::windows::runtime::Interface for IWMWriterFileSink2 {
     type Vtable = IWMWriterFileSink2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(338176935, 19183, 16901, [140, 229, 194, 41, 3, 90, 5, 188]);
 }
+impl ::std::convert::From<IWMWriterFileSink2> for ::windows::runtime::IUnknown {
+    fn from(value: IWMWriterFileSink2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMWriterFileSink2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMWriterFileSink2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMWriterFileSink2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMWriterFileSink2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMWriterFileSink2> for IWMWriterFileSink {
     fn from(value: IWMWriterFileSink2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9319,12 +11379,12 @@ impl ::std::convert::From<&IWMWriterFileSink2> for IWMWriterFileSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterFileSink> for IWMWriterFileSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterFileSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterFileSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterFileSink> for &IWMWriterFileSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterFileSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterFileSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMWriterFileSink2> for IWMWriterSink {
@@ -9339,12 +11399,12 @@ impl ::std::convert::From<&IWMWriterFileSink2> for IWMWriterSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for IWMWriterFileSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for &IWMWriterFileSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9373,8 +11433,8 @@ pub struct IWMWriterFileSink2_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMWriterFileSink3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMWriterFileSink3(pub ::windows::runtime::IUnknown);
 impl IWMWriterFileSink3 {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnHeader<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pheader: Param0) -> ::windows::runtime::Result<()> {
@@ -9483,6 +11543,26 @@ unsafe impl ::windows::runtime::Interface for IWMWriterFileSink3 {
     type Vtable = IWMWriterFileSink3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1072320491, 10565, 18343, [161, 221, 197, 58, 143, 196, 196, 92]);
 }
+impl ::std::convert::From<IWMWriterFileSink3> for ::windows::runtime::IUnknown {
+    fn from(value: IWMWriterFileSink3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMWriterFileSink3> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMWriterFileSink3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMWriterFileSink3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMWriterFileSink3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMWriterFileSink3> for IWMWriterFileSink2 {
     fn from(value: IWMWriterFileSink3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9495,12 +11575,12 @@ impl ::std::convert::From<&IWMWriterFileSink3> for IWMWriterFileSink2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterFileSink2> for IWMWriterFileSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterFileSink2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterFileSink2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterFileSink2> for &IWMWriterFileSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterFileSink2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterFileSink2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMWriterFileSink3> for IWMWriterFileSink {
@@ -9515,12 +11595,12 @@ impl ::std::convert::From<&IWMWriterFileSink3> for IWMWriterFileSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterFileSink> for IWMWriterFileSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterFileSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterFileSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterFileSink> for &IWMWriterFileSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterFileSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterFileSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMWriterFileSink3> for IWMWriterSink {
@@ -9535,12 +11615,12 @@ impl ::std::convert::From<&IWMWriterFileSink3> for IWMWriterSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for IWMWriterFileSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for &IWMWriterFileSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9582,8 +11662,8 @@ pub struct IWMWriterFileSink3_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMWriterNetworkSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMWriterNetworkSink(pub ::windows::runtime::IUnknown);
 impl IWMWriterNetworkSink {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnHeader<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pheader: Param0) -> ::windows::runtime::Result<()> {
@@ -9648,6 +11728,26 @@ unsafe impl ::windows::runtime::Interface for IWMWriterNetworkSink {
     type Vtable = IWMWriterNetworkSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804327, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
 }
+impl ::std::convert::From<IWMWriterNetworkSink> for ::windows::runtime::IUnknown {
+    fn from(value: IWMWriterNetworkSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMWriterNetworkSink> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMWriterNetworkSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMWriterNetworkSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMWriterNetworkSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMWriterNetworkSink> for IWMWriterSink {
     fn from(value: IWMWriterNetworkSink) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9660,12 +11760,12 @@ impl ::std::convert::From<&IWMWriterNetworkSink> for IWMWriterSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for IWMWriterNetworkSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for &IWMWriterNetworkSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9692,8 +11792,8 @@ pub struct IWMWriterNetworkSink_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMWriterPostView(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMWriterPostView(pub ::windows::runtime::IUnknown);
 impl IWMWriterPostView {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetPostViewCallback<'a, Param0: ::windows::runtime::IntoParam<'a, IWMWriterPostViewCallback>>(&self, pcallback: Param0, pvcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -9745,6 +11845,26 @@ unsafe impl ::windows::runtime::Interface for IWMWriterPostView {
     type Vtable = IWMWriterPostView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2179075300, 30191, 18714, [128, 4, 252, 83, 196, 91, 220, 62]);
 }
+impl ::std::convert::From<IWMWriterPostView> for ::windows::runtime::IUnknown {
+    fn from(value: IWMWriterPostView) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMWriterPostView> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMWriterPostView) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMWriterPostView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMWriterPostView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMWriterPostView_abi(
@@ -9767,8 +11887,8 @@ pub struct IWMWriterPostView_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMWriterPostViewCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMWriterPostViewCallback(pub ::windows::runtime::IUnknown);
 impl IWMWriterPostViewCallback {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnStatus(&self, status: WMT_STATUS, hr: ::windows::runtime::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -9787,6 +11907,26 @@ unsafe impl ::windows::runtime::Interface for IWMWriterPostViewCallback {
     type Vtable = IWMWriterPostViewCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3654702237, 41363, 20260, [179, 8, 3, 18, 61, 155, 127, 141]);
 }
+impl ::std::convert::From<IWMWriterPostViewCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWMWriterPostViewCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMWriterPostViewCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMWriterPostViewCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMWriterPostViewCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMWriterPostViewCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMWriterPostViewCallback> for IWMStatusCallback {
     fn from(value: IWMWriterPostViewCallback) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9799,12 +11939,12 @@ impl ::std::convert::From<&IWMWriterPostViewCallback> for IWMStatusCallback {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStatusCallback> for IWMWriterPostViewCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStatusCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStatusCallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStatusCallback> for &IWMWriterPostViewCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStatusCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStatusCallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9819,8 +11959,8 @@ pub struct IWMWriterPostViewCallback_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMWriterPreprocess(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMWriterPreprocess(pub ::windows::runtime::IUnknown);
 impl IWMWriterPreprocess {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxPreprocessingPasses(&self, dwinputnum: u32, dwflags: u32) -> ::windows::runtime::Result<u32> {
@@ -9848,6 +11988,26 @@ unsafe impl ::windows::runtime::Interface for IWMWriterPreprocess {
     type Vtable = IWMWriterPreprocess_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4233405061, 14532, 17845, [170, 35, 133, 185, 247, 203, 66, 75]);
 }
+impl ::std::convert::From<IWMWriterPreprocess> for ::windows::runtime::IUnknown {
+    fn from(value: IWMWriterPreprocess) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMWriterPreprocess> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMWriterPreprocess) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMWriterPreprocess {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMWriterPreprocess {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMWriterPreprocess_abi(
@@ -9862,8 +12022,8 @@ pub struct IWMWriterPreprocess_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMWriterPushSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMWriterPushSink(pub ::windows::runtime::IUnknown);
 impl IWMWriterPushSink {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnHeader<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pheader: Param0) -> ::windows::runtime::Result<()> {
@@ -9906,6 +12066,26 @@ unsafe impl ::windows::runtime::Interface for IWMWriterPushSink {
     type Vtable = IWMWriterPushSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3692095141, 1836, 18045, [191, 87, 99, 48, 169, 221, 225, 42]);
 }
+impl ::std::convert::From<IWMWriterPushSink> for ::windows::runtime::IUnknown {
+    fn from(value: IWMWriterPushSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMWriterPushSink> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMWriterPushSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMWriterPushSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMWriterPushSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWMWriterPushSink> for IWMWriterSink {
     fn from(value: IWMWriterPushSink) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9918,12 +12098,12 @@ impl ::std::convert::From<&IWMWriterPushSink> for IWMWriterSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for IWMWriterPushSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for &IWMWriterPushSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9945,8 +12125,8 @@ pub struct IWMWriterPushSink_abi(
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMWriterSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMWriterSink(pub ::windows::runtime::IUnknown);
 impl IWMWriterSink {
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnHeader<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pheader: Param0) -> ::windows::runtime::Result<()> {
@@ -9975,6 +12155,26 @@ impl IWMWriterSink {
 unsafe impl ::windows::runtime::Interface for IWMWriterSink {
     type Vtable = IWMWriterSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520804324, 11051, 4563, [179, 107, 0, 192, 79, 97, 8, 255]);
+}
+impl ::std::convert::From<IWMWriterSink> for ::windows::runtime::IUnknown {
+    fn from(value: IWMWriterSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMWriterSink> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMWriterSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMWriterSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMWriterSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10211,8 +12411,8 @@ pub const WMFORMAT_Script: ::windows::runtime::GUID = ::windows::runtime::GUID::
 pub const WMFORMAT_VideoInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(89694080, 50006, 4558, [191, 1, 0, 170, 0, 85, 89, 90]);
 pub const WMFORMAT_WaveFormatEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(89694081, 50006, 4558, [191, 1, 0, 170, 0, 85, 89, 90]);
 pub const WMFORMAT_WebStream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659426579, 33625, 16464, [179, 152, 56, 142, 150, 91, 240, 12]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WMIsContentProtected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszfilename: Param0, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

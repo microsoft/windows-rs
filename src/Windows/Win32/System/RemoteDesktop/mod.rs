@@ -597,8 +597,8 @@ unsafe impl ::windows::runtime::Abi for HwtsVirtualChannelHandle {
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsTSUserEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsTSUserEx(pub ::windows::runtime::IUnknown);
 impl IADsTSUserEx {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -750,6 +750,26 @@ unsafe impl ::windows::runtime::Interface for IADsTSUserEx {
     type Vtable = IADsTSUserEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3297971833, 10633, 17506, [138, 96, 47, 207, 47, 41, 85, 239]);
 }
+impl ::std::convert::From<IADsTSUserEx> for ::windows::runtime::IUnknown {
+    fn from(value: IADsTSUserEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsTSUserEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsTSUserEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsTSUserEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsTSUserEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsTSUserEx> for super::Ole::Automation::IDispatch {
     fn from(value: IADsTSUserEx) -> Self {
@@ -765,13 +785,13 @@ impl ::std::convert::From<&IADsTSUserEx> for super::Ole::Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IADsTSUserEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IADsTSUserEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -831,8 +851,8 @@ pub struct IADsTSUserEx_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAudioDeviceEndpoint(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAudioDeviceEndpoint(pub ::windows::runtime::IUnknown);
 impl IAudioDeviceEndpoint {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetBuffer(&self, maxperiod: i64, u32latencycoefficient: u32) -> ::windows::runtime::Result<()> {
@@ -859,6 +879,26 @@ unsafe impl ::windows::runtime::Interface for IAudioDeviceEndpoint {
     type Vtable = IAudioDeviceEndpoint_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3566546778, 41138, 19652, [139, 130, 147, 88, 72, 141, 216, 172]);
 }
+impl ::std::convert::From<IAudioDeviceEndpoint> for ::windows::runtime::IUnknown {
+    fn from(value: IAudioDeviceEndpoint) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAudioDeviceEndpoint> for ::windows::runtime::IUnknown {
+    fn from(value: &IAudioDeviceEndpoint) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioDeviceEndpoint {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioDeviceEndpoint {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioDeviceEndpoint_abi(
@@ -874,8 +914,8 @@ pub struct IAudioDeviceEndpoint_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAudioEndpoint(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAudioEndpoint(pub ::windows::runtime::IUnknown);
 impl IAudioEndpoint {
     #[cfg(feature = "Win32_Media_Multimedia")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Media_Multimedia`*"]
@@ -907,6 +947,26 @@ unsafe impl ::windows::runtime::Interface for IAudioEndpoint {
     type Vtable = IAudioEndpoint_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(816420117, 5415, 17489, [175, 159, 0, 197, 240, 35, 77, 175]);
 }
+impl ::std::convert::From<IAudioEndpoint> for ::windows::runtime::IUnknown {
+    fn from(value: IAudioEndpoint) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAudioEndpoint> for ::windows::runtime::IUnknown {
+    fn from(value: &IAudioEndpoint) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioEndpoint {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioEndpoint {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpoint_abi(
@@ -923,8 +983,8 @@ pub struct IAudioEndpoint_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAudioEndpointControl(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAudioEndpointControl(pub ::windows::runtime::IUnknown);
 impl IAudioEndpointControl {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Start(&self) -> ::windows::runtime::Result<()> {
@@ -943,6 +1003,26 @@ unsafe impl ::windows::runtime::Interface for IAudioEndpointControl {
     type Vtable = IAudioEndpointControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3330586410, 28148, 18292, [189, 249, 118, 183, 117, 9, 182, 83]);
 }
+impl ::std::convert::From<IAudioEndpointControl> for ::windows::runtime::IUnknown {
+    fn from(value: IAudioEndpointControl) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAudioEndpointControl> for ::windows::runtime::IUnknown {
+    fn from(value: &IAudioEndpointControl) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioEndpointControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioEndpointControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointControl_abi(
@@ -955,8 +1035,8 @@ pub struct IAudioEndpointControl_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAudioEndpointRT(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAudioEndpointRT(pub ::windows::runtime::IUnknown);
 impl IAudioEndpointRT {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetCurrentPadding(&self, ppadding: *mut i64, paecurrentposition: *mut AE_CURRENT_POSITION) {
@@ -979,6 +1059,26 @@ unsafe impl ::windows::runtime::Interface for IAudioEndpointRT {
     type Vtable = IAudioEndpointRT_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3755081823, 42725, 19769, [162, 101, 147, 154, 218, 159, 187, 77]);
 }
+impl ::std::convert::From<IAudioEndpointRT> for ::windows::runtime::IUnknown {
+    fn from(value: IAudioEndpointRT) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAudioEndpointRT> for ::windows::runtime::IUnknown {
+    fn from(value: &IAudioEndpointRT) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioEndpointRT {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioEndpointRT {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointRT_abi(
@@ -992,8 +1092,8 @@ pub struct IAudioEndpointRT_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAudioInputEndpointRT(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAudioInputEndpointRT(pub ::windows::runtime::IUnknown);
 impl IAudioInputEndpointRT {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetInputDataPointer(&self, pconnectionproperty: *mut APO_CONNECTION_PROPERTY, paetimestamp: *mut AE_CURRENT_POSITION) {
@@ -1012,6 +1112,26 @@ unsafe impl ::windows::runtime::Interface for IAudioInputEndpointRT {
     type Vtable = IAudioInputEndpointRT_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2150017889, 37554, 17345, [161, 223, 92, 55, 235, 208, 141, 130]);
 }
+impl ::std::convert::From<IAudioInputEndpointRT> for ::windows::runtime::IUnknown {
+    fn from(value: IAudioInputEndpointRT) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAudioInputEndpointRT> for ::windows::runtime::IUnknown {
+    fn from(value: &IAudioInputEndpointRT) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioInputEndpointRT {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioInputEndpointRT {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioInputEndpointRT_abi(
@@ -1024,8 +1144,8 @@ pub struct IAudioInputEndpointRT_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAudioOutputEndpointRT(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAudioOutputEndpointRT(pub ::windows::runtime::IUnknown);
 impl IAudioOutputEndpointRT {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetOutputDataPointer(&self, u32framecount: u32, paetimestamp: *const AE_CURRENT_POSITION) -> usize {
@@ -1044,6 +1164,26 @@ unsafe impl ::windows::runtime::Interface for IAudioOutputEndpointRT {
     type Vtable = IAudioOutputEndpointRT_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2410219236, 49948, 20017, [147, 46, 25, 166, 99, 133, 233, 170]);
 }
+impl ::std::convert::From<IAudioOutputEndpointRT> for ::windows::runtime::IUnknown {
+    fn from(value: IAudioOutputEndpointRT) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAudioOutputEndpointRT> for ::windows::runtime::IUnknown {
+    fn from(value: &IAudioOutputEndpointRT) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioOutputEndpointRT {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioOutputEndpointRT {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioOutputEndpointRT_abi(
@@ -1056,8 +1196,8 @@ pub struct IAudioOutputEndpointRT_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IRemoteDesktopClient(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IRemoteDesktopClient(pub ::windows::runtime::IUnknown);
 impl IRemoteDesktopClient {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Connect(&self) -> ::windows::runtime::Result<()> {
@@ -1110,6 +1250,26 @@ unsafe impl ::windows::runtime::Interface for IRemoteDesktopClient {
     type Vtable = IRemoteDesktopClient_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473402472, 25178, 18693, [190, 78, 48, 76, 170, 19, 248, 156]);
 }
+impl ::std::convert::From<IRemoteDesktopClient> for ::windows::runtime::IUnknown {
+    fn from(value: IRemoteDesktopClient) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IRemoteDesktopClient> for ::windows::runtime::IUnknown {
+    fn from(value: &IRemoteDesktopClient) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRemoteDesktopClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRemoteDesktopClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRemoteDesktopClient> for super::Ole::Automation::IDispatch {
     fn from(value: IRemoteDesktopClient) -> Self {
@@ -1125,13 +1285,13 @@ impl ::std::convert::From<&IRemoteDesktopClient> for super::Ole::Automation::IDi
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IRemoteDesktopClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IRemoteDesktopClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1164,8 +1324,8 @@ pub struct IRemoteDesktopClient_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IRemoteDesktopClientActions(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IRemoteDesktopClientActions(pub ::windows::runtime::IUnknown);
 impl IRemoteDesktopClientActions {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SuspendScreenUpdates(&self) -> ::windows::runtime::Result<()> {
@@ -1190,6 +1350,26 @@ unsafe impl ::windows::runtime::Interface for IRemoteDesktopClientActions {
     type Vtable = IRemoteDesktopClientActions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2102705230, 4136, 17876, [139, 10, 185, 182, 191, 251, 161, 118]);
 }
+impl ::std::convert::From<IRemoteDesktopClientActions> for ::windows::runtime::IUnknown {
+    fn from(value: IRemoteDesktopClientActions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IRemoteDesktopClientActions> for ::windows::runtime::IUnknown {
+    fn from(value: &IRemoteDesktopClientActions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRemoteDesktopClientActions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRemoteDesktopClientActions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRemoteDesktopClientActions> for super::Ole::Automation::IDispatch {
     fn from(value: IRemoteDesktopClientActions) -> Self {
@@ -1205,13 +1385,13 @@ impl ::std::convert::From<&IRemoteDesktopClientActions> for super::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IRemoteDesktopClientActions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IRemoteDesktopClientActions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1236,8 +1416,8 @@ pub struct IRemoteDesktopClientActions_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IRemoteDesktopClientSettings(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IRemoteDesktopClientSettings(pub ::windows::runtime::IUnknown);
 impl IRemoteDesktopClientSettings {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -1266,6 +1446,26 @@ unsafe impl ::windows::runtime::Interface for IRemoteDesktopClientSettings {
     type Vtable = IRemoteDesktopClientSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1218507431, 10003, 17183, [187, 172, 111, 69, 88, 231, 214, 77]);
 }
+impl ::std::convert::From<IRemoteDesktopClientSettings> for ::windows::runtime::IUnknown {
+    fn from(value: IRemoteDesktopClientSettings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IRemoteDesktopClientSettings> for ::windows::runtime::IUnknown {
+    fn from(value: &IRemoteDesktopClientSettings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRemoteDesktopClientSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRemoteDesktopClientSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRemoteDesktopClientSettings> for super::Ole::Automation::IDispatch {
     fn from(value: IRemoteDesktopClientSettings) -> Self {
@@ -1281,13 +1481,13 @@ impl ::std::convert::From<&IRemoteDesktopClientSettings> for super::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IRemoteDesktopClientSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IRemoteDesktopClientSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1315,8 +1515,8 @@ pub struct IRemoteDesktopClientSettings_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IRemoteDesktopClientTouchPointer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IRemoteDesktopClientTouchPointer(pub ::windows::runtime::IUnknown);
 impl IRemoteDesktopClientTouchPointer {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::runtime::Result<()> {
@@ -1350,6 +1550,26 @@ unsafe impl ::windows::runtime::Interface for IRemoteDesktopClientTouchPointer {
     type Vtable = IRemoteDesktopClientTouchPointer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(638501421, 36028, 17589, [158, 136, 42, 55, 246, 201, 58, 233]);
 }
+impl ::std::convert::From<IRemoteDesktopClientTouchPointer> for ::windows::runtime::IUnknown {
+    fn from(value: IRemoteDesktopClientTouchPointer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IRemoteDesktopClientTouchPointer> for ::windows::runtime::IUnknown {
+    fn from(value: &IRemoteDesktopClientTouchPointer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRemoteDesktopClientTouchPointer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRemoteDesktopClientTouchPointer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRemoteDesktopClientTouchPointer> for super::Ole::Automation::IDispatch {
     fn from(value: IRemoteDesktopClientTouchPointer) -> Self {
@@ -1365,13 +1585,13 @@ impl ::std::convert::From<&IRemoteDesktopClientTouchPointer> for super::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IRemoteDesktopClientTouchPointer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IRemoteDesktopClientTouchPointer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1397,8 +1617,8 @@ pub struct IRemoteDesktopClientTouchPointer_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IRemoteSystemAdditionalInfoProvider(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IRemoteSystemAdditionalInfoProvider(pub ::windows::runtime::IUnknown);
 impl IRemoteSystemAdditionalInfoProvider {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetAdditionalInfo<T: ::windows::runtime::Interface>(&self, deduplicationid: *mut ::windows::runtime::HSTRING) -> ::windows::runtime::Result<T> {
@@ -1410,6 +1630,26 @@ unsafe impl ::windows::runtime::Interface for IRemoteSystemAdditionalInfoProvide
     type Vtable = IRemoteSystemAdditionalInfoProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4004134239, 60515, 19751, [175, 56, 232, 107, 29, 114, 146, 203]);
 }
+impl ::std::convert::From<IRemoteSystemAdditionalInfoProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IRemoteSystemAdditionalInfoProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IRemoteSystemAdditionalInfoProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IRemoteSystemAdditionalInfoProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRemoteSystemAdditionalInfoProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRemoteSystemAdditionalInfoProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemAdditionalInfoProvider_abi(
@@ -1420,8 +1660,8 @@ pub struct IRemoteSystemAdditionalInfoProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITSGAccountingEngine(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITSGAccountingEngine(pub ::windows::runtime::IUnknown);
 impl ITSGAccountingEngine {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -1432,6 +1672,26 @@ impl ITSGAccountingEngine {
 unsafe impl ::windows::runtime::Interface for ITSGAccountingEngine {
     type Vtable = ITSGAccountingEngine_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1289920713, 59508, 20250, [134, 244, 6, 187, 185, 17, 83, 56]);
+}
+impl ::std::convert::From<ITSGAccountingEngine> for ::windows::runtime::IUnknown {
+    fn from(value: ITSGAccountingEngine) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITSGAccountingEngine> for ::windows::runtime::IUnknown {
+    fn from(value: &ITSGAccountingEngine) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITSGAccountingEngine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITSGAccountingEngine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1444,8 +1704,8 @@ pub struct ITSGAccountingEngine_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITSGAuthenticateUserSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITSGAuthenticateUserSink(pub ::windows::runtime::IUnknown);
 impl ITSGAuthenticateUserSink {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -1469,6 +1729,26 @@ unsafe impl ::windows::runtime::Interface for ITSGAuthenticateUserSink {
     type Vtable = ITSGAuthenticateUserSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(742272627, 42882, 18425, [141, 251, 119, 238, 30, 210, 122, 3]);
 }
+impl ::std::convert::From<ITSGAuthenticateUserSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITSGAuthenticateUserSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITSGAuthenticateUserSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITSGAuthenticateUserSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITSGAuthenticateUserSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITSGAuthenticateUserSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITSGAuthenticateUserSink_abi(
@@ -1483,8 +1763,8 @@ pub struct ITSGAuthenticateUserSink_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITSGAuthenticationEngine(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITSGAuthenticationEngine(pub ::windows::runtime::IUnknown);
 impl ITSGAuthenticationEngine {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn AuthenticateUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param4: ::windows::runtime::IntoParam<'a, ITSGAuthenticateUserSink>>(&self, mainsessionid: Param0, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: Param4) -> ::windows::runtime::Result<()> {
@@ -1499,6 +1779,26 @@ unsafe impl ::windows::runtime::Interface for ITSGAuthenticationEngine {
     type Vtable = ITSGAuthenticationEngine_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2665735615, 1195, 18065, [153, 140, 215, 246, 34, 50, 26, 86]);
 }
+impl ::std::convert::From<ITSGAuthenticationEngine> for ::windows::runtime::IUnknown {
+    fn from(value: ITSGAuthenticationEngine) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITSGAuthenticationEngine> for ::windows::runtime::IUnknown {
+    fn from(value: &ITSGAuthenticationEngine) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITSGAuthenticationEngine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITSGAuthenticationEngine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITSGAuthenticationEngine_abi(
@@ -1510,8 +1810,8 @@ pub struct ITSGAuthenticationEngine_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITSGAuthorizeConnectionSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITSGAuthorizeConnectionSink(pub ::windows::runtime::IUnknown);
 impl ITSGAuthorizeConnectionSink {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnConnectionAuthorized<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, hrin: ::windows::runtime::HRESULT, mainsessionid: Param1, cbsohresponse: u32, pbsohresponse: *const u8, idletimeout: u32, sessiontimeout: u32, sessiontimeoutaction: SESSION_TIMEOUT_ACTION_TYPE, trustclass: AATrustClassID, policyattributes: *const u32) -> ::windows::runtime::Result<()> {
@@ -1534,6 +1834,26 @@ unsafe impl ::windows::runtime::Interface for ITSGAuthorizeConnectionSink {
     type Vtable = ITSGAuthorizeConnectionSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3263090227, 30593, 17176, [152, 239, 28, 242, 218, 123, 112, 5]);
 }
+impl ::std::convert::From<ITSGAuthorizeConnectionSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITSGAuthorizeConnectionSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITSGAuthorizeConnectionSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITSGAuthorizeConnectionSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITSGAuthorizeConnectionSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITSGAuthorizeConnectionSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITSGAuthorizeConnectionSink_abi(
@@ -1544,8 +1864,8 @@ pub struct ITSGAuthorizeConnectionSink_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITSGAuthorizeResourceSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITSGAuthorizeResourceSink(pub ::windows::runtime::IUnknown);
 impl ITSGAuthorizeResourceSink {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -1567,6 +1887,26 @@ unsafe impl ::windows::runtime::Interface for ITSGAuthorizeResourceSink {
     type Vtable = ITSGAuthorizeResourceSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4275961044, 64018, 17461, [174, 85, 122, 209, 169, 119, 154, 247]);
 }
+impl ::std::convert::From<ITSGAuthorizeResourceSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITSGAuthorizeResourceSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITSGAuthorizeResourceSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITSGAuthorizeResourceSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITSGAuthorizeResourceSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITSGAuthorizeResourceSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITSGAuthorizeResourceSink_abi(
@@ -1578,8 +1918,8 @@ pub struct ITSGAuthorizeResourceSink_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITSGPolicyEngine(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITSGPolicyEngine(pub ::windows::runtime::IUnknown);
 impl ITSGPolicyEngine {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -1662,6 +2002,26 @@ unsafe impl ::windows::runtime::Interface for ITSGPolicyEngine {
     type Vtable = ITSGPolicyEngine_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2344767240, 25123, 17140, [165, 180, 142, 55, 205, 19, 91, 189]);
 }
+impl ::std::convert::From<ITSGPolicyEngine> for ::windows::runtime::IUnknown {
+    fn from(value: ITSGPolicyEngine) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITSGPolicyEngine> for ::windows::runtime::IUnknown {
+    fn from(value: &ITSGPolicyEngine) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITSGPolicyEngine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITSGPolicyEngine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITSGPolicyEngine_abi(
@@ -1707,8 +2067,8 @@ pub struct ITSGPolicyEngine_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbBaseNotifySink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbBaseNotifySink(pub ::windows::runtime::IUnknown);
 impl ITsSbBaseNotifySink {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnError(&self, hrerror: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
@@ -1723,6 +2083,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbBaseNotifySink {
     type Vtable = ITsSbBaseNotifySink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2156553527, 4738, 18825, [158, 9, 244, 57, 56, 183, 23, 34]);
 }
+impl ::std::convert::From<ITsSbBaseNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbBaseNotifySink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbBaseNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbBaseNotifySink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbBaseNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbBaseNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbBaseNotifySink_abi(
@@ -1734,8 +2114,8 @@ pub struct ITsSbBaseNotifySink_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbClientConnection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbClientConnection(pub ::windows::runtime::IUnknown);
 impl ITsSbClientConnection {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -1824,6 +2204,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbClientConnection {
     type Vtable = ITsSbClientConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(411399321, 44385, 19227, [183, 223, 203, 205, 65, 251, 131, 56]);
 }
+impl ::std::convert::From<ITsSbClientConnection> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbClientConnection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbClientConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbClientConnection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbClientConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbClientConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbClientConnection_abi(
@@ -1856,8 +2256,8 @@ pub struct ITsSbClientConnection_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbClientConnectionPropertySet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbClientConnectionPropertySet(pub ::windows::runtime::IUnknown);
 impl ITsSbClientConnectionPropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -1874,6 +2274,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbClientConnectionPropertySet {
     type Vtable = ITsSbClientConnectionPropertySet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3843659184, 18134, 4573, [170, 33, 206, 220, 85, 216, 149, 147]);
 }
+impl ::std::convert::From<ITsSbClientConnectionPropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbClientConnectionPropertySet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbClientConnectionPropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbClientConnectionPropertySet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbClientConnectionPropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbClientConnectionPropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITsSbClientConnectionPropertySet> for ITsSbPropertySet {
     fn from(value: ITsSbClientConnectionPropertySet) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1886,12 +2306,12 @@ impl ::std::convert::From<&ITsSbClientConnectionPropertySet> for ITsSbPropertySe
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPropertySet> for ITsSbClientConnectionPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPropertySet>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPropertySet> for &ITsSbClientConnectionPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPropertySet>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1909,13 +2329,13 @@ impl ::std::convert::From<&ITsSbClientConnectionPropertySet> for super::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag> for ITsSbClientConnectionPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IPropertyBag> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IPropertyBag>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag> for &ITsSbClientConnectionPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IPropertyBag> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IPropertyBag>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1931,8 +2351,8 @@ pub struct ITsSbClientConnectionPropertySet_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbEnvironment(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbEnvironment(pub ::windows::runtime::IUnknown);
 impl ITsSbEnvironment {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -1959,6 +2379,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbEnvironment {
     type Vtable = ITsSbEnvironment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2357721079, 48977, 19036, [135, 191, 142, 148, 251, 110, 34, 86]);
 }
+impl ::std::convert::From<ITsSbEnvironment> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbEnvironment) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbEnvironment> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbEnvironment) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbEnvironment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbEnvironment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbEnvironment_abi(
@@ -1973,8 +2413,8 @@ pub struct ITsSbEnvironment_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbEnvironmentPropertySet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbEnvironmentPropertySet(pub ::windows::runtime::IUnknown);
 impl ITsSbEnvironmentPropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -1991,6 +2431,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbEnvironmentPropertySet {
     type Vtable = ITsSbEnvironmentPropertySet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3503406974, 31439, 4573, [162, 67, 229, 17, 86, 216, 149, 147]);
 }
+impl ::std::convert::From<ITsSbEnvironmentPropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbEnvironmentPropertySet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbEnvironmentPropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbEnvironmentPropertySet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbEnvironmentPropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbEnvironmentPropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITsSbEnvironmentPropertySet> for ITsSbPropertySet {
     fn from(value: ITsSbEnvironmentPropertySet) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2003,12 +2463,12 @@ impl ::std::convert::From<&ITsSbEnvironmentPropertySet> for ITsSbPropertySet {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPropertySet> for ITsSbEnvironmentPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPropertySet>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPropertySet> for &ITsSbEnvironmentPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPropertySet>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2026,13 +2486,13 @@ impl ::std::convert::From<&ITsSbEnvironmentPropertySet> for super::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag> for ITsSbEnvironmentPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IPropertyBag> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IPropertyBag>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag> for &ITsSbEnvironmentPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IPropertyBag> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IPropertyBag>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2048,8 +2508,8 @@ pub struct ITsSbEnvironmentPropertySet_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbFilterPluginStore(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbFilterPluginStore(pub ::windows::runtime::IUnknown);
 impl ITsSbFilterPluginStore {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SaveProperties<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbPropertySet>>(&self, ppropertyset: Param0) -> ::windows::runtime::Result<()> {
@@ -2070,6 +2530,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbFilterPluginStore {
     type Vtable = ITsSbFilterPluginStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2243185423, 60792, 16703, [151, 2, 250, 109, 59, 94, 231, 85]);
 }
+impl ::std::convert::From<ITsSbFilterPluginStore> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbFilterPluginStore) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbFilterPluginStore> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbFilterPluginStore) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbFilterPluginStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbFilterPluginStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbFilterPluginStore_abi(
@@ -2083,8 +2563,8 @@ pub struct ITsSbFilterPluginStore_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbGenericNotifySink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbGenericNotifySink(pub ::windows::runtime::IUnknown);
 impl ITsSbGenericNotifySink {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnCompleted(&self, status: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
@@ -2101,6 +2581,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbGenericNotifySink {
     type Vtable = ITsSbGenericNotifySink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1280085071, 12299, 18093, [145, 100, 132, 104, 167, 231, 86, 140]);
 }
+impl ::std::convert::From<ITsSbGenericNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbGenericNotifySink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbGenericNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbGenericNotifySink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbGenericNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbGenericNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbGenericNotifySink_abi(
@@ -2113,8 +2613,8 @@ pub struct ITsSbGenericNotifySink_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbGlobalStore(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbGlobalStore(pub ::windows::runtime::IUnknown);
 impl ITsSbGlobalStore {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -2181,6 +2681,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbGlobalStore {
     type Vtable = ITsSbGlobalStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2595622779, 48498, 19871, [138, 58, 160, 234, 85, 116, 230, 53]);
 }
+impl ::std::convert::From<ITsSbGlobalStore> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbGlobalStore) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbGlobalStore> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbGlobalStore) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbGlobalStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbGlobalStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbGlobalStore_abi(
@@ -2216,8 +2736,8 @@ pub struct ITsSbGlobalStore_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbLoadBalanceResult(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbLoadBalanceResult(pub ::windows::runtime::IUnknown);
 impl ITsSbLoadBalanceResult {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -2230,6 +2750,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbLoadBalanceResult {
     type Vtable = ITsSbLoadBalanceResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(620607404, 65190, 4572, [150, 114, 154, 137, 86, 216, 149, 147]);
 }
+impl ::std::convert::From<ITsSbLoadBalanceResult> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbLoadBalanceResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbLoadBalanceResult> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbLoadBalanceResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbLoadBalanceResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbLoadBalanceResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbLoadBalanceResult_abi(
@@ -2241,8 +2781,8 @@ pub struct ITsSbLoadBalanceResult_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbLoadBalancing(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbLoadBalancing(pub ::windows::runtime::IUnknown);
 impl ITsSbLoadBalancing {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbProvider>, Param1: ::windows::runtime::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::runtime::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::runtime::Result<()> {
@@ -2261,6 +2801,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbLoadBalancing {
     type Vtable = ITsSbLoadBalancing_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(607294068, 40631, 4572, [174, 152, 242, 180, 86, 216, 149, 147]);
 }
+impl ::std::convert::From<ITsSbLoadBalancing> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbLoadBalancing) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbLoadBalancing> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbLoadBalancing) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbLoadBalancing {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbLoadBalancing {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITsSbLoadBalancing> for ITsSbPlugin {
     fn from(value: ITsSbLoadBalancing) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2273,12 +2833,12 @@ impl ::std::convert::From<&ITsSbLoadBalancing> for ITsSbPlugin {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPlugin> for ITsSbLoadBalancing {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPlugin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPlugin>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPlugin> for &ITsSbLoadBalancing {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPlugin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPlugin>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2293,8 +2853,8 @@ pub struct ITsSbLoadBalancing_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbLoadBalancingNotifySink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbLoadBalancingNotifySink(pub ::windows::runtime::IUnknown);
 impl ITsSbLoadBalancingNotifySink {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnError(&self, hrerror: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
@@ -2314,6 +2874,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbLoadBalancingNotifySink {
     type Vtable = ITsSbLoadBalancingNotifySink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1602912919, 12868, 20074, [149, 138, 39, 200, 34, 193, 225, 65]);
 }
+impl ::std::convert::From<ITsSbLoadBalancingNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbLoadBalancingNotifySink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbLoadBalancingNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbLoadBalancingNotifySink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbLoadBalancingNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbLoadBalancingNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITsSbLoadBalancingNotifySink> for ITsSbBaseNotifySink {
     fn from(value: ITsSbLoadBalancingNotifySink) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2326,12 +2906,12 @@ impl ::std::convert::From<&ITsSbLoadBalancingNotifySink> for ITsSbBaseNotifySink
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbBaseNotifySink> for ITsSbLoadBalancingNotifySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbBaseNotifySink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbBaseNotifySink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbBaseNotifySink> for &ITsSbLoadBalancingNotifySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbBaseNotifySink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbBaseNotifySink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2347,8 +2927,8 @@ pub struct ITsSbLoadBalancingNotifySink_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbOrchestration(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbOrchestration(pub ::windows::runtime::IUnknown);
 impl ITsSbOrchestration {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbProvider>, Param1: ::windows::runtime::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::runtime::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::runtime::Result<()> {
@@ -2367,6 +2947,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbOrchestration {
     type Vtable = ITsSbOrchestration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1694241138, 40631, 4572, [139, 0, 58, 186, 86, 216, 149, 147]);
 }
+impl ::std::convert::From<ITsSbOrchestration> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbOrchestration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbOrchestration> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbOrchestration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbOrchestration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbOrchestration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITsSbOrchestration> for ITsSbPlugin {
     fn from(value: ITsSbOrchestration) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2379,12 +2979,12 @@ impl ::std::convert::From<&ITsSbOrchestration> for ITsSbPlugin {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPlugin> for ITsSbOrchestration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPlugin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPlugin>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPlugin> for &ITsSbOrchestration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPlugin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPlugin>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2399,8 +2999,8 @@ pub struct ITsSbOrchestration_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbOrchestrationNotifySink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbOrchestrationNotifySink(pub ::windows::runtime::IUnknown);
 impl ITsSbOrchestrationNotifySink {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnError(&self, hrerror: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
@@ -2419,6 +3019,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbOrchestrationNotifySink {
     type Vtable = ITsSbOrchestrationNotifySink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(918781281, 37483, 17455, [188, 165, 17, 140, 109, 80, 220, 242]);
 }
+impl ::std::convert::From<ITsSbOrchestrationNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbOrchestrationNotifySink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbOrchestrationNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbOrchestrationNotifySink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbOrchestrationNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbOrchestrationNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITsSbOrchestrationNotifySink> for ITsSbBaseNotifySink {
     fn from(value: ITsSbOrchestrationNotifySink) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2431,12 +3051,12 @@ impl ::std::convert::From<&ITsSbOrchestrationNotifySink> for ITsSbBaseNotifySink
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbBaseNotifySink> for ITsSbOrchestrationNotifySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbBaseNotifySink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbBaseNotifySink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbBaseNotifySink> for &ITsSbOrchestrationNotifySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbBaseNotifySink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbBaseNotifySink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2451,8 +3071,8 @@ pub struct ITsSbOrchestrationNotifySink_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbPlacement(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbPlacement(pub ::windows::runtime::IUnknown);
 impl ITsSbPlacement {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbProvider>, Param1: ::windows::runtime::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::runtime::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::runtime::Result<()> {
@@ -2471,6 +3091,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbPlacement {
     type Vtable = ITsSbPlacement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3668831839, 27954, 18446, [158, 54, 221, 171, 35, 41, 240, 109]);
 }
+impl ::std::convert::From<ITsSbPlacement> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbPlacement) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbPlacement> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbPlacement) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbPlacement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbPlacement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITsSbPlacement> for ITsSbPlugin {
     fn from(value: ITsSbPlacement) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2483,12 +3123,12 @@ impl ::std::convert::From<&ITsSbPlacement> for ITsSbPlugin {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPlugin> for ITsSbPlacement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPlugin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPlugin>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPlugin> for &ITsSbPlacement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPlugin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPlugin>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2503,8 +3143,8 @@ pub struct ITsSbPlacement_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbPlacementNotifySink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbPlacementNotifySink(pub ::windows::runtime::IUnknown);
 impl ITsSbPlacementNotifySink {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnError(&self, hrerror: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
@@ -2523,6 +3163,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbPlacementNotifySink {
     type Vtable = ITsSbPlacementNotifySink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1755366535, 11087, 18114, [148, 161, 108, 230, 133, 24, 54, 52]);
 }
+impl ::std::convert::From<ITsSbPlacementNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbPlacementNotifySink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbPlacementNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbPlacementNotifySink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbPlacementNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbPlacementNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITsSbPlacementNotifySink> for ITsSbBaseNotifySink {
     fn from(value: ITsSbPlacementNotifySink) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2535,12 +3195,12 @@ impl ::std::convert::From<&ITsSbPlacementNotifySink> for ITsSbBaseNotifySink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbBaseNotifySink> for ITsSbPlacementNotifySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbBaseNotifySink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbBaseNotifySink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbBaseNotifySink> for &ITsSbPlacementNotifySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbBaseNotifySink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbBaseNotifySink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2555,8 +3215,8 @@ pub struct ITsSbPlacementNotifySink_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbPlugin(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbPlugin(pub ::windows::runtime::IUnknown);
 impl ITsSbPlugin {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbProvider>, Param1: ::windows::runtime::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::runtime::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::runtime::Result<()> {
@@ -2571,6 +3231,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbPlugin {
     type Vtable = ITsSbPlugin_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1221424134, 51883, 18015, [165, 214, 186, 168, 99, 185, 234, 79]);
 }
+impl ::std::convert::From<ITsSbPlugin> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbPlugin) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbPlugin> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbPlugin) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbPlugin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbPlugin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbPlugin_abi(
@@ -2582,8 +3262,8 @@ pub struct ITsSbPlugin_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbPluginNotifySink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbPluginNotifySink(pub ::windows::runtime::IUnknown);
 impl ITsSbPluginNotifySink {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnError(&self, hrerror: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
@@ -2606,6 +3286,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbPluginNotifySink {
     type Vtable = ITsSbPluginNotifySink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1155523339, 50110, 16629, [191, 130, 122, 149, 187, 121, 90, 223]);
 }
+impl ::std::convert::From<ITsSbPluginNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbPluginNotifySink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbPluginNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbPluginNotifySink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbPluginNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbPluginNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITsSbPluginNotifySink> for ITsSbBaseNotifySink {
     fn from(value: ITsSbPluginNotifySink) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2618,12 +3318,12 @@ impl ::std::convert::From<&ITsSbPluginNotifySink> for ITsSbBaseNotifySink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbBaseNotifySink> for ITsSbPluginNotifySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbBaseNotifySink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbBaseNotifySink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbBaseNotifySink> for &ITsSbPluginNotifySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbBaseNotifySink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbBaseNotifySink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2639,8 +3339,8 @@ pub struct ITsSbPluginNotifySink_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbPluginPropertySet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbPluginPropertySet(pub ::windows::runtime::IUnknown);
 impl ITsSbPluginPropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -2657,6 +3357,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbPluginPropertySet {
     type Vtable = ITsSbPluginPropertySet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2499833396, 32511, 19308, [187, 64, 73, 164, 253, 167, 206, 166]);
 }
+impl ::std::convert::From<ITsSbPluginPropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbPluginPropertySet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbPluginPropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbPluginPropertySet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbPluginPropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbPluginPropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITsSbPluginPropertySet> for ITsSbPropertySet {
     fn from(value: ITsSbPluginPropertySet) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2669,12 +3389,12 @@ impl ::std::convert::From<&ITsSbPluginPropertySet> for ITsSbPropertySet {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPropertySet> for ITsSbPluginPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPropertySet>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPropertySet> for &ITsSbPluginPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPropertySet>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2692,13 +3412,13 @@ impl ::std::convert::From<&ITsSbPluginPropertySet> for super::Ole::Automation::I
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag> for ITsSbPluginPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IPropertyBag> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IPropertyBag>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag> for &ITsSbPluginPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IPropertyBag> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IPropertyBag>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2714,8 +3434,8 @@ pub struct ITsSbPluginPropertySet_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbPropertySet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbPropertySet(pub ::windows::runtime::IUnknown);
 impl ITsSbPropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -2732,6 +3452,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbPropertySet {
     type Vtable = ITsSbPropertySet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1543655793, 47902, 19375, [162, 18, 109, 94, 151, 116, 179, 59]);
 }
+impl ::std::convert::From<ITsSbPropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbPropertySet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbPropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbPropertySet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbPropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbPropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITsSbPropertySet> for super::Ole::Automation::IPropertyBag {
     fn from(value: ITsSbPropertySet) -> Self {
@@ -2747,13 +3487,13 @@ impl ::std::convert::From<&ITsSbPropertySet> for super::Ole::Automation::IProper
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag> for ITsSbPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IPropertyBag> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IPropertyBag>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag> for &ITsSbPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IPropertyBag> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IPropertyBag>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2769,8 +3509,8 @@ pub struct ITsSbPropertySet_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbProvider(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbProvider(pub ::windows::runtime::IUnknown);
 impl ITsSbProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -2841,6 +3581,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbProvider {
     type Vtable = ITsSbProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2275674511, 28027, 17629, [188, 23, 140, 228, 78, 55, 13, 82]);
 }
+impl ::std::convert::From<ITsSbProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbProvider_abi(
@@ -2868,8 +3628,8 @@ pub struct ITsSbProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbProvisioning(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbProvisioning(pub ::windows::runtime::IUnknown);
 impl ITsSbProvisioning {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbProvider>, Param1: ::windows::runtime::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::runtime::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::runtime::Result<()> {
@@ -2904,6 +3664,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbProvisioning {
     type Vtable = ITsSbProvisioning_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(795807163, 40527, 17963, [156, 63, 252, 204, 61, 203, 98, 50]);
 }
+impl ::std::convert::From<ITsSbProvisioning> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbProvisioning) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbProvisioning> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbProvisioning) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbProvisioning {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbProvisioning {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITsSbProvisioning> for ITsSbPlugin {
     fn from(value: ITsSbProvisioning) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2916,12 +3696,12 @@ impl ::std::convert::From<&ITsSbProvisioning> for ITsSbPlugin {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPlugin> for ITsSbProvisioning {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPlugin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPlugin>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPlugin> for &ITsSbProvisioning {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPlugin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPlugin>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2943,8 +3723,8 @@ pub struct ITsSbProvisioning_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbProvisioningPluginNotifySink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbProvisioningPluginNotifySink(pub ::windows::runtime::IUnknown);
 impl ITsSbProvisioningPluginNotifySink {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnJobCreated(&self, pvmnotifyinfo: *const VM_NOTIFY_INFO) -> ::windows::runtime::Result<()> {
@@ -2978,6 +3758,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbProvisioningPluginNotifySink 
     type Vtable = ITsSbProvisioningPluginNotifySink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2896722574, 33163, 17793, [160, 50, 73, 195, 223, 185, 199, 1]);
 }
+impl ::std::convert::From<ITsSbProvisioningPluginNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbProvisioningPluginNotifySink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbProvisioningPluginNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbProvisioningPluginNotifySink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbProvisioningPluginNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbProvisioningPluginNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbProvisioningPluginNotifySink_abi(
@@ -2996,8 +3796,8 @@ pub struct ITsSbProvisioningPluginNotifySink_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbResourceNotification(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbResourceNotification(pub ::windows::runtime::IUnknown);
 impl ITsSbResourceNotification {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifySessionChange<'a, Param1: ::windows::runtime::IntoParam<'a, ITsSbSession>>(&self, changetype: TSSESSION_STATE, psession: Param1) -> ::windows::runtime::Result<()> {
@@ -3016,6 +3816,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbResourceNotification {
     type Vtable = ITsSbResourceNotification_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1708386394, 50075, 4572, [185, 45, 60, 210, 85, 216, 149, 147]);
 }
+impl ::std::convert::From<ITsSbResourceNotification> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbResourceNotification) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbResourceNotification> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbResourceNotification) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbResourceNotification {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbResourceNotification {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbResourceNotification_abi(
@@ -3028,8 +3848,8 @@ pub struct ITsSbResourceNotification_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbResourceNotificationEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbResourceNotificationEx(pub ::windows::runtime::IUnknown);
 impl ITsSbResourceNotificationEx {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -3059,6 +3879,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbResourceNotificationEx {
     type Vtable = ITsSbResourceNotificationEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2829352926, 51857, 17618, [184, 151, 58, 162, 138, 67, 178, 183]);
 }
+impl ::std::convert::From<ITsSbResourceNotificationEx> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbResourceNotificationEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbResourceNotificationEx> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbResourceNotificationEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbResourceNotificationEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbResourceNotificationEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbResourceNotificationEx_abi(
@@ -3075,8 +3915,8 @@ pub struct ITsSbResourceNotificationEx_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbResourcePlugin(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbResourcePlugin(pub ::windows::runtime::IUnknown);
 impl ITsSbResourcePlugin {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbProvider>, Param1: ::windows::runtime::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::runtime::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::runtime::Result<()> {
@@ -3091,6 +3931,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbResourcePlugin {
     type Vtable = ITsSbResourcePlugin_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3935155244, 39149, 17717, [168, 139, 42, 22, 79, 53, 73, 15]);
 }
+impl ::std::convert::From<ITsSbResourcePlugin> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbResourcePlugin) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbResourcePlugin> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbResourcePlugin) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbResourcePlugin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbResourcePlugin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITsSbResourcePlugin> for ITsSbPlugin {
     fn from(value: ITsSbResourcePlugin) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3103,12 +3963,12 @@ impl ::std::convert::From<&ITsSbResourcePlugin> for ITsSbPlugin {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPlugin> for ITsSbResourcePlugin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPlugin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPlugin>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPlugin> for &ITsSbResourcePlugin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPlugin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPlugin>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3122,8 +3982,8 @@ pub struct ITsSbResourcePlugin_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbResourcePluginStore(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbResourcePluginStore(pub ::windows::runtime::IUnknown);
 impl ITsSbResourcePluginStore {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -3280,6 +4140,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbResourcePluginStore {
     type Vtable = ITsSbResourcePluginStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1547236959, 48369, 16438, [166, 191, 158, 60, 204, 174, 11, 99]);
 }
+impl ::std::convert::From<ITsSbResourcePluginStore> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbResourcePluginStore) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbResourcePluginStore> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbResourcePluginStore) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbResourcePluginStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbResourcePluginStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbResourcePluginStore_abi(
@@ -3349,8 +4229,8 @@ pub struct ITsSbResourcePluginStore_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbServiceNotification(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbServiceNotification(pub ::windows::runtime::IUnknown);
 impl ITsSbServiceNotification {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifyServiceFailure(&self) -> ::windows::runtime::Result<()> {
@@ -3365,6 +4245,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbServiceNotification {
     type Vtable = ITsSbServiceNotification_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2261477550, 34528, 20311, [138, 100, 187, 116, 6, 188, 85, 80]);
 }
+impl ::std::convert::From<ITsSbServiceNotification> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbServiceNotification) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbServiceNotification> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbServiceNotification) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbServiceNotification {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbServiceNotification {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbServiceNotification_abi(
@@ -3376,8 +4276,8 @@ pub struct ITsSbServiceNotification_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbSession(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbSession(pub ::windows::runtime::IUnknown);
 impl ITsSbSession {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SessionId(&self) -> ::windows::runtime::Result<u32> {
@@ -3472,6 +4372,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbSession {
     type Vtable = ITsSbSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3562252999, 45528, 19550, [186, 52, 154, 251, 76, 140, 85, 16]);
 }
+impl ::std::convert::From<ITsSbSession> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbSession> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbSession_abi(
@@ -3508,8 +4428,8 @@ pub struct ITsSbSession_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbTarget(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbTarget(pub ::windows::runtime::IUnknown);
 impl ITsSbTarget {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -3612,6 +4532,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbTarget {
     type Vtable = ITsSbTarget_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(375484108, 10029, 16669, [179, 36, 18, 104, 147, 3, 56, 86]);
 }
+impl ::std::convert::From<ITsSbTarget> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbTarget) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbTarget> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbTarget) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbTarget {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbTarget {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbTarget_abi(
@@ -3650,8 +4590,8 @@ pub struct ITsSbTarget_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbTargetPropertySet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbTargetPropertySet(pub ::windows::runtime::IUnknown);
 impl ITsSbTargetPropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -3668,6 +4608,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbTargetPropertySet {
     type Vtable = ITsSbTargetPropertySet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4156401110, 39244, 19985, [160, 121, 39, 99, 182, 24, 48, 172]);
 }
+impl ::std::convert::From<ITsSbTargetPropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbTargetPropertySet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbTargetPropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbTargetPropertySet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbTargetPropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbTargetPropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITsSbTargetPropertySet> for ITsSbPropertySet {
     fn from(value: ITsSbTargetPropertySet) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3680,12 +4640,12 @@ impl ::std::convert::From<&ITsSbTargetPropertySet> for ITsSbPropertySet {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPropertySet> for ITsSbTargetPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPropertySet>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPropertySet> for &ITsSbTargetPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPropertySet>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3703,13 +4663,13 @@ impl ::std::convert::From<&ITsSbTargetPropertySet> for super::Ole::Automation::I
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag> for ITsSbTargetPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IPropertyBag> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IPropertyBag>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag> for &ITsSbTargetPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IPropertyBag> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IPropertyBag>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3725,8 +4685,8 @@ pub struct ITsSbTargetPropertySet_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbTaskInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbTaskInfo(pub ::windows::runtime::IUnknown);
 impl ITsSbTaskInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -3786,6 +4746,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbTaskInfo {
     type Vtable = ITsSbTaskInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1379733635, 35262, 18653, [153, 234, 4, 232, 47, 250, 114, 101]);
 }
+impl ::std::convert::From<ITsSbTaskInfo> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbTaskInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbTaskInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbTaskInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbTaskInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbTaskInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbTaskInfo_abi(
@@ -3812,8 +4792,8 @@ pub struct ITsSbTaskInfo_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbTaskPlugin(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbTaskPlugin(pub ::windows::runtime::IUnknown);
 impl ITsSbTaskPlugin {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbProvider>, Param1: ::windows::runtime::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::runtime::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::runtime::Result<()> {
@@ -3837,6 +4817,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbTaskPlugin {
     type Vtable = ITsSbTaskPlugin_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4196593423, 34565, 16830, [147, 188, 68, 189, 188, 241, 201, 196]);
 }
+impl ::std::convert::From<ITsSbTaskPlugin> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbTaskPlugin) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbTaskPlugin> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbTaskPlugin) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbTaskPlugin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbTaskPlugin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITsSbTaskPlugin> for ITsSbPlugin {
     fn from(value: ITsSbTaskPlugin) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3849,12 +4849,12 @@ impl ::std::convert::From<&ITsSbTaskPlugin> for ITsSbPlugin {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPlugin> for ITsSbTaskPlugin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPlugin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPlugin>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbPlugin> for &ITsSbTaskPlugin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbPlugin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbPlugin>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3871,8 +4871,8 @@ pub struct ITsSbTaskPlugin_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITsSbTaskPluginNotifySink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITsSbTaskPluginNotifySink(pub ::windows::runtime::IUnknown);
 impl ITsSbTaskPluginNotifySink {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnError(&self, hrerror: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
@@ -3939,6 +4939,26 @@ unsafe impl ::windows::runtime::Interface for ITsSbTaskPluginNotifySink {
     type Vtable = ITsSbTaskPluginNotifySink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1789888926, 49900, 17902, [170, 55, 69, 230, 8, 149, 38, 26]);
 }
+impl ::std::convert::From<ITsSbTaskPluginNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: ITsSbTaskPluginNotifySink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITsSbTaskPluginNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITsSbTaskPluginNotifySink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITsSbTaskPluginNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITsSbTaskPluginNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITsSbTaskPluginNotifySink> for ITsSbBaseNotifySink {
     fn from(value: ITsSbTaskPluginNotifySink) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3951,12 +4971,12 @@ impl ::std::convert::From<&ITsSbTaskPluginNotifySink> for ITsSbBaseNotifySink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbBaseNotifySink> for ITsSbTaskPluginNotifySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbBaseNotifySink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbBaseNotifySink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITsSbBaseNotifySink> for &ITsSbTaskPluginNotifySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITsSbBaseNotifySink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITsSbBaseNotifySink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3990,8 +5010,8 @@ pub struct ITsSbTaskPluginNotifySink_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWRdsEnhancedFastReconnectArbitrator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWRdsEnhancedFastReconnectArbitrator(pub ::windows::runtime::IUnknown);
 impl IWRdsEnhancedFastReconnectArbitrator {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetSessionForEnhancedFastReconnect(&self, psessionidarray: *const i32, dwsessioncount: u32) -> ::windows::runtime::Result<i32> {
@@ -4003,6 +5023,26 @@ unsafe impl ::windows::runtime::Interface for IWRdsEnhancedFastReconnectArbitrat
     type Vtable = IWRdsEnhancedFastReconnectArbitrator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1461235355, 18418, 18847, [182, 52, 216, 23, 91, 213, 17, 49]);
 }
+impl ::std::convert::From<IWRdsEnhancedFastReconnectArbitrator> for ::windows::runtime::IUnknown {
+    fn from(value: IWRdsEnhancedFastReconnectArbitrator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWRdsEnhancedFastReconnectArbitrator> for ::windows::runtime::IUnknown {
+    fn from(value: &IWRdsEnhancedFastReconnectArbitrator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWRdsEnhancedFastReconnectArbitrator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWRdsEnhancedFastReconnectArbitrator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsEnhancedFastReconnectArbitrator_abi(
@@ -4013,8 +5053,8 @@ pub struct IWRdsEnhancedFastReconnectArbitrator_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWRdsGraphicsChannel(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWRdsGraphicsChannel(pub ::windows::runtime::IUnknown);
 impl IWRdsGraphicsChannel {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Write<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, cbsize: u32, pbuffer: *const u8, pcontext: Param2) -> ::windows::runtime::Result<()> {
@@ -4033,6 +5073,26 @@ unsafe impl ::windows::runtime::Interface for IWRdsGraphicsChannel {
     type Vtable = IWRdsGraphicsChannel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1749776907, 60927, 17325, [213, 162, 74, 141, 83, 136, 244, 1]);
 }
+impl ::std::convert::From<IWRdsGraphicsChannel> for ::windows::runtime::IUnknown {
+    fn from(value: IWRdsGraphicsChannel) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWRdsGraphicsChannel> for ::windows::runtime::IUnknown {
+    fn from(value: &IWRdsGraphicsChannel) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWRdsGraphicsChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWRdsGraphicsChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsGraphicsChannel_abi(
@@ -4045,8 +5105,8 @@ pub struct IWRdsGraphicsChannel_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWRdsGraphicsChannelEvents(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWRdsGraphicsChannelEvents(pub ::windows::runtime::IUnknown);
 impl IWRdsGraphicsChannelEvents {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnDataReceived(&self, cbsize: u32, pbuffer: *const u8) -> ::windows::runtime::Result<()> {
@@ -4074,6 +5134,26 @@ unsafe impl ::windows::runtime::Interface for IWRdsGraphicsChannelEvents {
     type Vtable = IWRdsGraphicsChannelEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1743926924, 54900, 20398, [102, 165, 210, 6, 40, 166, 64, 210]);
 }
+impl ::std::convert::From<IWRdsGraphicsChannelEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IWRdsGraphicsChannelEvents) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWRdsGraphicsChannelEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IWRdsGraphicsChannelEvents) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWRdsGraphicsChannelEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWRdsGraphicsChannelEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsGraphicsChannelEvents_abi(
@@ -4089,8 +5169,8 @@ pub struct IWRdsGraphicsChannelEvents_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWRdsGraphicsChannelManager(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWRdsGraphicsChannelManager(pub ::windows::runtime::IUnknown);
 impl IWRdsGraphicsChannelManager {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn CreateChannel(&self, pszchannelname: *const u8, channeltype: WRdsGraphicsChannelType) -> ::windows::runtime::Result<IWRdsGraphicsChannel> {
@@ -4102,6 +5182,26 @@ unsafe impl ::windows::runtime::Interface for IWRdsGraphicsChannelManager {
     type Vtable = IWRdsGraphicsChannelManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(265646425, 59454, 18282, [168, 185, 74, 121, 118, 231, 30, 24]);
 }
+impl ::std::convert::From<IWRdsGraphicsChannelManager> for ::windows::runtime::IUnknown {
+    fn from(value: IWRdsGraphicsChannelManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWRdsGraphicsChannelManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IWRdsGraphicsChannelManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWRdsGraphicsChannelManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWRdsGraphicsChannelManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsGraphicsChannelManager_abi(
@@ -4112,8 +5212,8 @@ pub struct IWRdsGraphicsChannelManager_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWRdsProtocolConnection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWRdsProtocolConnection(pub ::windows::runtime::IUnknown);
 impl IWRdsProtocolConnection {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetLogonErrorRedirector(&self) -> ::windows::runtime::Result<IWRdsProtocolLogonErrorRedirector> {
@@ -4235,6 +5335,26 @@ unsafe impl ::windows::runtime::Interface for IWRdsProtocolConnection {
     type Vtable = IWRdsProtocolConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(844028239, 64943, 20470, [129, 168, 66, 171, 231, 85, 131, 11]);
 }
+impl ::std::convert::From<IWRdsProtocolConnection> for ::windows::runtime::IUnknown {
+    fn from(value: IWRdsProtocolConnection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWRdsProtocolConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &IWRdsProtocolConnection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWRdsProtocolConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWRdsProtocolConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolConnection_abi(
@@ -4277,8 +5397,8 @@ pub struct IWRdsProtocolConnection_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWRdsProtocolConnectionCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWRdsProtocolConnectionCallback(pub ::windows::runtime::IUnknown);
 impl IWRdsProtocolConnectionCallback {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnReady(&self) -> ::windows::runtime::Result<()> {
@@ -4306,6 +5426,26 @@ unsafe impl ::windows::runtime::Interface for IWRdsProtocolConnectionCallback {
     type Vtable = IWRdsProtocolConnectionCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4057400114, 53360, 20209, [160, 136, 120, 49, 53, 54, 194, 214]);
 }
+impl ::std::convert::From<IWRdsProtocolConnectionCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWRdsProtocolConnectionCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWRdsProtocolConnectionCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWRdsProtocolConnectionCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWRdsProtocolConnectionCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWRdsProtocolConnectionCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolConnectionCallback_abi(
@@ -4320,8 +5460,8 @@ pub struct IWRdsProtocolConnectionCallback_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWRdsProtocolConnectionSettings(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWRdsProtocolConnectionSettings(pub ::windows::runtime::IUnknown);
 impl IWRdsProtocolConnectionSettings {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -4339,6 +5479,26 @@ unsafe impl ::windows::runtime::Interface for IWRdsProtocolConnectionSettings {
     type Vtable = IWRdsProtocolConnectionSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2214393299, 63220, 60052, [156, 210, 50, 242, 128, 225, 229, 16]);
 }
+impl ::std::convert::From<IWRdsProtocolConnectionSettings> for ::windows::runtime::IUnknown {
+    fn from(value: IWRdsProtocolConnectionSettings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWRdsProtocolConnectionSettings> for ::windows::runtime::IUnknown {
+    fn from(value: &IWRdsProtocolConnectionSettings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWRdsProtocolConnectionSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWRdsProtocolConnectionSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolConnectionSettings_abi(
@@ -4352,8 +5512,8 @@ pub struct IWRdsProtocolConnectionSettings_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWRdsProtocolLicenseConnection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWRdsProtocolLicenseConnection(pub ::windows::runtime::IUnknown);
 impl IWRdsProtocolLicenseConnection {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -4377,6 +5537,26 @@ unsafe impl ::windows::runtime::Interface for IWRdsProtocolLicenseConnection {
     type Vtable = IWRdsProtocolLicenseConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(493491295, 53397, 17444, [149, 122, 64, 127, 174, 130, 45, 132]);
 }
+impl ::std::convert::From<IWRdsProtocolLicenseConnection> for ::windows::runtime::IUnknown {
+    fn from(value: IWRdsProtocolLicenseConnection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWRdsProtocolLicenseConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &IWRdsProtocolLicenseConnection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWRdsProtocolLicenseConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWRdsProtocolLicenseConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolLicenseConnection_abi(
@@ -4391,8 +5571,8 @@ pub struct IWRdsProtocolLicenseConnection_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWRdsProtocolListener(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWRdsProtocolListener(pub ::windows::runtime::IUnknown);
 impl IWRdsProtocolListener {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetSettings(&self, wrdslistenersettinglevel: WRDS_LISTENER_SETTING_LEVEL) -> ::windows::runtime::Result<WRDS_LISTENER_SETTINGS> {
@@ -4412,6 +5592,26 @@ unsafe impl ::windows::runtime::Interface for IWRdsProtocolListener {
     type Vtable = IWRdsProtocolListener_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4240184091, 50822, 17693, [167, 115, 226, 121, 226, 48, 245, 64]);
 }
+impl ::std::convert::From<IWRdsProtocolListener> for ::windows::runtime::IUnknown {
+    fn from(value: IWRdsProtocolListener) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWRdsProtocolListener> for ::windows::runtime::IUnknown {
+    fn from(value: &IWRdsProtocolListener) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWRdsProtocolListener {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWRdsProtocolListener {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolListener_abi(
@@ -4424,8 +5624,8 @@ pub struct IWRdsProtocolListener_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWRdsProtocolListenerCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWRdsProtocolListenerCallback(pub ::windows::runtime::IUnknown);
 impl IWRdsProtocolListenerCallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -4438,6 +5638,26 @@ unsafe impl ::windows::runtime::Interface for IWRdsProtocolListenerCallback {
     type Vtable = IWRdsProtocolListenerCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(984776283, 17481, 19905, [183, 74, 145, 98, 29, 79, 233, 132]);
 }
+impl ::std::convert::From<IWRdsProtocolListenerCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWRdsProtocolListenerCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWRdsProtocolListenerCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWRdsProtocolListenerCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWRdsProtocolListenerCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWRdsProtocolListenerCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolListenerCallback_abi(
@@ -4449,8 +5669,8 @@ pub struct IWRdsProtocolListenerCallback_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWRdsProtocolLogonErrorRedirector(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWRdsProtocolLogonErrorRedirector(pub ::windows::runtime::IUnknown);
 impl IWRdsProtocolLogonErrorRedirector {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnBeginPainting(&self) -> ::windows::runtime::Result<()> {
@@ -4479,6 +5699,26 @@ unsafe impl ::windows::runtime::Interface for IWRdsProtocolLogonErrorRedirector 
     type Vtable = IWRdsProtocolLogonErrorRedirector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1369434171, 5162, 16672, [163, 213, 164, 5, 211, 21, 40, 26]);
 }
+impl ::std::convert::From<IWRdsProtocolLogonErrorRedirector> for ::windows::runtime::IUnknown {
+    fn from(value: IWRdsProtocolLogonErrorRedirector) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWRdsProtocolLogonErrorRedirector> for ::windows::runtime::IUnknown {
+    fn from(value: &IWRdsProtocolLogonErrorRedirector) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWRdsProtocolLogonErrorRedirector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWRdsProtocolLogonErrorRedirector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolLogonErrorRedirector_abi(
@@ -4495,8 +5735,8 @@ pub struct IWRdsProtocolLogonErrorRedirector_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWRdsProtocolManager(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWRdsProtocolManager(pub ::windows::runtime::IUnknown);
 impl IWRdsProtocolManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -4539,6 +5779,26 @@ unsafe impl ::windows::runtime::Interface for IWRdsProtocolManager {
     type Vtable = IWRdsProtocolManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3698944359, 15035, 16589, [164, 70, 16, 82, 118, 181, 137, 80]);
 }
+impl ::std::convert::From<IWRdsProtocolManager> for ::windows::runtime::IUnknown {
+    fn from(value: IWRdsProtocolManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWRdsProtocolManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IWRdsProtocolManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWRdsProtocolManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWRdsProtocolManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolManager_abi(
@@ -4559,8 +5819,8 @@ pub struct IWRdsProtocolManager_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWRdsProtocolSettings(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWRdsProtocolSettings(pub ::windows::runtime::IUnknown);
 impl IWRdsProtocolSettings {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -4578,6 +5838,26 @@ unsafe impl ::windows::runtime::Interface for IWRdsProtocolSettings {
     type Vtable = IWRdsProtocolSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1699371626, 9552, 18411, [182, 247, 235, 214, 55, 71, 82, 101]);
 }
+impl ::std::convert::From<IWRdsProtocolSettings> for ::windows::runtime::IUnknown {
+    fn from(value: IWRdsProtocolSettings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWRdsProtocolSettings> for ::windows::runtime::IUnknown {
+    fn from(value: &IWRdsProtocolSettings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWRdsProtocolSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWRdsProtocolSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolSettings_abi(
@@ -4591,8 +5871,8 @@ pub struct IWRdsProtocolSettings_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWRdsProtocolShadowCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWRdsProtocolShadowCallback(pub ::windows::runtime::IUnknown);
 impl IWRdsProtocolShadowCallback {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn StopShadow(&self) -> ::windows::runtime::Result<()> {
@@ -4622,6 +5902,26 @@ unsafe impl ::windows::runtime::Interface for IWRdsProtocolShadowCallback {
     type Vtable = IWRdsProtocolShadowCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3764813024, 882, 16598, [173, 178, 160, 243, 50, 38, 116, 214]);
 }
+impl ::std::convert::From<IWRdsProtocolShadowCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWRdsProtocolShadowCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWRdsProtocolShadowCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWRdsProtocolShadowCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWRdsProtocolShadowCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWRdsProtocolShadowCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolShadowCallback_abi(
@@ -4634,8 +5934,8 @@ pub struct IWRdsProtocolShadowCallback_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWRdsProtocolShadowConnection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWRdsProtocolShadowConnection(pub ::windows::runtime::IUnknown);
 impl IWRdsProtocolShadowConnection {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -4668,6 +5968,26 @@ unsafe impl ::windows::runtime::Interface for IWRdsProtocolShadowConnection {
     type Vtable = IWRdsProtocolShadowConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2598919398, 51934, 17736, [143, 235, 153, 1, 101, 151, 246, 10]);
 }
+impl ::std::convert::From<IWRdsProtocolShadowConnection> for ::windows::runtime::IUnknown {
+    fn from(value: IWRdsProtocolShadowConnection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWRdsProtocolShadowConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &IWRdsProtocolShadowConnection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWRdsProtocolShadowConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWRdsProtocolShadowConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolShadowConnection_abi(
@@ -4682,8 +6002,8 @@ pub struct IWRdsProtocolShadowConnection_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWRdsWddmIddProps(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWRdsWddmIddProps(pub ::windows::runtime::IUnknown);
 impl IWRdsWddmIddProps {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -4709,6 +6029,26 @@ unsafe impl ::windows::runtime::Interface for IWRdsWddmIddProps {
     type Vtable = IWRdsWddmIddProps_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(327343949, 41609, 17361, [161, 132, 20, 71, 38, 249, 175, 144]);
 }
+impl ::std::convert::From<IWRdsWddmIddProps> for ::windows::runtime::IUnknown {
+    fn from(value: IWRdsWddmIddProps) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWRdsWddmIddProps> for ::windows::runtime::IUnknown {
+    fn from(value: &IWRdsWddmIddProps) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWRdsWddmIddProps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWRdsWddmIddProps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsWddmIddProps_abi(
@@ -4725,8 +6065,8 @@ pub struct IWRdsWddmIddProps_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSBitmapRenderService(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSBitmapRenderService(pub ::windows::runtime::IUnknown);
 impl IWTSBitmapRenderService {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetMappedRenderer<'a, Param1: ::windows::runtime::IntoParam<'a, IWTSBitmapRendererCallback>>(&self, mappingid: u64, pmappedrenderercallback: Param1) -> ::windows::runtime::Result<IWTSBitmapRenderer> {
@@ -4738,6 +6078,26 @@ unsafe impl ::windows::runtime::Interface for IWTSBitmapRenderService {
     type Vtable = IWTSBitmapRenderService_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3929170065, 1534, 16577, [180, 156, 61, 46, 244, 98, 106, 14]);
 }
+impl ::std::convert::From<IWTSBitmapRenderService> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSBitmapRenderService) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSBitmapRenderService> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSBitmapRenderService) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSBitmapRenderService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSBitmapRenderService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSBitmapRenderService_abi(
@@ -4748,8 +6108,8 @@ pub struct IWTSBitmapRenderService_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSBitmapRenderer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSBitmapRenderer(pub ::windows::runtime::IUnknown);
 impl IWTSBitmapRenderer {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Render<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, imageformat: Param0, dwwidth: u32, dwheight: u32, cbstride: i32, cbimagebuffer: u32, pimagebuffer: *const u8) -> ::windows::runtime::Result<()> {
@@ -4769,6 +6129,26 @@ unsafe impl ::windows::runtime::Interface for IWTSBitmapRenderer {
     type Vtable = IWTSBitmapRenderer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1534774423, 62409, 18167, [140, 91, 250, 104, 93, 52, 65, 177]);
 }
+impl ::std::convert::From<IWTSBitmapRenderer> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSBitmapRenderer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSBitmapRenderer> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSBitmapRenderer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSBitmapRenderer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSBitmapRenderer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSBitmapRenderer_abi(
@@ -4781,8 +6161,8 @@ pub struct IWTSBitmapRenderer_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSBitmapRendererCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSBitmapRendererCallback(pub ::windows::runtime::IUnknown);
 impl IWTSBitmapRendererCallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -4793,6 +6173,26 @@ impl IWTSBitmapRendererCallback {
 unsafe impl ::windows::runtime::Interface for IWTSBitmapRendererCallback {
     type Vtable = IWTSBitmapRendererCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3615658638, 65102, 20087, [174, 144, 156, 208, 179, 227, 179, 83]);
+}
+impl ::std::convert::From<IWTSBitmapRendererCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSBitmapRendererCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSBitmapRendererCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSBitmapRendererCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSBitmapRendererCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSBitmapRendererCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4805,8 +6205,8 @@ pub struct IWTSBitmapRendererCallback_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSListener(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSListener(pub ::windows::runtime::IUnknown);
 impl IWTSListener {
     #[cfg(feature = "Win32_System_Ole_Automation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_System_Ole_Automation`*"]
@@ -4819,6 +6219,26 @@ unsafe impl ::windows::runtime::Interface for IWTSListener {
     type Vtable = IWTSListener_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2703426054, 39481, 19800, [134, 116, 205, 180, 223, 244, 231, 59]);
 }
+impl ::std::convert::From<IWTSListener> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSListener) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSListener> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSListener) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSListener {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSListener {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSListener_abi(
@@ -4830,8 +6250,8 @@ pub struct IWTSListener_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSListenerCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSListenerCallback(pub ::windows::runtime::IUnknown);
 impl IWTSListenerCallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -4842,6 +6262,26 @@ impl IWTSListenerCallback {
 unsafe impl ::windows::runtime::Interface for IWTSListenerCallback {
     type Vtable = IWTSListenerCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2703426051, 54951, 4568, [185, 253, 0, 11, 219, 209, 241, 152]);
+}
+impl ::std::convert::From<IWTSListenerCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSListenerCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSListenerCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSListenerCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSListenerCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSListenerCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4854,8 +6294,8 @@ pub struct IWTSListenerCallback_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSPlugin(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSPlugin(pub ::windows::runtime::IUnknown);
 impl IWTSPlugin {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IWTSVirtualChannelManager>>(&self, pchannelmgr: Param0) -> ::windows::runtime::Result<()> {
@@ -4878,6 +6318,26 @@ unsafe impl ::windows::runtime::Interface for IWTSPlugin {
     type Vtable = IWTSPlugin_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2703426049, 5177, 20066, [164, 20, 25, 13, 10, 195, 212, 14]);
 }
+impl ::std::convert::From<IWTSPlugin> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSPlugin) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSPlugin> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSPlugin) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSPlugin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSPlugin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSPlugin_abi(
@@ -4891,8 +6351,8 @@ pub struct IWTSPlugin_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSPluginServiceProvider(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSPluginServiceProvider(pub ::windows::runtime::IUnknown);
 impl IWTSPluginServiceProvider {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetService<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, serviceid: Param0) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -4904,6 +6364,26 @@ unsafe impl ::windows::runtime::Interface for IWTSPluginServiceProvider {
     type Vtable = IWTSPluginServiceProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3554702179, 2172, 18284, [134, 167, 219, 177, 95, 70, 221, 180]);
 }
+impl ::std::convert::From<IWTSPluginServiceProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSPluginServiceProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSPluginServiceProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSPluginServiceProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSPluginServiceProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSPluginServiceProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSPluginServiceProvider_abi(
@@ -4914,8 +6394,8 @@ pub struct IWTSPluginServiceProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSProtocolConnection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSProtocolConnection(pub ::windows::runtime::IUnknown);
 impl IWTSProtocolConnection {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetLogonErrorRedirector(&self) -> ::windows::runtime::Result<IWTSProtocolLogonErrorRedirector> {
@@ -5032,6 +6512,26 @@ unsafe impl ::windows::runtime::Interface for IWTSProtocolConnection {
     type Vtable = IWTSProtocolConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587741029, 37013, 17992, [152, 191, 239, 129, 201, 20, 3, 45]);
 }
+impl ::std::convert::From<IWTSProtocolConnection> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSProtocolConnection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSProtocolConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSProtocolConnection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSProtocolConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSProtocolConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolConnection_abi(
@@ -5073,8 +6573,8 @@ pub struct IWTSProtocolConnection_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSProtocolConnectionCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSProtocolConnectionCallback(pub ::windows::runtime::IUnknown);
 impl IWTSProtocolConnectionCallback {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnReady(&self) -> ::windows::runtime::Result<()> {
@@ -5101,6 +6601,26 @@ unsafe impl ::windows::runtime::Interface for IWTSProtocolConnectionCallback {
     type Vtable = IWTSProtocolConnectionCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587741029, 30187, 16894, [180, 251, 224, 134, 36, 42, 250, 15]);
 }
+impl ::std::convert::From<IWTSProtocolConnectionCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSProtocolConnectionCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSProtocolConnectionCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSProtocolConnectionCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSProtocolConnectionCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSProtocolConnectionCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolConnectionCallback_abi(
@@ -5115,8 +6635,8 @@ pub struct IWTSProtocolConnectionCallback_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSProtocolLicenseConnection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSProtocolLicenseConnection(pub ::windows::runtime::IUnknown);
 impl IWTSProtocolLicenseConnection {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -5140,6 +6660,26 @@ unsafe impl ::windows::runtime::Interface for IWTSProtocolLicenseConnection {
     type Vtable = IWTSProtocolLicenseConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587741029, 6028, 16505, [142, 74, 254, 166, 73, 106, 77, 112]);
 }
+impl ::std::convert::From<IWTSProtocolLicenseConnection> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSProtocolLicenseConnection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSProtocolLicenseConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSProtocolLicenseConnection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSProtocolLicenseConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSProtocolLicenseConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolLicenseConnection_abi(
@@ -5154,8 +6694,8 @@ pub struct IWTSProtocolLicenseConnection_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSProtocolListener(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSProtocolListener(pub ::windows::runtime::IUnknown);
 impl IWTSProtocolListener {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn StartListen<'a, Param0: ::windows::runtime::IntoParam<'a, IWTSProtocolListenerCallback>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
@@ -5170,6 +6710,26 @@ unsafe impl ::windows::runtime::Interface for IWTSProtocolListener {
     type Vtable = IWTSProtocolListener_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587741029, 17904, 17300, [143, 105, 50, 178, 188, 14, 244, 202]);
 }
+impl ::std::convert::From<IWTSProtocolListener> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSProtocolListener) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSProtocolListener> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSProtocolListener) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSProtocolListener {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSProtocolListener {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolListener_abi(
@@ -5181,8 +6741,8 @@ pub struct IWTSProtocolListener_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSProtocolListenerCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSProtocolListenerCallback(pub ::windows::runtime::IUnknown);
 impl IWTSProtocolListenerCallback {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnConnected<'a, Param0: ::windows::runtime::IntoParam<'a, IWTSProtocolConnection>>(&self, pconnection: Param0) -> ::windows::runtime::Result<IWTSProtocolConnectionCallback> {
@@ -5194,6 +6754,26 @@ unsafe impl ::windows::runtime::Interface for IWTSProtocolListenerCallback {
     type Vtable = IWTSProtocolListenerCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587741029, 6701, 19938, [151, 222, 74, 53, 242, 96, 240, 179]);
 }
+impl ::std::convert::From<IWTSProtocolListenerCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSProtocolListenerCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSProtocolListenerCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSProtocolListenerCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSProtocolListenerCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSProtocolListenerCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolListenerCallback_abi(
@@ -5204,8 +6784,8 @@ pub struct IWTSProtocolListenerCallback_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSProtocolLogonErrorRedirector(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSProtocolLogonErrorRedirector(pub ::windows::runtime::IUnknown);
 impl IWTSProtocolLogonErrorRedirector {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnBeginPainting(&self) -> ::windows::runtime::Result<()> {
@@ -5234,6 +6814,26 @@ unsafe impl ::windows::runtime::Interface for IWTSProtocolLogonErrorRedirector {
     type Vtable = IWTSProtocolLogonErrorRedirector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4254818727, 10518, 17959, [141, 238, 67, 40, 113, 26, 214, 203]);
 }
+impl ::std::convert::From<IWTSProtocolLogonErrorRedirector> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSProtocolLogonErrorRedirector) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSProtocolLogonErrorRedirector> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSProtocolLogonErrorRedirector) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSProtocolLogonErrorRedirector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSProtocolLogonErrorRedirector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolLogonErrorRedirector_abi(
@@ -5250,8 +6850,8 @@ pub struct IWTSProtocolLogonErrorRedirector_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSProtocolManager(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSProtocolManager(pub ::windows::runtime::IUnknown);
 impl IWTSProtocolManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -5280,6 +6880,26 @@ unsafe impl ::windows::runtime::Interface for IWTSProtocolManager {
     type Vtable = IWTSProtocolManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4192925388, 60793, 20225, [130, 29, 31, 136, 27, 159, 102, 204]);
 }
+impl ::std::convert::From<IWTSProtocolManager> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSProtocolManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSProtocolManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSProtocolManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSProtocolManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSProtocolManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolManager_abi(
@@ -5295,8 +6915,8 @@ pub struct IWTSProtocolManager_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSProtocolShadowCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSProtocolShadowCallback(pub ::windows::runtime::IUnknown);
 impl IWTSProtocolShadowCallback {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn StopShadow(&self) -> ::windows::runtime::Result<()> {
@@ -5326,6 +6946,26 @@ unsafe impl ::windows::runtime::Interface for IWTSProtocolShadowCallback {
     type Vtable = IWTSProtocolShadowCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1345987844, 43749, 19121, [147, 224, 109, 28, 75, 198, 247, 26]);
 }
+impl ::std::convert::From<IWTSProtocolShadowCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSProtocolShadowCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSProtocolShadowCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSProtocolShadowCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSProtocolShadowCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSProtocolShadowCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolShadowCallback_abi(
@@ -5338,8 +6978,8 @@ pub struct IWTSProtocolShadowCallback_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSProtocolShadowConnection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSProtocolShadowConnection(pub ::windows::runtime::IUnknown);
 impl IWTSProtocolShadowConnection {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -5372,6 +7012,26 @@ unsafe impl ::windows::runtime::Interface for IWTSProtocolShadowConnection {
     type Vtable = IWTSProtocolShadowConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3996847124, 14331, 17771, [186, 179, 109, 108, 213, 30, 19, 191]);
 }
+impl ::std::convert::From<IWTSProtocolShadowConnection> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSProtocolShadowConnection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSProtocolShadowConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSProtocolShadowConnection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSProtocolShadowConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSProtocolShadowConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolShadowConnection_abi(
@@ -5386,8 +7046,8 @@ pub struct IWTSProtocolShadowConnection_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSSBPlugin(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSSBPlugin(pub ::windows::runtime::IUnknown);
 impl IWTSSBPlugin {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize(&self) -> ::windows::runtime::Result<u32> {
@@ -5430,6 +7090,26 @@ unsafe impl ::windows::runtime::Interface for IWTSSBPlugin {
     type Vtable = IWTSSBPlugin_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3695492728, 45453, 17305, [178, 16, 100, 27, 246, 122, 0, 44]);
 }
+impl ::std::convert::From<IWTSSBPlugin> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSSBPlugin) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSSBPlugin> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSSBPlugin) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSSBPlugin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSSBPlugin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSSBPlugin_abi(
@@ -5448,8 +7128,8 @@ pub struct IWTSSBPlugin_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSVirtualChannel(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSVirtualChannel(pub ::windows::runtime::IUnknown);
 impl IWTSVirtualChannel {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Write<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, cbsize: u32, pbuffer: *const u8, preserved: Param2) -> ::windows::runtime::Result<()> {
@@ -5464,6 +7144,26 @@ unsafe impl ::windows::runtime::Interface for IWTSVirtualChannel {
     type Vtable = IWTSVirtualChannel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2703426055, 54951, 4568, [185, 253, 0, 11, 219, 209, 241, 152]);
 }
+impl ::std::convert::From<IWTSVirtualChannel> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSVirtualChannel) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSVirtualChannel> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSVirtualChannel) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSVirtualChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSVirtualChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSVirtualChannel_abi(
@@ -5475,8 +7175,8 @@ pub struct IWTSVirtualChannel_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSVirtualChannelCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSVirtualChannelCallback(pub ::windows::runtime::IUnknown);
 impl IWTSVirtualChannelCallback {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnDataReceived(&self, cbsize: u32, pbuffer: *const u8) -> ::windows::runtime::Result<()> {
@@ -5491,6 +7191,26 @@ unsafe impl ::windows::runtime::Interface for IWTSVirtualChannelCallback {
     type Vtable = IWTSVirtualChannelCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2703426052, 54951, 4568, [185, 253, 0, 11, 219, 209, 241, 152]);
 }
+impl ::std::convert::From<IWTSVirtualChannelCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSVirtualChannelCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSVirtualChannelCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSVirtualChannelCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSVirtualChannelCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSVirtualChannelCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSVirtualChannelCallback_abi(
@@ -5502,8 +7222,8 @@ pub struct IWTSVirtualChannelCallback_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWTSVirtualChannelManager(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWTSVirtualChannelManager(pub ::windows::runtime::IUnknown);
 impl IWTSVirtualChannelManager {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn CreateListener<'a, Param2: ::windows::runtime::IntoParam<'a, IWTSListenerCallback>>(&self, pszchannelname: *const u8, uflags: u32, plistenercallback: Param2) -> ::windows::runtime::Result<IWTSListener> {
@@ -5515,6 +7235,26 @@ unsafe impl ::windows::runtime::Interface for IWTSVirtualChannelManager {
     type Vtable = IWTSVirtualChannelManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2703426053, 54951, 4568, [185, 253, 0, 11, 219, 209, 241, 152]);
 }
+impl ::std::convert::From<IWTSVirtualChannelManager> for ::windows::runtime::IUnknown {
+    fn from(value: IWTSVirtualChannelManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWTSVirtualChannelManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IWTSVirtualChannelManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWTSVirtualChannelManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWTSVirtualChannelManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSVirtualChannelManager_abi(
@@ -5525,8 +7265,8 @@ pub struct IWTSVirtualChannelManager_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWorkspace(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWorkspace(pub ::windows::runtime::IUnknown);
 impl IWorkspace {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_System_Com`*"]
@@ -5549,6 +7289,26 @@ unsafe impl ::windows::runtime::Interface for IWorkspace {
     type Vtable = IWorkspace_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3106061240, 19541, 20458, [132, 150, 190, 176, 180, 66, 133, 229]);
 }
+impl ::std::convert::From<IWorkspace> for ::windows::runtime::IUnknown {
+    fn from(value: IWorkspace) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWorkspace> for ::windows::runtime::IUnknown {
+    fn from(value: &IWorkspace) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWorkspace {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWorkspace {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspace_abi(
@@ -5563,8 +7323,8 @@ pub struct IWorkspace_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWorkspace2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWorkspace2(pub ::windows::runtime::IUnknown);
 impl IWorkspace2 {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_System_Com`*"]
@@ -5600,6 +7360,26 @@ unsafe impl ::windows::runtime::Interface for IWorkspace2 {
     type Vtable = IWorkspace2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2530793423, 30782, 17030, [131, 76, 235, 192, 233, 95, 120, 60]);
 }
+impl ::std::convert::From<IWorkspace2> for ::windows::runtime::IUnknown {
+    fn from(value: IWorkspace2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWorkspace2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWorkspace2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWorkspace2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWorkspace2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWorkspace2> for IWorkspace {
     fn from(value: IWorkspace2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5612,12 +7392,12 @@ impl ::std::convert::From<&IWorkspace2> for IWorkspace {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWorkspace> for IWorkspace2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWorkspace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWorkspace>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWorkspace> for &IWorkspace2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWorkspace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWorkspace>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5645,8 +7425,8 @@ pub struct IWorkspace2_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWorkspace3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWorkspace3(pub ::windows::runtime::IUnknown);
 impl IWorkspace3 {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_System_Com`*"]
@@ -5693,6 +7473,26 @@ unsafe impl ::windows::runtime::Interface for IWorkspace3 {
     type Vtable = IWorkspace3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(468500042, 54868, 16955, [175, 235, 190, 141, 83, 44, 19, 198]);
 }
+impl ::std::convert::From<IWorkspace3> for ::windows::runtime::IUnknown {
+    fn from(value: IWorkspace3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWorkspace3> for ::windows::runtime::IUnknown {
+    fn from(value: &IWorkspace3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWorkspace3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWorkspace3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWorkspace3> for IWorkspace2 {
     fn from(value: IWorkspace3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5705,12 +7505,12 @@ impl ::std::convert::From<&IWorkspace3> for IWorkspace2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWorkspace2> for IWorkspace3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWorkspace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWorkspace2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWorkspace2> for &IWorkspace3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWorkspace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWorkspace2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWorkspace3> for IWorkspace {
@@ -5725,12 +7525,12 @@ impl ::std::convert::From<&IWorkspace3> for IWorkspace {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWorkspace> for IWorkspace3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWorkspace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWorkspace>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWorkspace> for &IWorkspace3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWorkspace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWorkspace>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5762,8 +7562,8 @@ pub struct IWorkspace3_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWorkspaceClientExt(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWorkspaceClientExt(pub ::windows::runtime::IUnknown);
 impl IWorkspaceClientExt {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -5786,6 +7586,26 @@ unsafe impl ::windows::runtime::Interface for IWorkspaceClientExt {
     type Vtable = IWorkspaceClientExt_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(314135284, 16842, 20257, [168, 41, 166, 208, 125, 154, 22, 229]);
 }
+impl ::std::convert::From<IWorkspaceClientExt> for ::windows::runtime::IUnknown {
+    fn from(value: IWorkspaceClientExt) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWorkspaceClientExt> for ::windows::runtime::IUnknown {
+    fn from(value: &IWorkspaceClientExt) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWorkspaceClientExt {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWorkspaceClientExt {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspaceClientExt_abi(
@@ -5800,8 +7620,8 @@ pub struct IWorkspaceClientExt_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWorkspaceRegistration(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWorkspaceRegistration(pub ::windows::runtime::IUnknown);
 impl IWorkspaceRegistration {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn AddResource<'a, Param0: ::windows::runtime::IntoParam<'a, IWorkspaceClientExt>>(&self, punk: Param0) -> ::windows::runtime::Result<u32> {
@@ -5817,6 +7637,26 @@ unsafe impl ::windows::runtime::Interface for IWorkspaceRegistration {
     type Vtable = IWorkspaceRegistration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3106061240, 19541, 20458, [132, 150, 190, 176, 180, 66, 133, 230]);
 }
+impl ::std::convert::From<IWorkspaceRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: IWorkspaceRegistration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWorkspaceRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: &IWorkspaceRegistration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWorkspaceRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWorkspaceRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspaceRegistration_abi(
@@ -5828,8 +7668,8 @@ pub struct IWorkspaceRegistration_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWorkspaceRegistration2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWorkspaceRegistration2(pub ::windows::runtime::IUnknown);
 impl IWorkspaceRegistration2 {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn AddResource<'a, Param0: ::windows::runtime::IntoParam<'a, IWorkspaceClientExt>>(&self, punk: Param0) -> ::windows::runtime::Result<u32> {
@@ -5854,6 +7694,26 @@ unsafe impl ::windows::runtime::Interface for IWorkspaceRegistration2 {
     type Vtable = IWorkspaceRegistration2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3478779476, 14779, 17624, [148, 208, 70, 53, 114, 137, 87, 233]);
 }
+impl ::std::convert::From<IWorkspaceRegistration2> for ::windows::runtime::IUnknown {
+    fn from(value: IWorkspaceRegistration2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWorkspaceRegistration2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWorkspaceRegistration2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWorkspaceRegistration2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWorkspaceRegistration2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWorkspaceRegistration2> for IWorkspaceRegistration {
     fn from(value: IWorkspaceRegistration2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5866,12 +7726,12 @@ impl ::std::convert::From<&IWorkspaceRegistration2> for IWorkspaceRegistration {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWorkspaceRegistration> for IWorkspaceRegistration2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWorkspaceRegistration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWorkspaceRegistration>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWorkspaceRegistration> for &IWorkspaceRegistration2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWorkspaceRegistration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWorkspaceRegistration>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5888,8 +7748,8 @@ pub struct IWorkspaceRegistration2_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWorkspaceReportMessage(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWorkspaceReportMessage(pub ::windows::runtime::IUnknown);
 impl IWorkspaceReportMessage {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -5912,6 +7772,26 @@ unsafe impl ::windows::runtime::Interface for IWorkspaceReportMessage {
     type Vtable = IWorkspaceReportMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2814404409, 20495, 20108, [153, 168, 43, 214, 149, 88, 153, 235]);
 }
+impl ::std::convert::From<IWorkspaceReportMessage> for ::windows::runtime::IUnknown {
+    fn from(value: IWorkspaceReportMessage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWorkspaceReportMessage> for ::windows::runtime::IUnknown {
+    fn from(value: &IWorkspaceReportMessage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWorkspaceReportMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWorkspaceReportMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspaceReportMessage_abi(
@@ -5927,8 +7807,8 @@ pub struct IWorkspaceReportMessage_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWorkspaceResTypeRegistry(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWorkspaceResTypeRegistry(pub ::windows::runtime::IUnknown);
 impl IWorkspaceResTypeRegistry {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -5962,6 +7842,26 @@ unsafe impl ::windows::runtime::Interface for IWorkspaceResTypeRegistry {
     type Vtable = IWorkspaceResTypeRegistry_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(490900601, 28206, 17233, [163, 97, 192, 64, 26, 3, 160, 186]);
 }
+impl ::std::convert::From<IWorkspaceResTypeRegistry> for ::windows::runtime::IUnknown {
+    fn from(value: IWorkspaceResTypeRegistry) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWorkspaceResTypeRegistry> for ::windows::runtime::IUnknown {
+    fn from(value: &IWorkspaceResTypeRegistry) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWorkspaceResTypeRegistry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWorkspaceResTypeRegistry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWorkspaceResTypeRegistry> for super::Ole::Automation::IDispatch {
     fn from(value: IWorkspaceResTypeRegistry) -> Self {
@@ -5977,13 +7877,13 @@ impl ::std::convert::From<&IWorkspaceResTypeRegistry> for super::Ole::Automation
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWorkspaceResTypeRegistry {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWorkspaceResTypeRegistry {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6013,8 +7913,8 @@ pub struct IWorkspaceResTypeRegistry_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWorkspaceScriptable(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWorkspaceScriptable(pub ::windows::runtime::IUnknown);
 impl IWorkspaceScriptable {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -6065,6 +7965,26 @@ unsafe impl ::windows::runtime::Interface for IWorkspaceScriptable {
     type Vtable = IWorkspaceScriptable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4025108898, 56741, 17053, [143, 66, 178, 59, 146, 196, 195, 71]);
 }
+impl ::std::convert::From<IWorkspaceScriptable> for ::windows::runtime::IUnknown {
+    fn from(value: IWorkspaceScriptable) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWorkspaceScriptable> for ::windows::runtime::IUnknown {
+    fn from(value: &IWorkspaceScriptable) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWorkspaceScriptable {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWorkspaceScriptable {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWorkspaceScriptable> for super::Ole::Automation::IDispatch {
     fn from(value: IWorkspaceScriptable) -> Self {
@@ -6080,13 +8000,13 @@ impl ::std::convert::From<&IWorkspaceScriptable> for super::Ole::Automation::IDi
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWorkspaceScriptable {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWorkspaceScriptable {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6119,8 +8039,8 @@ pub struct IWorkspaceScriptable_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWorkspaceScriptable2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWorkspaceScriptable2(pub ::windows::runtime::IUnknown);
 impl IWorkspaceScriptable2 {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -6234,6 +8154,26 @@ unsafe impl ::windows::runtime::Interface for IWorkspaceScriptable2 {
     type Vtable = IWorkspaceScriptable2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4025108898, 56741, 17053, [143, 66, 179, 59, 162, 196, 195, 72]);
 }
+impl ::std::convert::From<IWorkspaceScriptable2> for ::windows::runtime::IUnknown {
+    fn from(value: IWorkspaceScriptable2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWorkspaceScriptable2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWorkspaceScriptable2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWorkspaceScriptable2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWorkspaceScriptable2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWorkspaceScriptable2> for IWorkspaceScriptable {
     fn from(value: IWorkspaceScriptable2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6246,12 +8186,12 @@ impl ::std::convert::From<&IWorkspaceScriptable2> for IWorkspaceScriptable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWorkspaceScriptable> for IWorkspaceScriptable2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWorkspaceScriptable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWorkspaceScriptable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWorkspaceScriptable> for &IWorkspaceScriptable2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWorkspaceScriptable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWorkspaceScriptable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6269,13 +8209,13 @@ impl ::std::convert::From<&IWorkspaceScriptable2> for super::Ole::Automation::ID
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWorkspaceScriptable2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWorkspaceScriptable2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6324,8 +8264,8 @@ pub struct IWorkspaceScriptable2_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWorkspaceScriptable3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWorkspaceScriptable3(pub ::windows::runtime::IUnknown);
 impl IWorkspaceScriptable3 {
     #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -6482,6 +8422,26 @@ unsafe impl ::windows::runtime::Interface for IWorkspaceScriptable3 {
     type Vtable = IWorkspaceScriptable3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1394500882, 11455, 19410, [128, 165, 217, 10, 113, 99, 106, 154]);
 }
+impl ::std::convert::From<IWorkspaceScriptable3> for ::windows::runtime::IUnknown {
+    fn from(value: IWorkspaceScriptable3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWorkspaceScriptable3> for ::windows::runtime::IUnknown {
+    fn from(value: &IWorkspaceScriptable3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWorkspaceScriptable3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWorkspaceScriptable3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWorkspaceScriptable3> for IWorkspaceScriptable2 {
     fn from(value: IWorkspaceScriptable3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6494,12 +8454,12 @@ impl ::std::convert::From<&IWorkspaceScriptable3> for IWorkspaceScriptable2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWorkspaceScriptable2> for IWorkspaceScriptable3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWorkspaceScriptable2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWorkspaceScriptable2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWorkspaceScriptable2> for &IWorkspaceScriptable3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWorkspaceScriptable2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWorkspaceScriptable2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWorkspaceScriptable3> for IWorkspaceScriptable {
@@ -6514,12 +8474,12 @@ impl ::std::convert::From<&IWorkspaceScriptable3> for IWorkspaceScriptable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWorkspaceScriptable> for IWorkspaceScriptable3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWorkspaceScriptable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWorkspaceScriptable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWorkspaceScriptable> for &IWorkspaceScriptable3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWorkspaceScriptable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWorkspaceScriptable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6537,13 +8497,13 @@ impl ::std::convert::From<&IWorkspaceScriptable3> for super::Ole::Automation::ID
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWorkspaceScriptable3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWorkspaceScriptable3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6608,8 +8568,8 @@ pub struct IWorkspaceScriptable3_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ItsPubPlugin(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ItsPubPlugin(pub ::windows::runtime::IUnknown);
 impl ItsPubPlugin {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -6649,6 +8609,26 @@ unsafe impl ::windows::runtime::Interface for ItsPubPlugin {
     type Vtable = ItsPubPlugin_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1891650309, 62279, 16683, [130, 47, 54, 201, 156, 84, 202, 69]);
 }
+impl ::std::convert::From<ItsPubPlugin> for ::windows::runtime::IUnknown {
+    fn from(value: ItsPubPlugin) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ItsPubPlugin> for ::windows::runtime::IUnknown {
+    fn from(value: &ItsPubPlugin) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ItsPubPlugin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ItsPubPlugin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ItsPubPlugin_abi(
@@ -6669,8 +8649,8 @@ pub struct ItsPubPlugin_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ItsPubPlugin2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ItsPubPlugin2(pub ::windows::runtime::IUnknown);
 impl ItsPubPlugin2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -6731,6 +8711,26 @@ unsafe impl ::windows::runtime::Interface for ItsPubPlugin2 {
     type Vtable = ItsPubPlugin2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199343128, 43735, 20166, [186, 209, 10, 50, 27, 164, 101, 213]);
 }
+impl ::std::convert::From<ItsPubPlugin2> for ::windows::runtime::IUnknown {
+    fn from(value: ItsPubPlugin2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ItsPubPlugin2> for ::windows::runtime::IUnknown {
+    fn from(value: &ItsPubPlugin2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ItsPubPlugin2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ItsPubPlugin2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ItsPubPlugin2> for ItsPubPlugin {
     fn from(value: ItsPubPlugin2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6743,12 +8743,12 @@ impl ::std::convert::From<&ItsPubPlugin2> for ItsPubPlugin {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ItsPubPlugin> for ItsPubPlugin2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ItsPubPlugin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ItsPubPlugin>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ItsPubPlugin> for &ItsPubPlugin2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ItsPubPlugin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ItsPubPlugin>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6821,7 +8821,9 @@ pub const MaxUserName_Len: u32 = 104u32;
 pub const NOTIFY_FOR_ALL_SESSIONS: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const NOTIFY_FOR_THIS_SESSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub type PCHANNEL_INIT_EVENT_FN = unsafe extern "system" fn(pinithandle: *mut ::std::ffi::c_void, event: u32, pdata: *mut ::std::ffi::c_void, datalength: u32);
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub type PCHANNEL_OPEN_EVENT_FN = unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut ::std::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32);
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const PLUGIN_CAPABILITY_EXTERNAL_REDIRECTION: u32 = 1u32;
@@ -6853,13 +8855,18 @@ pub const PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: ::windows::runtime::GUID = ::w
 pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3979100122, 13197, 19775, [129, 163, 231, 103, 49, 13, 144, 142]);
 pub const PROPERTY_TYPE_GET_FAST_RECONNECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1645401943, 67, 18530, [153, 195, 159, 48, 89, 172, 42, 59]);
 pub const PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(427573882, 309, 19309, [156, 94, 230, 87, 154, 10, 182, 37]);
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub type PVIRTUALCHANNELCLOSE = unsafe extern "system" fn(openhandle: u32) -> u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PVIRTUALCHANNELENTRY = unsafe extern "system" fn(pentrypoints: *mut ::std::mem::ManuallyDrop<CHANNEL_ENTRY_POINTS>) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PVIRTUALCHANNELINIT = unsafe extern "system" fn(ppinithandle: *mut *mut ::std::ffi::c_void, pchannel: *mut CHANNEL_DEF, channelcount: i32, versionrequested: u32, pchanneliniteventproc: ::windows::runtime::RawPtr) -> u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PVIRTUALCHANNELOPEN = unsafe extern "system" fn(pinithandle: *mut ::std::ffi::c_void, popenhandle: *mut u32, pchannelname: super::super::Foundation::PSTR, pchannelopeneventproc: ::windows::runtime::RawPtr) -> u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub type PVIRTUALCHANNELWRITE = unsafe extern "system" fn(openhandle: u32, pdata: *mut ::std::ffi::c_void, datalength: u32, puserdata: *mut ::std::ffi::c_void) -> u32;
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6896,8 +8903,8 @@ impl ::std::convert::From<i32> for PolicyAttributeType {
 unsafe impl ::windows::runtime::Abi for PolicyAttributeType {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ProcessIdToSessionId(dwprocessid: u32, psessionid: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8563,8 +10570,8 @@ impl ::std::cmp::Eq for WTSCONFIGINFOW {}
 unsafe impl ::windows::runtime::Abi for WTSCONFIGINFOW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSCloseServer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0) {
     #[cfg(windows)]
@@ -8578,8 +10585,8 @@ pub unsafe fn WTSCloseServer<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSConnectSessionA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(logonid: u32, targetlogonid: u32, ppassword: Param2, bwait: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8593,8 +10600,8 @@ pub unsafe fn WTSConnectSessionA<'a, Param2: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSConnectSessionW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(logonid: u32, targetlogonid: u32, ppassword: Param2, bwait: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8608,8 +10615,8 @@ pub unsafe fn WTSConnectSessionW<'a, Param2: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSCreateListenerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plistenername: Param3, pbuffer: *const WTSLISTENERCONFIGA, flag: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8623,8 +10630,8 @@ pub unsafe fn WTSCreateListenerA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSCreateListenerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plistenername: Param3, pbuffer: *const WTSLISTENERCONFIGW, flag: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8638,8 +10645,8 @@ pub unsafe fn WTSCreateListenerW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSDisconnectSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hserver: Param0, sessionid: u32, bwait: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8653,8 +10660,8 @@ pub unsafe fn WTSDisconnectSession<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSEnableChildSessions<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(benable: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8668,8 +10675,8 @@ pub unsafe fn WTSEnableChildSessions<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSEnumerateListenersA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plisteners: *mut *mut i8, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8683,8 +10690,8 @@ pub unsafe fn WTSEnumerateListenersA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSEnumerateListenersW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plisteners: *mut *mut u16, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8698,8 +10705,8 @@ pub unsafe fn WTSEnumerateListenersW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSEnumerateProcessesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8713,8 +10720,8 @@ pub unsafe fn WTSEnumerateProcessesA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSEnumerateProcessesExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut super::super::Foundation::PSTR, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8728,8 +10735,8 @@ pub unsafe fn WTSEnumerateProcessesExA<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSEnumerateProcessesExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut super::super::Foundation::PWSTR, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8743,8 +10750,8 @@ pub unsafe fn WTSEnumerateProcessesExW<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSEnumerateProcessesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8758,8 +10765,8 @@ pub unsafe fn WTSEnumerateProcessesW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSEnumerateServersA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pdomainname: Param0, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8773,8 +10780,8 @@ pub unsafe fn WTSEnumerateServersA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSEnumerateServersW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pdomainname: Param0, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8788,8 +10795,8 @@ pub unsafe fn WTSEnumerateServersW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSEnumerateSessionsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8803,8 +10810,8 @@ pub unsafe fn WTSEnumerateSessionsA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSEnumerateSessionsExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1A, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8818,8 +10825,8 @@ pub unsafe fn WTSEnumerateSessionsExA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSEnumerateSessionsExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1W, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8833,8 +10840,8 @@ pub unsafe fn WTSEnumerateSessionsExW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSEnumerateSessionsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8862,8 +10869,8 @@ pub unsafe fn WTSFreeMemory(pmemory: *mut ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSFreeMemoryExA(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::std::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8877,8 +10884,8 @@ pub unsafe fn WTSFreeMemoryExA(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::std::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8906,8 +10913,8 @@ pub unsafe fn WTSGetActiveConsoleSessionId() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8921,8 +10928,8 @@ pub unsafe fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn WTSGetListenerSecurityA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plistenername: Param3, securityinformation: u32, psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8945,8 +10952,8 @@ pub unsafe fn WTSGetListenerSecurityA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn WTSGetListenerSecurityW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plistenername: Param3, securityinformation: u32, psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9379,8 +11386,8 @@ impl ::std::cmp::Eq for WTSINFOW {}
 unsafe impl ::windows::runtime::Abi for WTSINFOW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9637,8 +11644,8 @@ impl ::std::cmp::Eq for WTSLISTENERCONFIGW {}
 unsafe impl ::windows::runtime::Abi for WTSLISTENERCONFIGW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSLogoffSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hserver: Param0, sessionid: u32, bwait: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9652,8 +11659,8 @@ pub unsafe fn WTSLogoffSession<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSOpenServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pservername: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -9667,8 +11674,8 @@ pub unsafe fn WTSOpenServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSOpenServerExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pservername: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -9682,8 +11689,8 @@ pub unsafe fn WTSOpenServerExA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSOpenServerExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pservername: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -9697,8 +11704,8 @@ pub unsafe fn WTSOpenServerExW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSOpenServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pservername: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -9712,8 +11719,8 @@ pub unsafe fn WTSOpenServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSQueryListenerConfigA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plistenername: Param3, pbuffer: *mut WTSLISTENERCONFIGA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9727,8 +11734,8 @@ pub unsafe fn WTSQueryListenerConfigA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSQueryListenerConfigW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plistenername: Param3, pbuffer: *mut WTSLISTENERCONFIGW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9742,8 +11749,8 @@ pub unsafe fn WTSQueryListenerConfigW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSQuerySessionInformationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut super::super::Foundation::PSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9757,8 +11764,8 @@ pub unsafe fn WTSQuerySessionInformationA<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSQuerySessionInformationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut super::super::Foundation::PWSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9772,8 +11779,8 @@ pub unsafe fn WTSQuerySessionInformationW<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSQueryUserConfigA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pservername: Param0, pusername: Param1, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut super::super::Foundation::PSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9787,8 +11794,8 @@ pub unsafe fn WTSQueryUserConfigA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSQueryUserConfigW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pservername: Param0, pusername: Param1, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut super::super::Foundation::PWSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9802,8 +11809,8 @@ pub unsafe fn WTSQueryUserConfigW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSQueryUserToken(sessionid: u32, phtoken: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9817,8 +11824,8 @@ pub unsafe fn WTSQueryUserToken(sessionid: u32, phtoken: *mut super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSRegisterSessionNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9832,8 +11839,8 @@ pub unsafe fn WTSRegisterSessionNotification<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSRegisterSessionNotificationEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hserver: Param0, hwnd: Param1, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10114,8 +12121,8 @@ impl ::std::cmp::Eq for WTSSESSION_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for WTSSESSION_NOTIFICATION {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn WTSSendMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     hserver: Param0,
@@ -10151,8 +12158,8 @@ pub unsafe fn WTSSendMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn WTSSendMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     hserver: Param0,
@@ -10188,8 +12195,8 @@ pub unsafe fn WTSSendMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn WTSSetListenerSecurityA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plistenername: Param3, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10203,8 +12210,8 @@ pub unsafe fn WTSSetListenerSecurityA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn WTSSetListenerSecurityW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plistenername: Param3, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10218,8 +12225,8 @@ pub unsafe fn WTSSetListenerSecurityW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSSetRenderHint<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(prenderhintid: *mut u64, hwndowner: Param1, renderhinttype: u32, cbhintdatalength: u32, phintdata: *const u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10233,8 +12240,8 @@ pub unsafe fn WTSSetRenderHint<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSSetUserConfigA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pservername: Param0, pusername: Param1, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: Param3, datalength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10248,8 +12255,8 @@ pub unsafe fn WTSSetUserConfigA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSSetUserConfigW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pservername: Param0, pusername: Param1, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: Param3, datalength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10263,8 +12270,8 @@ pub unsafe fn WTSSetUserConfigW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSShutdownSystem<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, shutdownflag: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10278,8 +12285,8 @@ pub unsafe fn WTSShutdownSystem<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSStartRemoteControlSessionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(ptargetservername: Param0, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10293,8 +12300,8 @@ pub unsafe fn WTSStartRemoteControlSessionA<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSStartRemoteControlSessionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ptargetservername: Param0, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10308,8 +12315,8 @@ pub unsafe fn WTSStartRemoteControlSessionW<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSStopRemoteControlSession(logonid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10323,8 +12330,8 @@ pub unsafe fn WTSStopRemoteControlSession(logonid: u32) -> super::super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSTerminateProcess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, processid: u32, exitcode: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10503,8 +12510,8 @@ impl ::std::cmp::Eq for WTSUSERCONFIGW {}
 unsafe impl ::windows::runtime::Abi for WTSUSERCONFIGW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSUnRegisterSessionNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10518,8 +12525,8 @@ pub unsafe fn WTSUnRegisterSessionNotification<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSUnRegisterSessionNotificationEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hserver: Param0, hwnd: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10533,8 +12540,8 @@ pub unsafe fn WTSUnRegisterSessionNotificationEx<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSVirtualChannelClose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hchannelhandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10548,8 +12555,8 @@ pub unsafe fn WTSVirtualChannelClose<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSVirtualChannelOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hserver: Param0, sessionid: u32, pvirtualname: Param2) -> HwtsVirtualChannelHandle {
     #[cfg(windows)]
@@ -10563,8 +12570,8 @@ pub unsafe fn WTSVirtualChannelOpen<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSVirtualChannelOpenEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(sessionid: u32, pvirtualname: Param1, flags: u32) -> HwtsVirtualChannelHandle {
     #[cfg(windows)]
@@ -10578,8 +12585,8 @@ pub unsafe fn WTSVirtualChannelOpenEx<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSVirtualChannelPurgeInput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hchannelhandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10593,8 +12600,8 @@ pub unsafe fn WTSVirtualChannelPurgeInput<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSVirtualChannelPurgeOutput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hchannelhandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10608,8 +12615,8 @@ pub unsafe fn WTSVirtualChannelPurgeOutput<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSVirtualChannelQuery<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hchannelhandle: Param0, param1: WTS_VIRTUAL_CLASS, ppbuffer: *mut *mut ::std::ffi::c_void, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10623,8 +12630,8 @@ pub unsafe fn WTSVirtualChannelQuery<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSVirtualChannelRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hchannelhandle: Param0, timeout: u32, buffer: super::super::Foundation::PSTR, buffersize: u32, pbytesread: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10638,8 +12645,8 @@ pub unsafe fn WTSVirtualChannelRead<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSVirtualChannelWrite<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hchannelhandle: Param0, buffer: Param1, length: u32, pbyteswritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10653,8 +12660,8 @@ pub unsafe fn WTSVirtualChannelWrite<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSWaitSystemEvent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, eventmask: u32, peventflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11466,7 +13473,6 @@ unsafe impl ::windows::runtime::Abi for WTS_PROPERTY_VALUE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub union WTS_PROPERTY_VALUE_0 {
     pub ulVal: u32,
     pub strVal: WTS_PROPERTY_VALUE_0_1,
@@ -11496,7 +13502,6 @@ unsafe impl ::windows::runtime::Abi for WTS_PROPERTY_VALUE_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_PROPERTY_VALUE_0_0 {
     pub size: u32,
     pub pbVal: super::super::Foundation::PSTR,
@@ -11530,7 +13535,6 @@ unsafe impl ::windows::runtime::Abi for WTS_PROPERTY_VALUE_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_PROPERTY_VALUE_0_1 {
     pub size: u32,
     pub pstrVal: super::super::Foundation::PWSTR,
@@ -12465,12 +14469,32 @@ pub const WTS_WSD_SHUTDOWN: u32 = 2u32;
 pub const Workspace: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1327365286, 15021, 18657, [132, 6, 75, 194, 26, 80, 29, 124]);
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct _ITSWkspEvents(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct _ITSWkspEvents(pub ::windows::runtime::IUnknown);
 impl _ITSWkspEvents {}
 unsafe impl ::windows::runtime::Interface for _ITSWkspEvents {
     type Vtable = _ITSWkspEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3106061240, 19541, 20458, [132, 150, 190, 176, 180, 66, 133, 233]);
+}
+impl ::std::convert::From<_ITSWkspEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _ITSWkspEvents) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&_ITSWkspEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_ITSWkspEvents) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _ITSWkspEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _ITSWkspEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<_ITSWkspEvents> for super::Ole::Automation::IDispatch {
@@ -12487,13 +14511,13 @@ impl ::std::convert::From<&_ITSWkspEvents> for super::Ole::Automation::IDispatch
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for _ITSWkspEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &_ITSWkspEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

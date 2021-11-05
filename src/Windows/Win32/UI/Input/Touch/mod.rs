@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseGestureInfoHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HGESTUREINFO>>(hgestureinfo: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14,8 +14,8 @@ pub unsafe fn CloseGestureInfoHandle<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseTouchInputHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HTOUCHINPUT>>(htouchinput: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -193,8 +193,8 @@ impl ::std::cmp::Eq for GESTURENOTIFYSTRUCT {}
 unsafe impl ::windows::runtime::Abi for GESTURENOTIFYSTRUCT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGestureConfig<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, dwreserved: u32, dwflags: u32, pcids: *const u32, pgestureconfig: *mut GESTURECONFIG, cbsize: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -208,8 +208,8 @@ pub unsafe fn GetGestureConfig<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGestureExtraArgs<'a, Param0: ::windows::runtime::IntoParam<'a, HGESTUREINFO>>(hgestureinfo: Param0, cbextraargs: u32, pextraargs: *mut u8) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -223,8 +223,8 @@ pub unsafe fn GetGestureExtraArgs<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGestureInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HGESTUREINFO>>(hgestureinfo: Param0, pgestureinfo: *mut GESTUREINFO) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -238,8 +238,8 @@ pub unsafe fn GetGestureInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HGEST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTouchInputInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HTOUCHINPUT>>(htouchinput: Param0, cinputs: u32, pinputs: *mut TOUCHINPUT, cbsize: i32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -279,8 +279,8 @@ unsafe impl ::windows::runtime::Abi for HTOUCHINPUT {
 }
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInertiaProcessor(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInertiaProcessor(pub ::windows::runtime::IUnknown);
 impl IInertiaProcessor {
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn InitialOriginX(&self) -> ::windows::runtime::Result<f32> {
@@ -509,6 +509,26 @@ unsafe impl ::windows::runtime::Interface for IInertiaProcessor {
     type Vtable = IInertiaProcessor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(414190701, 50670, 16817, [144, 169, 157, 74, 146, 144, 149, 173]);
 }
+impl ::std::convert::From<IInertiaProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: IInertiaProcessor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInertiaProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: &IInertiaProcessor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInertiaProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInertiaProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInertiaProcessor_abi(
@@ -569,8 +589,8 @@ pub struct IInertiaProcessor_abi(
 );
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IManipulationProcessor(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IManipulationProcessor(pub ::windows::runtime::IUnknown);
 impl IManipulationProcessor {
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SupportedManipulations(&self) -> ::windows::runtime::Result<MANIPULATION_PROCESSOR_MANIPULATIONS> {
@@ -670,6 +690,26 @@ unsafe impl ::windows::runtime::Interface for IManipulationProcessor {
     type Vtable = IManipulationProcessor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2720711961, 33536, 18592, [190, 244, 241, 190, 135, 55, 219, 164]);
 }
+impl ::std::convert::From<IManipulationProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: IManipulationProcessor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IManipulationProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: &IManipulationProcessor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IManipulationProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IManipulationProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationProcessor_abi(
@@ -699,8 +739,8 @@ pub struct IManipulationProcessor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, minradius: f32) -> ::windows::runtime::HRESULT,
 );
 pub const InertiaProcessor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2880598151, 19680, 20056, [160, 203, 226, 77, 249, 104, 20, 190]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsTouchWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, pulflags: *mut u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -775,8 +815,8 @@ impl ::std::ops::Not for REGISTER_TOUCH_WINDOW_FLAGS {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterTouchWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -790,8 +830,8 @@ pub unsafe fn RegisterTouchWindow<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetGestureConfig<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, dwreserved: u32, cids: u32, pgestureconfig: *const GESTURECONFIG, cbsize: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -949,8 +989,8 @@ impl ::std::ops::Not for TOUCHINPUTMASKF_MASK {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterTouchWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -966,8 +1006,8 @@ pub unsafe fn UnregisterTouchWindow<'a, Param0: ::windows::runtime::IntoParam<'a
 }
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct _IManipulationEvents(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct _IManipulationEvents(pub ::windows::runtime::IUnknown);
 impl _IManipulationEvents {
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn ManipulationStarted(&self, x: f32, y: f32) -> ::windows::runtime::Result<()> {
@@ -1010,6 +1050,26 @@ impl _IManipulationEvents {
 unsafe impl ::windows::runtime::Interface for _IManipulationEvents {
     type Vtable = _IManipulationEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1331874010, 40019, 19234, [147, 223, 146, 122, 134, 43, 187, 3]);
+}
+impl ::std::convert::From<_IManipulationEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _IManipulationEvents) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&_IManipulationEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_IManipulationEvents) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IManipulationEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _IManipulationEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

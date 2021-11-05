@@ -3,8 +3,8 @@
 pub mod Core;
 #[doc = "*Required features: `Devices_Display`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DisplayMonitor(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DisplayMonitor(pub ::windows::runtime::IInspectable);
 impl DisplayMonitor {
     #[doc = "*Required features: `Devices_Display`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -219,6 +219,46 @@ unsafe impl ::windows::runtime::Interface for DisplayMonitor {
 impl ::windows::runtime::RuntimeName for DisplayMonitor {
     const NAME: &'static str = "Windows.Devices.Display.DisplayMonitor";
 }
+impl ::std::convert::From<DisplayMonitor> for ::windows::runtime::IUnknown {
+    fn from(value: DisplayMonitor) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DisplayMonitor> for ::windows::runtime::IUnknown {
+    fn from(value: &DisplayMonitor) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DisplayMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DisplayMonitor> for ::windows::runtime::IInspectable {
+    fn from(value: DisplayMonitor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DisplayMonitor> for ::windows::runtime::IInspectable {
+    fn from(value: &DisplayMonitor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for DisplayMonitor {}
 unsafe impl ::std::marker::Sync for DisplayMonitor {}
 #[doc = "*Required features: `Devices_Display`*"]
@@ -320,7 +360,7 @@ impl ::windows::runtime::DefaultType for DisplayMonitorUsageKind {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDisplayMonitor(::windows::runtime::IInspectable);
+pub struct IDisplayMonitor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayMonitor {
     type Vtable = IDisplayMonitor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(527111636, 7425, 19537, [135, 226, 111, 149, 74, 119, 43, 89]);
@@ -364,7 +404,7 @@ pub struct IDisplayMonitor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDisplayMonitor2(::windows::runtime::IInspectable);
+pub struct IDisplayMonitor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayMonitor2 {
     type Vtable = IDisplayMonitor2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(36706534, 52003, 22576, [150, 223, 167, 191, 110, 96, 37, 119]);
@@ -382,7 +422,7 @@ pub struct IDisplayMonitor2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDisplayMonitorStatics(::windows::runtime::IInspectable);
+pub struct IDisplayMonitorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayMonitorStatics {
     type Vtable = IDisplayMonitorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1856924047, 41512, 19461, [130, 29, 182, 149, 214, 103, 222, 142]);

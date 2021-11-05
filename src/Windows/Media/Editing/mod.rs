@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Media_Editing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BackgroundAudioTrack(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BackgroundAudioTrack(pub ::windows::runtime::IInspectable);
 impl BackgroundAudioTrack {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Editing`, `Foundation`*"]
@@ -145,12 +145,52 @@ unsafe impl ::windows::runtime::Interface for BackgroundAudioTrack {
 impl ::windows::runtime::RuntimeName for BackgroundAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.BackgroundAudioTrack";
 }
+impl ::std::convert::From<BackgroundAudioTrack> for ::windows::runtime::IUnknown {
+    fn from(value: BackgroundAudioTrack) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BackgroundAudioTrack> for ::windows::runtime::IUnknown {
+    fn from(value: &BackgroundAudioTrack) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackgroundAudioTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BackgroundAudioTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BackgroundAudioTrack> for ::windows::runtime::IInspectable {
+    fn from(value: BackgroundAudioTrack) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BackgroundAudioTrack> for ::windows::runtime::IInspectable {
+    fn from(value: &BackgroundAudioTrack) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackgroundAudioTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackgroundAudioTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BackgroundAudioTrack {}
 unsafe impl ::std::marker::Sync for BackgroundAudioTrack {}
 #[doc = "*Required features: `Media_Editing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmbeddedAudioTrack(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmbeddedAudioTrack(pub ::windows::runtime::IInspectable);
 impl EmbeddedAudioTrack {
     #[cfg(feature = "Media_MediaProperties")]
     #[doc = "*Required features: `Media_Editing`, `Media_MediaProperties`*"]
@@ -172,11 +212,51 @@ unsafe impl ::windows::runtime::Interface for EmbeddedAudioTrack {
 impl ::windows::runtime::RuntimeName for EmbeddedAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.EmbeddedAudioTrack";
 }
+impl ::std::convert::From<EmbeddedAudioTrack> for ::windows::runtime::IUnknown {
+    fn from(value: EmbeddedAudioTrack) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmbeddedAudioTrack> for ::windows::runtime::IUnknown {
+    fn from(value: &EmbeddedAudioTrack) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmbeddedAudioTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmbeddedAudioTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmbeddedAudioTrack> for ::windows::runtime::IInspectable {
+    fn from(value: EmbeddedAudioTrack) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmbeddedAudioTrack> for ::windows::runtime::IInspectable {
+    fn from(value: &EmbeddedAudioTrack) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmbeddedAudioTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmbeddedAudioTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmbeddedAudioTrack {}
 unsafe impl ::std::marker::Sync for EmbeddedAudioTrack {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundAudioTrack(::windows::runtime::IInspectable);
+pub struct IBackgroundAudioTrack(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundAudioTrack {
     type Vtable = IBackgroundAudioTrack_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1267839933, 40481, 16998, [169, 194, 103, 221, 1, 26, 35, 87]);
@@ -218,7 +298,7 @@ pub struct IBackgroundAudioTrack_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundAudioTrackStatics(::windows::runtime::IInspectable);
+pub struct IBackgroundAudioTrackStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundAudioTrackStatics {
     type Vtable = IBackgroundAudioTrackStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3652305111, 53272, 17064, [165, 89, 203, 77, 158, 151, 230, 100]);
@@ -238,7 +318,7 @@ pub struct IBackgroundAudioTrackStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmbeddedAudioTrack(::windows::runtime::IInspectable);
+pub struct IEmbeddedAudioTrack(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmbeddedAudioTrack {
     type Vtable = IEmbeddedAudioTrack_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1441684090, 11568, 16314, [161, 144, 79, 26, 100, 84, 248, 143]);
@@ -257,7 +337,7 @@ pub struct IEmbeddedAudioTrack_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaClip(::windows::runtime::IInspectable);
+pub struct IMediaClip(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaClip {
     type Vtable = IMediaClip_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408389990, 24506, 16036, [134, 147, 36, 118, 24, 17, 20, 10]);
@@ -305,7 +385,7 @@ pub struct IMediaClip_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaClipStatics(::windows::runtime::IInspectable);
+pub struct IMediaClipStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaClipStatics {
     type Vtable = IMediaClipStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4198509416, 37519, 17348, [188, 110, 120, 58, 26, 53, 150, 86]);
@@ -328,7 +408,7 @@ pub struct IMediaClipStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaClipStatics2(::windows::runtime::IInspectable);
+pub struct IMediaClipStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaClipStatics2 {
     type Vtable = IMediaClipStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1528682419, 34126, 19867, [135, 125, 71, 116, 165, 86, 205, 18]);
@@ -347,7 +427,7 @@ pub struct IMediaClipStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaComposition(::windows::runtime::IInspectable);
+pub struct IMediaComposition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaComposition {
     type Vtable = IMediaComposition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(772204037, 56433, 16854, [184, 55, 45, 43, 193, 74, 41, 71]);
@@ -393,7 +473,7 @@ pub struct IMediaComposition_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaComposition2(::windows::runtime::IInspectable);
+pub struct IMediaComposition2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaComposition2 {
     type Vtable = IMediaComposition2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2778616690, 9062, 18732, [190, 200, 230, 223, 186, 109, 2, 129]);
@@ -412,7 +492,7 @@ pub struct IMediaComposition2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaCompositionStatics(::windows::runtime::IInspectable);
+pub struct IMediaCompositionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCompositionStatics {
     type Vtable = IMediaCompositionStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2275446532, 58154, 17870, [143, 102, 163, 13, 240, 118, 98, 36]);
@@ -431,7 +511,7 @@ pub struct IMediaCompositionStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaOverlay(::windows::runtime::IInspectable);
+pub struct IMediaOverlay(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaOverlay {
     type Vtable = IMediaOverlay_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2835525213, 30825, 18480, [138, 177, 148, 220, 1, 192, 95, 164]);
@@ -462,7 +542,7 @@ pub struct IMediaOverlay_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaOverlayFactory(::windows::runtime::IInspectable);
+pub struct IMediaOverlayFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaOverlayFactory {
     type Vtable = IMediaOverlayFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3045360266, 24968, 20367, [162, 224, 170, 85, 45, 89, 142, 24]);
@@ -482,7 +562,7 @@ pub struct IMediaOverlayFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaOverlayLayer(::windows::runtime::IInspectable);
+pub struct IMediaOverlayLayer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaOverlayLayer {
     type Vtable = IMediaOverlayLayer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2799286871, 61146, 18118, [187, 229, 227, 152, 200, 65, 104, 172]);
@@ -504,7 +584,7 @@ pub struct IMediaOverlayLayer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaOverlayLayerFactory(::windows::runtime::IInspectable);
+pub struct IMediaOverlayLayerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaOverlayLayerFactory {
     type Vtable = IMediaOverlayLayerFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2491200627, 41886, 17250, [171, 191, 159, 139, 80, 112, 160, 98]);
@@ -523,8 +603,8 @@ pub struct IMediaOverlayLayerFactory_abi(
 );
 #[doc = "*Required features: `Media_Editing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaClip(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaClip(pub ::windows::runtime::IInspectable);
 impl MediaClip {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Editing`, `Foundation`*"]
@@ -722,12 +802,52 @@ unsafe impl ::windows::runtime::Interface for MediaClip {
 impl ::windows::runtime::RuntimeName for MediaClip {
     const NAME: &'static str = "Windows.Media.Editing.MediaClip";
 }
+impl ::std::convert::From<MediaClip> for ::windows::runtime::IUnknown {
+    fn from(value: MediaClip) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaClip> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaClip) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaClip {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaClip {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaClip> for ::windows::runtime::IInspectable {
+    fn from(value: MediaClip) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaClip> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaClip) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaClip {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaClip {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaClip {}
 unsafe impl ::std::marker::Sync for MediaClip {}
 #[doc = "*Required features: `Media_Editing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaComposition(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaComposition(pub ::windows::runtime::IInspectable);
 impl MediaComposition {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -902,12 +1022,52 @@ unsafe impl ::windows::runtime::Interface for MediaComposition {
 impl ::windows::runtime::RuntimeName for MediaComposition {
     const NAME: &'static str = "Windows.Media.Editing.MediaComposition";
 }
+impl ::std::convert::From<MediaComposition> for ::windows::runtime::IUnknown {
+    fn from(value: MediaComposition) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaComposition> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaComposition) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaComposition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaComposition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaComposition> for ::windows::runtime::IInspectable {
+    fn from(value: MediaComposition) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaComposition> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaComposition) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaComposition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaComposition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaComposition {}
 unsafe impl ::std::marker::Sync for MediaComposition {}
 #[doc = "*Required features: `Media_Editing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaOverlay(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaOverlay(pub ::windows::runtime::IInspectable);
 impl MediaOverlay {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Editing`, `Foundation`*"]
@@ -1011,12 +1171,52 @@ unsafe impl ::windows::runtime::Interface for MediaOverlay {
 impl ::windows::runtime::RuntimeName for MediaOverlay {
     const NAME: &'static str = "Windows.Media.Editing.MediaOverlay";
 }
+impl ::std::convert::From<MediaOverlay> for ::windows::runtime::IUnknown {
+    fn from(value: MediaOverlay) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaOverlay> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaOverlay) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaOverlay {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaOverlay {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaOverlay> for ::windows::runtime::IInspectable {
+    fn from(value: MediaOverlay) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaOverlay> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaOverlay) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaOverlay {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaOverlay {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaOverlay {}
 unsafe impl ::std::marker::Sync for MediaOverlay {}
 #[doc = "*Required features: `Media_Editing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaOverlayLayer(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaOverlayLayer(pub ::windows::runtime::IInspectable);
 impl MediaOverlayLayer {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1073,6 +1273,46 @@ unsafe impl ::windows::runtime::Interface for MediaOverlayLayer {
 }
 impl ::windows::runtime::RuntimeName for MediaOverlayLayer {
     const NAME: &'static str = "Windows.Media.Editing.MediaOverlayLayer";
+}
+impl ::std::convert::From<MediaOverlayLayer> for ::windows::runtime::IUnknown {
+    fn from(value: MediaOverlayLayer) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaOverlayLayer> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaOverlayLayer) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaOverlayLayer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaOverlayLayer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaOverlayLayer> for ::windows::runtime::IInspectable {
+    fn from(value: MediaOverlayLayer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaOverlayLayer> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaOverlayLayer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaOverlayLayer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaOverlayLayer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MediaOverlayLayer {}
 unsafe impl ::std::marker::Sync for MediaOverlayLayer {}

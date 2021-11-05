@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOemSupportInfo(::windows::runtime::IInspectable);
+pub struct IOemSupportInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOemSupportInfo {
     type Vtable = IOemSupportInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2368646741, 34799, 16998, [134, 208, 196, 175, 190, 178, 155, 185]);
@@ -23,7 +23,7 @@ pub struct IOemSupportInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmbiosInformationStatics(::windows::runtime::IInspectable);
+pub struct ISmbiosInformationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmbiosInformationStatics {
     type Vtable = ISmbiosInformationStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(135055996, 25468, 18628, [183, 40, 249, 39, 56, 18, 219, 142]);
@@ -41,7 +41,7 @@ pub struct ISmbiosInformationStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemSupportDeviceInfo(::windows::runtime::IInspectable);
+pub struct ISystemSupportDeviceInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemSupportDeviceInfo {
     type Vtable = ISystemSupportDeviceInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(92801945, 33351, 17435, [169, 150, 161, 120, 75, 171, 121, 168]);
@@ -65,7 +65,7 @@ pub struct ISystemSupportDeviceInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemSupportInfoStatics(::windows::runtime::IInspectable);
+pub struct ISystemSupportInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemSupportInfoStatics {
     type Vtable = ISystemSupportInfoStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4017424756, 50210, 17879, [164, 77, 92, 28, 0, 67, 162, 179]);
@@ -84,7 +84,7 @@ pub struct ISystemSupportInfoStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemSupportInfoStatics2(::windows::runtime::IInspectable);
+pub struct ISystemSupportInfoStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemSupportInfoStatics2 {
     type Vtable = ISystemSupportInfoStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(871582116, 16289, 18822, [170, 75, 5, 116, 32, 69, 94, 109]);
@@ -102,8 +102,8 @@ pub struct ISystemSupportInfoStatics2_abi(
 );
 #[doc = "*Required features: `System_Profile_SystemManufacturers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct OemSupportInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct OemSupportInfo(pub ::windows::runtime::IInspectable);
 impl OemSupportInfo {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_Profile_SystemManufacturers`, `Foundation`*"]
@@ -142,6 +142,46 @@ unsafe impl ::windows::runtime::Interface for OemSupportInfo {
 impl ::windows::runtime::RuntimeName for OemSupportInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.OemSupportInfo";
 }
+impl ::std::convert::From<OemSupportInfo> for ::windows::runtime::IUnknown {
+    fn from(value: OemSupportInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&OemSupportInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &OemSupportInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OemSupportInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a OemSupportInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<OemSupportInfo> for ::windows::runtime::IInspectable {
+    fn from(value: OemSupportInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&OemSupportInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &OemSupportInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OemSupportInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OemSupportInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for OemSupportInfo {}
 unsafe impl ::std::marker::Sync for OemSupportInfo {}
 #[doc = "*Required features: `System_Profile_SystemManufacturers`*"]
@@ -167,8 +207,8 @@ impl ::windows::runtime::RuntimeName for SmbiosInformation {
 pub struct SystemManufacturersContract(pub u8);
 #[doc = "*Required features: `System_Profile_SystemManufacturers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SystemSupportDeviceInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SystemSupportDeviceInfo(pub ::windows::runtime::IInspectable);
 impl SystemSupportDeviceInfo {
     #[doc = "*Required features: `System_Profile_SystemManufacturers`*"]
     pub fn OperatingSystem(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -236,6 +276,46 @@ unsafe impl ::windows::runtime::Interface for SystemSupportDeviceInfo {
 }
 impl ::windows::runtime::RuntimeName for SystemSupportDeviceInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SystemSupportDeviceInfo";
+}
+impl ::std::convert::From<SystemSupportDeviceInfo> for ::windows::runtime::IUnknown {
+    fn from(value: SystemSupportDeviceInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SystemSupportDeviceInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &SystemSupportDeviceInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemSupportDeviceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SystemSupportDeviceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SystemSupportDeviceInfo> for ::windows::runtime::IInspectable {
+    fn from(value: SystemSupportDeviceInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SystemSupportDeviceInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &SystemSupportDeviceInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemSupportDeviceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemSupportDeviceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for SystemSupportDeviceInfo {}
 unsafe impl ::std::marker::Sync for SystemSupportDeviceInfo {}

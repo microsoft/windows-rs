@@ -27,8 +27,8 @@ impl ::windows::runtime::RuntimeName for HolographicApplicationPreview {
 }
 #[doc = "*Required features: `ApplicationModel_Preview_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct HolographicKeyboardPlacementOverridePreview(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct HolographicKeyboardPlacementOverridePreview(pub ::windows::runtime::IInspectable);
 impl HolographicKeyboardPlacementOverridePreview {
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -79,11 +79,51 @@ unsafe impl ::windows::runtime::Interface for HolographicKeyboardPlacementOverri
 impl ::windows::runtime::RuntimeName for HolographicKeyboardPlacementOverridePreview {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview";
 }
+impl ::std::convert::From<HolographicKeyboardPlacementOverridePreview> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicKeyboardPlacementOverridePreview) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&HolographicKeyboardPlacementOverridePreview> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicKeyboardPlacementOverridePreview) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicKeyboardPlacementOverridePreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HolographicKeyboardPlacementOverridePreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<HolographicKeyboardPlacementOverridePreview> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicKeyboardPlacementOverridePreview) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicKeyboardPlacementOverridePreview> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicKeyboardPlacementOverridePreview) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicKeyboardPlacementOverridePreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicKeyboardPlacementOverridePreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HolographicKeyboardPlacementOverridePreview {}
 unsafe impl ::std::marker::Sync for HolographicKeyboardPlacementOverridePreview {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHolographicApplicationPreviewStatics(::windows::runtime::IInspectable);
+pub struct IHolographicApplicationPreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicApplicationPreviewStatics {
     type Vtable = IHolographicApplicationPreviewStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4261643921, 10810, 17833, [162, 8, 123, 237, 105, 25, 25, 243]);
@@ -103,7 +143,7 @@ pub struct IHolographicApplicationPreviewStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHolographicKeyboardPlacementOverridePreview(::windows::runtime::IInspectable);
+pub struct IHolographicKeyboardPlacementOverridePreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicKeyboardPlacementOverridePreview {
     type Vtable = IHolographicKeyboardPlacementOverridePreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3366506042, 57310, 23060, [141, 95, 24, 44, 82, 109, 217, 196]);
@@ -125,7 +165,7 @@ pub struct IHolographicKeyboardPlacementOverridePreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHolographicKeyboardPlacementOverridePreviewStatics(::windows::runtime::IInspectable);
+pub struct IHolographicKeyboardPlacementOverridePreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicKeyboardPlacementOverridePreviewStatics {
     type Vtable = IHolographicKeyboardPlacementOverridePreviewStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(539910201, 8182, 23046, [170, 196, 165, 226, 79, 163, 236, 75]);

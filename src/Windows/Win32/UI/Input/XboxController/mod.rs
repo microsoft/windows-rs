@@ -314,8 +314,8 @@ impl ::std::convert::From<u16> for XINPUT_VIRTUAL_KEY {
 unsafe impl ::windows::runtime::Abi for XINPUT_VIRTUAL_KEY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_XboxController`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn XInputEnable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(enable: Param0) {
     #[cfg(windows)]
@@ -329,8 +329,8 @@ pub unsafe fn XInputEnable<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_XboxController`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: super::super::super::Foundation::PWSTR, prendercount: *mut u32, pcapturedeviceid: super::super::super::Foundation::PWSTR, pcapturecount: *mut u32) -> u32 {
     #[cfg(windows)]

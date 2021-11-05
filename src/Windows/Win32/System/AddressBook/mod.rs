@@ -152,8 +152,8 @@ impl ::std::cmp::Eq for ADRPARM {}
 unsafe impl ::windows::runtime::Abi for ADRPARM {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn BuildDisplayTable<'a, Param3: ::windows::runtime::IntoParam<'a, super::Com::IMalloc>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(
     lpallocatebuffer: ::std::option::Option<LPALLOCATEBUFFER>,
@@ -190,9 +190,10 @@ pub unsafe fn BuildDisplayTable<'a, Param3: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type CALLERRELEASE = unsafe extern "system" fn(ulcallerdata: u32, lptbldata: ::windows::runtime::RawPtr, lpvue: ::windows::runtime::RawPtr);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeIdleRoutine(ftg: *mut ::std::ffi::c_void, lpfnidle: ::std::option::Option<PFNIDLE>, lpvidleparam: *mut ::std::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16, ircidle: u16) {
     #[cfg(windows)]
@@ -970,8 +971,8 @@ pub const E_IMAPI_RECORDER_REQUIRED: ::windows::runtime::HRESULT = ::windows::ru
 pub const E_IMAPI_REQUEST_CANCELLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1062600702i32 as _);
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const E_IMAPI_UNEXPECTED_RESPONSE_FROM_DEVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1062599935i32 as _);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnableIdleRoutine<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(ftg: *mut ::std::ffi::c_void, fenable: Param1) {
     #[cfg(windows)]
@@ -987,8 +988,8 @@ pub unsafe fn EnableIdleRoutine<'a, Param1: ::windows::runtime::IntoParam<'a, su
 }
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const FACILITY_IMAPI2: u32 = 170u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FEqualNames(lpname1: *mut MAPINAMEID, lpname2: *mut MAPINAMEID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1085,10 +1086,11 @@ impl ::std::cmp::Eq for FLATMTSIDLIST {}
 unsafe impl ::windows::runtime::Abi for FLATMTSIDLIST {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FNIDLE = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FPropCompareProp(lpspropvalue1: *mut SPropValue, ulrelop: u32, lpspropvalue2: *mut SPropValue) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1102,8 +1104,8 @@ pub unsafe fn FPropCompareProp(lpspropvalue1: *mut SPropValue, ulrelop: u32, lps
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FPropContainsProp(lpspropvaluedst: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, ulfuzzylevel: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1117,8 +1119,8 @@ pub unsafe fn FPropContainsProp(lpspropvaluedst: *mut SPropValue, lpspropvaluesr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FPropExists<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIProp>>(lpmapiprop: Param0, ulproptag: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1132,8 +1134,8 @@ pub unsafe fn FPropExists<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIPro
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FreePadrlist(lpadrlist: *mut ADRLIST) {
     #[cfg(windows)]
@@ -1147,8 +1149,8 @@ pub unsafe fn FreePadrlist(lpadrlist: *mut ADRLIST) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FreeProws(lprows: *mut SRowSet) {
     #[cfg(windows)]
@@ -1162,8 +1164,8 @@ pub unsafe fn FreeProws(lprows: *mut SRowSet) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FtAddFt<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>>(ftaddend1: Param0, ftaddend2: Param1) -> super::super::Foundation::FILETIME {
     #[cfg(windows)]
@@ -1177,8 +1179,8 @@ pub unsafe fn FtAddFt<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FtMulDw<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>>(ftmultiplier: u32, ftmultiplicand: Param1) -> super::super::Foundation::FILETIME {
     #[cfg(windows)]
@@ -1192,8 +1194,8 @@ pub unsafe fn FtMulDw<'a, Param1: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FtMulDwDw(ftmultiplicand: u32, ftmultiplier: u32) -> super::super::Foundation::FILETIME {
     #[cfg(windows)]
@@ -1207,8 +1209,8 @@ pub unsafe fn FtMulDwDw(ftmultiplicand: u32, ftmultiplier: u32) -> super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FtNegFt<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>>(ft: Param0) -> super::super::Foundation::FILETIME {
     #[cfg(windows)]
@@ -1222,8 +1224,8 @@ pub unsafe fn FtNegFt<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FtSubFt<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>>(ftminuend: Param0, ftsubtrahend: Param1) -> super::super::Foundation::FILETIME {
     #[cfg(windows)]
@@ -1237,8 +1239,8 @@ pub unsafe fn FtSubFt<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FtgRegisterIdleRoutine(lpfnidle: ::std::option::Option<PFNIDLE>, lpvidleparam: *mut ::std::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -1295,8 +1297,8 @@ pub unsafe fn HrAddColumnsEx<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn HrAllocAdviseSink(lpfncallback: ::std::option::Option<LPNOTIFCALLBACK>, lpvcontext: *mut ::std::ffi::c_void, lppadvisesink: *mut ::std::option::Option<IMAPIAdviseSink>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1324,8 +1326,8 @@ pub unsafe fn HrDispatchNotifications(ulflags: u32) -> ::windows::runtime::Resul
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn HrGetOneProp<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIProp>>(lpmapiprop: Param0, ulproptag: u32, lppprop: *mut *mut SPropValue) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1339,8 +1341,8 @@ pub unsafe fn HrGetOneProp<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIPr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn HrIStorageFromStream<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(lpunkin: Param0, lpinterface: *mut ::windows::runtime::GUID, ulflags: u32, lppstorageout: *mut ::std::option::Option<super::Com::StructuredStorage::IStorage>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1354,8 +1356,8 @@ pub unsafe fn HrIStorageFromStream<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn HrQueryAllRows<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPITable>>(lptable: Param0, lpproptags: *mut SPropTagArray, lprestriction: *mut SRestriction, lpsortorderset: *mut SSortOrderSet, crowsmax: i32, lpprows: *mut *mut SRowSet) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1369,8 +1371,8 @@ pub unsafe fn HrQueryAllRows<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn HrSetOneProp<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIProp>>(lpmapiprop: Param0, lpprop: *mut SPropValue) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1401,8 +1403,8 @@ pub unsafe fn HrThisThreadAdviseSink<'a, Param0: ::windows::runtime::IntoParam<'
 }
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IABContainer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IABContainer(pub ::windows::runtime::IUnknown);
 impl IABContainer {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -1512,6 +1514,26 @@ unsafe impl ::windows::runtime::Interface for IABContainer {
     type Vtable = IABContainer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IABContainer> for ::windows::runtime::IUnknown {
+    fn from(value: IABContainer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IABContainer> for ::windows::runtime::IUnknown {
+    fn from(value: &IABContainer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IABContainer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IABContainer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IABContainer> for IMAPIContainer {
     fn from(value: IABContainer) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1524,12 +1546,12 @@ impl ::std::convert::From<&IABContainer> for IMAPIContainer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIContainer> for IABContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIContainer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIContainer> for &IABContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIContainer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IABContainer> for IMAPIProp {
@@ -1544,12 +1566,12 @@ impl ::std::convert::From<&IABContainer> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IABContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IABContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1588,8 +1610,8 @@ pub struct IABContainer_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAddrBook(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAddrBook(pub ::windows::runtime::IUnknown);
 impl IAddrBook {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -1758,6 +1780,26 @@ unsafe impl ::windows::runtime::Interface for IAddrBook {
     type Vtable = IAddrBook_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IAddrBook> for ::windows::runtime::IUnknown {
+    fn from(value: IAddrBook) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAddrBook> for ::windows::runtime::IUnknown {
+    fn from(value: &IAddrBook) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAddrBook {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAddrBook {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAddrBook> for IMAPIProp {
     fn from(value: IAddrBook) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1770,12 +1812,12 @@ impl ::std::convert::From<&IAddrBook> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IAddrBook {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IAddrBook {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1827,8 +1869,8 @@ pub struct IAddrBook_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAttach(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAttach(pub ::windows::runtime::IUnknown);
 impl IAttach {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -1895,6 +1937,26 @@ unsafe impl ::windows::runtime::Interface for IAttach {
     type Vtable = IAttach_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IAttach> for ::windows::runtime::IUnknown {
+    fn from(value: IAttach) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAttach> for ::windows::runtime::IUnknown {
+    fn from(value: &IAttach) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAttach {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAttach {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAttach> for IMAPIProp {
     fn from(value: IAttach) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1907,12 +1969,12 @@ impl ::std::convert::From<&IAttach> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IAttach {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IAttach {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1939,8 +2001,8 @@ pub struct IAttach_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDistList(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDistList(pub ::windows::runtime::IUnknown);
 impl IDistList {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -2050,6 +2112,26 @@ unsafe impl ::windows::runtime::Interface for IDistList {
     type Vtable = IDistList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IDistList> for ::windows::runtime::IUnknown {
+    fn from(value: IDistList) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDistList> for ::windows::runtime::IUnknown {
+    fn from(value: &IDistList) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDistList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDistList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDistList> for IMAPIContainer {
     fn from(value: IDistList) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2062,12 +2144,12 @@ impl ::std::convert::From<&IDistList> for IMAPIContainer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIContainer> for IDistList {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIContainer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIContainer> for &IDistList {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIContainer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDistList> for IMAPIProp {
@@ -2082,12 +2164,12 @@ impl ::std::convert::From<&IDistList> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IDistList {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IDistList {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2126,8 +2208,8 @@ pub struct IDistList_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IMAPIAdviseSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IMAPIAdviseSink(pub ::windows::runtime::IUnknown);
 impl IMAPIAdviseSink {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -2138,6 +2220,26 @@ impl IMAPIAdviseSink {
 unsafe impl ::windows::runtime::Interface for IMAPIAdviseSink {
     type Vtable = IMAPIAdviseSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
+}
+impl ::std::convert::From<IMAPIAdviseSink> for ::windows::runtime::IUnknown {
+    fn from(value: IMAPIAdviseSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMAPIAdviseSink> for ::windows::runtime::IUnknown {
+    fn from(value: &IMAPIAdviseSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMAPIAdviseSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMAPIAdviseSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2150,8 +2252,8 @@ pub struct IMAPIAdviseSink_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IMAPIContainer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IMAPIContainer(pub ::windows::runtime::IUnknown);
 impl IMAPIContainer {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -2242,6 +2344,26 @@ unsafe impl ::windows::runtime::Interface for IMAPIContainer {
     type Vtable = IMAPIContainer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IMAPIContainer> for ::windows::runtime::IUnknown {
+    fn from(value: IMAPIContainer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMAPIContainer> for ::windows::runtime::IUnknown {
+    fn from(value: &IMAPIContainer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMAPIContainer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMAPIContainer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IMAPIContainer> for IMAPIProp {
     fn from(value: IMAPIContainer) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2254,12 +2376,12 @@ impl ::std::convert::From<&IMAPIContainer> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IMAPIContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IMAPIContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2293,8 +2415,8 @@ pub struct IMAPIContainer_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IMAPIControl(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IMAPIControl(pub ::windows::runtime::IUnknown);
 impl IMAPIControl {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32) -> ::windows::runtime::Result<*mut MAPIERROR> {
@@ -2314,6 +2436,26 @@ unsafe impl ::windows::runtime::Interface for IMAPIControl {
     type Vtable = IMAPIControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IMAPIControl> for ::windows::runtime::IUnknown {
+    fn from(value: IMAPIControl) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMAPIControl> for ::windows::runtime::IUnknown {
+    fn from(value: &IMAPIControl) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMAPIControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMAPIControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPIControl_abi(
@@ -2326,8 +2468,8 @@ pub struct IMAPIControl_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IMAPIFolder(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IMAPIFolder(pub ::windows::runtime::IUnknown);
 impl IMAPIFolder {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -2476,6 +2618,26 @@ unsafe impl ::windows::runtime::Interface for IMAPIFolder {
     type Vtable = IMAPIFolder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IMAPIFolder> for ::windows::runtime::IUnknown {
+    fn from(value: IMAPIFolder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMAPIFolder> for ::windows::runtime::IUnknown {
+    fn from(value: &IMAPIFolder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMAPIFolder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMAPIFolder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IMAPIFolder> for IMAPIContainer {
     fn from(value: IMAPIFolder) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2488,12 +2650,12 @@ impl ::std::convert::From<&IMAPIFolder> for IMAPIContainer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIContainer> for IMAPIFolder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIContainer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIContainer> for &IMAPIFolder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIContainer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMAPIFolder> for IMAPIProp {
@@ -2508,12 +2670,12 @@ impl ::std::convert::From<&IMAPIFolder> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IMAPIFolder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IMAPIFolder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2558,8 +2720,8 @@ pub struct IMAPIFolder_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IMAPIProgress(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IMAPIProgress(pub ::windows::runtime::IUnknown);
 impl IMAPIProgress {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn Progress(&self, ulvalue: u32, ulcount: u32, ultotal: u32) -> ::windows::runtime::Result<()> {
@@ -2586,6 +2748,26 @@ unsafe impl ::windows::runtime::Interface for IMAPIProgress {
     type Vtable = IMAPIProgress_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IMAPIProgress> for ::windows::runtime::IUnknown {
+    fn from(value: IMAPIProgress) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMAPIProgress> for ::windows::runtime::IUnknown {
+    fn from(value: &IMAPIProgress) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMAPIProgress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMAPIProgress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPIProgress_abi(
@@ -2600,8 +2782,8 @@ pub struct IMAPIProgress_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IMAPIProp(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IMAPIProp(pub ::windows::runtime::IUnknown);
 impl IMAPIProp {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -2668,6 +2850,26 @@ unsafe impl ::windows::runtime::Interface for IMAPIProp {
     type Vtable = IMAPIProp_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IMAPIProp> for ::windows::runtime::IUnknown {
+    fn from(value: IMAPIProp) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMAPIProp> for ::windows::runtime::IUnknown {
+    fn from(value: &IMAPIProp) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMAPIProp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMAPIProp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPIProp_abi(
@@ -2692,8 +2894,8 @@ pub struct IMAPIProp_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IMAPIStatus(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IMAPIStatus(pub ::windows::runtime::IUnknown);
 impl IMAPIStatus {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -2776,6 +2978,26 @@ unsafe impl ::windows::runtime::Interface for IMAPIStatus {
     type Vtable = IMAPIStatus_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IMAPIStatus> for ::windows::runtime::IUnknown {
+    fn from(value: IMAPIStatus) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMAPIStatus> for ::windows::runtime::IUnknown {
+    fn from(value: &IMAPIStatus) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMAPIStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMAPIStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IMAPIStatus> for IMAPIProp {
     fn from(value: IMAPIStatus) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2788,12 +3010,12 @@ impl ::std::convert::From<&IMAPIStatus> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IMAPIStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IMAPIStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2824,8 +3046,8 @@ pub struct IMAPIStatus_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IMAPITable(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IMAPITable(pub ::windows::runtime::IUnknown);
 impl IMAPITable {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -2927,6 +3149,26 @@ impl IMAPITable {
 unsafe impl ::windows::runtime::Interface for IMAPITable {
     type Vtable = IMAPITable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
+}
+impl ::std::convert::From<IMAPITable> for ::windows::runtime::IUnknown {
+    fn from(value: IMAPITable) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMAPITable> for ::windows::runtime::IUnknown {
+    fn from(value: &IMAPITable) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMAPITable {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMAPITable {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3088,8 +3330,8 @@ pub const IMAPI_E_WORKING_DIRECTORY_SPACE: ::windows::runtime::HRESULT = ::windo
 pub const IMAPI_S_IMAGE_FEATURE_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(11186527i32 as _);
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IMailUser(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IMailUser(pub ::windows::runtime::IUnknown);
 impl IMailUser {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -3156,6 +3398,26 @@ unsafe impl ::windows::runtime::Interface for IMailUser {
     type Vtable = IMailUser_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IMailUser> for ::windows::runtime::IUnknown {
+    fn from(value: IMailUser) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMailUser> for ::windows::runtime::IUnknown {
+    fn from(value: &IMailUser) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMailUser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMailUser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IMailUser> for IMAPIProp {
     fn from(value: IMailUser) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3168,12 +3430,12 @@ impl ::std::convert::From<&IMailUser> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IMailUser {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IMailUser {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3200,8 +3462,8 @@ pub struct IMailUser_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IMessage(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IMessage(pub ::windows::runtime::IUnknown);
 impl IMessage {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -3304,6 +3566,26 @@ unsafe impl ::windows::runtime::Interface for IMessage {
     type Vtable = IMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IMessage> for ::windows::runtime::IUnknown {
+    fn from(value: IMessage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMessage> for ::windows::runtime::IUnknown {
+    fn from(value: &IMessage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IMessage> for IMAPIProp {
     fn from(value: IMessage) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3316,12 +3598,12 @@ impl ::std::convert::From<&IMessage> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3357,8 +3639,8 @@ pub struct IMessage_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IMsgStore(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IMsgStore(pub ::windows::runtime::IUnknown);
 impl IMsgStore {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -3482,6 +3764,26 @@ unsafe impl ::windows::runtime::Interface for IMsgStore {
     type Vtable = IMsgStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IMsgStore> for ::windows::runtime::IUnknown {
+    fn from(value: IMsgStore) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMsgStore> for ::windows::runtime::IUnknown {
+    fn from(value: &IMsgStore) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMsgStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMsgStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IMsgStore> for IMAPIProp {
     fn from(value: IMsgStore) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3494,12 +3796,12 @@ impl ::std::convert::From<&IMsgStore> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IMsgStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IMsgStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3540,8 +3842,8 @@ pub struct IMsgStore_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IProfSect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IProfSect(pub ::windows::runtime::IUnknown);
 impl IProfSect {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -3608,6 +3910,26 @@ unsafe impl ::windows::runtime::Interface for IProfSect {
     type Vtable = IProfSect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IProfSect> for ::windows::runtime::IUnknown {
+    fn from(value: IProfSect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IProfSect> for ::windows::runtime::IUnknown {
+    fn from(value: &IProfSect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProfSect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProfSect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IProfSect> for IMAPIProp {
     fn from(value: IProfSect) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3620,12 +3942,12 @@ impl ::std::convert::From<&IProfSect> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IProfSect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IProfSect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3652,8 +3974,8 @@ pub struct IProfSect_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPropData(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPropData(pub ::windows::runtime::IUnknown);
 impl IPropData {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -3736,6 +4058,26 @@ unsafe impl ::windows::runtime::Interface for IPropData {
     type Vtable = IPropData_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IPropData> for ::windows::runtime::IUnknown {
+    fn from(value: IPropData) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPropData> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropData) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPropData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPropData> for IMAPIProp {
     fn from(value: IPropData) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3748,12 +4090,12 @@ impl ::std::convert::From<&IPropData> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IPropData {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IPropData {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3784,8 +4126,8 @@ pub struct IPropData_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IProviderAdmin(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IProviderAdmin(pub ::windows::runtime::IUnknown);
 impl IProviderAdmin {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32) -> ::windows::runtime::Result<*mut MAPIERROR> {
@@ -3817,6 +4159,26 @@ unsafe impl ::windows::runtime::Interface for IProviderAdmin {
     type Vtable = IProviderAdmin_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IProviderAdmin> for ::windows::runtime::IUnknown {
+    fn from(value: IProviderAdmin) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IProviderAdmin> for ::windows::runtime::IUnknown {
+    fn from(value: &IProviderAdmin) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProviderAdmin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProviderAdmin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProviderAdmin_abi(
@@ -3832,8 +4194,8 @@ pub struct IProviderAdmin_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITableData(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITableData(pub ::windows::runtime::IUnknown);
 impl ITableData {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn HrGetView(&self, lpssortorderset: *mut SSortOrderSet, lpfcallerrelease: *mut ::std::option::Option<CALLERRELEASE>, ulcallerdata: u32, lppmapitable: *mut ::std::option::Option<IMAPITable>) -> ::windows::runtime::Result<()> {
@@ -3884,6 +4246,26 @@ unsafe impl ::windows::runtime::Interface for ITableData {
     type Vtable = ITableData_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<ITableData> for ::windows::runtime::IUnknown {
+    fn from(value: ITableData) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITableData> for ::windows::runtime::IUnknown {
+    fn from(value: &ITableData) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITableData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITableData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITableData_abi(
@@ -3910,8 +4292,8 @@ pub struct ITableData_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWABExtInit(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWABExtInit(pub ::windows::runtime::IUnknown);
 impl IWABExtInit {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
@@ -3922,6 +4304,26 @@ impl IWABExtInit {
 unsafe impl ::windows::runtime::Interface for IWABExtInit {
     type Vtable = IWABExtInit_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3928157168, 34724, 4561, [154, 207, 0, 160, 201, 31, 156, 139]);
+}
+impl ::std::convert::From<IWABExtInit> for ::windows::runtime::IUnknown {
+    fn from(value: IWABExtInit) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWABExtInit> for ::windows::runtime::IUnknown {
+    fn from(value: &IWABExtInit) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWABExtInit {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWABExtInit {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3934,8 +4336,8 @@ pub struct IWABExtInit_abi(
 );
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWABOBJECT_(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWABOBJECT_(pub ::windows::runtime::IUnknown);
 impl IWABOBJECT_ {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn QueryInterface(&self, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -4017,6 +4419,26 @@ unsafe impl ::windows::runtime::Interface for IWABOBJECT_ {
     type Vtable = IWABOBJECT__abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IWABOBJECT_> for ::windows::runtime::IUnknown {
+    fn from(value: IWABOBJECT_) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWABOBJECT_> for ::windows::runtime::IUnknown {
+    fn from(value: &IWABOBJECT_) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWABOBJECT_ {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWABOBJECT_ {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWABOBJECT__abi(
@@ -4049,35 +4471,51 @@ pub struct IWABOBJECT__abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpiab: ::windows::runtime::RawPtr, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type IWABOBJECT_AddRef_METHOD = unsafe extern "system" fn() -> u32;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type IWABOBJECT_AllocateBuffer_METHOD = unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type IWABOBJECT_AllocateMore_METHOD = unsafe extern "system" fn(cbsize: u32, lpobject: *const ::std::ffi::c_void, lppbuffer: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_Backup_METHOD = unsafe extern "system" fn(lpfilename: super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_Find_METHOD = unsafe extern "system" fn(lpiab: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type IWABOBJECT_FreeBuffer_METHOD = unsafe extern "system" fn(lpbuffer: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type IWABOBJECT_GetLastError_METHOD = unsafe extern "system" fn(hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_GetMe_METHOD = unsafe extern "system" fn(lpiab: ::windows::runtime::RawPtr, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_Import_METHOD = unsafe extern "system" fn(lpwip: super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_LDAPUrl_METHOD = unsafe extern "system" fn(lpiab: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: super::super::Foundation::PSTR, lppmailuser: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type IWABOBJECT_QueryInterface_METHOD = unsafe extern "system" fn(riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type IWABOBJECT_Release_METHOD = unsafe extern "system" fn() -> u32;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_SetMe_METHOD = unsafe extern "system" fn(lpiab: ::windows::runtime::RawPtr, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_VCardCreate_METHOD = unsafe extern "system" fn(lpiab: ::windows::runtime::RawPtr, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lpmailuser: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_VCardDisplay_METHOD = unsafe extern "system" fn(lpiab: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, lpszfilename: super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_VCardRetrieve_METHOD = unsafe extern "system" fn(lpiab: ::windows::runtime::RawPtr, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lppmailuser: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWABObject(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWABObject(pub ::windows::runtime::IUnknown);
 impl IWABObject {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -4147,6 +4585,26 @@ unsafe impl ::windows::runtime::Interface for IWABObject {
     type Vtable = IWABObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IWABObject> for ::windows::runtime::IUnknown {
+    fn from(value: IWABObject) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWABObject> for ::windows::runtime::IUnknown {
+    fn from(value: &IWABObject) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWABObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWABObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWABObject_abi(
@@ -4176,28 +4634,43 @@ pub struct IWABObject_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpiab: ::windows::runtime::RawPtr, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPALLOCATEBUFFER = unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPALLOCATEMORE = unsafe extern "system" fn(cbsize: u32, lpobject: *mut ::std::ffi::c_void, lppbuffer: *mut *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPCREATECONVERSATIONINDEX = unsafe extern "system" fn(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPDISPATCHNOTIFICATIONS = unsafe extern "system" fn(ulflags: u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNABSDI = unsafe extern "system" fn(uluiparam: usize, lpvmsg: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPFNBUTTON = unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::std::ffi::c_void, cbentryid: u32, lpselection: *mut ENTRYID, ulflags: u32) -> i32;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPFNDISMISS = unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPFREEBUFFER = unsafe extern "system" fn(lpbuffer: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type LPNOTIFCALLBACK = unsafe extern "system" fn(lpvcontext: *mut ::std::ffi::c_void, cnotification: u32, lpnotifications: *mut NOTIFICATION) -> i32;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub type LPOPENSTREAMONFILE = unsafe extern "system" fn(lpallocatebuffer: ::windows::runtime::RawPtr, lpfreebuffer: ::windows::runtime::RawPtr, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8, lppstream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPWABALLOCATEBUFFER = unsafe extern "system" fn(lpwabobject: ::windows::runtime::RawPtr, cbsize: u32, lppbuffer: *mut *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPWABALLOCATEMORE = unsafe extern "system" fn(lpwabobject: ::windows::runtime::RawPtr, cbsize: u32, lpobject: *mut ::std::ffi::c_void, lppbuffer: *mut *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPWABFREEBUFFER = unsafe extern "system" fn(lpwabobject: ::windows::runtime::RawPtr, lpbuffer: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPWABOPEN = unsafe extern "system" fn(lppadrbook: *mut ::windows::runtime::RawPtr, lppwabobject: *mut ::windows::runtime::RawPtr, lpwp: *mut WAB_PARAM, reserved2: u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPWABOPENEX = unsafe extern "system" fn(lppadrbook: *mut ::windows::runtime::RawPtr, lppwabobject: *mut ::windows::runtime::RawPtr, lpwp: *mut WAB_PARAM, reserved: u32, fnallocatebuffer: ::windows::runtime::RawPtr, fnallocatemore: ::windows::runtime::RawPtr, fnfreebuffer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn LPropCompareProp(lpspropvaluea: *mut SPropValue, lpspropvalueb: *mut SPropValue) -> i32 {
     #[cfg(windows)]
@@ -4211,8 +4684,8 @@ pub unsafe fn LPropCompareProp(lpspropvaluea: *mut SPropValue, lpspropvalueb: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn LpValFindProp(ulproptag: u32, cvalues: u32, lpproparray: *mut SPropValue) -> *mut SPropValue {
     #[cfg(windows)]
@@ -4270,8 +4743,8 @@ impl ::std::cmp::Eq for MAPIERROR {}
 unsafe impl ::windows::runtime::Abi for MAPIERROR {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MAPIGetDefaultMalloc() -> ::std::option::Option<super::Com::IMalloc> {
     #[cfg(windows)]
@@ -4331,7 +4804,6 @@ unsafe impl ::windows::runtime::Abi for MAPINAMEID {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 pub union MAPINAMEID_0 {
     pub lID: i32,
     pub lpwstrName: super::super::Foundation::PWSTR,
@@ -4523,7 +4995,6 @@ unsafe impl ::windows::runtime::Abi for NOTIFICATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub union NOTIFICATION_0 {
     pub err: ERROR_NOTIFICATION,
     pub newmail: NEWMAIL_NOTIFICATION,
@@ -4625,8 +5096,8 @@ impl ::std::cmp::Eq for OBJECT_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for OBJECT_NOTIFICATION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OpenStreamOnFile(lpallocatebuffer: ::std::option::Option<LPALLOCATEBUFFER>, lpfreebuffer: ::std::option::Option<LPFREEBUFFER>, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8) -> ::windows::runtime::Result<super::Com::IStream> {
     #[cfg(windows)]
@@ -4641,6 +5112,7 @@ pub unsafe fn OpenStreamOnFile(lpallocatebuffer: ::std::option::Option<LPALLOCAT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNIDLE = unsafe extern "system" fn() -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
@@ -4657,8 +5129,8 @@ pub const PROP_ID_NULL: u32 = 0u32;
 pub const PROP_ID_SECURE_MAX: u32 = 26623u32;
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const PROP_ID_SECURE_MIN: u32 = 26608u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn PpropFindProp(lpproparray: *mut SPropValue, cvalues: u32, ulproptag: u32) -> *mut SPropValue {
     #[cfg(windows)]
@@ -4672,8 +5144,8 @@ pub unsafe fn PpropFindProp(lpproparray: *mut SPropValue, cvalues: u32, ulpropta
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn PropCopyMore(lpspropvaluedest: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, lpfallocmore: ::std::option::Option<LPALLOCATEMORE>, lpvobject: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -4687,8 +5159,8 @@ pub unsafe fn PropCopyMore(lpspropvaluedest: *mut SPropValue, lpspropvaluesrc: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RTFSync<'a, Param0: ::windows::runtime::IntoParam<'a, IMessage>>(lpmessage: Param0, ulflags: u32, lpfmessageupdated: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5457,7 +5929,6 @@ unsafe impl ::windows::runtime::Abi for SRestriction {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub union SRestriction_0 {
     pub resCompareProps: SComparePropsRestriction,
     pub resAnd: SAndRestriction,
@@ -5787,8 +6258,8 @@ pub const S_IMAPI_ROTATIONADJUSTED: ::windows::runtime::HRESULT = ::windows::run
 pub const S_IMAPI_SPEEDADJUSTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(11141124i32 as _);
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const S_IMAPI_WRITE_NOT_IN_PROGRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(11141890i32 as _);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCopyNotifications(cnotification: i32, lpnotifications: *mut NOTIFICATION, lpvdst: *mut ::std::ffi::c_void, lpcb: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -5802,8 +6273,8 @@ pub unsafe fn ScCopyNotifications(cnotification: i32, lpnotifications: *mut NOTI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCopyProps(cvalues: i32, lpproparray: *mut SPropValue, lpvdst: *mut ::std::ffi::c_void, lpcb: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -5817,8 +6288,8 @@ pub unsafe fn ScCopyProps(cvalues: i32, lpproparray: *mut SPropValue, lpvdst: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCountNotifications(cnotifications: i32, lpnotifications: *mut NOTIFICATION, lpcb: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -5832,8 +6303,8 @@ pub unsafe fn ScCountNotifications(cnotifications: i32, lpnotifications: *mut NO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCountProps(cvalues: i32, lpproparray: *mut SPropValue, lpcb: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -5861,8 +6332,8 @@ pub unsafe fn ScCreateConversationIndex(cbparent: u32, lpbparent: *mut u8, lpcbc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScDupPropset(cvalues: i32, lpproparray: *mut SPropValue, lpallocatebuffer: ::std::option::Option<LPALLOCATEBUFFER>, lppproparray: *mut *mut SPropValue) -> i32 {
     #[cfg(windows)]
@@ -5890,8 +6361,8 @@ pub unsafe fn ScInitMapiUtil(ulflags: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScLocalPathFromUNC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszunc: Param0, lpszlocal: Param1, cchlocal: u32) -> i32 {
     #[cfg(windows)]
@@ -5905,8 +6376,8 @@ pub unsafe fn ScLocalPathFromUNC<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScRelocNotifications(cnotification: i32, lpnotifications: *mut NOTIFICATION, lpvbaseold: *mut ::std::ffi::c_void, lpvbasenew: *mut ::std::ffi::c_void, lpcb: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -5920,8 +6391,8 @@ pub unsafe fn ScRelocNotifications(cnotification: i32, lpnotifications: *mut NOT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScRelocProps(cvalues: i32, lpproparray: *mut SPropValue, lpvbaseold: *mut ::std::ffi::c_void, lpvbasenew: *mut ::std::ffi::c_void, lpcb: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -5935,8 +6406,8 @@ pub unsafe fn ScRelocProps(cvalues: i32, lpproparray: *mut SPropValue, lpvbaseol
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScUNCFromLocalPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszlocal: Param0, lpszunc: Param1, cchunc: u32) -> i32 {
     #[cfg(windows)]
@@ -6076,8 +6547,8 @@ pub unsafe fn UlAddRef(lpunk: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UlPropSize(lpspropvalue: *mut SPropValue) -> u32 {
     #[cfg(windows)]
@@ -6256,8 +6727,8 @@ pub const WAB_USE_OE_SENDMAIL: u32 = 1u32;
 pub const WAB_VCARD_FILE: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const WAB_VCARD_STREAM: u32 = 1u32;
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WrapCompressedRTFStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>>(lpcompressedrtfstream: Param0, ulflags: u32) -> ::windows::runtime::Result<super::Com::IStream> {
     #[cfg(windows)]

@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `System_Display`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DisplayRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DisplayRequest(pub ::windows::runtime::IInspectable);
 impl DisplayRequest {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -32,9 +32,49 @@ unsafe impl ::windows::runtime::Interface for DisplayRequest {
 impl ::windows::runtime::RuntimeName for DisplayRequest {
     const NAME: &'static str = "Windows.System.Display.DisplayRequest";
 }
+impl ::std::convert::From<DisplayRequest> for ::windows::runtime::IUnknown {
+    fn from(value: DisplayRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DisplayRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &DisplayRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DisplayRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DisplayRequest> for ::windows::runtime::IInspectable {
+    fn from(value: DisplayRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DisplayRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &DisplayRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDisplayRequest(::windows::runtime::IInspectable);
+pub struct IDisplayRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayRequest {
     type Vtable = IDisplayRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3849527364, 62623, 19296, [141, 212, 94, 126, 58, 99, 42, 192]);

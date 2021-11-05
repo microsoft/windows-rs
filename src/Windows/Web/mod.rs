@@ -8,9 +8,9 @@ pub mod Syndication;
 #[cfg(feature = "Web_UI")]
 pub mod UI;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Web`*"]
-pub struct IUriToStreamResolver(::windows::runtime::IInspectable);
+pub struct IUriToStreamResolver(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUriToStreamResolver {
     type Vtable = IUriToStreamResolver_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2964039786, 39659, 19770, [149, 144, 0, 62, 60, 167, 226, 144]);
@@ -29,6 +29,46 @@ impl IUriToStreamResolver {
 unsafe impl ::windows::runtime::RuntimeType for IUriToStreamResolver {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{b0aba86a-9aeb-4d3a-9590-003e3ca7e290}");
 }
+impl ::std::convert::From<IUriToStreamResolver> for ::windows::runtime::IUnknown {
+    fn from(value: IUriToStreamResolver) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IUriToStreamResolver> for ::windows::runtime::IUnknown {
+    fn from(value: &IUriToStreamResolver) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUriToStreamResolver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUriToStreamResolver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IUriToStreamResolver> for ::windows::runtime::IInspectable {
+    fn from(value: IUriToStreamResolver) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IUriToStreamResolver> for ::windows::runtime::IInspectable {
+    fn from(value: &IUriToStreamResolver) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IUriToStreamResolver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IUriToStreamResolver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUriToStreamResolver_abi(
@@ -43,7 +83,7 @@ pub struct IUriToStreamResolver_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWebErrorStatics(::windows::runtime::IInspectable);
+pub struct IWebErrorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebErrorStatics {
     type Vtable = IWebErrorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4267796326, 48935, 16484, [135, 183, 101, 99, 187, 17, 206, 46]);

@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInstalledDesktopApp(::windows::runtime::IInspectable);
+pub struct IInstalledDesktopApp(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstalledDesktopApp {
     type Vtable = IInstalledDesktopApp_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1978317037, 49340, 21348, [76, 40, 22, 110, 5, 69, 22, 122]);
@@ -22,7 +22,7 @@ pub struct IInstalledDesktopApp_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInstalledDesktopAppStatics(::windows::runtime::IInspectable);
+pub struct IInstalledDesktopAppStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstalledDesktopAppStatics {
     type Vtable = IInstalledDesktopAppStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(642578254, 8653, 24475, [96, 86, 120, 102, 173, 114, 72, 154]);
@@ -41,8 +41,8 @@ pub struct IInstalledDesktopAppStatics_abi(
 );
 #[doc = "*Required features: `System_Inventory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct InstalledDesktopApp(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct InstalledDesktopApp(pub ::windows::runtime::IInspectable);
 impl InstalledDesktopApp {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_Inventory`, `Foundation`*"]
@@ -107,6 +107,46 @@ unsafe impl ::windows::runtime::Interface for InstalledDesktopApp {
 }
 impl ::windows::runtime::RuntimeName for InstalledDesktopApp {
     const NAME: &'static str = "Windows.System.Inventory.InstalledDesktopApp";
+}
+impl ::std::convert::From<InstalledDesktopApp> for ::windows::runtime::IUnknown {
+    fn from(value: InstalledDesktopApp) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&InstalledDesktopApp> for ::windows::runtime::IUnknown {
+    fn from(value: &InstalledDesktopApp) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InstalledDesktopApp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InstalledDesktopApp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<InstalledDesktopApp> for ::windows::runtime::IInspectable {
+    fn from(value: InstalledDesktopApp) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InstalledDesktopApp> for ::windows::runtime::IInspectable {
+    fn from(value: &InstalledDesktopApp) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InstalledDesktopApp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InstalledDesktopApp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<InstalledDesktopApp> for super::super::Foundation::IStringable {

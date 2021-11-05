@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_System_UpdateAssessment`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWaaSAssessor(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWaaSAssessor(pub ::windows::runtime::IUnknown);
 impl IWaaSAssessor {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_UpdateAssessment`, `Win32_Foundation`*"]
@@ -14,6 +14,26 @@ impl IWaaSAssessor {
 unsafe impl ::windows::runtime::Interface for IWaaSAssessor {
     type Vtable = IWaaSAssessor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(591903727, 6715, 17828, [144, 45, 62, 9, 194, 105, 180, 94]);
+}
+impl ::std::convert::From<IWaaSAssessor> for ::windows::runtime::IUnknown {
+    fn from(value: IWaaSAssessor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWaaSAssessor> for ::windows::runtime::IUnknown {
+    fn from(value: &IWaaSAssessor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWaaSAssessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWaaSAssessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

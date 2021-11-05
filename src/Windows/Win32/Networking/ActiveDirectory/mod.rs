@@ -187,7 +187,6 @@ unsafe impl ::windows::runtime::Abi for ADSVALUE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
 pub union ADSVALUE_0 {
     pub DNString: *mut u16,
     pub CaseExactString: *mut u16,
@@ -1622,8 +1621,8 @@ unsafe impl ::windows::runtime::Abi for ADS_VLV {
     type Abi = Self;
 }
 pub const ADSystemInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1354117759, 45009, 4562, [156, 185, 0, 0, 248, 122, 54, 158]);
-#[cfg(feature = "Win32_System_Ole_Automation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_System_Ole_Automation`*"]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 #[inline]
 pub unsafe fn ADsBuildEnumerator<'a, Param0: ::windows::runtime::IntoParam<'a, IADsContainer>>(padscontainer: Param0) -> ::windows::runtime::Result<super::super::System::Ole::Automation::IEnumVARIANT> {
     #[cfg(windows)]
@@ -1638,8 +1637,8 @@ pub unsafe fn ADsBuildEnumerator<'a, Param0: ::windows::runtime::IntoParam<'a, I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn ADsBuildVarArrayInt(lpdwobjecttypes: *mut u32, dwobjecttypes: u32, pvar: *mut super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1653,8 +1652,8 @@ pub unsafe fn ADsBuildVarArrayInt(lpdwobjecttypes: *mut u32, dwobjecttypes: u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn ADsBuildVarArrayStr(lpppathnames: *const super::super::Foundation::PWSTR, dwpathnames: u32, pvar: *mut super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1668,8 +1667,8 @@ pub unsafe fn ADsBuildVarArrayStr(lpppathnames: *const super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsDecodeBinaryData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szsrcdata: Param0, ppbdestdata: *mut *mut u8, pdwdestlen: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1683,8 +1682,8 @@ pub unsafe fn ADsDecodeBinaryData<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsEncodeBinaryData(pbsrcdata: *mut u8, dwsrclen: u32, ppszdestdata: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1698,8 +1697,8 @@ pub unsafe fn ADsEncodeBinaryData(pbsrcdata: *mut u8, dwsrclen: u32, ppszdestdat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn ADsEnumerateNext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IEnumVARIANT>>(penumvariant: Param0, celements: u32, pvar: *mut super::super::System::Com::VARIANT, pcelementsfetched: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1713,8 +1712,8 @@ pub unsafe fn ADsEnumerateNext<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_System_Ole_Automation`*"]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 #[inline]
 pub unsafe fn ADsFreeEnumerator<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IEnumVARIANT>>(penumvariant: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1728,8 +1727,8 @@ pub unsafe fn ADsFreeEnumerator<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsGetLastError(lperror: *mut u32, lperrorbuf: super::super::Foundation::PWSTR, dwerrorbuflen: u32, lpnamebuf: super::super::Foundation::PWSTR, dwnamebuflen: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1743,8 +1742,8 @@ pub unsafe fn ADsGetLastError(lperror: *mut u32, lperrorbuf: super::super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsGetObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszpathname: Param0, riid: *const ::windows::runtime::GUID, ppobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1758,8 +1757,8 @@ pub unsafe fn ADsGetObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsOpenObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszpathname: Param0, lpszusername: Param1, lpszpassword: Param2, dwreserved: ADS_AUTHENTICATION_ENUM, riid: *const ::windows::runtime::GUID, ppobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1773,8 +1772,8 @@ pub unsafe fn ADsOpenObject<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsPropCheckIfWritable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzattr: Param0, pwritableattrs: *const ADS_ATTR_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1788,8 +1787,8 @@ pub unsafe fn ADsPropCheckIfWritable<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ADsPropCreateNotifyObj<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pappthddataobj: Param0, pwzadsobjname: Param1, phnotifyobj: *mut super::super::Foundation::HWND) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1803,8 +1802,8 @@ pub unsafe fn ADsPropCreateNotifyObj<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsPropGetInitInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hnotifyobj: Param0, pinitparams: *mut ADSPROPINITPARAMS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1818,8 +1817,8 @@ pub unsafe fn ADsPropGetInitInfo<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsPropSendErrorMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hnotifyobj: Param0, perror: *mut ADSPROPERROR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1833,8 +1832,8 @@ pub unsafe fn ADsPropSendErrorMessage<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsPropSetHwnd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hnotifyobj: Param0, hpage: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1848,8 +1847,8 @@ pub unsafe fn ADsPropSetHwnd<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsPropSetHwndWithTitle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hnotifyobj: Param0, hpage: Param1, ptztitle: *const i8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1863,8 +1862,8 @@ pub unsafe fn ADsPropSetHwndWithTitle<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsPropShowErrorDialog<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hnotifyobj: Param0, hpage: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1879,8 +1878,8 @@ pub unsafe fn ADsPropShowErrorDialog<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 pub const ADsSecurityUtility: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4067477066, 65464, 19172, [133, 254, 58, 117, 229, 52, 121, 102]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ADsSetLastError<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwerr: u32, pszerror: Param1, pszprovider: Param2) {
     #[cfg(windows)]
@@ -1896,8 +1895,8 @@ pub unsafe fn ADsSetLastError<'a, Param1: ::windows::runtime::IntoParam<'a, supe
 }
 pub const AccessControlEntry: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3076177920, 39901, 4560, [133, 44, 0, 192, 79, 216, 213, 3]);
 pub const AccessControlList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3093209170, 39901, 4560, [133, 44, 0, 192, 79, 216, 213, 3]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AdsFreeAdsValues(padsvalues: *mut ADSVALUE, dwnumvalues: u32) {
     #[cfg(windows)]
@@ -1911,8 +1910,8 @@ pub unsafe fn AdsFreeAdsValues(padsvalues: *mut ADSVALUE, dwnumvalues: u32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn AdsTypeToPropVariant(padsvalues: *mut ADSVALUE, dwnumvalues: u32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1940,8 +1939,8 @@ pub unsafe fn AllocADsMem(cb: u32) -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AllocADsStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pstr: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -1956,8 +1955,8 @@ pub unsafe fn AllocADsStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 pub const BackLink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4240412783, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn BinarySDToSecurityDescriptor<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
@@ -6430,8 +6429,8 @@ pub const DS_WRITABLE_FLAG: u32 = 256u32;
 pub const DS_WRITABLE_REQUIRED: u32 = 4096u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_WS_FLAG: u32 = 8192u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsAddSidHistoryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     hds: Param0,
@@ -6454,8 +6453,8 @@ pub unsafe fn DsAddSidHistoryA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsAddSidHistoryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hds: Param0,
@@ -6478,8 +6477,8 @@ pub unsafe fn DsAddSidHistoryW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn DsAddressToSiteNamesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(computername: Param0, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
@@ -6493,8 +6492,8 @@ pub unsafe fn DsAddressToSiteNamesA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn DsAddressToSiteNamesExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(computername: Param0, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut super::super::Foundation::PSTR, subnetnames: *mut *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
@@ -6508,8 +6507,8 @@ pub unsafe fn DsAddressToSiteNamesExA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn DsAddressToSiteNamesExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(computername: Param0, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut super::super::Foundation::PWSTR, subnetnames: *mut *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -6523,8 +6522,8 @@ pub unsafe fn DsAddressToSiteNamesExW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn DsAddressToSiteNamesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(computername: Param0, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -6538,8 +6537,8 @@ pub unsafe fn DsAddressToSiteNamesW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6553,8 +6552,8 @@ pub unsafe fn DsBindA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindByInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     servername: Param0,
@@ -6577,8 +6576,8 @@ pub unsafe fn DsBindByInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindByInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     servername: Param0,
@@ -6601,8 +6600,8 @@ pub unsafe fn DsBindByInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindToISTGA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(sitename: Param0, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6616,8 +6615,8 @@ pub unsafe fn DsBindToISTGA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindToISTGW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(sitename: Param0, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6631,8 +6630,8 @@ pub unsafe fn DsBindToISTGW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6646,8 +6645,8 @@ pub unsafe fn DsBindW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindWithCredA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::std::ffi::c_void, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6661,8 +6660,8 @@ pub unsafe fn DsBindWithCredA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindWithCredW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::std::ffi::c_void, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6676,8 +6675,8 @@ pub unsafe fn DsBindWithCredW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindWithSpnA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::std::ffi::c_void, serviceprincipalname: Param3, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6691,8 +6690,8 @@ pub unsafe fn DsBindWithSpnA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindWithSpnExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::std::ffi::c_void, serviceprincipalname: Param3, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6706,8 +6705,8 @@ pub unsafe fn DsBindWithSpnExA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindWithSpnExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::std::ffi::c_void, serviceprincipalname: Param3, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6721,8 +6720,8 @@ pub unsafe fn DsBindWithSpnExW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindWithSpnW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::std::ffi::c_void, serviceprincipalname: Param3, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6736,8 +6735,8 @@ pub unsafe fn DsBindWithSpnW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsBindingSetTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, ctimeoutsecs: u32) -> u32 {
     #[cfg(windows)]
@@ -6751,8 +6750,8 @@ pub unsafe fn DsBindingSetTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_UI_Shell`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 #[inline]
 pub unsafe fn DsBrowseForContainerA(pinfo: *mut DSBROWSEINFOA) -> i32 {
     #[cfg(windows)]
@@ -6766,8 +6765,8 @@ pub unsafe fn DsBrowseForContainerA(pinfo: *mut DSBROWSEINFOA) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_UI_Shell`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 #[inline]
 pub unsafe fn DsBrowseForContainerW(pinfo: *mut DSBROWSEINFOW) -> i32 {
     #[cfg(windows)]
@@ -6781,8 +6780,8 @@ pub unsafe fn DsBrowseForContainerW(pinfo: *mut DSBROWSEINFOW) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsClientMakeSpnForTargetServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(serviceclass: Param0, servicename: Param1, pcspnlength: *mut u32, pszspn: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
@@ -6796,8 +6795,8 @@ pub unsafe fn DsClientMakeSpnForTargetServerA<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsClientMakeSpnForTargetServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serviceclass: Param0, servicename: Param1, pcspnlength: *mut u32, pszspn: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -6811,8 +6810,8 @@ pub unsafe fn DsClientMakeSpnForTargetServerW<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsCrackNamesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: u32, rpnames: *const super::super::Foundation::PSTR, ppresult: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg(windows)]
@@ -6826,8 +6825,8 @@ pub unsafe fn DsCrackNamesA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsCrackNamesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: u32, rpnames: *const super::super::Foundation::PWSTR, ppresult: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg(windows)]
@@ -6841,8 +6840,8 @@ pub unsafe fn DsCrackNamesW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsCrackSpn2A<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszspn: Param0, cspn: u32, pcserviceclass: *mut u32, serviceclass: super::super::Foundation::PSTR, pcservicename: *mut u32, servicename: super::super::Foundation::PSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PSTR, pinstanceport: *mut u16) -> u32 {
     #[cfg(windows)]
@@ -6866,8 +6865,8 @@ pub unsafe fn DsCrackSpn2A<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsCrackSpn2W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszspn: Param0, cspn: u32, pcserviceclass: *mut u32, serviceclass: super::super::Foundation::PWSTR, pcservicename: *mut u32, servicename: super::super::Foundation::PWSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PWSTR, pinstanceport: *mut u16) -> u32 {
     #[cfg(windows)]
@@ -6891,8 +6890,8 @@ pub unsafe fn DsCrackSpn2W<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsCrackSpn3W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszspn: Param0, cspn: u32, pchostname: *mut u32, hostname: super::super::Foundation::PWSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PWSTR, pportnumber: *mut u16, pcdomainname: *mut u32, domainname: super::super::Foundation::PWSTR, pcrealmname: *mut u32, realmname: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -6918,8 +6917,8 @@ pub unsafe fn DsCrackSpn3W<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsCrackSpn4W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszspn: Param0, cspn: u32, pchostname: *mut u32, hostname: super::super::Foundation::PWSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PWSTR, pcportname: *mut u32, portname: super::super::Foundation::PWSTR, pcdomainname: *mut u32, domainname: super::super::Foundation::PWSTR, pcrealmname: *mut u32, realmname: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -6946,8 +6945,8 @@ pub unsafe fn DsCrackSpn4W<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsCrackSpnA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszspn: Param0, pcserviceclass: *mut u32, serviceclass: super::super::Foundation::PSTR, pcservicename: *mut u32, servicename: super::super::Foundation::PSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PSTR, pinstanceport: *mut u16) -> u32 {
     #[cfg(windows)]
@@ -6970,8 +6969,8 @@ pub unsafe fn DsCrackSpnA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsCrackSpnW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszspn: Param0, pcserviceclass: *mut u32, serviceclass: super::super::Foundation::PWSTR, pcservicename: *mut u32, servicename: super::super::Foundation::PWSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PWSTR, pinstanceport: *mut u16) -> u32 {
     #[cfg(windows)]
@@ -6994,8 +6993,8 @@ pub unsafe fn DsCrackSpnW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsCrackUnquotedMangledRdnA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszrdn: Param0, cchrdn: u32, pguid: *mut ::windows::runtime::GUID, pedsmanglefor: *mut DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7009,8 +7008,8 @@ pub unsafe fn DsCrackUnquotedMangledRdnA<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsCrackUnquotedMangledRdnW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszrdn: Param0, cchrdn: u32, pguid: *mut ::windows::runtime::GUID, pedsmanglefor: *mut DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7024,8 +7023,8 @@ pub unsafe fn DsCrackUnquotedMangledRdnW<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsDeregisterDnsHostRecordsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(servername: Param0, dnsdomainname: Param1, domainguid: *const ::windows::runtime::GUID, dsaguid: *const ::windows::runtime::GUID, dnshostname: Param4) -> u32 {
     #[cfg(windows)]
@@ -7039,8 +7038,8 @@ pub unsafe fn DsDeregisterDnsHostRecordsA<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsDeregisterDnsHostRecordsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dnsdomainname: Param1, domainguid: *const ::windows::runtime::GUID, dsaguid: *const ::windows::runtime::GUID, dnshostname: Param4) -> u32 {
     #[cfg(windows)]
@@ -7054,8 +7053,8 @@ pub unsafe fn DsDeregisterDnsHostRecordsW<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsEnumerateDomainTrustsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(servername: Param0, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSA, domaincount: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7069,8 +7068,8 @@ pub unsafe fn DsEnumerateDomainTrustsA<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsEnumerateDomainTrustsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSW, domaincount: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7112,8 +7111,8 @@ pub unsafe fn DsFreeDomainControllerInfoW(infolevel: u32, cinfo: u32, pinfo: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsFreeNameResultA(presult: *const DS_NAME_RESULTA) {
     #[cfg(windows)]
@@ -7127,8 +7126,8 @@ pub unsafe fn DsFreeNameResultA(presult: *const DS_NAME_RESULTA) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsFreeNameResultW(presult: *const DS_NAME_RESULTW) {
     #[cfg(windows)]
@@ -7156,8 +7155,8 @@ pub unsafe fn DsFreePasswordCredentials(authidentity: *const ::std::ffi::c_void)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsFreeSchemaGuidMapA(pguidmap: *const DS_SCHEMA_GUID_MAPA) {
     #[cfg(windows)]
@@ -7171,8 +7170,8 @@ pub unsafe fn DsFreeSchemaGuidMapA(pguidmap: *const DS_SCHEMA_GUID_MAPA) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsFreeSchemaGuidMapW(pguidmap: *const DS_SCHEMA_GUID_MAPW) {
     #[cfg(windows)]
@@ -7186,8 +7185,8 @@ pub unsafe fn DsFreeSchemaGuidMapW(pguidmap: *const DS_SCHEMA_GUID_MAPW) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsFreeSpnArrayA(cspn: u32, rpszspn: *mut super::super::Foundation::PSTR) {
     #[cfg(windows)]
@@ -7201,8 +7200,8 @@ pub unsafe fn DsFreeSpnArrayA(cspn: u32, rpszspn: *mut super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsFreeSpnArrayW(cspn: u32, rpszspn: *mut super::super::Foundation::PWSTR) {
     #[cfg(windows)]
@@ -7230,8 +7229,8 @@ pub unsafe fn DsGetDcCloseW<'a, Param0: ::windows::runtime::IntoParam<'a, GetDcC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetDcNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(computername: Param0, domainname: Param1, domainguid: *const ::windows::runtime::GUID, sitename: Param3, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOA) -> u32 {
     #[cfg(windows)]
@@ -7245,8 +7244,8 @@ pub unsafe fn DsGetDcNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetDcNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(computername: Param0, domainname: Param1, domainguid: *const ::windows::runtime::GUID, sitename: Param3, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOW) -> u32 {
     #[cfg(windows)]
@@ -7260,8 +7259,8 @@ pub unsafe fn DsGetDcNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn DsGetDcNextA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(getdccontexthandle: Param0, sockaddresscount: *mut u32, sockaddresses: *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname: *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
@@ -7275,8 +7274,8 @@ pub unsafe fn DsGetDcNextA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn DsGetDcNextW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(getdccontexthandle: Param0, sockaddresscount: *mut u32, sockaddresses: *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -7290,8 +7289,8 @@ pub unsafe fn DsGetDcNextW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetDcOpenA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dnsname: Param0, optionflags: u32, sitename: Param2, domainguid: *const ::windows::runtime::GUID, dnsforestname: Param4, dcflags: u32, retgetdccontext: *mut GetDcContextHandle) -> u32 {
     #[cfg(windows)]
@@ -7305,8 +7304,8 @@ pub unsafe fn DsGetDcOpenA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetDcOpenW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dnsname: Param0, optionflags: u32, sitename: Param2, domainguid: *const ::windows::runtime::GUID, dnsforestname: Param4, dcflags: u32, retgetdccontext: *mut GetDcContextHandle) -> u32 {
     #[cfg(windows)]
@@ -7320,8 +7319,8 @@ pub unsafe fn DsGetDcOpenW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetDcSiteCoverageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(servername: Param0, entrycount: *mut u32, sitenames: *mut *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
@@ -7335,8 +7334,8 @@ pub unsafe fn DsGetDcSiteCoverageA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetDcSiteCoverageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, entrycount: *mut u32, sitenames: *mut *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -7350,8 +7349,8 @@ pub unsafe fn DsGetDcSiteCoverageW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetDomainControllerInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, domainname: Param1, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -7365,8 +7364,8 @@ pub unsafe fn DsGetDomainControllerInfoA<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetDomainControllerInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, domainname: Param1, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -7380,8 +7379,8 @@ pub unsafe fn DsGetDomainControllerInfoW<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_Security_Authentication_Identity`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
 pub unsafe fn DsGetForestTrustInformationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, trusteddomainname: Param1, flags: u32, foresttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32 {
     #[cfg(windows)]
@@ -7395,8 +7394,8 @@ pub unsafe fn DsGetForestTrustInformationW<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetFriendlyClassName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszobjectclass: Param0, pszbuffer: super::super::Foundation::PWSTR, cchbuffer: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7410,8 +7409,8 @@ pub unsafe fn DsGetFriendlyClassName<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn DsGetIcon<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: u32, pszobjectclass: Param1, cximage: i32, cyimage: i32) -> super::super::UI::WindowsAndMessaging::HICON {
     #[cfg(windows)]
@@ -7425,8 +7424,8 @@ pub unsafe fn DsGetIcon<'a, Param1: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetRdnW(ppdn: *mut super::super::Foundation::PWSTR, pcdn: *mut u32, ppkey: *mut super::super::Foundation::PWSTR, pckey: *mut u32, ppval: *mut super::super::Foundation::PWSTR, pcval: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7440,8 +7439,8 @@ pub unsafe fn DsGetRdnW(ppdn: *mut super::super::Foundation::PWSTR, pcdn: *mut u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetSiteNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(computername: Param0, sitename: *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
@@ -7455,8 +7454,8 @@ pub unsafe fn DsGetSiteNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetSiteNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(computername: Param0, sitename: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -7470,8 +7469,8 @@ pub unsafe fn DsGetSiteNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetSpnA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(servicetype: DS_SPN_NAME_TYPE, serviceclass: Param1, servicename: Param2, instanceport: u16, cinstancenames: u16, pinstancenames: *const super::super::Foundation::PSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
@@ -7495,8 +7494,8 @@ pub unsafe fn DsGetSpnA<'a, Param1: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsGetSpnW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servicetype: DS_SPN_NAME_TYPE, serviceclass: Param1, servicename: Param2, instanceport: u16, cinstancenames: u16, pinstancenames: *const super::super::Foundation::PWSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -7520,8 +7519,8 @@ pub unsafe fn DsGetSpnW<'a, Param1: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsInheritSecurityIdentityA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, flags: u32, srcprincipal: Param2, dstprincipal: Param3) -> u32 {
     #[cfg(windows)]
@@ -7535,8 +7534,8 @@ pub unsafe fn DsInheritSecurityIdentityA<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsInheritSecurityIdentityW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, flags: u32, srcprincipal: Param2, dstprincipal: Param3) -> u32 {
     #[cfg(windows)]
@@ -7550,8 +7549,8 @@ pub unsafe fn DsInheritSecurityIdentityW<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsIsMangledDnA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszdn: Param0, edsmanglefor: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7565,8 +7564,8 @@ pub unsafe fn DsIsMangledDnA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsIsMangledDnW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdn: Param0, edsmanglefor: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7580,8 +7579,8 @@ pub unsafe fn DsIsMangledDnW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsIsMangledRdnValueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszrdn: Param0, crdn: u32, edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7595,8 +7594,8 @@ pub unsafe fn DsIsMangledRdnValueA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsIsMangledRdnValueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszrdn: Param0, crdn: u32, edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7610,8 +7609,8 @@ pub unsafe fn DsIsMangledRdnValueW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListDomainsInSiteA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, site: Param1, ppdomains: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg(windows)]
@@ -7625,8 +7624,8 @@ pub unsafe fn DsListDomainsInSiteA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListDomainsInSiteW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, site: Param1, ppdomains: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg(windows)]
@@ -7640,8 +7639,8 @@ pub unsafe fn DsListDomainsInSiteW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListInfoForServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, server: Param1, ppinfo: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg(windows)]
@@ -7655,8 +7654,8 @@ pub unsafe fn DsListInfoForServerA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListInfoForServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, server: Param1, ppinfo: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg(windows)]
@@ -7670,8 +7669,8 @@ pub unsafe fn DsListInfoForServerW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListRolesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, pproles: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg(windows)]
@@ -7685,8 +7684,8 @@ pub unsafe fn DsListRolesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListRolesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, pproles: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg(windows)]
@@ -7700,8 +7699,8 @@ pub unsafe fn DsListRolesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListServersForDomainInSiteA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, domain: Param1, site: Param2, ppservers: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg(windows)]
@@ -7715,8 +7714,8 @@ pub unsafe fn DsListServersForDomainInSiteA<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListServersForDomainInSiteW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, domain: Param1, site: Param2, ppservers: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg(windows)]
@@ -7730,8 +7729,8 @@ pub unsafe fn DsListServersForDomainInSiteW<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListServersInSiteA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, site: Param1, ppservers: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg(windows)]
@@ -7745,8 +7744,8 @@ pub unsafe fn DsListServersInSiteA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListServersInSiteW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, site: Param1, ppservers: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg(windows)]
@@ -7760,8 +7759,8 @@ pub unsafe fn DsListServersInSiteW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListSitesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, ppsites: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg(windows)]
@@ -7775,8 +7774,8 @@ pub unsafe fn DsListSitesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsListSitesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, ppsites: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg(windows)]
@@ -7790,8 +7789,8 @@ pub unsafe fn DsListSitesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsMakePasswordCredentialsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(user: Param0, domain: Param1, password: Param2, pauthidentity: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -7805,8 +7804,8 @@ pub unsafe fn DsMakePasswordCredentialsA<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsMakePasswordCredentialsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(user: Param0, domain: Param1, password: Param2, pauthidentity: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -7820,8 +7819,8 @@ pub unsafe fn DsMakePasswordCredentialsW<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsMakeSpnA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     serviceclass: Param0,
@@ -7843,8 +7842,8 @@ pub unsafe fn DsMakeSpnA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsMakeSpnW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     serviceclass: Param0,
@@ -7866,8 +7865,8 @@ pub unsafe fn DsMakeSpnW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsMapSchemaGuidsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, cguids: u32, rguids: *const ::windows::runtime::GUID, ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPA) -> u32 {
     #[cfg(windows)]
@@ -7881,8 +7880,8 @@ pub unsafe fn DsMapSchemaGuidsA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsMapSchemaGuidsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, cguids: u32, rguids: *const ::windows::runtime::GUID, ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPW) -> u32 {
     #[cfg(windows)]
@@ -7896,8 +7895,8 @@ pub unsafe fn DsMapSchemaGuidsW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_Security_Authentication_Identity`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
 pub unsafe fn DsMergeForestTrustInformationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, newforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, oldforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, mergedforesttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32 {
     #[cfg(windows)]
@@ -7911,8 +7910,8 @@ pub unsafe fn DsMergeForestTrustInformationW<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsQuerySitesByCostA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, pszfromsite: Param1, rgsztosites: *const super::super::Foundation::PSTR, ctosites: u32, dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32 {
     #[cfg(windows)]
@@ -7926,8 +7925,8 @@ pub unsafe fn DsQuerySitesByCostA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsQuerySitesByCostW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, pwszfromsite: Param1, rgwsztosites: *const super::super::Foundation::PWSTR, ctosites: u32, dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32 {
     #[cfg(windows)]
@@ -7955,8 +7954,8 @@ pub unsafe fn DsQuerySitesFree(rgsiteinfo: *const DS_SITE_COST_INFO) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsQuoteRdnValueA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(cunquotedrdnvaluelength: u32, psunquotedrdnvalue: Param1, pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
@@ -7970,8 +7969,8 @@ pub unsafe fn DsQuoteRdnValueA<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsQuoteRdnValueW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(cunquotedrdnvaluelength: u32, psunquotedrdnvalue: Param1, pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -7985,8 +7984,8 @@ pub unsafe fn DsQuoteRdnValueW<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsRemoveDsDomainA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, domaindn: Param1) -> u32 {
     #[cfg(windows)]
@@ -8000,8 +7999,8 @@ pub unsafe fn DsRemoveDsDomainA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsRemoveDsDomainW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, domaindn: Param1) -> u32 {
     #[cfg(windows)]
@@ -8015,8 +8014,8 @@ pub unsafe fn DsRemoveDsDomainW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsRemoveDsServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hds: Param0, serverdn: Param1, domaindn: Param2, flastdcindomain: *mut super::super::Foundation::BOOL, fcommit: Param4) -> u32 {
     #[cfg(windows)]
@@ -8030,8 +8029,8 @@ pub unsafe fn DsRemoveDsServerA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsRemoveDsServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hds: Param0, serverdn: Param1, domaindn: Param2, flastdcindomain: *mut super::super::Foundation::BOOL, fcommit: Param4) -> u32 {
     #[cfg(windows)]
@@ -8045,8 +8044,8 @@ pub unsafe fn DsRemoveDsServerW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaAddA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     hds: Param0,
@@ -8068,8 +8067,8 @@ pub unsafe fn DsReplicaAddA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaAddW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hds: Param0,
@@ -8091,8 +8090,8 @@ pub unsafe fn DsReplicaAddW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaConsistencyCheck<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, taskid: DS_KCC_TASKID, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -8106,8 +8105,8 @@ pub unsafe fn DsReplicaConsistencyCheck<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaDelA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, namecontext: Param1, dsasrc: Param2, options: u32) -> u32 {
     #[cfg(windows)]
@@ -8121,8 +8120,8 @@ pub unsafe fn DsReplicaDelA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaDelW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, namecontext: Param1, dsasrc: Param2, options: u32) -> u32 {
     #[cfg(windows)]
@@ -8150,8 +8149,8 @@ pub unsafe fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::std
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaGetInfo2W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hds: Param0,
@@ -8185,8 +8184,8 @@ pub unsafe fn DsReplicaGetInfo2W<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaGetInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, infotype: DS_REPL_INFO_TYPE, pszobject: Param2, puuidforsourcedsaobjguid: *const ::windows::runtime::GUID, ppinfo: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -8200,8 +8199,8 @@ pub unsafe fn DsReplicaGetInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaModifyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     hds: Param0,
@@ -8235,8 +8234,8 @@ pub unsafe fn DsReplicaModifyA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaModifyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hds: Param0,
@@ -8270,8 +8269,8 @@ pub unsafe fn DsReplicaModifyW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaSyncA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, namecontext: Param1, puuiddsasrc: *const ::windows::runtime::GUID, options: u32) -> u32 {
     #[cfg(windows)]
@@ -8285,8 +8284,8 @@ pub unsafe fn DsReplicaSyncA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaSyncAllA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, psznamecontext: Param1, ulflags: u32, pfncallback: isize, pcallbackdata: *const ::std::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOA) -> u32 {
     #[cfg(windows)]
@@ -8300,8 +8299,8 @@ pub unsafe fn DsReplicaSyncAllA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaSyncAllW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, psznamecontext: Param1, ulflags: u32, pfncallback: isize, pcallbackdata: *const ::std::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOW) -> u32 {
     #[cfg(windows)]
@@ -8315,8 +8314,8 @@ pub unsafe fn DsReplicaSyncAllW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaSyncW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, namecontext: Param1, puuiddsasrc: *const ::windows::runtime::GUID, options: u32) -> u32 {
     #[cfg(windows)]
@@ -8330,8 +8329,8 @@ pub unsafe fn DsReplicaSyncW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaUpdateRefsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, namecontext: Param1, dsadest: Param2, puuiddsadest: *const ::windows::runtime::GUID, options: u32) -> u32 {
     #[cfg(windows)]
@@ -8345,8 +8344,8 @@ pub unsafe fn DsReplicaUpdateRefsA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaUpdateRefsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, namecontext: Param1, dsadest: Param2, puuiddsadest: *const ::windows::runtime::GUID, options: u32) -> u32 {
     #[cfg(windows)]
@@ -8360,8 +8359,8 @@ pub unsafe fn DsReplicaUpdateRefsW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaVerifyObjectsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, namecontext: Param1, puuiddsasrc: *const ::windows::runtime::GUID, uloptions: u32) -> u32 {
     #[cfg(windows)]
@@ -8375,8 +8374,8 @@ pub unsafe fn DsReplicaVerifyObjectsA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsReplicaVerifyObjectsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, namecontext: Param1, puuiddsasrc: *const ::windows::runtime::GUID, uloptions: u32) -> u32 {
     #[cfg(windows)]
@@ -8404,8 +8403,8 @@ pub unsafe fn DsRoleFreeMemory(buffer: *mut ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsRoleGetPrimaryDomainInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, infolevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8419,8 +8418,8 @@ pub unsafe fn DsRoleGetPrimaryDomainInformation<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsServerRegisterSpnA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(operation: DS_SPN_WRITE_OP, serviceclass: Param1, userobjectdn: Param2) -> u32 {
     #[cfg(windows)]
@@ -8434,8 +8433,8 @@ pub unsafe fn DsServerRegisterSpnA<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsServerRegisterSpnW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(operation: DS_SPN_WRITE_OP, serviceclass: Param1, userobjectdn: Param2) -> u32 {
     #[cfg(windows)]
@@ -8449,8 +8448,8 @@ pub unsafe fn DsServerRegisterSpnW<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsUnBindA(phds: *const super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -8464,8 +8463,8 @@ pub unsafe fn DsUnBindA(phds: *const super::super::Foundation::HANDLE) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsUnBindW(phds: *const super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -8479,8 +8478,8 @@ pub unsafe fn DsUnBindW(phds: *const super::super::Foundation::HANDLE) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsUnquoteRdnValueA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(cquotedrdnvaluelength: u32, psquotedrdnvalue: Param1, pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
@@ -8494,8 +8493,8 @@ pub unsafe fn DsUnquoteRdnValueA<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsUnquoteRdnValueW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(cquotedrdnvaluelength: u32, psquotedrdnvalue: Param1, pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -8509,8 +8508,8 @@ pub unsafe fn DsUnquoteRdnValueW<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsValidateSubnetNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(subnetname: Param0) -> u32 {
     #[cfg(windows)]
@@ -8524,8 +8523,8 @@ pub unsafe fn DsValidateSubnetNameA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsValidateSubnetNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(subnetname: Param0) -> u32 {
     #[cfg(windows)]
@@ -8539,8 +8538,8 @@ pub unsafe fn DsValidateSubnetNameW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsWriteAccountSpnA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, operation: DS_SPN_WRITE_OP, pszaccount: Param2, cspn: u32, rpszspn: *const super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
@@ -8554,8 +8553,8 @@ pub unsafe fn DsWriteAccountSpnA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsWriteAccountSpnW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, operation: DS_SPN_WRITE_OP, pszaccount: Param2, cspn: u32, rpszspn: *const super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -8589,8 +8588,8 @@ pub const FRSCONN_MAX_PRIORITY: u32 = 8u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
 pub const FaxNumber: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2768642581, 18049, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeADsMem(pmem: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8604,8 +8603,8 @@ pub unsafe fn FreeADsMem(pmem: *mut ::std::ffi::c_void) -> super::super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeADsStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pstr: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8634,8 +8633,8 @@ unsafe impl ::windows::runtime::Abi for GetDcContextHandle {
 pub const Hold: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3014475283, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADs(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADs(pub ::windows::runtime::IUnknown);
 impl IADs {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -8713,6 +8712,26 @@ unsafe impl ::windows::runtime::Interface for IADs {
     type Vtable = IADs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4253177552, 64789, 4558, [171, 196, 2, 96, 140, 158, 117, 83]);
 }
+impl ::std::convert::From<IADs> for ::windows::runtime::IUnknown {
+    fn from(value: IADs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADs> for ::windows::runtime::IUnknown {
+    fn from(value: &IADs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADs> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADs) -> Self {
@@ -8728,13 +8747,13 @@ impl ::std::convert::From<&IADs> for super::super::System::Ole::Automation::IDis
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8778,8 +8797,8 @@ pub struct IADs_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsADSystemInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsADSystemInfo(pub ::windows::runtime::IUnknown);
 impl IADsADSystemInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -8861,6 +8880,26 @@ unsafe impl ::windows::runtime::Interface for IADsADSystemInfo {
     type Vtable = IADsADSystemInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1538332969, 45009, 4562, [156, 185, 0, 0, 248, 122, 54, 158]);
 }
+impl ::std::convert::From<IADsADSystemInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IADsADSystemInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsADSystemInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsADSystemInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsADSystemInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsADSystemInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsADSystemInfo> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsADSystemInfo) -> Self {
@@ -8876,13 +8915,13 @@ impl ::std::convert::From<&IADsADSystemInfo> for super::super::System::Ole::Auto
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsADSystemInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsADSystemInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8926,8 +8965,8 @@ pub struct IADsADSystemInfo_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsAccessControlEntry(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsAccessControlEntry(pub ::windows::runtime::IUnknown);
 impl IADsAccessControlEntry {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn AccessMask(&self) -> ::windows::runtime::Result<i32> {
@@ -9003,6 +9042,26 @@ unsafe impl ::windows::runtime::Interface for IADsAccessControlEntry {
     type Vtable = IADsAccessControlEntry_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3035865420, 39901, 4560, [133, 44, 0, 192, 79, 216, 213, 3]);
 }
+impl ::std::convert::From<IADsAccessControlEntry> for ::windows::runtime::IUnknown {
+    fn from(value: IADsAccessControlEntry) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsAccessControlEntry> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsAccessControlEntry) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsAccessControlEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsAccessControlEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsAccessControlEntry> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsAccessControlEntry) -> Self {
@@ -9018,13 +9077,13 @@ impl ::std::convert::From<&IADsAccessControlEntry> for super::super::System::Ole
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsAccessControlEntry {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsAccessControlEntry {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9064,8 +9123,8 @@ pub struct IADsAccessControlEntry_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsAccessControlList(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsAccessControlList(pub ::windows::runtime::IUnknown);
 impl IADsAccessControlList {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn AclRevision(&self) -> ::windows::runtime::Result<i32> {
@@ -9111,6 +9170,26 @@ unsafe impl ::windows::runtime::Interface for IADsAccessControlList {
     type Vtable = IADsAccessControlList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085865420, 39901, 4560, [133, 44, 0, 192, 79, 216, 213, 3]);
 }
+impl ::std::convert::From<IADsAccessControlList> for ::windows::runtime::IUnknown {
+    fn from(value: IADsAccessControlList) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsAccessControlList> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsAccessControlList) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsAccessControlList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsAccessControlList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsAccessControlList> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsAccessControlList) -> Self {
@@ -9126,13 +9205,13 @@ impl ::std::convert::From<&IADsAccessControlList> for super::super::System::Ole:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsAccessControlList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsAccessControlList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9163,8 +9242,8 @@ pub struct IADsAccessControlList_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsAcl(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsAcl(pub ::windows::runtime::IUnknown);
 impl IADsAcl {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -9208,6 +9287,26 @@ unsafe impl ::windows::runtime::Interface for IADsAcl {
     type Vtable = IADsAcl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2220020651, 2153, 4561, [163, 119, 0, 192, 79, 185, 80, 220]);
 }
+impl ::std::convert::From<IADsAcl> for ::windows::runtime::IUnknown {
+    fn from(value: IADsAcl) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsAcl> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsAcl) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsAcl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsAcl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsAcl> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsAcl) -> Self {
@@ -9223,13 +9322,13 @@ impl ::std::convert::From<&IADsAcl> for super::super::System::Ole::Automation::I
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsAcl {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsAcl {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9261,8 +9360,8 @@ pub struct IADsAcl_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsAggregatee(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsAggregatee(pub ::windows::runtime::IUnknown);
 impl IADsAggregatee {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn ConnectAsAggregatee<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pouterunknown: Param0) -> ::windows::runtime::Result<()> {
@@ -9285,6 +9384,26 @@ unsafe impl ::windows::runtime::Interface for IADsAggregatee {
     type Vtable = IADsAggregatee_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(323407500, 36921, 4560, [133, 40, 0, 192, 79, 216, 213, 3]);
 }
+impl ::std::convert::From<IADsAggregatee> for ::windows::runtime::IUnknown {
+    fn from(value: IADsAggregatee) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsAggregatee> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsAggregatee) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsAggregatee {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsAggregatee {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsAggregatee_abi(
@@ -9298,8 +9417,8 @@ pub struct IADsAggregatee_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsAggregator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsAggregator(pub ::windows::runtime::IUnknown);
 impl IADsAggregator {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn ConnectAsAggregator<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, paggregatee: Param0) -> ::windows::runtime::Result<()> {
@@ -9314,6 +9433,26 @@ unsafe impl ::windows::runtime::Interface for IADsAggregator {
     type Vtable = IADsAggregator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1390108592, 37919, 4560, [133, 41, 0, 192, 79, 216, 213, 3]);
 }
+impl ::std::convert::From<IADsAggregator> for ::windows::runtime::IUnknown {
+    fn from(value: IADsAggregator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsAggregator> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsAggregator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsAggregator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsAggregator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsAggregator_abi(
@@ -9325,8 +9464,8 @@ pub struct IADsAggregator_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsBackLink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsBackLink(pub ::windows::runtime::IUnknown);
 impl IADsBackLink {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn RemoteID(&self) -> ::windows::runtime::Result<i32> {
@@ -9353,6 +9492,26 @@ unsafe impl ::windows::runtime::Interface for IADsBackLink {
     type Vtable = IADsBackLink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4245881533, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
 }
+impl ::std::convert::From<IADsBackLink> for ::windows::runtime::IUnknown {
+    fn from(value: IADsBackLink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsBackLink> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsBackLink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsBackLink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsBackLink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsBackLink> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsBackLink) -> Self {
@@ -9368,13 +9527,13 @@ impl ::std::convert::From<&IADsBackLink> for super::super::System::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsBackLink {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsBackLink {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9400,8 +9559,8 @@ pub struct IADsBackLink_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsCaseIgnoreList(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsCaseIgnoreList(pub ::windows::runtime::IUnknown);
 impl IADsCaseIgnoreList {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -9419,6 +9578,26 @@ unsafe impl ::windows::runtime::Interface for IADsCaseIgnoreList {
     type Vtable = IADsCaseIgnoreList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2070328627, 18048, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
 }
+impl ::std::convert::From<IADsCaseIgnoreList> for ::windows::runtime::IUnknown {
+    fn from(value: IADsCaseIgnoreList) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsCaseIgnoreList> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsCaseIgnoreList) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsCaseIgnoreList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsCaseIgnoreList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsCaseIgnoreList> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsCaseIgnoreList) -> Self {
@@ -9434,13 +9613,13 @@ impl ::std::convert::From<&IADsCaseIgnoreList> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsCaseIgnoreList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsCaseIgnoreList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9464,8 +9643,8 @@ pub struct IADsCaseIgnoreList_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsClass(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsClass(pub ::windows::runtime::IUnknown);
 impl IADsClass {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -9721,6 +9900,26 @@ unsafe impl ::windows::runtime::Interface for IADsClass {
     type Vtable = IADsClass_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3371777488, 19168, 4559, [158, 115, 0, 170, 0, 74, 86, 145]);
 }
+impl ::std::convert::From<IADsClass> for ::windows::runtime::IUnknown {
+    fn from(value: IADsClass) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsClass> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsClass) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsClass {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsClass {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsClass> for IADs {
     fn from(value: IADsClass) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9733,12 +9932,12 @@ impl ::std::convert::From<&IADsClass> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsClass {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsClass {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -9756,13 +9955,13 @@ impl ::std::convert::From<&IADsClass> for super::super::System::Ole::Automation:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsClass {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsClass {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9857,8 +10056,8 @@ pub struct IADsClass_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsCollection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsCollection(pub ::windows::runtime::IUnknown);
 impl IADsCollection {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -9886,6 +10085,26 @@ unsafe impl ::windows::runtime::Interface for IADsCollection {
     type Vtable = IADsCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1924744672, 9531, 4559, [169, 136, 0, 170, 0, 107, 193, 73]);
 }
+impl ::std::convert::From<IADsCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IADsCollection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsCollection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsCollection> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsCollection) -> Self {
@@ -9901,13 +10120,13 @@ impl ::std::convert::From<&IADsCollection> for super::super::System::Ole::Automa
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9934,8 +10153,8 @@ pub struct IADsCollection_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsComputer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsComputer(pub ::windows::runtime::IUnknown);
 impl IADsComputer {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -10211,6 +10430,26 @@ unsafe impl ::windows::runtime::Interface for IADsComputer {
     type Vtable = IADsComputer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4024683632, 7583, 4559, [177, 243, 2, 96, 140, 158, 117, 83]);
 }
+impl ::std::convert::From<IADsComputer> for ::windows::runtime::IUnknown {
+    fn from(value: IADsComputer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsComputer> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsComputer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsComputer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsComputer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsComputer> for IADs {
     fn from(value: IADsComputer) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10223,12 +10462,12 @@ impl ::std::convert::From<&IADsComputer> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsComputer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsComputer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -10246,13 +10485,13 @@ impl ::std::convert::From<&IADsComputer> for super::super::System::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsComputer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsComputer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10360,8 +10599,8 @@ pub struct IADsComputer_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsComputerOperations(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsComputerOperations(pub ::windows::runtime::IUnknown);
 impl IADsComputerOperations {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -10470,6 +10709,26 @@ unsafe impl ::windows::runtime::Interface for IADsComputerOperations {
     type Vtable = IADsComputerOperations_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4014569088, 7583, 4559, [177, 243, 2, 96, 140, 158, 117, 83]);
 }
+impl ::std::convert::From<IADsComputerOperations> for ::windows::runtime::IUnknown {
+    fn from(value: IADsComputerOperations) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsComputerOperations> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsComputerOperations) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsComputerOperations {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsComputerOperations {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsComputerOperations> for IADs {
     fn from(value: IADsComputerOperations) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10482,12 +10741,12 @@ impl ::std::convert::From<&IADsComputerOperations> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsComputerOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsComputerOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -10505,13 +10764,13 @@ impl ::std::convert::From<&IADsComputerOperations> for super::super::System::Ole
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsComputerOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsComputerOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10558,8 +10817,8 @@ pub struct IADsComputerOperations_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsContainer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsContainer(pub ::windows::runtime::IUnknown);
 impl IADsContainer {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -10627,6 +10886,26 @@ unsafe impl ::windows::runtime::Interface for IADsContainer {
     type Vtable = IADsContainer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1472464, 64790, 4558, [171, 196, 2, 96, 140, 158, 117, 83]);
 }
+impl ::std::convert::From<IADsContainer> for ::windows::runtime::IUnknown {
+    fn from(value: IADsContainer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsContainer> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsContainer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsContainer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsContainer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsContainer> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsContainer) -> Self {
@@ -10642,13 +10921,13 @@ impl ::std::convert::From<&IADsContainer> for super::super::System::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10688,8 +10967,8 @@ pub struct IADsContainer_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsDNWithBinary(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsDNWithBinary(pub ::windows::runtime::IUnknown);
 impl IADsDNWithBinary {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -10718,6 +10997,26 @@ unsafe impl ::windows::runtime::Interface for IADsDNWithBinary {
     type Vtable = IADsDNWithBinary_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2124005538, 63797, 4562, [186, 150, 0, 192, 79, 182, 208, 209]);
 }
+impl ::std::convert::From<IADsDNWithBinary> for ::windows::runtime::IUnknown {
+    fn from(value: IADsDNWithBinary) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsDNWithBinary> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsDNWithBinary) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsDNWithBinary {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsDNWithBinary {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsDNWithBinary> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsDNWithBinary) -> Self {
@@ -10733,13 +11032,13 @@ impl ::std::convert::From<&IADsDNWithBinary> for super::super::System::Ole::Auto
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsDNWithBinary {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsDNWithBinary {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10767,8 +11066,8 @@ pub struct IADsDNWithBinary_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsDNWithString(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsDNWithString(pub ::windows::runtime::IUnknown);
 impl IADsDNWithString {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -10797,6 +11096,26 @@ unsafe impl ::windows::runtime::Interface for IADsDNWithString {
     type Vtable = IADsDNWithString_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(923660334, 63796, 4562, [186, 150, 0, 192, 79, 182, 208, 209]);
 }
+impl ::std::convert::From<IADsDNWithString> for ::windows::runtime::IUnknown {
+    fn from(value: IADsDNWithString) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsDNWithString> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsDNWithString) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsDNWithString {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsDNWithString {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsDNWithString> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsDNWithString) -> Self {
@@ -10812,13 +11131,13 @@ impl ::std::convert::From<&IADsDNWithString> for super::super::System::Ole::Auto
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsDNWithString {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsDNWithString {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10846,8 +11165,8 @@ pub struct IADsDNWithString_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsDeleteOps(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsDeleteOps(pub ::windows::runtime::IUnknown);
 impl IADsDeleteOps {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn DeleteObject(&self, lnflags: i32) -> ::windows::runtime::Result<()> {
@@ -10857,6 +11176,26 @@ impl IADsDeleteOps {
 unsafe impl ::windows::runtime::Interface for IADsDeleteOps {
     type Vtable = IADsDeleteOps_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2998733058, 34936, 4561, [140, 33, 0, 192, 79, 216, 213, 3]);
+}
+impl ::std::convert::From<IADsDeleteOps> for ::windows::runtime::IUnknown {
+    fn from(value: IADsDeleteOps) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsDeleteOps> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsDeleteOps) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsDeleteOps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsDeleteOps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsDeleteOps> for super::super::System::Ole::Automation::IDispatch {
@@ -10873,13 +11212,13 @@ impl ::std::convert::From<&IADsDeleteOps> for super::super::System::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsDeleteOps {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsDeleteOps {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10900,8 +11239,8 @@ pub struct IADsDeleteOps_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsDomain(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsDomain(pub ::windows::runtime::IUnknown);
 impl IADsDomain {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -11077,6 +11416,26 @@ unsafe impl ::windows::runtime::Interface for IADsDomain {
     type Vtable = IADsDomain_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(14991904, 64790, 4558, [171, 196, 2, 96, 140, 158, 117, 83]);
 }
+impl ::std::convert::From<IADsDomain> for ::windows::runtime::IUnknown {
+    fn from(value: IADsDomain) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsDomain> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsDomain) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsDomain {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsDomain {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsDomain> for IADs {
     fn from(value: IADsDomain) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11089,12 +11448,12 @@ impl ::std::convert::From<&IADsDomain> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsDomain {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsDomain {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11112,13 +11471,13 @@ impl ::std::convert::From<&IADsDomain> for super::super::System::Ole::Automation
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsDomain {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsDomain {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11179,8 +11538,8 @@ pub struct IADsDomain_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsEmail(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsEmail(pub ::windows::runtime::IUnknown);
 impl IADsEmail {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<i32> {
@@ -11207,6 +11566,26 @@ unsafe impl ::windows::runtime::Interface for IADsEmail {
     type Vtable = IADsEmail_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2544828698, 18318, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
 }
+impl ::std::convert::From<IADsEmail> for ::windows::runtime::IUnknown {
+    fn from(value: IADsEmail) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsEmail> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsEmail) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsEmail {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsEmail {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsEmail> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsEmail) -> Self {
@@ -11222,13 +11601,13 @@ impl ::std::convert::From<&IADsEmail> for super::super::System::Ole::Automation:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsEmail {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsEmail {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11254,8 +11633,8 @@ pub struct IADsEmail_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsExtension(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsExtension(pub ::windows::runtime::IUnknown);
 impl IADsExtension {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -11277,6 +11656,26 @@ unsafe impl ::windows::runtime::Interface for IADsExtension {
     type Vtable = IADsExtension_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1026905404, 53936, 4561, [177, 123, 0, 0, 248, 117, 147, 160]);
 }
+impl ::std::convert::From<IADsExtension> for ::windows::runtime::IUnknown {
+    fn from(value: IADsExtension) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsExtension> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsExtension) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsExtension {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsExtension {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsExtension_abi(
@@ -11292,8 +11691,8 @@ pub struct IADsExtension_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsFaxNumber(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsFaxNumber(pub ::windows::runtime::IUnknown);
 impl IADsFaxNumber {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -11322,6 +11721,26 @@ unsafe impl ::windows::runtime::Interface for IADsFaxNumber {
     type Vtable = IADsFaxNumber_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2836455081, 18048, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
 }
+impl ::std::convert::From<IADsFaxNumber> for ::windows::runtime::IUnknown {
+    fn from(value: IADsFaxNumber) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsFaxNumber> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsFaxNumber) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsFaxNumber {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsFaxNumber {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsFaxNumber> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsFaxNumber) -> Self {
@@ -11337,13 +11756,13 @@ impl ::std::convert::From<&IADsFaxNumber> for super::super::System::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsFaxNumber {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsFaxNumber {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11371,8 +11790,8 @@ pub struct IADsFaxNumber_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsFileService(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsFileService(pub ::windows::runtime::IUnknown);
 impl IADsFileService {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -11617,6 +12036,26 @@ unsafe impl ::windows::runtime::Interface for IADsFileService {
     type Vtable = IADsFileService_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2828867840, 12746, 4559, [169, 138, 0, 170, 0, 107, 193, 73]);
 }
+impl ::std::convert::From<IADsFileService> for ::windows::runtime::IUnknown {
+    fn from(value: IADsFileService) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsFileService> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsFileService) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsFileService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsFileService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsFileService> for IADsService {
     fn from(value: IADsFileService) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11629,12 +12068,12 @@ impl ::std::convert::From<&IADsFileService> for IADsService {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADsService> for IADsFileService {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADsService> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADsService>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADsService> for &IADsFileService {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADsService> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADsService>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IADsFileService> for IADs {
@@ -11649,12 +12088,12 @@ impl ::std::convert::From<&IADsFileService> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsFileService {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsFileService {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11672,13 +12111,13 @@ impl ::std::convert::From<&IADsFileService> for super::super::System::Ole::Autom
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsFileService {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsFileService {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11770,8 +12209,8 @@ pub struct IADsFileService_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsFileServiceOperations(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsFileServiceOperations(pub ::windows::runtime::IUnknown);
 impl IADsFileServiceOperations {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -11906,6 +12345,26 @@ unsafe impl ::windows::runtime::Interface for IADsFileServiceOperations {
     type Vtable = IADsFileServiceOperations_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2687364368, 12746, 4559, [169, 138, 0, 170, 0, 107, 193, 73]);
 }
+impl ::std::convert::From<IADsFileServiceOperations> for ::windows::runtime::IUnknown {
+    fn from(value: IADsFileServiceOperations) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsFileServiceOperations> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsFileServiceOperations) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsFileServiceOperations {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsFileServiceOperations {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsFileServiceOperations> for IADsServiceOperations {
     fn from(value: IADsFileServiceOperations) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11918,12 +12377,12 @@ impl ::std::convert::From<&IADsFileServiceOperations> for IADsServiceOperations 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADsServiceOperations> for IADsFileServiceOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADsServiceOperations> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADsServiceOperations>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADsServiceOperations> for &IADsFileServiceOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADsServiceOperations> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADsServiceOperations>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IADsFileServiceOperations> for IADs {
@@ -11938,12 +12397,12 @@ impl ::std::convert::From<&IADsFileServiceOperations> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsFileServiceOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsFileServiceOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11961,13 +12420,13 @@ impl ::std::convert::From<&IADsFileServiceOperations> for super::super::System::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsFileServiceOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsFileServiceOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12020,8 +12479,8 @@ pub struct IADsFileServiceOperations_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsFileShare(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsFileShare(pub ::windows::runtime::IUnknown);
 impl IADsFileShare {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -12167,6 +12626,26 @@ unsafe impl ::windows::runtime::Interface for IADsFileShare {
     type Vtable = IADsFileShare_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3949841136, 19331, 4559, [169, 149, 0, 170, 0, 107, 193, 73]);
 }
+impl ::std::convert::From<IADsFileShare> for ::windows::runtime::IUnknown {
+    fn from(value: IADsFileShare) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsFileShare> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsFileShare) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsFileShare {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsFileShare {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsFileShare> for IADs {
     fn from(value: IADsFileShare) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12179,12 +12658,12 @@ impl ::std::convert::From<&IADsFileShare> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsFileShare {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsFileShare {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12202,13 +12681,13 @@ impl ::std::convert::From<&IADsFileShare> for super::super::System::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsFileShare {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsFileShare {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12267,8 +12746,8 @@ pub struct IADsFileShare_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsGroup(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsGroup(pub ::windows::runtime::IUnknown);
 impl IADsGroup {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -12399,6 +12878,26 @@ unsafe impl ::windows::runtime::Interface for IADsGroup {
     type Vtable = IADsGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(660826880, 16655, 4559, [177, 255, 2, 96, 140, 158, 117, 83]);
 }
+impl ::std::convert::From<IADsGroup> for ::windows::runtime::IUnknown {
+    fn from(value: IADsGroup) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsGroup> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsGroup) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsGroup> for IADs {
     fn from(value: IADsGroup) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12411,12 +12910,12 @@ impl ::std::convert::From<&IADsGroup> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12434,13 +12933,13 @@ impl ::std::convert::From<&IADsGroup> for super::super::System::Ole::Automation:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12495,8 +12994,8 @@ pub struct IADsGroup_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsHold(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsHold(pub ::windows::runtime::IUnknown);
 impl IADsHold {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -12523,6 +13022,26 @@ unsafe impl ::windows::runtime::Interface for IADsHold {
     type Vtable = IADsHold_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3018537783, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
 }
+impl ::std::convert::From<IADsHold> for ::windows::runtime::IUnknown {
+    fn from(value: IADsHold) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsHold> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsHold) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsHold {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsHold {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsHold> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsHold) -> Self {
@@ -12538,13 +13057,13 @@ impl ::std::convert::From<&IADsHold> for super::super::System::Ole::Automation::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsHold {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsHold {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12570,8 +13089,8 @@ pub struct IADsHold_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsLargeInteger(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsLargeInteger(pub ::windows::runtime::IUnknown);
 impl IADsLargeInteger {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn HighPart(&self) -> ::windows::runtime::Result<i32> {
@@ -12596,6 +13115,26 @@ unsafe impl ::windows::runtime::Interface for IADsLargeInteger {
     type Vtable = IADsLargeInteger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2422744843, 2361, 4561, [139, 225, 0, 192, 79, 216, 213, 3]);
 }
+impl ::std::convert::From<IADsLargeInteger> for ::windows::runtime::IUnknown {
+    fn from(value: IADsLargeInteger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsLargeInteger> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsLargeInteger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsLargeInteger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsLargeInteger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsLargeInteger> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsLargeInteger) -> Self {
@@ -12611,13 +13150,13 @@ impl ::std::convert::From<&IADsLargeInteger> for super::super::System::Ole::Auto
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsLargeInteger {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsLargeInteger {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12641,8 +13180,8 @@ pub struct IADsLargeInteger_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsLocality(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsLocality(pub ::windows::runtime::IUnknown);
 impl IADsLocality {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -12785,6 +13324,26 @@ unsafe impl ::windows::runtime::Interface for IADsLocality {
     type Vtable = IADsLocality_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2690515874, 61438, 4559, [138, 188, 0, 192, 79, 216, 213, 3]);
 }
+impl ::std::convert::From<IADsLocality> for ::windows::runtime::IUnknown {
+    fn from(value: IADsLocality) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsLocality> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsLocality) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsLocality {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsLocality {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsLocality> for IADs {
     fn from(value: IADsLocality) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12797,12 +13356,12 @@ impl ::std::convert::From<&IADsLocality> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsLocality {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsLocality {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12820,13 +13379,13 @@ impl ::std::convert::From<&IADsLocality> for super::super::System::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsLocality {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsLocality {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12886,8 +13445,8 @@ pub struct IADsLocality_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsMembers(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsMembers(pub ::windows::runtime::IUnknown);
 impl IADsMembers {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -12915,6 +13474,26 @@ unsafe impl ::windows::runtime::Interface for IADsMembers {
     type Vtable = IADsMembers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1159331888, 29420, 4559, [176, 59, 0, 170, 0, 110, 9, 117]);
 }
+impl ::std::convert::From<IADsMembers> for ::windows::runtime::IUnknown {
+    fn from(value: IADsMembers) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsMembers> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsMembers) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsMembers {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsMembers {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsMembers> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsMembers) -> Self {
@@ -12930,13 +13509,13 @@ impl ::std::convert::From<&IADsMembers> for super::super::System::Ole::Automatio
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsMembers {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsMembers {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12962,8 +13541,8 @@ pub struct IADsMembers_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsNameTranslate(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsNameTranslate(pub ::windows::runtime::IUnknown);
 impl IADsNameTranslate {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn SetChaseReferral(&self, lnchasereferral: i32) -> ::windows::runtime::Result<()> {
@@ -13006,6 +13585,26 @@ unsafe impl ::windows::runtime::Interface for IADsNameTranslate {
     type Vtable = IADsNameTranslate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2981261987, 13861, 4561, [163, 164, 0, 192, 79, 185, 80, 220]);
 }
+impl ::std::convert::From<IADsNameTranslate> for ::windows::runtime::IUnknown {
+    fn from(value: IADsNameTranslate) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsNameTranslate> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsNameTranslate) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsNameTranslate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsNameTranslate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsNameTranslate> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsNameTranslate) -> Self {
@@ -13021,13 +13620,13 @@ impl ::std::convert::From<&IADsNameTranslate> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsNameTranslate {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsNameTranslate {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13060,8 +13659,8 @@ pub struct IADsNameTranslate_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsNamespaces(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsNamespaces(pub ::windows::runtime::IUnknown);
 impl IADsNamespaces {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -13171,6 +13770,26 @@ unsafe impl ::windows::runtime::Interface for IADsNamespaces {
     type Vtable = IADsNamespaces_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(683240352, 45872, 4559, [169, 173, 0, 170, 0, 107, 193, 73]);
 }
+impl ::std::convert::From<IADsNamespaces> for ::windows::runtime::IUnknown {
+    fn from(value: IADsNamespaces) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsNamespaces> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsNamespaces) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsNamespaces {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsNamespaces {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsNamespaces> for IADs {
     fn from(value: IADsNamespaces) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13183,12 +13802,12 @@ impl ::std::convert::From<&IADsNamespaces> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsNamespaces {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsNamespaces {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -13206,13 +13825,13 @@ impl ::std::convert::From<&IADsNamespaces> for super::super::System::Ole::Automa
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsNamespaces {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsNamespaces {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13260,8 +13879,8 @@ pub struct IADsNamespaces_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsNetAddress(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsNetAddress(pub ::windows::runtime::IUnknown);
 impl IADsNetAddress {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn AddressType(&self) -> ::windows::runtime::Result<i32> {
@@ -13288,6 +13907,26 @@ unsafe impl ::windows::runtime::Interface for IADsNetAddress {
     type Vtable = IADsNetAddress_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2988069033, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
 }
+impl ::std::convert::From<IADsNetAddress> for ::windows::runtime::IUnknown {
+    fn from(value: IADsNetAddress) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsNetAddress> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsNetAddress) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsNetAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsNetAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsNetAddress> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsNetAddress) -> Self {
@@ -13303,13 +13942,13 @@ impl ::std::convert::From<&IADsNetAddress> for super::super::System::Ole::Automa
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsNetAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsNetAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13335,8 +13974,8 @@ pub struct IADsNetAddress_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsO(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsO(pub ::windows::runtime::IUnknown);
 impl IADsO {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -13501,6 +14140,26 @@ unsafe impl ::windows::runtime::Interface for IADsO {
     type Vtable = IADsO_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2714578374, 61438, 4559, [138, 188, 0, 192, 79, 216, 213, 3]);
 }
+impl ::std::convert::From<IADsO> for ::windows::runtime::IUnknown {
+    fn from(value: IADsO) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsO> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsO) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsO {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsO {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsO> for IADs {
     fn from(value: IADsO) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13513,12 +14172,12 @@ impl ::std::convert::From<&IADsO> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsO {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsO {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -13536,13 +14195,13 @@ impl ::std::convert::From<&IADsO> for super::super::System::Ole::Automation::IDi
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsO {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsO {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13610,8 +14269,8 @@ pub struct IADsO_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsOU(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsOU(pub ::windows::runtime::IUnknown);
 impl IADsOU {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -13787,6 +14446,26 @@ unsafe impl ::windows::runtime::Interface for IADsOU {
     type Vtable = IADsOU_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2734109624, 61438, 4559, [138, 188, 0, 192, 79, 216, 213, 3]);
 }
+impl ::std::convert::From<IADsOU> for ::windows::runtime::IUnknown {
+    fn from(value: IADsOU) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsOU> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsOU) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsOU {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsOU {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsOU> for IADs {
     fn from(value: IADsOU) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13799,12 +14478,12 @@ impl ::std::convert::From<&IADsOU> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsOU {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsOU {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -13822,13 +14501,13 @@ impl ::std::convert::From<&IADsOU> for super::super::System::Ole::Automation::ID
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsOU {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsOU {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13900,8 +14579,8 @@ pub struct IADsOU_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsObjectOptions(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsObjectOptions(pub ::windows::runtime::IUnknown);
 impl IADsObjectOptions {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -13919,6 +14598,26 @@ unsafe impl ::windows::runtime::Interface for IADsObjectOptions {
     type Vtable = IADsObjectOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1190219738, 9003, 4561, [168, 8, 0, 192, 79, 216, 213, 168]);
 }
+impl ::std::convert::From<IADsObjectOptions> for ::windows::runtime::IUnknown {
+    fn from(value: IADsObjectOptions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsObjectOptions> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsObjectOptions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsObjectOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsObjectOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsObjectOptions> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsObjectOptions) -> Self {
@@ -13934,13 +14633,13 @@ impl ::std::convert::From<&IADsObjectOptions> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsObjectOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsObjectOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13964,8 +14663,8 @@ pub struct IADsObjectOptions_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsOctetList(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsOctetList(pub ::windows::runtime::IUnknown);
 impl IADsOctetList {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -13983,6 +14682,26 @@ unsafe impl ::windows::runtime::Interface for IADsOctetList {
     type Vtable = IADsOctetList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2066266127, 18048, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
 }
+impl ::std::convert::From<IADsOctetList> for ::windows::runtime::IUnknown {
+    fn from(value: IADsOctetList) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsOctetList> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsOctetList) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsOctetList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsOctetList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsOctetList> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsOctetList) -> Self {
@@ -13998,13 +14717,13 @@ impl ::std::convert::From<&IADsOctetList> for super::super::System::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsOctetList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsOctetList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14028,8 +14747,8 @@ pub struct IADsOctetList_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsOpenDSObject(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsOpenDSObject(pub ::windows::runtime::IUnknown);
 impl IADsOpenDSObject {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
@@ -14041,6 +14760,26 @@ impl IADsOpenDSObject {
 unsafe impl ::windows::runtime::Interface for IADsOpenDSObject {
     type Vtable = IADsOpenDSObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3723659550, 3996, 4560, [138, 212, 0, 192, 79, 216, 213, 3]);
+}
+impl ::std::convert::From<IADsOpenDSObject> for ::windows::runtime::IUnknown {
+    fn from(value: IADsOpenDSObject) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsOpenDSObject> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsOpenDSObject) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsOpenDSObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsOpenDSObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsOpenDSObject> for super::super::System::Ole::Automation::IDispatch {
@@ -14057,13 +14796,13 @@ impl ::std::convert::From<&IADsOpenDSObject> for super::super::System::Ole::Auto
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsOpenDSObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsOpenDSObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14085,8 +14824,8 @@ pub struct IADsOpenDSObject_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsPath(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsPath(pub ::windows::runtime::IUnknown);
 impl IADsPath {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<i32> {
@@ -14124,6 +14863,26 @@ unsafe impl ::windows::runtime::Interface for IADsPath {
     type Vtable = IADsPath_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2995256533, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
 }
+impl ::std::convert::From<IADsPath> for ::windows::runtime::IUnknown {
+    fn from(value: IADsPath) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsPath> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsPath) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsPath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsPath> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsPath) -> Self {
@@ -14139,13 +14898,13 @@ impl ::std::convert::From<&IADsPath> for super::super::System::Ole::Automation::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsPath {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsPath {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14175,8 +14934,8 @@ pub struct IADsPath_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsPathname(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsPathname(pub ::windows::runtime::IUnknown);
 impl IADsPathname {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -14239,6 +14998,26 @@ unsafe impl ::windows::runtime::Interface for IADsPathname {
     type Vtable = IADsPathname_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583160020, 62496, 4560, [163, 110, 0, 192, 79, 185, 80, 220]);
 }
+impl ::std::convert::From<IADsPathname> for ::windows::runtime::IUnknown {
+    fn from(value: IADsPathname) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsPathname> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsPathname) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPathname {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsPathname {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsPathname> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsPathname) -> Self {
@@ -14254,13 +15033,13 @@ impl ::std::convert::From<&IADsPathname> for super::super::System::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsPathname {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsPathname {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14297,8 +15076,8 @@ pub struct IADsPathname_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsPostalAddress(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsPostalAddress(pub ::windows::runtime::IUnknown);
 impl IADsPostalAddress {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -14316,6 +15095,26 @@ unsafe impl ::windows::runtime::Interface for IADsPostalAddress {
     type Vtable = IADsPostalAddress_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2061422377, 18048, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
 }
+impl ::std::convert::From<IADsPostalAddress> for ::windows::runtime::IUnknown {
+    fn from(value: IADsPostalAddress) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsPostalAddress> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsPostalAddress) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPostalAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsPostalAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsPostalAddress> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsPostalAddress) -> Self {
@@ -14331,13 +15130,13 @@ impl ::std::convert::From<&IADsPostalAddress> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsPostalAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsPostalAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14361,8 +15160,8 @@ pub struct IADsPostalAddress_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsPrintJob(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsPrintJob(pub ::windows::runtime::IUnknown);
 impl IADsPrintJob {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -14554,6 +15353,26 @@ unsafe impl ::windows::runtime::Interface for IADsPrintJob {
     type Vtable = IADsPrintJob_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(855336832, 7888, 4559, [169, 136, 0, 170, 0, 107, 193, 73]);
 }
+impl ::std::convert::From<IADsPrintJob> for ::windows::runtime::IUnknown {
+    fn from(value: IADsPrintJob) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsPrintJob> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsPrintJob) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPrintJob {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsPrintJob {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsPrintJob> for IADs {
     fn from(value: IADsPrintJob) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -14566,12 +15385,12 @@ impl ::std::convert::From<&IADsPrintJob> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsPrintJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsPrintJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -14589,13 +15408,13 @@ impl ::std::convert::From<&IADsPrintJob> for super::super::System::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsPrintJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsPrintJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14666,8 +15485,8 @@ pub struct IADsPrintJob_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsPrintJobOperations(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsPrintJobOperations(pub ::windows::runtime::IUnknown);
 impl IADsPrintJobOperations {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -14798,6 +15617,26 @@ unsafe impl ::windows::runtime::Interface for IADsPrintJobOperations {
     type Vtable = IADsPrintJobOperations_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2589121328, 7887, 4559, [169, 136, 0, 170, 0, 107, 193, 73]);
 }
+impl ::std::convert::From<IADsPrintJobOperations> for ::windows::runtime::IUnknown {
+    fn from(value: IADsPrintJobOperations) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsPrintJobOperations> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsPrintJobOperations) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPrintJobOperations {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsPrintJobOperations {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsPrintJobOperations> for IADs {
     fn from(value: IADsPrintJobOperations) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -14810,12 +15649,12 @@ impl ::std::convert::From<&IADsPrintJobOperations> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsPrintJobOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsPrintJobOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -14833,13 +15672,13 @@ impl ::std::convert::From<&IADsPrintJobOperations> for super::super::System::Ole
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsPrintJobOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsPrintJobOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14890,8 +15729,8 @@ pub struct IADsPrintJobOperations_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsPrintQueue(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsPrintQueue(pub ::windows::runtime::IUnknown);
 impl IADsPrintQueue {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -15125,6 +15964,26 @@ unsafe impl ::windows::runtime::Interface for IADsPrintQueue {
     type Vtable = IADsPrintQueue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2974900432, 4646, 4559, [169, 133, 0, 170, 0, 107, 193, 73]);
 }
+impl ::std::convert::From<IADsPrintQueue> for ::windows::runtime::IUnknown {
+    fn from(value: IADsPrintQueue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsPrintQueue> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsPrintQueue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPrintQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsPrintQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsPrintQueue> for IADs {
     fn from(value: IADsPrintQueue) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -15137,12 +15996,12 @@ impl ::std::convert::From<&IADsPrintQueue> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsPrintQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsPrintQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -15160,13 +16019,13 @@ impl ::std::convert::From<&IADsPrintQueue> for super::super::System::Ole::Automa
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsPrintQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsPrintQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15254,8 +16113,8 @@ pub struct IADsPrintQueue_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsPrintQueueOperations(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsPrintQueueOperations(pub ::windows::runtime::IUnknown);
 impl IADsPrintQueueOperations {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -15376,6 +16235,26 @@ unsafe impl ::windows::runtime::Interface for IADsPrintQueueOperations {
     type Vtable = IADsPrintQueueOperations_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(306963904, 5486, 4559, [169, 134, 0, 170, 0, 107, 193, 73]);
 }
+impl ::std::convert::From<IADsPrintQueueOperations> for ::windows::runtime::IUnknown {
+    fn from(value: IADsPrintQueueOperations) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsPrintQueueOperations> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsPrintQueueOperations) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPrintQueueOperations {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsPrintQueueOperations {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsPrintQueueOperations> for IADs {
     fn from(value: IADsPrintQueueOperations) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -15388,12 +16267,12 @@ impl ::std::convert::From<&IADsPrintQueueOperations> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsPrintQueueOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsPrintQueueOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -15411,13 +16290,13 @@ impl ::std::convert::From<&IADsPrintQueueOperations> for super::super::System::O
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsPrintQueueOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsPrintQueueOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15466,8 +16345,8 @@ pub struct IADsPrintQueueOperations_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsProperty(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsProperty(pub ::windows::runtime::IUnknown);
 impl IADsProperty {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -15620,6 +16499,26 @@ unsafe impl ::windows::runtime::Interface for IADsProperty {
     type Vtable = IADsProperty_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3371777491, 19168, 4559, [158, 115, 0, 170, 0, 74, 86, 145]);
 }
+impl ::std::convert::From<IADsProperty> for ::windows::runtime::IUnknown {
+    fn from(value: IADsProperty) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsProperty> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsProperty) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsProperty> for IADs {
     fn from(value: IADsProperty) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -15632,12 +16531,12 @@ impl ::std::convert::From<&IADsProperty> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -15655,13 +16554,13 @@ impl ::std::convert::From<&IADsProperty> for super::super::System::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15720,8 +16619,8 @@ pub struct IADsProperty_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsPropertyEntry(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsPropertyEntry(pub ::windows::runtime::IUnknown);
 impl IADsPropertyEntry {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn Clear(&self) -> ::windows::runtime::Result<()> {
@@ -15772,6 +16671,26 @@ unsafe impl ::windows::runtime::Interface for IADsPropertyEntry {
     type Vtable = IADsPropertyEntry_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(91827342, 37919, 4560, [133, 41, 0, 192, 79, 216, 213, 3]);
 }
+impl ::std::convert::From<IADsPropertyEntry> for ::windows::runtime::IUnknown {
+    fn from(value: IADsPropertyEntry) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsPropertyEntry> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsPropertyEntry) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPropertyEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsPropertyEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsPropertyEntry> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsPropertyEntry) -> Self {
@@ -15787,13 +16706,13 @@ impl ::std::convert::From<&IADsPropertyEntry> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsPropertyEntry {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsPropertyEntry {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15826,8 +16745,8 @@ pub struct IADsPropertyEntry_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsPropertyList(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsPropertyList(pub ::windows::runtime::IUnknown);
 impl IADsPropertyList {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn PropertyCount(&self) -> ::windows::runtime::Result<i32> {
@@ -15879,6 +16798,26 @@ unsafe impl ::windows::runtime::Interface for IADsPropertyList {
     type Vtable = IADsPropertyList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3338011318, 36713, 4560, [133, 40, 0, 192, 79, 216, 213, 3]);
 }
+impl ::std::convert::From<IADsPropertyList> for ::windows::runtime::IUnknown {
+    fn from(value: IADsPropertyList) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsPropertyList> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsPropertyList) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPropertyList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsPropertyList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsPropertyList> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsPropertyList) -> Self {
@@ -15894,13 +16833,13 @@ impl ::std::convert::From<&IADsPropertyList> for super::super::System::Ole::Auto
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsPropertyList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsPropertyList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15934,8 +16873,8 @@ pub struct IADsPropertyList_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsPropertyValue(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsPropertyValue(pub ::windows::runtime::IUnknown);
 impl IADsPropertyValue {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn Clear(&self) -> ::windows::runtime::Result<()> {
@@ -16070,6 +17009,26 @@ unsafe impl ::windows::runtime::Interface for IADsPropertyValue {
     type Vtable = IADsPropertyValue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2046466768, 43388, 4560, [133, 52, 0, 192, 79, 216, 213, 3]);
 }
+impl ::std::convert::From<IADsPropertyValue> for ::windows::runtime::IUnknown {
+    fn from(value: IADsPropertyValue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsPropertyValue> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsPropertyValue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPropertyValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsPropertyValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsPropertyValue> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsPropertyValue) -> Self {
@@ -16085,13 +17044,13 @@ impl ::std::convert::From<&IADsPropertyValue> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsPropertyValue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsPropertyValue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16152,8 +17111,8 @@ pub struct IADsPropertyValue_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsPropertyValue2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsPropertyValue2(pub ::windows::runtime::IUnknown);
 impl IADsPropertyValue2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -16170,6 +17129,26 @@ unsafe impl ::windows::runtime::Interface for IADsPropertyValue2 {
     type Vtable = IADsPropertyValue2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(812548892, 23495, 4561, [163, 184, 0, 192, 79, 185, 80, 220]);
 }
+impl ::std::convert::From<IADsPropertyValue2> for ::windows::runtime::IUnknown {
+    fn from(value: IADsPropertyValue2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsPropertyValue2> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsPropertyValue2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPropertyValue2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsPropertyValue2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsPropertyValue2> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsPropertyValue2) -> Self {
@@ -16185,13 +17164,13 @@ impl ::std::convert::From<&IADsPropertyValue2> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsPropertyValue2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsPropertyValue2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16215,8 +17194,8 @@ pub struct IADsPropertyValue2_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsReplicaPointer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsReplicaPointer(pub ::windows::runtime::IUnknown);
 impl IADsReplicaPointer {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -16272,6 +17251,26 @@ unsafe impl ::windows::runtime::Interface for IADsReplicaPointer {
     type Vtable = IADsReplicaPointer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4128225283, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
 }
+impl ::std::convert::From<IADsReplicaPointer> for ::windows::runtime::IUnknown {
+    fn from(value: IADsReplicaPointer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsReplicaPointer> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsReplicaPointer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsReplicaPointer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsReplicaPointer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsReplicaPointer> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsReplicaPointer) -> Self {
@@ -16287,13 +17286,13 @@ impl ::std::convert::From<&IADsReplicaPointer> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsReplicaPointer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsReplicaPointer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16327,8 +17326,8 @@ pub struct IADsReplicaPointer_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsResource(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsResource(pub ::windows::runtime::IUnknown);
 impl IADsResource {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -16450,6 +17449,26 @@ unsafe impl ::windows::runtime::Interface for IADsResource {
     type Vtable = IADsResource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(882924320, 19115, 4559, [174, 44, 0, 170, 0, 110, 191, 185]);
 }
+impl ::std::convert::From<IADsResource> for ::windows::runtime::IUnknown {
+    fn from(value: IADsResource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsResource> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsResource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsResource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsResource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsResource> for IADs {
     fn from(value: IADsResource) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -16462,12 +17481,12 @@ impl ::std::convert::From<&IADsResource> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -16485,13 +17504,13 @@ impl ::std::convert::From<&IADsResource> for super::super::System::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16542,8 +17561,8 @@ pub struct IADsResource_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsSecurityDescriptor(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsSecurityDescriptor(pub ::windows::runtime::IUnknown);
 impl IADsSecurityDescriptor {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn Revision(&self) -> ::windows::runtime::Result<i32> {
@@ -16654,6 +17673,26 @@ unsafe impl ::windows::runtime::Interface for IADsSecurityDescriptor {
     type Vtable = IADsSecurityDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3100084170, 39901, 4560, [133, 44, 0, 192, 79, 216, 213, 3]);
 }
+impl ::std::convert::From<IADsSecurityDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: IADsSecurityDescriptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsSecurityDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsSecurityDescriptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsSecurityDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsSecurityDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsSecurityDescriptor> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsSecurityDescriptor) -> Self {
@@ -16669,13 +17708,13 @@ impl ::std::convert::From<&IADsSecurityDescriptor> for super::super::System::Ole
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsSecurityDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsSecurityDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16725,8 +17764,8 @@ pub struct IADsSecurityDescriptor_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsSecurityUtility(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsSecurityUtility(pub ::windows::runtime::IUnknown);
 impl IADsSecurityUtility {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -16759,6 +17798,26 @@ unsafe impl ::windows::runtime::Interface for IADsSecurityUtility {
     type Vtable = IADsSecurityUtility_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2788315570, 24353, 18251, [171, 82, 74, 142, 250, 209, 8, 149]);
 }
+impl ::std::convert::From<IADsSecurityUtility> for ::windows::runtime::IUnknown {
+    fn from(value: IADsSecurityUtility) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsSecurityUtility> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsSecurityUtility) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsSecurityUtility {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsSecurityUtility {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsSecurityUtility> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsSecurityUtility) -> Self {
@@ -16774,13 +17833,13 @@ impl ::std::convert::From<&IADsSecurityUtility> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsSecurityUtility {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsSecurityUtility {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16808,8 +17867,8 @@ pub struct IADsSecurityUtility_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsService(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsService(pub ::windows::runtime::IUnknown);
 impl IADsService {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -17034,6 +18093,26 @@ unsafe impl ::windows::runtime::Interface for IADsService {
     type Vtable = IADsService_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1756325600, 12746, 4559, [169, 138, 0, 170, 0, 107, 193, 73]);
 }
+impl ::std::convert::From<IADsService> for ::windows::runtime::IUnknown {
+    fn from(value: IADsService) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsService> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsService) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsService> for IADs {
     fn from(value: IADsService) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -17046,12 +18125,12 @@ impl ::std::convert::From<&IADsService> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsService {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsService {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -17069,13 +18148,13 @@ impl ::std::convert::From<&IADsService> for super::super::System::Ole::Automatio
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsService {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsService {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17161,8 +18240,8 @@ pub struct IADsService_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsServiceOperations(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsServiceOperations(pub ::windows::runtime::IUnknown);
 impl IADsServiceOperations {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -17287,6 +18366,26 @@ unsafe impl ::windows::runtime::Interface for IADsServiceOperations {
     type Vtable = IADsServiceOperations_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1568355312, 12746, 4559, [169, 138, 0, 170, 0, 107, 193, 73]);
 }
+impl ::std::convert::From<IADsServiceOperations> for ::windows::runtime::IUnknown {
+    fn from(value: IADsServiceOperations) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsServiceOperations> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsServiceOperations) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsServiceOperations {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsServiceOperations {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsServiceOperations> for IADs {
     fn from(value: IADsServiceOperations) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -17299,12 +18398,12 @@ impl ::std::convert::From<&IADsServiceOperations> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsServiceOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsServiceOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -17322,13 +18421,13 @@ impl ::std::convert::From<&IADsServiceOperations> for super::super::System::Ole:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsServiceOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsServiceOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17379,8 +18478,8 @@ pub struct IADsServiceOperations_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsSession(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsSession(pub ::windows::runtime::IUnknown);
 impl IADsSession {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -17513,6 +18612,26 @@ unsafe impl ::windows::runtime::Interface for IADsSession {
     type Vtable = IADsSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(965442976, 19115, 4559, [174, 44, 0, 170, 0, 110, 191, 185]);
 }
+impl ::std::convert::From<IADsSession> for ::windows::runtime::IUnknown {
+    fn from(value: IADsSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsSession> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsSession> for IADs {
     fn from(value: IADsSession) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -17525,12 +18644,12 @@ impl ::std::convert::From<&IADsSession> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -17548,13 +18667,13 @@ impl ::std::convert::From<&IADsSession> for super::super::System::Ole::Automatio
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17608,8 +18727,8 @@ pub struct IADsSession_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsSyntax(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsSyntax(pub ::windows::runtime::IUnknown);
 impl IADsSyntax {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -17717,6 +18836,26 @@ unsafe impl ::windows::runtime::Interface for IADsSyntax {
     type Vtable = IADsSyntax_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3371777490, 19168, 4559, [158, 115, 0, 170, 0, 74, 86, 145]);
 }
+impl ::std::convert::From<IADsSyntax> for ::windows::runtime::IUnknown {
+    fn from(value: IADsSyntax) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsSyntax> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsSyntax) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsSyntax {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsSyntax {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsSyntax> for IADs {
     fn from(value: IADsSyntax) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -17729,12 +18868,12 @@ impl ::std::convert::From<&IADsSyntax> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsSyntax {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsSyntax {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -17752,13 +18891,13 @@ impl ::std::convert::From<&IADsSyntax> for super::super::System::Ole::Automation
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsSyntax {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsSyntax {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17804,8 +18943,8 @@ pub struct IADsSyntax_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsTimestamp(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsTimestamp(pub ::windows::runtime::IUnknown);
 impl IADsTimestamp {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn WholeSeconds(&self) -> ::windows::runtime::Result<i32> {
@@ -17830,6 +18969,26 @@ unsafe impl ::windows::runtime::Interface for IADsTimestamp {
     type Vtable = IADsTimestamp_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3002444033, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
 }
+impl ::std::convert::From<IADsTimestamp> for ::windows::runtime::IUnknown {
+    fn from(value: IADsTimestamp) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsTimestamp> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsTimestamp) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsTimestamp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsTimestamp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsTimestamp> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsTimestamp) -> Self {
@@ -17845,13 +19004,13 @@ impl ::std::convert::From<&IADsTimestamp> for super::super::System::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsTimestamp {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsTimestamp {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17875,8 +19034,8 @@ pub struct IADsTimestamp_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsTypedName(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsTypedName(pub ::windows::runtime::IUnknown);
 impl IADsTypedName {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -17912,6 +19071,26 @@ unsafe impl ::windows::runtime::Interface for IADsTypedName {
     type Vtable = IADsTypedName_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3010569033, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
 }
+impl ::std::convert::From<IADsTypedName> for ::windows::runtime::IUnknown {
+    fn from(value: IADsTypedName) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsTypedName> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsTypedName) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsTypedName {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsTypedName {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsTypedName> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsTypedName) -> Self {
@@ -17927,13 +19106,13 @@ impl ::std::convert::From<&IADsTypedName> for super::super::System::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsTypedName {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsTypedName {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17961,8 +19140,8 @@ pub struct IADsTypedName_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsUser(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsUser(pub ::windows::runtime::IUnknown);
 impl IADsUser {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -18536,6 +19715,26 @@ unsafe impl ::windows::runtime::Interface for IADsUser {
     type Vtable = IADsUser_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1043850016, 6114, 4559, [171, 196, 2, 96, 140, 158, 117, 83]);
 }
+impl ::std::convert::From<IADsUser> for ::windows::runtime::IUnknown {
+    fn from(value: IADsUser) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsUser> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsUser) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsUser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsUser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IADsUser> for IADs {
     fn from(value: IADsUser) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -18548,12 +19747,12 @@ impl ::std::convert::From<&IADsUser> for IADs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for IADsUser {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IADs> for &IADsUser {
     fn into_param(self) -> ::windows::runtime::Param<'a, IADs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IADs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -18571,13 +19770,13 @@ impl ::std::convert::From<&IADsUser> for super::super::System::Ole::Automation::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsUser {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsUser {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -18775,8 +19974,8 @@ pub struct IADsUser_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IADsWinNTSystemInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IADsWinNTSystemInfo(pub ::windows::runtime::IUnknown);
 impl IADsWinNTSystemInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -18807,6 +20006,26 @@ unsafe impl ::windows::runtime::Interface for IADsWinNTSystemInfo {
     type Vtable = IADsWinNTSystemInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1819108828, 45009, 4562, [156, 185, 0, 0, 248, 122, 54, 158]);
 }
+impl ::std::convert::From<IADsWinNTSystemInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IADsWinNTSystemInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IADsWinNTSystemInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IADsWinNTSystemInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsWinNTSystemInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADsWinNTSystemInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsWinNTSystemInfo> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsWinNTSystemInfo) -> Self {
@@ -18822,13 +20041,13 @@ impl ::std::convert::From<&IADsWinNTSystemInfo> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IADsWinNTSystemInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IADsWinNTSystemInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -18856,8 +20075,8 @@ pub struct IADsWinNTSystemInfo_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ICommonQuery(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ICommonQuery(pub ::windows::runtime::IUnknown);
 impl ICommonQuery {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -18868,6 +20087,26 @@ impl ICommonQuery {
 unsafe impl ::windows::runtime::Interface for ICommonQuery {
     type Vtable = ICommonQuery_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2874203840, 28445, 4560, [161, 196, 0, 170, 0, 193, 110, 101]);
+}
+impl ::std::convert::From<ICommonQuery> for ::windows::runtime::IUnknown {
+    fn from(value: ICommonQuery) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ICommonQuery> for ::windows::runtime::IUnknown {
+    fn from(value: &ICommonQuery) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICommonQuery {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICommonQuery {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18880,8 +20119,8 @@ pub struct ICommonQuery_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectoryObject(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectoryObject(pub ::windows::runtime::IUnknown);
 impl IDirectoryObject {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -18916,6 +20155,26 @@ unsafe impl ::windows::runtime::Interface for IDirectoryObject {
     type Vtable = IDirectoryObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885555244, 8932, 4560, [132, 254, 0, 192, 79, 216, 213, 3]);
 }
+impl ::std::convert::From<IDirectoryObject> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectoryObject) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectoryObject> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectoryObject) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectoryObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectoryObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectoryObject_abi(
@@ -18935,8 +20194,8 @@ pub struct IDirectoryObject_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectorySchemaMgmt(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectorySchemaMgmt(pub ::windows::runtime::IUnknown);
 impl IDirectorySchemaMgmt {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -18983,6 +20242,26 @@ unsafe impl ::windows::runtime::Interface for IDirectorySchemaMgmt {
     type Vtable = IDirectorySchemaMgmt_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1977301916, 42200, 4560, [167, 156, 0, 192, 79, 216, 213, 168]);
 }
+impl ::std::convert::From<IDirectorySchemaMgmt> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectorySchemaMgmt) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectorySchemaMgmt> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectorySchemaMgmt) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectorySchemaMgmt {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectorySchemaMgmt {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectorySchemaMgmt_abi(
@@ -19008,8 +20287,8 @@ pub struct IDirectorySchemaMgmt_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectorySearch(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectorySearch(pub ::windows::runtime::IUnknown);
 impl IDirectorySearch {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -19064,6 +20343,26 @@ unsafe impl ::windows::runtime::Interface for IDirectorySearch {
     type Vtable = IDirectorySearch_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(278636780, 37616, 4560, [167, 144, 0, 192, 79, 216, 213, 168]);
 }
+impl ::std::convert::From<IDirectorySearch> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectorySearch) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectorySearch> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectorySearch) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectorySearch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectorySearch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectorySearch_abi(
@@ -19088,8 +20387,8 @@ pub struct IDirectorySearch_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDsAdminCreateObj(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDsAdminCreateObj(pub ::windows::runtime::IUnknown);
 impl IDsAdminCreateObj {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -19107,6 +20406,26 @@ unsafe impl ::windows::runtime::Interface for IDsAdminCreateObj {
     type Vtable = IDsAdminCreateObj_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1398098488, 63746, 4562, [130, 185, 0, 192, 79, 104, 146, 139]);
 }
+impl ::std::convert::From<IDsAdminCreateObj> for ::windows::runtime::IUnknown {
+    fn from(value: IDsAdminCreateObj) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDsAdminCreateObj> for ::windows::runtime::IUnknown {
+    fn from(value: &IDsAdminCreateObj) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsAdminCreateObj {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDsAdminCreateObj {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminCreateObj_abi(
@@ -19120,8 +20439,8 @@ pub struct IDsAdminCreateObj_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDsAdminNewObj(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDsAdminNewObj(pub ::windows::runtime::IUnknown);
 impl IDsAdminNewObj {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -19137,6 +20456,26 @@ unsafe impl ::windows::runtime::Interface for IDsAdminNewObj {
     type Vtable = IDsAdminNewObj_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4065801607, 59132, 4562, [130, 175, 0, 192, 79, 104, 146, 139]);
 }
+impl ::std::convert::From<IDsAdminNewObj> for ::windows::runtime::IUnknown {
+    fn from(value: IDsAdminNewObj) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDsAdminNewObj> for ::windows::runtime::IUnknown {
+    fn from(value: &IDsAdminNewObj) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsAdminNewObj {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDsAdminNewObj {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNewObj_abi(
@@ -19149,8 +20488,8 @@ pub struct IDsAdminNewObj_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDsAdminNewObjExt(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDsAdminNewObjExt(pub ::windows::runtime::IUnknown);
 impl IDsAdminNewObjExt {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
@@ -19186,6 +20525,26 @@ unsafe impl ::windows::runtime::Interface for IDsAdminNewObjExt {
     type Vtable = IDsAdminNewObjExt_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1619585762, 59327, 4562, [130, 175, 0, 192, 79, 104, 146, 139]);
 }
+impl ::std::convert::From<IDsAdminNewObjExt> for ::windows::runtime::IUnknown {
+    fn from(value: IDsAdminNewObjExt) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDsAdminNewObjExt> for ::windows::runtime::IUnknown {
+    fn from(value: &IDsAdminNewObjExt) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsAdminNewObjExt {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDsAdminNewObjExt {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNewObjExt_abi(
@@ -19206,8 +20565,8 @@ pub struct IDsAdminNewObjExt_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDsAdminNewObjPrimarySite(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDsAdminNewObjPrimarySite(pub ::windows::runtime::IUnknown);
 impl IDsAdminNewObjPrimarySite {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -19223,6 +20582,26 @@ unsafe impl ::windows::runtime::Interface for IDsAdminNewObjPrimarySite {
     type Vtable = IDsAdminNewObjPrimarySite_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3190507646, 63748, 4562, [130, 185, 0, 192, 79, 104, 146, 139]);
 }
+impl ::std::convert::From<IDsAdminNewObjPrimarySite> for ::windows::runtime::IUnknown {
+    fn from(value: IDsAdminNewObjPrimarySite) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDsAdminNewObjPrimarySite> for ::windows::runtime::IUnknown {
+    fn from(value: &IDsAdminNewObjPrimarySite) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsAdminNewObjPrimarySite {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDsAdminNewObjPrimarySite {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNewObjPrimarySite_abi(
@@ -19235,8 +20614,8 @@ pub struct IDsAdminNewObjPrimarySite_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDsAdminNotifyHandler(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDsAdminNotifyHandler(pub ::windows::runtime::IUnknown);
 impl IDsAdminNotifyHandler {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_System_Com`*"]
@@ -19261,6 +20640,26 @@ unsafe impl ::windows::runtime::Interface for IDsAdminNotifyHandler {
     type Vtable = IDsAdminNotifyHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3835869363, 23064, 4562, [151, 193, 0, 160, 201, 160, 109, 45]);
 }
+impl ::std::convert::From<IDsAdminNotifyHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IDsAdminNotifyHandler) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDsAdminNotifyHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IDsAdminNotifyHandler) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsAdminNotifyHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDsAdminNotifyHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNotifyHandler_abi(
@@ -19276,8 +20675,8 @@ pub struct IDsAdminNotifyHandler_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDsBrowseDomainTree(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDsBrowseDomainTree(pub ::windows::runtime::IUnknown);
 impl IDsBrowseDomainTree {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -19308,6 +20707,26 @@ unsafe impl ::windows::runtime::Interface for IDsBrowseDomainTree {
     type Vtable = IDsBrowseDomainTree_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2091634462, 30965, 4562, [150, 12, 0, 192, 79, 163, 26, 134]);
 }
+impl ::std::convert::From<IDsBrowseDomainTree> for ::windows::runtime::IUnknown {
+    fn from(value: IDsBrowseDomainTree) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDsBrowseDomainTree> for ::windows::runtime::IUnknown {
+    fn from(value: &IDsBrowseDomainTree) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsBrowseDomainTree {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDsBrowseDomainTree {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsBrowseDomainTree_abi(
@@ -19326,8 +20745,8 @@ pub struct IDsBrowseDomainTree_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDsDisplaySpecifier(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDsDisplaySpecifier(pub ::windows::runtime::IUnknown);
 impl IDsDisplaySpecifier {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -19388,6 +20807,26 @@ unsafe impl ::windows::runtime::Interface for IDsDisplaySpecifier {
     type Vtable = IDsDisplaySpecifier_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(448047296, 27147, 4562, [173, 73, 0, 192, 79, 163, 26, 134]);
 }
+impl ::std::convert::From<IDsDisplaySpecifier> for ::windows::runtime::IUnknown {
+    fn from(value: IDsDisplaySpecifier) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDsDisplaySpecifier> for ::windows::runtime::IUnknown {
+    fn from(value: &IDsDisplaySpecifier) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsDisplaySpecifier {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDsDisplaySpecifier {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsDisplaySpecifier_abi(
@@ -19418,8 +20857,8 @@ pub struct IDsDisplaySpecifier_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDsObjectPicker(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDsObjectPicker(pub ::windows::runtime::IUnknown);
 impl IDsObjectPicker {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -19437,6 +20876,26 @@ unsafe impl ::windows::runtime::Interface for IDsObjectPicker {
     type Vtable = IDsObjectPicker_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(210232910, 15226, 4562, [185, 224, 0, 192, 79, 216, 219, 247]);
 }
+impl ::std::convert::From<IDsObjectPicker> for ::windows::runtime::IUnknown {
+    fn from(value: IDsObjectPicker) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDsObjectPicker> for ::windows::runtime::IUnknown {
+    fn from(value: &IDsObjectPicker) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsObjectPicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDsObjectPicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsObjectPicker_abi(
@@ -19450,8 +20909,8 @@ pub struct IDsObjectPicker_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDsObjectPickerCredentials(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDsObjectPickerCredentials(pub ::windows::runtime::IUnknown);
 impl IDsObjectPickerCredentials {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -19474,6 +20933,26 @@ unsafe impl ::windows::runtime::Interface for IDsObjectPickerCredentials {
     type Vtable = IDsObjectPickerCredentials_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3805539483, 53313, 17498, [143, 22, 71, 72, 222, 143, 177, 207]);
 }
+impl ::std::convert::From<IDsObjectPickerCredentials> for ::windows::runtime::IUnknown {
+    fn from(value: IDsObjectPickerCredentials) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDsObjectPickerCredentials> for ::windows::runtime::IUnknown {
+    fn from(value: &IDsObjectPickerCredentials) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsObjectPickerCredentials {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDsObjectPickerCredentials {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDsObjectPickerCredentials> for IDsObjectPicker {
     fn from(value: IDsObjectPickerCredentials) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -19486,12 +20965,12 @@ impl ::std::convert::From<&IDsObjectPickerCredentials> for IDsObjectPicker {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDsObjectPicker> for IDsObjectPickerCredentials {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDsObjectPicker> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDsObjectPicker>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDsObjectPicker> for &IDsObjectPickerCredentials {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDsObjectPicker> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDsObjectPicker>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -19509,8 +20988,8 @@ pub struct IDsObjectPickerCredentials_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPersistQuery(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPersistQuery(pub ::windows::runtime::IUnknown);
 impl IPersistQuery {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn GetClassID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -19556,6 +21035,26 @@ unsafe impl ::windows::runtime::Interface for IPersistQuery {
     type Vtable = IPersistQuery_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(439424184, 42542, 4560, [166, 197, 0, 160, 201, 6, 175, 69]);
 }
+impl ::std::convert::From<IPersistQuery> for ::windows::runtime::IUnknown {
+    fn from(value: IPersistQuery) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPersistQuery> for ::windows::runtime::IUnknown {
+    fn from(value: &IPersistQuery) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPersistQuery {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPersistQuery {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::convert::From<IPersistQuery> for super::super::System::Com::IPersist {
     fn from(value: IPersistQuery) -> Self {
@@ -19571,13 +21070,13 @@ impl ::std::convert::From<&IPersistQuery> for super::super::System::Com::IPersis
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist> for IPersistQuery {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersist>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist> for &IPersistQuery {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersist>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -19603,8 +21102,8 @@ pub struct IPersistQuery_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrivateDispatch(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrivateDispatch(pub ::windows::runtime::IUnknown);
 impl IPrivateDispatch {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
     pub unsafe fn ADSIInitializeDispatchManager(&self, dwextensionid: i32) -> ::windows::runtime::Result<()> {
@@ -19636,6 +21135,26 @@ unsafe impl ::windows::runtime::Interface for IPrivateDispatch {
     type Vtable = IPrivateDispatch_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2259372990, 26102, 4561, [140, 19, 0, 192, 79, 216, 213, 3]);
 }
+impl ::std::convert::From<IPrivateDispatch> for ::windows::runtime::IUnknown {
+    fn from(value: IPrivateDispatch) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrivateDispatch> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrivateDispatch) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrivateDispatch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrivateDispatch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrivateDispatch_abi(
@@ -19653,8 +21172,8 @@ pub struct IPrivateDispatch_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrivateUnknown(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrivateUnknown(pub ::windows::runtime::IUnknown);
 impl IPrivateUnknown {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
@@ -19670,6 +21189,26 @@ unsafe impl ::windows::runtime::Interface for IPrivateUnknown {
     type Vtable = IPrivateUnknown_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2299685803, 28333, 4561, [140, 24, 0, 192, 79, 216, 213, 3]);
 }
+impl ::std::convert::From<IPrivateUnknown> for ::windows::runtime::IUnknown {
+    fn from(value: IPrivateUnknown) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrivateUnknown> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrivateUnknown) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrivateUnknown {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrivateUnknown {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrivateUnknown_abi(
@@ -19682,8 +21221,8 @@ pub struct IPrivateUnknown_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IQueryForm(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IQueryForm(pub ::windows::runtime::IUnknown);
 impl IQueryForm {
     #[cfg(feature = "Win32_System_Registry")]
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_System_Registry`*"]
@@ -19705,6 +21244,26 @@ unsafe impl ::windows::runtime::Interface for IQueryForm {
     type Vtable = IQueryForm_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2365386288, 14781, 4560, [184, 209, 0, 160, 36, 171, 45, 187]);
 }
+impl ::std::convert::From<IQueryForm> for ::windows::runtime::IUnknown {
+    fn from(value: IQueryForm) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IQueryForm> for ::windows::runtime::IUnknown {
+    fn from(value: &IQueryForm) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IQueryForm {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IQueryForm {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQueryForm_abi(
@@ -19718,12 +21277,16 @@ pub struct IQueryForm_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddpagesproc: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
 );
+#[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type LPCQADDFORMSPROC = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pform: *mut CQFORM) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type LPCQADDPAGESPROC = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, clsidform: *const ::windows::runtime::GUID, ppage: *mut ::std::mem::ManuallyDrop<CQPAGE>) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type LPCQPAGEPROC = unsafe extern "system" fn(ppage: *mut ::std::mem::ManuallyDrop<CQPAGE>, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDSENUMATTRIBUTES = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::runtime::HRESULT;
 pub const LargeInteger: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2457432565, 2361, 4561, [139, 225, 0, 192, 79, 216, 213, 3]);
@@ -19877,7 +21440,6 @@ impl ::std::clone::Clone for OPENQUERYWINDOW_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ole_Automation")]
-#[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_System_Ole_Automation`*"]
 pub union OPENQUERYWINDOW_0 {
     pub pFormParameters: *mut ::std::ffi::c_void,
     pub ppbFormParameters: ::windows::runtime::RawPtr,
@@ -19930,8 +21492,8 @@ pub const OctetList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_v
 pub const Path: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2991819033, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
 pub const Pathname: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(135073144, 62497, 4560, [163, 110, 0, 192, 79, 185, 80, 220]);
 pub const PostalAddress: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(175484877, 18048, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn PropVariantToAdsType(pvariant: *mut super::super::System::Com::VARIANT, dwnumvariant: u32, ppadsvalues: *mut *mut ADSVALUE, pdwnumvalues: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -19965,8 +21527,8 @@ pub unsafe fn ReallocADsMem(poldmem: *mut ::std::ffi::c_void, cbold: u32, cbnew:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReallocADsStr<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppstr: *mut super::super::Foundation::PWSTR, pstr: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20052,8 +21614,8 @@ pub const STATUS_SEVERITY_SUCCESS: u32 = 0u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const STATUS_SEVERITY_WARNING: u32 = 2u32;
 pub const SecurityDescriptor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3109615420, 39901, 4560, [133, 44, 0, 192, 79, 216, 213, 3]);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn SecurityDescriptorToBinarySD<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     vvarsecdes: Param0,

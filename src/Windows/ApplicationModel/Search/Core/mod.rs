@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRequestingFocusOnKeyboardInputEventArgs(::windows::runtime::IInspectable);
+pub struct IRequestingFocusOnKeyboardInputEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRequestingFocusOnKeyboardInputEventArgs {
     type Vtable = IRequestingFocusOnKeyboardInputEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2702794535, 45479, 16802, [135, 157, 106, 104, 104, 126, 89, 133]);
@@ -18,7 +18,7 @@ pub struct IRequestingFocusOnKeyboardInputEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchSuggestion(::windows::runtime::IInspectable);
+pub struct ISearchSuggestion(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchSuggestion {
     type Vtable = ISearchSuggestion_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1532318896, 5415, 17275, [149, 197, 141, 24, 210, 184, 175, 85]);
@@ -42,7 +42,7 @@ pub struct ISearchSuggestion_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchSuggestionManager(::windows::runtime::IInspectable);
+pub struct ISearchSuggestionManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchSuggestionManager {
     type Vtable = ISearchSuggestionManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1057771681, 52125, 18811, [181, 0, 60, 4, 172, 149, 154, 210]);
@@ -80,7 +80,7 @@ pub struct ISearchSuggestionManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISearchSuggestionsRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct ISearchSuggestionsRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchSuggestionsRequestedEventArgs {
     type Vtable = ISearchSuggestionsRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876236773, 40574, 19124, [139, 227, 199, 107, 27, 212, 52, 74]);
@@ -101,8 +101,8 @@ pub struct ISearchSuggestionsRequestedEventArgs_abi(
 );
 #[doc = "*Required features: `ApplicationModel_Search_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct RequestingFocusOnKeyboardInputEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct RequestingFocusOnKeyboardInputEventArgs(pub ::windows::runtime::IInspectable);
 impl RequestingFocusOnKeyboardInputEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for RequestingFocusOnKeyboardInputEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs;{a1195f27-b1a7-41a2-879d-6a68687e5985})");
@@ -114,6 +114,46 @@ unsafe impl ::windows::runtime::Interface for RequestingFocusOnKeyboardInputEven
 impl ::windows::runtime::RuntimeName for RequestingFocusOnKeyboardInputEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs";
 }
+impl ::std::convert::From<RequestingFocusOnKeyboardInputEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: RequestingFocusOnKeyboardInputEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&RequestingFocusOnKeyboardInputEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &RequestingFocusOnKeyboardInputEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RequestingFocusOnKeyboardInputEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RequestingFocusOnKeyboardInputEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<RequestingFocusOnKeyboardInputEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: RequestingFocusOnKeyboardInputEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RequestingFocusOnKeyboardInputEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &RequestingFocusOnKeyboardInputEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RequestingFocusOnKeyboardInputEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RequestingFocusOnKeyboardInputEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for RequestingFocusOnKeyboardInputEventArgs {}
 unsafe impl ::std::marker::Sync for RequestingFocusOnKeyboardInputEventArgs {}
 #[repr(C)]
@@ -121,8 +161,8 @@ unsafe impl ::std::marker::Sync for RequestingFocusOnKeyboardInputEventArgs {}
 pub struct SearchCoreContract(pub u8);
 #[doc = "*Required features: `ApplicationModel_Search_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SearchSuggestion(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SearchSuggestion(pub ::windows::runtime::IInspectable);
 impl SearchSuggestion {
     #[doc = "*Required features: `ApplicationModel_Search_Core`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<SearchSuggestionKind> {
@@ -184,6 +224,46 @@ unsafe impl ::windows::runtime::Interface for SearchSuggestion {
 impl ::windows::runtime::RuntimeName for SearchSuggestion {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.SearchSuggestion";
 }
+impl ::std::convert::From<SearchSuggestion> for ::windows::runtime::IUnknown {
+    fn from(value: SearchSuggestion) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SearchSuggestion> for ::windows::runtime::IUnknown {
+    fn from(value: &SearchSuggestion) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchSuggestion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SearchSuggestion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SearchSuggestion> for ::windows::runtime::IInspectable {
+    fn from(value: SearchSuggestion) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SearchSuggestion> for ::windows::runtime::IInspectable {
+    fn from(value: &SearchSuggestion) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchSuggestion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchSuggestion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `ApplicationModel_Search_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -209,8 +289,8 @@ impl ::windows::runtime::DefaultType for SearchSuggestionKind {
 }
 #[doc = "*Required features: `ApplicationModel_Search_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SearchSuggestionManager(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SearchSuggestionManager(pub ::windows::runtime::IInspectable);
 impl SearchSuggestionManager {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -330,10 +410,50 @@ unsafe impl ::windows::runtime::Interface for SearchSuggestionManager {
 impl ::windows::runtime::RuntimeName for SearchSuggestionManager {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.SearchSuggestionManager";
 }
+impl ::std::convert::From<SearchSuggestionManager> for ::windows::runtime::IUnknown {
+    fn from(value: SearchSuggestionManager) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SearchSuggestionManager> for ::windows::runtime::IUnknown {
+    fn from(value: &SearchSuggestionManager) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchSuggestionManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SearchSuggestionManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SearchSuggestionManager> for ::windows::runtime::IInspectable {
+    fn from(value: SearchSuggestionManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SearchSuggestionManager> for ::windows::runtime::IInspectable {
+    fn from(value: &SearchSuggestionManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchSuggestionManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchSuggestionManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `ApplicationModel_Search_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SearchSuggestionsRequestedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SearchSuggestionsRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl SearchSuggestionsRequestedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Search_Core`*"]
     pub fn QueryText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -377,6 +497,46 @@ unsafe impl ::windows::runtime::Interface for SearchSuggestionsRequestedEventArg
 }
 impl ::windows::runtime::RuntimeName for SearchSuggestionsRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs";
+}
+impl ::std::convert::From<SearchSuggestionsRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: SearchSuggestionsRequestedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SearchSuggestionsRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &SearchSuggestionsRequestedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchSuggestionsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SearchSuggestionsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SearchSuggestionsRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: SearchSuggestionsRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SearchSuggestionsRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &SearchSuggestionsRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchSuggestionsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchSuggestionsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for SearchSuggestionsRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for SearchSuggestionsRequestedEventArgs {}

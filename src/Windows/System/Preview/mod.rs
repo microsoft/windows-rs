@@ -27,7 +27,7 @@ impl ::windows::runtime::DefaultType for HingeState {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITwoPanelHingedDevicePosturePreview(::windows::runtime::IInspectable);
+pub struct ITwoPanelHingedDevicePosturePreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITwoPanelHingedDevicePosturePreview {
     type Vtable = ITwoPanelHingedDevicePosturePreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1914985521, 19257, 17062, [142, 115, 114, 53, 173, 225, 104, 83]);
@@ -50,7 +50,7 @@ pub struct ITwoPanelHingedDevicePosturePreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITwoPanelHingedDevicePosturePreviewReading(::windows::runtime::IInspectable);
+pub struct ITwoPanelHingedDevicePosturePreviewReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITwoPanelHingedDevicePosturePreviewReading {
     type Vtable = ITwoPanelHingedDevicePosturePreviewReading_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2686784594, 19158, 19256, [132, 38, 197, 154, 21, 73, 58, 125]);
@@ -76,7 +76,7 @@ pub struct ITwoPanelHingedDevicePosturePreviewReading_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
     type Vtable = ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(757930950, 718, 18250, [165, 86, 167, 91, 28, 249, 58, 3]);
@@ -94,7 +94,7 @@ pub struct ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITwoPanelHingedDevicePosturePreviewStatics(::windows::runtime::IInspectable);
+pub struct ITwoPanelHingedDevicePosturePreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITwoPanelHingedDevicePosturePreviewStatics {
     type Vtable = ITwoPanelHingedDevicePosturePreviewStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(205992914, 22496, 16768, [189, 94, 243, 26, 33, 56, 66, 62]);
@@ -113,8 +113,8 @@ pub struct ITwoPanelHingedDevicePosturePreviewStatics_abi(
 );
 #[doc = "*Required features: `System_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct TwoPanelHingedDevicePosturePreview(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct TwoPanelHingedDevicePosturePreview(pub ::windows::runtime::IInspectable);
 impl TwoPanelHingedDevicePosturePreview {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
@@ -167,12 +167,52 @@ unsafe impl ::windows::runtime::Interface for TwoPanelHingedDevicePosturePreview
 impl ::windows::runtime::RuntimeName for TwoPanelHingedDevicePosturePreview {
     const NAME: &'static str = "Windows.System.Preview.TwoPanelHingedDevicePosturePreview";
 }
+impl ::std::convert::From<TwoPanelHingedDevicePosturePreview> for ::windows::runtime::IUnknown {
+    fn from(value: TwoPanelHingedDevicePosturePreview) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&TwoPanelHingedDevicePosturePreview> for ::windows::runtime::IUnknown {
+    fn from(value: &TwoPanelHingedDevicePosturePreview) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TwoPanelHingedDevicePosturePreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TwoPanelHingedDevicePosturePreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<TwoPanelHingedDevicePosturePreview> for ::windows::runtime::IInspectable {
+    fn from(value: TwoPanelHingedDevicePosturePreview) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TwoPanelHingedDevicePosturePreview> for ::windows::runtime::IInspectable {
+    fn from(value: &TwoPanelHingedDevicePosturePreview) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TwoPanelHingedDevicePosturePreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TwoPanelHingedDevicePosturePreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TwoPanelHingedDevicePosturePreview {}
 unsafe impl ::std::marker::Sync for TwoPanelHingedDevicePosturePreview {}
 #[doc = "*Required features: `System_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct TwoPanelHingedDevicePosturePreviewReading(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct TwoPanelHingedDevicePosturePreviewReading(pub ::windows::runtime::IInspectable);
 impl TwoPanelHingedDevicePosturePreviewReading {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
@@ -242,12 +282,52 @@ unsafe impl ::windows::runtime::Interface for TwoPanelHingedDevicePosturePreview
 impl ::windows::runtime::RuntimeName for TwoPanelHingedDevicePosturePreviewReading {
     const NAME: &'static str = "Windows.System.Preview.TwoPanelHingedDevicePosturePreviewReading";
 }
+impl ::std::convert::From<TwoPanelHingedDevicePosturePreviewReading> for ::windows::runtime::IUnknown {
+    fn from(value: TwoPanelHingedDevicePosturePreviewReading) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&TwoPanelHingedDevicePosturePreviewReading> for ::windows::runtime::IUnknown {
+    fn from(value: &TwoPanelHingedDevicePosturePreviewReading) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TwoPanelHingedDevicePosturePreviewReading {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TwoPanelHingedDevicePosturePreviewReading {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<TwoPanelHingedDevicePosturePreviewReading> for ::windows::runtime::IInspectable {
+    fn from(value: TwoPanelHingedDevicePosturePreviewReading) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TwoPanelHingedDevicePosturePreviewReading> for ::windows::runtime::IInspectable {
+    fn from(value: &TwoPanelHingedDevicePosturePreviewReading) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TwoPanelHingedDevicePosturePreviewReading {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TwoPanelHingedDevicePosturePreviewReading {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TwoPanelHingedDevicePosturePreviewReading {}
 unsafe impl ::std::marker::Sync for TwoPanelHingedDevicePosturePreviewReading {}
 #[doc = "*Required features: `System_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `System_Preview`*"]
@@ -268,6 +348,46 @@ unsafe impl ::windows::runtime::Interface for TwoPanelHingedDevicePosturePreview
 }
 impl ::windows::runtime::RuntimeName for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
     const NAME: &'static str = "Windows.System.Preview.TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs";
+}
+impl ::std::convert::From<TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {}

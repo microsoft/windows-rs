@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_Composition_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CompositionDebugHeatMaps(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CompositionDebugHeatMaps(pub ::windows::runtime::IInspectable);
 impl CompositionDebugHeatMaps {
     #[doc = "*Required features: `UI_Composition_Diagnostics`*"]
     pub fn Hide<'a, Param0: ::windows::runtime::IntoParam<'a, super::Visual>>(&self, subtree: Param0) -> ::windows::runtime::Result<()> {
@@ -34,6 +34,46 @@ unsafe impl ::windows::runtime::Interface for CompositionDebugHeatMaps {
 }
 impl ::windows::runtime::RuntimeName for CompositionDebugHeatMaps {
     const NAME: &'static str = "Windows.UI.Composition.Diagnostics.CompositionDebugHeatMaps";
+}
+impl ::std::convert::From<CompositionDebugHeatMaps> for ::windows::runtime::IUnknown {
+    fn from(value: CompositionDebugHeatMaps) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CompositionDebugHeatMaps> for ::windows::runtime::IUnknown {
+    fn from(value: &CompositionDebugHeatMaps) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionDebugHeatMaps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CompositionDebugHeatMaps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CompositionDebugHeatMaps> for ::windows::runtime::IInspectable {
+    fn from(value: CompositionDebugHeatMaps) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CompositionDebugHeatMaps> for ::windows::runtime::IInspectable {
+    fn from(value: &CompositionDebugHeatMaps) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionDebugHeatMaps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionDebugHeatMaps {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for CompositionDebugHeatMaps {}
 unsafe impl ::std::marker::Sync for CompositionDebugHeatMaps {}
@@ -96,8 +136,8 @@ impl ::std::ops::Not for CompositionDebugOverdrawContentKinds {
 }
 #[doc = "*Required features: `UI_Composition_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CompositionDebugSettings(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CompositionDebugSettings(pub ::windows::runtime::IInspectable);
 impl CompositionDebugSettings {
     #[doc = "*Required features: `UI_Composition_Diagnostics`*"]
     pub fn HeatMaps(&self) -> ::windows::runtime::Result<CompositionDebugHeatMaps> {
@@ -129,11 +169,51 @@ unsafe impl ::windows::runtime::Interface for CompositionDebugSettings {
 impl ::windows::runtime::RuntimeName for CompositionDebugSettings {
     const NAME: &'static str = "Windows.UI.Composition.Diagnostics.CompositionDebugSettings";
 }
+impl ::std::convert::From<CompositionDebugSettings> for ::windows::runtime::IUnknown {
+    fn from(value: CompositionDebugSettings) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CompositionDebugSettings> for ::windows::runtime::IUnknown {
+    fn from(value: &CompositionDebugSettings) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionDebugSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CompositionDebugSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CompositionDebugSettings> for ::windows::runtime::IInspectable {
+    fn from(value: CompositionDebugSettings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CompositionDebugSettings> for ::windows::runtime::IInspectable {
+    fn from(value: &CompositionDebugSettings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionDebugSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionDebugSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CompositionDebugSettings {}
 unsafe impl ::std::marker::Sync for CompositionDebugSettings {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompositionDebugHeatMaps(::windows::runtime::IInspectable);
+pub struct ICompositionDebugHeatMaps(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionDebugHeatMaps {
     type Vtable = ICompositionDebugHeatMaps_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3835465900, 12275, 22533, [113, 140, 183, 37, 238, 7, 101, 15]);
@@ -154,7 +234,7 @@ pub struct ICompositionDebugHeatMaps_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompositionDebugSettings(::windows::runtime::IInspectable);
+pub struct ICompositionDebugSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionDebugSettings {
     type Vtable = ICompositionDebugSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(674338942, 7554, 19768, [183, 183, 239, 209, 28, 123, 195, 209]);
@@ -172,7 +252,7 @@ pub struct ICompositionDebugSettings_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompositionDebugSettingsStatics(::windows::runtime::IInspectable);
+pub struct ICompositionDebugSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionDebugSettingsStatics {
     type Vtable = ICompositionDebugSettingsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1693196062, 27384, 19192, [184, 20, 200, 112, 253, 90, 149, 5]);

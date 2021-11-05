@@ -183,8 +183,8 @@ impl<F: FnMut(&::std::option::Option<GameListEntry>) -> ::windows::runtime::Resu
 }
 #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct GameListEntry(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct GameListEntry(pub ::windows::runtime::IInspectable);
 impl GameListEntry {
     #[cfg(feature = "ApplicationModel")]
     #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `ApplicationModel`*"]
@@ -309,6 +309,46 @@ unsafe impl ::windows::runtime::Interface for GameListEntry {
 impl ::windows::runtime::RuntimeName for GameListEntry {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameListEntry";
 }
+impl ::std::convert::From<GameListEntry> for ::windows::runtime::IUnknown {
+    fn from(value: GameListEntry) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&GameListEntry> for ::windows::runtime::IUnknown {
+    fn from(value: &GameListEntry) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameListEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameListEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<GameListEntry> for ::windows::runtime::IInspectable {
+    fn from(value: GameListEntry) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GameListEntry> for ::windows::runtime::IInspectable {
+    fn from(value: &GameListEntry) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameListEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameListEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<GameListEntry> for IGameListEntry {
     fn from(value: GameListEntry) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -430,8 +470,8 @@ impl<F: FnMut(&::windows::runtime::HSTRING) -> ::windows::runtime::Result<()> + 
 }
 #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct GameModeConfiguration(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct GameModeConfiguration(pub ::windows::runtime::IInspectable);
 impl GameModeConfiguration {
     #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
@@ -578,12 +618,52 @@ unsafe impl ::windows::runtime::Interface for GameModeConfiguration {
 impl ::windows::runtime::RuntimeName for GameModeConfiguration {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameModeConfiguration";
 }
+impl ::std::convert::From<GameModeConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: GameModeConfiguration) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&GameModeConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: &GameModeConfiguration) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameModeConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameModeConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<GameModeConfiguration> for ::windows::runtime::IInspectable {
+    fn from(value: GameModeConfiguration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GameModeConfiguration> for ::windows::runtime::IInspectable {
+    fn from(value: &GameModeConfiguration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameModeConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameModeConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GameModeConfiguration {}
 unsafe impl ::std::marker::Sync for GameModeConfiguration {}
 #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct GameModeUserConfiguration(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct GameModeUserConfiguration(pub ::windows::runtime::IInspectable);
 impl GameModeUserConfiguration {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation_Collections`*"]
@@ -625,12 +705,52 @@ unsafe impl ::windows::runtime::Interface for GameModeUserConfiguration {
 impl ::windows::runtime::RuntimeName for GameModeUserConfiguration {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameModeUserConfiguration";
 }
+impl ::std::convert::From<GameModeUserConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: GameModeUserConfiguration) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&GameModeUserConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: &GameModeUserConfiguration) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameModeUserConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameModeUserConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<GameModeUserConfiguration> for ::windows::runtime::IInspectable {
+    fn from(value: GameModeUserConfiguration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GameModeUserConfiguration> for ::windows::runtime::IInspectable {
+    fn from(value: &GameModeUserConfiguration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameModeUserConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameModeUserConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GameModeUserConfiguration {}
 unsafe impl ::std::marker::Sync for GameModeUserConfiguration {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
-pub struct IGameListEntry(::windows::runtime::IInspectable);
+pub struct IGameListEntry(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameListEntry {
     type Vtable = IGameListEntry_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1935221971, 33055, 17556, [182, 156, 198, 65, 160, 198, 21, 67]);
@@ -684,6 +804,46 @@ impl IGameListEntry {
 unsafe impl ::windows::runtime::RuntimeType for IGameListEntry {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{735924d3-811f-4494-b69c-c641a0c61543}");
 }
+impl ::std::convert::From<IGameListEntry> for ::windows::runtime::IUnknown {
+    fn from(value: IGameListEntry) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IGameListEntry> for ::windows::runtime::IUnknown {
+    fn from(value: &IGameListEntry) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGameListEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGameListEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IGameListEntry> for ::windows::runtime::IInspectable {
+    fn from(value: IGameListEntry) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IGameListEntry> for ::windows::runtime::IInspectable {
+    fn from(value: &IGameListEntry) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IGameListEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IGameListEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameListEntry_abi(
@@ -705,7 +865,7 @@ pub struct IGameListEntry_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameListEntry2(::windows::runtime::IInspectable);
+pub struct IGameListEntry2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameListEntry2 {
     type Vtable = IGameListEntry2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3628765067, 34633, 18981, [144, 211, 246, 197, 164, 39, 136, 109]);
@@ -734,7 +894,7 @@ pub struct IGameListEntry2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameListStatics(::windows::runtime::IInspectable);
+pub struct IGameListStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameListStatics {
     type Vtable = IGameListStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(769462127, 40038, 19205, [148, 92, 214, 237, 120, 73, 27, 140]);
@@ -767,7 +927,7 @@ pub struct IGameListStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameListStatics2(::windows::runtime::IInspectable);
+pub struct IGameListStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameListStatics2 {
     type Vtable = IGameListStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(962535576, 59930, 17834, [146, 104, 168, 57, 5, 104, 111, 39]);
@@ -788,7 +948,7 @@ pub struct IGameListStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameModeConfiguration(::windows::runtime::IInspectable);
+pub struct IGameModeConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameModeConfiguration {
     type Vtable = IGameModeConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2028310959, 45378, 20208, [136, 48, 85, 188, 43, 228, 245, 234]);
@@ -837,7 +997,7 @@ pub struct IGameModeConfiguration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameModeUserConfiguration(::windows::runtime::IInspectable);
+pub struct IGameModeUserConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameModeUserConfiguration {
     type Vtable = IGameModeUserConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1926449908, 30059, 18191, [160, 194, 186, 98, 169, 7, 149, 219]);
@@ -858,7 +1018,7 @@ pub struct IGameModeUserConfiguration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameModeUserConfigurationStatics(::windows::runtime::IInspectable);
+pub struct IGameModeUserConfigurationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameModeUserConfigurationStatics {
     type Vtable = IGameModeUserConfigurationStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1850792316, 26346, 18318, [164, 161, 245, 124, 14, 141, 0, 231]);

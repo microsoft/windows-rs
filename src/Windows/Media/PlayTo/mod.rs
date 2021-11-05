@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Media_PlayTo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CurrentTimeChangeRequestedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CurrentTimeChangeRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl CurrentTimeChangeRequestedEventArgs {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_PlayTo`, `Foundation`*"]
@@ -24,9 +24,49 @@ unsafe impl ::windows::runtime::Interface for CurrentTimeChangeRequestedEventArg
 impl ::windows::runtime::RuntimeName for CurrentTimeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs";
 }
+impl ::std::convert::From<CurrentTimeChangeRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: CurrentTimeChangeRequestedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CurrentTimeChangeRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &CurrentTimeChangeRequestedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CurrentTimeChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CurrentTimeChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CurrentTimeChangeRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: CurrentTimeChangeRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CurrentTimeChangeRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &CurrentTimeChangeRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CurrentTimeChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CurrentTimeChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrentTimeChangeRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct ICurrentTimeChangeRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentTimeChangeRequestedEventArgs {
     type Vtable = ICurrentTimeChangeRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2574324516, 60871, 19445, [145, 246, 60, 134, 39, 219, 89, 229]);
@@ -45,7 +85,7 @@ pub struct ICurrentTimeChangeRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMuteChangeRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IMuteChangeRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMuteChangeRequestedEventArgs {
     type Vtable = IMuteChangeRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3837064694, 44831, 20254, [180, 55, 125, 163, 36, 0, 225, 212]);
@@ -63,7 +103,7 @@ pub struct IMuteChangeRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlayToConnection(::windows::runtime::IInspectable);
+pub struct IPlayToConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToConnection {
     type Vtable = IPlayToConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(288341960, 62005, 20446, [141, 65, 155, 242, 124, 158, 154, 64]);
@@ -93,7 +133,7 @@ pub struct IPlayToConnection_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlayToConnectionErrorEventArgs(::windows::runtime::IInspectable);
+pub struct IPlayToConnectionErrorEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToConnectionErrorEventArgs {
     type Vtable = IPlayToConnectionErrorEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3210653094, 35046, 17503, [157, 64, 217, 185, 248, 147, 152, 150]);
@@ -112,7 +152,7 @@ pub struct IPlayToConnectionErrorEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlayToConnectionStateChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IPlayToConnectionStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToConnectionStateChangedEventArgs {
     type Vtable = IPlayToConnectionStateChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1757721871, 3104, 18816, [134, 2, 88, 198, 34, 56, 212, 35]);
@@ -131,7 +171,7 @@ pub struct IPlayToConnectionStateChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlayToConnectionTransferredEventArgs(::windows::runtime::IInspectable);
+pub struct IPlayToConnectionTransferredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToConnectionTransferredEventArgs {
     type Vtable = IPlayToConnectionTransferredEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4209187130, 1667, 18393, [141, 240, 24, 203, 180, 137, 132, 216]);
@@ -150,7 +190,7 @@ pub struct IPlayToConnectionTransferredEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlayToManager(::windows::runtime::IInspectable);
+pub struct IPlayToManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToManager {
     type Vtable = IPlayToManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4117373038, 7031, 17135, [143, 13, 185, 73, 248, 217, 178, 96]);
@@ -177,7 +217,7 @@ pub struct IPlayToManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlayToManagerStatics(::windows::runtime::IInspectable);
+pub struct IPlayToManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToManagerStatics {
     type Vtable = IPlayToManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1692838023, 14722, 20283, [186, 32, 97, 85, 228, 53, 50, 91]);
@@ -196,7 +236,7 @@ pub struct IPlayToManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlayToReceiver(::windows::runtime::IInspectable);
+pub struct IPlayToReceiver(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToReceiver {
     type Vtable = IPlayToReceiver_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2887110471, 41314, 19110, [175, 27, 58, 163, 95, 59, 144, 105]);
@@ -277,7 +317,7 @@ pub struct IPlayToReceiver_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlayToSource(::windows::runtime::IInspectable);
+pub struct IPlayToSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToSource {
     type Vtable = IPlayToSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2131986952, 64439, 19209, [131, 86, 170, 95, 78, 51, 92, 49]);
@@ -298,7 +338,7 @@ pub struct IPlayToSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlayToSourceDeferral(::windows::runtime::IInspectable);
+pub struct IPlayToSourceDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToSourceDeferral {
     type Vtable = IPlayToSourceDeferral_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1090554141, 10126, 20265, [133, 155, 169, 229, 1, 5, 62, 125]);
@@ -316,7 +356,7 @@ pub struct IPlayToSourceDeferral_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlayToSourceRequest(::windows::runtime::IInspectable);
+pub struct IPlayToSourceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToSourceRequest {
     type Vtable = IPlayToSourceRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4166534757, 25844, 17568, [172, 13, 70, 141, 43, 143, 218, 131]);
@@ -338,7 +378,7 @@ pub struct IPlayToSourceRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlayToSourceRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IPlayToSourceRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToSourceRequestedEventArgs {
     type Vtable = IPlayToSourceRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3318596400, 10719, 20166, [157, 169, 159, 189, 252, 252, 27, 62]);
@@ -356,7 +396,7 @@ pub struct IPlayToSourceRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlayToSourceSelectedEventArgs(::windows::runtime::IInspectable);
+pub struct IPlayToSourceSelectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToSourceSelectedEventArgs {
     type Vtable = IPlayToSourceSelectedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(211649809, 20994, 19915, [140, 103, 171, 218, 18, 187, 60, 18]);
@@ -379,7 +419,7 @@ pub struct IPlayToSourceSelectedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlayToSourceWithPreferredSourceUri(::windows::runtime::IInspectable);
+pub struct IPlayToSourceWithPreferredSourceUri(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayToSourceWithPreferredSourceUri {
     type Vtable = IPlayToSourceWithPreferredSourceUri_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2863813611, 13057, 19908, [175, 186, 178, 242, 237, 150, 53, 160]);
@@ -400,7 +440,7 @@ pub struct IPlayToSourceWithPreferredSourceUri_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlaybackRateChangeRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IPlaybackRateChangeRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaybackRateChangeRequestedEventArgs {
     type Vtable = IPlaybackRateChangeRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(257319342, 11400, 19658, [133, 64, 213, 134, 9, 93, 19, 165]);
@@ -418,7 +458,7 @@ pub struct IPlaybackRateChangeRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISourceChangeRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct ISourceChangeRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISourceChangeRequestedEventArgs {
     type Vtable = ISourceChangeRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4215224982, 31398, 19083, [134, 231, 84, 246, 198, 211, 79, 100]);
@@ -450,7 +490,7 @@ pub struct ISourceChangeRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVolumeChangeRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IVolumeChangeRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVolumeChangeRequestedEventArgs {
     type Vtable = IVolumeChangeRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1862430044, 53109, 19499, [145, 62, 109, 124, 108, 50, 145, 121]);
@@ -468,8 +508,8 @@ pub struct IVolumeChangeRequestedEventArgs_abi(
 );
 #[doc = "*Required features: `Media_PlayTo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MuteChangeRequestedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MuteChangeRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl MuteChangeRequestedEventArgs {
     #[doc = "*Required features: `Media_PlayTo`*"]
     pub fn Mute(&self) -> ::windows::runtime::Result<bool> {
@@ -490,10 +530,50 @@ unsafe impl ::windows::runtime::Interface for MuteChangeRequestedEventArgs {
 impl ::windows::runtime::RuntimeName for MuteChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.MuteChangeRequestedEventArgs";
 }
+impl ::std::convert::From<MuteChangeRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MuteChangeRequestedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MuteChangeRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MuteChangeRequestedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MuteChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MuteChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MuteChangeRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MuteChangeRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MuteChangeRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MuteChangeRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MuteChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MuteChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Media_PlayTo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PlayToConnection(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PlayToConnection(pub ::windows::runtime::IInspectable);
 impl PlayToConnection {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_PlayTo`*"]
@@ -566,6 +646,46 @@ unsafe impl ::windows::runtime::Interface for PlayToConnection {
 impl ::windows::runtime::RuntimeName for PlayToConnection {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnection";
 }
+impl ::std::convert::From<PlayToConnection> for ::windows::runtime::IUnknown {
+    fn from(value: PlayToConnection) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PlayToConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &PlayToConnection) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlayToConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PlayToConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PlayToConnection> for ::windows::runtime::IInspectable {
+    fn from(value: PlayToConnection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlayToConnection> for ::windows::runtime::IInspectable {
+    fn from(value: &PlayToConnection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlayToConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlayToConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PlayToConnection {}
 unsafe impl ::std::marker::Sync for PlayToConnection {}
 #[doc = "*Required features: `Media_PlayTo`*"]
@@ -595,8 +715,8 @@ impl ::windows::runtime::DefaultType for PlayToConnectionError {
 }
 #[doc = "*Required features: `Media_PlayTo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PlayToConnectionErrorEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PlayToConnectionErrorEventArgs(pub ::windows::runtime::IInspectable);
 impl PlayToConnectionErrorEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_PlayTo`*"]
@@ -627,6 +747,46 @@ unsafe impl ::windows::runtime::Interface for PlayToConnectionErrorEventArgs {
 impl ::windows::runtime::RuntimeName for PlayToConnectionErrorEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnectionErrorEventArgs";
 }
+impl ::std::convert::From<PlayToConnectionErrorEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: PlayToConnectionErrorEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PlayToConnectionErrorEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &PlayToConnectionErrorEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlayToConnectionErrorEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PlayToConnectionErrorEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PlayToConnectionErrorEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: PlayToConnectionErrorEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlayToConnectionErrorEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &PlayToConnectionErrorEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlayToConnectionErrorEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlayToConnectionErrorEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PlayToConnectionErrorEventArgs {}
 unsafe impl ::std::marker::Sync for PlayToConnectionErrorEventArgs {}
 #[doc = "*Required features: `Media_PlayTo`*"]
@@ -654,8 +814,8 @@ impl ::windows::runtime::DefaultType for PlayToConnectionState {
 }
 #[doc = "*Required features: `Media_PlayTo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PlayToConnectionStateChangedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PlayToConnectionStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl PlayToConnectionStateChangedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_PlayTo`*"]
@@ -686,12 +846,52 @@ unsafe impl ::windows::runtime::Interface for PlayToConnectionStateChangedEventA
 impl ::windows::runtime::RuntimeName for PlayToConnectionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnectionStateChangedEventArgs";
 }
+impl ::std::convert::From<PlayToConnectionStateChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: PlayToConnectionStateChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PlayToConnectionStateChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &PlayToConnectionStateChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlayToConnectionStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PlayToConnectionStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PlayToConnectionStateChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: PlayToConnectionStateChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlayToConnectionStateChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &PlayToConnectionStateChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlayToConnectionStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlayToConnectionStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PlayToConnectionStateChangedEventArgs {}
 unsafe impl ::std::marker::Sync for PlayToConnectionStateChangedEventArgs {}
 #[doc = "*Required features: `Media_PlayTo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PlayToConnectionTransferredEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PlayToConnectionTransferredEventArgs(pub ::windows::runtime::IInspectable);
 impl PlayToConnectionTransferredEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_PlayTo`*"]
@@ -722,12 +922,52 @@ unsafe impl ::windows::runtime::Interface for PlayToConnectionTransferredEventAr
 impl ::windows::runtime::RuntimeName for PlayToConnectionTransferredEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnectionTransferredEventArgs";
 }
+impl ::std::convert::From<PlayToConnectionTransferredEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: PlayToConnectionTransferredEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PlayToConnectionTransferredEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &PlayToConnectionTransferredEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlayToConnectionTransferredEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PlayToConnectionTransferredEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PlayToConnectionTransferredEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: PlayToConnectionTransferredEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlayToConnectionTransferredEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &PlayToConnectionTransferredEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlayToConnectionTransferredEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlayToConnectionTransferredEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PlayToConnectionTransferredEventArgs {}
 unsafe impl ::std::marker::Sync for PlayToConnectionTransferredEventArgs {}
 #[doc = "*Required features: `Media_PlayTo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PlayToManager(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PlayToManager(pub ::windows::runtime::IInspectable);
 impl PlayToManager {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
@@ -806,12 +1046,52 @@ unsafe impl ::windows::runtime::Interface for PlayToManager {
 impl ::windows::runtime::RuntimeName for PlayToManager {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToManager";
 }
+impl ::std::convert::From<PlayToManager> for ::windows::runtime::IUnknown {
+    fn from(value: PlayToManager) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PlayToManager> for ::windows::runtime::IUnknown {
+    fn from(value: &PlayToManager) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlayToManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PlayToManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PlayToManager> for ::windows::runtime::IInspectable {
+    fn from(value: PlayToManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlayToManager> for ::windows::runtime::IInspectable {
+    fn from(value: &PlayToManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlayToManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlayToManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PlayToManager {}
 unsafe impl ::std::marker::Sync for PlayToManager {}
 #[doc = "*Required features: `Media_PlayTo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PlayToReceiver(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PlayToReceiver(pub ::windows::runtime::IInspectable);
 impl PlayToReceiver {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1107,10 +1387,50 @@ unsafe impl ::windows::runtime::Interface for PlayToReceiver {
 impl ::windows::runtime::RuntimeName for PlayToReceiver {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToReceiver";
 }
+impl ::std::convert::From<PlayToReceiver> for ::windows::runtime::IUnknown {
+    fn from(value: PlayToReceiver) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PlayToReceiver> for ::windows::runtime::IUnknown {
+    fn from(value: &PlayToReceiver) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlayToReceiver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PlayToReceiver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PlayToReceiver> for ::windows::runtime::IInspectable {
+    fn from(value: PlayToReceiver) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlayToReceiver> for ::windows::runtime::IInspectable {
+    fn from(value: &PlayToReceiver) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlayToReceiver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlayToReceiver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Media_PlayTo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PlayToSource(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PlayToSource(pub ::windows::runtime::IInspectable);
 impl PlayToSource {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_PlayTo`*"]
@@ -1170,12 +1490,52 @@ unsafe impl ::windows::runtime::Interface for PlayToSource {
 impl ::windows::runtime::RuntimeName for PlayToSource {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSource";
 }
+impl ::std::convert::From<PlayToSource> for ::windows::runtime::IUnknown {
+    fn from(value: PlayToSource) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PlayToSource> for ::windows::runtime::IUnknown {
+    fn from(value: &PlayToSource) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlayToSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PlayToSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PlayToSource> for ::windows::runtime::IInspectable {
+    fn from(value: PlayToSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlayToSource> for ::windows::runtime::IInspectable {
+    fn from(value: &PlayToSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlayToSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlayToSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PlayToSource {}
 unsafe impl ::std::marker::Sync for PlayToSource {}
 #[doc = "*Required features: `Media_PlayTo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PlayToSourceDeferral(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PlayToSourceDeferral(pub ::windows::runtime::IInspectable);
 impl PlayToSourceDeferral {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_PlayTo`*"]
@@ -1194,12 +1554,52 @@ unsafe impl ::windows::runtime::Interface for PlayToSourceDeferral {
 impl ::windows::runtime::RuntimeName for PlayToSourceDeferral {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceDeferral";
 }
+impl ::std::convert::From<PlayToSourceDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: PlayToSourceDeferral) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PlayToSourceDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: &PlayToSourceDeferral) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlayToSourceDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PlayToSourceDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PlayToSourceDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: PlayToSourceDeferral) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlayToSourceDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: &PlayToSourceDeferral) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlayToSourceDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlayToSourceDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PlayToSourceDeferral {}
 unsafe impl ::std::marker::Sync for PlayToSourceDeferral {}
 #[doc = "*Required features: `Media_PlayTo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PlayToSourceRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PlayToSourceRequest(pub ::windows::runtime::IInspectable);
 impl PlayToSourceRequest {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
@@ -1243,12 +1643,52 @@ unsafe impl ::windows::runtime::Interface for PlayToSourceRequest {
 impl ::windows::runtime::RuntimeName for PlayToSourceRequest {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceRequest";
 }
+impl ::std::convert::From<PlayToSourceRequest> for ::windows::runtime::IUnknown {
+    fn from(value: PlayToSourceRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PlayToSourceRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &PlayToSourceRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlayToSourceRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PlayToSourceRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PlayToSourceRequest> for ::windows::runtime::IInspectable {
+    fn from(value: PlayToSourceRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlayToSourceRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &PlayToSourceRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlayToSourceRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlayToSourceRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PlayToSourceRequest {}
 unsafe impl ::std::marker::Sync for PlayToSourceRequest {}
 #[doc = "*Required features: `Media_PlayTo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PlayToSourceRequestedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PlayToSourceRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl PlayToSourceRequestedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_PlayTo`*"]
@@ -1270,12 +1710,52 @@ unsafe impl ::windows::runtime::Interface for PlayToSourceRequestedEventArgs {
 impl ::windows::runtime::RuntimeName for PlayToSourceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceRequestedEventArgs";
 }
+impl ::std::convert::From<PlayToSourceRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: PlayToSourceRequestedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PlayToSourceRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &PlayToSourceRequestedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlayToSourceRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PlayToSourceRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PlayToSourceRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: PlayToSourceRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlayToSourceRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &PlayToSourceRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlayToSourceRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlayToSourceRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PlayToSourceRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for PlayToSourceRequestedEventArgs {}
 #[doc = "*Required features: `Media_PlayTo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PlayToSourceSelectedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PlayToSourceSelectedEventArgs(pub ::windows::runtime::IInspectable);
 impl PlayToSourceSelectedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_PlayTo`*"]
@@ -1334,12 +1814,52 @@ unsafe impl ::windows::runtime::Interface for PlayToSourceSelectedEventArgs {
 impl ::windows::runtime::RuntimeName for PlayToSourceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceSelectedEventArgs";
 }
+impl ::std::convert::From<PlayToSourceSelectedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: PlayToSourceSelectedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PlayToSourceSelectedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &PlayToSourceSelectedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlayToSourceSelectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PlayToSourceSelectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PlayToSourceSelectedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: PlayToSourceSelectedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlayToSourceSelectedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &PlayToSourceSelectedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlayToSourceSelectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlayToSourceSelectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PlayToSourceSelectedEventArgs {}
 unsafe impl ::std::marker::Sync for PlayToSourceSelectedEventArgs {}
 #[doc = "*Required features: `Media_PlayTo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PlaybackRateChangeRequestedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PlaybackRateChangeRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl PlaybackRateChangeRequestedEventArgs {
     #[doc = "*Required features: `Media_PlayTo`*"]
     pub fn Rate(&self) -> ::windows::runtime::Result<f64> {
@@ -1360,10 +1880,50 @@ unsafe impl ::windows::runtime::Interface for PlaybackRateChangeRequestedEventAr
 impl ::windows::runtime::RuntimeName for PlaybackRateChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlaybackRateChangeRequestedEventArgs";
 }
+impl ::std::convert::From<PlaybackRateChangeRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: PlaybackRateChangeRequestedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PlaybackRateChangeRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &PlaybackRateChangeRequestedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlaybackRateChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PlaybackRateChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PlaybackRateChangeRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: PlaybackRateChangeRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlaybackRateChangeRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &PlaybackRateChangeRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlaybackRateChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlaybackRateChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Media_PlayTo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SourceChangeRequestedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SourceChangeRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl SourceChangeRequestedEventArgs {
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_PlayTo`, `Storage_Streams`*"]
@@ -1461,10 +2021,50 @@ unsafe impl ::windows::runtime::Interface for SourceChangeRequestedEventArgs {
 impl ::windows::runtime::RuntimeName for SourceChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.SourceChangeRequestedEventArgs";
 }
+impl ::std::convert::From<SourceChangeRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: SourceChangeRequestedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SourceChangeRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &SourceChangeRequestedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SourceChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SourceChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SourceChangeRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: SourceChangeRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SourceChangeRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &SourceChangeRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SourceChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SourceChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Media_PlayTo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct VolumeChangeRequestedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct VolumeChangeRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl VolumeChangeRequestedEventArgs {
     #[doc = "*Required features: `Media_PlayTo`*"]
     pub fn Volume(&self) -> ::windows::runtime::Result<f64> {
@@ -1484,4 +2084,44 @@ unsafe impl ::windows::runtime::Interface for VolumeChangeRequestedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for VolumeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.VolumeChangeRequestedEventArgs";
+}
+impl ::std::convert::From<VolumeChangeRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: VolumeChangeRequestedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&VolumeChangeRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &VolumeChangeRequestedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VolumeChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VolumeChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<VolumeChangeRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: VolumeChangeRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&VolumeChangeRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &VolumeChangeRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VolumeChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VolumeChangeRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }

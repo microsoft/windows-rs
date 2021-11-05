@@ -3,8 +3,8 @@
 pub mod Provider;
 #[doc = "*Required features: `Devices_Adc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct AdcChannel(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct AdcChannel(pub ::windows::runtime::IInspectable);
 impl AdcChannel {
     #[doc = "*Required features: `Devices_Adc`*"]
     pub fn Controller(&self) -> ::windows::runtime::Result<AdcController> {
@@ -46,6 +46,46 @@ unsafe impl ::windows::runtime::Interface for AdcChannel {
 }
 impl ::windows::runtime::RuntimeName for AdcChannel {
     const NAME: &'static str = "Windows.Devices.Adc.AdcChannel";
+}
+impl ::std::convert::From<AdcChannel> for ::windows::runtime::IUnknown {
+    fn from(value: AdcChannel) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&AdcChannel> for ::windows::runtime::IUnknown {
+    fn from(value: &AdcChannel) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AdcChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AdcChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<AdcChannel> for ::windows::runtime::IInspectable {
+    fn from(value: AdcChannel) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AdcChannel> for ::windows::runtime::IInspectable {
+    fn from(value: &AdcChannel) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AdcChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AdcChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<AdcChannel> for super::super::Foundation::IClosable {
@@ -99,8 +139,8 @@ impl ::windows::runtime::DefaultType for AdcChannelMode {
 }
 #[doc = "*Required features: `Devices_Adc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct AdcController(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct AdcController(pub ::windows::runtime::IInspectable);
 impl AdcController {
     #[doc = "*Required features: `Devices_Adc`*"]
     pub fn ChannelCount(&self) -> ::windows::runtime::Result<i32> {
@@ -198,11 +238,51 @@ unsafe impl ::windows::runtime::Interface for AdcController {
 impl ::windows::runtime::RuntimeName for AdcController {
     const NAME: &'static str = "Windows.Devices.Adc.AdcController";
 }
+impl ::std::convert::From<AdcController> for ::windows::runtime::IUnknown {
+    fn from(value: AdcController) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&AdcController> for ::windows::runtime::IUnknown {
+    fn from(value: &AdcController) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AdcController {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AdcController {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<AdcController> for ::windows::runtime::IInspectable {
+    fn from(value: AdcController) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AdcController> for ::windows::runtime::IInspectable {
+    fn from(value: &AdcController) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AdcController {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AdcController {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AdcController {}
 unsafe impl ::std::marker::Sync for AdcController {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAdcChannel(::windows::runtime::IInspectable);
+pub struct IAdcChannel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdcChannel {
     type Vtable = IAdcChannel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(67892244, 9608, 19030, [171, 239, 115, 162, 96, 172, 198, 10]);
@@ -222,7 +302,7 @@ pub struct IAdcChannel_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAdcController(::windows::runtime::IInspectable);
+pub struct IAdcController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdcController {
     type Vtable = IAdcController_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(712434864, 43158, 16921, [134, 182, 234, 140, 220, 233, 143, 86]);
@@ -247,7 +327,7 @@ pub struct IAdcController_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAdcControllerStatics(::windows::runtime::IInspectable);
+pub struct IAdcControllerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdcControllerStatics {
     type Vtable = IAdcControllerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3437858316, 504, 18577, [188, 59, 190, 83, 239, 39, 156, 164]);
@@ -266,7 +346,7 @@ pub struct IAdcControllerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAdcControllerStatics2(::windows::runtime::IInspectable);
+pub struct IAdcControllerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdcControllerStatics2 {
     type Vtable = IAdcControllerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2730048285, 38779, 20314, [165, 254, 166, 171, 175, 254, 100, 132]);

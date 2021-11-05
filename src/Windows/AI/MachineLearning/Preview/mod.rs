@@ -37,7 +37,7 @@ impl ::windows::runtime::DefaultType for FeatureElementKindPreview {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageVariableDescriptorPreview(::windows::runtime::IInspectable);
+pub struct IImageVariableDescriptorPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageVariableDescriptorPreview {
     type Vtable = IImageVariableDescriptorPreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2061630066, 670, 19909, [162, 248, 95, 183, 99, 21, 65, 80]);
@@ -58,7 +58,7 @@ pub struct IImageVariableDescriptorPreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInferencingOptionsPreview(::windows::runtime::IInspectable);
+pub struct IInferencingOptionsPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInferencingOptionsPreview {
     type Vtable = IInferencingOptionsPreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1203536389, 19766, 18345, [143, 104, 255, 203, 51, 157, 208, 252]);
@@ -85,7 +85,7 @@ pub struct IInferencingOptionsPreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelBindingPreview(::windows::runtime::IInspectable);
+pub struct ILearningModelBindingPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelBindingPreview {
     type Vtable = ILearningModelBindingPreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2479423976, 27768, 19279, [174, 193, 166, 187, 158, 105, 22, 36]);
@@ -106,7 +106,7 @@ pub struct ILearningModelBindingPreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelBindingPreviewFactory(::windows::runtime::IInspectable);
+pub struct ILearningModelBindingPreviewFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelBindingPreviewFactory {
     type Vtable = ILearningModelBindingPreviewFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1220026783, 7761, 19831, [174, 80, 62, 193, 100, 173, 52, 128]);
@@ -124,7 +124,7 @@ pub struct ILearningModelBindingPreviewFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelDescriptionPreview(::windows::runtime::IInspectable);
+pub struct ILearningModelDescriptionPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelDescriptionPreview {
     type Vtable = ILearningModelDescriptionPreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4113304006, 34321, 16557, [142, 89, 222, 63, 215, 3, 10, 64]);
@@ -152,7 +152,7 @@ pub struct ILearningModelDescriptionPreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelEvaluationResultPreview(::windows::runtime::IInspectable);
+pub struct ILearningModelEvaluationResultPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelEvaluationResultPreview {
     type Vtable = ILearningModelEvaluationResultPreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3743804063, 39011, 16520, [132, 152, 135, 161, 244, 104, 111, 146]);
@@ -172,7 +172,7 @@ pub struct ILearningModelEvaluationResultPreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelPreview(::windows::runtime::IInspectable);
+pub struct ILearningModelPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelPreview {
     type Vtable = ILearningModelPreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(77342314, 37812, 18316, [174, 184, 112, 21, 123, 240, 255, 148]);
@@ -196,7 +196,7 @@ pub struct ILearningModelPreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelPreviewStatics(::windows::runtime::IInspectable);
+pub struct ILearningModelPreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelPreviewStatics {
     type Vtable = ILearningModelPreviewStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(374061920, 33893, 18310, [139, 147, 44, 22, 168, 146, 137, 215]);
@@ -216,9 +216,9 @@ pub struct ILearningModelPreviewStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
-pub struct ILearningModelVariableDescriptorPreview(::windows::runtime::IInspectable);
+pub struct ILearningModelVariableDescriptorPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelVariableDescriptorPreview {
     type Vtable = ILearningModelVariableDescriptorPreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2973628034, 64560, 18731, [142, 160, 237, 31, 83, 192, 176, 56]);
@@ -264,6 +264,46 @@ impl ILearningModelVariableDescriptorPreview {
 unsafe impl ::windows::runtime::RuntimeType for ILearningModelVariableDescriptorPreview {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{b13df682-fc30-492b-8ea0-ed1f53c0b038}");
 }
+impl ::std::convert::From<ILearningModelVariableDescriptorPreview> for ::windows::runtime::IUnknown {
+    fn from(value: ILearningModelVariableDescriptorPreview) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ILearningModelVariableDescriptorPreview> for ::windows::runtime::IUnknown {
+    fn from(value: &ILearningModelVariableDescriptorPreview) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILearningModelVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILearningModelVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ILearningModelVariableDescriptorPreview> for ::windows::runtime::IInspectable {
+    fn from(value: ILearningModelVariableDescriptorPreview) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ILearningModelVariableDescriptorPreview> for ::windows::runtime::IInspectable {
+    fn from(value: &ILearningModelVariableDescriptorPreview) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ILearningModelVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ILearningModelVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelVariableDescriptorPreview_abi(
@@ -280,7 +320,7 @@ pub struct ILearningModelVariableDescriptorPreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapVariableDescriptorPreview(::windows::runtime::IInspectable);
+pub struct IMapVariableDescriptorPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapVariableDescriptorPreview {
     type Vtable = IMapVariableDescriptorPreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018397552, 49195, 16950, [179, 232, 107, 220, 164, 156, 49, 41]);
@@ -303,7 +343,7 @@ pub struct IMapVariableDescriptorPreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISequenceVariableDescriptorPreview(::windows::runtime::IInspectable);
+pub struct ISequenceVariableDescriptorPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISequenceVariableDescriptorPreview {
     type Vtable = ISequenceVariableDescriptorPreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2631463570, 39090, 17712, [161, 182, 45, 237, 95, 236, 188, 38]);
@@ -321,7 +361,7 @@ pub struct ISequenceVariableDescriptorPreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorVariableDescriptorPreview(::windows::runtime::IInspectable);
+pub struct ITensorVariableDescriptorPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorVariableDescriptorPreview {
     type Vtable = ITensorVariableDescriptorPreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2819575834, 39596, 16947, [151, 132, 172, 234, 249, 37, 16, 181]);
@@ -341,8 +381,8 @@ pub struct ITensorVariableDescriptorPreview_abi(
 );
 #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ImageVariableDescriptorPreview(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ImageVariableDescriptorPreview(pub ::windows::runtime::IInspectable);
 impl ImageVariableDescriptorPreview {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Graphics_Imaging")]
@@ -419,6 +459,46 @@ unsafe impl ::windows::runtime::Interface for ImageVariableDescriptorPreview {
 impl ::windows::runtime::RuntimeName for ImageVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview";
 }
+impl ::std::convert::From<ImageVariableDescriptorPreview> for ::windows::runtime::IUnknown {
+    fn from(value: ImageVariableDescriptorPreview) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ImageVariableDescriptorPreview> for ::windows::runtime::IUnknown {
+    fn from(value: &ImageVariableDescriptorPreview) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ImageVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ImageVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ImageVariableDescriptorPreview> for ::windows::runtime::IInspectable {
+    fn from(value: ImageVariableDescriptorPreview) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ImageVariableDescriptorPreview> for ::windows::runtime::IInspectable {
+    fn from(value: &ImageVariableDescriptorPreview) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ImageVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ImageVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<ImageVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ImageVariableDescriptorPreview) -> ::windows::runtime::Result<Self> {
@@ -443,8 +523,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ILearningModelVariableDescriptorPrevi
 }
 #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct InferencingOptionsPreview(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct InferencingOptionsPreview(pub ::windows::runtime::IInspectable);
 impl InferencingOptionsPreview {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
@@ -532,10 +612,50 @@ unsafe impl ::windows::runtime::Interface for InferencingOptionsPreview {
 impl ::windows::runtime::RuntimeName for InferencingOptionsPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.InferencingOptionsPreview";
 }
+impl ::std::convert::From<InferencingOptionsPreview> for ::windows::runtime::IUnknown {
+    fn from(value: InferencingOptionsPreview) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&InferencingOptionsPreview> for ::windows::runtime::IUnknown {
+    fn from(value: &InferencingOptionsPreview) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InferencingOptionsPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InferencingOptionsPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<InferencingOptionsPreview> for ::windows::runtime::IInspectable {
+    fn from(value: InferencingOptionsPreview) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InferencingOptionsPreview> for ::windows::runtime::IInspectable {
+    fn from(value: &InferencingOptionsPreview) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InferencingOptionsPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InferencingOptionsPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LearningModelBindingPreview(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LearningModelBindingPreview(pub ::windows::runtime::IInspectable);
 impl LearningModelBindingPreview {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
@@ -621,6 +741,46 @@ unsafe impl ::windows::runtime::Interface for LearningModelBindingPreview {
 impl ::windows::runtime::RuntimeName for LearningModelBindingPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.LearningModelBindingPreview";
 }
+impl ::std::convert::From<LearningModelBindingPreview> for ::windows::runtime::IUnknown {
+    fn from(value: LearningModelBindingPreview) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LearningModelBindingPreview> for ::windows::runtime::IUnknown {
+    fn from(value: &LearningModelBindingPreview) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LearningModelBindingPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LearningModelBindingPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LearningModelBindingPreview> for ::windows::runtime::IInspectable {
+    fn from(value: LearningModelBindingPreview) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LearningModelBindingPreview> for ::windows::runtime::IInspectable {
+    fn from(value: &LearningModelBindingPreview) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LearningModelBindingPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LearningModelBindingPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<LearningModelBindingPreview> for super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
     type Error = ::windows::runtime::Error;
@@ -693,8 +853,8 @@ impl ::std::iter::IntoIterator for &LearningModelBindingPreview {
 }
 #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LearningModelDescriptionPreview(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LearningModelDescriptionPreview(pub ::windows::runtime::IInspectable);
 impl LearningModelDescriptionPreview {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
@@ -782,6 +942,46 @@ unsafe impl ::windows::runtime::Interface for LearningModelDescriptionPreview {
 impl ::windows::runtime::RuntimeName for LearningModelDescriptionPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview";
 }
+impl ::std::convert::From<LearningModelDescriptionPreview> for ::windows::runtime::IUnknown {
+    fn from(value: LearningModelDescriptionPreview) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LearningModelDescriptionPreview> for ::windows::runtime::IUnknown {
+    fn from(value: &LearningModelDescriptionPreview) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LearningModelDescriptionPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LearningModelDescriptionPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LearningModelDescriptionPreview> for ::windows::runtime::IInspectable {
+    fn from(value: LearningModelDescriptionPreview) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LearningModelDescriptionPreview> for ::windows::runtime::IInspectable {
+    fn from(value: &LearningModelDescriptionPreview) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LearningModelDescriptionPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LearningModelDescriptionPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -810,8 +1010,8 @@ impl ::windows::runtime::DefaultType for LearningModelDeviceKindPreview {
 }
 #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LearningModelEvaluationResultPreview(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LearningModelEvaluationResultPreview(pub ::windows::runtime::IInspectable);
 impl LearningModelEvaluationResultPreview {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
@@ -843,6 +1043,46 @@ unsafe impl ::windows::runtime::Interface for LearningModelEvaluationResultPrevi
 impl ::windows::runtime::RuntimeName for LearningModelEvaluationResultPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.LearningModelEvaluationResultPreview";
 }
+impl ::std::convert::From<LearningModelEvaluationResultPreview> for ::windows::runtime::IUnknown {
+    fn from(value: LearningModelEvaluationResultPreview) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LearningModelEvaluationResultPreview> for ::windows::runtime::IUnknown {
+    fn from(value: &LearningModelEvaluationResultPreview) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LearningModelEvaluationResultPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LearningModelEvaluationResultPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LearningModelEvaluationResultPreview> for ::windows::runtime::IInspectable {
+    fn from(value: LearningModelEvaluationResultPreview) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LearningModelEvaluationResultPreview> for ::windows::runtime::IInspectable {
+    fn from(value: &LearningModelEvaluationResultPreview) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LearningModelEvaluationResultPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LearningModelEvaluationResultPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -870,8 +1110,8 @@ impl ::windows::runtime::DefaultType for LearningModelFeatureKindPreview {
 }
 #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LearningModelPreview(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LearningModelPreview(pub ::windows::runtime::IInspectable);
 impl LearningModelPreview {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
@@ -950,10 +1190,50 @@ unsafe impl ::windows::runtime::Interface for LearningModelPreview {
 impl ::windows::runtime::RuntimeName for LearningModelPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.LearningModelPreview";
 }
+impl ::std::convert::From<LearningModelPreview> for ::windows::runtime::IUnknown {
+    fn from(value: LearningModelPreview) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LearningModelPreview> for ::windows::runtime::IUnknown {
+    fn from(value: &LearningModelPreview) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LearningModelPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LearningModelPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LearningModelPreview> for ::windows::runtime::IInspectable {
+    fn from(value: LearningModelPreview) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LearningModelPreview> for ::windows::runtime::IInspectable {
+    fn from(value: &LearningModelPreview) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LearningModelPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LearningModelPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LearningModelVariableDescriptorPreview(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LearningModelVariableDescriptorPreview(pub ::windows::runtime::IInspectable);
 impl LearningModelVariableDescriptorPreview {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
@@ -1002,6 +1282,46 @@ unsafe impl ::windows::runtime::Interface for LearningModelVariableDescriptorPre
 impl ::windows::runtime::RuntimeName for LearningModelVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview";
 }
+impl ::std::convert::From<LearningModelVariableDescriptorPreview> for ::windows::runtime::IUnknown {
+    fn from(value: LearningModelVariableDescriptorPreview) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LearningModelVariableDescriptorPreview> for ::windows::runtime::IUnknown {
+    fn from(value: &LearningModelVariableDescriptorPreview) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LearningModelVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LearningModelVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LearningModelVariableDescriptorPreview> for ::windows::runtime::IInspectable {
+    fn from(value: LearningModelVariableDescriptorPreview) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LearningModelVariableDescriptorPreview> for ::windows::runtime::IInspectable {
+    fn from(value: &LearningModelVariableDescriptorPreview) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LearningModelVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LearningModelVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<LearningModelVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
     fn from(value: LearningModelVariableDescriptorPreview) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1027,8 +1347,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ILearningModelVariableDescriptorPrevi
 pub struct MachineLearningPreviewContract(pub u8);
 #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MapVariableDescriptorPreview(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MapVariableDescriptorPreview(pub ::windows::runtime::IInspectable);
 impl MapVariableDescriptorPreview {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
@@ -1115,6 +1435,46 @@ unsafe impl ::windows::runtime::Interface for MapVariableDescriptorPreview {
 impl ::windows::runtime::RuntimeName for MapVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview";
 }
+impl ::std::convert::From<MapVariableDescriptorPreview> for ::windows::runtime::IUnknown {
+    fn from(value: MapVariableDescriptorPreview) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MapVariableDescriptorPreview> for ::windows::runtime::IUnknown {
+    fn from(value: &MapVariableDescriptorPreview) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MapVariableDescriptorPreview> for ::windows::runtime::IInspectable {
+    fn from(value: MapVariableDescriptorPreview) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MapVariableDescriptorPreview> for ::windows::runtime::IInspectable {
+    fn from(value: &MapVariableDescriptorPreview) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MapVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MapVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<MapVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MapVariableDescriptorPreview) -> ::windows::runtime::Result<Self> {
@@ -1139,8 +1499,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ILearningModelVariableDescriptorPrevi
 }
 #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SequenceVariableDescriptorPreview(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SequenceVariableDescriptorPreview(pub ::windows::runtime::IInspectable);
 impl SequenceVariableDescriptorPreview {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
@@ -1198,6 +1558,46 @@ unsafe impl ::windows::runtime::Interface for SequenceVariableDescriptorPreview 
 impl ::windows::runtime::RuntimeName for SequenceVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview";
 }
+impl ::std::convert::From<SequenceVariableDescriptorPreview> for ::windows::runtime::IUnknown {
+    fn from(value: SequenceVariableDescriptorPreview) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SequenceVariableDescriptorPreview> for ::windows::runtime::IUnknown {
+    fn from(value: &SequenceVariableDescriptorPreview) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SequenceVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SequenceVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SequenceVariableDescriptorPreview> for ::windows::runtime::IInspectable {
+    fn from(value: SequenceVariableDescriptorPreview) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SequenceVariableDescriptorPreview> for ::windows::runtime::IInspectable {
+    fn from(value: &SequenceVariableDescriptorPreview) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SequenceVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SequenceVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SequenceVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SequenceVariableDescriptorPreview) -> ::windows::runtime::Result<Self> {
@@ -1222,8 +1622,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ILearningModelVariableDescriptorPrevi
 }
 #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct TensorVariableDescriptorPreview(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct TensorVariableDescriptorPreview(pub ::windows::runtime::IInspectable);
 impl TensorVariableDescriptorPreview {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
@@ -1290,6 +1690,46 @@ unsafe impl ::windows::runtime::Interface for TensorVariableDescriptorPreview {
 }
 impl ::windows::runtime::RuntimeName for TensorVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview";
+}
+impl ::std::convert::From<TensorVariableDescriptorPreview> for ::windows::runtime::IUnknown {
+    fn from(value: TensorVariableDescriptorPreview) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&TensorVariableDescriptorPreview> for ::windows::runtime::IUnknown {
+    fn from(value: &TensorVariableDescriptorPreview) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TensorVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TensorVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<TensorVariableDescriptorPreview> for ::windows::runtime::IInspectable {
+    fn from(value: TensorVariableDescriptorPreview) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TensorVariableDescriptorPreview> for ::windows::runtime::IInspectable {
+    fn from(value: &TensorVariableDescriptorPreview) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TensorVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TensorVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<TensorVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
     type Error = ::windows::runtime::Error;

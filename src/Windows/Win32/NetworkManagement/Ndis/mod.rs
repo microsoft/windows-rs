@@ -30,47 +30,70 @@ unsafe impl ::windows::runtime::Abi for BSSID_INFO {
 pub const CLOCK_NETWORK_DERIVED: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const CLOCK_PRECISION: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_ADAPTER_RESET = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_CONTROL = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, dwinbuffersize: u32, pinbuffer: *const u8, dwoutbuffersize: u32, poutbuffer: *mut u8, pdwbytesreturned: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`, `Win32_NetworkManagement_WiFi`, `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub type DOT11EXTIHV_CREATE_DISCOVERY_PROFILES = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, binsecure: super::super::Foundation::BOOL, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pconnectablebssid: *const DOT11_BSS_LIST, pihvdiscoveryprofilelist: *mut DOT11EXT_IHV_DISCOVERY_PROFILE_LIST, pdwreasoncode: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_DEINIT_ADAPTER = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE);
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub type DOT11EXTIHV_DEINIT_SERVICE = unsafe extern "system" fn();
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub type DOT11EXTIHV_GET_VERSION_INFO = unsafe extern "system" fn(pdot11ihvversioninfo: *mut DOT11_IHV_VERSION_INFO) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`, `Win32_NetworkManagement_WiFi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub type DOT11EXTIHV_INIT_ADAPTER = unsafe extern "system" fn(pdot11adapter: *const DOT11_ADAPTER, hdot11svchandle: super::super::Foundation::HANDLE, phihvextadapter: *mut super::super::Foundation::HANDLE) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`, `Win32_NetworkManagement_WiFi`, `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_System_RemoteDesktop`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 pub type DOT11EXTIHV_INIT_SERVICE = unsafe extern "system" fn(dwvernumused: u32, pdot11extapi: *const ::std::mem::ManuallyDrop<DOT11EXT_APIS>, pvreserved: *mut ::std::ffi::c_void, pdot11ihvhandlers: *mut ::std::mem::ManuallyDrop<DOT11EXT_IHV_HANDLERS>) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`, `Win32_NetworkManagement_WiFi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub type DOT11EXTIHV_INIT_VIRTUAL_STATION = unsafe extern "system" fn(pdot11extvsapi: *const ::std::mem::ManuallyDrop<DOT11EXT_VIRTUAL_STATION_APIS>, pvreserved: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_IS_UI_REQUEST_PENDING = unsafe extern "system" fn(guiduirequest: ::windows::runtime::GUID, pbisrequestpending: *mut super::super::Foundation::BOOL) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`, `Win32_NetworkManagement_WiFi`, `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub type DOT11EXTIHV_ONEX_INDICATE_RESULT = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, msonexresult: DOT11_MSONEX_RESULT, pdot11msonexresultparams: *const DOT11_MSONEX_RESULT_PARAMS) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`, `Win32_NetworkManagement_WiFi`, `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub type DOT11EXTIHV_PERFORM_CAPABILITY_MATCH = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pconnectablebssid: *const DOT11_BSS_LIST, pdwreasoncode: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`, `Win32_NetworkManagement_WiFi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub type DOT11EXTIHV_PERFORM_POST_ASSOCIATE = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, hsecuritysessionid: super::super::Foundation::HANDLE, pportstate: *const DOT11_PORT_STATE, udot11assocparamsbytes: u32, pdot11assocparams: *const super::WiFi::DOT11_ASSOCIATION_COMPLETION_PARAMETERS) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`, `Win32_NetworkManagement_WiFi`, `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub type DOT11EXTIHV_PERFORM_PRE_ASSOCIATE = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pconnectablebssid: *const DOT11_BSS_LIST, pdwreasoncode: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_System_RemoteDesktop`*"]
 #[cfg(feature = "Win32_System_RemoteDesktop")]
 pub type DOT11EXTIHV_PROCESS_SESSION_CHANGE = unsafe extern "system" fn(ueventtype: u32, psessionnotification: *const super::super::System::RemoteDesktop::WTSSESSION_NOTIFICATION) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub type DOT11EXTIHV_PROCESS_UI_RESPONSE = unsafe extern "system" fn(guiduirequest: ::windows::runtime::GUID, dwbytecount: u32, pvresponsebuffer: *const ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_QUERY_UI_REQUEST = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, connectionphase: DOT11EXT_IHV_CONNECTION_PHASE, ppihvuirequest: *mut *mut DOT11EXT_IHV_UI_REQUEST) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_RECEIVE_INDICATION = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, indicationtype: DOT11EXT_IHV_INDICATION_TYPE, ubufferlength: u32, pvbuffer: *const ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_RECEIVE_PACKET = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, dwinbuffersize: u32, pvinbuffer: *const ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_SEND_PACKET_COMPLETION = unsafe extern "system" fn(hsendcompletion: super::super::Foundation::HANDLE) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_STOP_POST_ASSOCIATE = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, ppeer: *const *const u8, dot11assocstatus: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`, `Win32_NetworkManagement_WiFi`, `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub type DOT11EXTIHV_VALIDATE_PROFILE = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pdwreasoncode: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub type DOT11EXT_ALLOCATE_BUFFER = unsafe extern "system" fn(dwbytecount: u32, ppvbuffer: *mut *mut ::std::ffi::c_void) -> u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -147,7 +170,9 @@ impl ::std::cmp::Eq for DOT11EXT_APIS {}
 unsafe impl ::windows::runtime::Abi for DOT11EXT_APIS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub type DOT11EXT_FREE_BUFFER = unsafe extern "system" fn(pvmemory: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, pdwdatasize: *mut u32, ppvdata: *mut *mut ::std::ffi::c_void) -> u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -521,52 +546,75 @@ impl ::std::cmp::Eq for DOT11EXT_IHV_UI_REQUEST {}
 unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_UI_REQUEST {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_NIC_SPECIFIC_EXTENSION = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinbuffersize: u32, pvinbuffer: *const ::std::ffi::c_void, pdwoutbuffersize: *mut u32, pvoutbuffer: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`, `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub type DOT11EXT_ONEX_START = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, peapattributes: *const super::super::Security::ExtensibleAuthenticationProtocol::EAP_ATTRIBUTES) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_ONEX_STOP = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_POST_ASSOCIATE_COMPLETION = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hsecuritysessionid: super::super::Foundation::HANDLE, ppeer: *const *const u8, dwreasoncode: u32, dwwin32error: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_PRE_ASSOCIATE_COMPLETION = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwreasoncode: u32, dwwin32error: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_PROCESS_ONEX_PACKET = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinpacketsize: u32, pvinpacket: *const ::std::ffi::c_void) -> u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const DOT11EXT_PSK_MAX_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pbisvirtualstation: *mut super::super::Foundation::BOOL, pgprimary: *mut ::windows::runtime::GUID, pvreserved: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_RELEASE_VIRTUAL_STATION = unsafe extern "system" fn(hdot11primaryhandle: super::super::Foundation::HANDLE, pvreserved: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_REQUEST_VIRTUAL_STATION = unsafe extern "system" fn(hdot11primaryhandle: super::super::Foundation::HANDLE, pvreserved: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`, `Win32_NetworkManagement_WiFi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub type DOT11EXT_SEND_NOTIFICATION = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pnotificationdata: *const super::WiFi::L2_NOTIFICATION_DATA) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SEND_PACKET = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, upacketlen: u32, pvpacket: *const ::std::ffi::c_void, hsendcompletion: super::super::Foundation::HANDLE) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SEND_UI_REQUEST = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pihvuirequest: *const DOT11EXT_IHV_UI_REQUEST) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_AUTH_ALGORITHM = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwauthalgo: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_CURRENT_PROFILE = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`, `Win32_NetworkManagement_WiFi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub type DOT11EXT_SET_DEFAULT_KEY = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pkey: *const super::WiFi::DOT11_CIPHER_DEFAULT_KEY_VALUE, dot11direction: super::WiFi::DOT11_DIRECTION) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_DEFAULT_KEY_ID = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, udefaultkeyid: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`, `Win32_NetworkManagement_WiFi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub type DOT11EXT_SET_ETHERTYPE_HANDLING = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, umaxbacklog: u32, unumofexemption: u32, pexemption: *const super::WiFi::DOT11_PRIVACY_EXEMPTION, unumofregistration: u32, pusregistration: *const u16) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_EXCLUDE_UNENCRYPTED = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, bexcludeunencrypted: super::super::Foundation::BOOL) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`, `Win32_NetworkManagement_WiFi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub type DOT11EXT_SET_KEY_MAPPING_KEY = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pkey: *const super::WiFi::DOT11_CIPHER_KEY_MAPPING_KEY_VALUE) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwmulticastcipheralgo: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, dwdatasize: u32, pvdata: *const ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwunicastcipheralgo: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Ndis`, `Win32_Foundation`, `Win32_NetworkManagement_WiFi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub type DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwnumproperties: u32, pproperties: *const DOT11EXT_VIRTUAL_STATION_AP_PROPERTY, pvreserved: *mut ::std::ffi::c_void) -> u32;
 #[derive(:: std :: clone :: Clone)]

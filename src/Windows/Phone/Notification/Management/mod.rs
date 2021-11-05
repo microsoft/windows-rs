@@ -411,8 +411,8 @@ impl ::std::ops::Not for AccessoryNotificationType {
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct AlarmNotificationTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct AlarmNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 impl AlarmNotificationTriggerDetails {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AlarmId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -512,6 +512,46 @@ unsafe impl ::windows::runtime::Interface for AlarmNotificationTriggerDetails {
 impl ::windows::runtime::RuntimeName for AlarmNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.AlarmNotificationTriggerDetails";
 }
+impl ::std::convert::From<AlarmNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: AlarmNotificationTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&AlarmNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &AlarmNotificationTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AlarmNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AlarmNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<AlarmNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: AlarmNotificationTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AlarmNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &AlarmNotificationTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AlarmNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AlarmNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<AlarmNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::runtime::Error;
     fn try_from(value: AlarmNotificationTriggerDetails) -> ::windows::runtime::Result<Self> {
@@ -536,8 +576,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAccessoryNotificationTriggerDetails>
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct AppNotificationInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct AppNotificationInfo(pub ::windows::runtime::IInspectable);
 impl AppNotificationInfo {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -566,10 +606,50 @@ unsafe impl ::windows::runtime::Interface for AppNotificationInfo {
 impl ::windows::runtime::RuntimeName for AppNotificationInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.AppNotificationInfo";
 }
+impl ::std::convert::From<AppNotificationInfo> for ::windows::runtime::IUnknown {
+    fn from(value: AppNotificationInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&AppNotificationInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &AppNotificationInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppNotificationInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppNotificationInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<AppNotificationInfo> for ::windows::runtime::IInspectable {
+    fn from(value: AppNotificationInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppNotificationInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &AppNotificationInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppNotificationInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppNotificationInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BinaryId(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BinaryId(pub ::windows::runtime::IInspectable);
 impl BinaryId {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u8> {
@@ -597,6 +677,46 @@ unsafe impl ::windows::runtime::Interface for BinaryId {
 }
 impl ::windows::runtime::RuntimeName for BinaryId {
     const NAME: &'static str = "Windows.Phone.Notification.Management.BinaryId";
+}
+impl ::std::convert::From<BinaryId> for ::windows::runtime::IUnknown {
+    fn from(value: BinaryId) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BinaryId> for ::windows::runtime::IUnknown {
+    fn from(value: &BinaryId) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BinaryId {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BinaryId {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BinaryId> for ::windows::runtime::IInspectable {
+    fn from(value: BinaryId) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BinaryId> for ::windows::runtime::IInspectable {
+    fn from(value: &BinaryId) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BinaryId {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BinaryId {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -627,8 +747,8 @@ impl ::windows::runtime::DefaultType for CalendarChangedEvent {
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CalendarChangedNotificationTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CalendarChangedNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 impl CalendarChangedNotificationTriggerDetails {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn EventType(&self) -> ::windows::runtime::Result<CalendarChangedEvent> {
@@ -703,6 +823,46 @@ unsafe impl ::windows::runtime::Interface for CalendarChangedNotificationTrigger
 impl ::windows::runtime::RuntimeName for CalendarChangedNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.CalendarChangedNotificationTriggerDetails";
 }
+impl ::std::convert::From<CalendarChangedNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: CalendarChangedNotificationTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CalendarChangedNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &CalendarChangedNotificationTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CalendarChangedNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CalendarChangedNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CalendarChangedNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: CalendarChangedNotificationTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CalendarChangedNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &CalendarChangedNotificationTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CalendarChangedNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CalendarChangedNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<CalendarChangedNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::runtime::Error;
     fn try_from(value: CalendarChangedNotificationTriggerDetails) -> ::windows::runtime::Result<Self> {
@@ -727,8 +887,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAccessoryNotificationTriggerDetails>
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CortanaTileNotificationTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CortanaTileNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 impl CortanaTileNotificationTriggerDetails {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn TileId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -867,6 +1027,46 @@ unsafe impl ::windows::runtime::Interface for CortanaTileNotificationTriggerDeta
 impl ::windows::runtime::RuntimeName for CortanaTileNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.CortanaTileNotificationTriggerDetails";
 }
+impl ::std::convert::From<CortanaTileNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: CortanaTileNotificationTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CortanaTileNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &CortanaTileNotificationTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CortanaTileNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CortanaTileNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CortanaTileNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: CortanaTileNotificationTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CortanaTileNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &CortanaTileNotificationTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CortanaTileNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CortanaTileNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<CortanaTileNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::runtime::Error;
     fn try_from(value: CortanaTileNotificationTriggerDetails) -> ::windows::runtime::Result<Self> {
@@ -891,8 +1091,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAccessoryNotificationTriggerDetails>
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailAccountInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailAccountInfo(pub ::windows::runtime::IInspectable);
 impl EmailAccountInfo {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -921,10 +1121,50 @@ unsafe impl ::windows::runtime::Interface for EmailAccountInfo {
 impl ::windows::runtime::RuntimeName for EmailAccountInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailAccountInfo";
 }
+impl ::std::convert::From<EmailAccountInfo> for ::windows::runtime::IUnknown {
+    fn from(value: EmailAccountInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailAccountInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailAccountInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailAccountInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailAccountInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailAccountInfo> for ::windows::runtime::IInspectable {
+    fn from(value: EmailAccountInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailAccountInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailAccountInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailAccountInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailAccountInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailFolderInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailFolderInfo(pub ::windows::runtime::IInspectable);
 impl EmailFolderInfo {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -953,10 +1193,50 @@ unsafe impl ::windows::runtime::Interface for EmailFolderInfo {
 impl ::windows::runtime::RuntimeName for EmailFolderInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailFolderInfo";
 }
+impl ::std::convert::From<EmailFolderInfo> for ::windows::runtime::IUnknown {
+    fn from(value: EmailFolderInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailFolderInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailFolderInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailFolderInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailFolderInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailFolderInfo> for ::windows::runtime::IInspectable {
+    fn from(value: EmailFolderInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailFolderInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailFolderInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailFolderInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailFolderInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailNotificationTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 impl EmailNotificationTriggerDetails {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AccountName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1073,6 +1353,46 @@ unsafe impl ::windows::runtime::Interface for EmailNotificationTriggerDetails {
 impl ::windows::runtime::RuntimeName for EmailNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailNotificationTriggerDetails";
 }
+impl ::std::convert::From<EmailNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: EmailNotificationTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailNotificationTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: EmailNotificationTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailNotificationTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<EmailNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::runtime::Error;
     fn try_from(value: EmailNotificationTriggerDetails) -> ::windows::runtime::Result<Self> {
@@ -1097,8 +1417,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAccessoryNotificationTriggerDetails>
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailReadNotificationTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailReadNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 impl EmailReadNotificationTriggerDetails {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AccountName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1189,6 +1509,46 @@ unsafe impl ::windows::runtime::Interface for EmailReadNotificationTriggerDetail
 impl ::windows::runtime::RuntimeName for EmailReadNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailReadNotificationTriggerDetails";
 }
+impl ::std::convert::From<EmailReadNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: EmailReadNotificationTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailReadNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailReadNotificationTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailReadNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailReadNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailReadNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: EmailReadNotificationTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailReadNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailReadNotificationTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailReadNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailReadNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<EmailReadNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::runtime::Error;
     fn try_from(value: EmailReadNotificationTriggerDetails) -> ::windows::runtime::Result<Self> {
@@ -1213,7 +1573,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAccessoryNotificationTriggerDetails>
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccessoryManager(::windows::runtime::IInspectable);
+pub struct IAccessoryManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccessoryManager {
     type Vtable = IAccessoryManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(218407212, 34877, 19111, [188, 167, 250, 75, 184, 191, 254, 230]);
@@ -1279,7 +1639,7 @@ pub struct IAccessoryManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccessoryManager2(::windows::runtime::IInspectable);
+pub struct IAccessoryManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccessoryManager2 {
     type Vtable = IAccessoryManager2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3133854797, 54163, 18118, [184, 12, 21, 253, 244, 77, 83, 134]);
@@ -1315,7 +1675,7 @@ pub struct IAccessoryManager2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccessoryManager3(::windows::runtime::IInspectable);
+pub struct IAccessoryManager3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccessoryManager3 {
     type Vtable = IAccessoryManager3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2180469047, 60871, 18400, [178, 247, 126, 87, 124, 131, 63, 125]);
@@ -1335,9 +1695,9 @@ pub struct IAccessoryManager3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, instanceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Phone_Notification_Management`*"]
-pub struct IAccessoryNotificationTriggerDetails(::windows::runtime::IInspectable);
+pub struct IAccessoryNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccessoryNotificationTriggerDetails {
     type Vtable = IAccessoryNotificationTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1768466388, 58314, 18891, [140, 135, 44, 17, 205, 255, 150, 70]);
@@ -1393,6 +1753,46 @@ impl IAccessoryNotificationTriggerDetails {
 unsafe impl ::windows::runtime::RuntimeType for IAccessoryNotificationTriggerDetails {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{6968a7d4-e3ca-49cb-8c87-2c11cdff9646}");
 }
+impl ::std::convert::From<IAccessoryNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: IAccessoryNotificationTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IAccessoryNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &IAccessoryNotificationTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccessoryNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAccessoryNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IAccessoryNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: IAccessoryNotificationTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAccessoryNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &IAccessoryNotificationTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IAccessoryNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IAccessoryNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessoryNotificationTriggerDetails_abi(
@@ -1412,7 +1812,7 @@ pub struct IAccessoryNotificationTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAlarmNotificationTriggerDetails(::windows::runtime::IInspectable);
+pub struct IAlarmNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAlarmNotificationTriggerDetails {
     type Vtable = IAlarmNotificationTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(955644464, 51000, 19874, [144, 140, 119, 93, 131, 195, 106, 187]);
@@ -1434,7 +1834,7 @@ pub struct IAlarmNotificationTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAlarmNotificationTriggerDetails2(::windows::runtime::IInspectable);
+pub struct IAlarmNotificationTriggerDetails2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAlarmNotificationTriggerDetails2 {
     type Vtable = IAlarmNotificationTriggerDetails2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3474382954, 29013, 16638, [169, 194, 123, 210, 18, 126, 248, 83]);
@@ -1452,7 +1852,7 @@ pub struct IAlarmNotificationTriggerDetails2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppNotificationInfo(::windows::runtime::IInspectable);
+pub struct IAppNotificationInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppNotificationInfo {
     type Vtable = IAppNotificationInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(559398565, 57990, 17875, [155, 234, 247, 144, 252, 33, 110, 14]);
@@ -1471,7 +1871,7 @@ pub struct IAppNotificationInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBinaryId(::windows::runtime::IInspectable);
+pub struct IBinaryId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBinaryId {
     type Vtable = IBinaryId_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1326294321, 21909, 17588, [145, 129, 206, 78, 250, 63, 193, 104]);
@@ -1490,7 +1890,7 @@ pub struct IBinaryId_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICalendarChangedNotificationTriggerDetails(::windows::runtime::IInspectable);
+pub struct ICalendarChangedNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarChangedNotificationTriggerDetails {
     type Vtable = ICalendarChangedNotificationTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1267350524, 10141, 17067, [156, 104, 62, 135, 151, 123, 242, 22]);
@@ -1509,7 +1909,7 @@ pub struct ICalendarChangedNotificationTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICortanaTileNotificationTriggerDetails(::windows::runtime::IInspectable);
+pub struct ICortanaTileNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaTileNotificationTriggerDetails {
     type Vtable = ICortanaTileNotificationTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3691971029, 5257, 18107, [183, 59, 127, 144, 6, 126, 207, 39]);
@@ -1536,7 +1936,7 @@ pub struct ICortanaTileNotificationTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailAccountInfo(::windows::runtime::IInspectable);
+pub struct IEmailAccountInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAccountInfo {
     type Vtable = IEmailAccountInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3753640619, 48544, 17768, [146, 126, 178, 237, 227, 88, 24, 161]);
@@ -1555,7 +1955,7 @@ pub struct IEmailAccountInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailFolderInfo(::windows::runtime::IInspectable);
+pub struct IEmailFolderInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailFolderInfo {
     type Vtable = IEmailFolderInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3255244046, 57911, 18134, [144, 230, 79, 82, 158, 234, 193, 226]);
@@ -1574,7 +1974,7 @@ pub struct IEmailFolderInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailNotificationTriggerDetails(::windows::runtime::IInspectable);
+pub struct IEmailNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailNotificationTriggerDetails {
     type Vtable = IEmailNotificationTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4088931858, 18127, 20080, [142, 13, 123, 46, 4, 171, 73, 43]);
@@ -1599,7 +1999,7 @@ pub struct IEmailNotificationTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailNotificationTriggerDetails2(::windows::runtime::IInspectable);
+pub struct IEmailNotificationTriggerDetails2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailNotificationTriggerDetails2 {
     type Vtable = IEmailNotificationTriggerDetails2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(377513955, 50543, 20167, [190, 209, 247, 52, 224, 141, 229, 178]);
@@ -1617,7 +2017,7 @@ pub struct IEmailNotificationTriggerDetails2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailReadNotificationTriggerDetails(::windows::runtime::IInspectable);
+pub struct IEmailReadNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailReadNotificationTriggerDetails {
     type Vtable = IEmailReadNotificationTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4122452103, 1779, 20030, [140, 66, 50, 94, 103, 1, 4, 19]);
@@ -1638,7 +2038,7 @@ pub struct IEmailReadNotificationTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaControlsTriggerDetails(::windows::runtime::IInspectable);
+pub struct IMediaControlsTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaControlsTriggerDetails {
     type Vtable = IMediaControlsTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4206126219, 44613, 17736, [145, 202, 74, 176, 84, 142, 51, 181]);
@@ -1657,7 +2057,7 @@ pub struct IMediaControlsTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaMetadata(::windows::runtime::IInspectable);
+pub struct IMediaMetadata(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaMetadata {
     type Vtable = IMediaMetadata_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2605768183, 47980, 17200, [179, 205, 7, 4, 165, 76, 219, 128]);
@@ -1683,7 +2083,7 @@ pub struct IMediaMetadata_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneCallDetails(::windows::runtime::IInspectable);
+pub struct IPhoneCallDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallDetails {
     type Vtable = IPhoneCallDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(203124563, 61553, 18494, [191, 51, 235, 212, 75, 114, 68, 71]);
@@ -1715,7 +2115,7 @@ pub struct IPhoneCallDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneLineDetails(::windows::runtime::IInspectable);
+pub struct IPhoneLineDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineDetails {
     type Vtable = IPhoneLineDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1206596316, 13293, 18873, [153, 92, 162, 150, 186, 200, 43, 119]);
@@ -1738,7 +2138,7 @@ pub struct IPhoneLineDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneLineDetails2(::windows::runtime::IInspectable);
+pub struct IPhoneLineDetails2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineDetails2 {
     type Vtable = IPhoneLineDetails2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3003963261, 327, 18828, [130, 65, 191, 12, 171, 198, 10, 37]);
@@ -1756,7 +2156,7 @@ pub struct IPhoneLineDetails2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneNotificationTriggerDetails(::windows::runtime::IInspectable);
+pub struct IPhoneNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneNotificationTriggerDetails {
     type Vtable = IPhoneNotificationTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3435331063, 2499, 16664, [145, 188, 202, 99, 35, 168, 211, 131]);
@@ -1776,7 +2176,7 @@ pub struct IPhoneNotificationTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IReminderNotificationTriggerDetails(::windows::runtime::IInspectable);
+pub struct IReminderNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReminderNotificationTriggerDetails {
     type Vtable = IReminderNotificationTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1541253725, 40801, 19440, [159, 235, 16, 80, 43, 192, 176, 194]);
@@ -1802,7 +2202,7 @@ pub struct IReminderNotificationTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IReminderNotificationTriggerDetails2(::windows::runtime::IInspectable);
+pub struct IReminderNotificationTriggerDetails2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReminderNotificationTriggerDetails2 {
     type Vtable = IReminderNotificationTriggerDetails2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3876977088, 20557, 19471, [166, 179, 188, 185, 114, 44, 108, 221]);
@@ -1820,7 +2220,7 @@ pub struct IReminderNotificationTriggerDetails2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpeedDialEntry(::windows::runtime::IInspectable);
+pub struct ISpeedDialEntry(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeedDialEntry {
     type Vtable = ISpeedDialEntry_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2453714651, 34604, 18140, [182, 42, 190, 69, 65, 177, 102, 248]);
@@ -1840,7 +2240,7 @@ pub struct ISpeedDialEntry_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITextResponse(::windows::runtime::IInspectable);
+pub struct ITextResponse(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextResponse {
     type Vtable = ITextResponse_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3922425027, 9303, 19675, [129, 16, 114, 245, 232, 232, 131, 232]);
@@ -1859,7 +2259,7 @@ pub struct ITextResponse_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IToastNotificationTriggerDetails(::windows::runtime::IInspectable);
+pub struct IToastNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationTriggerDetails {
     type Vtable = IToastNotificationTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3375450261, 20077, 20125, [175, 236, 158, 146, 27, 135, 90, 232]);
@@ -1881,7 +2281,7 @@ pub struct IToastNotificationTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IToastNotificationTriggerDetails2(::windows::runtime::IInspectable);
+pub struct IToastNotificationTriggerDetails2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationTriggerDetails2 {
     type Vtable = IToastNotificationTriggerDetails2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1040480733, 51908, 20320, [175, 163, 185, 37, 217, 216, 60, 147]);
@@ -1899,7 +2299,7 @@ pub struct IToastNotificationTriggerDetails2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVolumeInfo(::windows::runtime::IInspectable);
+pub struct IVolumeInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVolumeInfo {
     type Vtable = IVolumeInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2488127768, 30468, 17537, [185, 46, 211, 237, 62, 206, 99, 34]);
@@ -1921,8 +2321,8 @@ pub struct IVolumeInfo_abi(
 );
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaControlsTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaControlsTriggerDetails(pub ::windows::runtime::IInspectable);
 impl MediaControlsTriggerDetails {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn PlaybackStatus(&self) -> ::windows::runtime::Result<PlaybackStatus> {
@@ -1997,6 +2397,46 @@ unsafe impl ::windows::runtime::Interface for MediaControlsTriggerDetails {
 impl ::windows::runtime::RuntimeName for MediaControlsTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.MediaControlsTriggerDetails";
 }
+impl ::std::convert::From<MediaControlsTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: MediaControlsTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaControlsTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaControlsTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaControlsTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaControlsTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaControlsTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: MediaControlsTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaControlsTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaControlsTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaControlsTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaControlsTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<MediaControlsTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MediaControlsTriggerDetails) -> ::windows::runtime::Result<Self> {
@@ -2021,8 +2461,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAccessoryNotificationTriggerDetails>
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaMetadata(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaMetadata(pub ::windows::runtime::IInspectable);
 impl MediaMetadata {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -2093,6 +2533,46 @@ unsafe impl ::windows::runtime::Interface for MediaMetadata {
 impl ::windows::runtime::RuntimeName for MediaMetadata {
     const NAME: &'static str = "Windows.Phone.Notification.Management.MediaMetadata";
 }
+impl ::std::convert::From<MediaMetadata> for ::windows::runtime::IUnknown {
+    fn from(value: MediaMetadata) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaMetadata> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaMetadata) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaMetadata {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaMetadata {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaMetadata> for ::windows::runtime::IInspectable {
+    fn from(value: MediaMetadata) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaMetadata> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaMetadata) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaMetadata {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaMetadata {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -2118,8 +2598,8 @@ impl ::windows::runtime::DefaultType for PhoneCallAudioEndpoint {
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PhoneCallDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PhoneCallDetails(pub ::windows::runtime::IInspectable);
 impl PhoneCallDetails {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn PhoneLine(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -2231,6 +2711,46 @@ unsafe impl ::windows::runtime::Interface for PhoneCallDetails {
 impl ::windows::runtime::RuntimeName for PhoneCallDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.PhoneCallDetails";
 }
+impl ::std::convert::From<PhoneCallDetails> for ::windows::runtime::IUnknown {
+    fn from(value: PhoneCallDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PhoneCallDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &PhoneCallDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneCallDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PhoneCallDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PhoneCallDetails> for ::windows::runtime::IInspectable {
+    fn from(value: PhoneCallDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PhoneCallDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &PhoneCallDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneCallDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneCallDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -2302,8 +2822,8 @@ impl ::windows::runtime::DefaultType for PhoneCallTransport {
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PhoneLineDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PhoneLineDetails(pub ::windows::runtime::IInspectable);
 impl PhoneLineDetails {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn LineId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -2372,6 +2892,46 @@ unsafe impl ::windows::runtime::Interface for PhoneLineDetails {
 impl ::windows::runtime::RuntimeName for PhoneLineDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.PhoneLineDetails";
 }
+impl ::std::convert::From<PhoneLineDetails> for ::windows::runtime::IUnknown {
+    fn from(value: PhoneLineDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PhoneLineDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &PhoneLineDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneLineDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PhoneLineDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PhoneLineDetails> for ::windows::runtime::IInspectable {
+    fn from(value: PhoneLineDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PhoneLineDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &PhoneLineDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneLineDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneLineDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -2419,8 +2979,8 @@ impl ::windows::runtime::DefaultType for PhoneMediaType {
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PhoneNotificationTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PhoneNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 impl PhoneNotificationTriggerDetails {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn PhoneNotificationType(&self) -> ::windows::runtime::Result<PhoneNotificationType> {
@@ -2502,6 +3062,46 @@ unsafe impl ::windows::runtime::Interface for PhoneNotificationTriggerDetails {
 }
 impl ::windows::runtime::RuntimeName for PhoneNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.PhoneNotificationTriggerDetails";
+}
+impl ::std::convert::From<PhoneNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: PhoneNotificationTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PhoneNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &PhoneNotificationTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PhoneNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PhoneNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: PhoneNotificationTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PhoneNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &PhoneNotificationTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<PhoneNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::runtime::Error;
@@ -2666,8 +3266,8 @@ impl ::windows::runtime::DefaultType for PlaybackStatus {
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ReminderNotificationTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ReminderNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 impl ReminderNotificationTriggerDetails {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn ReminderId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -2792,6 +3392,46 @@ unsafe impl ::windows::runtime::Interface for ReminderNotificationTriggerDetails
 impl ::windows::runtime::RuntimeName for ReminderNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.ReminderNotificationTriggerDetails";
 }
+impl ::std::convert::From<ReminderNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: ReminderNotificationTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ReminderNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &ReminderNotificationTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ReminderNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ReminderNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ReminderNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: ReminderNotificationTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ReminderNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &ReminderNotificationTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ReminderNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ReminderNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<ReminderNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ReminderNotificationTriggerDetails) -> ::windows::runtime::Result<Self> {
@@ -2839,8 +3479,8 @@ impl ::windows::runtime::DefaultType for ReminderState {
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SpeedDialEntry(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SpeedDialEntry(pub ::windows::runtime::IInspectable);
 impl SpeedDialEntry {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn PhoneNumber(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -2877,10 +3517,50 @@ unsafe impl ::windows::runtime::Interface for SpeedDialEntry {
 impl ::windows::runtime::RuntimeName for SpeedDialEntry {
     const NAME: &'static str = "Windows.Phone.Notification.Management.SpeedDialEntry";
 }
+impl ::std::convert::From<SpeedDialEntry> for ::windows::runtime::IUnknown {
+    fn from(value: SpeedDialEntry) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SpeedDialEntry> for ::windows::runtime::IUnknown {
+    fn from(value: &SpeedDialEntry) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpeedDialEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpeedDialEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SpeedDialEntry> for ::windows::runtime::IInspectable {
+    fn from(value: SpeedDialEntry) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SpeedDialEntry> for ::windows::runtime::IInspectable {
+    fn from(value: &SpeedDialEntry) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SpeedDialEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SpeedDialEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct TextResponse(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct TextResponse(pub ::windows::runtime::IInspectable);
 impl TextResponse {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
@@ -2909,10 +3589,50 @@ unsafe impl ::windows::runtime::Interface for TextResponse {
 impl ::windows::runtime::RuntimeName for TextResponse {
     const NAME: &'static str = "Windows.Phone.Notification.Management.TextResponse";
 }
+impl ::std::convert::From<TextResponse> for ::windows::runtime::IUnknown {
+    fn from(value: TextResponse) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&TextResponse> for ::windows::runtime::IUnknown {
+    fn from(value: &TextResponse) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TextResponse {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TextResponse {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<TextResponse> for ::windows::runtime::IInspectable {
+    fn from(value: TextResponse) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TextResponse> for ::windows::runtime::IInspectable {
+    fn from(value: &TextResponse) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TextResponse {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TextResponse {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ToastNotificationTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ToastNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 impl ToastNotificationTriggerDetails {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Text1(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -3019,6 +3739,46 @@ unsafe impl ::windows::runtime::Interface for ToastNotificationTriggerDetails {
 impl ::windows::runtime::RuntimeName for ToastNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.ToastNotificationTriggerDetails";
 }
+impl ::std::convert::From<ToastNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: ToastNotificationTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ToastNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &ToastNotificationTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ToastNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ToastNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ToastNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: ToastNotificationTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ToastNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &ToastNotificationTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ToastNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ToastNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<ToastNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ToastNotificationTriggerDetails) -> ::windows::runtime::Result<Self> {
@@ -3067,8 +3827,8 @@ impl ::windows::runtime::DefaultType for VibrateState {
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct VolumeInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct VolumeInfo(pub ::windows::runtime::IInspectable);
 impl VolumeInfo {
     #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SystemVolume(&self) -> ::windows::runtime::Result<u32> {
@@ -3120,4 +3880,44 @@ unsafe impl ::windows::runtime::Interface for VolumeInfo {
 }
 impl ::windows::runtime::RuntimeName for VolumeInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.VolumeInfo";
+}
+impl ::std::convert::From<VolumeInfo> for ::windows::runtime::IUnknown {
+    fn from(value: VolumeInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&VolumeInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &VolumeInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VolumeInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VolumeInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<VolumeInfo> for ::windows::runtime::IInspectable {
+    fn from(value: VolumeInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&VolumeInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &VolumeInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VolumeInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VolumeInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }

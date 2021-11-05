@@ -30,8 +30,8 @@ impl Field {
         self.signature(enclosing).kind.include_definition(include)
     }
 
-    pub fn struct_features(&self, enclosing: Option<&TypeDef>, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
-        self.signature(enclosing).kind.struct_features(features, keys);
+    pub fn features(&self, enclosing: Option<&TypeDef>, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
+        self.signature(enclosing).kind.features(features, keys);
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {

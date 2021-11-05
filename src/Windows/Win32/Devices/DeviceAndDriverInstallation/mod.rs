@@ -78,6 +78,7 @@ unsafe impl ::windows::runtime::Abi for BUSNUMBER_RESOURCE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct CABINET_INFO_A {
@@ -87,34 +88,78 @@ pub struct CABINET_INFO_A {
     pub SetId: u16,
     pub CabinetNumber: u16,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl CABINET_INFO_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CABINET_INFO_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CABINET_INFO_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("CABINET_INFO_A").field("CabinetPath", &self.CabinetPath).field("CabinetFile", &self.CabinetFile).field("DiskName", &self.DiskName).field("SetId", &self.SetId).field("CabinetNumber", &self.CabinetNumber).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CABINET_INFO_A {
     fn eq(&self, other: &Self) -> bool {
         self.CabinetPath == other.CabinetPath && self.CabinetFile == other.CabinetFile && self.DiskName == other.DiskName && self.SetId == other.SetId && self.CabinetNumber == other.CabinetNumber
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CABINET_INFO_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for CABINET_INFO_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct CABINET_INFO_A {
+    pub CabinetPath: super::super::Foundation::PSTR,
+    pub CabinetFile: super::super::Foundation::PSTR,
+    pub DiskName: super::super::Foundation::PSTR,
+    pub SetId: u16,
+    pub CabinetNumber: u16,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl CABINET_INFO_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for CABINET_INFO_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for CABINET_INFO_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for CABINET_INFO_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CABINET_INFO_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct CABINET_INFO_W {
@@ -124,28 +169,71 @@ pub struct CABINET_INFO_W {
     pub SetId: u16,
     pub CabinetNumber: u16,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl CABINET_INFO_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CABINET_INFO_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CABINET_INFO_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("CABINET_INFO_W").field("CabinetPath", &self.CabinetPath).field("CabinetFile", &self.CabinetFile).field("DiskName", &self.DiskName).field("SetId", &self.SetId).field("CabinetNumber", &self.CabinetNumber).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CABINET_INFO_W {
     fn eq(&self, other: &Self) -> bool {
         self.CabinetPath == other.CabinetPath && self.CabinetFile == other.CabinetFile && self.DiskName == other.DiskName && self.SetId == other.SetId && self.CabinetNumber == other.CabinetNumber
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CABINET_INFO_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for CABINET_INFO_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct CABINET_INFO_W {
+    pub CabinetPath: super::super::Foundation::PWSTR,
+    pub CabinetFile: super::super::Foundation::PWSTR,
+    pub DiskName: super::super::Foundation::PWSTR,
+    pub SetId: u16,
+    pub CabinetNumber: u16,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl CABINET_INFO_W {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for CABINET_INFO_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for CABINET_INFO_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for CABINET_INFO_W {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CABINET_INFO_W {
     type Abi = Self;
@@ -176,8 +264,8 @@ pub const CM_ADD_RANGE_ADDIFCONFLICT: u32 = 0u32;
 pub const CM_ADD_RANGE_BITS: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const CM_ADD_RANGE_DONOTADDIFCONFLICT: u32 = 1u32;
-#[cfg(feature = "Win32_Data_HtmlHelp")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Data_HtmlHelp`*"]
+#[cfg(feature = "Win32_Data_HtmlHelp")]
 #[inline]
 pub unsafe fn CM_Add_Empty_Log_Conf(plclogconf: *mut usize, dndevinst: u32, priority: super::super::Data::HtmlHelp::PRIORITY, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -191,8 +279,8 @@ pub unsafe fn CM_Add_Empty_Log_Conf(plclogconf: *mut usize, dndevinst: u32, prio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Data_HtmlHelp")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Data_HtmlHelp`*"]
+#[cfg(feature = "Win32_Data_HtmlHelp")]
 #[inline]
 pub unsafe fn CM_Add_Empty_Log_Conf_Ex(plclogconf: *mut usize, dndevinst: u32, priority: super::super::Data::HtmlHelp::PRIORITY, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -206,8 +294,8 @@ pub unsafe fn CM_Add_Empty_Log_Conf_Ex(plclogconf: *mut usize, dndevinst: u32, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Add_IDA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dndevinst: u32, pszid: Param1, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -221,8 +309,8 @@ pub unsafe fn CM_Add_IDA<'a, Param1: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Add_IDW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dndevinst: u32, pszid: Param1, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -236,8 +324,8 @@ pub unsafe fn CM_Add_IDW<'a, Param1: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Add_ID_ExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dndevinst: u32, pszid: Param1, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -251,8 +339,8 @@ pub unsafe fn CM_Add_ID_ExA<'a, Param1: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Add_ID_ExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dndevinst: u32, pszid: Param1, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -376,8 +464,8 @@ pub const CM_CRP_UPPERFILTERS: u32 = 18u32;
 pub const CM_CUSTOMDEVPROP_BITS: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const CM_CUSTOMDEVPROP_MERGE_MULTISZ: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Connect_MachineA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(uncservername: Param0, phmachine: *mut isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -391,8 +479,8 @@ pub unsafe fn CM_Connect_MachineA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Connect_MachineW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, phmachine: *mut isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -706,8 +794,8 @@ pub unsafe fn CM_Delete_DevNode_Key_Ex(dndevnode: u32, ulhardwareprofile: u32, u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Delete_Device_Interface_KeyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszdeviceinterface: Param0, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -721,8 +809,8 @@ pub unsafe fn CM_Delete_Device_Interface_KeyA<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Delete_Device_Interface_KeyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -736,8 +824,8 @@ pub unsafe fn CM_Delete_Device_Interface_KeyW<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Delete_Device_Interface_Key_ExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszdeviceinterface: Param0, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -751,8 +839,8 @@ pub unsafe fn CM_Delete_Device_Interface_Key_ExA<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Delete_Device_Interface_Key_ExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -780,8 +868,8 @@ pub unsafe fn CM_Delete_Range(ullstartvalue: u64, ullendvalue: u64, rlh: usize, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Detect_Resource_Conflict(dndevinst: u32, resourceid: u32, resourcedata: *const ::std::ffi::c_void, resourcelen: u32, pbconflictdetected: *mut super::super::Foundation::BOOL, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -795,8 +883,8 @@ pub unsafe fn CM_Detect_Resource_Conflict(dndevinst: u32, resourceid: u32, resou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Detect_Resource_Conflict_Ex(dndevinst: u32, resourceid: u32, resourcedata: *const ::std::ffi::c_void, resourcelen: u32, pbconflictdetected: *mut super::super::Foundation::BOOL, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -928,8 +1016,8 @@ pub unsafe fn CM_Enumerate_Classes_Ex(ulclassindex: u32, classguid: *mut ::windo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Enumerate_EnumeratorsA(ulenumindex: u32, buffer: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -943,8 +1031,8 @@ pub unsafe fn CM_Enumerate_EnumeratorsA(ulenumindex: u32, buffer: super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Enumerate_EnumeratorsW(ulenumindex: u32, buffer: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -958,8 +1046,8 @@ pub unsafe fn CM_Enumerate_EnumeratorsW(ulenumindex: u32, buffer: super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Enumerate_Enumerators_ExA(ulenumindex: u32, buffer: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -973,8 +1061,8 @@ pub unsafe fn CM_Enumerate_Enumerators_ExA(ulenumindex: u32, buffer: super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Enumerate_Enumerators_ExW(ulenumindex: u32, buffer: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1198,8 +1286,8 @@ pub unsafe fn CM_Get_Child_Ex(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Class_Key_NameA(classguid: *const ::windows::runtime::GUID, pszkeyname: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1213,8 +1301,8 @@ pub unsafe fn CM_Get_Class_Key_NameA(classguid: *const ::windows::runtime::GUID,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Class_Key_NameW(classguid: *const ::windows::runtime::GUID, pszkeyname: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1228,8 +1316,8 @@ pub unsafe fn CM_Get_Class_Key_NameW(classguid: *const ::windows::runtime::GUID,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Class_Key_Name_ExA(classguid: *const ::windows::runtime::GUID, pszkeyname: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1243,8 +1331,8 @@ pub unsafe fn CM_Get_Class_Key_Name_ExA(classguid: *const ::windows::runtime::GU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Class_Key_Name_ExW(classguid: *const ::windows::runtime::GUID, pszkeyname: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1258,8 +1346,8 @@ pub unsafe fn CM_Get_Class_Key_Name_ExW(classguid: *const ::windows::runtime::GU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Class_NameA(classguid: *const ::windows::runtime::GUID, buffer: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1273,8 +1361,8 @@ pub unsafe fn CM_Get_Class_NameA(classguid: *const ::windows::runtime::GUID, buf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Class_NameW(classguid: *const ::windows::runtime::GUID, buffer: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1288,8 +1376,8 @@ pub unsafe fn CM_Get_Class_NameW(classguid: *const ::windows::runtime::GUID, buf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Class_Name_ExA(classguid: *const ::windows::runtime::GUID, buffer: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1303,8 +1391,8 @@ pub unsafe fn CM_Get_Class_Name_ExA(classguid: *const ::windows::runtime::GUID, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Class_Name_ExW(classguid: *const ::windows::runtime::GUID, buffer: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1318,8 +1406,8 @@ pub unsafe fn CM_Get_Class_Name_ExW(classguid: *const ::windows::runtime::GUID, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn CM_Get_Class_PropertyW(classguid: *const ::windows::runtime::GUID, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1333,8 +1421,8 @@ pub unsafe fn CM_Get_Class_PropertyW(classguid: *const ::windows::runtime::GUID,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn CM_Get_Class_Property_ExW(classguid: *const ::windows::runtime::GUID, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1348,8 +1436,8 @@ pub unsafe fn CM_Get_Class_Property_ExW(classguid: *const ::windows::runtime::GU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn CM_Get_Class_Property_Keys(classguid: *const ::windows::runtime::GUID, propertykeyarray: *mut super::super::System::SystemServices::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1363,8 +1451,8 @@ pub unsafe fn CM_Get_Class_Property_Keys(classguid: *const ::windows::runtime::G
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn CM_Get_Class_Property_Keys_Ex(classguid: *const ::windows::runtime::GUID, propertykeyarray: *mut super::super::System::SystemServices::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1434,8 +1522,8 @@ pub unsafe fn CM_Get_Depth_Ex(puldepth: *mut u32, dndevinst: u32, ulflags: u32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_DevNode_Custom_PropertyA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dndevinst: u32, pszcustompropertyname: Param1, pulregdatatype: *mut u32, buffer: *mut ::std::ffi::c_void, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1449,8 +1537,8 @@ pub unsafe fn CM_Get_DevNode_Custom_PropertyA<'a, Param1: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_DevNode_Custom_PropertyW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dndevinst: u32, pszcustompropertyname: Param1, pulregdatatype: *mut u32, buffer: *mut ::std::ffi::c_void, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1464,8 +1552,8 @@ pub unsafe fn CM_Get_DevNode_Custom_PropertyW<'a, Param1: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_DevNode_Custom_Property_ExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dndevinst: u32, pszcustompropertyname: Param1, pulregdatatype: *mut u32, buffer: *mut ::std::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1479,8 +1567,8 @@ pub unsafe fn CM_Get_DevNode_Custom_Property_ExA<'a, Param1: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_DevNode_Custom_Property_ExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dndevinst: u32, pszcustompropertyname: Param1, pulregdatatype: *mut u32, buffer: *mut ::std::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1494,8 +1582,8 @@ pub unsafe fn CM_Get_DevNode_Custom_Property_ExW<'a, Param1: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn CM_Get_DevNode_PropertyW(dndevinst: u32, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1509,8 +1597,8 @@ pub unsafe fn CM_Get_DevNode_PropertyW(dndevinst: u32, propertykey: *const super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn CM_Get_DevNode_Property_ExW(dndevinst: u32, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1524,8 +1612,8 @@ pub unsafe fn CM_Get_DevNode_Property_ExW(dndevinst: u32, propertykey: *const su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn CM_Get_DevNode_Property_Keys(dndevinst: u32, propertykeyarray: *mut super::super::System::SystemServices::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1539,8 +1627,8 @@ pub unsafe fn CM_Get_DevNode_Property_Keys(dndevinst: u32, propertykeyarray: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn CM_Get_DevNode_Property_Keys_Ex(dndevinst: u32, propertykeyarray: *mut super::super::System::SystemServices::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1638,8 +1726,8 @@ pub unsafe fn CM_Get_DevNode_Status_Ex(pulstatus: *mut u32, pulproblemnumber: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_IDA(dndevinst: u32, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1653,8 +1741,8 @@ pub unsafe fn CM_Get_Device_IDA(dndevinst: u32, buffer: super::super::Foundation
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_IDW(dndevinst: u32, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1668,8 +1756,8 @@ pub unsafe fn CM_Get_Device_IDW(dndevinst: u32, buffer: super::super::Foundation
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_ID_ExA(dndevinst: u32, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1683,8 +1771,8 @@ pub unsafe fn CM_Get_Device_ID_ExA(dndevinst: u32, buffer: super::super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_ID_ExW(dndevinst: u32, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1698,8 +1786,8 @@ pub unsafe fn CM_Get_Device_ID_ExW(dndevinst: u32, buffer: super::super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_ID_ListA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfilter: Param0, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1713,8 +1801,8 @@ pub unsafe fn CM_Get_Device_ID_ListA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_ID_ListW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfilter: Param0, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1728,8 +1816,8 @@ pub unsafe fn CM_Get_Device_ID_ListW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_ID_List_ExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfilter: Param0, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1743,8 +1831,8 @@ pub unsafe fn CM_Get_Device_ID_List_ExA<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_ID_List_ExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfilter: Param0, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1758,8 +1846,8 @@ pub unsafe fn CM_Get_Device_ID_List_ExW<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_ID_List_SizeA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pullen: *mut u32, pszfilter: Param1, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1773,8 +1861,8 @@ pub unsafe fn CM_Get_Device_ID_List_SizeA<'a, Param1: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_ID_List_SizeW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pullen: *mut u32, pszfilter: Param1, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1788,8 +1876,8 @@ pub unsafe fn CM_Get_Device_ID_List_SizeW<'a, Param1: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_ID_List_Size_ExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pullen: *mut u32, pszfilter: Param1, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1803,8 +1891,8 @@ pub unsafe fn CM_Get_Device_ID_List_Size_ExA<'a, Param1: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_ID_List_Size_ExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pullen: *mut u32, pszfilter: Param1, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1846,8 +1934,8 @@ pub unsafe fn CM_Get_Device_ID_Size_Ex(pullen: *mut u32, dndevinst: u32, ulflags
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_Interface_AliasA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszdeviceinterface: Param0, aliasinterfaceguid: *const ::windows::runtime::GUID, pszaliasdeviceinterface: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1861,8 +1949,8 @@ pub unsafe fn CM_Get_Device_Interface_AliasA<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_Interface_AliasW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, aliasinterfaceguid: *const ::windows::runtime::GUID, pszaliasdeviceinterface: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1876,8 +1964,8 @@ pub unsafe fn CM_Get_Device_Interface_AliasW<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_Interface_Alias_ExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszdeviceinterface: Param0, aliasinterfaceguid: *const ::windows::runtime::GUID, pszaliasdeviceinterface: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1891,8 +1979,8 @@ pub unsafe fn CM_Get_Device_Interface_Alias_ExA<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_Interface_Alias_ExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, aliasinterfaceguid: *const ::windows::runtime::GUID, pszaliasdeviceinterface: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1906,8 +1994,8 @@ pub unsafe fn CM_Get_Device_Interface_Alias_ExW<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_Interface_ListA(interfaceclassguid: *const ::windows::runtime::GUID, pdeviceid: *const i8, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1921,8 +2009,8 @@ pub unsafe fn CM_Get_Device_Interface_ListA(interfaceclassguid: *const ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_Interface_ListW(interfaceclassguid: *const ::windows::runtime::GUID, pdeviceid: *const u16, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -1936,8 +2024,8 @@ pub unsafe fn CM_Get_Device_Interface_ListW(interfaceclassguid: *const ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_Interface_List_ExA(interfaceclassguid: *const ::windows::runtime::GUID, pdeviceid: *const i8, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -1951,8 +2039,8 @@ pub unsafe fn CM_Get_Device_Interface_List_ExA(interfaceclassguid: *const ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Device_Interface_List_ExW(interfaceclassguid: *const ::windows::runtime::GUID, pdeviceid: *const u16, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -2022,8 +2110,8 @@ pub unsafe fn CM_Get_Device_Interface_List_Size_ExW(pullen: *mut u32, interfacec
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn CM_Get_Device_Interface_PropertyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -2037,8 +2125,8 @@ pub unsafe fn CM_Get_Device_Interface_PropertyW<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn CM_Get_Device_Interface_Property_ExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -2052,8 +2140,8 @@ pub unsafe fn CM_Get_Device_Interface_Property_ExW<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn CM_Get_Device_Interface_Property_KeysW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, propertykeyarray: *mut super::super::System::SystemServices::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -2067,8 +2155,8 @@ pub unsafe fn CM_Get_Device_Interface_Property_KeysW<'a, Param0: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn CM_Get_Device_Interface_Property_Keys_ExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, propertykeyarray: *mut super::super::System::SystemServices::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -2194,8 +2282,8 @@ pub unsafe fn CM_Get_HW_Prof_Flags_ExW(pdeviceid: *const u16, ulhardwareprofile:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Hardware_Profile_InfoA(ulindex: u32, phwprofileinfo: *mut HWProfileInfo_sA, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -2223,8 +2311,8 @@ pub unsafe fn CM_Get_Hardware_Profile_InfoW(ulindex: u32, phwprofileinfo: *mut H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Hardware_Profile_Info_ExA(ulindex: u32, phwprofileinfo: *mut HWProfileInfo_sA, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -2434,8 +2522,8 @@ pub unsafe fn CM_Get_Resource_Conflict_Count(clconflictlist: usize, pulcount: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Resource_Conflict_DetailsA(clconflictlist: usize, ulindex: u32, pconflictdetails: *mut CONFLICT_DETAILS_A) -> CONFIGRET {
     #[cfg(windows)]
@@ -2561,8 +2649,8 @@ pub unsafe fn CM_Invert_Range_List(rlhold: usize, rlhnew: usize, ullmaxvalue: u6
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Is_Dock_Station_Present(pbpresent: *mut super::super::Foundation::BOOL) -> CONFIGRET {
     #[cfg(windows)]
@@ -2576,8 +2664,8 @@ pub unsafe fn CM_Is_Dock_Station_Present(pbpresent: *mut super::super::Foundatio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Is_Dock_Station_Present_Ex(pbpresent: *mut super::super::Foundation::BOOL, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -2591,8 +2679,8 @@ pub unsafe fn CM_Is_Dock_Station_Present_Ex(pbpresent: *mut super::super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Is_Version_Available(wversion: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2606,8 +2694,8 @@ pub unsafe fn CM_Is_Version_Available(wversion: u16) -> super::super::Foundation
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Is_Version_Available_Ex(wversion: u16, hmachine: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2970,7 +3058,6 @@ unsafe impl ::windows::runtime::Abi for CM_NOTIFY_FILTER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub union CM_NOTIFY_FILTER_0 {
     pub DeviceInterface: CM_NOTIFY_FILTER_0_2,
     pub DeviceHandle: CM_NOTIFY_FILTER_0_0,
@@ -2999,7 +3086,6 @@ unsafe impl ::windows::runtime::Abi for CM_NOTIFY_FILTER_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct CM_NOTIFY_FILTER_0_0 {
     pub hTarget: super::super::Foundation::HANDLE,
 }
@@ -3031,53 +3117,65 @@ unsafe impl ::windows::runtime::Abi for CM_NOTIFY_FILTER_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CM_NOTIFY_FILTER_0_1 {
     pub InstanceId: [u16; 200],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CM_NOTIFY_FILTER_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CM_NOTIFY_FILTER_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CM_NOTIFY_FILTER_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_DeviceInstance_e__Struct").field("InstanceId", &self.InstanceId).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CM_NOTIFY_FILTER_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.InstanceId == other.InstanceId
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CM_NOTIFY_FILTER_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CM_NOTIFY_FILTER_0_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CM_NOTIFY_FILTER_0_2 {
     pub ClassGuid: ::windows::runtime::GUID,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CM_NOTIFY_FILTER_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CM_NOTIFY_FILTER_0_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CM_NOTIFY_FILTER_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_DeviceInterface_e__Struct").field("ClassGuid", &self.ClassGuid).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CM_NOTIFY_FILTER_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.ClassGuid == other.ClassGuid
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CM_NOTIFY_FILTER_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CM_NOTIFY_FILTER_0_2 {
     type Abi = Self;
 }
@@ -3121,8 +3219,8 @@ pub const CM_OPEN_CLASS_KEY_BITS: u32 = 1u32;
 pub const CM_OPEN_CLASS_KEY_INSTALLER: u32 = 0u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const CM_OPEN_CLASS_KEY_INTERFACE: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn CM_Open_Class_KeyA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::runtime::GUID, pszclassname: Param1, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -3136,8 +3234,8 @@ pub unsafe fn CM_Open_Class_KeyA<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn CM_Open_Class_KeyW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::runtime::GUID, pszclassname: Param1, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -3151,8 +3249,8 @@ pub unsafe fn CM_Open_Class_KeyW<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn CM_Open_Class_Key_ExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::runtime::GUID, pszclassname: Param1, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -3166,8 +3264,8 @@ pub unsafe fn CM_Open_Class_Key_ExA<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn CM_Open_Class_Key_ExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::runtime::GUID, pszclassname: Param1, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -3181,8 +3279,8 @@ pub unsafe fn CM_Open_Class_Key_ExW<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn CM_Open_DevNode_Key(dndevnode: u32, samdesired: u32, ulhardwareprofile: u32, disposition: u32, phkdevice: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -3196,8 +3294,8 @@ pub unsafe fn CM_Open_DevNode_Key(dndevnode: u32, samdesired: u32, ulhardwarepro
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn CM_Open_DevNode_Key_Ex(dndevnode: u32, samdesired: u32, ulhardwareprofile: u32, disposition: u32, phkdevice: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -3211,8 +3309,8 @@ pub unsafe fn CM_Open_DevNode_Key_Ex(dndevnode: u32, samdesired: u32, ulhardware
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn CM_Open_Device_Interface_KeyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszdeviceinterface: Param0, samdesired: u32, disposition: u32, phkdeviceinterface: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -3226,8 +3324,8 @@ pub unsafe fn CM_Open_Device_Interface_KeyA<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn CM_Open_Device_Interface_KeyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, samdesired: u32, disposition: u32, phkdeviceinterface: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -3241,8 +3339,8 @@ pub unsafe fn CM_Open_Device_Interface_KeyW<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn CM_Open_Device_Interface_Key_ExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszdeviceinterface: Param0, samdesired: u32, disposition: u32, phkdeviceinterface: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -3256,8 +3354,8 @@ pub unsafe fn CM_Open_Device_Interface_Key_ExA<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn CM_Open_Device_Interface_Key_ExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, samdesired: u32, disposition: u32, phkdeviceinterface: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -3395,8 +3493,8 @@ pub const CM_QUERY_ARBITRATOR_TRANSLATED: u32 = 1u32;
 pub const CM_QUERY_REMOVE_UI_NOT_OK: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const CM_QUERY_REMOVE_UI_OK: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Query_And_Remove_SubTreeA(dnancestor: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PSTR, ulnamelength: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -3410,8 +3508,8 @@ pub unsafe fn CM_Query_And_Remove_SubTreeA(dnancestor: u32, pvetotype: *mut PNP_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Query_And_Remove_SubTreeW(dnancestor: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PWSTR, ulnamelength: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -3425,8 +3523,8 @@ pub unsafe fn CM_Query_And_Remove_SubTreeW(dnancestor: u32, pvetotype: *mut PNP_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Query_And_Remove_SubTree_ExA(dnancestor: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PSTR, ulnamelength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -3440,8 +3538,8 @@ pub unsafe fn CM_Query_And_Remove_SubTree_ExA(dnancestor: u32, pvetotype: *mut P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Query_And_Remove_SubTree_ExW(dnancestor: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PWSTR, ulnamelength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -3661,8 +3759,8 @@ pub unsafe fn CM_Register_Device_Driver_Ex(dndevinst: u32, ulflags: u32, hmachin
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Register_Device_InterfaceA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dndevinst: u32, interfaceclassguid: *const ::windows::runtime::GUID, pszreference: Param2, pszdeviceinterface: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -3676,8 +3774,8 @@ pub unsafe fn CM_Register_Device_InterfaceA<'a, Param2: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Register_Device_InterfaceW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dndevinst: u32, interfaceclassguid: *const ::windows::runtime::GUID, pszreference: Param2, pszdeviceinterface: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -3691,8 +3789,8 @@ pub unsafe fn CM_Register_Device_InterfaceW<'a, Param2: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Register_Device_Interface_ExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dndevinst: u32, interfaceclassguid: *const ::windows::runtime::GUID, pszreference: Param2, pszdeviceinterface: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -3706,8 +3804,8 @@ pub unsafe fn CM_Register_Device_Interface_ExA<'a, Param2: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Register_Device_Interface_ExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dndevinst: u32, interfaceclassguid: *const ::windows::runtime::GUID, pszreference: Param2, pszdeviceinterface: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -3721,8 +3819,8 @@ pub unsafe fn CM_Register_Device_Interface_ExW<'a, Param2: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Register_Notification(pfilter: *const CM_NOTIFY_FILTER, pcontext: *const ::std::ffi::c_void, pcallback: ::std::option::Option<PCM_NOTIFY_CALLBACK>, pnotifycontext: *mut isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -3764,8 +3862,8 @@ pub unsafe fn CM_Remove_SubTree_Ex(dnancestor: u32, ulflags: u32, hmachine: isiz
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Request_Device_EjectA(dndevinst: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PSTR, ulnamelength: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -3779,8 +3877,8 @@ pub unsafe fn CM_Request_Device_EjectA(dndevinst: u32, pvetotype: *mut PNP_VETO_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Request_Device_EjectW(dndevinst: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PWSTR, ulnamelength: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -3794,8 +3892,8 @@ pub unsafe fn CM_Request_Device_EjectW(dndevinst: u32, pvetotype: *mut PNP_VETO_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Request_Device_Eject_ExA(dndevinst: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PSTR, ulnamelength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -3809,8 +3907,8 @@ pub unsafe fn CM_Request_Device_Eject_ExA(dndevinst: u32, pvetotype: *mut PNP_VE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Request_Device_Eject_ExW(dndevinst: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PWSTR, ulnamelength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -3928,8 +4026,8 @@ pub const CM_SET_DEVNODE_PROBLEM_OVERRIDE: u32 = 1u32;
 pub const CM_SET_HW_PROF_FLAGS_BITS: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const CM_SET_HW_PROF_FLAGS_UI_NOT_OK: u32 = 1u32;
-#[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn CM_Set_Class_PropertyW(classguid: *const ::windows::runtime::GUID, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -3943,8 +4041,8 @@ pub unsafe fn CM_Set_Class_PropertyW(classguid: *const ::windows::runtime::GUID,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn CM_Set_Class_Property_ExW(classguid: *const ::windows::runtime::GUID, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -4014,8 +4112,8 @@ pub unsafe fn CM_Set_DevNode_Problem_Ex(dndevinst: u32, ulproblem: u32, ulflags:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn CM_Set_DevNode_PropertyW(dndevinst: u32, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -4029,8 +4127,8 @@ pub unsafe fn CM_Set_DevNode_PropertyW(dndevinst: u32, propertykey: *const super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn CM_Set_DevNode_Property_ExW(dndevinst: u32, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -4100,8 +4198,8 @@ pub unsafe fn CM_Set_DevNode_Registry_Property_ExW(dndevinst: u32, ulproperty: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn CM_Set_Device_Interface_PropertyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -4115,8 +4213,8 @@ pub unsafe fn CM_Set_Device_Interface_PropertyW<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn CM_Set_Device_Interface_Property_ExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -4284,8 +4382,8 @@ pub unsafe fn CM_Uninstall_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: is
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Unregister_Device_InterfaceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszdeviceinterface: Param0, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -4299,8 +4397,8 @@ pub unsafe fn CM_Unregister_Device_InterfaceA<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Unregister_Device_InterfaceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -4314,8 +4412,8 @@ pub unsafe fn CM_Unregister_Device_InterfaceW<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Unregister_Device_Interface_ExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszdeviceinterface: Param0, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -4329,8 +4427,8 @@ pub unsafe fn CM_Unregister_Device_Interface_ExA<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Unregister_Device_Interface_ExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
@@ -4360,6 +4458,7 @@ pub unsafe fn CM_Unregister_Notification<'a, Param0: ::windows::runtime::IntoPar
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct COINSTALLER_CONTEXT_DATA {
@@ -4367,28 +4466,69 @@ pub struct COINSTALLER_CONTEXT_DATA {
     pub InstallResult: u32,
     pub PrivateData: *mut ::std::ffi::c_void,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl COINSTALLER_CONTEXT_DATA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for COINSTALLER_CONTEXT_DATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for COINSTALLER_CONTEXT_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("COINSTALLER_CONTEXT_DATA").field("PostProcessing", &self.PostProcessing).field("InstallResult", &self.InstallResult).field("PrivateData", &self.PrivateData).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for COINSTALLER_CONTEXT_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.PostProcessing == other.PostProcessing && self.InstallResult == other.InstallResult && self.PrivateData == other.PrivateData
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for COINSTALLER_CONTEXT_DATA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for COINSTALLER_CONTEXT_DATA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct COINSTALLER_CONTEXT_DATA {
+    pub PostProcessing: super::super::Foundation::BOOL,
+    pub InstallResult: u32,
+    pub PrivateData: *mut ::std::ffi::c_void,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl COINSTALLER_CONTEXT_DATA {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for COINSTALLER_CONTEXT_DATA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for COINSTALLER_CONTEXT_DATA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for COINSTALLER_CONTEXT_DATA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COINSTALLER_CONTEXT_DATA {
     type Abi = Self;
@@ -5410,8 +5550,8 @@ impl ::std::cmp::Eq for DevPrivate_Resource_s {}
 unsafe impl ::windows::runtime::Abi for DevPrivate_Resource_s {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DiInstallDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5425,8 +5565,8 @@ pub unsafe fn DiInstallDevice<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DiInstallDriverA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, infpath: Param1, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5440,8 +5580,8 @@ pub unsafe fn DiInstallDriverA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DiInstallDriverW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, infpath: Param1, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5455,8 +5595,8 @@ pub unsafe fn DiInstallDriverW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DiRollbackDriver<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, hwndparent: Param2, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5470,8 +5610,8 @@ pub unsafe fn DiRollbackDriver<'a, Param2: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DiShowUpdateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5485,8 +5625,8 @@ pub unsafe fn DiShowUpdateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DiShowUpdateDriver<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, filepath: Param1, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5500,8 +5640,8 @@ pub unsafe fn DiShowUpdateDriver<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DiUninstallDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5515,8 +5655,8 @@ pub unsafe fn DiUninstallDevice<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DiUninstallDriverA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, infpath: Param1, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5530,8 +5670,8 @@ pub unsafe fn DiUninstallDriverA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DiUninstallDriverW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, infpath: Param1, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5567,6 +5707,7 @@ pub const FILEOP_RETRY: u32 = 1u32;
 pub const FILEOP_SKIP: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct FILEPATHS_A {
@@ -5575,34 +5716,77 @@ pub struct FILEPATHS_A {
     pub Win32Error: u32,
     pub Flags: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl FILEPATHS_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FILEPATHS_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FILEPATHS_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("FILEPATHS_A").field("Target", &self.Target).field("Source", &self.Source).field("Win32Error", &self.Win32Error).field("Flags", &self.Flags).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FILEPATHS_A {
     fn eq(&self, other: &Self) -> bool {
         self.Target == other.Target && self.Source == other.Source && self.Win32Error == other.Win32Error && self.Flags == other.Flags
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FILEPATHS_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for FILEPATHS_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct FILEPATHS_A {
+    pub Target: super::super::Foundation::PSTR,
+    pub Source: super::super::Foundation::PSTR,
+    pub Win32Error: u32,
+    pub Flags: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl FILEPATHS_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for FILEPATHS_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for FILEPATHS_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for FILEPATHS_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FILEPATHS_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct FILEPATHS_SIGNERINFO_A {
@@ -5614,34 +5798,80 @@ pub struct FILEPATHS_SIGNERINFO_A {
     pub Version: super::super::Foundation::PSTR,
     pub CatalogFile: super::super::Foundation::PSTR,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl FILEPATHS_SIGNERINFO_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FILEPATHS_SIGNERINFO_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FILEPATHS_SIGNERINFO_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("FILEPATHS_SIGNERINFO_A").field("Target", &self.Target).field("Source", &self.Source).field("Win32Error", &self.Win32Error).field("Flags", &self.Flags).field("DigitalSigner", &self.DigitalSigner).field("Version", &self.Version).field("CatalogFile", &self.CatalogFile).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FILEPATHS_SIGNERINFO_A {
     fn eq(&self, other: &Self) -> bool {
         self.Target == other.Target && self.Source == other.Source && self.Win32Error == other.Win32Error && self.Flags == other.Flags && self.DigitalSigner == other.DigitalSigner && self.Version == other.Version && self.CatalogFile == other.CatalogFile
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FILEPATHS_SIGNERINFO_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for FILEPATHS_SIGNERINFO_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct FILEPATHS_SIGNERINFO_A {
+    pub Target: super::super::Foundation::PSTR,
+    pub Source: super::super::Foundation::PSTR,
+    pub Win32Error: u32,
+    pub Flags: u32,
+    pub DigitalSigner: super::super::Foundation::PSTR,
+    pub Version: super::super::Foundation::PSTR,
+    pub CatalogFile: super::super::Foundation::PSTR,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl FILEPATHS_SIGNERINFO_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for FILEPATHS_SIGNERINFO_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for FILEPATHS_SIGNERINFO_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for FILEPATHS_SIGNERINFO_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FILEPATHS_SIGNERINFO_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct FILEPATHS_SIGNERINFO_W {
@@ -5653,34 +5883,80 @@ pub struct FILEPATHS_SIGNERINFO_W {
     pub Version: super::super::Foundation::PWSTR,
     pub CatalogFile: super::super::Foundation::PWSTR,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl FILEPATHS_SIGNERINFO_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FILEPATHS_SIGNERINFO_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FILEPATHS_SIGNERINFO_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("FILEPATHS_SIGNERINFO_W").field("Target", &self.Target).field("Source", &self.Source).field("Win32Error", &self.Win32Error).field("Flags", &self.Flags).field("DigitalSigner", &self.DigitalSigner).field("Version", &self.Version).field("CatalogFile", &self.CatalogFile).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FILEPATHS_SIGNERINFO_W {
     fn eq(&self, other: &Self) -> bool {
         self.Target == other.Target && self.Source == other.Source && self.Win32Error == other.Win32Error && self.Flags == other.Flags && self.DigitalSigner == other.DigitalSigner && self.Version == other.Version && self.CatalogFile == other.CatalogFile
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FILEPATHS_SIGNERINFO_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for FILEPATHS_SIGNERINFO_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct FILEPATHS_SIGNERINFO_W {
+    pub Target: super::super::Foundation::PWSTR,
+    pub Source: super::super::Foundation::PWSTR,
+    pub Win32Error: u32,
+    pub Flags: u32,
+    pub DigitalSigner: super::super::Foundation::PWSTR,
+    pub Version: super::super::Foundation::PWSTR,
+    pub CatalogFile: super::super::Foundation::PWSTR,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl FILEPATHS_SIGNERINFO_W {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for FILEPATHS_SIGNERINFO_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for FILEPATHS_SIGNERINFO_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for FILEPATHS_SIGNERINFO_W {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FILEPATHS_SIGNERINFO_W {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct FILEPATHS_W {
@@ -5689,28 +5965,70 @@ pub struct FILEPATHS_W {
     pub Win32Error: u32,
     pub Flags: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl FILEPATHS_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FILEPATHS_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FILEPATHS_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("FILEPATHS_W").field("Target", &self.Target).field("Source", &self.Source).field("Win32Error", &self.Win32Error).field("Flags", &self.Flags).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FILEPATHS_W {
     fn eq(&self, other: &Self) -> bool {
         self.Target == other.Target && self.Source == other.Source && self.Win32Error == other.Win32Error && self.Flags == other.Flags
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FILEPATHS_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for FILEPATHS_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct FILEPATHS_W {
+    pub Target: super::super::Foundation::PWSTR,
+    pub Source: super::super::Foundation::PWSTR,
+    pub Win32Error: u32,
+    pub Flags: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl FILEPATHS_W {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for FILEPATHS_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for FILEPATHS_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for FILEPATHS_W {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FILEPATHS_W {
     type Abi = Self;
@@ -5725,6 +6043,7 @@ pub const FILE_COMPRESSION_NTCAB: u32 = 3u32;
 pub const FILE_COMPRESSION_WINLZA: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct FILE_IN_CABINET_INFO_A {
@@ -5736,14 +6055,17 @@ pub struct FILE_IN_CABINET_INFO_A {
     pub DosAttribs: u16,
     pub FullTargetName: [super::super::Foundation::CHAR; 260],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl FILE_IN_CABINET_INFO_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FILE_IN_CABINET_INFO_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FILE_IN_CABINET_INFO_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -5758,20 +6080,63 @@ impl ::std::fmt::Debug for FILE_IN_CABINET_INFO_A {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FILE_IN_CABINET_INFO_A {
     fn eq(&self, other: &Self) -> bool {
         self.NameInCabinet == other.NameInCabinet && self.FileSize == other.FileSize && self.Win32Error == other.Win32Error && self.DosDate == other.DosDate && self.DosTime == other.DosTime && self.DosAttribs == other.DosAttribs && self.FullTargetName == other.FullTargetName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FILE_IN_CABINET_INFO_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for FILE_IN_CABINET_INFO_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct FILE_IN_CABINET_INFO_A {
+    pub NameInCabinet: super::super::Foundation::PSTR,
+    pub FileSize: u32,
+    pub Win32Error: u32,
+    pub DosDate: u16,
+    pub DosTime: u16,
+    pub DosAttribs: u16,
+    pub FullTargetName: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl FILE_IN_CABINET_INFO_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for FILE_IN_CABINET_INFO_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for FILE_IN_CABINET_INFO_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for FILE_IN_CABINET_INFO_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FILE_IN_CABINET_INFO_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct FILE_IN_CABINET_INFO_W {
@@ -5783,14 +6148,17 @@ pub struct FILE_IN_CABINET_INFO_W {
     pub DosAttribs: u16,
     pub FullTargetName: [u16; 260],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl FILE_IN_CABINET_INFO_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FILE_IN_CABINET_INFO_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FILE_IN_CABINET_INFO_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -5805,14 +6173,56 @@ impl ::std::fmt::Debug for FILE_IN_CABINET_INFO_W {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FILE_IN_CABINET_INFO_W {
     fn eq(&self, other: &Self) -> bool {
         self.NameInCabinet == other.NameInCabinet && self.FileSize == other.FileSize && self.Win32Error == other.Win32Error && self.DosDate == other.DosDate && self.DosTime == other.DosTime && self.DosAttribs == other.DosAttribs && self.FullTargetName == other.FullTargetName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FILE_IN_CABINET_INFO_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for FILE_IN_CABINET_INFO_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct FILE_IN_CABINET_INFO_W {
+    pub NameInCabinet: super::super::Foundation::PWSTR,
+    pub FileSize: u32,
+    pub Win32Error: u32,
+    pub DosDate: u16,
+    pub DosTime: u16,
+    pub DosAttribs: u16,
+    pub FullTargetName: [u16; 260],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl FILE_IN_CABINET_INFO_W {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for FILE_IN_CABINET_INFO_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for FILE_IN_CABINET_INFO_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for FILE_IN_CABINET_INFO_W {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FILE_IN_CABINET_INFO_W {
     type Abi = Self;
@@ -6217,6 +6627,7 @@ pub const IDI_RESOURCEOVERLAYFIRST: u32 = 161u32;
 pub const IDI_RESOURCEOVERLAYLAST: u32 = 161u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct INFCONTEXT {
     pub Inf: *mut ::std::ffi::c_void,
@@ -6224,23 +6635,59 @@ pub struct INFCONTEXT {
     pub Section: u32,
     pub Line: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl INFCONTEXT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for INFCONTEXT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for INFCONTEXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("INFCONTEXT").field("Inf", &self.Inf).field("CurrentInf", &self.CurrentInf).field("Section", &self.Section).field("Line", &self.Line).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for INFCONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.Inf == other.Inf && self.CurrentInf == other.CurrentInf && self.Section == other.Section && self.Line == other.Line
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for INFCONTEXT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for INFCONTEXT {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct INFCONTEXT {
+    pub Inf: *mut ::std::ffi::c_void,
+    pub CurrentInf: *mut ::std::ffi::c_void,
+    pub Section: u32,
+    pub Line: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl INFCONTEXT {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for INFCONTEXT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for INFCONTEXT {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for INFCONTEXT {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for INFCONTEXT {
     type Abi = Self;
 }
@@ -6468,8 +6915,8 @@ impl ::std::cmp::Eq for IRQ_RESOURCE_64 {}
 unsafe impl ::windows::runtime::Abi for IRQ_RESOURCE_64 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InstallHinfSectionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(window: Param0, modulehandle: Param1, commandline: Param2, showcommand: i32) {
     #[cfg(windows)]
@@ -6483,8 +6930,8 @@ pub unsafe fn InstallHinfSectionA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InstallHinfSectionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(window: Param0, modulehandle: Param1, commandline: Param2, showcommand: i32) {
     #[cfg(windows)]
@@ -6940,7 +7387,9 @@ unsafe impl ::windows::runtime::Abi for PCCARD_RESOURCE {
 pub const PCD_MAX_IO: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const PCD_MAX_MEMORY: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub type PCM_NOTIFY_CALLBACK = unsafe extern "system" fn(hnotify: HCMNOTIFICATION, context: *const ::std::ffi::c_void, action: CM_NOTIFY_ACTION, eventdata: *const CM_NOTIFY_EVENT_DATA, eventdatasize: u32) -> u32;
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDETECT_PROGRESS_NOTIFY = unsafe extern "system" fn(progressnotifyparam: *const ::std::ffi::c_void, detectcomplete: u32) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
@@ -6975,8 +7424,11 @@ pub const PRIORITY_BIT: u32 = 8u32;
 pub const PRIORITY_EQUAL_FIRST: u32 = 8u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const PRIORITY_EQUAL_LAST: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub type PSP_DETSIG_CMPPROC = unsafe extern "system" fn(deviceinfoset: *const ::std::ffi::c_void, newdevicedata: *const SP_DEVINFO_DATA, existingdevicedata: *const SP_DEVINFO_DATA, comparecontext: *const ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub type PSP_FILE_CALLBACK_A = unsafe extern "system" fn(context: *const ::std::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32;
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub type PSP_FILE_CALLBACK_W = unsafe extern "system" fn(context: *const ::std::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const ROLLBACK_BITS: u32 = 1u32;
@@ -7134,6 +7586,7 @@ pub const SIGNERSCORE_W9X_SUSPECT: u32 = 3221225472u32;
 pub const SIGNERSCORE_WHQL: u32 = 218103813u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SOURCE_MEDIA_A {
@@ -7144,34 +7597,79 @@ pub struct SOURCE_MEDIA_A {
     pub SourceFile: super::super::Foundation::PSTR,
     pub Flags: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SOURCE_MEDIA_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SOURCE_MEDIA_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SOURCE_MEDIA_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SOURCE_MEDIA_A").field("Reserved", &self.Reserved).field("Tagfile", &self.Tagfile).field("Description", &self.Description).field("SourcePath", &self.SourcePath).field("SourceFile", &self.SourceFile).field("Flags", &self.Flags).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SOURCE_MEDIA_A {
     fn eq(&self, other: &Self) -> bool {
         self.Reserved == other.Reserved && self.Tagfile == other.Tagfile && self.Description == other.Description && self.SourcePath == other.SourcePath && self.SourceFile == other.SourceFile && self.Flags == other.Flags
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SOURCE_MEDIA_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SOURCE_MEDIA_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SOURCE_MEDIA_A {
+    pub Reserved: super::super::Foundation::PSTR,
+    pub Tagfile: super::super::Foundation::PSTR,
+    pub Description: super::super::Foundation::PSTR,
+    pub SourcePath: super::super::Foundation::PSTR,
+    pub SourceFile: super::super::Foundation::PSTR,
+    pub Flags: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SOURCE_MEDIA_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SOURCE_MEDIA_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SOURCE_MEDIA_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SOURCE_MEDIA_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SOURCE_MEDIA_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SOURCE_MEDIA_W {
@@ -7182,28 +7680,72 @@ pub struct SOURCE_MEDIA_W {
     pub SourceFile: super::super::Foundation::PWSTR,
     pub Flags: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SOURCE_MEDIA_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SOURCE_MEDIA_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SOURCE_MEDIA_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SOURCE_MEDIA_W").field("Reserved", &self.Reserved).field("Tagfile", &self.Tagfile).field("Description", &self.Description).field("SourcePath", &self.SourcePath).field("SourceFile", &self.SourceFile).field("Flags", &self.Flags).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SOURCE_MEDIA_W {
     fn eq(&self, other: &Self) -> bool {
         self.Reserved == other.Reserved && self.Tagfile == other.Tagfile && self.Description == other.Description && self.SourcePath == other.SourcePath && self.SourceFile == other.SourceFile && self.Flags == other.Flags
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SOURCE_MEDIA_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SOURCE_MEDIA_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SOURCE_MEDIA_W {
+    pub Reserved: super::super::Foundation::PWSTR,
+    pub Tagfile: super::super::Foundation::PWSTR,
+    pub Description: super::super::Foundation::PWSTR,
+    pub SourcePath: super::super::Foundation::PWSTR,
+    pub SourceFile: super::super::Foundation::PWSTR,
+    pub Flags: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SOURCE_MEDIA_W {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SOURCE_MEDIA_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SOURCE_MEDIA_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SOURCE_MEDIA_W {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SOURCE_MEDIA_W {
     type Abi = Self;
@@ -7528,6 +8070,7 @@ pub const SP_ALTPLATFORM_FLAGS_SUITE_MASK: u32 = 2u32;
 pub const SP_ALTPLATFORM_FLAGS_VERSION_RANGE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_Diagnostics_Debug`*"]
 pub struct SP_ALTPLATFORM_INFO_V1 {
@@ -7538,34 +8081,79 @@ pub struct SP_ALTPLATFORM_INFO_V1 {
     pub ProcessorArchitecture: u16,
     pub Reserved: u16,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl SP_ALTPLATFORM_INFO_V1 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::std::default::Default for SP_ALTPLATFORM_INFO_V1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::std::fmt::Debug for SP_ALTPLATFORM_INFO_V1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_ALTPLATFORM_INFO_V1").field("cbSize", &self.cbSize).field("Platform", &self.Platform).field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("ProcessorArchitecture", &self.ProcessorArchitecture).field("Reserved", &self.Reserved).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::std::cmp::PartialEq for SP_ALTPLATFORM_INFO_V1 {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.Platform == other.Platform && self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.ProcessorArchitecture == other.ProcessorArchitecture && self.Reserved == other.Reserved
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::std::cmp::Eq for SP_ALTPLATFORM_INFO_V1 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V1 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_Diagnostics_Debug`*"]
+pub struct SP_ALTPLATFORM_INFO_V1 {
+    pub cbSize: u32,
+    pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub ProcessorArchitecture: u16,
+    pub Reserved: u16,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl SP_ALTPLATFORM_INFO_V1 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::std::default::Default for SP_ALTPLATFORM_INFO_V1 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::std::cmp::PartialEq for SP_ALTPLATFORM_INFO_V1 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::std::cmp::Eq for SP_ALTPLATFORM_INFO_V1 {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_Diagnostics_Debug`*"]
 pub struct SP_ALTPLATFORM_INFO_V2 {
@@ -7578,50 +8166,140 @@ pub struct SP_ALTPLATFORM_INFO_V2 {
     pub FirstValidatedMajorVersion: u32,
     pub FirstValidatedMinorVersion: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl SP_ALTPLATFORM_INFO_V2 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::std::default::Default for SP_ALTPLATFORM_INFO_V2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::std::cmp::PartialEq for SP_ALTPLATFORM_INFO_V2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::std::cmp::Eq for SP_ALTPLATFORM_INFO_V2 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub union SP_ALTPLATFORM_INFO_V2_0 {
     pub Reserved: u16,
     pub Flags: u16,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl SP_ALTPLATFORM_INFO_V2_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::std::default::Default for SP_ALTPLATFORM_INFO_V2_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::std::cmp::PartialEq for SP_ALTPLATFORM_INFO_V2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::std::cmp::Eq for SP_ALTPLATFORM_INFO_V2_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V2_0 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_Diagnostics_Debug`*"]
+pub struct SP_ALTPLATFORM_INFO_V2 {
+    pub cbSize: u32,
+    pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub ProcessorArchitecture: u16,
+    pub Anonymous: SP_ALTPLATFORM_INFO_V2_0,
+    pub FirstValidatedMajorVersion: u32,
+    pub FirstValidatedMinorVersion: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl SP_ALTPLATFORM_INFO_V2 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::std::default::Default for SP_ALTPLATFORM_INFO_V2 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::std::cmp::PartialEq for SP_ALTPLATFORM_INFO_V2 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::std::cmp::Eq for SP_ALTPLATFORM_INFO_V2 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V2 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub union SP_ALTPLATFORM_INFO_V2_0 {
+    pub Reserved: u16,
+    pub Flags: u16,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl SP_ALTPLATFORM_INFO_V2_0 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::std::default::Default for SP_ALTPLATFORM_INFO_V2_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::std::cmp::PartialEq for SP_ALTPLATFORM_INFO_V2_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::std::cmp::Eq for SP_ALTPLATFORM_INFO_V2_0 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V2_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_ALTPLATFORM_INFO_V3 {
     pub cbSize: u32,
@@ -7636,40 +8314,114 @@ pub struct SP_ALTPLATFORM_INFO_V3 {
     pub SuiteMask: u16,
     pub BuildNumber: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_ALTPLATFORM_INFO_V3 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_ALTPLATFORM_INFO_V3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_ALTPLATFORM_INFO_V3 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_ALTPLATFORM_INFO_V3 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V3 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub union SP_ALTPLATFORM_INFO_V3_0 {
     pub Reserved: u16,
     pub Flags: u16,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_ALTPLATFORM_INFO_V3_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_ALTPLATFORM_INFO_V3_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_ALTPLATFORM_INFO_V3_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_ALTPLATFORM_INFO_V3_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V3_0 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_ALTPLATFORM_INFO_V3 {
+    pub cbSize: u32,
+    pub Platform: u32,
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub ProcessorArchitecture: u16,
+    pub Anonymous: SP_ALTPLATFORM_INFO_V3_0,
+    pub FirstValidatedMajorVersion: u32,
+    pub FirstValidatedMinorVersion: u32,
+    pub ProductType: u8,
+    pub SuiteMask: u16,
+    pub BuildNumber: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_ALTPLATFORM_INFO_V3 {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_ALTPLATFORM_INFO_V3 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_ALTPLATFORM_INFO_V3 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_ALTPLATFORM_INFO_V3 {}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V3 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+pub union SP_ALTPLATFORM_INFO_V3_0 {
+    pub Reserved: u16,
+    pub Flags: u16,
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_ALTPLATFORM_INFO_V3_0 {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_ALTPLATFORM_INFO_V3_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_ALTPLATFORM_INFO_V3_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_ALTPLATFORM_INFO_V3_0 {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V3_0 {
     type Abi = Self;
 }
@@ -7681,6 +8433,7 @@ pub const SP_BACKUP_BOOTFILE: u32 = 8u32;
 pub const SP_BACKUP_DEMANDPASS: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
@@ -7688,62 +8441,140 @@ pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
     pub FullInfPath: [super::super::Foundation::CHAR; 260],
     pub FilenameOffset: i32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_BACKUP_QUEUE_PARAMS_V1_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V1_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_BACKUP_QUEUE_PARAMS_V1_A").field("cbSize", &self.cbSize).field("FullInfPath", &self.FullInfPath).field("FilenameOffset", &self.FilenameOffset).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.FullInfPath == other.FullInfPath && self.FilenameOffset == other.FilenameOffset
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V1_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
+    pub cbSize: u32,
+    pub FullInfPath: [super::super::Foundation::CHAR; 260],
+    pub FilenameOffset: i32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_BACKUP_QUEUE_PARAMS_V1_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V1_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V1_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
     pub cbSize: u32,
     pub FullInfPath: [u16; 260],
     pub FilenameOffset: i32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_BACKUP_QUEUE_PARAMS_V1_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V1_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_BACKUP_QUEUE_PARAMS_V1_W").field("cbSize", &self.cbSize).field("FullInfPath", &self.FullInfPath).field("FilenameOffset", &self.FilenameOffset).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.FullInfPath == other.FullInfPath && self.FilenameOffset == other.FilenameOffset
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V1_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
+    pub cbSize: u32,
+    pub FullInfPath: [u16; 260],
+    pub FilenameOffset: i32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_BACKUP_QUEUE_PARAMS_V1_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V1_W {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V1_W {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
@@ -7752,34 +8583,77 @@ pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
     pub FilenameOffset: i32,
     pub ReinstallInstance: [super::super::Foundation::CHAR; 260],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_BACKUP_QUEUE_PARAMS_V2_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V2_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_BACKUP_QUEUE_PARAMS_V2_A").field("cbSize", &self.cbSize).field("FullInfPath", &self.FullInfPath).field("FilenameOffset", &self.FilenameOffset).field("ReinstallInstance", &self.ReinstallInstance).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V2_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.FullInfPath == other.FullInfPath && self.FilenameOffset == other.FilenameOffset && self.ReinstallInstance == other.ReinstallInstance
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V2_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
+    pub cbSize: u32,
+    pub FullInfPath: [super::super::Foundation::CHAR; 260],
+    pub FilenameOffset: i32,
+    pub ReinstallInstance: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_BACKUP_QUEUE_PARAMS_V2_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V2_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V2_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
     pub cbSize: u32,
@@ -7787,23 +8661,59 @@ pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
     pub FilenameOffset: i32,
     pub ReinstallInstance: [u16; 260],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_BACKUP_QUEUE_PARAMS_V2_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V2_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_BACKUP_QUEUE_PARAMS_V2_W").field("cbSize", &self.cbSize).field("FullInfPath", &self.FullInfPath).field("FilenameOffset", &self.FilenameOffset).field("ReinstallInstance", &self.ReinstallInstance).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V2_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.FullInfPath == other.FullInfPath && self.FilenameOffset == other.FilenameOffset && self.ReinstallInstance == other.ReinstallInstance
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V2_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
+    pub cbSize: u32,
+    pub FullInfPath: [u16; 260],
+    pub FilenameOffset: i32,
+    pub ReinstallInstance: [u16; 260],
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_BACKUP_QUEUE_PARAMS_V2_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V2_W {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V2_W {
     type Abi = Self;
 }
@@ -7811,6 +8721,7 @@ unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V2_W {
 pub const SP_BACKUP_SPECIAL: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_Controls")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_UI_Controls`*"]
 pub struct SP_CLASSIMAGELIST_DATA {
@@ -7818,56 +8729,132 @@ pub struct SP_CLASSIMAGELIST_DATA {
     pub ImageList: super::super::UI::Controls::HIMAGELIST,
     pub Reserved: usize,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_Controls")]
 impl SP_CLASSIMAGELIST_DATA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_Controls")]
 impl ::std::default::Default for SP_CLASSIMAGELIST_DATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_Controls")]
 impl ::std::fmt::Debug for SP_CLASSIMAGELIST_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_CLASSIMAGELIST_DATA").field("cbSize", &self.cbSize).field("ImageList", &self.ImageList).field("Reserved", &self.Reserved).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_Controls")]
 impl ::std::cmp::PartialEq for SP_CLASSIMAGELIST_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.ImageList == other.ImageList && self.Reserved == other.Reserved
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_Controls")]
 impl ::std::cmp::Eq for SP_CLASSIMAGELIST_DATA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_UI_Controls")]
+unsafe impl ::windows::runtime::Abi for SP_CLASSIMAGELIST_DATA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_Controls")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_UI_Controls`*"]
+pub struct SP_CLASSIMAGELIST_DATA {
+    pub cbSize: u32,
+    pub ImageList: super::super::UI::Controls::HIMAGELIST,
+    pub Reserved: usize,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_Controls")]
+impl SP_CLASSIMAGELIST_DATA {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_Controls")]
+impl ::std::default::Default for SP_CLASSIMAGELIST_DATA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_Controls")]
+impl ::std::cmp::PartialEq for SP_CLASSIMAGELIST_DATA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_Controls")]
+impl ::std::cmp::Eq for SP_CLASSIMAGELIST_DATA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_UI_Controls")]
 unsafe impl ::windows::runtime::Abi for SP_CLASSIMAGELIST_DATA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_CLASSINSTALL_HEADER {
     pub cbSize: u32,
     pub InstallFunction: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_CLASSINSTALL_HEADER {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_CLASSINSTALL_HEADER {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_CLASSINSTALL_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_CLASSINSTALL_HEADER").field("cbSize", &self.cbSize).field("InstallFunction", &self.InstallFunction).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_CLASSINSTALL_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.InstallFunction == other.InstallFunction
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_CLASSINSTALL_HEADER {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_CLASSINSTALL_HEADER {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_CLASSINSTALL_HEADER {
+    pub cbSize: u32,
+    pub InstallFunction: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_CLASSINSTALL_HEADER {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_CLASSINSTALL_HEADER {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_CLASSINSTALL_HEADER {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_CLASSINSTALL_HEADER {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_CLASSINSTALL_HEADER {
     type Abi = Self;
 }
@@ -7941,6 +8928,7 @@ impl ::std::ops::Not for SP_COPY_STYLE {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_DETECTDEVICE_PARAMS {
@@ -7948,34 +8936,82 @@ pub struct SP_DETECTDEVICE_PARAMS {
     pub DetectProgressNotify: ::std::option::Option<PDETECT_PROGRESS_NOTIFY>,
     pub ProgressNotifyParam: *mut ::std::ffi::c_void,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_DETECTDEVICE_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DETECTDEVICE_PARAMS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DETECTDEVICE_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_DETECTDEVICE_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("ProgressNotifyParam", &self.ProgressNotifyParam).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DETECTDEVICE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader && self.DetectProgressNotify.map(|f| f as usize) == other.DetectProgressNotify.map(|f| f as usize) && self.ProgressNotifyParam == other.ProgressNotifyParam
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DETECTDEVICE_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DETECTDEVICE_PARAMS {
+    type Abi = ::std::mem::ManuallyDrop<Self>;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::clone::Clone for SP_DETECTDEVICE_PARAMS {
+    fn clone(&self) -> Self {
+        unimplemented!()
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DETECTDEVICE_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub DetectProgressNotify: ::std::option::Option<PDETECT_PROGRESS_NOTIFY>,
+    pub ProgressNotifyParam: *mut ::std::ffi::c_void,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DETECTDEVICE_PARAMS {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DETECTDEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DETECTDEVICE_PARAMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DETECTDEVICE_PARAMS {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DETECTDEVICE_PARAMS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_DEVICE_INTERFACE_DATA {
     pub cbSize: u32,
@@ -7983,89 +9019,202 @@ pub struct SP_DEVICE_INTERFACE_DATA {
     pub Flags: u32,
     pub Reserved: usize,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_DEVICE_INTERFACE_DATA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_DEVICE_INTERFACE_DATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_DEVICE_INTERFACE_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_DEVICE_INTERFACE_DATA").field("cbSize", &self.cbSize).field("InterfaceClassGuid", &self.InterfaceClassGuid).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_DEVICE_INTERFACE_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.InterfaceClassGuid == other.InterfaceClassGuid && self.Flags == other.Flags && self.Reserved == other.Reserved
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_DEVICE_INTERFACE_DATA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_DEVICE_INTERFACE_DATA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_DEVICE_INTERFACE_DATA {
+    pub cbSize: u32,
+    pub InterfaceClassGuid: ::windows::runtime::GUID,
+    pub Flags: u32,
+    pub Reserved: usize,
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_DEVICE_INTERFACE_DATA {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_DEVICE_INTERFACE_DATA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_DEVICE_INTERFACE_DATA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_DEVICE_INTERFACE_DATA {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_DEVICE_INTERFACE_DATA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     pub cbSize: u32,
     pub DevicePath: [super::super::Foundation::CHAR; 1],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_DEVICE_INTERFACE_DETAIL_DATA_A").field("cbSize", &self.cbSize).field("DevicePath", &self.DevicePath).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.DevicePath == other.DevicePath
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    pub cbSize: u32,
+    pub DevicePath: [super::super::Foundation::CHAR; 1],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     pub cbSize: u32,
     pub DevicePath: [u16; 1],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_DEVICE_INTERFACE_DETAIL_DATA_W").field("cbSize", &self.cbSize).field("DevicePath", &self.DevicePath).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.DevicePath == other.DevicePath
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    pub cbSize: u32,
+    pub DevicePath: [u16; 1],
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_DEVINFO_DATA {
     pub cbSize: u32,
@@ -8073,28 +9222,65 @@ pub struct SP_DEVINFO_DATA {
     pub DevInst: u32,
     pub Reserved: usize,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_DEVINFO_DATA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_DEVINFO_DATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_DEVINFO_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_DEVINFO_DATA").field("cbSize", &self.cbSize).field("ClassGuid", &self.ClassGuid).field("DevInst", &self.DevInst).field("Reserved", &self.Reserved).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_DEVINFO_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.ClassGuid == other.ClassGuid && self.DevInst == other.DevInst && self.Reserved == other.Reserved
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_DEVINFO_DATA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_DEVINFO_DATA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_DEVINFO_DATA {
+    pub cbSize: u32,
+    pub ClassGuid: ::windows::runtime::GUID,
+    pub DevInst: u32,
+    pub Reserved: usize,
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_DEVINFO_DATA {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_DEVINFO_DATA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_DEVINFO_DATA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_DEVINFO_DATA {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_DEVINFO_DATA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
@@ -8103,34 +9289,77 @@ pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
     pub RemoteMachineHandle: super::super::Foundation::HANDLE,
     pub RemoteMachineName: [super::super::Foundation::CHAR; 263],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_DEVINFO_LIST_DETAIL_DATA_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DEVINFO_LIST_DETAIL_DATA_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_DEVINFO_LIST_DETAIL_DATA_A").field("cbSize", &self.cbSize).field("ClassGuid", &self.ClassGuid).field("RemoteMachineHandle", &self.RemoteMachineHandle).field("RemoteMachineName", &self.RemoteMachineName).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.ClassGuid == other.ClassGuid && self.RemoteMachineHandle == other.RemoteMachineHandle && self.RemoteMachineName == other.RemoteMachineName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DEVINFO_LIST_DETAIL_DATA_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
+    pub cbSize: u32,
+    pub ClassGuid: ::windows::runtime::GUID,
+    pub RemoteMachineHandle: super::super::Foundation::HANDLE,
+    pub RemoteMachineName: [super::super::Foundation::CHAR; 263],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DEVINFO_LIST_DETAIL_DATA_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DEVINFO_LIST_DETAIL_DATA_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DEVINFO_LIST_DETAIL_DATA_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
@@ -8139,34 +9368,77 @@ pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
     pub RemoteMachineHandle: super::super::Foundation::HANDLE,
     pub RemoteMachineName: [u16; 263],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_DEVINFO_LIST_DETAIL_DATA_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DEVINFO_LIST_DETAIL_DATA_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_DEVINFO_LIST_DETAIL_DATA_W").field("cbSize", &self.cbSize).field("ClassGuid", &self.ClassGuid).field("RemoteMachineHandle", &self.RemoteMachineHandle).field("RemoteMachineName", &self.RemoteMachineName).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.ClassGuid == other.ClassGuid && self.RemoteMachineHandle == other.RemoteMachineHandle && self.RemoteMachineName == other.RemoteMachineName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DEVINFO_LIST_DETAIL_DATA_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
+    pub cbSize: u32,
+    pub ClassGuid: ::windows::runtime::GUID,
+    pub RemoteMachineHandle: super::super::Foundation::HANDLE,
+    pub RemoteMachineName: [u16; 263],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DEVINFO_LIST_DETAIL_DATA_W {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DEVINFO_LIST_DETAIL_DATA_W {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DEVINFO_LIST_DETAIL_DATA_W {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_DEVINSTALL_PARAMS_A {
@@ -8181,14 +9453,17 @@ pub struct SP_DEVINSTALL_PARAMS_A {
     pub Reserved: u32,
     pub DriverPath: [super::super::Foundation::CHAR; 260],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_DEVINSTALL_PARAMS_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DEVINSTALL_PARAMS_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DEVINSTALL_PARAMS_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -8205,20 +9480,72 @@ impl ::std::fmt::Debug for SP_DEVINSTALL_PARAMS_A {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DEVINSTALL_PARAMS_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.Flags == other.Flags && self.FlagsEx == other.FlagsEx && self.hwndParent == other.hwndParent && self.InstallMsgHandler.map(|f| f as usize) == other.InstallMsgHandler.map(|f| f as usize) && self.InstallMsgHandlerContext == other.InstallMsgHandlerContext && self.FileQueue == other.FileQueue && self.ClassInstallReserved == other.ClassInstallReserved && self.Reserved == other.Reserved && self.DriverPath == other.DriverPath
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DEVINSTALL_PARAMS_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DEVINSTALL_PARAMS_A {
+    type Abi = ::std::mem::ManuallyDrop<Self>;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::clone::Clone for SP_DEVINSTALL_PARAMS_A {
+    fn clone(&self) -> Self {
+        unimplemented!()
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DEVINSTALL_PARAMS_A {
+    pub cbSize: u32,
+    pub Flags: u32,
+    pub FlagsEx: u32,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub InstallMsgHandler: ::std::option::Option<PSP_FILE_CALLBACK_A>,
+    pub InstallMsgHandlerContext: *mut ::std::ffi::c_void,
+    pub FileQueue: *mut ::std::ffi::c_void,
+    pub ClassInstallReserved: usize,
+    pub Reserved: u32,
+    pub DriverPath: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DEVINSTALL_PARAMS_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DEVINSTALL_PARAMS_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DEVINSTALL_PARAMS_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DEVINSTALL_PARAMS_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DEVINSTALL_PARAMS_A {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_DEVINSTALL_PARAMS_W {
@@ -8233,14 +9560,17 @@ pub struct SP_DEVINSTALL_PARAMS_W {
     pub Reserved: u32,
     pub DriverPath: [u16; 260],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_DEVINSTALL_PARAMS_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DEVINSTALL_PARAMS_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DEVINSTALL_PARAMS_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -8257,20 +9587,72 @@ impl ::std::fmt::Debug for SP_DEVINSTALL_PARAMS_W {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DEVINSTALL_PARAMS_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.Flags == other.Flags && self.FlagsEx == other.FlagsEx && self.hwndParent == other.hwndParent && self.InstallMsgHandler.map(|f| f as usize) == other.InstallMsgHandler.map(|f| f as usize) && self.InstallMsgHandlerContext == other.InstallMsgHandlerContext && self.FileQueue == other.FileQueue && self.ClassInstallReserved == other.ClassInstallReserved && self.Reserved == other.Reserved && self.DriverPath == other.DriverPath
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DEVINSTALL_PARAMS_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DEVINSTALL_PARAMS_W {
+    type Abi = ::std::mem::ManuallyDrop<Self>;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::clone::Clone for SP_DEVINSTALL_PARAMS_W {
+    fn clone(&self) -> Self {
+        unimplemented!()
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DEVINSTALL_PARAMS_W {
+    pub cbSize: u32,
+    pub Flags: u32,
+    pub FlagsEx: u32,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub InstallMsgHandler: ::std::option::Option<PSP_FILE_CALLBACK_A>,
+    pub InstallMsgHandlerContext: *mut ::std::ffi::c_void,
+    pub FileQueue: *mut ::std::ffi::c_void,
+    pub ClassInstallReserved: usize,
+    pub Reserved: u32,
+    pub DriverPath: [u16; 260],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DEVINSTALL_PARAMS_W {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DEVINSTALL_PARAMS_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DEVINSTALL_PARAMS_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DEVINSTALL_PARAMS_W {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DEVINSTALL_PARAMS_W {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_DRVINFO_DATA_V1_A {
@@ -8281,34 +9663,79 @@ pub struct SP_DRVINFO_DATA_V1_A {
     pub MfgName: [super::super::Foundation::CHAR; 256],
     pub ProviderName: [super::super::Foundation::CHAR; 256],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_DRVINFO_DATA_V1_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DRVINFO_DATA_V1_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DRVINFO_DATA_V1_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_DRVINFO_DATA_V1_A").field("cbSize", &self.cbSize).field("DriverType", &self.DriverType).field("Reserved", &self.Reserved).field("Description", &self.Description).field("MfgName", &self.MfgName).field("ProviderName", &self.ProviderName).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V1_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.DriverType == other.DriverType && self.Reserved == other.Reserved && self.Description == other.Description && self.MfgName == other.MfgName && self.ProviderName == other.ProviderName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DRVINFO_DATA_V1_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V1_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DRVINFO_DATA_V1_A {
+    pub cbSize: u32,
+    pub DriverType: u32,
+    pub Reserved: usize,
+    pub Description: [super::super::Foundation::CHAR; 256],
+    pub MfgName: [super::super::Foundation::CHAR; 256],
+    pub ProviderName: [super::super::Foundation::CHAR; 256],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DRVINFO_DATA_V1_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DRVINFO_DATA_V1_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V1_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DRVINFO_DATA_V1_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V1_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_DRVINFO_DATA_V1_W {
     pub cbSize: u32,
@@ -8318,28 +9745,67 @@ pub struct SP_DRVINFO_DATA_V1_W {
     pub MfgName: [u16; 256],
     pub ProviderName: [u16; 256],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_DRVINFO_DATA_V1_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_DRVINFO_DATA_V1_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_DRVINFO_DATA_V1_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_DRVINFO_DATA_V1_W").field("cbSize", &self.cbSize).field("DriverType", &self.DriverType).field("Reserved", &self.Reserved).field("Description", &self.Description).field("MfgName", &self.MfgName).field("ProviderName", &self.ProviderName).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V1_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.DriverType == other.DriverType && self.Reserved == other.Reserved && self.Description == other.Description && self.MfgName == other.MfgName && self.ProviderName == other.ProviderName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_DRVINFO_DATA_V1_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V1_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_DRVINFO_DATA_V1_W {
+    pub cbSize: u32,
+    pub DriverType: u32,
+    pub Reserved: usize,
+    pub Description: [u16; 256],
+    pub MfgName: [u16; 256],
+    pub ProviderName: [u16; 256],
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_DRVINFO_DATA_V1_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_DRVINFO_DATA_V1_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V1_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_DRVINFO_DATA_V1_W {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V1_W {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_DRVINFO_DATA_V2_A {
@@ -8352,14 +9818,17 @@ pub struct SP_DRVINFO_DATA_V2_A {
     pub DriverDate: super::super::Foundation::FILETIME,
     pub DriverVersion: u64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_DRVINFO_DATA_V2_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DRVINFO_DATA_V2_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DRVINFO_DATA_V2_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -8375,20 +9844,64 @@ impl ::std::fmt::Debug for SP_DRVINFO_DATA_V2_A {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V2_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.DriverType == other.DriverType && self.Reserved == other.Reserved && self.Description == other.Description && self.MfgName == other.MfgName && self.ProviderName == other.ProviderName && self.DriverDate == other.DriverDate && self.DriverVersion == other.DriverVersion
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DRVINFO_DATA_V2_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V2_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DRVINFO_DATA_V2_A {
+    pub cbSize: u32,
+    pub DriverType: u32,
+    pub Reserved: usize,
+    pub Description: [super::super::Foundation::CHAR; 256],
+    pub MfgName: [super::super::Foundation::CHAR; 256],
+    pub ProviderName: [super::super::Foundation::CHAR; 256],
+    pub DriverDate: super::super::Foundation::FILETIME,
+    pub DriverVersion: u64,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DRVINFO_DATA_V2_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DRVINFO_DATA_V2_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V2_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DRVINFO_DATA_V2_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V2_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_DRVINFO_DATA_V2_W {
@@ -8401,14 +9914,17 @@ pub struct SP_DRVINFO_DATA_V2_W {
     pub DriverDate: super::super::Foundation::FILETIME,
     pub DriverVersion: u64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_DRVINFO_DATA_V2_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DRVINFO_DATA_V2_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DRVINFO_DATA_V2_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -8424,20 +9940,64 @@ impl ::std::fmt::Debug for SP_DRVINFO_DATA_V2_W {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V2_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.DriverType == other.DriverType && self.Reserved == other.Reserved && self.Description == other.Description && self.MfgName == other.MfgName && self.ProviderName == other.ProviderName && self.DriverDate == other.DriverDate && self.DriverVersion == other.DriverVersion
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DRVINFO_DATA_V2_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V2_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DRVINFO_DATA_V2_W {
+    pub cbSize: u32,
+    pub DriverType: u32,
+    pub Reserved: usize,
+    pub Description: [u16; 256],
+    pub MfgName: [u16; 256],
+    pub ProviderName: [u16; 256],
+    pub DriverDate: super::super::Foundation::FILETIME,
+    pub DriverVersion: u64,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DRVINFO_DATA_V2_W {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DRVINFO_DATA_V2_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V2_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DRVINFO_DATA_V2_W {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V2_W {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_DRVINFO_DETAIL_DATA_A {
@@ -8451,14 +10011,17 @@ pub struct SP_DRVINFO_DETAIL_DATA_A {
     pub DrvDescription: [super::super::Foundation::CHAR; 256],
     pub HardwareID: [super::super::Foundation::CHAR; 1],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_DRVINFO_DETAIL_DATA_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DRVINFO_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DRVINFO_DETAIL_DATA_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -8475,20 +10038,65 @@ impl ::std::fmt::Debug for SP_DRVINFO_DETAIL_DATA_A {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DRVINFO_DETAIL_DATA_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.InfDate == other.InfDate && self.CompatIDsOffset == other.CompatIDsOffset && self.CompatIDsLength == other.CompatIDsLength && self.Reserved == other.Reserved && self.SectionName == other.SectionName && self.InfFileName == other.InfFileName && self.DrvDescription == other.DrvDescription && self.HardwareID == other.HardwareID
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DRVINFO_DETAIL_DATA_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DETAIL_DATA_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DRVINFO_DETAIL_DATA_A {
+    pub cbSize: u32,
+    pub InfDate: super::super::Foundation::FILETIME,
+    pub CompatIDsOffset: u32,
+    pub CompatIDsLength: u32,
+    pub Reserved: usize,
+    pub SectionName: [super::super::Foundation::CHAR; 256],
+    pub InfFileName: [super::super::Foundation::CHAR; 260],
+    pub DrvDescription: [super::super::Foundation::CHAR; 256],
+    pub HardwareID: [super::super::Foundation::CHAR; 1],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DRVINFO_DETAIL_DATA_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DRVINFO_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DRVINFO_DETAIL_DATA_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DRVINFO_DETAIL_DATA_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DETAIL_DATA_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_DRVINFO_DETAIL_DATA_W {
@@ -8502,14 +10110,17 @@ pub struct SP_DRVINFO_DETAIL_DATA_W {
     pub DrvDescription: [u16; 256],
     pub HardwareID: [u16; 1],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_DRVINFO_DETAIL_DATA_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DRVINFO_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DRVINFO_DETAIL_DATA_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -8526,20 +10137,65 @@ impl ::std::fmt::Debug for SP_DRVINFO_DETAIL_DATA_W {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DRVINFO_DETAIL_DATA_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.InfDate == other.InfDate && self.CompatIDsOffset == other.CompatIDsOffset && self.CompatIDsLength == other.CompatIDsLength && self.Reserved == other.Reserved && self.SectionName == other.SectionName && self.InfFileName == other.InfFileName && self.DrvDescription == other.DrvDescription && self.HardwareID == other.HardwareID
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DRVINFO_DETAIL_DATA_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DETAIL_DATA_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DRVINFO_DETAIL_DATA_W {
+    pub cbSize: u32,
+    pub InfDate: super::super::Foundation::FILETIME,
+    pub CompatIDsOffset: u32,
+    pub CompatIDsLength: u32,
+    pub Reserved: usize,
+    pub SectionName: [u16; 256],
+    pub InfFileName: [u16; 260],
+    pub DrvDescription: [u16; 256],
+    pub HardwareID: [u16; 1],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DRVINFO_DETAIL_DATA_W {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DRVINFO_DETAIL_DATA_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DRVINFO_DETAIL_DATA_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DRVINFO_DETAIL_DATA_W {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DETAIL_DATA_W {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_DRVINSTALL_PARAMS {
     pub cbSize: u32,
@@ -8548,56 +10204,130 @@ pub struct SP_DRVINSTALL_PARAMS {
     pub PrivateData: usize,
     pub Reserved: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_DRVINSTALL_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_DRVINSTALL_PARAMS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_DRVINSTALL_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_DRVINSTALL_PARAMS").field("cbSize", &self.cbSize).field("Rank", &self.Rank).field("Flags", &self.Flags).field("PrivateData", &self.PrivateData).field("Reserved", &self.Reserved).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_DRVINSTALL_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.Rank == other.Rank && self.Flags == other.Flags && self.PrivateData == other.PrivateData && self.Reserved == other.Reserved
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_DRVINSTALL_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_DRVINSTALL_PARAMS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_DRVINSTALL_PARAMS {
+    pub cbSize: u32,
+    pub Rank: u32,
+    pub Flags: u32,
+    pub PrivateData: usize,
+    pub Reserved: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_DRVINSTALL_PARAMS {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_DRVINSTALL_PARAMS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_DRVINSTALL_PARAMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_DRVINSTALL_PARAMS {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_DRVINSTALL_PARAMS {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_ENABLECLASS_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ClassGuid: ::windows::runtime::GUID,
     pub EnableMessage: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_ENABLECLASS_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_ENABLECLASS_PARAMS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_ENABLECLASS_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_ENABLECLASS_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("ClassGuid", &self.ClassGuid).field("EnableMessage", &self.EnableMessage).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_ENABLECLASS_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader && self.ClassGuid == other.ClassGuid && self.EnableMessage == other.EnableMessage
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_ENABLECLASS_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_ENABLECLASS_PARAMS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_ENABLECLASS_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub ClassGuid: ::windows::runtime::GUID,
+    pub EnableMessage: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_ENABLECLASS_PARAMS {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_ENABLECLASS_PARAMS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_ENABLECLASS_PARAMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_ENABLECLASS_PARAMS {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_ENABLECLASS_PARAMS {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_FILE_COPY_PARAMS_A {
@@ -8614,14 +10344,17 @@ pub struct SP_FILE_COPY_PARAMS_A {
     pub LayoutInf: *mut ::std::ffi::c_void,
     pub SecurityDescriptor: super::super::Foundation::PSTR,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_FILE_COPY_PARAMS_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_FILE_COPY_PARAMS_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_FILE_COPY_PARAMS_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -8641,6 +10374,7 @@ impl ::std::fmt::Debug for SP_FILE_COPY_PARAMS_A {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_FILE_COPY_PARAMS_A {
     fn eq(&self, other: &Self) -> bool {
@@ -8658,14 +10392,61 @@ impl ::std::cmp::PartialEq for SP_FILE_COPY_PARAMS_A {
             && self.SecurityDescriptor == other.SecurityDescriptor
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_FILE_COPY_PARAMS_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_FILE_COPY_PARAMS_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_FILE_COPY_PARAMS_A {
+    pub cbSize: u32,
+    pub QueueHandle: *mut ::std::ffi::c_void,
+    pub SourceRootPath: super::super::Foundation::PSTR,
+    pub SourcePath: super::super::Foundation::PSTR,
+    pub SourceFilename: super::super::Foundation::PSTR,
+    pub SourceDescription: super::super::Foundation::PSTR,
+    pub SourceTagfile: super::super::Foundation::PSTR,
+    pub TargetDirectory: super::super::Foundation::PSTR,
+    pub TargetFilename: super::super::Foundation::PSTR,
+    pub CopyStyle: u32,
+    pub LayoutInf: *mut ::std::ffi::c_void,
+    pub SecurityDescriptor: super::super::Foundation::PSTR,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_FILE_COPY_PARAMS_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_FILE_COPY_PARAMS_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_FILE_COPY_PARAMS_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_FILE_COPY_PARAMS_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_FILE_COPY_PARAMS_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_FILE_COPY_PARAMS_W {
@@ -8682,14 +10463,17 @@ pub struct SP_FILE_COPY_PARAMS_W {
     pub LayoutInf: *mut ::std::ffi::c_void,
     pub SecurityDescriptor: super::super::Foundation::PWSTR,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_FILE_COPY_PARAMS_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_FILE_COPY_PARAMS_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_FILE_COPY_PARAMS_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -8709,6 +10493,7 @@ impl ::std::fmt::Debug for SP_FILE_COPY_PARAMS_W {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_FILE_COPY_PARAMS_W {
     fn eq(&self, other: &Self) -> bool {
@@ -8726,8 +10511,54 @@ impl ::std::cmp::PartialEq for SP_FILE_COPY_PARAMS_W {
             && self.SecurityDescriptor == other.SecurityDescriptor
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_FILE_COPY_PARAMS_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_FILE_COPY_PARAMS_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_FILE_COPY_PARAMS_W {
+    pub cbSize: u32,
+    pub QueueHandle: *mut ::std::ffi::c_void,
+    pub SourceRootPath: super::super::Foundation::PWSTR,
+    pub SourcePath: super::super::Foundation::PWSTR,
+    pub SourceFilename: super::super::Foundation::PWSTR,
+    pub SourceDescription: super::super::Foundation::PWSTR,
+    pub SourceTagfile: super::super::Foundation::PWSTR,
+    pub TargetDirectory: super::super::Foundation::PWSTR,
+    pub TargetFilename: super::super::Foundation::PWSTR,
+    pub CopyStyle: u32,
+    pub LayoutInf: *mut ::std::ffi::c_void,
+    pub SecurityDescriptor: super::super::Foundation::PWSTR,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_FILE_COPY_PARAMS_W {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_FILE_COPY_PARAMS_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_FILE_COPY_PARAMS_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_FILE_COPY_PARAMS_W {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_FILE_COPY_PARAMS_W {
     type Abi = Self;
@@ -8736,34 +10567,71 @@ unsafe impl ::windows::runtime::Abi for SP_FILE_COPY_PARAMS_W {
 pub const SP_FLAG_CABINETCONTINUATION: u32 = 2048u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_INF_INFORMATION {
     pub InfStyle: SP_INF_STYLE,
     pub InfCount: u32,
     pub VersionData: [u8; 1],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_INF_INFORMATION {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_INF_INFORMATION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_INF_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_INF_INFORMATION").field("InfStyle", &self.InfStyle).field("InfCount", &self.InfCount).field("VersionData", &self.VersionData).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_INF_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.InfStyle == other.InfStyle && self.InfCount == other.InfCount && self.VersionData == other.VersionData
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_INF_INFORMATION {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_INF_INFORMATION {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_INF_INFORMATION {
+    pub InfStyle: SP_INF_STYLE,
+    pub InfCount: u32,
+    pub VersionData: [u8; 1],
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_INF_INFORMATION {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_INF_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_INF_INFORMATION {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_INF_INFORMATION {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_INF_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_INF_SIGNER_INFO_V1_A {
@@ -8772,34 +10640,77 @@ pub struct SP_INF_SIGNER_INFO_V1_A {
     pub DigitalSigner: [super::super::Foundation::CHAR; 260],
     pub DigitalSignerVersion: [super::super::Foundation::CHAR; 260],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_INF_SIGNER_INFO_V1_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_INF_SIGNER_INFO_V1_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_INF_SIGNER_INFO_V1_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_INF_SIGNER_INFO_V1_A").field("cbSize", &self.cbSize).field("CatalogFile", &self.CatalogFile).field("DigitalSigner", &self.DigitalSigner).field("DigitalSignerVersion", &self.DigitalSignerVersion).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.CatalogFile == other.CatalogFile && self.DigitalSigner == other.DigitalSigner && self.DigitalSignerVersion == other.DigitalSignerVersion
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_INF_SIGNER_INFO_V1_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V1_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_INF_SIGNER_INFO_V1_A {
+    pub cbSize: u32,
+    pub CatalogFile: [super::super::Foundation::CHAR; 260],
+    pub DigitalSigner: [super::super::Foundation::CHAR; 260],
+    pub DigitalSignerVersion: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_INF_SIGNER_INFO_V1_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_INF_SIGNER_INFO_V1_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_INF_SIGNER_INFO_V1_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V1_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_INF_SIGNER_INFO_V1_W {
     pub cbSize: u32,
@@ -8807,28 +10718,65 @@ pub struct SP_INF_SIGNER_INFO_V1_W {
     pub DigitalSigner: [u16; 260],
     pub DigitalSignerVersion: [u16; 260],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_INF_SIGNER_INFO_V1_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_INF_SIGNER_INFO_V1_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_INF_SIGNER_INFO_V1_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_INF_SIGNER_INFO_V1_W").field("cbSize", &self.cbSize).field("CatalogFile", &self.CatalogFile).field("DigitalSigner", &self.DigitalSigner).field("DigitalSignerVersion", &self.DigitalSignerVersion).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.CatalogFile == other.CatalogFile && self.DigitalSigner == other.DigitalSigner && self.DigitalSignerVersion == other.DigitalSignerVersion
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_INF_SIGNER_INFO_V1_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V1_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_INF_SIGNER_INFO_V1_W {
+    pub cbSize: u32,
+    pub CatalogFile: [u16; 260],
+    pub DigitalSigner: [u16; 260],
+    pub DigitalSignerVersion: [u16; 260],
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_INF_SIGNER_INFO_V1_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_INF_SIGNER_INFO_V1_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_INF_SIGNER_INFO_V1_W {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V1_W {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_INF_SIGNER_INFO_V2_A {
@@ -8838,34 +10786,78 @@ pub struct SP_INF_SIGNER_INFO_V2_A {
     pub DigitalSignerVersion: [super::super::Foundation::CHAR; 260],
     pub SignerScore: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_INF_SIGNER_INFO_V2_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_INF_SIGNER_INFO_V2_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_INF_SIGNER_INFO_V2_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_INF_SIGNER_INFO_V2_A").field("cbSize", &self.cbSize).field("CatalogFile", &self.CatalogFile).field("DigitalSigner", &self.DigitalSigner).field("DigitalSignerVersion", &self.DigitalSignerVersion).field("SignerScore", &self.SignerScore).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.CatalogFile == other.CatalogFile && self.DigitalSigner == other.DigitalSigner && self.DigitalSignerVersion == other.DigitalSignerVersion && self.SignerScore == other.SignerScore
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_INF_SIGNER_INFO_V2_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V2_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_INF_SIGNER_INFO_V2_A {
+    pub cbSize: u32,
+    pub CatalogFile: [super::super::Foundation::CHAR; 260],
+    pub DigitalSigner: [super::super::Foundation::CHAR; 260],
+    pub DigitalSignerVersion: [super::super::Foundation::CHAR; 260],
+    pub SignerScore: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_INF_SIGNER_INFO_V2_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_INF_SIGNER_INFO_V2_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_INF_SIGNER_INFO_V2_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V2_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_INF_SIGNER_INFO_V2_W {
     pub cbSize: u32,
@@ -8874,23 +10866,60 @@ pub struct SP_INF_SIGNER_INFO_V2_W {
     pub DigitalSignerVersion: [u16; 260],
     pub SignerScore: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_INF_SIGNER_INFO_V2_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_INF_SIGNER_INFO_V2_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_INF_SIGNER_INFO_V2_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_INF_SIGNER_INFO_V2_W").field("cbSize", &self.cbSize).field("CatalogFile", &self.CatalogFile).field("DigitalSigner", &self.DigitalSigner).field("DigitalSignerVersion", &self.DigitalSignerVersion).field("SignerScore", &self.SignerScore).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.CatalogFile == other.CatalogFile && self.DigitalSigner == other.DigitalSigner && self.DigitalSignerVersion == other.DigitalSignerVersion && self.SignerScore == other.SignerScore
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_INF_SIGNER_INFO_V2_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V2_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_INF_SIGNER_INFO_V2_W {
+    pub cbSize: u32,
+    pub CatalogFile: [u16; 260],
+    pub DigitalSigner: [u16; 260],
+    pub DigitalSignerVersion: [u16; 260],
+    pub SignerScore: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_INF_SIGNER_INFO_V2_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_INF_SIGNER_INFO_V2_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_INF_SIGNER_INFO_V2_W {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V2_W {
     type Abi = Self;
 }
@@ -8939,6 +10968,7 @@ impl ::std::ops::Not for SP_INF_STYLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_UI_Controls`*"]
 pub struct SP_INSTALLWIZARD_DATA {
@@ -8951,14 +10981,17 @@ pub struct SP_INSTALLWIZARD_DATA {
     pub PrivateData: super::super::Foundation::LPARAM,
     pub hwndWizardDlg: super::super::Foundation::HWND,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl SP_INSTALLWIZARD_DATA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::std::default::Default for SP_INSTALLWIZARD_DATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::std::fmt::Debug for SP_INSTALLWIZARD_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -8974,14 +11007,57 @@ impl ::std::fmt::Debug for SP_INSTALLWIZARD_DATA {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::std::cmp::PartialEq for SP_INSTALLWIZARD_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader && self.Flags == other.Flags && self.DynamicPages == other.DynamicPages && self.NumDynamicPages == other.NumDynamicPages && self.DynamicPageFlags == other.DynamicPageFlags && self.PrivateFlags == other.PrivateFlags && self.PrivateData == other.PrivateData && self.hwndWizardDlg == other.hwndWizardDlg
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::std::cmp::Eq for SP_INSTALLWIZARD_DATA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+unsafe impl ::windows::runtime::Abi for SP_INSTALLWIZARD_DATA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_UI_Controls`*"]
+pub struct SP_INSTALLWIZARD_DATA {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Flags: u32,
+    pub DynamicPages: [super::super::UI::Controls::HPROPSHEETPAGE; 20],
+    pub NumDynamicPages: u32,
+    pub DynamicPageFlags: u32,
+    pub PrivateFlags: u32,
+    pub PrivateData: super::super::Foundation::LPARAM,
+    pub hwndWizardDlg: super::super::Foundation::HWND,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl SP_INSTALLWIZARD_DATA {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::std::default::Default for SP_INSTALLWIZARD_DATA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::std::cmp::PartialEq for SP_INSTALLWIZARD_DATA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::std::cmp::Eq for SP_INSTALLWIZARD_DATA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 unsafe impl ::windows::runtime::Abi for SP_INSTALLWIZARD_DATA {
     type Abi = Self;
@@ -8990,6 +11066,7 @@ unsafe impl ::windows::runtime::Abi for SP_INSTALLWIZARD_DATA {
 pub const SP_MAX_MACHINENAME_LENGTH: u32 = 263u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_UI_Controls`*"]
 pub struct SP_NEWDEVICEWIZARD_DATA {
@@ -8999,34 +11076,78 @@ pub struct SP_NEWDEVICEWIZARD_DATA {
     pub NumDynamicPages: u32,
     pub hwndWizardDlg: super::super::Foundation::HWND,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl SP_NEWDEVICEWIZARD_DATA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::std::default::Default for SP_NEWDEVICEWIZARD_DATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::std::fmt::Debug for SP_NEWDEVICEWIZARD_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_NEWDEVICEWIZARD_DATA").field("ClassInstallHeader", &self.ClassInstallHeader).field("Flags", &self.Flags).field("DynamicPages", &self.DynamicPages).field("NumDynamicPages", &self.NumDynamicPages).field("hwndWizardDlg", &self.hwndWizardDlg).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::std::cmp::PartialEq for SP_NEWDEVICEWIZARD_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader && self.Flags == other.Flags && self.DynamicPages == other.DynamicPages && self.NumDynamicPages == other.NumDynamicPages && self.hwndWizardDlg == other.hwndWizardDlg
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::std::cmp::Eq for SP_NEWDEVICEWIZARD_DATA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+unsafe impl ::windows::runtime::Abi for SP_NEWDEVICEWIZARD_DATA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_UI_Controls`*"]
+pub struct SP_NEWDEVICEWIZARD_DATA {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Flags: u32,
+    pub DynamicPages: [super::super::UI::Controls::HPROPSHEETPAGE; 20],
+    pub NumDynamicPages: u32,
+    pub hwndWizardDlg: super::super::Foundation::HWND,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl SP_NEWDEVICEWIZARD_DATA {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::std::default::Default for SP_NEWDEVICEWIZARD_DATA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::std::cmp::PartialEq for SP_NEWDEVICEWIZARD_DATA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::std::cmp::Eq for SP_NEWDEVICEWIZARD_DATA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 unsafe impl ::windows::runtime::Abi for SP_NEWDEVICEWIZARD_DATA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_ORIGINAL_FILE_INFO_A {
@@ -9034,57 +11155,134 @@ pub struct SP_ORIGINAL_FILE_INFO_A {
     pub OriginalInfName: [super::super::Foundation::CHAR; 260],
     pub OriginalCatalogName: [super::super::Foundation::CHAR; 260],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_ORIGINAL_FILE_INFO_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_ORIGINAL_FILE_INFO_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_ORIGINAL_FILE_INFO_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_ORIGINAL_FILE_INFO_A").field("cbSize", &self.cbSize).field("OriginalInfName", &self.OriginalInfName).field("OriginalCatalogName", &self.OriginalCatalogName).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.OriginalInfName == other.OriginalInfName && self.OriginalCatalogName == other.OriginalCatalogName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_ORIGINAL_FILE_INFO_A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_ORIGINAL_FILE_INFO_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_ORIGINAL_FILE_INFO_A {
+    pub cbSize: u32,
+    pub OriginalInfName: [super::super::Foundation::CHAR; 260],
+    pub OriginalCatalogName: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_ORIGINAL_FILE_INFO_A {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_ORIGINAL_FILE_INFO_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_ORIGINAL_FILE_INFO_A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_ORIGINAL_FILE_INFO_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_ORIGINAL_FILE_INFO_W {
     pub cbSize: u32,
     pub OriginalInfName: [u16; 260],
     pub OriginalCatalogName: [u16; 260],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_ORIGINAL_FILE_INFO_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_ORIGINAL_FILE_INFO_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_ORIGINAL_FILE_INFO_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_ORIGINAL_FILE_INFO_W").field("cbSize", &self.cbSize).field("OriginalInfName", &self.OriginalInfName).field("OriginalCatalogName", &self.OriginalCatalogName).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.OriginalInfName == other.OriginalInfName && self.OriginalCatalogName == other.OriginalCatalogName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_ORIGINAL_FILE_INFO_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_ORIGINAL_FILE_INFO_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_ORIGINAL_FILE_INFO_W {
+    pub cbSize: u32,
+    pub OriginalInfName: [u16; 260],
+    pub OriginalCatalogName: [u16; 260],
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_ORIGINAL_FILE_INFO_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_ORIGINAL_FILE_INFO_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_ORIGINAL_FILE_INFO_W {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_ORIGINAL_FILE_INFO_W {
     type Abi = Self;
 }
@@ -9124,33 +11322,69 @@ unsafe impl ::windows::runtime::Abi for SP_POWERMESSAGEWAKE_PARAMS_A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub PowerMessageWake: [u16; 512],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_POWERMESSAGEWAKE_PARAMS_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_POWERMESSAGEWAKE_PARAMS_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_POWERMESSAGEWAKE_PARAMS_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_POWERMESSAGEWAKE_PARAMS_W").field("ClassInstallHeader", &self.ClassInstallHeader).field("PowerMessageWake", &self.PowerMessageWake).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_POWERMESSAGEWAKE_PARAMS_W {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader && self.PowerMessageWake == other.PowerMessageWake
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_POWERMESSAGEWAKE_PARAMS_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_POWERMESSAGEWAKE_PARAMS_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub PowerMessageWake: [u16; 512],
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_POWERMESSAGEWAKE_PARAMS_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_POWERMESSAGEWAKE_PARAMS_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_POWERMESSAGEWAKE_PARAMS_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_POWERMESSAGEWAKE_PARAMS_W {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_POWERMESSAGEWAKE_PARAMS_W {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_PROPCHANGE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
@@ -9158,28 +11392,65 @@ pub struct SP_PROPCHANGE_PARAMS {
     pub Scope: u32,
     pub HwProfile: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_PROPCHANGE_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_PROPCHANGE_PARAMS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_PROPCHANGE_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_PROPCHANGE_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("StateChange", &self.StateChange).field("Scope", &self.Scope).field("HwProfile", &self.HwProfile).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_PROPCHANGE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader && self.StateChange == other.StateChange && self.Scope == other.Scope && self.HwProfile == other.HwProfile
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_PROPCHANGE_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_PROPCHANGE_PARAMS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_PROPCHANGE_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub StateChange: u32,
+    pub Scope: u32,
+    pub HwProfile: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_PROPCHANGE_PARAMS {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_PROPCHANGE_PARAMS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_PROPCHANGE_PARAMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_PROPCHANGE_PARAMS {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_PROPCHANGE_PARAMS {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_PROPSHEETPAGE_REQUEST {
     pub cbSize: u32,
@@ -9187,28 +11458,65 @@ pub struct SP_PROPSHEETPAGE_REQUEST {
     pub DeviceInfoSet: *mut ::std::ffi::c_void,
     pub DeviceInfoData: *mut SP_DEVINFO_DATA,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_PROPSHEETPAGE_REQUEST {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_PROPSHEETPAGE_REQUEST {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_PROPSHEETPAGE_REQUEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_PROPSHEETPAGE_REQUEST").field("cbSize", &self.cbSize).field("PageRequested", &self.PageRequested).field("DeviceInfoSet", &self.DeviceInfoSet).field("DeviceInfoData", &self.DeviceInfoData).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_PROPSHEETPAGE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.PageRequested == other.PageRequested && self.DeviceInfoSet == other.DeviceInfoSet && self.DeviceInfoData == other.DeviceInfoData
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_PROPSHEETPAGE_REQUEST {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_PROPSHEETPAGE_REQUEST {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_PROPSHEETPAGE_REQUEST {
+    pub cbSize: u32,
+    pub PageRequested: u32,
+    pub DeviceInfoSet: *mut ::std::ffi::c_void,
+    pub DeviceInfoData: *mut SP_DEVINFO_DATA,
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_PROPSHEETPAGE_REQUEST {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_PROPSHEETPAGE_REQUEST {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_PROPSHEETPAGE_REQUEST {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_PROPSHEETPAGE_REQUEST {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_PROPSHEETPAGE_REQUEST {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_REGISTER_CONTROL_STATUSA {
@@ -9217,34 +11525,77 @@ pub struct SP_REGISTER_CONTROL_STATUSA {
     pub Win32Error: u32,
     pub FailureCode: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_REGISTER_CONTROL_STATUSA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_REGISTER_CONTROL_STATUSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_REGISTER_CONTROL_STATUSA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_REGISTER_CONTROL_STATUSA").field("cbSize", &self.cbSize).field("FileName", &self.FileName).field("Win32Error", &self.Win32Error).field("FailureCode", &self.FailureCode).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_REGISTER_CONTROL_STATUSA {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.FileName == other.FileName && self.Win32Error == other.Win32Error && self.FailureCode == other.FailureCode
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_REGISTER_CONTROL_STATUSA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_REGISTER_CONTROL_STATUSA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_REGISTER_CONTROL_STATUSA {
+    pub cbSize: u32,
+    pub FileName: super::super::Foundation::PSTR,
+    pub Win32Error: u32,
+    pub FailureCode: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_REGISTER_CONTROL_STATUSA {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_REGISTER_CONTROL_STATUSA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_REGISTER_CONTROL_STATUSA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_REGISTER_CONTROL_STATUSA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_REGISTER_CONTROL_STATUSA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
 pub struct SP_REGISTER_CONTROL_STATUSW {
@@ -9253,57 +11604,135 @@ pub struct SP_REGISTER_CONTROL_STATUSW {
     pub Win32Error: u32,
     pub FailureCode: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SP_REGISTER_CONTROL_STATUSW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_REGISTER_CONTROL_STATUSW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_REGISTER_CONTROL_STATUSW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_REGISTER_CONTROL_STATUSW").field("cbSize", &self.cbSize).field("FileName", &self.FileName).field("Win32Error", &self.Win32Error).field("FailureCode", &self.FailureCode).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_REGISTER_CONTROL_STATUSW {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.FileName == other.FileName && self.Win32Error == other.Win32Error && self.FailureCode == other.FailureCode
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_REGISTER_CONTROL_STATUSW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_REGISTER_CONTROL_STATUSW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_REGISTER_CONTROL_STATUSW {
+    pub cbSize: u32,
+    pub FileName: super::super::Foundation::PWSTR,
+    pub Win32Error: u32,
+    pub FailureCode: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SP_REGISTER_CONTROL_STATUSW {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_REGISTER_CONTROL_STATUSW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_REGISTER_CONTROL_STATUSW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_REGISTER_CONTROL_STATUSW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_REGISTER_CONTROL_STATUSW {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_REMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: u32,
     pub HwProfile: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_REMOVEDEVICE_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_REMOVEDEVICE_PARAMS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_REMOVEDEVICE_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_REMOVEDEVICE_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("Scope", &self.Scope).field("HwProfile", &self.HwProfile).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_REMOVEDEVICE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader && self.Scope == other.Scope && self.HwProfile == other.HwProfile
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_REMOVEDEVICE_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_REMOVEDEVICE_PARAMS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_REMOVEDEVICE_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Scope: u32,
+    pub HwProfile: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_REMOVEDEVICE_PARAMS {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_REMOVEDEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_REMOVEDEVICE_PARAMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_REMOVEDEVICE_PARAMS {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_REMOVEDEVICE_PARAMS {
     type Abi = Self;
 }
@@ -9347,6 +11776,7 @@ unsafe impl ::windows::runtime::Abi for SP_SELECTDEVICE_PARAMS_A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_SELECTDEVICE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
@@ -9355,23 +11785,60 @@ pub struct SP_SELECTDEVICE_PARAMS_W {
     pub ListLabel: [u16; 30],
     pub SubTitle: [u16; 256],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_SELECTDEVICE_PARAMS_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_SELECTDEVICE_PARAMS_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_SELECTDEVICE_PARAMS_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_SELECTDEVICE_PARAMS_W").field("ClassInstallHeader", &self.ClassInstallHeader).field("Title", &self.Title).field("Instructions", &self.Instructions).field("ListLabel", &self.ListLabel).field("SubTitle", &self.SubTitle).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_SELECTDEVICE_PARAMS_W {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader && self.Title == other.Title && self.Instructions == other.Instructions && self.ListLabel == other.ListLabel && self.SubTitle == other.SubTitle
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_SELECTDEVICE_PARAMS_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_SELECTDEVICE_PARAMS_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_SELECTDEVICE_PARAMS_W {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Title: [u16; 60],
+    pub Instructions: [u16; 256],
+    pub ListLabel: [u16; 30],
+    pub SubTitle: [u16; 256],
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_SELECTDEVICE_PARAMS_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_SELECTDEVICE_PARAMS_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_SELECTDEVICE_PARAMS_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_SELECTDEVICE_PARAMS_W {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_SELECTDEVICE_PARAMS_W {
     type Abi = Self;
 }
@@ -9412,57 +11879,129 @@ unsafe impl ::windows::runtime::Abi for SP_TROUBLESHOOTER_PARAMS_A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_TROUBLESHOOTER_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ChmFile: [u16; 260],
     pub HtmlTroubleShooter: [u16; 260],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_TROUBLESHOOTER_PARAMS_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_TROUBLESHOOTER_PARAMS_W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_TROUBLESHOOTER_PARAMS_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_TROUBLESHOOTER_PARAMS_W").field("ClassInstallHeader", &self.ClassInstallHeader).field("ChmFile", &self.ChmFile).field("HtmlTroubleShooter", &self.HtmlTroubleShooter).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_TROUBLESHOOTER_PARAMS_W {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader && self.ChmFile == other.ChmFile && self.HtmlTroubleShooter == other.HtmlTroubleShooter
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_TROUBLESHOOTER_PARAMS_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_TROUBLESHOOTER_PARAMS_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_TROUBLESHOOTER_PARAMS_W {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub ChmFile: [u16; 260],
+    pub HtmlTroubleShooter: [u16; 260],
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_TROUBLESHOOTER_PARAMS_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_TROUBLESHOOTER_PARAMS_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_TROUBLESHOOTER_PARAMS_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_TROUBLESHOOTER_PARAMS_W {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_TROUBLESHOOTER_PARAMS_W {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_UNREMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: u32,
     pub HwProfile: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SP_UNREMOVEDEVICE_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SP_UNREMOVEDEVICE_PARAMS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SP_UNREMOVEDEVICE_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_UNREMOVEDEVICE_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("Scope", &self.Scope).field("HwProfile", &self.HwProfile).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SP_UNREMOVEDEVICE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader && self.Scope == other.Scope && self.HwProfile == other.HwProfile
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SP_UNREMOVEDEVICE_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for SP_UNREMOVEDEVICE_PARAMS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_UNREMOVEDEVICE_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Scope: u32,
+    pub HwProfile: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl SP_UNREMOVEDEVICE_PARAMS {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SP_UNREMOVEDEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SP_UNREMOVEDEVICE_PARAMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SP_UNREMOVEDEVICE_PARAMS {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for SP_UNREMOVEDEVICE_PARAMS {
     type Abi = Self;
 }
@@ -9498,8 +12037,8 @@ pub const SRC_FLAGS_CABFILE: u32 = 16u32;
 pub const SUOI_FORCEDELETE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const SUOI_INTERNAL1: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupAddInstallSectionToDiskSpaceListA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(diskspace: *const ::std::ffi::c_void, infhandle: *const ::std::ffi::c_void, layoutinfhandle: *const ::std::ffi::c_void, sectionname: Param3, reserved1: *mut ::std::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9513,8 +12052,8 @@ pub unsafe fn SetupAddInstallSectionToDiskSpaceListA<'a, Param3: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupAddInstallSectionToDiskSpaceListW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(diskspace: *const ::std::ffi::c_void, infhandle: *const ::std::ffi::c_void, layoutinfhandle: *const ::std::ffi::c_void, sectionname: Param3, reserved1: *mut ::std::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9528,8 +12067,8 @@ pub unsafe fn SetupAddInstallSectionToDiskSpaceListW<'a, Param3: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupAddSectionToDiskSpaceListA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(diskspace: *const ::std::ffi::c_void, infhandle: *const ::std::ffi::c_void, listinfhandle: *const ::std::ffi::c_void, sectionname: Param3, operation: SETUP_FILE_OPERATION, reserved1: *mut ::std::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9543,8 +12082,8 @@ pub unsafe fn SetupAddSectionToDiskSpaceListA<'a, Param3: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupAddSectionToDiskSpaceListW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(diskspace: *const ::std::ffi::c_void, infhandle: *const ::std::ffi::c_void, listinfhandle: *const ::std::ffi::c_void, sectionname: Param3, operation: SETUP_FILE_OPERATION, reserved1: *mut ::std::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9558,8 +12097,8 @@ pub unsafe fn SetupAddSectionToDiskSpaceListW<'a, Param3: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupAddToDiskSpaceListA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(diskspace: *const ::std::ffi::c_void, targetfilespec: Param1, filesize: i64, operation: SETUP_FILE_OPERATION, reserved1: *mut ::std::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9573,8 +12112,8 @@ pub unsafe fn SetupAddToDiskSpaceListA<'a, Param1: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupAddToDiskSpaceListW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(diskspace: *const ::std::ffi::c_void, targetfilespec: Param1, filesize: i64, operation: SETUP_FILE_OPERATION, reserved1: *mut ::std::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9588,8 +12127,8 @@ pub unsafe fn SetupAddToDiskSpaceListW<'a, Param1: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupAddToSourceListA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(flags: u32, source: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9603,8 +12142,8 @@ pub unsafe fn SetupAddToSourceListA<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupAddToSourceListW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, source: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9618,8 +12157,8 @@ pub unsafe fn SetupAddToSourceListW<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupAdjustDiskSpaceListA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(diskspace: *const ::std::ffi::c_void, driveroot: Param1, amount: i64, reserved1: *mut ::std::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9633,8 +12172,8 @@ pub unsafe fn SetupAdjustDiskSpaceListA<'a, Param1: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupAdjustDiskSpaceListW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(diskspace: *const ::std::ffi::c_void, driveroot: Param1, amount: i64, reserved1: *mut ::std::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9648,8 +12187,8 @@ pub unsafe fn SetupAdjustDiskSpaceListW<'a, Param1: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupBackupErrorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, dialogtitle: Param1, sourcefile: Param2, targetfile: Param3, win32errorcode: u32, style: u32) -> u32 {
     #[cfg(windows)]
@@ -9663,8 +12202,8 @@ pub unsafe fn SetupBackupErrorA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupBackupErrorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, dialogtitle: Param1, sourcefile: Param2, targetfile: Param3, win32errorcode: u32, style: u32) -> u32 {
     #[cfg(windows)]
@@ -9678,8 +12217,8 @@ pub unsafe fn SetupBackupErrorW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupCancelTemporarySourceList() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9693,8 +12232,8 @@ pub unsafe fn SetupCancelTemporarySourceList() -> super::super::Foundation::BOOL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupCloseFileQueue(queuehandle: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9736,8 +12275,8 @@ pub unsafe fn SetupCloseLog() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupCommitFileQueueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(owner: Param0, queuehandle: *const ::std::ffi::c_void, msghandler: ::std::option::Option<PSP_FILE_CALLBACK_A>, context: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9751,8 +12290,8 @@ pub unsafe fn SetupCommitFileQueueA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupCommitFileQueueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(owner: Param0, queuehandle: *const ::std::ffi::c_void, msghandler: ::std::option::Option<PSP_FILE_CALLBACK_W>, context: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9766,8 +12305,8 @@ pub unsafe fn SetupCommitFileQueueW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupConfigureWmiFromInfSectionA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::std::ffi::c_void, sectionname: Param1, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9781,8 +12320,8 @@ pub unsafe fn SetupConfigureWmiFromInfSectionA<'a, Param1: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupConfigureWmiFromInfSectionW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::std::ffi::c_void, sectionname: Param1, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9796,8 +12335,8 @@ pub unsafe fn SetupConfigureWmiFromInfSectionW<'a, Param1: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupCopyErrorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     hwndparent: Param0,
@@ -9835,8 +12374,8 @@ pub unsafe fn SetupCopyErrorA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupCopyErrorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hwndparent: Param0,
@@ -9874,8 +12413,8 @@ pub unsafe fn SetupCopyErrorW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupCopyOEMInfA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     sourceinffilename: Param0,
@@ -9907,8 +12446,8 @@ pub unsafe fn SetupCopyOEMInfA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupCopyOEMInfW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     sourceinffilename: Param0,
@@ -9968,8 +12507,8 @@ pub unsafe fn SetupCreateDiskSpaceListW(reserved1: *mut ::std::ffi::c_void, rese
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDecompressOrCopyFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(sourcefilename: Param0, targetfilename: Param1, compressiontype: *const u32) -> u32 {
     #[cfg(windows)]
@@ -9983,8 +12522,8 @@ pub unsafe fn SetupDecompressOrCopyFileA<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDecompressOrCopyFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(sourcefilename: Param0, targetfilename: Param1, compressiontype: *const u32) -> u32 {
     #[cfg(windows)]
@@ -10026,8 +12565,8 @@ pub unsafe fn SetupDefaultQueueCallbackW(context: *const ::std::ffi::c_void, not
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDeleteErrorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, dialogtitle: Param1, file: Param2, win32errorcode: u32, style: u32) -> u32 {
     #[cfg(windows)]
@@ -10041,8 +12580,8 @@ pub unsafe fn SetupDeleteErrorA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDeleteErrorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, dialogtitle: Param1, file: Param2, win32errorcode: u32, style: u32) -> u32 {
     #[cfg(windows)]
@@ -10056,8 +12595,8 @@ pub unsafe fn SetupDeleteErrorW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDestroyDiskSpaceList(diskspace: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10071,8 +12610,8 @@ pub unsafe fn SetupDestroyDiskSpaceList(diskspace: *mut ::std::ffi::c_void) -> s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiAskForOEMDisk(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10086,8 +12625,8 @@ pub unsafe fn SetupDiAskForOEMDisk(deviceinfoset: *const ::std::ffi::c_void, dev
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiBuildClassInfoList(flags: u32, classguidlist: *mut ::windows::runtime::GUID, classguidlistsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10101,8 +12640,8 @@ pub unsafe fn SetupDiBuildClassInfoList(flags: u32, classguidlist: *mut ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiBuildClassInfoListExA<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(flags: u32, classguidlist: *mut ::windows::runtime::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10116,8 +12655,8 @@ pub unsafe fn SetupDiBuildClassInfoListExA<'a, Param4: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiBuildClassInfoListExW<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, classguidlist: *mut ::windows::runtime::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10131,8 +12670,8 @@ pub unsafe fn SetupDiBuildClassInfoListExW<'a, Param4: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiBuildDriverInfoList(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, drivertype: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10146,8 +12685,8 @@ pub unsafe fn SetupDiBuildDriverInfoList(deviceinfoset: *const ::std::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiCallClassInstaller(installfunction: u32, deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10161,8 +12700,8 @@ pub unsafe fn SetupDiCallClassInstaller(installfunction: u32, deviceinfoset: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiCancelDriverInfoSearch(deviceinfoset: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10176,8 +12715,8 @@ pub unsafe fn SetupDiCancelDriverInfoSearch(deviceinfoset: *const ::std::ffi::c_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiChangeState(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10191,8 +12730,8 @@ pub unsafe fn SetupDiChangeState(deviceinfoset: *const ::std::ffi::c_void, devic
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiClassGuidsFromNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(classname: Param0, classguidlist: *mut ::windows::runtime::GUID, classguidlistsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10206,8 +12745,8 @@ pub unsafe fn SetupDiClassGuidsFromNameA<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiClassGuidsFromNameExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(classname: Param0, classguidlist: *mut ::windows::runtime::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10221,8 +12760,8 @@ pub unsafe fn SetupDiClassGuidsFromNameExA<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiClassGuidsFromNameExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(classname: Param0, classguidlist: *mut ::windows::runtime::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10236,8 +12775,8 @@ pub unsafe fn SetupDiClassGuidsFromNameExW<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiClassGuidsFromNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(classname: Param0, classguidlist: *mut ::windows::runtime::GUID, classguidlistsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10251,8 +12790,8 @@ pub unsafe fn SetupDiClassGuidsFromNameW<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiClassNameFromGuidA(classguid: *const ::windows::runtime::GUID, classname: super::super::Foundation::PSTR, classnamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10266,8 +12805,8 @@ pub unsafe fn SetupDiClassNameFromGuidA(classguid: *const ::windows::runtime::GU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiClassNameFromGuidExA<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::runtime::GUID, classname: super::super::Foundation::PSTR, classnamesize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10281,8 +12820,8 @@ pub unsafe fn SetupDiClassNameFromGuidExA<'a, Param4: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiClassNameFromGuidExW<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::runtime::GUID, classname: super::super::Foundation::PWSTR, classnamesize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10296,8 +12835,8 @@ pub unsafe fn SetupDiClassNameFromGuidExW<'a, Param4: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiClassNameFromGuidW(classguid: *const ::windows::runtime::GUID, classname: super::super::Foundation::PWSTR, classnamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10311,8 +12850,8 @@ pub unsafe fn SetupDiClassNameFromGuidW(classguid: *const ::windows::runtime::GU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SetupDiCreateDevRegKeyA<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, infhandle: *const ::std::ffi::c_void, infsectionname: Param6) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -10326,8 +12865,8 @@ pub unsafe fn SetupDiCreateDevRegKeyA<'a, Param6: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SetupDiCreateDevRegKeyW<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, infhandle: *const ::std::ffi::c_void, infsectionname: Param6) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -10341,8 +12880,8 @@ pub unsafe fn SetupDiCreateDevRegKeyW<'a, Param6: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInfoA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(
     deviceinfoset: *const ::std::ffi::c_void,
@@ -10364,8 +12903,8 @@ pub unsafe fn SetupDiCreateDeviceInfoA<'a, Param1: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInfoList<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(classguid: *const ::windows::runtime::GUID, hwndparent: Param1) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -10379,8 +12918,8 @@ pub unsafe fn SetupDiCreateDeviceInfoList<'a, Param1: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInfoListExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::runtime::GUID, hwndparent: Param1, machinename: Param2, reserved: *mut ::std::ffi::c_void) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -10394,8 +12933,8 @@ pub unsafe fn SetupDiCreateDeviceInfoListExA<'a, Param1: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInfoListExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::runtime::GUID, hwndparent: Param1, machinename: Param2, reserved: *mut ::std::ffi::c_void) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -10409,8 +12948,8 @@ pub unsafe fn SetupDiCreateDeviceInfoListExW<'a, Param1: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInfoW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(
     deviceinfoset: *const ::std::ffi::c_void,
@@ -10432,8 +12971,8 @@ pub unsafe fn SetupDiCreateDeviceInfoW<'a, Param1: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInterfaceA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const ::windows::runtime::GUID, referencestring: Param3, creationflags: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10447,8 +12986,8 @@ pub unsafe fn SetupDiCreateDeviceInterfaceA<'a, Param3: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyA<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(deviceinfoset: *const ::std::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32, infhandle: *const ::std::ffi::c_void, infsectionname: Param5) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -10462,8 +13001,8 @@ pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyA<'a, Param5: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyW<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(deviceinfoset: *const ::std::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32, infhandle: *const ::std::ffi::c_void, infsectionname: Param5) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -10477,8 +13016,8 @@ pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyW<'a, Param5: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInterfaceW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const ::windows::runtime::GUID, referencestring: Param3, creationflags: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10492,8 +13031,8 @@ pub unsafe fn SetupDiCreateDeviceInterfaceW<'a, Param3: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiDeleteDevRegKey(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10507,8 +13046,8 @@ pub unsafe fn SetupDiDeleteDevRegKey(deviceinfoset: *const ::std::ffi::c_void, d
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiDeleteDeviceInfo(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10522,8 +13061,8 @@ pub unsafe fn SetupDiDeleteDeviceInfo(deviceinfoset: *const ::std::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiDeleteDeviceInterfaceData(deviceinfoset: *const ::std::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10537,8 +13076,8 @@ pub unsafe fn SetupDiDeleteDeviceInterfaceData(deviceinfoset: *const ::std::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset: *const ::std::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10552,8 +13091,8 @@ pub unsafe fn SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset: *const ::std::ff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_UI_Controls`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn SetupDiDestroyClassImageList(classimagelistdata: *const SP_CLASSIMAGELIST_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10567,8 +13106,8 @@ pub unsafe fn SetupDiDestroyClassImageList(classimagelistdata: *const SP_CLASSIM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiDestroyDeviceInfoList(deviceinfoset: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10582,8 +13121,8 @@ pub unsafe fn SetupDiDestroyDeviceInfoList(deviceinfoset: *const ::std::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiDestroyDriverInfoList(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, drivertype: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10597,8 +13136,8 @@ pub unsafe fn SetupDiDestroyDriverInfoList(deviceinfoset: *const ::std::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn SetupDiDrawMiniIcon<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::RECT>>(hdc: Param0, rc: Param1, miniiconindex: i32, flags: u32) -> i32 {
     #[cfg(windows)]
@@ -10612,8 +13151,8 @@ pub unsafe fn SetupDiDrawMiniIcon<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiEnumDeviceInfo(deviceinfoset: *const ::std::ffi::c_void, memberindex: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10627,8 +13166,8 @@ pub unsafe fn SetupDiEnumDeviceInfo(deviceinfoset: *const ::std::ffi::c_void, me
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiEnumDeviceInterfaces(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const ::windows::runtime::GUID, memberindex: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10642,8 +13181,8 @@ pub unsafe fn SetupDiEnumDeviceInterfaces(deviceinfoset: *const ::std::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiEnumDriverInfoA(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, drivertype: u32, memberindex: u32, driverinfodata: *mut SP_DRVINFO_DATA_V2_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10657,8 +13196,8 @@ pub unsafe fn SetupDiEnumDriverInfoA(deviceinfoset: *const ::std::ffi::c_void, d
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiEnumDriverInfoW(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, drivertype: u32, memberindex: u32, driverinfodata: *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10672,8 +13211,8 @@ pub unsafe fn SetupDiEnumDriverInfoW(deviceinfoset: *const ::std::ffi::c_void, d
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[inline]
 pub unsafe fn SetupDiGetActualModelsSectionA(context: *const INFCONTEXT, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: super::super::Foundation::PSTR, infsectionwithextsize: u32, requiredsize: *mut u32, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10687,8 +13226,8 @@ pub unsafe fn SetupDiGetActualModelsSectionA(context: *const INFCONTEXT, alterna
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[inline]
 pub unsafe fn SetupDiGetActualModelsSectionW(context: *const INFCONTEXT, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: super::super::Foundation::PWSTR, infsectionwithextsize: u32, requiredsize: *mut u32, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10702,8 +13241,8 @@ pub unsafe fn SetupDiGetActualModelsSectionW(context: *const INFCONTEXT, alterna
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetActualSectionToInstallA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::std::ffi::c_void, infsectionname: Param1, infsectionwithext: super::super::Foundation::PSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10717,8 +13256,8 @@ pub unsafe fn SetupDiGetActualSectionToInstallA<'a, Param1: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[inline]
 pub unsafe fn SetupDiGetActualSectionToInstallExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::std::ffi::c_void, infsectionname: Param1, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: super::super::Foundation::PSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut super::super::Foundation::PSTR, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10741,8 +13280,8 @@ pub unsafe fn SetupDiGetActualSectionToInstallExA<'a, Param1: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[inline]
 pub unsafe fn SetupDiGetActualSectionToInstallExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::std::ffi::c_void, infsectionname: Param1, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: super::super::Foundation::PWSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut super::super::Foundation::PWSTR, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10765,8 +13304,8 @@ pub unsafe fn SetupDiGetActualSectionToInstallExW<'a, Param1: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetActualSectionToInstallW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::std::ffi::c_void, infsectionname: Param1, infsectionwithext: super::super::Foundation::PWSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10780,8 +13319,8 @@ pub unsafe fn SetupDiGetActualSectionToInstallW<'a, Param1: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetClassBitmapIndex(classguid: *const ::windows::runtime::GUID, miniiconindex: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10795,8 +13334,8 @@ pub unsafe fn SetupDiGetClassBitmapIndex(classguid: *const ::windows::runtime::G
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetClassDescriptionA(classguid: *const ::windows::runtime::GUID, classdescription: super::super::Foundation::PSTR, classdescriptionsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10810,8 +13349,8 @@ pub unsafe fn SetupDiGetClassDescriptionA(classguid: *const ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetClassDescriptionExA<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::runtime::GUID, classdescription: super::super::Foundation::PSTR, classdescriptionsize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10825,8 +13364,8 @@ pub unsafe fn SetupDiGetClassDescriptionExA<'a, Param4: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetClassDescriptionExW<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::runtime::GUID, classdescription: super::super::Foundation::PWSTR, classdescriptionsize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10840,8 +13379,8 @@ pub unsafe fn SetupDiGetClassDescriptionExW<'a, Param4: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetClassDescriptionW(classguid: *const ::windows::runtime::GUID, classdescription: super::super::Foundation::PWSTR, classdescriptionsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10855,8 +13394,8 @@ pub unsafe fn SetupDiGetClassDescriptionW(classguid: *const ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn SetupDiGetClassDevPropertySheetsA(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertysheetheader: *const super::super::UI::Controls::PROPSHEETHEADERA_V2, propertysheetheaderpagelistsize: u32, requiredsize: *mut u32, propertysheettype: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10870,8 +13409,8 @@ pub unsafe fn SetupDiGetClassDevPropertySheetsA(deviceinfoset: *const ::std::ffi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn SetupDiGetClassDevPropertySheetsW(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertysheetheader: *const super::super::UI::Controls::PROPSHEETHEADERW_V2, propertysheetheaderpagelistsize: u32, requiredsize: *mut u32, propertysheettype: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10885,8 +13424,8 @@ pub unsafe fn SetupDiGetClassDevPropertySheetsW(deviceinfoset: *const ::std::ffi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetClassDevsA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(classguid: *const ::windows::runtime::GUID, enumerator: Param1, hwndparent: Param2, flags: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -10900,8 +13439,8 @@ pub unsafe fn SetupDiGetClassDevsA<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetClassDevsExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::runtime::GUID, enumerator: Param1, hwndparent: Param2, flags: u32, deviceinfoset: *const ::std::ffi::c_void, machinename: Param5, reserved: *mut ::std::ffi::c_void) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -10915,8 +13454,8 @@ pub unsafe fn SetupDiGetClassDevsExA<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetClassDevsExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::runtime::GUID, enumerator: Param1, hwndparent: Param2, flags: u32, deviceinfoset: *const ::std::ffi::c_void, machinename: Param5, reserved: *mut ::std::ffi::c_void) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -10930,8 +13469,8 @@ pub unsafe fn SetupDiGetClassDevsExW<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetClassDevsW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(classguid: *const ::windows::runtime::GUID, enumerator: Param1, hwndparent: Param2, flags: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -10945,8 +13484,8 @@ pub unsafe fn SetupDiGetClassDevsW<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_UI_Controls`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn SetupDiGetClassImageIndex(classimagelistdata: *const SP_CLASSIMAGELIST_DATA, classguid: *const ::windows::runtime::GUID, imageindex: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10960,8 +13499,8 @@ pub unsafe fn SetupDiGetClassImageIndex(classimagelistdata: *const SP_CLASSIMAGE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_UI_Controls`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn SetupDiGetClassImageList(classimagelistdata: *mut SP_CLASSIMAGELIST_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10975,8 +13514,8 @@ pub unsafe fn SetupDiGetClassImageList(classimagelistdata: *mut SP_CLASSIMAGELIS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_UI_Controls`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn SetupDiGetClassImageListExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(classimagelistdata: *mut SP_CLASSIMAGELIST_DATA, machinename: Param1, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10990,8 +13529,8 @@ pub unsafe fn SetupDiGetClassImageListExA<'a, Param1: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_UI_Controls`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn SetupDiGetClassImageListExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(classimagelistdata: *mut SP_CLASSIMAGELIST_DATA, machinename: Param1, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11005,8 +13544,8 @@ pub unsafe fn SetupDiGetClassImageListExW<'a, Param1: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetClassInstallParamsA(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *mut SP_CLASSINSTALL_HEADER, classinstallparamssize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11020,8 +13559,8 @@ pub unsafe fn SetupDiGetClassInstallParamsA(deviceinfoset: *const ::std::ffi::c_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetClassInstallParamsW(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *mut SP_CLASSINSTALL_HEADER, classinstallparamssize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11035,8 +13574,8 @@ pub unsafe fn SetupDiGetClassInstallParamsW(deviceinfoset: *const ::std::ffi::c_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SetupDiGetClassPropertyExW<'a, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::runtime::GUID, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32, machinename: Param7, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11060,8 +13599,8 @@ pub unsafe fn SetupDiGetClassPropertyExW<'a, Param7: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SetupDiGetClassPropertyKeys(classguid: *const ::windows::runtime::GUID, propertykeyarray: *mut super::super::System::SystemServices::DEVPROPKEY, propertykeycount: u32, requiredpropertykeycount: *mut u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11075,8 +13614,8 @@ pub unsafe fn SetupDiGetClassPropertyKeys(classguid: *const ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SetupDiGetClassPropertyKeysExW<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::runtime::GUID, propertykeyarray: *mut super::super::System::SystemServices::DEVPROPKEY, propertykeycount: u32, requiredpropertykeycount: *mut u32, flags: u32, machinename: Param5, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11090,8 +13629,8 @@ pub unsafe fn SetupDiGetClassPropertyKeysExW<'a, Param5: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SetupDiGetClassPropertyW(classguid: *const ::windows::runtime::GUID, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11105,8 +13644,8 @@ pub unsafe fn SetupDiGetClassPropertyW(classguid: *const ::windows::runtime::GUI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetClassRegistryPropertyA<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::runtime::GUID, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, machinename: Param6, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11129,8 +13668,8 @@ pub unsafe fn SetupDiGetClassRegistryPropertyA<'a, Param6: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetClassRegistryPropertyW<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::runtime::GUID, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, machinename: Param6, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11153,8 +13692,8 @@ pub unsafe fn SetupDiGetClassRegistryPropertyW<'a, Param6: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetCustomDevicePropertyA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: Param2, flags: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11177,8 +13716,8 @@ pub unsafe fn SetupDiGetCustomDevicePropertyA<'a, Param2: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetCustomDevicePropertyW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: Param2, flags: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11201,8 +13740,8 @@ pub unsafe fn SetupDiGetCustomDevicePropertyW<'a, Param2: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInfoListClass(deviceinfoset: *const ::std::ffi::c_void, classguid: *mut ::windows::runtime::GUID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11216,8 +13755,8 @@ pub unsafe fn SetupDiGetDeviceInfoListClass(deviceinfoset: *const ::std::ffi::c_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInfoListDetailA(deviceinfoset: *const ::std::ffi::c_void, deviceinfosetdetaildata: *mut SP_DEVINFO_LIST_DETAIL_DATA_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11231,8 +13770,8 @@ pub unsafe fn SetupDiGetDeviceInfoListDetailA(deviceinfoset: *const ::std::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInfoListDetailW(deviceinfoset: *const ::std::ffi::c_void, deviceinfosetdetaildata: *mut SP_DEVINFO_LIST_DETAIL_DATA_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11246,8 +13785,8 @@ pub unsafe fn SetupDiGetDeviceInfoListDetailW(deviceinfoset: *const ::std::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInstallParamsA(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *mut SP_DEVINSTALL_PARAMS_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11261,8 +13800,8 @@ pub unsafe fn SetupDiGetDeviceInstallParamsA(deviceinfoset: *const ::std::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInstallParamsW(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *mut SP_DEVINSTALL_PARAMS_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11276,8 +13815,8 @@ pub unsafe fn SetupDiGetDeviceInstallParamsW(deviceinfoset: *const ::std::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInstanceIdA(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstanceid: super::super::Foundation::PSTR, deviceinstanceidsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11291,8 +13830,8 @@ pub unsafe fn SetupDiGetDeviceInstanceIdA(deviceinfoset: *const ::std::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInstanceIdW(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstanceid: super::super::Foundation::PWSTR, deviceinstanceidsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11306,8 +13845,8 @@ pub unsafe fn SetupDiGetDeviceInstanceIdW(deviceinfoset: *const ::std::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInterfaceAlias(deviceinfoset: *const ::std::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, aliasinterfaceclassguid: *const ::windows::runtime::GUID, aliasdeviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11321,8 +13860,8 @@ pub unsafe fn SetupDiGetDeviceInterfaceAlias(deviceinfoset: *const ::std::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInterfaceDetailA(deviceinfoset: *const ::std::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A, deviceinterfacedetaildatasize: u32, requiredsize: *mut u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11336,8 +13875,8 @@ pub unsafe fn SetupDiGetDeviceInterfaceDetailA(deviceinfoset: *const ::std::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInterfaceDetailW(deviceinfoset: *const ::std::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: *mut SP_DEVICE_INTERFACE_DETAIL_DATA_W, deviceinterfacedetaildatasize: u32, requiredsize: *mut u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11351,8 +13890,8 @@ pub unsafe fn SetupDiGetDeviceInterfaceDetailW(deviceinfoset: *const ::std::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset: *const ::std::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykeyarray: *mut super::super::System::SystemServices::DEVPROPKEY, propertykeycount: u32, requiredpropertykeycount: *mut u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11366,8 +13905,8 @@ pub unsafe fn SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset: *const ::std:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset: *const ::std::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11390,8 +13929,8 @@ pub unsafe fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset: *const ::std::ff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SetupDiGetDevicePropertyKeys(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertykeyarray: *mut super::super::System::SystemServices::DEVPROPKEY, propertykeycount: u32, requiredpropertykeycount: *mut u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11405,8 +13944,8 @@ pub unsafe fn SetupDiGetDevicePropertyKeys(deviceinfoset: *const ::std::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SetupDiGetDevicePropertyW(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11429,8 +13968,8 @@ pub unsafe fn SetupDiGetDevicePropertyW(deviceinfoset: *const ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11452,8 +13991,8 @@ pub unsafe fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset: *const ::std::ffi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11475,8 +14014,8 @@ pub unsafe fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset: *const ::std::ffi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDriverInfoDetailA(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, driverinfodetaildata: *mut SP_DRVINFO_DETAIL_DATA_A, driverinfodetaildatasize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11490,8 +14029,8 @@ pub unsafe fn SetupDiGetDriverInfoDetailA(deviceinfoset: *const ::std::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDriverInfoDetailW(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_W, driverinfodetaildata: *mut SP_DRVINFO_DETAIL_DATA_W, driverinfodetaildatasize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11505,8 +14044,8 @@ pub unsafe fn SetupDiGetDriverInfoDetailW(deviceinfoset: *const ::std::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDriverInstallParamsA(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, driverinstallparams: *mut SP_DRVINSTALL_PARAMS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11520,8 +14059,8 @@ pub unsafe fn SetupDiGetDriverInstallParamsA(deviceinfoset: *const ::std::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDriverInstallParamsW(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_W, driverinstallparams: *mut SP_DRVINSTALL_PARAMS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11535,8 +14074,8 @@ pub unsafe fn SetupDiGetDriverInstallParamsW(deviceinfoset: *const ::std::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetHwProfileFriendlyNameA(hwprofile: u32, friendlyname: super::super::Foundation::PSTR, friendlynamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11550,8 +14089,8 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameA(hwprofile: u32, friendlyname: sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetHwProfileFriendlyNameExA<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwprofile: u32, friendlyname: super::super::Foundation::PSTR, friendlynamesize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11565,8 +14104,8 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameExA<'a, Param4: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetHwProfileFriendlyNameExW<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwprofile: u32, friendlyname: super::super::Foundation::PWSTR, friendlynamesize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11580,8 +14119,8 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameExW<'a, Param4: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetHwProfileFriendlyNameW(hwprofile: u32, friendlyname: super::super::Foundation::PWSTR, friendlynamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11595,8 +14134,8 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameW(hwprofile: u32, friendlyname: sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetHwProfileList(hwprofilelist: *mut u32, hwprofilelistsize: u32, requiredsize: *mut u32, currentlyactiveindex: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11610,8 +14149,8 @@ pub unsafe fn SetupDiGetHwProfileList(hwprofilelist: *mut u32, hwprofilelistsize
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetHwProfileListExA<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwprofilelist: *mut u32, hwprofilelistsize: u32, requiredsize: *mut u32, currentlyactiveindex: *mut u32, machinename: Param4, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11625,8 +14164,8 @@ pub unsafe fn SetupDiGetHwProfileListExA<'a, Param4: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetHwProfileListExW<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwprofilelist: *mut u32, hwprofilelistsize: u32, requiredsize: *mut u32, currentlyactiveindex: *mut u32, machinename: Param4, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11640,8 +14179,8 @@ pub unsafe fn SetupDiGetHwProfileListExW<'a, Param4: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetINFClassA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infname: Param0, classguid: *mut ::windows::runtime::GUID, classname: super::super::Foundation::PSTR, classnamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11655,8 +14194,8 @@ pub unsafe fn SetupDiGetINFClassA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetINFClassW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infname: Param0, classguid: *mut ::windows::runtime::GUID, classname: super::super::Foundation::PWSTR, classnamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11670,8 +14209,8 @@ pub unsafe fn SetupDiGetINFClassW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetSelectedDevice(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11685,8 +14224,8 @@ pub unsafe fn SetupDiGetSelectedDevice(deviceinfoset: *const ::std::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetSelectedDriverA(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *mut SP_DRVINFO_DATA_V2_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11700,8 +14239,8 @@ pub unsafe fn SetupDiGetSelectedDriverA(deviceinfoset: *const ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetSelectedDriverW(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11715,8 +14254,8 @@ pub unsafe fn SetupDiGetSelectedDriverW(deviceinfoset: *const ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_UI_Controls`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn SetupDiGetWizardPage(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, installwizarddata: *const SP_INSTALLWIZARD_DATA, pagetype: u32, flags: u32) -> super::super::UI::Controls::HPROPSHEETPAGE {
     #[cfg(windows)]
@@ -11730,8 +14269,8 @@ pub unsafe fn SetupDiGetWizardPage(deviceinfoset: *const ::std::ffi::c_void, dev
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiInstallClassA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, inffilename: Param1, flags: u32, filequeue: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11745,8 +14284,8 @@ pub unsafe fn SetupDiInstallClassA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiInstallClassExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, inffilename: Param1, flags: u32, filequeue: *const ::std::ffi::c_void, interfaceclassguid: *const ::windows::runtime::GUID, reserved1: *mut ::std::ffi::c_void, reserved2: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11760,8 +14299,8 @@ pub unsafe fn SetupDiInstallClassExA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiInstallClassExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, inffilename: Param1, flags: u32, filequeue: *const ::std::ffi::c_void, interfaceclassguid: *const ::windows::runtime::GUID, reserved1: *mut ::std::ffi::c_void, reserved2: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11775,8 +14314,8 @@ pub unsafe fn SetupDiInstallClassExW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiInstallClassW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, inffilename: Param1, flags: u32, filequeue: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11790,8 +14329,8 @@ pub unsafe fn SetupDiInstallClassW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiInstallDevice(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11805,8 +14344,8 @@ pub unsafe fn SetupDiInstallDevice(deviceinfoset: *const ::std::ffi::c_void, dev
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiInstallDeviceInterfaces(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11820,8 +14359,8 @@ pub unsafe fn SetupDiInstallDeviceInterfaces(deviceinfoset: *const ::std::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiInstallDriverFiles(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11835,8 +14374,8 @@ pub unsafe fn SetupDiInstallDriverFiles(deviceinfoset: *const ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn SetupDiLoadClassIcon(classguid: *const ::windows::runtime::GUID, largeicon: *mut super::super::UI::WindowsAndMessaging::HICON, miniiconindex: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11850,8 +14389,8 @@ pub unsafe fn SetupDiLoadClassIcon(classguid: *const ::windows::runtime::GUID, l
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn SetupDiLoadDeviceIcon(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, cxicon: u32, cyicon: u32, flags: u32, hicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11865,8 +14404,8 @@ pub unsafe fn SetupDiLoadDeviceIcon(deviceinfoset: *const ::std::ffi::c_void, de
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn SetupDiOpenClassRegKey(classguid: *const ::windows::runtime::GUID, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -11880,8 +14419,8 @@ pub unsafe fn SetupDiOpenClassRegKey(classguid: *const ::windows::runtime::GUID,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SetupDiOpenClassRegKeyExA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::runtime::GUID, samdesired: u32, flags: u32, machinename: Param3, reserved: *mut ::std::ffi::c_void) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -11895,8 +14434,8 @@ pub unsafe fn SetupDiOpenClassRegKeyExA<'a, Param3: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SetupDiOpenClassRegKeyExW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::runtime::GUID, samdesired: u32, flags: u32, machinename: Param3, reserved: *mut ::std::ffi::c_void) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -11910,8 +14449,8 @@ pub unsafe fn SetupDiOpenClassRegKeyExW<'a, Param3: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn SetupDiOpenDevRegKey(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -11925,8 +14464,8 @@ pub unsafe fn SetupDiOpenDevRegKey(deviceinfoset: *const ::std::ffi::c_void, dev
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiOpenDeviceInfoA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(deviceinfoset: *const ::std::ffi::c_void, deviceinstanceid: Param1, hwndparent: Param2, openflags: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11940,8 +14479,8 @@ pub unsafe fn SetupDiOpenDeviceInfoA<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiOpenDeviceInfoW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(deviceinfoset: *const ::std::ffi::c_void, deviceinstanceid: Param1, hwndparent: Param2, openflags: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11955,8 +14494,8 @@ pub unsafe fn SetupDiOpenDeviceInfoW<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiOpenDeviceInterfaceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(deviceinfoset: *const ::std::ffi::c_void, devicepath: Param1, openflags: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11970,8 +14509,8 @@ pub unsafe fn SetupDiOpenDeviceInterfaceA<'a, Param1: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset: *const ::std::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -11985,8 +14524,8 @@ pub unsafe fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset: *const ::std::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiOpenDeviceInterfaceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(deviceinfoset: *const ::std::ffi::c_void, devicepath: Param1, openflags: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12000,8 +14539,8 @@ pub unsafe fn SetupDiOpenDeviceInterfaceW<'a, Param1: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiRegisterCoDeviceInstallers(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12015,8 +14554,8 @@ pub unsafe fn SetupDiRegisterCoDeviceInstallers(deviceinfoset: *const ::std::ffi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiRegisterDeviceInfo(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, flags: u32, compareproc: ::std::option::Option<PSP_DETSIG_CMPPROC>, comparecontext: *const ::std::ffi::c_void, dupdeviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12030,8 +14569,8 @@ pub unsafe fn SetupDiRegisterDeviceInfo(deviceinfoset: *const ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiRemoveDevice(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12045,8 +14584,8 @@ pub unsafe fn SetupDiRemoveDevice(deviceinfoset: *const ::std::ffi::c_void, devi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiRemoveDeviceInterface(deviceinfoset: *const ::std::ffi::c_void, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12060,8 +14599,8 @@ pub unsafe fn SetupDiRemoveDeviceInterface(deviceinfoset: *const ::std::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiRestartDevices(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12075,8 +14614,8 @@ pub unsafe fn SetupDiRestartDevices(deviceinfoset: *const ::std::ffi::c_void, de
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSelectBestCompatDrv(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12090,8 +14629,8 @@ pub unsafe fn SetupDiSelectBestCompatDrv(deviceinfoset: *const ::std::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSelectDevice(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12105,8 +14644,8 @@ pub unsafe fn SetupDiSelectDevice(deviceinfoset: *const ::std::ffi::c_void, devi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSelectOEMDrv<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12120,8 +14659,8 @@ pub unsafe fn SetupDiSelectOEMDrv<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetClassInstallParamsA(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *const SP_CLASSINSTALL_HEADER, classinstallparamssize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12135,8 +14674,8 @@ pub unsafe fn SetupDiSetClassInstallParamsA(deviceinfoset: *const ::std::ffi::c_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetClassInstallParamsW(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *const SP_CLASSINSTALL_HEADER, classinstallparamssize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12150,8 +14689,8 @@ pub unsafe fn SetupDiSetClassInstallParamsW(deviceinfoset: *const ::std::ffi::c_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SetupDiSetClassPropertyExW<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::runtime::GUID, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32, machinename: Param6, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12174,8 +14713,8 @@ pub unsafe fn SetupDiSetClassPropertyExW<'a, Param6: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SetupDiSetClassPropertyW(classguid: *const ::windows::runtime::GUID, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12189,8 +14728,8 @@ pub unsafe fn SetupDiSetClassPropertyW(classguid: *const ::windows::runtime::GUI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetClassRegistryPropertyA<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::runtime::GUID, property: u32, propertybuffer: *const u8, propertybuffersize: u32, machinename: Param4, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12204,8 +14743,8 @@ pub unsafe fn SetupDiSetClassRegistryPropertyA<'a, Param4: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetClassRegistryPropertyW<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::runtime::GUID, property: u32, propertybuffer: *const u8, propertybuffersize: u32, machinename: Param4, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12219,8 +14758,8 @@ pub unsafe fn SetupDiSetClassRegistryPropertyW<'a, Param4: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetDeviceInstallParamsA(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *const SP_DEVINSTALL_PARAMS_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12234,8 +14773,8 @@ pub unsafe fn SetupDiSetDeviceInstallParamsA(deviceinfoset: *const ::std::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetDeviceInstallParamsW(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *const SP_DEVINSTALL_PARAMS_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12249,8 +14788,8 @@ pub unsafe fn SetupDiSetDeviceInstallParamsW(deviceinfoset: *const ::std::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetDeviceInterfaceDefault(deviceinfoset: *const ::std::ffi::c_void, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA, flags: u32, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12264,8 +14803,8 @@ pub unsafe fn SetupDiSetDeviceInterfaceDefault(deviceinfoset: *const ::std::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset: *const ::std::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12287,8 +14826,8 @@ pub unsafe fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset: *const ::std::ff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SetupDiSetDevicePropertyW(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertykey: *const super::super::System::SystemServices::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12302,8 +14841,8 @@ pub unsafe fn SetupDiSetDevicePropertyW(deviceinfoset: *const ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, property: u32, propertybuffer: *const u8, propertybuffersize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12317,8 +14856,8 @@ pub unsafe fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset: *const ::std::ffi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, property: u32, propertybuffer: *const u8, propertybuffersize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12332,8 +14871,8 @@ pub unsafe fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset: *const ::std::ffi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetDriverInstallParamsA(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, driverinstallparams: *const SP_DRVINSTALL_PARAMS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12347,8 +14886,8 @@ pub unsafe fn SetupDiSetDriverInstallParamsA(deviceinfoset: *const ::std::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetDriverInstallParamsW(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_W, driverinstallparams: *const SP_DRVINSTALL_PARAMS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12362,8 +14901,8 @@ pub unsafe fn SetupDiSetDriverInstallParamsW(deviceinfoset: *const ::std::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetSelectedDevice(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12377,8 +14916,8 @@ pub unsafe fn SetupDiSetSelectedDevice(deviceinfoset: *const ::std::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetSelectedDriverA(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, driverinfodata: *mut SP_DRVINFO_DATA_V2_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12392,8 +14931,8 @@ pub unsafe fn SetupDiSetSelectedDriverA(deviceinfoset: *const ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetSelectedDriverW(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, driverinfodata: *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12407,8 +14946,8 @@ pub unsafe fn SetupDiSetSelectedDriverW(deviceinfoset: *const ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiUnremoveDevice(deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12450,8 +14989,8 @@ pub unsafe fn SetupDuplicateDiskSpaceListW(diskspace: *const ::std::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupEnumInfSectionsA(infhandle: *const ::std::ffi::c_void, index: u32, buffer: super::super::Foundation::PSTR, size: u32, sizeneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12465,8 +15004,8 @@ pub unsafe fn SetupEnumInfSectionsA(infhandle: *const ::std::ffi::c_void, index:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupEnumInfSectionsW(infhandle: *const ::std::ffi::c_void, index: u32, buffer: super::super::Foundation::PWSTR, size: u32, sizeneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12498,8 +15037,8 @@ impl ::std::convert::From<i32> for SetupFileLogInfo {
 unsafe impl ::windows::runtime::Abi for SetupFileLogInfo {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupFindFirstLineA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::std::ffi::c_void, section: Param1, key: Param2, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12513,8 +15052,8 @@ pub unsafe fn SetupFindFirstLineA<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupFindFirstLineW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::std::ffi::c_void, section: Param1, key: Param2, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12528,8 +15067,8 @@ pub unsafe fn SetupFindFirstLineW<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupFindNextLine(contextin: *const INFCONTEXT, contextout: *mut INFCONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12543,8 +15082,8 @@ pub unsafe fn SetupFindNextLine(contextin: *const INFCONTEXT, contextout: *mut I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupFindNextMatchLineA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(contextin: *const INFCONTEXT, key: Param1, contextout: *mut INFCONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12558,8 +15097,8 @@ pub unsafe fn SetupFindNextMatchLineA<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupFindNextMatchLineW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(contextin: *const INFCONTEXT, key: Param1, contextout: *mut INFCONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12573,8 +15112,8 @@ pub unsafe fn SetupFindNextMatchLineW<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupFreeSourceListA(list: *mut *mut super::super::Foundation::PSTR, count: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12588,8 +15127,8 @@ pub unsafe fn SetupFreeSourceListA(list: *mut *mut super::super::Foundation::PST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupFreeSourceListW(list: *mut *mut super::super::Foundation::PWSTR, count: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12603,8 +15142,8 @@ pub unsafe fn SetupFreeSourceListW(list: *mut *mut super::super::Foundation::PWS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetBackupInformationA(queuehandle: *const ::std::ffi::c_void, backupparams: *mut SP_BACKUP_QUEUE_PARAMS_V2_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12618,8 +15157,8 @@ pub unsafe fn SetupGetBackupInformationA(queuehandle: *const ::std::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetBackupInformationW(queuehandle: *const ::std::ffi::c_void, backupparams: *mut SP_BACKUP_QUEUE_PARAMS_V2_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12633,8 +15172,8 @@ pub unsafe fn SetupGetBackupInformationW(queuehandle: *const ::std::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetBinaryField(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: *mut u8, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12662,8 +15201,8 @@ pub unsafe fn SetupGetFieldCount(context: *const INFCONTEXT) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetFileCompressionInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(sourcefilename: Param0, actualsourcefilename: *mut super::super::Foundation::PSTR, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -12677,8 +15216,8 @@ pub unsafe fn SetupGetFileCompressionInfoA<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetFileCompressionInfoExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(sourcefilename: Param0, actualsourcefilenamebuffer: Param1, actualsourcefilenamebufferlen: u32, requiredbufferlen: *mut u32, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12700,8 +15239,8 @@ pub unsafe fn SetupGetFileCompressionInfoExA<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetFileCompressionInfoExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(sourcefilename: Param0, actualsourcefilenamebuffer: Param1, actualsourcefilenamebufferlen: u32, requiredbufferlen: *mut u32, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12723,8 +15262,8 @@ pub unsafe fn SetupGetFileCompressionInfoExW<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetFileCompressionInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(sourcefilename: Param0, actualsourcefilename: *mut super::super::Foundation::PWSTR, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -12738,8 +15277,8 @@ pub unsafe fn SetupGetFileCompressionInfoW<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetFileQueueCount(filequeue: *const ::std::ffi::c_void, subqueuefileop: u32, numoperations: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12753,8 +15292,8 @@ pub unsafe fn SetupGetFileQueueCount(filequeue: *const ::std::ffi::c_void, subqu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetFileQueueFlags(filequeue: *const ::std::ffi::c_void, flags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12768,8 +15307,8 @@ pub unsafe fn SetupGetFileQueueFlags(filequeue: *const ::std::ffi::c_void, flags
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[inline]
 pub unsafe fn SetupGetInfDriverStoreLocationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(filename: Param0, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, localename: Param2, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12783,8 +15322,8 @@ pub unsafe fn SetupGetInfDriverStoreLocationA<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[inline]
 pub unsafe fn SetupGetInfDriverStoreLocationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, localename: Param2, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12798,8 +15337,8 @@ pub unsafe fn SetupGetInfDriverStoreLocationW<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetInfFileListA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(directorypath: Param0, infstyle: u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12813,8 +15352,8 @@ pub unsafe fn SetupGetInfFileListA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetInfFileListW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(directorypath: Param0, infstyle: u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12828,8 +15367,8 @@ pub unsafe fn SetupGetInfFileListW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetInfInformationA(infspec: *const ::std::ffi::c_void, searchcontrol: u32, returnbuffer: *mut SP_INF_INFORMATION, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12843,8 +15382,8 @@ pub unsafe fn SetupGetInfInformationA(infspec: *const ::std::ffi::c_void, search
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetInfInformationW(infspec: *const ::std::ffi::c_void, searchcontrol: u32, returnbuffer: *mut SP_INF_INFORMATION, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12858,8 +15397,8 @@ pub unsafe fn SetupGetInfInformationW(infspec: *const ::std::ffi::c_void, search
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetInfPublishedNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(driverstorelocation: Param0, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12873,8 +15412,8 @@ pub unsafe fn SetupGetInfPublishedNameA<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetInfPublishedNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(driverstorelocation: Param0, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12888,8 +15427,8 @@ pub unsafe fn SetupGetInfPublishedNameW<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetIntField(context: *const INFCONTEXT, fieldindex: u32, integervalue: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12903,8 +15442,8 @@ pub unsafe fn SetupGetIntField(context: *const INFCONTEXT, fieldindex: u32, inte
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetLineByIndexA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::std::ffi::c_void, section: Param1, index: u32, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12918,8 +15457,8 @@ pub unsafe fn SetupGetLineByIndexA<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetLineByIndexW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::std::ffi::c_void, section: Param1, index: u32, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12933,8 +15472,8 @@ pub unsafe fn SetupGetLineByIndexW<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetLineCountA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::std::ffi::c_void, section: Param1) -> i32 {
     #[cfg(windows)]
@@ -12948,8 +15487,8 @@ pub unsafe fn SetupGetLineCountA<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetLineCountW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::std::ffi::c_void, section: Param1) -> i32 {
     #[cfg(windows)]
@@ -12963,8 +15502,8 @@ pub unsafe fn SetupGetLineCountW<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetLineTextA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(context: *const INFCONTEXT, infhandle: *const ::std::ffi::c_void, section: Param2, key: Param3, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12978,8 +15517,8 @@ pub unsafe fn SetupGetLineTextA<'a, Param2: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetLineTextW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(context: *const INFCONTEXT, infhandle: *const ::std::ffi::c_void, section: Param2, key: Param3, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12993,8 +15532,8 @@ pub unsafe fn SetupGetLineTextW<'a, Param2: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetMultiSzFieldA(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13008,8 +15547,8 @@ pub unsafe fn SetupGetMultiSzFieldA(context: *const INFCONTEXT, fieldindex: u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetMultiSzFieldW(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13023,8 +15562,8 @@ pub unsafe fn SetupGetMultiSzFieldW(context: *const INFCONTEXT, fieldindex: u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetNonInteractiveMode() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13038,8 +15577,8 @@ pub unsafe fn SetupGetNonInteractiveMode() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetSourceFileLocationA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::std::ffi::c_void, infcontext: *const INFCONTEXT, filename: Param2, sourceid: *mut u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13053,8 +15592,8 @@ pub unsafe fn SetupGetSourceFileLocationA<'a, Param2: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetSourceFileLocationW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::std::ffi::c_void, infcontext: *const INFCONTEXT, filename: Param2, sourceid: *mut u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13068,8 +15607,8 @@ pub unsafe fn SetupGetSourceFileLocationW<'a, Param2: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetSourceFileSizeA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::std::ffi::c_void, infcontext: *const INFCONTEXT, filename: Param2, section: Param3, filesize: *mut u32, roundingfactor: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13083,8 +15622,8 @@ pub unsafe fn SetupGetSourceFileSizeA<'a, Param2: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetSourceFileSizeW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::std::ffi::c_void, infcontext: *const INFCONTEXT, filename: Param2, section: Param3, filesize: *mut u32, roundingfactor: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13098,8 +15637,8 @@ pub unsafe fn SetupGetSourceFileSizeW<'a, Param2: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetSourceInfoA(infhandle: *const ::std::ffi::c_void, sourceid: u32, infodesired: u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13113,8 +15652,8 @@ pub unsafe fn SetupGetSourceInfoA(infhandle: *const ::std::ffi::c_void, sourceid
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetSourceInfoW(infhandle: *const ::std::ffi::c_void, sourceid: u32, infodesired: u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13128,8 +15667,8 @@ pub unsafe fn SetupGetSourceInfoW(infhandle: *const ::std::ffi::c_void, sourceid
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetStringFieldA(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13143,8 +15682,8 @@ pub unsafe fn SetupGetStringFieldA(context: *const INFCONTEXT, fieldindex: u32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetStringFieldW(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13158,8 +15697,8 @@ pub unsafe fn SetupGetStringFieldW(context: *const INFCONTEXT, fieldindex: u32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetTargetPathA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::std::ffi::c_void, infcontext: *const INFCONTEXT, section: Param2, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13173,8 +15712,8 @@ pub unsafe fn SetupGetTargetPathA<'a, Param2: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetTargetPathW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::std::ffi::c_void, infcontext: *const INFCONTEXT, section: Param2, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13202,8 +15741,8 @@ pub unsafe fn SetupGetThreadLogToken() -> u64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupInitDefaultQueueCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(ownerwindow: Param0) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -13217,8 +15756,8 @@ pub unsafe fn SetupInitDefaultQueueCallback<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupInitDefaultQueueCallbackEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(ownerwindow: Param0, alternateprogresswindow: Param1, progressmessage: u32, reserved1: u32, reserved2: *mut ::std::ffi::c_void) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -13232,8 +15771,8 @@ pub unsafe fn SetupInitDefaultQueueCallbackEx<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupInitializeFileLogA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(logfilename: Param0, flags: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -13247,8 +15786,8 @@ pub unsafe fn SetupInitializeFileLogA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupInitializeFileLogW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(logfilename: Param0, flags: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -13262,8 +15801,8 @@ pub unsafe fn SetupInitializeFileLogW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupInstallFileA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     infhandle: *const ::std::ffi::c_void,
@@ -13286,8 +15825,8 @@ pub unsafe fn SetupInstallFileA<'a, Param2: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupInstallFileExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     infhandle: *const ::std::ffi::c_void,
@@ -13321,8 +15860,8 @@ pub unsafe fn SetupInstallFileExA<'a, Param2: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupInstallFileExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     infhandle: *const ::std::ffi::c_void,
@@ -13356,8 +15895,8 @@ pub unsafe fn SetupInstallFileExW<'a, Param2: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupInstallFileW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     infhandle: *const ::std::ffi::c_void,
@@ -13380,8 +15919,8 @@ pub unsafe fn SetupInstallFileW<'a, Param2: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupInstallFilesFromInfSectionA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::std::ffi::c_void, layoutinfhandle: *const ::std::ffi::c_void, filequeue: *const ::std::ffi::c_void, sectionname: Param3, sourcerootpath: Param4, copyflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13395,8 +15934,8 @@ pub unsafe fn SetupInstallFilesFromInfSectionA<'a, Param3: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupInstallFilesFromInfSectionW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::std::ffi::c_void, layoutinfhandle: *const ::std::ffi::c_void, filequeue: *const ::std::ffi::c_void, sectionname: Param3, sourcerootpath: Param4, copyflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13410,8 +15949,8 @@ pub unsafe fn SetupInstallFilesFromInfSectionW<'a, Param3: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SetupInstallFromInfSectionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     owner: Param0,
@@ -13449,8 +15988,8 @@ pub unsafe fn SetupInstallFromInfSectionA<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SetupInstallFromInfSectionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     owner: Param0,
@@ -13488,8 +16027,8 @@ pub unsafe fn SetupInstallFromInfSectionW<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupInstallServicesFromInfSectionA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::std::ffi::c_void, sectionname: Param1, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13503,8 +16042,8 @@ pub unsafe fn SetupInstallServicesFromInfSectionA<'a, Param1: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupInstallServicesFromInfSectionExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::std::ffi::c_void, sectionname: Param1, flags: u32, deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, reserved1: *mut ::std::ffi::c_void, reserved2: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13518,8 +16057,8 @@ pub unsafe fn SetupInstallServicesFromInfSectionExA<'a, Param1: ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupInstallServicesFromInfSectionExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::std::ffi::c_void, sectionname: Param1, flags: u32, deviceinfoset: *const ::std::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, reserved1: *mut ::std::ffi::c_void, reserved2: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13533,8 +16072,8 @@ pub unsafe fn SetupInstallServicesFromInfSectionExW<'a, Param1: ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupInstallServicesFromInfSectionW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::std::ffi::c_void, sectionname: Param1, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13548,8 +16087,8 @@ pub unsafe fn SetupInstallServicesFromInfSectionW<'a, Param1: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupIterateCabinetA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(cabinetfile: Param0, reserved: u32, msghandler: ::std::option::Option<PSP_FILE_CALLBACK_A>, context: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13563,8 +16102,8 @@ pub unsafe fn SetupIterateCabinetA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupIterateCabinetW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(cabinetfile: Param0, reserved: u32, msghandler: ::std::option::Option<PSP_FILE_CALLBACK_W>, context: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13578,8 +16117,8 @@ pub unsafe fn SetupIterateCabinetW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupLogErrorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(messagestring: Param0, severity: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13593,8 +16132,8 @@ pub unsafe fn SetupLogErrorA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupLogErrorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(messagestring: Param0, severity: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13608,8 +16147,8 @@ pub unsafe fn SetupLogErrorW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupLogFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     fileloghandle: *const ::std::ffi::c_void,
@@ -13643,8 +16182,8 @@ pub unsafe fn SetupLogFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupLogFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     fileloghandle: *const ::std::ffi::c_void,
@@ -13678,8 +16217,8 @@ pub unsafe fn SetupLogFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupOpenAppendInfFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(filename: Param0, infhandle: *const ::std::ffi::c_void, errorline: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13693,8 +16232,8 @@ pub unsafe fn SetupOpenAppendInfFileA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupOpenAppendInfFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0, infhandle: *const ::std::ffi::c_void, errorline: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13722,8 +16261,8 @@ pub unsafe fn SetupOpenFileQueue() -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupOpenInfFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(filename: Param0, infclass: Param1, infstyle: u32, errorline: *mut u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -13737,8 +16276,8 @@ pub unsafe fn SetupOpenInfFileA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupOpenInfFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0, infclass: Param1, infstyle: u32, errorline: *mut u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -13752,8 +16291,8 @@ pub unsafe fn SetupOpenInfFileW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupOpenLog<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(erase: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13781,8 +16320,8 @@ pub unsafe fn SetupOpenMasterInf() -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupPrepareQueueForRestoreA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::std::ffi::c_void, backuppath: Param1, restoreflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13796,8 +16335,8 @@ pub unsafe fn SetupPrepareQueueForRestoreA<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupPrepareQueueForRestoreW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(queuehandle: *const ::std::ffi::c_void, backuppath: Param1, restoreflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13811,8 +16350,8 @@ pub unsafe fn SetupPrepareQueueForRestoreW<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupPromptForDiskA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     hwndparent: Param0,
@@ -13848,8 +16387,8 @@ pub unsafe fn SetupPromptForDiskA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupPromptForDiskW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hwndparent: Param0,
@@ -13885,8 +16424,8 @@ pub unsafe fn SetupPromptForDiskW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupPromptReboot<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(filequeue: *const ::std::ffi::c_void, owner: Param1, scanonly: Param2) -> i32 {
     #[cfg(windows)]
@@ -13900,8 +16439,8 @@ pub unsafe fn SetupPromptReboot<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueryDrivesInDiskSpaceListA(diskspace: *const ::std::ffi::c_void, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13915,8 +16454,8 @@ pub unsafe fn SetupQueryDrivesInDiskSpaceListA(diskspace: *const ::std::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueryDrivesInDiskSpaceListW(diskspace: *const ::std::ffi::c_void, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13930,8 +16469,8 @@ pub unsafe fn SetupQueryDrivesInDiskSpaceListW(diskspace: *const ::std::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueryFileLogA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(fileloghandle: *const ::std::ffi::c_void, logsectionname: Param1, targetfilename: Param2, desiredinfo: SetupFileLogInfo, dataout: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13945,8 +16484,8 @@ pub unsafe fn SetupQueryFileLogA<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueryFileLogW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(fileloghandle: *const ::std::ffi::c_void, logsectionname: Param1, targetfilename: Param2, desiredinfo: SetupFileLogInfo, dataout: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13960,8 +16499,8 @@ pub unsafe fn SetupQueryFileLogW<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueryInfFileInformationA(infinformation: *const SP_INF_INFORMATION, infindex: u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13975,8 +16514,8 @@ pub unsafe fn SetupQueryInfFileInformationA(infinformation: *const SP_INF_INFORM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueryInfFileInformationW(infinformation: *const SP_INF_INFORMATION, infindex: u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13990,8 +16529,8 @@ pub unsafe fn SetupQueryInfFileInformationW(infinformation: *const SP_INF_INFORM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[inline]
 pub unsafe fn SetupQueryInfOriginalFileInformationA(infinformation: *const SP_INF_INFORMATION, infindex: u32, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, originalfileinfo: *mut SP_ORIGINAL_FILE_INFO_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14005,8 +16544,8 @@ pub unsafe fn SetupQueryInfOriginalFileInformationA(infinformation: *const SP_IN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[inline]
 pub unsafe fn SetupQueryInfOriginalFileInformationW(infinformation: *const SP_INF_INFORMATION, infindex: u32, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, originalfileinfo: *mut SP_ORIGINAL_FILE_INFO_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14020,8 +16559,8 @@ pub unsafe fn SetupQueryInfOriginalFileInformationW(infinformation: *const SP_IN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueryInfVersionInformationA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infinformation: *const SP_INF_INFORMATION, infindex: u32, key: Param2, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14035,8 +16574,8 @@ pub unsafe fn SetupQueryInfVersionInformationA<'a, Param2: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueryInfVersionInformationW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infinformation: *const SP_INF_INFORMATION, infindex: u32, key: Param2, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14050,8 +16589,8 @@ pub unsafe fn SetupQueryInfVersionInformationW<'a, Param2: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQuerySourceListA(flags: u32, list: *mut *mut super::super::Foundation::PSTR, count: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14065,8 +16604,8 @@ pub unsafe fn SetupQuerySourceListA(flags: u32, list: *mut *mut super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQuerySourceListW(flags: u32, list: *mut *mut super::super::Foundation::PWSTR, count: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14080,8 +16619,8 @@ pub unsafe fn SetupQuerySourceListW(flags: u32, list: *mut *mut super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQuerySpaceRequiredOnDriveA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(diskspace: *const ::std::ffi::c_void, drivespec: Param1, spacerequired: *mut i64, reserved1: *mut ::std::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14095,8 +16634,8 @@ pub unsafe fn SetupQuerySpaceRequiredOnDriveA<'a, Param1: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQuerySpaceRequiredOnDriveW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(diskspace: *const ::std::ffi::c_void, drivespec: Param1, spacerequired: *mut i64, reserved1: *mut ::std::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14110,8 +16649,8 @@ pub unsafe fn SetupQuerySpaceRequiredOnDriveW<'a, Param1: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueueCopyA<
     'a,
@@ -14154,8 +16693,8 @@ pub unsafe fn SetupQueueCopyA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueueCopyIndirectA(copyparams: *const SP_FILE_COPY_PARAMS_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14169,8 +16708,8 @@ pub unsafe fn SetupQueueCopyIndirectA(copyparams: *const SP_FILE_COPY_PARAMS_A) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueueCopyIndirectW(copyparams: *const SP_FILE_COPY_PARAMS_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14184,8 +16723,8 @@ pub unsafe fn SetupQueueCopyIndirectW(copyparams: *const SP_FILE_COPY_PARAMS_W) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueueCopySectionA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::std::ffi::c_void, sourcerootpath: Param1, infhandle: *const ::std::ffi::c_void, listinfhandle: *const ::std::ffi::c_void, section: Param4, copystyle: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14199,8 +16738,8 @@ pub unsafe fn SetupQueueCopySectionA<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueueCopySectionW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(queuehandle: *const ::std::ffi::c_void, sourcerootpath: Param1, infhandle: *const ::std::ffi::c_void, listinfhandle: *const ::std::ffi::c_void, section: Param4, copystyle: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14214,8 +16753,8 @@ pub unsafe fn SetupQueueCopySectionW<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueueCopyW<
     'a,
@@ -14258,8 +16797,8 @@ pub unsafe fn SetupQueueCopyW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueueDefaultCopyA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::std::ffi::c_void, infhandle: *const ::std::ffi::c_void, sourcerootpath: Param2, sourcefilename: Param3, targetfilename: Param4, copystyle: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14273,8 +16812,8 @@ pub unsafe fn SetupQueueDefaultCopyA<'a, Param2: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueueDefaultCopyW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(queuehandle: *const ::std::ffi::c_void, infhandle: *const ::std::ffi::c_void, sourcerootpath: Param2, sourcefilename: Param3, targetfilename: Param4, copystyle: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14288,8 +16827,8 @@ pub unsafe fn SetupQueueDefaultCopyW<'a, Param2: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueueDeleteA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::std::ffi::c_void, pathpart1: Param1, pathpart2: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14303,8 +16842,8 @@ pub unsafe fn SetupQueueDeleteA<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueueDeleteSectionA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::std::ffi::c_void, infhandle: *const ::std::ffi::c_void, listinfhandle: *const ::std::ffi::c_void, section: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14318,8 +16857,8 @@ pub unsafe fn SetupQueueDeleteSectionA<'a, Param3: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueueDeleteSectionW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(queuehandle: *const ::std::ffi::c_void, infhandle: *const ::std::ffi::c_void, listinfhandle: *const ::std::ffi::c_void, section: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14333,8 +16872,8 @@ pub unsafe fn SetupQueueDeleteSectionW<'a, Param3: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueueDeleteW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(queuehandle: *const ::std::ffi::c_void, pathpart1: Param1, pathpart2: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14348,8 +16887,8 @@ pub unsafe fn SetupQueueDeleteW<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueueRenameA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::std::ffi::c_void, sourcepath: Param1, sourcefilename: Param2, targetpath: Param3, targetfilename: Param4) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14363,8 +16902,8 @@ pub unsafe fn SetupQueueRenameA<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueueRenameSectionA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::std::ffi::c_void, infhandle: *const ::std::ffi::c_void, listinfhandle: *const ::std::ffi::c_void, section: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14378,8 +16917,8 @@ pub unsafe fn SetupQueueRenameSectionA<'a, Param3: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueueRenameSectionW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(queuehandle: *const ::std::ffi::c_void, infhandle: *const ::std::ffi::c_void, listinfhandle: *const ::std::ffi::c_void, section: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14393,8 +16932,8 @@ pub unsafe fn SetupQueueRenameSectionW<'a, Param3: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupQueueRenameW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     queuehandle: *const ::std::ffi::c_void,
@@ -14414,8 +16953,8 @@ pub unsafe fn SetupQueueRenameW<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupRemoveFileLogEntryA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(fileloghandle: *const ::std::ffi::c_void, logsectionname: Param1, targetfilename: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14429,8 +16968,8 @@ pub unsafe fn SetupRemoveFileLogEntryA<'a, Param1: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupRemoveFileLogEntryW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(fileloghandle: *const ::std::ffi::c_void, logsectionname: Param1, targetfilename: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14444,8 +16983,8 @@ pub unsafe fn SetupRemoveFileLogEntryW<'a, Param1: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupRemoveFromDiskSpaceListA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(diskspace: *const ::std::ffi::c_void, targetfilespec: Param1, operation: SETUP_FILE_OPERATION, reserved1: *mut ::std::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14459,8 +16998,8 @@ pub unsafe fn SetupRemoveFromDiskSpaceListA<'a, Param1: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupRemoveFromDiskSpaceListW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(diskspace: *const ::std::ffi::c_void, targetfilespec: Param1, operation: SETUP_FILE_OPERATION, reserved1: *mut ::std::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14474,8 +17013,8 @@ pub unsafe fn SetupRemoveFromDiskSpaceListW<'a, Param1: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupRemoveFromSourceListA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(flags: u32, source: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14489,8 +17028,8 @@ pub unsafe fn SetupRemoveFromSourceListA<'a, Param1: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupRemoveFromSourceListW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, source: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14504,8 +17043,8 @@ pub unsafe fn SetupRemoveFromSourceListW<'a, Param1: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(diskspace: *const ::std::ffi::c_void, infhandle: *const ::std::ffi::c_void, layoutinfhandle: *const ::std::ffi::c_void, sectionname: Param3, reserved1: *mut ::std::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14519,8 +17058,8 @@ pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListA<'a, Param3: ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(diskspace: *const ::std::ffi::c_void, infhandle: *const ::std::ffi::c_void, layoutinfhandle: *const ::std::ffi::c_void, sectionname: Param3, reserved1: *mut ::std::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14534,8 +17073,8 @@ pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListW<'a, Param3: ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupRemoveSectionFromDiskSpaceListA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(diskspace: *const ::std::ffi::c_void, infhandle: *const ::std::ffi::c_void, listinfhandle: *const ::std::ffi::c_void, sectionname: Param3, operation: SETUP_FILE_OPERATION, reserved1: *mut ::std::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14549,8 +17088,8 @@ pub unsafe fn SetupRemoveSectionFromDiskSpaceListA<'a, Param3: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupRemoveSectionFromDiskSpaceListW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(diskspace: *const ::std::ffi::c_void, infhandle: *const ::std::ffi::c_void, listinfhandle: *const ::std::ffi::c_void, sectionname: Param3, operation: SETUP_FILE_OPERATION, reserved1: *mut ::std::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14564,8 +17103,8 @@ pub unsafe fn SetupRemoveSectionFromDiskSpaceListW<'a, Param3: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupRenameErrorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, dialogtitle: Param1, sourcefile: Param2, targetfile: Param3, win32errorcode: u32, style: u32) -> u32 {
     #[cfg(windows)]
@@ -14579,8 +17118,8 @@ pub unsafe fn SetupRenameErrorA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupRenameErrorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, dialogtitle: Param1, sourcefile: Param2, targetfile: Param3, win32errorcode: u32, style: u32) -> u32 {
     #[cfg(windows)]
@@ -14594,8 +17133,8 @@ pub unsafe fn SetupRenameErrorW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupScanFileQueueA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(filequeue: *const ::std::ffi::c_void, flags: u32, window: Param2, callbackroutine: ::std::option::Option<PSP_FILE_CALLBACK_A>, callbackcontext: *const ::std::ffi::c_void, result: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14609,8 +17148,8 @@ pub unsafe fn SetupScanFileQueueA<'a, Param2: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupScanFileQueueW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(filequeue: *const ::std::ffi::c_void, flags: u32, window: Param2, callbackroutine: ::std::option::Option<PSP_FILE_CALLBACK_W>, callbackcontext: *const ::std::ffi::c_void, result: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14624,8 +17163,8 @@ pub unsafe fn SetupScanFileQueueW<'a, Param2: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupSetDirectoryIdA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::std::ffi::c_void, id: u32, directory: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14639,8 +17178,8 @@ pub unsafe fn SetupSetDirectoryIdA<'a, Param2: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupSetDirectoryIdExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::std::ffi::c_void, id: u32, directory: Param2, flags: u32, reserved1: u32, reserved2: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14654,8 +17193,8 @@ pub unsafe fn SetupSetDirectoryIdExA<'a, Param2: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupSetDirectoryIdExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::std::ffi::c_void, id: u32, directory: Param2, flags: u32, reserved1: u32, reserved2: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14669,8 +17208,8 @@ pub unsafe fn SetupSetDirectoryIdExW<'a, Param2: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupSetDirectoryIdW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::std::ffi::c_void, id: u32, directory: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14684,8 +17223,8 @@ pub unsafe fn SetupSetDirectoryIdW<'a, Param2: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[inline]
 pub unsafe fn SetupSetFileQueueAlternatePlatformA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::std::ffi::c_void, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, alternatedefaultcatalogfile: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14699,8 +17238,8 @@ pub unsafe fn SetupSetFileQueueAlternatePlatformA<'a, Param2: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[inline]
 pub unsafe fn SetupSetFileQueueAlternatePlatformW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(queuehandle: *const ::std::ffi::c_void, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, alternatedefaultcatalogfile: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14714,8 +17253,8 @@ pub unsafe fn SetupSetFileQueueAlternatePlatformW<'a, Param2: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupSetFileQueueFlags(filequeue: *const ::std::ffi::c_void, flagmask: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14729,8 +17268,8 @@ pub unsafe fn SetupSetFileQueueFlags(filequeue: *const ::std::ffi::c_void, flagm
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupSetNonInteractiveMode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(noninteractiveflag: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14744,8 +17283,8 @@ pub unsafe fn SetupSetNonInteractiveMode<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupSetPlatformPathOverrideA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(r#override: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14759,8 +17298,8 @@ pub unsafe fn SetupSetPlatformPathOverrideA<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupSetPlatformPathOverrideW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(r#override: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14774,8 +17313,8 @@ pub unsafe fn SetupSetPlatformPathOverrideW<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupSetSourceListA(flags: u32, sourcelist: *const super::super::Foundation::PSTR, sourcecount: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14789,8 +17328,8 @@ pub unsafe fn SetupSetSourceListA(flags: u32, sourcelist: *const super::super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupSetSourceListW(flags: u32, sourcelist: *const super::super::Foundation::PWSTR, sourcecount: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14832,8 +17371,8 @@ pub unsafe fn SetupTermDefaultQueueCallback(context: *const ::std::ffi::c_void) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupTerminateFileLog(fileloghandle: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14847,8 +17386,8 @@ pub unsafe fn SetupTerminateFileLog(fileloghandle: *const ::std::ffi::c_void) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupUninstallNewlyCopiedInfs(filequeue: *const ::std::ffi::c_void, flags: u32, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14862,8 +17401,8 @@ pub unsafe fn SetupUninstallNewlyCopiedInfs(filequeue: *const ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupUninstallOEMInfA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(inffilename: Param0, flags: u32, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14877,8 +17416,8 @@ pub unsafe fn SetupUninstallOEMInfA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupUninstallOEMInfW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(inffilename: Param0, flags: u32, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14892,8 +17431,8 @@ pub unsafe fn SetupUninstallOEMInfW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[inline]
 pub unsafe fn SetupVerifyInfFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(infname: Param0, altplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsignerinfo: *mut SP_INF_SIGNER_INFO_V2_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14907,8 +17446,8 @@ pub unsafe fn SetupVerifyInfFileA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[inline]
 pub unsafe fn SetupVerifyInfFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(infname: Param0, altplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsignerinfo: *mut SP_INF_SIGNER_INFO_V2_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14922,8 +17461,8 @@ pub unsafe fn SetupVerifyInfFileW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupWriteTextLog<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(logtoken: u64, category: u32, flags: u32, messagestr: Param3) {
     #[cfg(windows)]
@@ -14937,8 +17476,8 @@ pub unsafe fn SetupWriteTextLog<'a, Param3: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupWriteTextLogError<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(logtoken: u64, category: u32, logflags: u32, error: u32, messagestr: Param4) {
     #[cfg(windows)]
@@ -14966,8 +17505,8 @@ pub unsafe fn SetupWriteTextLogInfLine(logtoken: u64, flags: u32, infhandle: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdateDriverForPlugAndPlayDevicesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, hardwareid: Param1, fullinfpath: Param2, installflags: u32, brebootrequired: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14981,8 +17520,8 @@ pub unsafe fn UpdateDriverForPlugAndPlayDevicesA<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdateDriverForPlugAndPlayDevicesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, hardwareid: Param1, fullinfpath: Param2, installflags: u32, brebootrequired: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]

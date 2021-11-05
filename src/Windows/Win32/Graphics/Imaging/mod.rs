@@ -268,8 +268,8 @@ pub const GUID_WICPixelFormatBlackWhite: ::windows::runtime::GUID = ::windows::r
 pub const GUID_WICPixelFormatDontCare: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876804388, 19971, 19454, [177, 133, 61, 119, 118, 141, 201, 0]);
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICBitmap(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICBitmap(pub ::windows::runtime::IUnknown);
 impl IWICBitmap {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::runtime::Result<()> {
@@ -310,6 +310,26 @@ unsafe impl ::windows::runtime::Interface for IWICBitmap {
     type Vtable = IWICBitmap_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(289, 43250, 18551, [186, 10, 253, 43, 102, 69, 251, 148]);
 }
+impl ::std::convert::From<IWICBitmap> for ::windows::runtime::IUnknown {
+    fn from(value: IWICBitmap) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICBitmap> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICBitmap) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICBitmap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICBitmap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICBitmap> for IWICBitmapSource {
     fn from(value: IWICBitmap) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -322,12 +342,12 @@ impl ::std::convert::From<&IWICBitmap> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICBitmap {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICBitmap {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -347,8 +367,8 @@ pub struct IWICBitmap_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICBitmapClipper(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICBitmapClipper(pub ::windows::runtime::IUnknown);
 impl IWICBitmapClipper {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::runtime::Result<()> {
@@ -380,6 +400,26 @@ unsafe impl ::windows::runtime::Interface for IWICBitmapClipper {
     type Vtable = IWICBitmapClipper_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3841707779, 8765, 20097, [147, 51, 214, 53, 85, 109, 209, 181]);
 }
+impl ::std::convert::From<IWICBitmapClipper> for ::windows::runtime::IUnknown {
+    fn from(value: IWICBitmapClipper) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICBitmapClipper> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICBitmapClipper) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICBitmapClipper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICBitmapClipper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICBitmapClipper> for IWICBitmapSource {
     fn from(value: IWICBitmapClipper) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -392,12 +432,12 @@ impl ::std::convert::From<&IWICBitmapClipper> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICBitmapClipper {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICBitmapClipper {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -415,8 +455,8 @@ pub struct IWICBitmapClipper_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICBitmapCodecInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICBitmapCodecInfo(pub ::windows::runtime::IUnknown);
 impl IWICBitmapCodecInfo {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetComponentType(&self) -> ::windows::runtime::Result<WICComponentType> {
@@ -527,6 +567,26 @@ unsafe impl ::windows::runtime::Interface for IWICBitmapCodecInfo {
     type Vtable = IWICBitmapCodecInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3900327108, 46958, 19527, [139, 9, 41, 142, 177, 42, 39, 20]);
 }
+impl ::std::convert::From<IWICBitmapCodecInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IWICBitmapCodecInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICBitmapCodecInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICBitmapCodecInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICBitmapCodecInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICBitmapCodecInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICBitmapCodecInfo> for IWICComponentInfo {
     fn from(value: IWICBitmapCodecInfo) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -539,12 +599,12 @@ impl ::std::convert::From<&IWICBitmapCodecInfo> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICBitmapCodecInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICBitmapCodecInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -590,8 +650,8 @@ pub struct IWICBitmapCodecInfo_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICBitmapCodecProgressNotification(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICBitmapCodecProgressNotification(pub ::windows::runtime::IUnknown);
 impl IWICBitmapCodecProgressNotification {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn RegisterProgressNotification(&self, pfnprogressnotification: ::std::option::Option<PFNProgressNotification>, pvdata: *const ::std::ffi::c_void, dwprogressflags: u32) -> ::windows::runtime::Result<()> {
@@ -601,6 +661,26 @@ impl IWICBitmapCodecProgressNotification {
 unsafe impl ::windows::runtime::Interface for IWICBitmapCodecProgressNotification {
     type Vtable = IWICBitmapCodecProgressNotification_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1690370638, 50127, 17506, [128, 120, 136, 194, 177, 28, 70, 217]);
+}
+impl ::std::convert::From<IWICBitmapCodecProgressNotification> for ::windows::runtime::IUnknown {
+    fn from(value: IWICBitmapCodecProgressNotification) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICBitmapCodecProgressNotification> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICBitmapCodecProgressNotification) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICBitmapCodecProgressNotification {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICBitmapCodecProgressNotification {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -612,8 +692,8 @@ pub struct IWICBitmapCodecProgressNotification_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICBitmapDecoder(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICBitmapDecoder(pub ::windows::runtime::IUnknown);
 impl IWICBitmapDecoder {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_System_Com`*"]
@@ -674,6 +754,26 @@ unsafe impl ::windows::runtime::Interface for IWICBitmapDecoder {
     type Vtable = IWICBitmapDecoder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2665343463, 36334, 18410, [153, 223, 230, 250, 242, 237, 68, 191]);
 }
+impl ::std::convert::From<IWICBitmapDecoder> for ::windows::runtime::IUnknown {
+    fn from(value: IWICBitmapDecoder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICBitmapDecoder> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICBitmapDecoder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICBitmapDecoder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICBitmapDecoder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapDecoder_abi(
@@ -696,8 +796,8 @@ pub struct IWICBitmapDecoder_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICBitmapDecoderInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICBitmapDecoderInfo(pub ::windows::runtime::IUnknown);
 impl IWICBitmapDecoderInfo {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetComponentType(&self) -> ::windows::runtime::Result<WICComponentType> {
@@ -824,6 +924,26 @@ unsafe impl ::windows::runtime::Interface for IWICBitmapDecoderInfo {
     type Vtable = IWICBitmapDecoderInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3637313663, 53391, 16785, [155, 252, 35, 110, 167, 240, 228, 181]);
 }
+impl ::std::convert::From<IWICBitmapDecoderInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IWICBitmapDecoderInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICBitmapDecoderInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICBitmapDecoderInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICBitmapDecoderInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICBitmapDecoderInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICBitmapDecoderInfo> for IWICBitmapCodecInfo {
     fn from(value: IWICBitmapDecoderInfo) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -836,12 +956,12 @@ impl ::std::convert::From<&IWICBitmapDecoderInfo> for IWICBitmapCodecInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapCodecInfo> for IWICBitmapDecoderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapCodecInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapCodecInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapCodecInfo> for &IWICBitmapDecoderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapCodecInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapCodecInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWICBitmapDecoderInfo> for IWICComponentInfo {
@@ -856,12 +976,12 @@ impl ::std::convert::From<&IWICBitmapDecoderInfo> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICBitmapDecoderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICBitmapDecoderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -912,8 +1032,8 @@ pub struct IWICBitmapDecoderInfo_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICBitmapEncoder(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICBitmapEncoder(pub ::windows::runtime::IUnknown);
 impl IWICBitmapEncoder {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_System_Com`*"]
@@ -965,6 +1085,26 @@ unsafe impl ::windows::runtime::Interface for IWICBitmapEncoder {
     type Vtable = IWICBitmapEncoder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(259, 43250, 18551, [186, 10, 253, 43, 102, 69, 251, 148]);
 }
+impl ::std::convert::From<IWICBitmapEncoder> for ::windows::runtime::IUnknown {
+    fn from(value: IWICBitmapEncoder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICBitmapEncoder> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICBitmapEncoder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICBitmapEncoder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICBitmapEncoder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapEncoder_abi(
@@ -986,8 +1126,8 @@ pub struct IWICBitmapEncoder_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICBitmapEncoderInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICBitmapEncoderInfo(pub ::windows::runtime::IUnknown);
 impl IWICBitmapEncoderInfo {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetComponentType(&self) -> ::windows::runtime::Result<WICComponentType> {
@@ -1103,6 +1243,26 @@ unsafe impl ::windows::runtime::Interface for IWICBitmapEncoderInfo {
     type Vtable = IWICBitmapEncoderInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2496247022, 41119, 20370, [138, 30, 74, 155, 206, 126, 118, 251]);
 }
+impl ::std::convert::From<IWICBitmapEncoderInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IWICBitmapEncoderInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICBitmapEncoderInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICBitmapEncoderInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICBitmapEncoderInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICBitmapEncoderInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICBitmapEncoderInfo> for IWICBitmapCodecInfo {
     fn from(value: IWICBitmapEncoderInfo) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1115,12 +1275,12 @@ impl ::std::convert::From<&IWICBitmapEncoderInfo> for IWICBitmapCodecInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapCodecInfo> for IWICBitmapEncoderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapCodecInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapCodecInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapCodecInfo> for &IWICBitmapEncoderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapCodecInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapCodecInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWICBitmapEncoderInfo> for IWICComponentInfo {
@@ -1135,12 +1295,12 @@ impl ::std::convert::From<&IWICBitmapEncoderInfo> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICBitmapEncoderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICBitmapEncoderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1187,8 +1347,8 @@ pub struct IWICBitmapEncoderInfo_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICBitmapFlipRotator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICBitmapFlipRotator(pub ::windows::runtime::IUnknown);
 impl IWICBitmapFlipRotator {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::runtime::Result<()> {
@@ -1220,6 +1380,26 @@ unsafe impl ::windows::runtime::Interface for IWICBitmapFlipRotator {
     type Vtable = IWICBitmapFlipRotator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1342800719, 11626, 16846, [158, 27, 23, 197, 175, 247, 167, 130]);
 }
+impl ::std::convert::From<IWICBitmapFlipRotator> for ::windows::runtime::IUnknown {
+    fn from(value: IWICBitmapFlipRotator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICBitmapFlipRotator> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICBitmapFlipRotator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICBitmapFlipRotator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICBitmapFlipRotator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICBitmapFlipRotator> for IWICBitmapSource {
     fn from(value: IWICBitmapFlipRotator) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1232,12 +1412,12 @@ impl ::std::convert::From<&IWICBitmapFlipRotator> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICBitmapFlipRotator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICBitmapFlipRotator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1255,8 +1435,8 @@ pub struct IWICBitmapFlipRotator_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICBitmapFrameDecode(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICBitmapFrameDecode(pub ::windows::runtime::IUnknown);
 impl IWICBitmapFrameDecode {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::runtime::Result<()> {
@@ -1298,6 +1478,26 @@ unsafe impl ::windows::runtime::Interface for IWICBitmapFrameDecode {
     type Vtable = IWICBitmapFrameDecode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(991330587, 27203, 20169, [168, 19, 61, 147, 12, 19, 185, 64]);
 }
+impl ::std::convert::From<IWICBitmapFrameDecode> for ::windows::runtime::IUnknown {
+    fn from(value: IWICBitmapFrameDecode) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICBitmapFrameDecode> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICBitmapFrameDecode) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICBitmapFrameDecode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICBitmapFrameDecode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICBitmapFrameDecode> for IWICBitmapSource {
     fn from(value: IWICBitmapFrameDecode) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1310,12 +1510,12 @@ impl ::std::convert::From<&IWICBitmapFrameDecode> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICBitmapFrameDecode {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICBitmapFrameDecode {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1335,8 +1535,8 @@ pub struct IWICBitmapFrameDecode_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICBitmapFrameEncode(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICBitmapFrameEncode(pub ::windows::runtime::IUnknown);
 impl IWICBitmapFrameEncode {
     #[cfg(feature = "Win32_System_Ole")]
     #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_System_Ole`*"]
@@ -1389,6 +1589,26 @@ unsafe impl ::windows::runtime::Interface for IWICBitmapFrameEncode {
     type Vtable = IWICBitmapFrameEncode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(261, 43250, 18551, [186, 10, 253, 43, 102, 69, 251, 148]);
 }
+impl ::std::convert::From<IWICBitmapFrameEncode> for ::windows::runtime::IUnknown {
+    fn from(value: IWICBitmapFrameEncode) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICBitmapFrameEncode> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICBitmapFrameEncode) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICBitmapFrameEncode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICBitmapFrameEncode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapFrameEncode_abi(
@@ -1410,8 +1630,8 @@ pub struct IWICBitmapFrameEncode_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICBitmapLock(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICBitmapLock(pub ::windows::runtime::IUnknown);
 impl IWICBitmapLock {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::runtime::Result<()> {
@@ -1436,6 +1656,26 @@ unsafe impl ::windows::runtime::Interface for IWICBitmapLock {
     type Vtable = IWICBitmapLock_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(291, 43250, 18551, [186, 10, 253, 43, 102, 69, 251, 148]);
 }
+impl ::std::convert::From<IWICBitmapLock> for ::windows::runtime::IUnknown {
+    fn from(value: IWICBitmapLock) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICBitmapLock> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICBitmapLock) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICBitmapLock {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICBitmapLock {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapLock_abi(
@@ -1449,8 +1689,8 @@ pub struct IWICBitmapLock_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICBitmapScaler(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICBitmapScaler(pub ::windows::runtime::IUnknown);
 impl IWICBitmapScaler {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::runtime::Result<()> {
@@ -1482,6 +1722,26 @@ unsafe impl ::windows::runtime::Interface for IWICBitmapScaler {
     type Vtable = IWICBitmapScaler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(770, 43250, 18551, [186, 10, 253, 43, 102, 69, 251, 148]);
 }
+impl ::std::convert::From<IWICBitmapScaler> for ::windows::runtime::IUnknown {
+    fn from(value: IWICBitmapScaler) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICBitmapScaler> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICBitmapScaler) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICBitmapScaler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICBitmapScaler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICBitmapScaler> for IWICBitmapSource {
     fn from(value: IWICBitmapScaler) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1494,12 +1754,12 @@ impl ::std::convert::From<&IWICBitmapScaler> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICBitmapScaler {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICBitmapScaler {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1517,8 +1777,8 @@ pub struct IWICBitmapScaler_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICBitmapSource(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICBitmapSource(pub ::windows::runtime::IUnknown);
 impl IWICBitmapSource {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::runtime::Result<()> {
@@ -1546,6 +1806,26 @@ unsafe impl ::windows::runtime::Interface for IWICBitmapSource {
     type Vtable = IWICBitmapSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(288, 43250, 18551, [186, 10, 253, 43, 102, 69, 251, 148]);
 }
+impl ::std::convert::From<IWICBitmapSource> for ::windows::runtime::IUnknown {
+    fn from(value: IWICBitmapSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICBitmapSource> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICBitmapSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICBitmapSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICBitmapSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapSource_abi(
@@ -1560,8 +1840,8 @@ pub struct IWICBitmapSource_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICBitmapSourceTransform(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICBitmapSourceTransform(pub ::windows::runtime::IUnknown);
 impl IWICBitmapSourceTransform {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, uiwidth: u32, uiheight: u32, pguiddstformat: *const ::windows::runtime::GUID, dsttransform: WICBitmapTransformOptions, nstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::runtime::Result<()> {
@@ -1597,6 +1877,26 @@ unsafe impl ::windows::runtime::Interface for IWICBitmapSourceTransform {
     type Vtable = IWICBitmapSourceTransform_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(991330587, 27203, 20169, [183, 19, 61, 90, 12, 19, 185, 64]);
 }
+impl ::std::convert::From<IWICBitmapSourceTransform> for ::windows::runtime::IUnknown {
+    fn from(value: IWICBitmapSourceTransform) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICBitmapSourceTransform> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICBitmapSourceTransform) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICBitmapSourceTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICBitmapSourceTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapSourceTransform_abi(
@@ -1611,8 +1911,8 @@ pub struct IWICBitmapSourceTransform_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICColorContext(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICColorContext(pub ::windows::runtime::IUnknown);
 impl IWICColorContext {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
@@ -1646,6 +1946,26 @@ unsafe impl ::windows::runtime::Interface for IWICColorContext {
     type Vtable = IWICColorContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1013004802, 13490, 17642, [154, 124, 69, 174, 169, 198, 253, 109]);
 }
+impl ::std::convert::From<IWICColorContext> for ::windows::runtime::IUnknown {
+    fn from(value: IWICColorContext) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICColorContext> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICColorContext) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICColorContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICColorContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICColorContext_abi(
@@ -1662,8 +1982,8 @@ pub struct IWICColorContext_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICColorTransform(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICColorTransform(pub ::windows::runtime::IUnknown);
 impl IWICColorTransform {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::runtime::Result<()> {
@@ -1695,6 +2015,26 @@ unsafe impl ::windows::runtime::Interface for IWICColorTransform {
     type Vtable = IWICColorTransform_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3060728655, 53474, 16555, [180, 54, 109, 227, 158, 50, 26, 148]);
 }
+impl ::std::convert::From<IWICColorTransform> for ::windows::runtime::IUnknown {
+    fn from(value: IWICColorTransform) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICColorTransform> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICColorTransform) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICColorTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICColorTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICColorTransform> for IWICBitmapSource {
     fn from(value: IWICColorTransform) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1707,12 +2047,12 @@ impl ::std::convert::From<&IWICColorTransform> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICColorTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICColorTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1730,8 +2070,8 @@ pub struct IWICColorTransform_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICComponentFactory(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICComponentFactory(pub ::windows::runtime::IUnknown);
 impl IWICComponentFactory {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
@@ -1906,6 +2246,26 @@ unsafe impl ::windows::runtime::Interface for IWICComponentFactory {
     type Vtable = IWICComponentFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1093471290, 38480, 17658, [175, 91, 221, 42, 6, 200, 232, 251]);
 }
+impl ::std::convert::From<IWICComponentFactory> for ::windows::runtime::IUnknown {
+    fn from(value: IWICComponentFactory) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICComponentFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICComponentFactory) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICComponentFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICComponentFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICComponentFactory> for IWICImagingFactory {
     fn from(value: IWICComponentFactory) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1918,12 +2278,12 @@ impl ::std::convert::From<&IWICComponentFactory> for IWICImagingFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICImagingFactory> for IWICComponentFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICImagingFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICImagingFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICImagingFactory> for &IWICComponentFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICImagingFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICImagingFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1975,8 +2335,8 @@ pub struct IWICComponentFactory_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICComponentInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICComponentInfo(pub ::windows::runtime::IUnknown);
 impl IWICComponentInfo {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetComponentType(&self) -> ::windows::runtime::Result<WICComponentType> {
@@ -2023,6 +2383,26 @@ unsafe impl ::windows::runtime::Interface for IWICComponentInfo {
     type Vtable = IWICComponentInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(599539466, 27019, 17239, [136, 107, 242, 77, 80, 103, 19, 52]);
 }
+impl ::std::convert::From<IWICComponentInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IWICComponentInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICComponentInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICComponentInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICComponentInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICComponentInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICComponentInfo_abi(
@@ -2044,8 +2424,8 @@ pub struct IWICComponentInfo_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICDdsDecoder(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICDdsDecoder(pub ::windows::runtime::IUnknown);
 impl IWICDdsDecoder {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Graphics_Dxgi`*"]
@@ -2063,6 +2443,26 @@ unsafe impl ::windows::runtime::Interface for IWICDdsDecoder {
     type Vtable = IWICDdsDecoder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1084020023, 34098, 16587, [151, 116, 226, 254, 178, 223, 78, 156]);
 }
+impl ::std::convert::From<IWICDdsDecoder> for ::windows::runtime::IUnknown {
+    fn from(value: IWICDdsDecoder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICDdsDecoder> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICDdsDecoder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICDdsDecoder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICDdsDecoder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICDdsDecoder_abi(
@@ -2075,8 +2475,8 @@ pub struct IWICDdsDecoder_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICDdsEncoder(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICDdsEncoder(pub ::windows::runtime::IUnknown);
 impl IWICDdsEncoder {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Graphics_Dxgi`*"]
@@ -2098,6 +2498,26 @@ unsafe impl ::windows::runtime::Interface for IWICDdsEncoder {
     type Vtable = IWICDdsEncoder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1554832204, 16510, 16819, [185, 54, 208, 240, 16, 205, 103, 50]);
 }
+impl ::std::convert::From<IWICDdsEncoder> for ::windows::runtime::IUnknown {
+    fn from(value: IWICDdsEncoder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICDdsEncoder> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICDdsEncoder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICDdsEncoder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICDdsEncoder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICDdsEncoder_abi(
@@ -2112,8 +2532,8 @@ pub struct IWICDdsEncoder_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICDdsFrameDecode(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICDdsFrameDecode(pub ::windows::runtime::IUnknown);
 impl IWICDdsFrameDecode {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetSizeInBlocks(&self, pwidthinblocks: *mut u32, pheightinblocks: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2134,6 +2554,26 @@ unsafe impl ::windows::runtime::Interface for IWICDdsFrameDecode {
     type Vtable = IWICDdsFrameDecode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1028394081, 6308, 16868, [189, 128, 72, 26, 79, 201, 244, 100]);
 }
+impl ::std::convert::From<IWICDdsFrameDecode> for ::windows::runtime::IUnknown {
+    fn from(value: IWICDdsFrameDecode) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICDdsFrameDecode> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICDdsFrameDecode) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICDdsFrameDecode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICDdsFrameDecode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICDdsFrameDecode_abi(
@@ -2147,8 +2587,8 @@ pub struct IWICDdsFrameDecode_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICDevelopRaw(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICDevelopRaw(pub ::windows::runtime::IUnknown);
 impl IWICDevelopRaw {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2331,6 +2771,26 @@ unsafe impl ::windows::runtime::Interface for IWICDevelopRaw {
     type Vtable = IWICDevelopRaw_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4226571844, 63422, 19301, [183, 248, 192, 200, 31, 239, 2, 109]);
 }
+impl ::std::convert::From<IWICDevelopRaw> for ::windows::runtime::IUnknown {
+    fn from(value: IWICDevelopRaw) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICDevelopRaw> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICDevelopRaw) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICDevelopRaw {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICDevelopRaw {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICDevelopRaw> for IWICBitmapFrameDecode {
     fn from(value: IWICDevelopRaw) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2343,12 +2803,12 @@ impl ::std::convert::From<&IWICDevelopRaw> for IWICBitmapFrameDecode {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapFrameDecode> for IWICDevelopRaw {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapFrameDecode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapFrameDecode>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapFrameDecode> for &IWICDevelopRaw {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapFrameDecode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapFrameDecode>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWICDevelopRaw> for IWICBitmapSource {
@@ -2363,12 +2823,12 @@ impl ::std::convert::From<&IWICDevelopRaw> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICDevelopRaw {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICDevelopRaw {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2421,8 +2881,8 @@ pub struct IWICDevelopRaw_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICDevelopRawNotificationCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICDevelopRawNotificationCallback(pub ::windows::runtime::IUnknown);
 impl IWICDevelopRawNotificationCallback {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn Notify(&self, notificationmask: u32) -> ::windows::runtime::Result<()> {
@@ -2432,6 +2892,26 @@ impl IWICDevelopRawNotificationCallback {
 unsafe impl ::windows::runtime::Interface for IWICDevelopRawNotificationCallback {
     type Vtable = IWICDevelopRawNotificationCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2512869998, 16012, 20162, [133, 168, 174, 188, 197, 81, 229, 155]);
+}
+impl ::std::convert::From<IWICDevelopRawNotificationCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWICDevelopRawNotificationCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICDevelopRawNotificationCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICDevelopRawNotificationCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICDevelopRawNotificationCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICDevelopRawNotificationCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2443,8 +2923,8 @@ pub struct IWICDevelopRawNotificationCallback_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICEnumMetadataItem(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICEnumMetadataItem(pub ::windows::runtime::IUnknown);
 impl IWICEnumMetadataItem {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
@@ -2469,6 +2949,26 @@ unsafe impl ::windows::runtime::Interface for IWICEnumMetadataItem {
     type Vtable = IWICEnumMetadataItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3693851757, 16135, 18462, [134, 37, 34, 12, 74, 237, 187, 51]);
 }
+impl ::std::convert::From<IWICEnumMetadataItem> for ::windows::runtime::IUnknown {
+    fn from(value: IWICEnumMetadataItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICEnumMetadataItem> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICEnumMetadataItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICEnumMetadataItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICEnumMetadataItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICEnumMetadataItem_abi(
@@ -2484,8 +2984,8 @@ pub struct IWICEnumMetadataItem_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICFastMetadataEncoder(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICFastMetadataEncoder(pub ::windows::runtime::IUnknown);
 impl IWICFastMetadataEncoder {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
@@ -2501,6 +3001,26 @@ unsafe impl ::windows::runtime::Interface for IWICFastMetadataEncoder {
     type Vtable = IWICFastMetadataEncoder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3092130825, 30921, 19140, [139, 211, 82, 74, 225, 102, 58, 47]);
 }
+impl ::std::convert::From<IWICFastMetadataEncoder> for ::windows::runtime::IUnknown {
+    fn from(value: IWICFastMetadataEncoder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICFastMetadataEncoder> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICFastMetadataEncoder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICFastMetadataEncoder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICFastMetadataEncoder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICFastMetadataEncoder_abi(
@@ -2512,8 +3032,8 @@ pub struct IWICFastMetadataEncoder_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICFormatConverter(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICFormatConverter(pub ::windows::runtime::IUnknown);
 impl IWICFormatConverter {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2551,6 +3071,26 @@ unsafe impl ::windows::runtime::Interface for IWICFormatConverter {
     type Vtable = IWICFormatConverter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(769, 43250, 18551, [186, 10, 253, 43, 102, 69, 251, 148]);
 }
+impl ::std::convert::From<IWICFormatConverter> for ::windows::runtime::IUnknown {
+    fn from(value: IWICFormatConverter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICFormatConverter> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICFormatConverter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICFormatConverter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICFormatConverter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICFormatConverter> for IWICBitmapSource {
     fn from(value: IWICFormatConverter) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2563,12 +3103,12 @@ impl ::std::convert::From<&IWICFormatConverter> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICFormatConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICFormatConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2588,8 +3128,8 @@ pub struct IWICFormatConverter_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICFormatConverterInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICFormatConverterInfo(pub ::windows::runtime::IUnknown);
 impl IWICFormatConverterInfo {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetComponentType(&self) -> ::windows::runtime::Result<WICComponentType> {
@@ -2645,6 +3185,26 @@ unsafe impl ::windows::runtime::Interface for IWICFormatConverterInfo {
     type Vtable = IWICFormatConverterInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2671049573, 5108, 20245, [188, 87, 55, 38, 181, 229, 61, 159]);
 }
+impl ::std::convert::From<IWICFormatConverterInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IWICFormatConverterInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICFormatConverterInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICFormatConverterInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICFormatConverterInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICFormatConverterInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICFormatConverterInfo> for IWICComponentInfo {
     fn from(value: IWICFormatConverterInfo) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2657,12 +3217,12 @@ impl ::std::convert::From<&IWICFormatConverterInfo> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICFormatConverterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICFormatConverterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2688,8 +3248,8 @@ pub struct IWICFormatConverterInfo_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICImageEncoder(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICImageEncoder(pub ::windows::runtime::IUnknown);
 impl IWICImageEncoder {
     #[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Dxgi"))]
     #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Graphics_Direct2D`, `Win32_Graphics_Dxgi`*"]
@@ -2711,6 +3271,26 @@ unsafe impl ::windows::runtime::Interface for IWICImageEncoder {
     type Vtable = IWICImageEncoder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(80174072, 15585, 18235, [172, 197, 60, 196, 245, 233, 73, 153]);
 }
+impl ::std::convert::From<IWICImageEncoder> for ::windows::runtime::IUnknown {
+    fn from(value: IWICImageEncoder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICImageEncoder> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICImageEncoder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICImageEncoder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICImageEncoder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICImageEncoder_abi(
@@ -2726,8 +3306,8 @@ pub struct IWICImageEncoder_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICImagingFactory(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICImagingFactory(pub ::windows::runtime::IUnknown);
 impl IWICImagingFactory {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
@@ -2864,6 +3444,26 @@ unsafe impl ::windows::runtime::Interface for IWICImagingFactory {
     type Vtable = IWICImagingFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3965634729, 50069, 17172, [156, 119, 84, 215, 169, 53, 255, 112]);
 }
+impl ::std::convert::From<IWICImagingFactory> for ::windows::runtime::IUnknown {
+    fn from(value: IWICImagingFactory) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICImagingFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICImagingFactory) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICImagingFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICImagingFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICImagingFactory_abi(
@@ -2903,8 +3503,8 @@ pub struct IWICImagingFactory_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICImagingFactory2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICImagingFactory2(pub ::windows::runtime::IUnknown);
 impl IWICImagingFactory2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
@@ -3047,6 +3647,26 @@ unsafe impl ::windows::runtime::Interface for IWICImagingFactory2 {
     type Vtable = IWICImagingFactory2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2072079173, 6550, 17526, [177, 50, 222, 158, 36, 124, 138, 240]);
 }
+impl ::std::convert::From<IWICImagingFactory2> for ::windows::runtime::IUnknown {
+    fn from(value: IWICImagingFactory2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICImagingFactory2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICImagingFactory2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICImagingFactory2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICImagingFactory2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICImagingFactory2> for IWICImagingFactory {
     fn from(value: IWICImagingFactory2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3059,12 +3679,12 @@ impl ::std::convert::From<&IWICImagingFactory2> for IWICImagingFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICImagingFactory> for IWICImagingFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICImagingFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICImagingFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICImagingFactory> for &IWICImagingFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICImagingFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICImagingFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3108,8 +3728,8 @@ pub struct IWICImagingFactory2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICJpegFrameDecode(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICJpegFrameDecode(pub ::windows::runtime::IUnknown);
 impl IWICJpegFrameDecode {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
@@ -3166,6 +3786,26 @@ unsafe impl ::windows::runtime::Interface for IWICJpegFrameDecode {
     type Vtable = IWICJpegFrameDecode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2302277230, 50282, 19489, [169, 209, 152, 179, 39, 206, 22, 121]);
 }
+impl ::std::convert::From<IWICJpegFrameDecode> for ::windows::runtime::IUnknown {
+    fn from(value: IWICJpegFrameDecode) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICJpegFrameDecode> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICJpegFrameDecode) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICJpegFrameDecode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICJpegFrameDecode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICJpegFrameDecode_abi(
@@ -3189,8 +3829,8 @@ pub struct IWICJpegFrameDecode_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICJpegFrameEncode(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICJpegFrameEncode(pub ::windows::runtime::IUnknown);
 impl IWICJpegFrameEncode {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Graphics_Dxgi`*"]
@@ -3219,6 +3859,26 @@ unsafe impl ::windows::runtime::Interface for IWICJpegFrameEncode {
     type Vtable = IWICJpegFrameEncode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(789340191, 53958, 18060, [171, 250, 73, 73, 93, 152, 62, 209]);
 }
+impl ::std::convert::From<IWICJpegFrameEncode> for ::windows::runtime::IUnknown {
+    fn from(value: IWICJpegFrameEncode) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICJpegFrameEncode> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICJpegFrameEncode) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICJpegFrameEncode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICJpegFrameEncode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICJpegFrameEncode_abi(
@@ -3235,8 +3895,8 @@ pub struct IWICJpegFrameEncode_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICMetadataBlockReader(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICMetadataBlockReader(pub ::windows::runtime::IUnknown);
 impl IWICMetadataBlockReader {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetContainerFormat(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -3264,6 +3924,26 @@ unsafe impl ::windows::runtime::Interface for IWICMetadataBlockReader {
     type Vtable = IWICMetadataBlockReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4272564877, 46067, 17380, [178, 92, 209, 222, 153, 10, 26, 225]);
 }
+impl ::std::convert::From<IWICMetadataBlockReader> for ::windows::runtime::IUnknown {
+    fn from(value: IWICMetadataBlockReader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICMetadataBlockReader> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICMetadataBlockReader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICMetadataBlockReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICMetadataBlockReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICMetadataBlockReader_abi(
@@ -3278,8 +3958,8 @@ pub struct IWICMetadataBlockReader_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICMetadataBlockWriter(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICMetadataBlockWriter(pub ::windows::runtime::IUnknown);
 impl IWICMetadataBlockWriter {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetContainerFormat(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -3328,6 +4008,26 @@ unsafe impl ::windows::runtime::Interface for IWICMetadataBlockWriter {
     type Vtable = IWICMetadataBlockWriter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(150705782, 46148, 16872, [141, 190, 106, 83, 165, 66, 191, 241]);
 }
+impl ::std::convert::From<IWICMetadataBlockWriter> for ::windows::runtime::IUnknown {
+    fn from(value: IWICMetadataBlockWriter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICMetadataBlockWriter> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICMetadataBlockWriter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICMetadataBlockWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICMetadataBlockWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICMetadataBlockWriter> for IWICMetadataBlockReader {
     fn from(value: IWICMetadataBlockWriter) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3340,12 +4040,12 @@ impl ::std::convert::From<&IWICMetadataBlockWriter> for IWICMetadataBlockReader 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataBlockReader> for IWICMetadataBlockWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataBlockReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataBlockReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataBlockReader> for &IWICMetadataBlockWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataBlockReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataBlockReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3367,8 +4067,8 @@ pub struct IWICMetadataBlockWriter_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICMetadataHandlerInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICMetadataHandlerInfo(pub ::windows::runtime::IUnknown);
 impl IWICMetadataHandlerInfo {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetComponentType(&self) -> ::windows::runtime::Result<WICComponentType> {
@@ -3452,6 +4152,26 @@ unsafe impl ::windows::runtime::Interface for IWICMetadataHandlerInfo {
     type Vtable = IWICMetadataHandlerInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2880002239, 50802, 17617, [141, 97, 206, 109, 242, 230, 130, 194]);
 }
+impl ::std::convert::From<IWICMetadataHandlerInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IWICMetadataHandlerInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICMetadataHandlerInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICMetadataHandlerInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICMetadataHandlerInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICMetadataHandlerInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICMetadataHandlerInfo> for IWICComponentInfo {
     fn from(value: IWICMetadataHandlerInfo) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3464,12 +4184,12 @@ impl ::std::convert::From<&IWICMetadataHandlerInfo> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICMetadataHandlerInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICMetadataHandlerInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3505,8 +4225,8 @@ pub struct IWICMetadataHandlerInfo_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICMetadataQueryReader(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICMetadataQueryReader(pub ::windows::runtime::IUnknown);
 impl IWICMetadataQueryReader {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetContainerFormat(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -3534,6 +4254,26 @@ unsafe impl ::windows::runtime::Interface for IWICMetadataQueryReader {
     type Vtable = IWICMetadataQueryReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(815306344, 57801, 17815, [179, 149, 69, 142, 237, 184, 8, 223]);
 }
+impl ::std::convert::From<IWICMetadataQueryReader> for ::windows::runtime::IUnknown {
+    fn from(value: IWICMetadataQueryReader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICMetadataQueryReader> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICMetadataQueryReader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICMetadataQueryReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICMetadataQueryReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICMetadataQueryReader_abi(
@@ -3550,8 +4290,8 @@ pub struct IWICMetadataQueryReader_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICMetadataQueryWriter(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICMetadataQueryWriter(pub ::windows::runtime::IUnknown);
 impl IWICMetadataQueryWriter {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetContainerFormat(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -3589,6 +4329,26 @@ unsafe impl ::windows::runtime::Interface for IWICMetadataQueryWriter {
     type Vtable = IWICMetadataQueryWriter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2803988762, 3567, 19718, [189, 145, 33, 24, 191, 29, 177, 11]);
 }
+impl ::std::convert::From<IWICMetadataQueryWriter> for ::windows::runtime::IUnknown {
+    fn from(value: IWICMetadataQueryWriter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICMetadataQueryWriter> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICMetadataQueryWriter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICMetadataQueryWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICMetadataQueryWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICMetadataQueryWriter> for IWICMetadataQueryReader {
     fn from(value: IWICMetadataQueryWriter) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3601,12 +4361,12 @@ impl ::std::convert::From<&IWICMetadataQueryWriter> for IWICMetadataQueryReader 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataQueryReader> for IWICMetadataQueryWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataQueryReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataQueryReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataQueryReader> for &IWICMetadataQueryWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataQueryReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataQueryReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3629,8 +4389,8 @@ pub struct IWICMetadataQueryWriter_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICMetadataReader(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICMetadataReader(pub ::windows::runtime::IUnknown);
 impl IWICMetadataReader {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetMetadataFormat(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -3667,6 +4427,26 @@ unsafe impl ::windows::runtime::Interface for IWICMetadataReader {
     type Vtable = IWICMetadataReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2449800857, 55548, 20437, [160, 1, 149, 54, 176, 103, 168, 153]);
 }
+impl ::std::convert::From<IWICMetadataReader> for ::windows::runtime::IUnknown {
+    fn from(value: IWICMetadataReader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICMetadataReader> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICMetadataReader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICMetadataReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICMetadataReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICMetadataReader_abi(
@@ -3686,8 +4466,8 @@ pub struct IWICMetadataReader_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICMetadataReaderInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICMetadataReaderInfo(pub ::windows::runtime::IUnknown);
 impl IWICMetadataReaderInfo {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetComponentType(&self) -> ::windows::runtime::Result<WICComponentType> {
@@ -3786,6 +4566,26 @@ unsafe impl ::windows::runtime::Interface for IWICMetadataReaderInfo {
     type Vtable = IWICMetadataReaderInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4005502811, 1985, 17479, [163, 171, 34, 172, 175, 120, 168, 4]);
 }
+impl ::std::convert::From<IWICMetadataReaderInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IWICMetadataReaderInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICMetadataReaderInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICMetadataReaderInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICMetadataReaderInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICMetadataReaderInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICMetadataReaderInfo> for IWICMetadataHandlerInfo {
     fn from(value: IWICMetadataReaderInfo) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3798,12 +4598,12 @@ impl ::std::convert::From<&IWICMetadataReaderInfo> for IWICMetadataHandlerInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataHandlerInfo> for IWICMetadataReaderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataHandlerInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataHandlerInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataHandlerInfo> for &IWICMetadataReaderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataHandlerInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataHandlerInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWICMetadataReaderInfo> for IWICComponentInfo {
@@ -3818,12 +4618,12 @@ impl ::std::convert::From<&IWICMetadataReaderInfo> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICMetadataReaderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICMetadataReaderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3863,8 +4663,8 @@ pub struct IWICMetadataReaderInfo_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICMetadataWriter(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICMetadataWriter(pub ::windows::runtime::IUnknown);
 impl IWICMetadataWriter {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetMetadataFormat(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -3920,6 +4720,26 @@ unsafe impl ::windows::runtime::Interface for IWICMetadataWriter {
     type Vtable = IWICMetadataWriter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4152585750, 15328, 18187, [134, 187, 22, 13, 10, 236, 215, 222]);
 }
+impl ::std::convert::From<IWICMetadataWriter> for ::windows::runtime::IUnknown {
+    fn from(value: IWICMetadataWriter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICMetadataWriter> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICMetadataWriter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICMetadataWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICMetadataWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICMetadataWriter> for IWICMetadataReader {
     fn from(value: IWICMetadataWriter) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3932,12 +4752,12 @@ impl ::std::convert::From<&IWICMetadataWriter> for IWICMetadataReader {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataReader> for IWICMetadataWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataReader> for &IWICMetadataWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3968,8 +4788,8 @@ pub struct IWICMetadataWriter_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICMetadataWriterInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICMetadataWriterInfo(pub ::windows::runtime::IUnknown);
 impl IWICMetadataWriterInfo {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetComponentType(&self) -> ::windows::runtime::Result<WICComponentType> {
@@ -4062,6 +4882,26 @@ unsafe impl ::windows::runtime::Interface for IWICMetadataWriterInfo {
     type Vtable = IWICMetadataWriterInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2989375418, 14629, 17187, [181, 193, 158, 191, 196, 48, 242, 54]);
 }
+impl ::std::convert::From<IWICMetadataWriterInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IWICMetadataWriterInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICMetadataWriterInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICMetadataWriterInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICMetadataWriterInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICMetadataWriterInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICMetadataWriterInfo> for IWICMetadataHandlerInfo {
     fn from(value: IWICMetadataWriterInfo) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4074,12 +4914,12 @@ impl ::std::convert::From<&IWICMetadataWriterInfo> for IWICMetadataHandlerInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataHandlerInfo> for IWICMetadataWriterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataHandlerInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataHandlerInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataHandlerInfo> for &IWICMetadataWriterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataHandlerInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataHandlerInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWICMetadataWriterInfo> for IWICComponentInfo {
@@ -4094,12 +4934,12 @@ impl ::std::convert::From<&IWICMetadataWriterInfo> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICMetadataWriterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICMetadataWriterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4137,8 +4977,8 @@ pub struct IWICMetadataWriterInfo_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICPalette(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICPalette(pub ::windows::runtime::IUnknown);
 impl IWICPalette {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
@@ -4195,6 +5035,26 @@ unsafe impl ::windows::runtime::Interface for IWICPalette {
     type Vtable = IWICPalette_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(64, 43250, 18551, [186, 10, 253, 43, 102, 69, 251, 148]);
 }
+impl ::std::convert::From<IWICPalette> for ::windows::runtime::IUnknown {
+    fn from(value: IWICPalette) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICPalette> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICPalette) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICPalette {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICPalette {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICPalette_abi(
@@ -4219,8 +5079,8 @@ pub struct IWICPalette_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICPersistStream(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICPersistStream(pub ::windows::runtime::IUnknown);
 impl IWICPersistStream {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetClassID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -4261,6 +5121,26 @@ unsafe impl ::windows::runtime::Interface for IWICPersistStream {
     type Vtable = IWICPersistStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(6770752, 26888, 17912, [134, 163, 73, 199, 223, 214, 217, 173]);
 }
+impl ::std::convert::From<IWICPersistStream> for ::windows::runtime::IUnknown {
+    fn from(value: IWICPersistStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICPersistStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICPersistStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICPersistStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICPersistStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::convert::From<IWICPersistStream> for super::super::System::Com::IPersistStream {
     fn from(value: IWICPersistStream) -> Self {
@@ -4276,13 +5156,13 @@ impl ::std::convert::From<&IWICPersistStream> for super::super::System::Com::IPe
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersistStream> for IWICPersistStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersistStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersistStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersistStream> for &IWICPersistStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersistStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersistStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4300,13 +5180,13 @@ impl ::std::convert::From<&IWICPersistStream> for super::super::System::Com::IPe
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist> for IWICPersistStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersist>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist> for &IWICPersistStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersist>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4329,8 +5209,8 @@ pub struct IWICPersistStream_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICPixelFormatInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICPixelFormatInfo(pub ::windows::runtime::IUnknown);
 impl IWICPixelFormatInfo {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetComponentType(&self) -> ::windows::runtime::Result<WICComponentType> {
@@ -4401,6 +5281,26 @@ unsafe impl ::windows::runtime::Interface for IWICPixelFormatInfo {
     type Vtable = IWICPixelFormatInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3907888641, 15688, 17178, [171, 68, 105, 5, 155, 232, 139, 190]);
 }
+impl ::std::convert::From<IWICPixelFormatInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IWICPixelFormatInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICPixelFormatInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICPixelFormatInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICPixelFormatInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICPixelFormatInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICPixelFormatInfo> for IWICComponentInfo {
     fn from(value: IWICPixelFormatInfo) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4413,12 +5313,12 @@ impl ::std::convert::From<&IWICPixelFormatInfo> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICPixelFormatInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICPixelFormatInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4447,8 +5347,8 @@ pub struct IWICPixelFormatInfo_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICPixelFormatInfo2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICPixelFormatInfo2(pub ::windows::runtime::IUnknown);
 impl IWICPixelFormatInfo2 {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetComponentType(&self) -> ::windows::runtime::Result<WICComponentType> {
@@ -4530,6 +5430,26 @@ unsafe impl ::windows::runtime::Interface for IWICPixelFormatInfo2 {
     type Vtable = IWICPixelFormatInfo2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2849715106, 44895, 17351, [182, 121, 116, 245, 152, 75, 90, 164]);
 }
+impl ::std::convert::From<IWICPixelFormatInfo2> for ::windows::runtime::IUnknown {
+    fn from(value: IWICPixelFormatInfo2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICPixelFormatInfo2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICPixelFormatInfo2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICPixelFormatInfo2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICPixelFormatInfo2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICPixelFormatInfo2> for IWICPixelFormatInfo {
     fn from(value: IWICPixelFormatInfo2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4542,12 +5462,12 @@ impl ::std::convert::From<&IWICPixelFormatInfo2> for IWICPixelFormatInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICPixelFormatInfo> for IWICPixelFormatInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICPixelFormatInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICPixelFormatInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICPixelFormatInfo> for &IWICPixelFormatInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICPixelFormatInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICPixelFormatInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWICPixelFormatInfo2> for IWICComponentInfo {
@@ -4562,12 +5482,12 @@ impl ::std::convert::From<&IWICPixelFormatInfo2> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICPixelFormatInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICPixelFormatInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4599,8 +5519,8 @@ pub struct IWICPixelFormatInfo2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICPlanarBitmapFrameEncode(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICPlanarBitmapFrameEncode(pub ::windows::runtime::IUnknown);
 impl IWICPlanarBitmapFrameEncode {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn WritePixels(&self, linecount: u32, pplanes: *const WICBitmapPlane, cplanes: u32) -> ::windows::runtime::Result<()> {
@@ -4615,6 +5535,26 @@ unsafe impl ::windows::runtime::Interface for IWICPlanarBitmapFrameEncode {
     type Vtable = IWICPlanarBitmapFrameEncode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4180195256, 8737, 16577, [183, 46, 126, 130, 241, 151, 77, 26]);
 }
+impl ::std::convert::From<IWICPlanarBitmapFrameEncode> for ::windows::runtime::IUnknown {
+    fn from(value: IWICPlanarBitmapFrameEncode) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICPlanarBitmapFrameEncode> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICPlanarBitmapFrameEncode) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICPlanarBitmapFrameEncode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICPlanarBitmapFrameEncode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICPlanarBitmapFrameEncode_abi(
@@ -4626,8 +5566,8 @@ pub struct IWICPlanarBitmapFrameEncode_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICPlanarBitmapSourceTransform(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICPlanarBitmapSourceTransform(pub ::windows::runtime::IUnknown);
 impl IWICPlanarBitmapSourceTransform {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
@@ -4654,6 +5594,26 @@ unsafe impl ::windows::runtime::Interface for IWICPlanarBitmapSourceTransform {
     type Vtable = IWICPlanarBitmapSourceTransform_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(989830350, 48789, 17155, [185, 39, 231, 209, 111, 244, 166, 19]);
 }
+impl ::std::convert::From<IWICPlanarBitmapSourceTransform> for ::windows::runtime::IUnknown {
+    fn from(value: IWICPlanarBitmapSourceTransform) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICPlanarBitmapSourceTransform> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICPlanarBitmapSourceTransform) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICPlanarBitmapSourceTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICPlanarBitmapSourceTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICPlanarBitmapSourceTransform_abi(
@@ -4666,8 +5626,8 @@ pub struct IWICPlanarBitmapSourceTransform_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICPlanarFormatConverter(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICPlanarFormatConverter(pub ::windows::runtime::IUnknown);
 impl IWICPlanarFormatConverter {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::runtime::Result<()> {
@@ -4705,6 +5665,26 @@ unsafe impl ::windows::runtime::Interface for IWICPlanarFormatConverter {
     type Vtable = IWICPlanarFormatConverter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3200182731, 33712, 19916, [129, 50, 176, 170, 165, 94, 172, 150]);
 }
+impl ::std::convert::From<IWICPlanarFormatConverter> for ::windows::runtime::IUnknown {
+    fn from(value: IWICPlanarFormatConverter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICPlanarFormatConverter> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICPlanarFormatConverter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICPlanarFormatConverter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICPlanarFormatConverter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWICPlanarFormatConverter> for IWICBitmapSource {
     fn from(value: IWICPlanarFormatConverter) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4717,12 +5697,12 @@ impl ::std::convert::From<&IWICPlanarFormatConverter> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICPlanarFormatConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICPlanarFormatConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4742,8 +5722,8 @@ pub struct IWICPlanarFormatConverter_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICProgressCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICProgressCallback(pub ::windows::runtime::IUnknown);
 impl IWICProgressCallback {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn Notify(&self, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> ::windows::runtime::Result<()> {
@@ -4753,6 +5733,26 @@ impl IWICProgressCallback {
 unsafe impl ::windows::runtime::Interface for IWICProgressCallback {
     type Vtable = IWICProgressCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1198979533, 38167, 17914, [191, 36, 232, 156, 94, 197, 198, 12]);
+}
+impl ::std::convert::From<IWICProgressCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWICProgressCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICProgressCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICProgressCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICProgressCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICProgressCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4764,8 +5764,8 @@ pub struct IWICProgressCallback_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICProgressiveLevelControl(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICProgressiveLevelControl(pub ::windows::runtime::IUnknown);
 impl IWICProgressiveLevelControl {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetLevelCount(&self) -> ::windows::runtime::Result<u32> {
@@ -4786,6 +5786,26 @@ unsafe impl ::windows::runtime::Interface for IWICProgressiveLevelControl {
     type Vtable = IWICProgressiveLevelControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3668715887, 31397, 19903, [141, 21, 34, 92, 89, 118, 248, 145]);
 }
+impl ::std::convert::From<IWICProgressiveLevelControl> for ::windows::runtime::IUnknown {
+    fn from(value: IWICProgressiveLevelControl) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICProgressiveLevelControl> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICProgressiveLevelControl) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICProgressiveLevelControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICProgressiveLevelControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICProgressiveLevelControl_abi(
@@ -4798,8 +5818,8 @@ pub struct IWICProgressiveLevelControl_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICStream(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICStream(pub ::windows::runtime::IUnknown);
 impl IWICStream {
     #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub unsafe fn Read(&self, pv: *mut ::std::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::runtime::Result<()> {
@@ -4876,6 +5896,26 @@ unsafe impl ::windows::runtime::Interface for IWICStream {
     type Vtable = IWICStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(325056608, 8887, 19935, [176, 246, 33, 143, 79, 41, 154, 67]);
 }
+impl ::std::convert::From<IWICStream> for ::windows::runtime::IUnknown {
+    fn from(value: IWICStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::convert::From<IWICStream> for super::super::System::Com::IStream {
     fn from(value: IWICStream) -> Self {
@@ -4891,13 +5931,13 @@ impl ::std::convert::From<&IWICStream> for super::super::System::Com::IStream {
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for IWICStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for &IWICStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4915,13 +5955,13 @@ impl ::std::convert::From<&IWICStream> for super::super::System::Com::ISequentia
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream> for IWICStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::ISequentialStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream> for &IWICStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::ISequentialStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4955,8 +5995,8 @@ pub struct IWICStream_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWICStreamProvider(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWICStreamProvider(pub ::windows::runtime::IUnknown);
 impl IWICStreamProvider {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_System_Com`*"]
@@ -4983,6 +6023,26 @@ unsafe impl ::windows::runtime::Interface for IWICStreamProvider {
     type Vtable = IWICStreamProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1150588092, 46184, 18727, [150, 215, 186, 144, 211, 26, 181, 5]);
 }
+impl ::std::convert::From<IWICStreamProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IWICStreamProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWICStreamProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IWICStreamProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWICStreamProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWICStreamProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICStreamProvider_abi(
@@ -4995,6 +6055,7 @@ pub struct IWICStreamProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidpreferredvendor: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub type PFNProgressNotification = unsafe extern "system" fn(pvdata: *const ::std::ffi::c_void, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5477,8 +6538,8 @@ pub unsafe fn WICConvertBitmapSource<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICCreateBitmapFromSection<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(width: u32, height: u32, pixelformat: *const ::windows::runtime::GUID, hsection: Param3, stride: u32, offset: u32) -> ::windows::runtime::Result<IWICBitmap> {
     #[cfg(windows)]
@@ -5493,8 +6554,8 @@ pub unsafe fn WICCreateBitmapFromSection<'a, Param3: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICCreateBitmapFromSectionEx<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(width: u32, height: u32, pixelformat: *const ::windows::runtime::GUID, hsection: Param3, stride: u32, offset: u32, desiredaccesslevel: WICSectionAccessLevel) -> ::windows::runtime::Result<IWICBitmap> {
     #[cfg(windows)]
@@ -6374,8 +7435,8 @@ impl ::std::convert::From<i32> for WICJpegYCrCbSubsamplingOption {
 unsafe impl ::windows::runtime::Abi for WICJpegYCrCbSubsamplingOption {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICMapGuidToShortName<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(guid: *const ::windows::runtime::GUID, cchname: u32, wzname: Param2, pcchactual: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6389,8 +7450,8 @@ pub unsafe fn WICMapGuidToShortName<'a, Param2: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICMapSchemaToName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(guidmetadataformat: *const ::windows::runtime::GUID, pwzschema: Param1, cchname: u32, wzname: Param3, pcchactual: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6404,8 +7465,8 @@ pub unsafe fn WICMapSchemaToName<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICMapShortNameToGuid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(wzname: Param0) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
@@ -6420,8 +7481,8 @@ pub unsafe fn WICMapShortNameToGuid<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WICMatchMetadataContent<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(guidcontainerformat: *const ::windows::runtime::GUID, pguidvendor: *const ::windows::runtime::GUID, pistream: Param2) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
@@ -7320,8 +8381,8 @@ impl ::std::ops::Not for WICSectionAccessLevel {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WICSerializeMetadataContent<'a, Param1: ::windows::runtime::IntoParam<'a, IWICMetadataWriter>, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(guidcontainerformat: *const ::windows::runtime::GUID, piwriter: Param1, dwpersistoptions: u32, pistream: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

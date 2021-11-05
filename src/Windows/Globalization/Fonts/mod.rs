@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILanguageFont(::windows::runtime::IInspectable);
+pub struct ILanguageFont(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageFont {
     type Vtable = ILanguageFont_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2972605498, 46957, 17819, [190, 235, 144, 17, 81, 205, 119, 209]);
@@ -26,7 +26,7 @@ pub struct ILanguageFont_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILanguageFontGroup(::windows::runtime::IInspectable);
+pub struct ILanguageFontGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageFontGroup {
     type Vtable = ILanguageFontGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4080697283, 14940, 19178, [185, 255, 179, 159, 178, 66, 247, 246]);
@@ -54,7 +54,7 @@ pub struct ILanguageFontGroup_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILanguageFontGroupFactory(::windows::runtime::IInspectable);
+pub struct ILanguageFontGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageFontGroupFactory {
     type Vtable = ILanguageFontGroupFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4239305831, 20087, 18887, [184, 86, 221, 233, 52, 252, 115, 91]);
@@ -72,8 +72,8 @@ pub struct ILanguageFontGroupFactory_abi(
 );
 #[doc = "*Required features: `Globalization_Fonts`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LanguageFont(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LanguageFont(pub ::windows::runtime::IInspectable);
 impl LanguageFont {
     #[doc = "*Required features: `Globalization_Fonts`*"]
     pub fn FontFamily(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -129,12 +129,52 @@ unsafe impl ::windows::runtime::Interface for LanguageFont {
 impl ::windows::runtime::RuntimeName for LanguageFont {
     const NAME: &'static str = "Windows.Globalization.Fonts.LanguageFont";
 }
+impl ::std::convert::From<LanguageFont> for ::windows::runtime::IUnknown {
+    fn from(value: LanguageFont) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LanguageFont> for ::windows::runtime::IUnknown {
+    fn from(value: &LanguageFont) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LanguageFont {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LanguageFont {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LanguageFont> for ::windows::runtime::IInspectable {
+    fn from(value: LanguageFont) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LanguageFont> for ::windows::runtime::IInspectable {
+    fn from(value: &LanguageFont) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LanguageFont {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LanguageFont {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for LanguageFont {}
 unsafe impl ::std::marker::Sync for LanguageFont {}
 #[doc = "*Required features: `Globalization_Fonts`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LanguageFontGroup(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LanguageFontGroup(pub ::windows::runtime::IInspectable);
 impl LanguageFontGroup {
     #[doc = "*Required features: `Globalization_Fonts`*"]
     pub fn UITextFont(&self) -> ::windows::runtime::Result<LanguageFont> {
@@ -245,6 +285,46 @@ unsafe impl ::windows::runtime::Interface for LanguageFontGroup {
 }
 impl ::windows::runtime::RuntimeName for LanguageFontGroup {
     const NAME: &'static str = "Windows.Globalization.Fonts.LanguageFontGroup";
+}
+impl ::std::convert::From<LanguageFontGroup> for ::windows::runtime::IUnknown {
+    fn from(value: LanguageFontGroup) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LanguageFontGroup> for ::windows::runtime::IUnknown {
+    fn from(value: &LanguageFontGroup) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LanguageFontGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LanguageFontGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LanguageFontGroup> for ::windows::runtime::IInspectable {
+    fn from(value: LanguageFontGroup) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LanguageFontGroup> for ::windows::runtime::IInspectable {
+    fn from(value: &LanguageFontGroup) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LanguageFontGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LanguageFontGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for LanguageFontGroup {}
 unsafe impl ::std::marker::Sync for LanguageFontGroup {}

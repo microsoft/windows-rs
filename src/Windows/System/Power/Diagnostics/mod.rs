@@ -65,7 +65,7 @@ impl ::windows::runtime::RuntimeName for ForegroundEnergyDiagnostics {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundEnergyDiagnosticsStatics(::windows::runtime::IInspectable);
+pub struct IBackgroundEnergyDiagnosticsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundEnergyDiagnosticsStatics {
     type Vtable = IBackgroundEnergyDiagnosticsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3613800194, 54182, 18144, [143, 155, 80, 185, 91, 180, 249, 197]);
@@ -85,7 +85,7 @@ pub struct IBackgroundEnergyDiagnosticsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IForegroundEnergyDiagnosticsStatics(::windows::runtime::IInspectable);
+pub struct IForegroundEnergyDiagnosticsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IForegroundEnergyDiagnosticsStatics {
     type Vtable = IForegroundEnergyDiagnosticsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(600443159, 52487, 17929, [190, 21, 143, 232, 148, 197, 228, 30]);

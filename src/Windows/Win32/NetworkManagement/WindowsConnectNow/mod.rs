@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWCNConnectNotify(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWCNConnectNotify(pub ::windows::runtime::IUnknown);
 impl IWCNConnectNotify {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn ConnectSucceeded(&self) -> ::windows::runtime::Result<()> {
@@ -17,6 +17,26 @@ unsafe impl ::windows::runtime::Interface for IWCNConnectNotify {
     type Vtable = IWCNConnectNotify_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3238051487, 54074, 19019, [191, 35, 187, 239, 70, 99, 208, 23]);
 }
+impl ::std::convert::From<IWCNConnectNotify> for ::windows::runtime::IUnknown {
+    fn from(value: IWCNConnectNotify) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWCNConnectNotify> for ::windows::runtime::IUnknown {
+    fn from(value: &IWCNConnectNotify) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWCNConnectNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWCNConnectNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWCNConnectNotify_abi(
@@ -28,8 +48,8 @@ pub struct IWCNConnectNotify_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWCNDevice(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWCNDevice(pub ::windows::runtime::IUnknown);
 impl IWCNDevice {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> ::windows::runtime::Result<()> {
@@ -94,6 +114,26 @@ impl IWCNDevice {
 unsafe impl ::windows::runtime::Interface for IWCNDevice {
     type Vtable = IWCNDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3238051484, 54074, 19019, [191, 35, 187, 239, 70, 99, 208, 23]);
+}
+impl ::std::convert::From<IWCNDevice> for ::windows::runtime::IUnknown {
+    fn from(value: IWCNDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWCNDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &IWCNDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWCNDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWCNDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

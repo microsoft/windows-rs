@@ -3138,8 +3138,8 @@ pub unsafe fn DWriteCreateFactory(factorytype: DWRITE_FACTORY_TYPE, iid: *const 
 pub const FACILITY_DWRITE: u32 = 2200u32;
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteAsyncResult(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteAsyncResult(pub ::windows::runtime::IUnknown);
 impl IDWriteAsyncResult {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -3155,6 +3155,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteAsyncResult {
     type Vtable = IDWriteAsyncResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3458595069, 34363, 19731, [150, 81, 193, 248, 141, 199, 63, 226]);
 }
+impl ::std::convert::From<IDWriteAsyncResult> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteAsyncResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteAsyncResult> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteAsyncResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteAsyncResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteAsyncResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteAsyncResult_abi(
@@ -3167,8 +3187,8 @@ pub struct IDWriteAsyncResult_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteBitmapRenderTarget(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteBitmapRenderTarget(pub ::windows::runtime::IUnknown);
 impl IDWriteBitmapRenderTarget {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -3213,6 +3233,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteBitmapRenderTarget {
     type Vtable = IDWriteBitmapRenderTarget_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1582969507, 36351, 18291, [159, 246, 6, 150, 234, 183, 114, 103]);
 }
+impl ::std::convert::From<IDWriteBitmapRenderTarget> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteBitmapRenderTarget) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteBitmapRenderTarget> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteBitmapRenderTarget) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteBitmapRenderTarget {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteBitmapRenderTarget {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteBitmapRenderTarget_abi(
@@ -3233,8 +3273,8 @@ pub struct IDWriteBitmapRenderTarget_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteBitmapRenderTarget1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteBitmapRenderTarget1(pub ::windows::runtime::IUnknown);
 impl IDWriteBitmapRenderTarget1 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -3287,6 +3327,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteBitmapRenderTarget1 {
     type Vtable = IDWriteBitmapRenderTarget1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2032042648, 16115, 16944, [152, 128, 201, 189, 236, 196, 32, 100]);
 }
+impl ::std::convert::From<IDWriteBitmapRenderTarget1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteBitmapRenderTarget1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteBitmapRenderTarget1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteBitmapRenderTarget1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteBitmapRenderTarget1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteBitmapRenderTarget1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteBitmapRenderTarget1> for IDWriteBitmapRenderTarget {
     fn from(value: IDWriteBitmapRenderTarget1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3299,12 +3359,12 @@ impl ::std::convert::From<&IDWriteBitmapRenderTarget1> for IDWriteBitmapRenderTa
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteBitmapRenderTarget> for IDWriteBitmapRenderTarget1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteBitmapRenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteBitmapRenderTarget>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteBitmapRenderTarget> for &IDWriteBitmapRenderTarget1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteBitmapRenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteBitmapRenderTarget>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3329,8 +3389,8 @@ pub struct IDWriteBitmapRenderTarget1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteColorGlyphRunEnumerator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteColorGlyphRunEnumerator(pub ::windows::runtime::IUnknown);
 impl IDWriteColorGlyphRunEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -3349,6 +3409,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteColorGlyphRunEnumerator {
     type Vtable = IDWriteColorGlyphRunEnumerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3542072855, 61783, 16802, [141, 36, 203, 119, 158, 5, 96, 232]);
 }
+impl ::std::convert::From<IDWriteColorGlyphRunEnumerator> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteColorGlyphRunEnumerator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteColorGlyphRunEnumerator> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteColorGlyphRunEnumerator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteColorGlyphRunEnumerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteColorGlyphRunEnumerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteColorGlyphRunEnumerator_abi(
@@ -3362,8 +3442,8 @@ pub struct IDWriteColorGlyphRunEnumerator_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteColorGlyphRunEnumerator1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteColorGlyphRunEnumerator1(pub ::windows::runtime::IUnknown);
 impl IDWriteColorGlyphRunEnumerator1 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -3388,6 +3468,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteColorGlyphRunEnumerator1 {
     type Vtable = IDWriteColorGlyphRunEnumerator1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2086635226, 51105, 20229, [184, 225, 85, 161, 121, 254, 90, 53]);
 }
+impl ::std::convert::From<IDWriteColorGlyphRunEnumerator1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteColorGlyphRunEnumerator1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteColorGlyphRunEnumerator1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteColorGlyphRunEnumerator1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteColorGlyphRunEnumerator1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteColorGlyphRunEnumerator1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteColorGlyphRunEnumerator1> for IDWriteColorGlyphRunEnumerator {
     fn from(value: IDWriteColorGlyphRunEnumerator1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3400,12 +3500,12 @@ impl ::std::convert::From<&IDWriteColorGlyphRunEnumerator1> for IDWriteColorGlyp
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteColorGlyphRunEnumerator> for IDWriteColorGlyphRunEnumerator1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteColorGlyphRunEnumerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteColorGlyphRunEnumerator>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteColorGlyphRunEnumerator> for &IDWriteColorGlyphRunEnumerator1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteColorGlyphRunEnumerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteColorGlyphRunEnumerator>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3423,8 +3523,8 @@ pub struct IDWriteColorGlyphRunEnumerator1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFactory(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFactory(pub ::windows::runtime::IUnknown);
 impl IDWriteFactory {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -3562,6 +3662,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFactory {
     type Vtable = IDWriteFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3092901466, 55352, 19291, [162, 232, 26, 220, 125, 147, 219, 72]);
 }
+impl ::std::convert::From<IDWriteFactory> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFactory) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFactory) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFactory_abi(
@@ -3600,8 +3720,8 @@ pub struct IDWriteFactory_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFactory1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFactory1(pub ::windows::runtime::IUnknown);
 impl IDWriteFactory1 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -3749,6 +3869,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFactory1 {
     type Vtable = IDWriteFactory1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(811020185, 56006, 16859, [161, 110, 4, 134, 48, 126, 96, 106]);
 }
+impl ::std::convert::From<IDWriteFactory1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFactory1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFactory1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFactory1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFactory1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFactory1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFactory1> for IDWriteFactory {
     fn from(value: IDWriteFactory1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3761,12 +3901,12 @@ impl ::std::convert::From<&IDWriteFactory1> for IDWriteFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for IDWriteFactory1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for &IDWriteFactory1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3810,8 +3950,8 @@ pub struct IDWriteFactory1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFactory2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFactory2(pub ::windows::runtime::IUnknown);
 impl IDWriteFactory2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -4020,6 +4160,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFactory2 {
     type Vtable = IDWriteFactory2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(70909024, 51780, 18836, [141, 238, 58, 154, 247, 183, 50, 236]);
 }
+impl ::std::convert::From<IDWriteFactory2> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFactory2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFactory2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFactory2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFactory2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFactory2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFactory2> for IDWriteFactory1 {
     fn from(value: IDWriteFactory2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4032,12 +4192,12 @@ impl ::std::convert::From<&IDWriteFactory2> for IDWriteFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for IDWriteFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory2> for IDWriteFactory {
@@ -4052,12 +4212,12 @@ impl ::std::convert::From<&IDWriteFactory2> for IDWriteFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for IDWriteFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for &IDWriteFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4108,8 +4268,8 @@ pub struct IDWriteFactory2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFactory3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFactory3(pub ::windows::runtime::IUnknown);
 impl IDWriteFactory3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -4388,6 +4548,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFactory3 {
     type Vtable = IDWriteFactory3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2585477571, 54203, 18026, [135, 252, 254, 103, 85, 106, 59, 101]);
 }
+impl ::std::convert::From<IDWriteFactory3> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFactory3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFactory3> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFactory3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFactory3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFactory3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFactory3> for IDWriteFactory2 {
     fn from(value: IDWriteFactory3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4400,12 +4580,12 @@ impl ::std::convert::From<&IDWriteFactory3> for IDWriteFactory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for IDWriteFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for &IDWriteFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory3> for IDWriteFactory1 {
@@ -4420,12 +4600,12 @@ impl ::std::convert::From<&IDWriteFactory3> for IDWriteFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for IDWriteFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory3> for IDWriteFactory {
@@ -4440,12 +4620,12 @@ impl ::std::convert::From<&IDWriteFactory3> for IDWriteFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for IDWriteFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for &IDWriteFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4508,8 +4688,8 @@ pub struct IDWriteFactory3_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFactory4(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFactory4(pub ::windows::runtime::IUnknown);
 impl IDWriteFactory4 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -4817,6 +4997,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFactory4 {
     type Vtable = IDWriteFactory4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1259035603, 1943, 17737, [138, 197, 254, 145, 92, 197, 56, 86]);
 }
+impl ::std::convert::From<IDWriteFactory4> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFactory4) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFactory4> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFactory4) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFactory4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFactory4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFactory4> for IDWriteFactory3 {
     fn from(value: IDWriteFactory4) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4829,12 +5029,12 @@ impl ::std::convert::From<&IDWriteFactory4> for IDWriteFactory3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory3> for IDWriteFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory3> for &IDWriteFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory4> for IDWriteFactory2 {
@@ -4849,12 +5049,12 @@ impl ::std::convert::From<&IDWriteFactory4> for IDWriteFactory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for IDWriteFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for &IDWriteFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory4> for IDWriteFactory1 {
@@ -4869,12 +5069,12 @@ impl ::std::convert::From<&IDWriteFactory4> for IDWriteFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for IDWriteFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory4> for IDWriteFactory {
@@ -4889,12 +5089,12 @@ impl ::std::convert::From<&IDWriteFactory4> for IDWriteFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for IDWriteFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for &IDWriteFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4964,8 +5164,8 @@ pub struct IDWriteFactory4_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFactory5(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFactory5(pub ::windows::runtime::IUnknown);
 impl IDWriteFactory5 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -5298,6 +5498,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFactory5 {
     type Vtable = IDWriteFactory5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2509093274, 48682, 20233, [175, 125, 101, 24, 152, 3, 209, 211]);
 }
+impl ::std::convert::From<IDWriteFactory5> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFactory5) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFactory5> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFactory5) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFactory5 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFactory5 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFactory5> for IDWriteFactory4 {
     fn from(value: IDWriteFactory5) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5310,12 +5530,12 @@ impl ::std::convert::From<&IDWriteFactory5> for IDWriteFactory4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory4> for IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory4> for &IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory5> for IDWriteFactory3 {
@@ -5330,12 +5550,12 @@ impl ::std::convert::From<&IDWriteFactory5> for IDWriteFactory3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory3> for IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory3> for &IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory5> for IDWriteFactory2 {
@@ -5350,12 +5570,12 @@ impl ::std::convert::From<&IDWriteFactory5> for IDWriteFactory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for &IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory5> for IDWriteFactory1 {
@@ -5370,12 +5590,12 @@ impl ::std::convert::From<&IDWriteFactory5> for IDWriteFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory5> for IDWriteFactory {
@@ -5390,12 +5610,12 @@ impl ::std::convert::From<&IDWriteFactory5> for IDWriteFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for &IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5471,8 +5691,8 @@ pub struct IDWriteFactory5_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFactory6(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFactory6(pub ::windows::runtime::IUnknown);
 impl IDWriteFactory6 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -5843,6 +6063,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFactory6 {
     type Vtable = IDWriteFactory6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4084485504, 8695, 17131, [179, 93, 153, 91, 199, 47, 194, 35]);
 }
+impl ::std::convert::From<IDWriteFactory6> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFactory6) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFactory6> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFactory6) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFactory6 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFactory6 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFactory6> for IDWriteFactory5 {
     fn from(value: IDWriteFactory6) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5855,12 +6095,12 @@ impl ::std::convert::From<&IDWriteFactory6> for IDWriteFactory5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory5> for IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory5> for &IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory6> for IDWriteFactory4 {
@@ -5875,12 +6115,12 @@ impl ::std::convert::From<&IDWriteFactory6> for IDWriteFactory4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory4> for IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory4> for &IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory6> for IDWriteFactory3 {
@@ -5895,12 +6135,12 @@ impl ::std::convert::From<&IDWriteFactory6> for IDWriteFactory3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory3> for IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory3> for &IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory6> for IDWriteFactory2 {
@@ -5915,12 +6155,12 @@ impl ::std::convert::From<&IDWriteFactory6> for IDWriteFactory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for &IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory6> for IDWriteFactory1 {
@@ -5935,12 +6175,12 @@ impl ::std::convert::From<&IDWriteFactory6> for IDWriteFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory6> for IDWriteFactory {
@@ -5955,12 +6195,12 @@ impl ::std::convert::From<&IDWriteFactory6> for IDWriteFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for &IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6046,8 +6286,8 @@ pub struct IDWriteFactory6_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFactory7(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFactory7(pub ::windows::runtime::IUnknown);
 impl IDWriteFactory7 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -6430,6 +6670,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFactory7 {
     type Vtable = IDWriteFactory7_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(902881459, 36982, 19758, [160, 22, 169, 27, 86, 138, 6, 180]);
 }
+impl ::std::convert::From<IDWriteFactory7> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFactory7) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFactory7> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFactory7) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFactory7 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFactory7 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFactory7> for IDWriteFactory6 {
     fn from(value: IDWriteFactory7) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6442,12 +6702,12 @@ impl ::std::convert::From<&IDWriteFactory7> for IDWriteFactory6 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory6> for IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory6> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory6>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory6> for &IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory6> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory6>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory7> for IDWriteFactory5 {
@@ -6462,12 +6722,12 @@ impl ::std::convert::From<&IDWriteFactory7> for IDWriteFactory5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory5> for IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory5> for &IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory7> for IDWriteFactory4 {
@@ -6482,12 +6742,12 @@ impl ::std::convert::From<&IDWriteFactory7> for IDWriteFactory4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory4> for IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory4> for &IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory7> for IDWriteFactory3 {
@@ -6502,12 +6762,12 @@ impl ::std::convert::From<&IDWriteFactory7> for IDWriteFactory3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory3> for IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory3> for &IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory7> for IDWriteFactory2 {
@@ -6522,12 +6782,12 @@ impl ::std::convert::From<&IDWriteFactory7> for IDWriteFactory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for &IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory7> for IDWriteFactory1 {
@@ -6542,12 +6802,12 @@ impl ::std::convert::From<&IDWriteFactory7> for IDWriteFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory7> for IDWriteFactory {
@@ -6562,12 +6822,12 @@ impl ::std::convert::From<&IDWriteFactory7> for IDWriteFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for &IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6657,8 +6917,8 @@ pub struct IDWriteFactory7_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFont(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFont(pub ::windows::runtime::IUnknown);
 impl IDWriteFont {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontFamily(&self) -> ::windows::runtime::Result<IDWriteFontFamily> {
@@ -6716,6 +6976,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFont {
     type Vtable = IDWriteFont_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2899404438, 35860, 20317, [135, 126, 254, 63, 193, 211, 39, 55]);
 }
+impl ::std::convert::From<IDWriteFont> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFont) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFont> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFont) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFont {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFont {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFont_abi(
@@ -6739,8 +7019,8 @@ pub struct IDWriteFont_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFont1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFont1(pub ::windows::runtime::IUnknown);
 impl IDWriteFont1 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontFamily(&self) -> ::windows::runtime::Result<IDWriteFontFamily> {
@@ -6816,6 +7096,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFont1 {
     type Vtable = IDWriteFont1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2899404438, 35860, 20317, [135, 126, 254, 63, 193, 211, 39, 56]);
 }
+impl ::std::convert::From<IDWriteFont1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFont1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFont1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFont1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFont1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFont1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFont1> for IDWriteFont {
     fn from(value: IDWriteFont1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6828,12 +7128,12 @@ impl ::std::convert::From<&IDWriteFont1> for IDWriteFont {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont> for IDWriteFont1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont> for &IDWriteFont1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6865,8 +7165,8 @@ pub struct IDWriteFont1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFont2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFont2(pub ::windows::runtime::IUnknown);
 impl IDWriteFont2 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontFamily(&self) -> ::windows::runtime::Result<IDWriteFontFamily> {
@@ -6947,6 +7247,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFont2 {
     type Vtable = IDWriteFont2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(695504598, 35996, 19050, [190, 11, 217, 18, 232, 83, 137, 68]);
 }
+impl ::std::convert::From<IDWriteFont2> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFont2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFont2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFont2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFont2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFont2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFont2> for IDWriteFont1 {
     fn from(value: IDWriteFont2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6959,12 +7279,12 @@ impl ::std::convert::From<&IDWriteFont2> for IDWriteFont1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont1> for IDWriteFont2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont1> for &IDWriteFont2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFont2> for IDWriteFont {
@@ -6979,12 +7299,12 @@ impl ::std::convert::From<&IDWriteFont2> for IDWriteFont {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont> for IDWriteFont2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont> for &IDWriteFont2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7018,8 +7338,8 @@ pub struct IDWriteFont2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFont3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFont3(pub ::windows::runtime::IUnknown);
 impl IDWriteFont3 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontFamily(&self) -> ::windows::runtime::Result<IDWriteFontFamily> {
@@ -7124,6 +7444,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFont3 {
     type Vtable = IDWriteFont3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(695504598, 35996, 19050, [190, 11, 217, 18, 232, 83, 137, 68]);
 }
+impl ::std::convert::From<IDWriteFont3> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFont3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFont3> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFont3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFont3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFont3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFont3> for IDWriteFont2 {
     fn from(value: IDWriteFont3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7136,12 +7476,12 @@ impl ::std::convert::From<&IDWriteFont3> for IDWriteFont2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont2> for IDWriteFont3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont2> for &IDWriteFont3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFont3> for IDWriteFont1 {
@@ -7156,12 +7496,12 @@ impl ::std::convert::From<&IDWriteFont3> for IDWriteFont1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont1> for IDWriteFont3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont1> for &IDWriteFont3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFont3> for IDWriteFont {
@@ -7176,12 +7516,12 @@ impl ::std::convert::From<&IDWriteFont3> for IDWriteFont {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont> for IDWriteFont3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont> for &IDWriteFont3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7222,8 +7562,8 @@ pub struct IDWriteFont3_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontCollection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontCollection(pub ::windows::runtime::IUnknown);
 impl IDWriteFontCollection {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontFamilyCount(&self) -> u32 {
@@ -7249,6 +7589,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontCollection {
     type Vtable = IDWriteFontCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2823613954, 16106, 20206, [168, 39, 135, 193, 160, 42, 15, 204]);
 }
+impl ::std::convert::From<IDWriteFontCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontCollection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontCollection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontCollection_abi(
@@ -7263,8 +7623,8 @@ pub struct IDWriteFontCollection_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontCollection1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontCollection1(pub ::windows::runtime::IUnknown);
 impl IDWriteFontCollection1 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontFamilyCount(&self) -> u32 {
@@ -7300,6 +7660,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontCollection1 {
     type Vtable = IDWriteFontCollection1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1398296897, 55800, 16533, [131, 33, 215, 60, 246, 189, 17, 108]);
 }
+impl ::std::convert::From<IDWriteFontCollection1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontCollection1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontCollection1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontCollection1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontCollection1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontCollection1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontCollection1> for IDWriteFontCollection {
     fn from(value: IDWriteFontCollection1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7312,12 +7692,12 @@ impl ::std::convert::From<&IDWriteFontCollection1> for IDWriteFontCollection {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection> for IDWriteFontCollection1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection> for &IDWriteFontCollection1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7336,8 +7716,8 @@ pub struct IDWriteFontCollection1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontCollection2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontCollection2(pub ::windows::runtime::IUnknown);
 impl IDWriteFontCollection2 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontFamilyCount(&self) -> u32 {
@@ -7393,6 +7773,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontCollection2 {
     type Vtable = IDWriteFontCollection2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1363163590, 17943, 16484, [191, 139, 146, 234, 131, 229, 6, 224]);
 }
+impl ::std::convert::From<IDWriteFontCollection2> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontCollection2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontCollection2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontCollection2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontCollection2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontCollection2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontCollection2> for IDWriteFontCollection1 {
     fn from(value: IDWriteFontCollection2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7405,12 +7805,12 @@ impl ::std::convert::From<&IDWriteFontCollection2> for IDWriteFontCollection1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection1> for IDWriteFontCollection2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection1> for &IDWriteFontCollection2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontCollection2> for IDWriteFontCollection {
@@ -7425,12 +7825,12 @@ impl ::std::convert::From<&IDWriteFontCollection2> for IDWriteFontCollection {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection> for IDWriteFontCollection2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection> for &IDWriteFontCollection2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7454,8 +7854,8 @@ pub struct IDWriteFontCollection2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontCollection3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontCollection3(pub ::windows::runtime::IUnknown);
 impl IDWriteFontCollection3 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontFamilyCount(&self) -> u32 {
@@ -7516,6 +7916,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontCollection3 {
     type Vtable = IDWriteFontCollection3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2765116838, 63971, 20005, [147, 183, 158, 48, 159, 58, 248, 233]);
 }
+impl ::std::convert::From<IDWriteFontCollection3> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontCollection3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontCollection3> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontCollection3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontCollection3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontCollection3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontCollection3> for IDWriteFontCollection2 {
     fn from(value: IDWriteFontCollection3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7528,12 +7948,12 @@ impl ::std::convert::From<&IDWriteFontCollection3> for IDWriteFontCollection2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection2> for IDWriteFontCollection3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection2> for &IDWriteFontCollection3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontCollection3> for IDWriteFontCollection1 {
@@ -7548,12 +7968,12 @@ impl ::std::convert::From<&IDWriteFontCollection3> for IDWriteFontCollection1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection1> for IDWriteFontCollection3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection1> for &IDWriteFontCollection3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontCollection3> for IDWriteFontCollection {
@@ -7568,12 +7988,12 @@ impl ::std::convert::From<&IDWriteFontCollection3> for IDWriteFontCollection {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection> for IDWriteFontCollection3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection> for &IDWriteFontCollection3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7599,8 +8019,8 @@ pub struct IDWriteFontCollection3_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontCollectionLoader(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontCollectionLoader(pub ::windows::runtime::IUnknown);
 impl IDWriteFontCollectionLoader {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateEnumeratorFromKey<'a, Param0: ::windows::runtime::IntoParam<'a, IDWriteFactory>>(&self, factory: Param0, collectionkey: *const ::std::ffi::c_void, collectionkeysize: u32) -> ::windows::runtime::Result<IDWriteFontFileEnumerator> {
@@ -7612,6 +8032,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontCollectionLoader {
     type Vtable = IDWriteFontCollectionLoader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3433636068, 21232, 18731, [191, 168, 41, 199, 46, 224, 164, 104]);
 }
+impl ::std::convert::From<IDWriteFontCollectionLoader> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontCollectionLoader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontCollectionLoader> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontCollectionLoader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontCollectionLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontCollectionLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontCollectionLoader_abi(
@@ -7622,8 +8062,8 @@ pub struct IDWriteFontCollectionLoader_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontDownloadListener(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontDownloadListener(pub ::windows::runtime::IUnknown);
 impl IDWriteFontDownloadListener {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn DownloadCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, IDWriteFontDownloadQueue>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, downloadqueue: Param0, context: Param1, downloadresult: ::windows::runtime::HRESULT) {
@@ -7633,6 +8073,26 @@ impl IDWriteFontDownloadListener {
 unsafe impl ::windows::runtime::Interface for IDWriteFontDownloadListener {
     type Vtable = IDWriteFontDownloadListener_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2960123321, 17388, 17299, [136, 27, 219, 228, 220, 114, 253, 167]);
+}
+impl ::std::convert::From<IDWriteFontDownloadListener> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontDownloadListener) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontDownloadListener> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontDownloadListener) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontDownloadListener {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontDownloadListener {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7644,8 +8104,8 @@ pub struct IDWriteFontDownloadListener_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontDownloadQueue(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontDownloadQueue(pub ::windows::runtime::IUnknown);
 impl IDWriteFontDownloadQueue {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn AddListener<'a, Param0: ::windows::runtime::IntoParam<'a, IDWriteFontDownloadListener>>(&self, listener: Param0) -> ::windows::runtime::Result<u32> {
@@ -7678,6 +8138,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontDownloadQueue {
     type Vtable = IDWriteFontDownloadQueue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3072221266, 23274, 20387, [131, 46, 246, 13, 67, 31, 126, 145]);
 }
+impl ::std::convert::From<IDWriteFontDownloadQueue> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontDownloadQueue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontDownloadQueue> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontDownloadQueue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontDownloadQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontDownloadQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontDownloadQueue_abi(
@@ -7694,8 +8174,8 @@ pub struct IDWriteFontDownloadQueue_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFace(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFace(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFace {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -7801,6 +8281,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFace {
     type Vtable = IDWriteFontFace_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1598652493, 28708, 19779, [191, 169, 210, 89, 132, 245, 56, 73]);
 }
+impl ::std::convert::From<IDWriteFontFace> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFace) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFace> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFace) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFace {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFace {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFace_abi(
@@ -7830,8 +8330,8 @@ pub struct IDWriteFontFace_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFace1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFace1(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFace1 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -8006,6 +8506,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFace1 {
     type Vtable = IDWriteFontFace1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2803826100, 40923, 18488, [173, 144, 207, 195, 190, 140, 61, 175]);
 }
+impl ::std::convert::From<IDWriteFontFace1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFace1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFace1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFace1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFace1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFace1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontFace1> for IDWriteFontFace {
     fn from(value: IDWriteFontFace1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8018,12 +8538,12 @@ impl ::std::convert::From<&IDWriteFontFace1> for IDWriteFontFace {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8075,8 +8595,8 @@ pub struct IDWriteFontFace1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFace2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFace2(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFace2 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -8298,6 +8818,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFace2 {
     type Vtable = IDWriteFontFace2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3635898623, 25788, 20070, [152, 43, 236, 142, 135, 246, 147, 247]);
 }
+impl ::std::convert::From<IDWriteFontFace2> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFace2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFace2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFace2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFace2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFace2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontFace2> for IDWriteFontFace1 {
     fn from(value: IDWriteFontFace2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8310,12 +8850,12 @@ impl ::std::convert::From<&IDWriteFontFace2> for IDWriteFontFace1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for IDWriteFontFace2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for &IDWriteFontFace2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace2> for IDWriteFontFace {
@@ -8330,12 +8870,12 @@ impl ::std::convert::From<&IDWriteFontFace2> for IDWriteFontFace {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8394,8 +8934,8 @@ pub struct IDWriteFontFace2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFace3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFace3(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFace3 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -8710,6 +9250,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFace3 {
     type Vtable = IDWriteFontFace3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3548214680, 2494, 16930, [162, 54, 32, 129, 52, 28, 193, 242]);
 }
+impl ::std::convert::From<IDWriteFontFace3> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFace3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFace3> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFace3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFace3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFace3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontFace3> for IDWriteFontFace2 {
     fn from(value: IDWriteFontFace3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8722,12 +9282,12 @@ impl ::std::convert::From<&IDWriteFontFace3> for IDWriteFontFace2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace2> for IDWriteFontFace3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace2> for &IDWriteFontFace3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace3> for IDWriteFontFace1 {
@@ -8742,12 +9302,12 @@ impl ::std::convert::From<&IDWriteFontFace3> for IDWriteFontFace1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for IDWriteFontFace3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for &IDWriteFontFace3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace3> for IDWriteFontFace {
@@ -8762,12 +9322,12 @@ impl ::std::convert::From<&IDWriteFontFace3> for IDWriteFontFace {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8847,8 +9407,8 @@ pub struct IDWriteFontFace3_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFace4(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFace4(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFace4 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -9181,6 +9741,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFace4 {
     type Vtable = IDWriteFontFace4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(670214404, 20152, 17437, [150, 120, 5, 99, 245, 62, 62, 47]);
 }
+impl ::std::convert::From<IDWriteFontFace4> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFace4) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFace4> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFace4) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFace4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFace4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontFace4> for IDWriteFontFace3 {
     fn from(value: IDWriteFontFace4) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9193,12 +9773,12 @@ impl ::std::convert::From<&IDWriteFontFace4> for IDWriteFontFace3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace3> for IDWriteFontFace4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace3> for &IDWriteFontFace4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace4> for IDWriteFontFace2 {
@@ -9213,12 +9793,12 @@ impl ::std::convert::From<&IDWriteFontFace4> for IDWriteFontFace2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace2> for IDWriteFontFace4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace2> for &IDWriteFontFace4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace4> for IDWriteFontFace1 {
@@ -9233,12 +9813,12 @@ impl ::std::convert::From<&IDWriteFontFace4> for IDWriteFontFace1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for IDWriteFontFace4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for &IDWriteFontFace4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace4> for IDWriteFontFace {
@@ -9253,12 +9833,12 @@ impl ::std::convert::From<&IDWriteFontFace4> for IDWriteFontFace {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9343,8 +9923,8 @@ pub struct IDWriteFontFace4_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFace5(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFace5(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFace5 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -9700,6 +10280,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFace5 {
     type Vtable = IDWriteFontFace5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2565862309, 46695, 18330, [177, 69, 226, 250, 91, 159, 220, 41]);
 }
+impl ::std::convert::From<IDWriteFontFace5> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFace5) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFace5> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFace5) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFace5 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFace5 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontFace5> for IDWriteFontFace4 {
     fn from(value: IDWriteFontFace5) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9712,12 +10312,12 @@ impl ::std::convert::From<&IDWriteFontFace5> for IDWriteFontFace4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace4> for IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace4> for &IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace5> for IDWriteFontFace3 {
@@ -9732,12 +10332,12 @@ impl ::std::convert::From<&IDWriteFontFace5> for IDWriteFontFace3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace3> for IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace3> for &IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace5> for IDWriteFontFace2 {
@@ -9752,12 +10352,12 @@ impl ::std::convert::From<&IDWriteFontFace5> for IDWriteFontFace2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace2> for IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace2> for &IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace5> for IDWriteFontFace1 {
@@ -9772,12 +10372,12 @@ impl ::std::convert::From<&IDWriteFontFace5> for IDWriteFontFace1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for &IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace5> for IDWriteFontFace {
@@ -9792,12 +10392,12 @@ impl ::std::convert::From<&IDWriteFontFace5> for IDWriteFontFace {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9889,8 +10489,8 @@ pub struct IDWriteFontFace5_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFace6(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFace6(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFace6 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -10256,6 +10856,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFace6 {
     type Vtable = IDWriteFontFace6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3299999259, 28292, 18389, [181, 76, 165, 151, 152, 27, 6, 173]);
 }
+impl ::std::convert::From<IDWriteFontFace6> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFace6) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFace6> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFace6) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFace6 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFace6 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontFace6> for IDWriteFontFace5 {
     fn from(value: IDWriteFontFace6) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10268,12 +10888,12 @@ impl ::std::convert::From<&IDWriteFontFace6> for IDWriteFontFace5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace5> for IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace5> for &IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace6> for IDWriteFontFace4 {
@@ -10288,12 +10908,12 @@ impl ::std::convert::From<&IDWriteFontFace6> for IDWriteFontFace4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace4> for IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace4> for &IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace6> for IDWriteFontFace3 {
@@ -10308,12 +10928,12 @@ impl ::std::convert::From<&IDWriteFontFace6> for IDWriteFontFace3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace3> for IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace3> for &IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace6> for IDWriteFontFace2 {
@@ -10328,12 +10948,12 @@ impl ::std::convert::From<&IDWriteFontFace6> for IDWriteFontFace2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace2> for IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace2> for &IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace6> for IDWriteFontFace1 {
@@ -10348,12 +10968,12 @@ impl ::std::convert::From<&IDWriteFontFace6> for IDWriteFontFace1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for &IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace6> for IDWriteFontFace {
@@ -10368,12 +10988,12 @@ impl ::std::convert::From<&IDWriteFontFace6> for IDWriteFontFace {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10467,8 +11087,8 @@ pub struct IDWriteFontFace6_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFaceReference(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFaceReference(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFaceReference {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateFontFace(&self) -> ::windows::runtime::Result<IDWriteFontFace3> {
@@ -10538,6 +11158,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFaceReference {
     type Vtable = IDWriteFontFaceReference_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1585424330, 56803, 16972, [137, 240, 159, 205, 111, 237, 88, 205]);
 }
+impl ::std::convert::From<IDWriteFontFaceReference> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFaceReference) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFaceReference> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFaceReference) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFaceReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFaceReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFaceReference_abi(
@@ -10564,8 +11204,8 @@ pub struct IDWriteFontFaceReference_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFaceReference1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFaceReference1(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFaceReference1 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateFontFace(&self) -> ::windows::runtime::Result<IDWriteFontFace3> {
@@ -10648,6 +11288,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFaceReference1 {
     type Vtable = IDWriteFontFaceReference1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3229744759, 12241, 16812, [165, 163, 52, 152, 60, 75, 166, 26]);
 }
+impl ::std::convert::From<IDWriteFontFaceReference1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFaceReference1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFaceReference1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFaceReference1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFaceReference1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFaceReference1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontFaceReference1> for IDWriteFontFaceReference {
     fn from(value: IDWriteFontFaceReference1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10660,12 +11320,12 @@ impl ::std::convert::From<&IDWriteFontFaceReference1> for IDWriteFontFaceReferen
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFaceReference> for IDWriteFontFaceReference1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFaceReference> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFaceReference>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFaceReference> for &IDWriteFontFaceReference1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFaceReference> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFaceReference>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10697,8 +11357,8 @@ pub struct IDWriteFontFaceReference1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFallback(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -10737,6 +11397,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFallback {
     type Vtable = IDWriteFontFallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020242681, 63393, 18623, [176, 92, 242, 36, 113, 60, 192, 255]);
 }
+impl ::std::convert::From<IDWriteFontFallback> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFallback_abi(
@@ -10748,8 +11428,8 @@ pub struct IDWriteFontFallback_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFallback1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFallback1(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFallback1 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -10818,6 +11498,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFallback1 {
     type Vtable = IDWriteFontFallback1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(597121437, 56589, 18049, [189, 106, 244, 243, 30, 170, 222, 119]);
 }
+impl ::std::convert::From<IDWriteFontFallback1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFallback1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFallback1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFallback1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFallback1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFallback1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontFallback1> for IDWriteFontFallback {
     fn from(value: IDWriteFontFallback1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10830,12 +11530,12 @@ impl ::std::convert::From<&IDWriteFontFallback1> for IDWriteFontFallback {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFallback> for IDWriteFontFallback1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFallback> for &IDWriteFontFallback1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10851,8 +11551,8 @@ pub struct IDWriteFontFallback1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFallbackBuilder(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFallbackBuilder(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFallbackBuilder {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -10884,6 +11584,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFallbackBuilder {
     type Vtable = IDWriteFontFallbackBuilder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4253560070, 35514, 20408, [184, 73, 139, 232, 183, 62, 20, 222]);
 }
+impl ::std::convert::From<IDWriteFontFallbackBuilder> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFallbackBuilder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFallbackBuilder> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFallbackBuilder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFallbackBuilder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFallbackBuilder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFallbackBuilder_abi(
@@ -10897,8 +11617,8 @@ pub struct IDWriteFontFallbackBuilder_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFamily(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFamily(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFamily {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontCollection(&self) -> ::windows::runtime::Result<IDWriteFontCollection> {
@@ -10934,6 +11654,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFamily {
     type Vtable = IDWriteFontFamily_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659585775, 33066, 19523, [152, 2, 98, 236, 74, 189, 122, 221]);
 }
+impl ::std::convert::From<IDWriteFontFamily> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFamily) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFamily> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFamily) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFamily {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFamily {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontFamily> for IDWriteFontList {
     fn from(value: IDWriteFontFamily) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10946,12 +11686,12 @@ impl ::std::convert::From<&IDWriteFontFamily> for IDWriteFontList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for IDWriteFontFamily {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for &IDWriteFontFamily {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10969,8 +11709,8 @@ pub struct IDWriteFontFamily_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFamily1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFamily1(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFamily1 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontCollection(&self) -> ::windows::runtime::Result<IDWriteFontCollection> {
@@ -11020,6 +11760,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFamily1 {
     type Vtable = IDWriteFontFamily1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659585775, 33066, 19523, [152, 2, 98, 236, 74, 189, 122, 223]);
 }
+impl ::std::convert::From<IDWriteFontFamily1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFamily1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFamily1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFamily1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFamily1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFamily1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontFamily1> for IDWriteFontFamily {
     fn from(value: IDWriteFontFamily1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11032,12 +11792,12 @@ impl ::std::convert::From<&IDWriteFontFamily1> for IDWriteFontFamily {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFamily> for IDWriteFontFamily1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFamily> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFamily>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFamily> for &IDWriteFontFamily1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFamily> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFamily>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFamily1> for IDWriteFontList {
@@ -11052,12 +11812,12 @@ impl ::std::convert::From<&IDWriteFontFamily1> for IDWriteFontList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for IDWriteFontFamily1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for &IDWriteFontFamily1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11078,8 +11838,8 @@ pub struct IDWriteFontFamily1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFamily2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFamily2(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFamily2 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontCollection(&self) -> ::windows::runtime::Result<IDWriteFontCollection> {
@@ -11139,6 +11899,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFamily2 {
     type Vtable = IDWriteFontFamily2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1054121591, 41880, 16993, [185, 207, 193, 38, 194, 19, 30, 243]);
 }
+impl ::std::convert::From<IDWriteFontFamily2> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFamily2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFamily2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFamily2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFamily2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFamily2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontFamily2> for IDWriteFontFamily1 {
     fn from(value: IDWriteFontFamily2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11151,12 +11931,12 @@ impl ::std::convert::From<&IDWriteFontFamily2> for IDWriteFontFamily1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFamily1> for IDWriteFontFamily2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFamily1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFamily1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFamily1> for &IDWriteFontFamily2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFamily1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFamily1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFamily2> for IDWriteFontFamily {
@@ -11171,12 +11951,12 @@ impl ::std::convert::From<&IDWriteFontFamily2> for IDWriteFontFamily {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFamily> for IDWriteFontFamily2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFamily> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFamily>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFamily> for &IDWriteFontFamily2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFamily> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFamily>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFamily2> for IDWriteFontList {
@@ -11191,12 +11971,12 @@ impl ::std::convert::From<&IDWriteFontFamily2> for IDWriteFontList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for IDWriteFontFamily2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for &IDWriteFontFamily2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11219,8 +11999,8 @@ pub struct IDWriteFontFamily2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFile(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFile(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFile {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetReferenceKey(&self, fontfilereferencekey: *mut *mut ::std::ffi::c_void, fontfilereferencekeysize: *mut u32) -> ::windows::runtime::Result<()> {
@@ -11241,6 +12021,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFile {
     type Vtable = IDWriteFontFile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1939703914, 52981, 18396, [135, 105, 26, 139, 65, 190, 187, 176]);
 }
+impl ::std::convert::From<IDWriteFontFile> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFile) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFile> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFile) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFile_abi(
@@ -11254,8 +12054,8 @@ pub struct IDWriteFontFile_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFileEnumerator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFileEnumerator(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFileEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -11273,6 +12073,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFileEnumerator {
     type Vtable = IDWriteFontFileEnumerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920290889, 24567, 17245, [131, 72, 75, 233, 124, 250, 108, 124]);
 }
+impl ::std::convert::From<IDWriteFontFileEnumerator> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFileEnumerator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFileEnumerator> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFileEnumerator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFileEnumerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFileEnumerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFileEnumerator_abi(
@@ -11285,8 +12105,8 @@ pub struct IDWriteFontFileEnumerator_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFileLoader(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFileLoader(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFileLoader {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: *const ::std::ffi::c_void, fontfilereferencekeysize: u32) -> ::windows::runtime::Result<IDWriteFontFileStream> {
@@ -11298,6 +12118,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFileLoader {
     type Vtable = IDWriteFontFileLoader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920773454, 54959, 19614, [138, 8, 214, 149, 177, 28, 170, 73]);
 }
+impl ::std::convert::From<IDWriteFontFileLoader> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFileLoader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFileLoader> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFileLoader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFileLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFileLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFileLoader_abi(
@@ -11308,8 +12148,8 @@ pub struct IDWriteFontFileLoader_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontFileStream(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontFileStream(pub ::windows::runtime::IUnknown);
 impl IDWriteFontFileStream {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn ReadFileFragment(&self, fragmentstart: *mut *mut ::std::ffi::c_void, fileoffset: u64, fragmentsize: u64, fragmentcontext: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -11334,6 +12174,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontFileStream {
     type Vtable = IDWriteFontFileStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1833461246, 2744, 19857, [143, 98, 93, 214, 190, 52, 163, 224]);
 }
+impl ::std::convert::From<IDWriteFontFileStream> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontFileStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontFileStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontFileStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontFileStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontFileStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFileStream_abi(
@@ -11347,8 +12207,8 @@ pub struct IDWriteFontFileStream_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontList(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontList(pub ::windows::runtime::IUnknown);
 impl IDWriteFontList {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontCollection(&self) -> ::windows::runtime::Result<IDWriteFontCollection> {
@@ -11369,6 +12229,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontList {
     type Vtable = IDWriteFontList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(437093432, 7575, 20161, [174, 249, 162, 251, 134, 237, 106, 203]);
 }
+impl ::std::convert::From<IDWriteFontList> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontList) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontList> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontList) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontList_abi(
@@ -11381,8 +12261,8 @@ pub struct IDWriteFontList_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontList1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontList1(pub ::windows::runtime::IUnknown);
 impl IDWriteFontList1 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontCollection(&self) -> ::windows::runtime::Result<IDWriteFontCollection> {
@@ -11417,6 +12297,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontList1 {
     type Vtable = IDWriteFontList1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659585775, 33066, 19523, [152, 2, 98, 236, 74, 189, 122, 222]);
 }
+impl ::std::convert::From<IDWriteFontList1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontList1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontList1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontList1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontList1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontList1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontList1> for IDWriteFontList {
     fn from(value: IDWriteFontList1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11429,12 +12329,12 @@ impl ::std::convert::From<&IDWriteFontList1> for IDWriteFontList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for IDWriteFontList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for &IDWriteFontList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11452,8 +12352,8 @@ pub struct IDWriteFontList1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontList2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontList2(pub ::windows::runtime::IUnknown);
 impl IDWriteFontList2 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontCollection(&self) -> ::windows::runtime::Result<IDWriteFontCollection> {
@@ -11493,6 +12393,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontList2 {
     type Vtable = IDWriteFontList2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3228973620, 30639, 17498, [183, 53, 8, 195, 123, 10, 91, 245]);
 }
+impl ::std::convert::From<IDWriteFontList2> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontList2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontList2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontList2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontList2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontList2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontList2> for IDWriteFontList1 {
     fn from(value: IDWriteFontList2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11505,12 +12425,12 @@ impl ::std::convert::From<&IDWriteFontList2> for IDWriteFontList1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList1> for IDWriteFontList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList1> for &IDWriteFontList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontList2> for IDWriteFontList {
@@ -11525,12 +12445,12 @@ impl ::std::convert::From<&IDWriteFontList2> for IDWriteFontList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for IDWriteFontList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for &IDWriteFontList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11549,8 +12469,8 @@ pub struct IDWriteFontList2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontResource(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontResource(pub ::windows::runtime::IUnknown);
 impl IDWriteFontResource {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontFile(&self) -> ::windows::runtime::Result<IDWriteFontFile> {
@@ -11610,6 +12530,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontResource {
     type Vtable = IDWriteFontResource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(528497270, 26737, 18664, [152, 127, 185, 117, 85, 28, 80, 242]);
 }
+impl ::std::convert::From<IDWriteFontResource> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontResource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontResource> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontResource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontResource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontResource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontResource_abi(
@@ -11632,8 +12572,8 @@ pub struct IDWriteFontResource_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontSet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontSet(pub ::windows::runtime::IUnknown);
 impl IDWriteFontSet {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontCount(&self) -> u32 {
@@ -11693,6 +12633,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontSet {
     type Vtable = IDWriteFontSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1398296897, 55800, 16533, [131, 33, 215, 60, 246, 189, 17, 107]);
 }
+impl ::std::convert::From<IDWriteFontSet> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontSet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontSet> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontSet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontSet_abi(
@@ -11719,8 +12679,8 @@ pub struct IDWriteFontSet_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontSet1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontSet1(pub ::windows::runtime::IUnknown);
 impl IDWriteFontSet1 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontCount(&self) -> u32 {
@@ -11845,6 +12805,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontSet1 {
     type Vtable = IDWriteFontSet1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2124405381, 27794, 16467, [188, 71, 122, 227, 83, 13, 180, 211]);
 }
+impl ::std::convert::From<IDWriteFontSet1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontSet1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontSet1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontSet1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontSet1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontSet1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontSet1> for IDWriteFontSet {
     fn from(value: IDWriteFontSet1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11857,12 +12837,12 @@ impl ::std::convert::From<&IDWriteFontSet1> for IDWriteFontSet {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet> for IDWriteFontSet1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet> for &IDWriteFontSet1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11909,8 +12889,8 @@ pub struct IDWriteFontSet1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontSet2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontSet2(pub ::windows::runtime::IUnknown);
 impl IDWriteFontSet2 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontCount(&self) -> u32 {
@@ -12040,6 +13020,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontSet2 {
     type Vtable = IDWriteFontSet2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3699289369, 58700, 17327, [178, 218, 78, 43, 121, 186, 63, 127]);
 }
+impl ::std::convert::From<IDWriteFontSet2> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontSet2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontSet2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontSet2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontSet2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontSet2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontSet2> for IDWriteFontSet1 {
     fn from(value: IDWriteFontSet2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12052,12 +13052,12 @@ impl ::std::convert::From<&IDWriteFontSet2> for IDWriteFontSet1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet1> for IDWriteFontSet2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet1> for &IDWriteFontSet2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontSet2> for IDWriteFontSet {
@@ -12072,12 +13072,12 @@ impl ::std::convert::From<&IDWriteFontSet2> for IDWriteFontSet {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet> for IDWriteFontSet2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet> for &IDWriteFontSet2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12126,8 +13126,8 @@ pub struct IDWriteFontSet2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontSet3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontSet3(pub ::windows::runtime::IUnknown);
 impl IDWriteFontSet3 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetFontCount(&self) -> u32 {
@@ -12270,6 +13270,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontSet3 {
     type Vtable = IDWriteFontSet3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2080849650, 42996, 16453, [140, 50, 138, 184, 174, 100, 15, 144]);
 }
+impl ::std::convert::From<IDWriteFontSet3> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontSet3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontSet3> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontSet3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontSet3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontSet3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontSet3> for IDWriteFontSet2 {
     fn from(value: IDWriteFontSet3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12282,12 +13302,12 @@ impl ::std::convert::From<&IDWriteFontSet3> for IDWriteFontSet2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet2> for IDWriteFontSet3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet2> for &IDWriteFontSet3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontSet3> for IDWriteFontSet1 {
@@ -12302,12 +13322,12 @@ impl ::std::convert::From<&IDWriteFontSet3> for IDWriteFontSet1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet1> for IDWriteFontSet3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet1> for &IDWriteFontSet3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontSet3> for IDWriteFontSet {
@@ -12322,12 +13342,12 @@ impl ::std::convert::From<&IDWriteFontSet3> for IDWriteFontSet {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet> for IDWriteFontSet3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet> for &IDWriteFontSet3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12380,8 +13400,8 @@ pub struct IDWriteFontSet3_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontSetBuilder(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontSetBuilder(pub ::windows::runtime::IUnknown);
 impl IDWriteFontSetBuilder {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -12406,6 +13426,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontSetBuilder {
     type Vtable = IDWriteFontSetBuilder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(795093758, 40040, 20288, [184, 190, 69, 116, 1, 175, 203, 61]);
 }
+impl ::std::convert::From<IDWriteFontSetBuilder> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontSetBuilder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontSetBuilder> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontSetBuilder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontSetBuilder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontSetBuilder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontSetBuilder_abi(
@@ -12420,8 +13460,8 @@ pub struct IDWriteFontSetBuilder_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontSetBuilder1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontSetBuilder1(pub ::windows::runtime::IUnknown);
 impl IDWriteFontSetBuilder1 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -12450,6 +13490,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontSetBuilder1 {
     type Vtable = IDWriteFontSetBuilder1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1073181023, 15580, 19910, [155, 114, 236, 86, 33, 220, 202, 253]);
 }
+impl ::std::convert::From<IDWriteFontSetBuilder1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontSetBuilder1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontSetBuilder1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontSetBuilder1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontSetBuilder1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontSetBuilder1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontSetBuilder1> for IDWriteFontSetBuilder {
     fn from(value: IDWriteFontSetBuilder1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12462,12 +13522,12 @@ impl ::std::convert::From<&IDWriteFontSetBuilder1> for IDWriteFontSetBuilder {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSetBuilder> for IDWriteFontSetBuilder1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSetBuilder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSetBuilder>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSetBuilder> for &IDWriteFontSetBuilder1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSetBuilder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSetBuilder>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12485,8 +13545,8 @@ pub struct IDWriteFontSetBuilder1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteFontSetBuilder2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteFontSetBuilder2(pub ::windows::runtime::IUnknown);
 impl IDWriteFontSetBuilder2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -12537,6 +13597,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteFontSetBuilder2 {
     type Vtable = IDWriteFontSetBuilder2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3998983698, 45361, 17980, [143, 79, 49, 137, 185, 64, 30, 69]);
 }
+impl ::std::convert::From<IDWriteFontSetBuilder2> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteFontSetBuilder2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteFontSetBuilder2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteFontSetBuilder2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteFontSetBuilder2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteFontSetBuilder2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteFontSetBuilder2> for IDWriteFontSetBuilder1 {
     fn from(value: IDWriteFontSetBuilder2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12549,12 +13629,12 @@ impl ::std::convert::From<&IDWriteFontSetBuilder2> for IDWriteFontSetBuilder1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSetBuilder1> for IDWriteFontSetBuilder2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSetBuilder1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSetBuilder1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSetBuilder1> for &IDWriteFontSetBuilder2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSetBuilder1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSetBuilder1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontSetBuilder2> for IDWriteFontSetBuilder {
@@ -12569,12 +13649,12 @@ impl ::std::convert::From<&IDWriteFontSetBuilder2> for IDWriteFontSetBuilder {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSetBuilder> for IDWriteFontSetBuilder2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSetBuilder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSetBuilder>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSetBuilder> for &IDWriteFontSetBuilder2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSetBuilder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSetBuilder>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12596,8 +13676,8 @@ pub struct IDWriteFontSetBuilder2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteGdiInterop(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteGdiInterop(pub ::windows::runtime::IUnknown);
 impl IDWriteGdiInterop {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Graphics_Gdi`*"]
@@ -12633,6 +13713,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteGdiInterop {
     type Vtable = IDWriteGdiInterop_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(517837969, 38995, 17049, [137, 143, 100, 50, 152, 59, 111, 58]);
 }
+impl ::std::convert::From<IDWriteGdiInterop> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteGdiInterop) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteGdiInterop> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteGdiInterop) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteGdiInterop {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteGdiInterop {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteGdiInterop_abi(
@@ -12652,8 +13752,8 @@ pub struct IDWriteGdiInterop_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteGdiInterop1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteGdiInterop1(pub ::windows::runtime::IUnknown);
 impl IDWriteGdiInterop1 {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Graphics_Gdi`*"]
@@ -12713,6 +13813,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteGdiInterop1 {
     type Vtable = IDWriteGdiInterop1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1163312752, 15037, 20336, [144, 190, 66, 23, 128, 166, 245, 21]);
 }
+impl ::std::convert::From<IDWriteGdiInterop1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteGdiInterop1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteGdiInterop1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteGdiInterop1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteGdiInterop1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteGdiInterop1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteGdiInterop1> for IDWriteGdiInterop {
     fn from(value: IDWriteGdiInterop1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12725,12 +13845,12 @@ impl ::std::convert::From<&IDWriteGdiInterop1> for IDWriteGdiInterop {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteGdiInterop> for IDWriteGdiInterop1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteGdiInterop> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteGdiInterop>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteGdiInterop> for &IDWriteGdiInterop1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteGdiInterop> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteGdiInterop>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12760,8 +13880,8 @@ pub struct IDWriteGdiInterop1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteGlyphRunAnalysis(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteGlyphRunAnalysis(pub ::windows::runtime::IUnknown);
 impl IDWriteGlyphRunAnalysis {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -12783,6 +13903,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteGlyphRunAnalysis {
     type Vtable = IDWriteGlyphRunAnalysis_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2107104247, 57477, 17108, [129, 227, 106, 136, 59, 222, 209, 24]);
 }
+impl ::std::convert::From<IDWriteGlyphRunAnalysis> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteGlyphRunAnalysis) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteGlyphRunAnalysis> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteGlyphRunAnalysis) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteGlyphRunAnalysis {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteGlyphRunAnalysis {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteGlyphRunAnalysis_abi(
@@ -12797,8 +13937,8 @@ pub struct IDWriteGlyphRunAnalysis_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteInMemoryFontFileLoader(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteInMemoryFontFileLoader(pub ::windows::runtime::IUnknown);
 impl IDWriteInMemoryFontFileLoader {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: *const ::std::ffi::c_void, fontfilereferencekeysize: u32) -> ::windows::runtime::Result<IDWriteFontFileStream> {
@@ -12819,6 +13959,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteInMemoryFontFileLoader {
     type Vtable = IDWriteInMemoryFontFileLoader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3692048199, 41261, 19228, [130, 45, 158, 17, 126, 51, 4, 63]);
 }
+impl ::std::convert::From<IDWriteInMemoryFontFileLoader> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteInMemoryFontFileLoader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteInMemoryFontFileLoader> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteInMemoryFontFileLoader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteInMemoryFontFileLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteInMemoryFontFileLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteInMemoryFontFileLoader> for IDWriteFontFileLoader {
     fn from(value: IDWriteInMemoryFontFileLoader) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12831,12 +13991,12 @@ impl ::std::convert::From<&IDWriteInMemoryFontFileLoader> for IDWriteFontFileLoa
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFileLoader> for IDWriteInMemoryFontFileLoader {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFileLoader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFileLoader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFileLoader> for &IDWriteInMemoryFontFileLoader {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFileLoader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFileLoader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12851,8 +14011,8 @@ pub struct IDWriteInMemoryFontFileLoader_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteInlineObject(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteInlineObject(pub ::windows::runtime::IUnknown);
 impl IDWriteInlineObject {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -12888,6 +14048,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteInlineObject {
     type Vtable = IDWriteInlineObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2201615843, 4207, 18347, [131, 115, 28, 98, 149, 235, 16, 179]);
 }
+impl ::std::convert::From<IDWriteInlineObject> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteInlineObject) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteInlineObject> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteInlineObject) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteInlineObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteInlineObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteInlineObject_abi(
@@ -12903,8 +14083,8 @@ pub struct IDWriteInlineObject_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteLocalFontFileLoader(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteLocalFontFileLoader(pub ::windows::runtime::IUnknown);
 impl IDWriteLocalFontFileLoader {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: *const ::std::ffi::c_void, fontfilereferencekeysize: u32) -> ::windows::runtime::Result<IDWriteFontFileStream> {
@@ -12932,6 +14112,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteLocalFontFileLoader {
     type Vtable = IDWriteLocalFontFileLoader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3000628204, 51710, 18961, [162, 236, 216, 98, 8, 247, 192, 162]);
 }
+impl ::std::convert::From<IDWriteLocalFontFileLoader> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteLocalFontFileLoader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteLocalFontFileLoader> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteLocalFontFileLoader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteLocalFontFileLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteLocalFontFileLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteLocalFontFileLoader> for IDWriteFontFileLoader {
     fn from(value: IDWriteLocalFontFileLoader) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12944,12 +14144,12 @@ impl ::std::convert::From<&IDWriteLocalFontFileLoader> for IDWriteFontFileLoader
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFileLoader> for IDWriteLocalFontFileLoader {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFileLoader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFileLoader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFileLoader> for &IDWriteLocalFontFileLoader {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFileLoader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFileLoader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12967,8 +14167,8 @@ pub struct IDWriteLocalFontFileLoader_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteLocalizedStrings(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteLocalizedStrings(pub ::windows::runtime::IUnknown);
 impl IDWriteLocalizedStrings {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetCount(&self) -> u32 {
@@ -13004,6 +14204,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteLocalizedStrings {
     type Vtable = IDWriteLocalizedStrings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(136667657, 2458, 19252, [184, 109, 194, 43, 17, 14, 119, 113]);
 }
+impl ::std::convert::From<IDWriteLocalizedStrings> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteLocalizedStrings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteLocalizedStrings> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteLocalizedStrings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteLocalizedStrings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteLocalizedStrings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteLocalizedStrings_abi(
@@ -13022,12 +14242,32 @@ pub struct IDWriteLocalizedStrings_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteNumberSubstitution(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteNumberSubstitution(pub ::windows::runtime::IUnknown);
 impl IDWriteNumberSubstitution {}
 unsafe impl ::windows::runtime::Interface for IDWriteNumberSubstitution {
     type Vtable = IDWriteNumberSubstitution_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(344480969, 47792, 20368, [182, 237, 92, 54, 106, 44, 208, 61]);
+}
+impl ::std::convert::From<IDWriteNumberSubstitution> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteNumberSubstitution) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteNumberSubstitution> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteNumberSubstitution) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteNumberSubstitution {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteNumberSubstitution {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13038,8 +14278,8 @@ pub struct IDWriteNumberSubstitution_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWritePixelSnapping(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWritePixelSnapping(pub ::windows::runtime::IUnknown);
 impl IDWritePixelSnapping {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -13062,6 +14302,26 @@ unsafe impl ::windows::runtime::Interface for IDWritePixelSnapping {
     type Vtable = IDWritePixelSnapping_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3941835482, 60660, 19748, [182, 68, 179, 79, 104, 66, 2, 75]);
 }
+impl ::std::convert::From<IDWritePixelSnapping> for ::windows::runtime::IUnknown {
+    fn from(value: IDWritePixelSnapping) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWritePixelSnapping> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWritePixelSnapping) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWritePixelSnapping {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWritePixelSnapping {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWritePixelSnapping_abi(
@@ -13075,8 +14335,8 @@ pub struct IDWritePixelSnapping_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteRemoteFontFileLoader(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteRemoteFontFileLoader(pub ::windows::runtime::IUnknown);
 impl IDWriteRemoteFontFileLoader {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: *const ::std::ffi::c_void, fontfilereferencekeysize: u32) -> ::windows::runtime::Result<IDWriteFontFileStream> {
@@ -13104,6 +14364,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteRemoteFontFileLoader {
     type Vtable = IDWriteRemoteFontFileLoader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1751420035, 28382, 18112, [171, 70, 32, 8, 58, 136, 127, 222]);
 }
+impl ::std::convert::From<IDWriteRemoteFontFileLoader> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteRemoteFontFileLoader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteRemoteFontFileLoader> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteRemoteFontFileLoader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteRemoteFontFileLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteRemoteFontFileLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteRemoteFontFileLoader> for IDWriteFontFileLoader {
     fn from(value: IDWriteRemoteFontFileLoader) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13116,12 +14396,12 @@ impl ::std::convert::From<&IDWriteRemoteFontFileLoader> for IDWriteFontFileLoade
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFileLoader> for IDWriteRemoteFontFileLoader {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFileLoader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFileLoader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFileLoader> for &IDWriteRemoteFontFileLoader {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFileLoader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFileLoader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13138,8 +14418,8 @@ pub struct IDWriteRemoteFontFileLoader_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteRemoteFontFileStream(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteRemoteFontFileStream(pub ::windows::runtime::IUnknown);
 impl IDWriteRemoteFontFileStream {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn ReadFileFragment(&self, fragmentstart: *mut *mut ::std::ffi::c_void, fileoffset: u64, fragmentsize: u64, fragmentcontext: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -13183,6 +14463,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteRemoteFontFileStream {
     type Vtable = IDWriteRemoteFontFileStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1303606650, 11378, 20185, [178, 182, 26, 186, 190, 26, 255, 156]);
 }
+impl ::std::convert::From<IDWriteRemoteFontFileStream> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteRemoteFontFileStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteRemoteFontFileStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteRemoteFontFileStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteRemoteFontFileStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteRemoteFontFileStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteRemoteFontFileStream> for IDWriteFontFileStream {
     fn from(value: IDWriteRemoteFontFileStream) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13195,12 +14495,12 @@ impl ::std::convert::From<&IDWriteRemoteFontFileStream> for IDWriteFontFileStrea
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFileStream> for IDWriteRemoteFontFileStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFileStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFileStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFileStream> for &IDWriteRemoteFontFileStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFileStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFileStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13221,8 +14521,8 @@ pub struct IDWriteRemoteFontFileStream_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteRenderingParams(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteRenderingParams(pub ::windows::runtime::IUnknown);
 impl IDWriteRenderingParams {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetGamma(&self) -> f32 {
@@ -13249,6 +14549,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteRenderingParams {
     type Vtable = IDWriteRenderingParams_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(789423418, 10973, 18381, [130, 238, 217, 236, 52, 104, 142, 117]);
 }
+impl ::std::convert::From<IDWriteRenderingParams> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteRenderingParams) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteRenderingParams> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteRenderingParams) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteRenderingParams {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteRenderingParams {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteRenderingParams_abi(
@@ -13263,8 +14583,8 @@ pub struct IDWriteRenderingParams_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteRenderingParams1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteRenderingParams1(pub ::windows::runtime::IUnknown);
 impl IDWriteRenderingParams1 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetGamma(&self) -> f32 {
@@ -13295,6 +14615,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteRenderingParams1 {
     type Vtable = IDWriteRenderingParams1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2487303412, 42748, 16968, [139, 80, 102, 116, 52, 143, 202, 211]);
 }
+impl ::std::convert::From<IDWriteRenderingParams1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteRenderingParams1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteRenderingParams1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteRenderingParams1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteRenderingParams1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteRenderingParams1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteRenderingParams1> for IDWriteRenderingParams {
     fn from(value: IDWriteRenderingParams1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13307,12 +14647,12 @@ impl ::std::convert::From<&IDWriteRenderingParams1> for IDWriteRenderingParams {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams> for IDWriteRenderingParams1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams> for &IDWriteRenderingParams1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13330,8 +14670,8 @@ pub struct IDWriteRenderingParams1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteRenderingParams2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteRenderingParams2(pub ::windows::runtime::IUnknown);
 impl IDWriteRenderingParams2 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetGamma(&self) -> f32 {
@@ -13366,6 +14706,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteRenderingParams2 {
     type Vtable = IDWriteRenderingParams2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4191621571, 38775, 16558, [135, 232, 62, 90, 249, 191, 9, 72]);
 }
+impl ::std::convert::From<IDWriteRenderingParams2> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteRenderingParams2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteRenderingParams2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteRenderingParams2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteRenderingParams2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteRenderingParams2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteRenderingParams2> for IDWriteRenderingParams1 {
     fn from(value: IDWriteRenderingParams2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13378,12 +14738,12 @@ impl ::std::convert::From<&IDWriteRenderingParams2> for IDWriteRenderingParams1 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams1> for IDWriteRenderingParams2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams1> for &IDWriteRenderingParams2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteRenderingParams2> for IDWriteRenderingParams {
@@ -13398,12 +14758,12 @@ impl ::std::convert::From<&IDWriteRenderingParams2> for IDWriteRenderingParams {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams> for IDWriteRenderingParams2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams> for &IDWriteRenderingParams2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13422,8 +14782,8 @@ pub struct IDWriteRenderingParams2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteRenderingParams3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteRenderingParams3(pub ::windows::runtime::IUnknown);
 impl IDWriteRenderingParams3 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetGamma(&self) -> f32 {
@@ -13462,6 +14822,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteRenderingParams3 {
     type Vtable = IDWriteRenderingParams3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3079818154, 14619, 16682, [140, 92, 228, 76, 194, 216, 103, 220]);
 }
+impl ::std::convert::From<IDWriteRenderingParams3> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteRenderingParams3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteRenderingParams3> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteRenderingParams3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteRenderingParams3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteRenderingParams3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteRenderingParams3> for IDWriteRenderingParams2 {
     fn from(value: IDWriteRenderingParams3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13474,12 +14854,12 @@ impl ::std::convert::From<&IDWriteRenderingParams3> for IDWriteRenderingParams2 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams2> for IDWriteRenderingParams3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams2> for &IDWriteRenderingParams3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteRenderingParams3> for IDWriteRenderingParams1 {
@@ -13494,12 +14874,12 @@ impl ::std::convert::From<&IDWriteRenderingParams3> for IDWriteRenderingParams1 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams1> for IDWriteRenderingParams3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams1> for &IDWriteRenderingParams3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteRenderingParams3> for IDWriteRenderingParams {
@@ -13514,12 +14894,12 @@ impl ::std::convert::From<&IDWriteRenderingParams3> for IDWriteRenderingParams {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams> for IDWriteRenderingParams3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams> for &IDWriteRenderingParams3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13539,8 +14919,8 @@ pub struct IDWriteRenderingParams3_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteStringList(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteStringList(pub ::windows::runtime::IUnknown);
 impl IDWriteStringList {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetCount(&self) -> u32 {
@@ -13571,6 +14951,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteStringList {
     type Vtable = IDWriteStringList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3488493888, 4439, 18378, [139, 133, 49, 191, 207, 63, 45, 14]);
 }
+impl ::std::convert::From<IDWriteStringList> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteStringList) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteStringList> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteStringList) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteStringList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteStringList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteStringList_abi(
@@ -13587,8 +14987,8 @@ pub struct IDWriteStringList_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextAnalysisSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextAnalysisSink(pub ::windows::runtime::IUnknown);
 impl IDWriteTextAnalysisSink {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn SetScriptAnalysis(&self, textposition: u32, textlength: u32, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS) -> ::windows::runtime::Result<()> {
@@ -13611,6 +15011,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextAnalysisSink {
     type Vtable = IDWriteTextAnalysisSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1477496132, 3232, 18177, [179, 250, 190, 197, 24, 42, 228, 246]);
 }
+impl ::std::convert::From<IDWriteTextAnalysisSink> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextAnalysisSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextAnalysisSink> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextAnalysisSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextAnalysisSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextAnalysisSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteTextAnalysisSink_abi(
@@ -13624,8 +15044,8 @@ pub struct IDWriteTextAnalysisSink_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextAnalysisSink1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextAnalysisSink1(pub ::windows::runtime::IUnknown);
 impl IDWriteTextAnalysisSink1 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn SetScriptAnalysis(&self, textposition: u32, textlength: u32, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS) -> ::windows::runtime::Result<()> {
@@ -13653,6 +15073,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextAnalysisSink1 {
     type Vtable = IDWriteTextAnalysisSink1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2967028128, 34279, 19851, [159, 211, 92, 237, 153, 52, 72, 42]);
 }
+impl ::std::convert::From<IDWriteTextAnalysisSink1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextAnalysisSink1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextAnalysisSink1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextAnalysisSink1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextAnalysisSink1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextAnalysisSink1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteTextAnalysisSink1> for IDWriteTextAnalysisSink {
     fn from(value: IDWriteTextAnalysisSink1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13665,12 +15105,12 @@ impl ::std::convert::From<&IDWriteTextAnalysisSink1> for IDWriteTextAnalysisSink
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalysisSink> for IDWriteTextAnalysisSink1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalysisSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalysisSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalysisSink> for &IDWriteTextAnalysisSink1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalysisSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalysisSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13688,8 +15128,8 @@ pub struct IDWriteTextAnalysisSink1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextAnalysisSource(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextAnalysisSource(pub ::windows::runtime::IUnknown);
 impl IDWriteTextAnalysisSource {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetTextAtPosition(&self, textposition: u32, textstring: *mut *mut u16, textlength: *mut u32) -> ::windows::runtime::Result<()> {
@@ -13716,6 +15156,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextAnalysisSource {
     type Vtable = IDWriteTextAnalysisSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1754143320, 20628, 18376, [173, 200, 251, 206, 166, 10, 233, 43]);
 }
+impl ::std::convert::From<IDWriteTextAnalysisSource> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextAnalysisSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextAnalysisSource> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextAnalysisSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextAnalysisSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextAnalysisSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteTextAnalysisSource_abi(
@@ -13730,8 +15190,8 @@ pub struct IDWriteTextAnalysisSource_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextAnalysisSource1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextAnalysisSource1(pub ::windows::runtime::IUnknown);
 impl IDWriteTextAnalysisSource1 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn GetTextAtPosition(&self, textposition: u32, textstring: *mut *mut u16, textlength: *mut u32) -> ::windows::runtime::Result<()> {
@@ -13762,6 +15222,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextAnalysisSource1 {
     type Vtable = IDWriteTextAnalysisSource1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1671232216, 4020, 19233, [165, 138, 6, 121, 32, 18, 0, 9]);
 }
+impl ::std::convert::From<IDWriteTextAnalysisSource1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextAnalysisSource1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextAnalysisSource1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextAnalysisSource1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextAnalysisSource1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextAnalysisSource1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteTextAnalysisSource1> for IDWriteTextAnalysisSource {
     fn from(value: IDWriteTextAnalysisSource1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13774,12 +15254,12 @@ impl ::std::convert::From<&IDWriteTextAnalysisSource1> for IDWriteTextAnalysisSo
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalysisSource> for IDWriteTextAnalysisSource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalysisSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalysisSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalysisSource> for &IDWriteTextAnalysisSource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalysisSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalysisSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13797,8 +15277,8 @@ pub struct IDWriteTextAnalysisSource1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextAnalyzer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextAnalyzer(pub ::windows::runtime::IUnknown);
 impl IDWriteTextAnalyzer {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn AnalyzeScript<'a, Param0: ::windows::runtime::IntoParam<'a, IDWriteTextAnalysisSource>, Param3: ::windows::runtime::IntoParam<'a, IDWriteTextAnalysisSink>>(&self, analysissource: Param0, textposition: u32, textlength: u32, analysissink: Param3) -> ::windows::runtime::Result<()> {
@@ -13963,6 +15443,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextAnalyzer {
     type Vtable = IDWriteTextAnalyzer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085309502, 32582, 17332, [132, 179, 228, 230, 36, 156, 54, 93]);
 }
+impl ::std::convert::From<IDWriteTextAnalyzer> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextAnalyzer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextAnalyzer> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextAnalyzer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextAnalyzer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextAnalyzer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteTextAnalyzer_abi(
@@ -14047,8 +15547,8 @@ pub struct IDWriteTextAnalyzer_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextAnalyzer1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextAnalyzer1(pub ::windows::runtime::IUnknown);
 impl IDWriteTextAnalyzer1 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn AnalyzeScript<'a, Param0: ::windows::runtime::IntoParam<'a, IDWriteTextAnalysisSource>, Param3: ::windows::runtime::IntoParam<'a, IDWriteTextAnalysisSink>>(&self, analysissource: Param0, textposition: u32, textlength: u32, analysissink: Param3) -> ::windows::runtime::Result<()> {
@@ -14362,6 +15862,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextAnalyzer1 {
     type Vtable = IDWriteTextAnalyzer1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2161825792, 57887, 20099, [150, 206, 191, 204, 229, 0, 219, 124]);
 }
+impl ::std::convert::From<IDWriteTextAnalyzer1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextAnalyzer1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextAnalyzer1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextAnalyzer1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextAnalyzer1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextAnalyzer1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteTextAnalyzer1> for IDWriteTextAnalyzer {
     fn from(value: IDWriteTextAnalyzer1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -14374,12 +15894,12 @@ impl ::std::convert::From<&IDWriteTextAnalyzer1> for IDWriteTextAnalyzer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalyzer> for IDWriteTextAnalyzer1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalyzer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalyzer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalyzer> for &IDWriteTextAnalyzer1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalyzer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalyzer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14498,8 +16018,8 @@ pub struct IDWriteTextAnalyzer1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextAnalyzer2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextAnalyzer2(pub ::windows::runtime::IUnknown);
 impl IDWriteTextAnalyzer2 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn AnalyzeScript<'a, Param0: ::windows::runtime::IntoParam<'a, IDWriteTextAnalysisSource>, Param3: ::windows::runtime::IntoParam<'a, IDWriteTextAnalysisSink>>(&self, analysissource: Param0, textposition: u32, textlength: u32, analysissink: Param3) -> ::windows::runtime::Result<()> {
@@ -14829,6 +16349,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextAnalyzer2 {
     type Vtable = IDWriteTextAnalyzer2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1429905395, 22163, 19959, [181, 43, 116, 128, 111, 127, 46, 185]);
 }
+impl ::std::convert::From<IDWriteTextAnalyzer2> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextAnalyzer2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextAnalyzer2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextAnalyzer2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextAnalyzer2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextAnalyzer2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteTextAnalyzer2> for IDWriteTextAnalyzer1 {
     fn from(value: IDWriteTextAnalyzer2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -14841,12 +16381,12 @@ impl ::std::convert::From<&IDWriteTextAnalyzer2> for IDWriteTextAnalyzer1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalyzer1> for IDWriteTextAnalyzer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalyzer1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalyzer1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalyzer1> for &IDWriteTextAnalyzer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalyzer1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalyzer1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextAnalyzer2> for IDWriteTextAnalyzer {
@@ -14861,12 +16401,12 @@ impl ::std::convert::From<&IDWriteTextAnalyzer2> for IDWriteTextAnalyzer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalyzer> for IDWriteTextAnalyzer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalyzer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalyzer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalyzer> for &IDWriteTextAnalyzer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalyzer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalyzer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14991,8 +16531,8 @@ pub struct IDWriteTextAnalyzer2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextFormat(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextFormat(pub ::windows::runtime::IUnknown);
 impl IDWriteTextFormat {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows::runtime::Result<()> {
@@ -15102,6 +16642,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextFormat {
     type Vtable = IDWriteTextFormat_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2626709528, 12759, 20435, [161, 81, 124, 94, 34, 93, 181, 90]);
 }
+impl ::std::convert::From<IDWriteTextFormat> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextFormat) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextFormat> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextFormat) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteTextFormat_abi(
@@ -15138,8 +16698,8 @@ pub struct IDWriteTextFormat_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextFormat1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextFormat1(pub ::windows::runtime::IUnknown);
 impl IDWriteTextFormat1 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows::runtime::Result<()> {
@@ -15284,6 +16844,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextFormat1 {
     type Vtable = IDWriteTextFormat1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1595362121, 3467, 19707, [139, 202, 241, 204, 233, 208, 108, 103]);
 }
+impl ::std::convert::From<IDWriteTextFormat1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextFormat1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextFormat1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextFormat1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextFormat1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextFormat1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteTextFormat1> for IDWriteTextFormat {
     fn from(value: IDWriteTextFormat1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -15296,12 +16876,12 @@ impl ::std::convert::From<&IDWriteTextFormat1> for IDWriteTextFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for IDWriteTextFormat1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextFormat1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15350,8 +16930,8 @@ pub struct IDWriteTextFormat1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextFormat2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextFormat2(pub ::windows::runtime::IUnknown);
 impl IDWriteTextFormat2 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows::runtime::Result<()> {
@@ -15505,6 +17085,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextFormat2 {
     type Vtable = IDWriteTextFormat2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4135456477, 40509, 20172, [140, 50, 65, 131, 37, 61, 254, 112]);
 }
+impl ::std::convert::From<IDWriteTextFormat2> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextFormat2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextFormat2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextFormat2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextFormat2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextFormat2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteTextFormat2> for IDWriteTextFormat1 {
     fn from(value: IDWriteTextFormat2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -15517,12 +17117,12 @@ impl ::std::convert::From<&IDWriteTextFormat2> for IDWriteTextFormat1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat1> for IDWriteTextFormat2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat1> for &IDWriteTextFormat2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextFormat2> for IDWriteTextFormat {
@@ -15537,12 +17137,12 @@ impl ::std::convert::From<&IDWriteTextFormat2> for IDWriteTextFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for IDWriteTextFormat2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextFormat2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15593,8 +17193,8 @@ pub struct IDWriteTextFormat2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextFormat3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextFormat3(pub ::windows::runtime::IUnknown);
 impl IDWriteTextFormat3 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows::runtime::Result<()> {
@@ -15768,6 +17368,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextFormat3 {
     type Vtable = IDWriteTextFormat3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1832605249, 58704, 17165, [168, 91, 183, 191, 72, 169, 52, 39]);
 }
+impl ::std::convert::From<IDWriteTextFormat3> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextFormat3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextFormat3> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextFormat3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextFormat3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextFormat3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteTextFormat3> for IDWriteTextFormat2 {
     fn from(value: IDWriteTextFormat3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -15780,12 +17400,12 @@ impl ::std::convert::From<&IDWriteTextFormat3> for IDWriteTextFormat2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat2> for IDWriteTextFormat3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat2> for &IDWriteTextFormat3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextFormat3> for IDWriteTextFormat1 {
@@ -15800,12 +17420,12 @@ impl ::std::convert::From<&IDWriteTextFormat3> for IDWriteTextFormat1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat1> for IDWriteTextFormat3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat1> for &IDWriteTextFormat3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextFormat3> for IDWriteTextFormat {
@@ -15820,12 +17440,12 @@ impl ::std::convert::From<&IDWriteTextFormat3> for IDWriteTextFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for IDWriteTextFormat3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextFormat3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15881,8 +17501,8 @@ pub struct IDWriteTextFormat3_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextLayout(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextLayout(pub ::windows::runtime::IUnknown);
 impl IDWriteTextLayout {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows::runtime::Result<()> {
@@ -16173,6 +17793,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextLayout {
     type Vtable = IDWriteTextLayout_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1400074295, 27924, 16651, [155, 254, 11, 24, 43, 183, 9, 97]);
 }
+impl ::std::convert::From<IDWriteTextLayout> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextLayout) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextLayout> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextLayout) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextLayout {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextLayout {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteTextLayout> for IDWriteTextFormat {
     fn from(value: IDWriteTextLayout) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -16185,12 +17825,12 @@ impl ::std::convert::From<&IDWriteTextLayout> for IDWriteTextFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for IDWriteTextLayout {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextLayout {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16280,8 +17920,8 @@ pub struct IDWriteTextLayout_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextLayout1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextLayout1(pub ::windows::runtime::IUnknown);
 impl IDWriteTextLayout1 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows::runtime::Result<()> {
@@ -16590,6 +18230,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextLayout1 {
     type Vtable = IDWriteTextLayout1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2422528034, 32935, 18012, [169, 134, 223, 101, 247, 139, 143, 235]);
 }
+impl ::std::convert::From<IDWriteTextLayout1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextLayout1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextLayout1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextLayout1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextLayout1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextLayout1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteTextLayout1> for IDWriteTextLayout {
     fn from(value: IDWriteTextLayout1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -16602,12 +18262,12 @@ impl ::std::convert::From<&IDWriteTextLayout1> for IDWriteTextLayout {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout> for IDWriteTextLayout1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout> for &IDWriteTextLayout1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout1> for IDWriteTextFormat {
@@ -16622,12 +18282,12 @@ impl ::std::convert::From<&IDWriteTextLayout1> for IDWriteTextFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for IDWriteTextLayout1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextLayout1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16723,8 +18383,8 @@ pub struct IDWriteTextLayout1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextLayout2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextLayout2(pub ::windows::runtime::IUnknown);
 impl IDWriteTextLayout2 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows::runtime::Result<()> {
@@ -17073,6 +18733,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextLayout2 {
     type Vtable = IDWriteTextLayout2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(278118799, 36190, 17392, [176, 100, 9, 23, 49, 27, 82, 94]);
 }
+impl ::std::convert::From<IDWriteTextLayout2> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextLayout2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextLayout2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextLayout2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextLayout2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextLayout2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteTextLayout2> for IDWriteTextLayout1 {
     fn from(value: IDWriteTextLayout2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -17085,12 +18765,12 @@ impl ::std::convert::From<&IDWriteTextLayout2> for IDWriteTextLayout1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout1> for IDWriteTextLayout2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout1> for &IDWriteTextLayout2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout2> for IDWriteTextLayout {
@@ -17105,12 +18785,12 @@ impl ::std::convert::From<&IDWriteTextLayout2> for IDWriteTextLayout {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout> for IDWriteTextLayout2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout> for &IDWriteTextLayout2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout2> for IDWriteTextFormat {
@@ -17125,12 +18805,12 @@ impl ::std::convert::From<&IDWriteTextLayout2> for IDWriteTextFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for IDWriteTextLayout2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextLayout2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17237,8 +18917,8 @@ pub struct IDWriteTextLayout2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextLayout3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextLayout3(pub ::windows::runtime::IUnknown);
 impl IDWriteTextLayout3 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows::runtime::Result<()> {
@@ -17605,6 +19285,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextLayout3 {
     type Vtable = IDWriteTextLayout3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131976530, 526, 19944, [172, 51, 108, 149, 61, 131, 249, 45]);
 }
+impl ::std::convert::From<IDWriteTextLayout3> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextLayout3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextLayout3> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextLayout3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextLayout3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextLayout3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteTextLayout3> for IDWriteTextLayout2 {
     fn from(value: IDWriteTextLayout3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -17617,12 +19317,12 @@ impl ::std::convert::From<&IDWriteTextLayout3> for IDWriteTextLayout2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout2> for IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout2> for &IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout3> for IDWriteTextLayout1 {
@@ -17637,12 +19337,12 @@ impl ::std::convert::From<&IDWriteTextLayout3> for IDWriteTextLayout1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout1> for IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout1> for &IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout3> for IDWriteTextLayout {
@@ -17657,12 +19357,12 @@ impl ::std::convert::From<&IDWriteTextLayout3> for IDWriteTextLayout {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout> for IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout> for &IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout3> for IDWriteTextFormat {
@@ -17677,12 +19377,12 @@ impl ::std::convert::From<&IDWriteTextLayout3> for IDWriteTextFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17794,8 +19494,8 @@ pub struct IDWriteTextLayout3_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextLayout4(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextLayout4(pub ::windows::runtime::IUnknown);
 impl IDWriteTextLayout4 {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows::runtime::Result<()> {
@@ -18182,6 +19882,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextLayout4 {
     type Vtable = IDWriteTextLayout4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(95010626, 8767, 17473, [181, 251, 130, 99, 104, 95, 85, 233]);
 }
+impl ::std::convert::From<IDWriteTextLayout4> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextLayout4) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextLayout4> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextLayout4) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextLayout4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextLayout4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteTextLayout4> for IDWriteTextLayout3 {
     fn from(value: IDWriteTextLayout4) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -18194,12 +19914,12 @@ impl ::std::convert::From<&IDWriteTextLayout4> for IDWriteTextLayout3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout3> for IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout3> for &IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout4> for IDWriteTextLayout2 {
@@ -18214,12 +19934,12 @@ impl ::std::convert::From<&IDWriteTextLayout4> for IDWriteTextLayout2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout2> for IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout2> for &IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout4> for IDWriteTextLayout1 {
@@ -18234,12 +19954,12 @@ impl ::std::convert::From<&IDWriteTextLayout4> for IDWriteTextLayout1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout1> for IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout1> for &IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout4> for IDWriteTextLayout {
@@ -18254,12 +19974,12 @@ impl ::std::convert::From<&IDWriteTextLayout4> for IDWriteTextLayout {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout> for IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout> for &IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout4> for IDWriteTextFormat {
@@ -18274,12 +19994,12 @@ impl ::std::convert::From<&IDWriteTextLayout4> for IDWriteTextFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -18396,8 +20116,8 @@ pub struct IDWriteTextLayout4_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextRenderer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextRenderer(pub ::windows::runtime::IUnknown);
 impl IDWriteTextRenderer {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -18459,6 +20179,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextRenderer {
     type Vtable = IDWriteTextRenderer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4018831669, 23750, 17918, [136, 37, 197, 160, 114, 78, 184, 25]);
 }
+impl ::std::convert::From<IDWriteTextRenderer> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextRenderer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextRenderer> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextRenderer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextRenderer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextRenderer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteTextRenderer> for IDWritePixelSnapping {
     fn from(value: IDWriteTextRenderer) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -18471,12 +20211,12 @@ impl ::std::convert::From<&IDWriteTextRenderer> for IDWritePixelSnapping {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWritePixelSnapping> for IDWriteTextRenderer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWritePixelSnapping> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWritePixelSnapping>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWritePixelSnapping> for &IDWriteTextRenderer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWritePixelSnapping> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWritePixelSnapping>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -18500,8 +20240,8 @@ pub struct IDWriteTextRenderer_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTextRenderer1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTextRenderer1(pub ::windows::runtime::IUnknown);
 impl IDWriteTextRenderer1 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`, `Win32_Foundation`*"]
@@ -18615,6 +20355,26 @@ unsafe impl ::windows::runtime::Interface for IDWriteTextRenderer1 {
     type Vtable = IDWriteTextRenderer1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3554732340, 8864, 17022, [170, 228, 125, 149, 116, 181, 157, 177]);
 }
+impl ::std::convert::From<IDWriteTextRenderer1> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTextRenderer1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTextRenderer1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTextRenderer1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTextRenderer1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTextRenderer1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDWriteTextRenderer1> for IDWriteTextRenderer {
     fn from(value: IDWriteTextRenderer1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -18627,12 +20387,12 @@ impl ::std::convert::From<&IDWriteTextRenderer1> for IDWriteTextRenderer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextRenderer> for IDWriteTextRenderer1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextRenderer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextRenderer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextRenderer> for &IDWriteTextRenderer1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextRenderer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextRenderer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextRenderer1> for IDWritePixelSnapping {
@@ -18647,12 +20407,12 @@ impl ::std::convert::From<&IDWriteTextRenderer1> for IDWritePixelSnapping {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWritePixelSnapping> for IDWriteTextRenderer1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWritePixelSnapping> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWritePixelSnapping>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWritePixelSnapping> for &IDWriteTextRenderer1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWritePixelSnapping> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWritePixelSnapping>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -18684,8 +20444,8 @@ pub struct IDWriteTextRenderer1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDWriteTypography(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDWriteTypography(pub ::windows::runtime::IUnknown);
 impl IDWriteTypography {
     #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub unsafe fn AddFontFeature<'a, Param0: ::windows::runtime::IntoParam<'a, DWRITE_FONT_FEATURE>>(&self, fontfeature: Param0) -> ::windows::runtime::Result<()> {
@@ -18704,6 +20464,26 @@ impl IDWriteTypography {
 unsafe impl ::windows::runtime::Interface for IDWriteTypography {
     type Vtable = IDWriteTypography_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1441861931, 7618, 19260, [149, 65, 244, 104, 148, 237, 133, 182]);
+}
+impl ::std::convert::From<IDWriteTypography> for ::windows::runtime::IUnknown {
+    fn from(value: IDWriteTypography) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDWriteTypography> for ::windows::runtime::IUnknown {
+    fn from(value: &IDWriteTypography) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDWriteTypography {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDWriteTypography {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInkWorkspaceHostedAppManager(::windows::runtime::IInspectable);
+pub struct IInkWorkspaceHostedAppManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkWorkspaceHostedAppManager {
     type Vtable = IInkWorkspaceHostedAppManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4262099344, 24153, 19383, [138, 99, 125, 33, 140, 217, 99, 0]);
@@ -20,7 +20,7 @@ pub struct IInkWorkspaceHostedAppManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInkWorkspaceHostedAppManagerStatics(::windows::runtime::IInspectable);
+pub struct IInkWorkspaceHostedAppManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkWorkspaceHostedAppManagerStatics {
     type Vtable = IInkWorkspaceHostedAppManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3422391493, 41314, 19396, [132, 238, 232, 113, 109, 82, 51, 197]);
@@ -38,8 +38,8 @@ pub struct IInkWorkspaceHostedAppManagerStatics_abi(
 );
 #[doc = "*Required features: `ApplicationModel_Preview_InkWorkspace`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct InkWorkspaceHostedAppManager(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct InkWorkspaceHostedAppManager(pub ::windows::runtime::IInspectable);
 impl InkWorkspaceHostedAppManager {
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
     #[doc = "*Required features: `ApplicationModel_Preview_InkWorkspace`, `Foundation`, `Graphics_Imaging`*"]
@@ -71,6 +71,46 @@ unsafe impl ::windows::runtime::Interface for InkWorkspaceHostedAppManager {
 }
 impl ::windows::runtime::RuntimeName for InkWorkspaceHostedAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.InkWorkspace.InkWorkspaceHostedAppManager";
+}
+impl ::std::convert::From<InkWorkspaceHostedAppManager> for ::windows::runtime::IUnknown {
+    fn from(value: InkWorkspaceHostedAppManager) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&InkWorkspaceHostedAppManager> for ::windows::runtime::IUnknown {
+    fn from(value: &InkWorkspaceHostedAppManager) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InkWorkspaceHostedAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InkWorkspaceHostedAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<InkWorkspaceHostedAppManager> for ::windows::runtime::IInspectable {
+    fn from(value: InkWorkspaceHostedAppManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InkWorkspaceHostedAppManager> for ::windows::runtime::IInspectable {
+    fn from(value: &InkWorkspaceHostedAppManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InkWorkspaceHostedAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InkWorkspaceHostedAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for InkWorkspaceHostedAppManager {}
 unsafe impl ::std::marker::Sync for InkWorkspaceHostedAppManager {}

@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPreallocatedWorkItem(::windows::runtime::IInspectable);
+pub struct IPreallocatedWorkItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPreallocatedWorkItem {
     type Vtable = IPreallocatedWorkItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3067783676, 48219, 16410, [168, 178, 110, 117, 77, 20, 218, 166]);
@@ -20,7 +20,7 @@ pub struct IPreallocatedWorkItem_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPreallocatedWorkItemFactory(::windows::runtime::IInspectable);
+pub struct IPreallocatedWorkItemFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPreallocatedWorkItemFactory {
     type Vtable = IPreallocatedWorkItemFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3822267205, 57322, 18075, [130, 197, 246, 227, 206, 253, 234, 251]);
@@ -43,7 +43,7 @@ pub struct IPreallocatedWorkItemFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISignalNotifier(::windows::runtime::IInspectable);
+pub struct ISignalNotifier(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignalNotifier {
     type Vtable = ISignalNotifier_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(338189830, 25511, 18195, [182, 217, 98, 246, 75, 86, 251, 139]);
@@ -62,7 +62,7 @@ pub struct ISignalNotifier_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISignalNotifierStatics(::windows::runtime::IInspectable);
+pub struct ISignalNotifierStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignalNotifierStatics {
     type Vtable = ISignalNotifierStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(474891622, 33792, 18131, [161, 21, 125, 12, 13, 252, 159, 98]);
@@ -85,8 +85,8 @@ pub struct ISignalNotifierStatics_abi(
 );
 #[doc = "*Required features: `System_Threading_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PreallocatedWorkItem(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PreallocatedWorkItem(pub ::windows::runtime::IInspectable);
 impl PreallocatedWorkItem {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_Threading_Core`, `Foundation`*"]
@@ -135,6 +135,46 @@ unsafe impl ::windows::runtime::Interface for PreallocatedWorkItem {
 }
 impl ::windows::runtime::RuntimeName for PreallocatedWorkItem {
     const NAME: &'static str = "Windows.System.Threading.Core.PreallocatedWorkItem";
+}
+impl ::std::convert::From<PreallocatedWorkItem> for ::windows::runtime::IUnknown {
+    fn from(value: PreallocatedWorkItem) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PreallocatedWorkItem> for ::windows::runtime::IUnknown {
+    fn from(value: &PreallocatedWorkItem) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PreallocatedWorkItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PreallocatedWorkItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PreallocatedWorkItem> for ::windows::runtime::IInspectable {
+    fn from(value: PreallocatedWorkItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PreallocatedWorkItem> for ::windows::runtime::IInspectable {
+    fn from(value: &PreallocatedWorkItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PreallocatedWorkItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PreallocatedWorkItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for PreallocatedWorkItem {}
 unsafe impl ::std::marker::Sync for PreallocatedWorkItem {}
@@ -213,8 +253,8 @@ impl<F: FnMut(&::std::option::Option<SignalNotifier>, bool) -> ::windows::runtim
 }
 #[doc = "*Required features: `System_Threading_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SignalNotifier(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SignalNotifier(pub ::windows::runtime::IInspectable);
 impl SignalNotifier {
     #[doc = "*Required features: `System_Threading_Core`*"]
     pub fn Enable(&self) -> ::windows::runtime::Result<()> {
@@ -270,6 +310,46 @@ unsafe impl ::windows::runtime::Interface for SignalNotifier {
 }
 impl ::windows::runtime::RuntimeName for SignalNotifier {
     const NAME: &'static str = "Windows.System.Threading.Core.SignalNotifier";
+}
+impl ::std::convert::From<SignalNotifier> for ::windows::runtime::IUnknown {
+    fn from(value: SignalNotifier) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SignalNotifier> for ::windows::runtime::IUnknown {
+    fn from(value: &SignalNotifier) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SignalNotifier {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SignalNotifier {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SignalNotifier> for ::windows::runtime::IInspectable {
+    fn from(value: SignalNotifier) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SignalNotifier> for ::windows::runtime::IInspectable {
+    fn from(value: &SignalNotifier) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SignalNotifier {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SignalNotifier {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for SignalNotifier {}
 unsafe impl ::std::marker::Sync for SignalNotifier {}

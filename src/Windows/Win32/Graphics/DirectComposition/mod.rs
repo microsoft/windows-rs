@@ -281,8 +281,8 @@ impl ::std::convert::From<i32> for DCOMPOSITION_OPACITY_MODE {
 unsafe impl ::windows::runtime::Abi for DCOMPOSITION_OPACITY_MODE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionAttachMouseDragToHwnd<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionVisual>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(visual: Param0, hwnd: Param1, enable: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -296,8 +296,8 @@ pub unsafe fn DCompositionAttachMouseDragToHwnd<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionAttachMouseWheelToHwnd<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionVisual>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(visual: Param0, hwnd: Param1, enable: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -311,8 +311,8 @@ pub unsafe fn DCompositionAttachMouseWheelToHwnd<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionBoostCompositorClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(enable: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -326,8 +326,8 @@ pub unsafe fn DCompositionBoostCompositorClock<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn DCompositionCreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIDevice>>(dxgidevice: Param0, iid: *const ::windows::runtime::GUID, dcompositiondevice: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -369,8 +369,8 @@ pub unsafe fn DCompositionCreateDevice3<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -400,8 +400,8 @@ pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITION_FRAME_STATS, targetidcount: u32, targetids: *mut COMPOSITION_TARGET_ID, actualtargetidcount: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -415,8 +415,8 @@ pub unsafe fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COMPOSITION_TARGET_ID) -> ::windows::runtime::Result<COMPOSITION_TARGET_STATS> {
     #[cfg(windows)]
@@ -459,8 +459,8 @@ impl ::std::cmp::Eq for DCompositionInkTrailPoint {}
 unsafe impl ::windows::runtime::Abi for DCompositionInkTrailPoint {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionWaitForCompositorClock(count: u32, handles: *const super::super::Foundation::HANDLE, timeoutinms: u32) -> u32 {
     #[cfg(windows)]
@@ -476,8 +476,8 @@ pub unsafe fn DCompositionWaitForCompositorClock(count: u32, handles: *const sup
 }
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionAffineTransform2DEffect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionAffineTransform2DEffect(pub ::windows::runtime::IUnknown);
 impl IDCompositionAffineTransform2DEffect {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
@@ -519,6 +519,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionAffineTransform2DEffe
     type Vtable = IDCompositionAffineTransform2DEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(192199144, 52694, 18735, [187, 188, 94, 211, 33, 87, 2, 109]);
 }
+impl ::std::convert::From<IDCompositionAffineTransform2DEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionAffineTransform2DEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionAffineTransform2DEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionAffineTransform2DEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionAffineTransform2DEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionAffineTransform2DEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionAffineTransform2DEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionAffineTransform2DEffect) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -531,12 +551,12 @@ impl ::std::convert::From<&IDCompositionAffineTransform2DEffect> for IDCompositi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionAffineTransform2DEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionAffineTransform2DEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionAffineTransform2DEffect> for IDCompositionEffect {
@@ -551,12 +571,12 @@ impl ::std::convert::From<&IDCompositionAffineTransform2DEffect> for IDCompositi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionAffineTransform2DEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionAffineTransform2DEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -579,8 +599,8 @@ pub struct IDCompositionAffineTransform2DEffect_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionAnimation(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionAnimation(pub ::windows::runtime::IUnknown);
 impl IDCompositionAnimation {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
@@ -611,6 +631,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionAnimation {
     type Vtable = IDCompositionAnimation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3422392793, 20914, 17892, [179, 222, 209, 156, 207, 184, 99, 197]);
 }
+impl ::std::convert::From<IDCompositionAnimation> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionAnimation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionAnimation> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionAnimation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionAnimation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionAnimation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionAnimation_abi(
@@ -626,8 +666,8 @@ pub struct IDCompositionAnimation_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionArithmeticCompositeEffect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionArithmeticCompositeEffect(pub ::windows::runtime::IUnknown);
 impl IDCompositionArithmeticCompositeEffect {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
@@ -680,6 +720,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionArithmeticCompositeEf
     type Vtable = IDCompositionArithmeticCompositeEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(996663208, 58333, 20065, [182, 64, 70, 194, 243, 215, 57, 220]);
 }
+impl ::std::convert::From<IDCompositionArithmeticCompositeEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionArithmeticCompositeEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionArithmeticCompositeEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionArithmeticCompositeEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionArithmeticCompositeEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionArithmeticCompositeEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionArithmeticCompositeEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionArithmeticCompositeEffect) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -692,12 +752,12 @@ impl ::std::convert::From<&IDCompositionArithmeticCompositeEffect> for IDComposi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionArithmeticCompositeEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionArithmeticCompositeEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionArithmeticCompositeEffect> for IDCompositionEffect {
@@ -712,12 +772,12 @@ impl ::std::convert::From<&IDCompositionArithmeticCompositeEffect> for IDComposi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionArithmeticCompositeEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionArithmeticCompositeEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -742,8 +802,8 @@ pub struct IDCompositionArithmeticCompositeEffect_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionBlendEffect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionBlendEffect(pub ::windows::runtime::IUnknown);
 impl IDCompositionBlendEffect {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
@@ -759,6 +819,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionBlendEffect {
     type Vtable = IDCompositionBlendEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(871160842, 22410, 18961, [156, 20, 12, 185, 5, 23, 249, 197]);
 }
+impl ::std::convert::From<IDCompositionBlendEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionBlendEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionBlendEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionBlendEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionBlendEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionBlendEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionBlendEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionBlendEffect) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -771,12 +851,12 @@ impl ::std::convert::From<&IDCompositionBlendEffect> for IDCompositionFilterEffe
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionBlendEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionBlendEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionBlendEffect> for IDCompositionEffect {
@@ -791,12 +871,12 @@ impl ::std::convert::From<&IDCompositionBlendEffect> for IDCompositionEffect {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionBlendEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionBlendEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -811,8 +891,8 @@ pub struct IDCompositionBlendEffect_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionBrightnessEffect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionBrightnessEffect(pub ::windows::runtime::IUnknown);
 impl IDCompositionBrightnessEffect {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
@@ -865,6 +945,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionBrightnessEffect {
     type Vtable = IDCompositionBrightnessEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1613187438, 52026, 18859, [147, 79, 215, 152, 218, 79, 125, 166]);
 }
+impl ::std::convert::From<IDCompositionBrightnessEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionBrightnessEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionBrightnessEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionBrightnessEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionBrightnessEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionBrightnessEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionBrightnessEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionBrightnessEffect) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -877,12 +977,12 @@ impl ::std::convert::From<&IDCompositionBrightnessEffect> for IDCompositionFilte
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionBrightnessEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionBrightnessEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionBrightnessEffect> for IDCompositionEffect {
@@ -897,12 +997,12 @@ impl ::std::convert::From<&IDCompositionBrightnessEffect> for IDCompositionEffec
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionBrightnessEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionBrightnessEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -927,12 +1027,32 @@ pub struct IDCompositionBrightnessEffect_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionClip(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionClip(pub ::windows::runtime::IUnknown);
 impl IDCompositionClip {}
 unsafe impl ::windows::runtime::Interface for IDCompositionClip {
     type Vtable = IDCompositionClip_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1689007875, 40255, 17900, [161, 9, 124, 172, 14, 122, 19, 167]);
+}
+impl ::std::convert::From<IDCompositionClip> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionClip) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionClip> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionClip) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionClip {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionClip {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -943,8 +1063,8 @@ pub struct IDCompositionClip_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionColorMatrixEffect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionColorMatrixEffect(pub ::windows::runtime::IUnknown);
 impl IDCompositionColorMatrixEffect {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
@@ -978,6 +1098,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionColorMatrixEffect {
     type Vtable = IDCompositionColorMatrixEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3239512610, 15586, 18790, [144, 212, 85, 64, 139, 252, 132, 196]);
 }
+impl ::std::convert::From<IDCompositionColorMatrixEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionColorMatrixEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionColorMatrixEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionColorMatrixEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionColorMatrixEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionColorMatrixEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionColorMatrixEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionColorMatrixEffect) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -990,12 +1130,12 @@ impl ::std::convert::From<&IDCompositionColorMatrixEffect> for IDCompositionFilt
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionColorMatrixEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionColorMatrixEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionColorMatrixEffect> for IDCompositionEffect {
@@ -1010,12 +1150,12 @@ impl ::std::convert::From<&IDCompositionColorMatrixEffect> for IDCompositionEffe
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionColorMatrixEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionColorMatrixEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1036,8 +1176,8 @@ pub struct IDCompositionColorMatrixEffect_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionCompositeEffect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionCompositeEffect(pub ::windows::runtime::IUnknown);
 impl IDCompositionCompositeEffect {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
@@ -1053,6 +1193,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionCompositeEffect {
     type Vtable = IDCompositionCompositeEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1466308288, 41521, 18765, [163, 141, 0, 253, 94, 196, 219, 70]);
 }
+impl ::std::convert::From<IDCompositionCompositeEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionCompositeEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionCompositeEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionCompositeEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionCompositeEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionCompositeEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionCompositeEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionCompositeEffect) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1065,12 +1225,12 @@ impl ::std::convert::From<&IDCompositionCompositeEffect> for IDCompositionFilter
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionCompositeEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionCompositeEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionCompositeEffect> for IDCompositionEffect {
@@ -1085,12 +1245,12 @@ impl ::std::convert::From<&IDCompositionCompositeEffect> for IDCompositionEffect
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionCompositeEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionCompositeEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1105,8 +1265,8 @@ pub struct IDCompositionCompositeEffect_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionDelegatedInkTrail(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionDelegatedInkTrail(pub ::windows::runtime::IUnknown);
 impl IDCompositionDelegatedInkTrail {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn AddTrailPoints(&self, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: u32) -> ::windows::runtime::Result<u32> {
@@ -1132,6 +1292,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionDelegatedInkTrail {
     type Vtable = IDCompositionDelegatedInkTrail_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259272859, 21629, 16471, [140, 245, 129, 68, 237, 225, 194, 218]);
 }
+impl ::std::convert::From<IDCompositionDelegatedInkTrail> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionDelegatedInkTrail) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionDelegatedInkTrail> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionDelegatedInkTrail) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionDelegatedInkTrail {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionDelegatedInkTrail {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDelegatedInkTrail_abi(
@@ -1146,8 +1326,8 @@ pub struct IDCompositionDelegatedInkTrail_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionDesktopDevice(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionDesktopDevice(pub ::windows::runtime::IUnknown);
 impl IDCompositionDesktopDevice {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
@@ -1278,6 +1458,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionDesktopDevice {
     type Vtable = IDCompositionDesktopDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1598436350, 7688, 19640, [140, 117, 206, 36, 51, 63, 86, 2]);
 }
+impl ::std::convert::From<IDCompositionDesktopDevice> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionDesktopDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionDesktopDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionDesktopDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionDesktopDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionDesktopDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionDesktopDevice> for IDCompositionDevice2 {
     fn from(value: IDCompositionDesktopDevice) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1290,12 +1490,12 @@ impl ::std::convert::From<&IDCompositionDesktopDevice> for IDCompositionDevice2 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionDevice2> for IDCompositionDesktopDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionDevice2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionDevice2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionDevice2> for &IDCompositionDesktopDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionDevice2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionDevice2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1337,8 +1537,8 @@ pub struct IDCompositionDesktopDevice_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionDevice(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionDevice(pub ::windows::runtime::IUnknown);
 impl IDCompositionDevice {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
@@ -1470,6 +1670,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionDevice {
     type Vtable = IDCompositionDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3279857978, 59306, 17677, [177, 111, 151, 70, 203, 4, 7, 243]);
 }
+impl ::std::convert::From<IDCompositionDevice> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDevice_abi(
@@ -1510,8 +1730,8 @@ pub struct IDCompositionDevice_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionDevice2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionDevice2(pub ::windows::runtime::IUnknown);
 impl IDCompositionDevice2 {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
@@ -1624,6 +1844,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionDevice2 {
     type Vtable = IDCompositionDevice2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1979074189, 7054, 17532, [155, 198, 117, 254, 168, 11, 91, 37]);
 }
+impl ::std::convert::From<IDCompositionDevice2> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionDevice2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionDevice2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionDevice2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionDevice2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionDevice2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDevice2_abi(
@@ -1657,8 +1897,8 @@ pub struct IDCompositionDevice2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionDevice3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionDevice3(pub ::windows::runtime::IUnknown);
 impl IDCompositionDevice3 {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
@@ -1836,6 +2076,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionDevice3 {
     type Vtable = IDCompositionDevice3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(159894278, 63766, 18623, [141, 53, 206, 118, 65, 120, 27, 217]);
 }
+impl ::std::convert::From<IDCompositionDevice3> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionDevice3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionDevice3> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionDevice3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionDevice3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionDevice3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionDevice3> for IDCompositionDevice2 {
     fn from(value: IDCompositionDevice3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1848,12 +2108,12 @@ impl ::std::convert::From<&IDCompositionDevice3> for IDCompositionDevice2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionDevice2> for IDCompositionDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionDevice2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionDevice2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionDevice2> for &IDCompositionDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionDevice2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionDevice2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1902,8 +2162,8 @@ pub struct IDCompositionDevice3_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionDeviceDebug(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionDeviceDebug(pub ::windows::runtime::IUnknown);
 impl IDCompositionDeviceDebug {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn EnableDebugCounters(&self) -> ::windows::runtime::Result<()> {
@@ -1918,6 +2178,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionDeviceDebug {
     type Vtable = IDCompositionDeviceDebug_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2711864906, 8783, 19073, [151, 115, 79, 3, 168, 157, 60, 108]);
 }
+impl ::std::convert::From<IDCompositionDeviceDebug> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionDeviceDebug) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionDeviceDebug> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionDeviceDebug) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionDeviceDebug {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionDeviceDebug {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDeviceDebug_abi(
@@ -1929,12 +2209,32 @@ pub struct IDCompositionDeviceDebug_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionEffect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionEffect(pub ::windows::runtime::IUnknown);
 impl IDCompositionEffect {}
 unsafe impl ::windows::runtime::Interface for IDCompositionEffect {
     type Vtable = IDCompositionEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3967922319, 49099, 20109, [177, 147, 169, 21, 88, 121, 153, 232]);
+}
+impl ::std::convert::From<IDCompositionEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1945,8 +2245,8 @@ pub struct IDCompositionEffect_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionEffectGroup(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionEffectGroup(pub ::windows::runtime::IUnknown);
 impl IDCompositionEffectGroup {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetOpacity<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::runtime::Result<()> {
@@ -1965,6 +2265,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionEffectGroup {
     type Vtable = IDCompositionEffectGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2811402868, 59058, 19414, [139, 149, 64, 64, 17, 156, 163, 77]);
 }
+impl ::std::convert::From<IDCompositionEffectGroup> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionEffectGroup) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionEffectGroup> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionEffectGroup) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionEffectGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionEffectGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionEffectGroup> for IDCompositionEffect {
     fn from(value: IDCompositionEffectGroup) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1977,12 +2297,12 @@ impl ::std::convert::From<&IDCompositionEffectGroup> for IDCompositionEffect {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionEffectGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionEffectGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1997,8 +2317,8 @@ pub struct IDCompositionEffectGroup_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionFilterEffect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionFilterEffect(pub ::windows::runtime::IUnknown);
 impl IDCompositionFilterEffect {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
@@ -2008,6 +2328,26 @@ impl IDCompositionFilterEffect {
 unsafe impl ::windows::runtime::Interface for IDCompositionFilterEffect {
     type Vtable = IDCompositionFilterEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(818160085, 36018, 20127, [177, 51, 55, 190, 39, 13, 74, 194]);
+}
+impl ::std::convert::From<IDCompositionFilterEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionFilterEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionFilterEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionFilterEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionFilterEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionFilterEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<IDCompositionFilterEffect> for IDCompositionEffect {
     fn from(value: IDCompositionFilterEffect) -> Self {
@@ -2021,12 +2361,12 @@ impl ::std::convert::From<&IDCompositionFilterEffect> for IDCompositionEffect {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionFilterEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionFilterEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2039,8 +2379,8 @@ pub struct IDCompositionFilterEffect_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionGaussianBlurEffect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionGaussianBlurEffect(pub ::windows::runtime::IUnknown);
 impl IDCompositionGaussianBlurEffect {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
@@ -2064,6 +2404,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionGaussianBlurEffect {
     type Vtable = IDCompositionGaussianBlurEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1171574967, 7124, 17742, [136, 148, 43, 250, 104, 68, 48, 51]);
 }
+impl ::std::convert::From<IDCompositionGaussianBlurEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionGaussianBlurEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionGaussianBlurEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionGaussianBlurEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionGaussianBlurEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionGaussianBlurEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionGaussianBlurEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionGaussianBlurEffect) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2076,12 +2436,12 @@ impl ::std::convert::From<&IDCompositionGaussianBlurEffect> for IDCompositionFil
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionGaussianBlurEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionGaussianBlurEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionGaussianBlurEffect> for IDCompositionEffect {
@@ -2096,12 +2456,12 @@ impl ::std::convert::From<&IDCompositionGaussianBlurEffect> for IDCompositionEff
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionGaussianBlurEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionGaussianBlurEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2118,8 +2478,8 @@ pub struct IDCompositionGaussianBlurEffect_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionHueRotationEffect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionHueRotationEffect(pub ::windows::runtime::IUnknown);
 impl IDCompositionHueRotationEffect {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
@@ -2138,6 +2498,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionHueRotationEffect {
     type Vtable = IDCompositionHueRotationEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1840904480, 1904, 18305, [176, 198, 56, 25, 18, 249, 209, 103]);
 }
+impl ::std::convert::From<IDCompositionHueRotationEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionHueRotationEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionHueRotationEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionHueRotationEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionHueRotationEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionHueRotationEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionHueRotationEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionHueRotationEffect) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2150,12 +2530,12 @@ impl ::std::convert::From<&IDCompositionHueRotationEffect> for IDCompositionFilt
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionHueRotationEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionHueRotationEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionHueRotationEffect> for IDCompositionEffect {
@@ -2170,12 +2550,12 @@ impl ::std::convert::From<&IDCompositionHueRotationEffect> for IDCompositionEffe
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionHueRotationEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionHueRotationEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2190,8 +2570,8 @@ pub struct IDCompositionHueRotationEffect_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionInkTrailDevice(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionInkTrailDevice(pub ::windows::runtime::IUnknown);
 impl IDCompositionInkTrailDevice {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn CreateDelegatedInkTrail(&self) -> ::windows::runtime::Result<IDCompositionDelegatedInkTrail> {
@@ -2208,6 +2588,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionInkTrailDevice {
     type Vtable = IDCompositionInkTrailDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3742137580, 52715, 19786, [185, 28, 114, 27, 242, 47, 78, 108]);
 }
+impl ::std::convert::From<IDCompositionInkTrailDevice> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionInkTrailDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionInkTrailDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionInkTrailDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionInkTrailDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionInkTrailDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionInkTrailDevice_abi(
@@ -2219,8 +2619,8 @@ pub struct IDCompositionInkTrailDevice_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionLinearTransferEffect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionLinearTransferEffect(pub ::windows::runtime::IUnknown);
 impl IDCompositionLinearTransferEffect {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
@@ -2320,6 +2720,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionLinearTransferEffect 
     type Vtable = IDCompositionLinearTransferEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1124462171, 50336, 19592, [147, 133, 103, 18, 78, 1, 118, 131]);
 }
+impl ::std::convert::From<IDCompositionLinearTransferEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionLinearTransferEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionLinearTransferEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionLinearTransferEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionLinearTransferEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionLinearTransferEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionLinearTransferEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionLinearTransferEffect) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2332,12 +2752,12 @@ impl ::std::convert::From<&IDCompositionLinearTransferEffect> for IDCompositionF
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionLinearTransferEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionLinearTransferEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionLinearTransferEffect> for IDCompositionEffect {
@@ -2352,12 +2772,12 @@ impl ::std::convert::From<&IDCompositionLinearTransferEffect> for IDCompositionE
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionLinearTransferEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionLinearTransferEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2396,8 +2816,8 @@ pub struct IDCompositionLinearTransferEffect_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionMatrixTransform(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionMatrixTransform(pub ::windows::runtime::IUnknown);
 impl IDCompositionMatrixTransform {
     #[cfg(feature = "Foundation_Numerics")]
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Foundation_Numerics`*"]
@@ -2417,6 +2837,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionMatrixTransform {
     type Vtable = IDCompositionMatrixTransform_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(382598919, 50435, 16796, [131, 242, 9, 101, 199, 175, 31, 166]);
 }
+impl ::std::convert::From<IDCompositionMatrixTransform> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionMatrixTransform) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionMatrixTransform> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionMatrixTransform) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionMatrixTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionMatrixTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionMatrixTransform> for IDCompositionTransform {
     fn from(value: IDCompositionMatrixTransform) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2429,12 +2869,12 @@ impl ::std::convert::From<&IDCompositionMatrixTransform> for IDCompositionTransf
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform> for IDCompositionMatrixTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform> for &IDCompositionMatrixTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionMatrixTransform> for IDCompositionTransform3D {
@@ -2449,12 +2889,12 @@ impl ::std::convert::From<&IDCompositionMatrixTransform> for IDCompositionTransf
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for IDCompositionMatrixTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionMatrixTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionMatrixTransform> for IDCompositionEffect {
@@ -2469,12 +2909,12 @@ impl ::std::convert::From<&IDCompositionMatrixTransform> for IDCompositionEffect
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionMatrixTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionMatrixTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2490,8 +2930,8 @@ pub struct IDCompositionMatrixTransform_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionMatrixTransform3D(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionMatrixTransform3D(pub ::windows::runtime::IUnknown);
 impl IDCompositionMatrixTransform3D {
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct3D9`*"]
@@ -2511,6 +2951,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionMatrixTransform3D {
     type Vtable = IDCompositionMatrixTransform3D_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1261659120, 25659, 16823, [182, 224, 204, 242, 45, 52, 70, 124]);
 }
+impl ::std::convert::From<IDCompositionMatrixTransform3D> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionMatrixTransform3D) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionMatrixTransform3D> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionMatrixTransform3D) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionMatrixTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionMatrixTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionMatrixTransform3D> for IDCompositionTransform3D {
     fn from(value: IDCompositionMatrixTransform3D) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2523,12 +2983,12 @@ impl ::std::convert::From<&IDCompositionMatrixTransform3D> for IDCompositionTran
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for IDCompositionMatrixTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionMatrixTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionMatrixTransform3D> for IDCompositionEffect {
@@ -2543,12 +3003,12 @@ impl ::std::convert::From<&IDCompositionMatrixTransform3D> for IDCompositionEffe
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionMatrixTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionMatrixTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2564,8 +3024,8 @@ pub struct IDCompositionMatrixTransform3D_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionRectangleClip(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionRectangleClip(pub ::windows::runtime::IUnknown);
 impl IDCompositionRectangleClip {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetLeft<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::runtime::Result<()> {
@@ -2668,6 +3128,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionRectangleClip {
     type Vtable = IDCompositionRectangleClip_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2554506621, 55759, 18696, [174, 215, 72, 181, 29, 165, 231, 194]);
 }
+impl ::std::convert::From<IDCompositionRectangleClip> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionRectangleClip) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionRectangleClip> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionRectangleClip) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionRectangleClip {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionRectangleClip {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionRectangleClip> for IDCompositionClip {
     fn from(value: IDCompositionRectangleClip) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2680,12 +3160,12 @@ impl ::std::convert::From<&IDCompositionRectangleClip> for IDCompositionClip {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionClip> for IDCompositionRectangleClip {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionClip> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionClip>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionClip> for &IDCompositionRectangleClip {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionClip> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionClip>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2721,8 +3201,8 @@ pub struct IDCompositionRectangleClip_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionRotateTransform(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionRotateTransform(pub ::windows::runtime::IUnknown);
 impl IDCompositionRotateTransform {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetAngle<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::runtime::Result<()> {
@@ -2753,6 +3233,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionRotateTransform {
     type Vtable = IDCompositionRotateTransform_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1679743036, 44694, 18117, [144, 220, 50, 119, 76, 197, 198, 213]);
 }
+impl ::std::convert::From<IDCompositionRotateTransform> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionRotateTransform) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionRotateTransform> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionRotateTransform) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionRotateTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionRotateTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionRotateTransform> for IDCompositionTransform {
     fn from(value: IDCompositionRotateTransform) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2765,12 +3265,12 @@ impl ::std::convert::From<&IDCompositionRotateTransform> for IDCompositionTransf
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform> for IDCompositionRotateTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform> for &IDCompositionRotateTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionRotateTransform> for IDCompositionTransform3D {
@@ -2785,12 +3285,12 @@ impl ::std::convert::From<&IDCompositionRotateTransform> for IDCompositionTransf
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for IDCompositionRotateTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionRotateTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionRotateTransform> for IDCompositionEffect {
@@ -2805,12 +3305,12 @@ impl ::std::convert::From<&IDCompositionRotateTransform> for IDCompositionEffect
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionRotateTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionRotateTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2828,8 +3328,8 @@ pub struct IDCompositionRotateTransform_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionRotateTransform3D(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionRotateTransform3D(pub ::windows::runtime::IUnknown);
 impl IDCompositionRotateTransform3D {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetAngle<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::runtime::Result<()> {
@@ -2892,6 +3392,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionRotateTransform3D {
     type Vtable = IDCompositionRotateTransform3D_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3639980607, 54313, 19089, [181, 90, 210, 244, 95, 215, 91, 24]);
 }
+impl ::std::convert::From<IDCompositionRotateTransform3D> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionRotateTransform3D) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionRotateTransform3D> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionRotateTransform3D) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionRotateTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionRotateTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionRotateTransform3D> for IDCompositionTransform3D {
     fn from(value: IDCompositionRotateTransform3D) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2904,12 +3424,12 @@ impl ::std::convert::From<&IDCompositionRotateTransform3D> for IDCompositionTran
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for IDCompositionRotateTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionRotateTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionRotateTransform3D> for IDCompositionEffect {
@@ -2924,12 +3444,12 @@ impl ::std::convert::From<&IDCompositionRotateTransform3D> for IDCompositionEffe
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionRotateTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionRotateTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2955,8 +3475,8 @@ pub struct IDCompositionRotateTransform3D_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionSaturationEffect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionSaturationEffect(pub ::windows::runtime::IUnknown);
 impl IDCompositionSaturationEffect {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
@@ -2975,6 +3495,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionSaturationEffect {
     type Vtable = IDCompositionSaturationEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2693655514, 12888, 20388, [159, 22, 145, 116, 211, 254, 147, 177]);
 }
+impl ::std::convert::From<IDCompositionSaturationEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionSaturationEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionSaturationEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionSaturationEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionSaturationEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionSaturationEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionSaturationEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionSaturationEffect) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2987,12 +3527,12 @@ impl ::std::convert::From<&IDCompositionSaturationEffect> for IDCompositionFilte
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionSaturationEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionSaturationEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionSaturationEffect> for IDCompositionEffect {
@@ -3007,12 +3547,12 @@ impl ::std::convert::From<&IDCompositionSaturationEffect> for IDCompositionEffec
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionSaturationEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionSaturationEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3027,8 +3567,8 @@ pub struct IDCompositionSaturationEffect_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionScaleTransform(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionScaleTransform(pub ::windows::runtime::IUnknown);
 impl IDCompositionScaleTransform {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetScaleX<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::runtime::Result<()> {
@@ -3067,6 +3607,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionScaleTransform {
     type Vtable = IDCompositionScaleTransform_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1912465684, 16623, 17903, [189, 81, 104, 176, 55, 195, 57, 249]);
 }
+impl ::std::convert::From<IDCompositionScaleTransform> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionScaleTransform) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionScaleTransform> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionScaleTransform) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionScaleTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionScaleTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionScaleTransform> for IDCompositionTransform {
     fn from(value: IDCompositionScaleTransform) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3079,12 +3639,12 @@ impl ::std::convert::From<&IDCompositionScaleTransform> for IDCompositionTransfo
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform> for IDCompositionScaleTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform> for &IDCompositionScaleTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionScaleTransform> for IDCompositionTransform3D {
@@ -3099,12 +3659,12 @@ impl ::std::convert::From<&IDCompositionScaleTransform> for IDCompositionTransfo
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for IDCompositionScaleTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionScaleTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionScaleTransform> for IDCompositionEffect {
@@ -3119,12 +3679,12 @@ impl ::std::convert::From<&IDCompositionScaleTransform> for IDCompositionEffect 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionScaleTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionScaleTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3144,8 +3704,8 @@ pub struct IDCompositionScaleTransform_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionScaleTransform3D(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionScaleTransform3D(pub ::windows::runtime::IUnknown);
 impl IDCompositionScaleTransform3D {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetScaleX<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::runtime::Result<()> {
@@ -3200,6 +3760,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionScaleTransform3D {
     type Vtable = IDCompositionScaleTransform3D_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(715038381, 13899, 19221, [167, 196, 161, 153, 127, 120, 179, 137]);
 }
+impl ::std::convert::From<IDCompositionScaleTransform3D> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionScaleTransform3D) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionScaleTransform3D> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionScaleTransform3D) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionScaleTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionScaleTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionScaleTransform3D> for IDCompositionTransform3D {
     fn from(value: IDCompositionScaleTransform3D) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3212,12 +3792,12 @@ impl ::std::convert::From<&IDCompositionScaleTransform3D> for IDCompositionTrans
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for IDCompositionScaleTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionScaleTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionScaleTransform3D> for IDCompositionEffect {
@@ -3232,12 +3812,12 @@ impl ::std::convert::From<&IDCompositionScaleTransform3D> for IDCompositionEffec
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionScaleTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionScaleTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3261,8 +3841,8 @@ pub struct IDCompositionScaleTransform3D_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionShadowEffect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionShadowEffect(pub ::windows::runtime::IUnknown);
 impl IDCompositionShadowEffect {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
@@ -3318,6 +3898,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionShadowEffect {
     type Vtable = IDCompositionShadowEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1255246528, 53202, 19503, [187, 98, 150, 229, 79, 219, 104, 121]);
 }
+impl ::std::convert::From<IDCompositionShadowEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionShadowEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionShadowEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionShadowEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionShadowEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionShadowEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionShadowEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionShadowEffect) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3330,12 +3930,12 @@ impl ::std::convert::From<&IDCompositionShadowEffect> for IDCompositionFilterEff
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionShadowEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionShadowEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionShadowEffect> for IDCompositionEffect {
@@ -3350,12 +3950,12 @@ impl ::std::convert::From<&IDCompositionShadowEffect> for IDCompositionEffect {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionShadowEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionShadowEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3380,8 +3980,8 @@ pub struct IDCompositionShadowEffect_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionSkewTransform(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionSkewTransform(pub ::windows::runtime::IUnknown);
 impl IDCompositionSkewTransform {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetAngleX<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::runtime::Result<()> {
@@ -3420,6 +4020,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionSkewTransform {
     type Vtable = IDCompositionSkewTransform_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3850020661, 56539, 19570, [156, 97, 5, 145, 245, 136, 137, 238]);
 }
+impl ::std::convert::From<IDCompositionSkewTransform> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionSkewTransform) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionSkewTransform> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionSkewTransform) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionSkewTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionSkewTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionSkewTransform> for IDCompositionTransform {
     fn from(value: IDCompositionSkewTransform) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3432,12 +4052,12 @@ impl ::std::convert::From<&IDCompositionSkewTransform> for IDCompositionTransfor
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform> for IDCompositionSkewTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform> for &IDCompositionSkewTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionSkewTransform> for IDCompositionTransform3D {
@@ -3452,12 +4072,12 @@ impl ::std::convert::From<&IDCompositionSkewTransform> for IDCompositionTransfor
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for IDCompositionSkewTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionSkewTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionSkewTransform> for IDCompositionEffect {
@@ -3472,12 +4092,12 @@ impl ::std::convert::From<&IDCompositionSkewTransform> for IDCompositionEffect {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionSkewTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionSkewTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3497,8 +4117,8 @@ pub struct IDCompositionSkewTransform_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionSurface(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionSurface(pub ::windows::runtime::IUnknown);
 impl IDCompositionSurface {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`*"]
@@ -3527,6 +4147,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionSurface {
     type Vtable = IDCompositionSurface_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3146402131, 11417, 20314, [150, 245, 72, 25, 2, 127, 163, 172]);
 }
+impl ::std::convert::From<IDCompositionSurface> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionSurface) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionSurface> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionSurface) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionSurface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionSurface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionSurface_abi(
@@ -3543,8 +4183,8 @@ pub struct IDCompositionSurface_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionSurfaceFactory(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionSurfaceFactory(pub ::windows::runtime::IUnknown);
 impl IDCompositionSurfaceFactory {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
@@ -3563,6 +4203,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionSurfaceFactory {
     type Vtable = IDCompositionSurfaceFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3811884050, 14647, 19970, [133, 235, 252, 244, 235, 48, 210, 200]);
 }
+impl ::std::convert::From<IDCompositionSurfaceFactory> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionSurfaceFactory) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionSurfaceFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionSurfaceFactory) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionSurfaceFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionSurfaceFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionSurfaceFactory_abi(
@@ -3576,8 +4236,8 @@ pub struct IDCompositionSurfaceFactory_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionTableTransferEffect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionTableTransferEffect(pub ::windows::runtime::IUnknown);
 impl IDCompositionTableTransferEffect {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
@@ -3661,6 +4321,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionTableTransferEffect {
     type Vtable = IDCompositionTableTransferEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608759522, 27077, 20148, [165, 245, 167, 3, 63, 81, 50, 205]);
 }
+impl ::std::convert::From<IDCompositionTableTransferEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionTableTransferEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionTableTransferEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionTableTransferEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionTableTransferEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionTableTransferEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionTableTransferEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionTableTransferEffect) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3673,12 +4353,12 @@ impl ::std::convert::From<&IDCompositionTableTransferEffect> for IDCompositionFi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionTableTransferEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionTableTransferEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionTableTransferEffect> for IDCompositionEffect {
@@ -3693,12 +4373,12 @@ impl ::std::convert::From<&IDCompositionTableTransferEffect> for IDCompositionEf
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionTableTransferEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionTableTransferEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3733,8 +4413,8 @@ pub struct IDCompositionTableTransferEffect_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionTarget(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionTarget(pub ::windows::runtime::IUnknown);
 impl IDCompositionTarget {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetRoot<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionVisual>>(&self, visual: Param0) -> ::windows::runtime::Result<()> {
@@ -3744,6 +4424,26 @@ impl IDCompositionTarget {
 unsafe impl ::windows::runtime::Interface for IDCompositionTarget {
     type Vtable = IDCompositionTarget_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3939356748, 4478, 19991, [136, 244, 209, 177, 43, 14, 61, 137]);
+}
+impl ::std::convert::From<IDCompositionTarget> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionTarget) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionTarget> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionTarget) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionTarget {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionTarget {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3755,12 +4455,32 @@ pub struct IDCompositionTarget_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionTransform(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionTransform(pub ::windows::runtime::IUnknown);
 impl IDCompositionTransform {}
 unsafe impl ::windows::runtime::Interface for IDCompositionTransform {
     type Vtable = IDCompositionTransform_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4250270375, 14304, 19488, [149, 210, 155, 228, 91, 195, 63, 85]);
+}
+impl ::std::convert::From<IDCompositionTransform> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionTransform) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionTransform> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionTransform) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<IDCompositionTransform> for IDCompositionTransform3D {
     fn from(value: IDCompositionTransform) -> Self {
@@ -3774,12 +4494,12 @@ impl ::std::convert::From<&IDCompositionTransform> for IDCompositionTransform3D 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for IDCompositionTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionTransform> for IDCompositionEffect {
@@ -3794,12 +4514,12 @@ impl ::std::convert::From<&IDCompositionTransform> for IDCompositionEffect {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3811,12 +4531,32 @@ pub struct IDCompositionTransform_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionTransform3D(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionTransform3D(pub ::windows::runtime::IUnknown);
 impl IDCompositionTransform3D {}
 unsafe impl ::windows::runtime::Interface for IDCompositionTransform3D {
     type Vtable = IDCompositionTransform3D_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1897420578, 9323, 16882, [170, 209, 4, 67, 247, 244, 191, 194]);
+}
+impl ::std::convert::From<IDCompositionTransform3D> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionTransform3D) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionTransform3D> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionTransform3D) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<IDCompositionTransform3D> for IDCompositionEffect {
     fn from(value: IDCompositionTransform3D) -> Self {
@@ -3830,12 +4570,12 @@ impl ::std::convert::From<&IDCompositionTransform3D> for IDCompositionEffect {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3847,8 +4587,8 @@ pub struct IDCompositionTransform3D_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionTranslateTransform(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionTranslateTransform(pub ::windows::runtime::IUnknown);
 impl IDCompositionTranslateTransform {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetOffsetX<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::runtime::Result<()> {
@@ -3871,6 +4611,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionTranslateTransform {
     type Vtable = IDCompositionTranslateTransform_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(108597538, 50928, 16765, [131, 35, 38, 158, 152, 127, 89, 84]);
 }
+impl ::std::convert::From<IDCompositionTranslateTransform> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionTranslateTransform) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionTranslateTransform> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionTranslateTransform) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionTranslateTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionTranslateTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionTranslateTransform> for IDCompositionTransform {
     fn from(value: IDCompositionTranslateTransform) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3883,12 +4643,12 @@ impl ::std::convert::From<&IDCompositionTranslateTransform> for IDCompositionTra
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform> for IDCompositionTranslateTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform> for &IDCompositionTranslateTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionTranslateTransform> for IDCompositionTransform3D {
@@ -3903,12 +4663,12 @@ impl ::std::convert::From<&IDCompositionTranslateTransform> for IDCompositionTra
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for IDCompositionTranslateTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionTranslateTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionTranslateTransform> for IDCompositionEffect {
@@ -3923,12 +4683,12 @@ impl ::std::convert::From<&IDCompositionTranslateTransform> for IDCompositionEff
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionTranslateTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionTranslateTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3944,8 +4704,8 @@ pub struct IDCompositionTranslateTransform_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionTranslateTransform3D(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionTranslateTransform3D(pub ::windows::runtime::IUnknown);
 impl IDCompositionTranslateTransform3D {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetOffsetX<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::runtime::Result<()> {
@@ -3976,6 +4736,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionTranslateTransform3D 
     type Vtable = IDCompositionTranslateTransform3D_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2439212363, 39841, 17714, [170, 247, 227, 52, 73, 148, 215, 136]);
 }
+impl ::std::convert::From<IDCompositionTranslateTransform3D> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionTranslateTransform3D) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionTranslateTransform3D> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionTranslateTransform3D) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionTranslateTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionTranslateTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionTranslateTransform3D> for IDCompositionTransform3D {
     fn from(value: IDCompositionTranslateTransform3D) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3988,12 +4768,12 @@ impl ::std::convert::From<&IDCompositionTranslateTransform3D> for IDCompositionT
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for IDCompositionTranslateTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionTranslateTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionTransform3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionTransform3D>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionTranslateTransform3D> for IDCompositionEffect {
@@ -4008,12 +4788,12 @@ impl ::std::convert::From<&IDCompositionTranslateTransform3D> for IDCompositionE
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionTranslateTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionTranslateTransform3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4031,8 +4811,8 @@ pub struct IDCompositionTranslateTransform3D_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionTurbulenceEffect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionTurbulenceEffect(pub ::windows::runtime::IUnknown);
 impl IDCompositionTurbulenceEffect {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
@@ -4076,6 +4856,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionTurbulenceEffect {
     type Vtable = IDCompositionTurbulenceEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2795854810, 49308, 18931, [145, 147, 164, 25, 34, 200, 151, 21]);
 }
+impl ::std::convert::From<IDCompositionTurbulenceEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionTurbulenceEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionTurbulenceEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionTurbulenceEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionTurbulenceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionTurbulenceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionTurbulenceEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionTurbulenceEffect) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4088,12 +4888,12 @@ impl ::std::convert::From<&IDCompositionTurbulenceEffect> for IDCompositionFilte
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionTurbulenceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionTurbulenceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionFilterEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionFilterEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionTurbulenceEffect> for IDCompositionEffect {
@@ -4108,12 +4908,12 @@ impl ::std::convert::From<&IDCompositionTurbulenceEffect> for IDCompositionEffec
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for IDCompositionTurbulenceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionEffect> for &IDCompositionTurbulenceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4138,8 +4938,8 @@ pub struct IDCompositionTurbulenceEffect_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionVirtualSurface(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionVirtualSurface(pub ::windows::runtime::IUnknown);
 impl IDCompositionVirtualSurface {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`*"]
@@ -4177,6 +4977,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionVirtualSurface {
     type Vtable = IDCompositionVirtualSurface_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2923895889, 24403, 18980, [141, 62, 208, 195, 156, 48, 179, 240]);
 }
+impl ::std::convert::From<IDCompositionVirtualSurface> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionVirtualSurface) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionVirtualSurface> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionVirtualSurface) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionVirtualSurface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionVirtualSurface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionVirtualSurface> for IDCompositionSurface {
     fn from(value: IDCompositionVirtualSurface) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4189,12 +5009,12 @@ impl ::std::convert::From<&IDCompositionVirtualSurface> for IDCompositionSurface
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionSurface> for IDCompositionVirtualSurface {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionSurface> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionSurface>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionSurface> for &IDCompositionVirtualSurface {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionSurface> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionSurface>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4216,8 +5036,8 @@ pub struct IDCompositionVirtualSurface_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionVisual(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionVisual(pub ::windows::runtime::IUnknown);
 impl IDCompositionVisual {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetOffsetX<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::runtime::Result<()> {
@@ -4295,6 +5115,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionVisual {
     type Vtable = IDCompositionVisual_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1301480861, 2427, 18001, [154, 96, 240, 242, 81, 22, 226, 243]);
 }
+impl ::std::convert::From<IDCompositionVisual> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionVisual) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionVisual> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionVisual) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionVisual {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionVisual {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionVisual_abi(
@@ -4324,8 +5164,8 @@ pub struct IDCompositionVisual_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionVisual2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionVisual2(pub ::windows::runtime::IUnknown);
 impl IDCompositionVisual2 {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetOffsetX<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::runtime::Result<()> {
@@ -4411,6 +5251,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionVisual2 {
     type Vtable = IDCompositionVisual2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3906868793, 17201, 19238, [188, 95, 106, 50, 29, 52, 122, 133]);
 }
+impl ::std::convert::From<IDCompositionVisual2> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionVisual2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionVisual2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionVisual2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionVisual2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionVisual2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionVisual2> for IDCompositionVisual {
     fn from(value: IDCompositionVisual2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4423,12 +5283,12 @@ impl ::std::convert::From<&IDCompositionVisual2> for IDCompositionVisual {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionVisual> for IDCompositionVisual2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionVisual> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionVisual>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionVisual> for &IDCompositionVisual2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionVisual> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionVisual>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4462,8 +5322,8 @@ pub struct IDCompositionVisual2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionVisual3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionVisual3(pub ::windows::runtime::IUnknown);
 impl IDCompositionVisual3 {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetOffsetX<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::runtime::Result<()> {
@@ -4600,6 +5460,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionVisual3 {
     type Vtable = IDCompositionVisual3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(662041698, 46785, 16405, [176, 190, 179, 231, 214, 164, 151, 109]);
 }
+impl ::std::convert::From<IDCompositionVisual3> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionVisual3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionVisual3> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionVisual3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionVisual3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionVisual3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionVisual3> for IDCompositionVisualDebug {
     fn from(value: IDCompositionVisual3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4612,12 +5492,12 @@ impl ::std::convert::From<&IDCompositionVisual3> for IDCompositionVisualDebug {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionVisualDebug> for IDCompositionVisual3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionVisualDebug> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionVisualDebug>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionVisualDebug> for &IDCompositionVisual3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionVisualDebug> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionVisualDebug>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionVisual3> for IDCompositionVisual2 {
@@ -4632,12 +5512,12 @@ impl ::std::convert::From<&IDCompositionVisual3> for IDCompositionVisual2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionVisual2> for IDCompositionVisual3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionVisual2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionVisual2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionVisual2> for &IDCompositionVisual3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionVisual2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionVisual2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionVisual3> for IDCompositionVisual {
@@ -4652,12 +5532,12 @@ impl ::std::convert::From<&IDCompositionVisual3> for IDCompositionVisual {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionVisual> for IDCompositionVisual3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionVisual> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionVisual>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionVisual> for &IDCompositionVisual3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionVisual> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionVisual>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4706,8 +5586,8 @@ pub struct IDCompositionVisual3_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDCompositionVisualDebug(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDCompositionVisualDebug(pub ::windows::runtime::IUnknown);
 impl IDCompositionVisualDebug {
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
     pub unsafe fn SetOffsetX<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::runtime::Result<()> {
@@ -4810,6 +5690,26 @@ unsafe impl ::windows::runtime::Interface for IDCompositionVisualDebug {
     type Vtable = IDCompositionVisualDebug_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4275222536, 24244, 17312, [174, 163, 53, 246, 82, 128, 249, 27]);
 }
+impl ::std::convert::From<IDCompositionVisualDebug> for ::windows::runtime::IUnknown {
+    fn from(value: IDCompositionVisualDebug) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDCompositionVisualDebug> for ::windows::runtime::IUnknown {
+    fn from(value: &IDCompositionVisualDebug) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCompositionVisualDebug {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCompositionVisualDebug {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDCompositionVisualDebug> for IDCompositionVisual2 {
     fn from(value: IDCompositionVisualDebug) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4822,12 +5722,12 @@ impl ::std::convert::From<&IDCompositionVisualDebug> for IDCompositionVisual2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionVisual2> for IDCompositionVisualDebug {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionVisual2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionVisual2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionVisual2> for &IDCompositionVisualDebug {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionVisual2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionVisual2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDCompositionVisualDebug> for IDCompositionVisual {
@@ -4842,12 +5742,12 @@ impl ::std::convert::From<&IDCompositionVisualDebug> for IDCompositionVisual {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionVisual> for IDCompositionVisualDebug {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionVisual> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionVisual>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDCompositionVisual> for &IDCompositionVisualDebug {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDCompositionVisual> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDCompositionVisual>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

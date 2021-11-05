@@ -290,8 +290,8 @@ impl ::std::cmp::Eq for ATTRIBUTE_INFO_4 {}
 unsafe impl ::windows::runtime::Abi for ATTRIBUTE_INFO_4 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AbortPrinter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -305,8 +305,8 @@ pub unsafe fn AbortPrinter<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddFormA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pform: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -320,8 +320,8 @@ pub unsafe fn AddFormA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddFormW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pform: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -335,8 +335,8 @@ pub unsafe fn AddFormW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddJobA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pdata: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -350,8 +350,8 @@ pub unsafe fn AddJobA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddJobW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pdata: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -365,8 +365,8 @@ pub unsafe fn AddJobW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddMonitorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, level: u32, pmonitors: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -380,8 +380,8 @@ pub unsafe fn AddMonitorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddMonitorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, level: u32, pmonitors: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -395,8 +395,8 @@ pub unsafe fn AddMonitorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPortA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, hwnd: Param1, pmonitorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -410,8 +410,8 @@ pub unsafe fn AddPortA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPortW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, hwnd: Param1, pmonitorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -425,8 +425,8 @@ pub unsafe fn AddPortW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPrintDeviceObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -441,8 +441,8 @@ pub unsafe fn AddPrintDeviceObject<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPrintProcessorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, ppathname: Param2, pprintprocessorname: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -456,8 +456,8 @@ pub unsafe fn AddPrintProcessorA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPrintProcessorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, ppathname: Param2, pprintprocessorname: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -471,8 +471,8 @@ pub unsafe fn AddPrintProcessorW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPrintProvidorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, level: u32, pprovidorinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -486,8 +486,8 @@ pub unsafe fn AddPrintProvidorA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPrintProvidorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, level: u32, pprovidorinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -501,8 +501,8 @@ pub unsafe fn AddPrintProvidorW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPrinterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -516,8 +516,8 @@ pub unsafe fn AddPrinterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPrinterConnection2A<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, pszname: Param1, dwlevel: u32, pconnectioninfo: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -531,8 +531,8 @@ pub unsafe fn AddPrinterConnection2A<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPrinterConnection2W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pszname: Param1, dwlevel: u32, pconnectioninfo: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -546,8 +546,8 @@ pub unsafe fn AddPrinterConnection2W<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPrinterConnectionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -561,8 +561,8 @@ pub unsafe fn AddPrinterConnectionA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPrinterConnectionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -576,8 +576,8 @@ pub unsafe fn AddPrinterConnectionW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPrinterDriverA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, level: u32, pdriverinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -591,8 +591,8 @@ pub unsafe fn AddPrinterDriverA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPrinterDriverExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, level: u32, lpbdriverinfo: *const u8, dwfilecopyflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -606,8 +606,8 @@ pub unsafe fn AddPrinterDriverExA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPrinterDriverExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, level: u32, lpbdriverinfo: *const u8, dwfilecopyflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -621,8 +621,8 @@ pub unsafe fn AddPrinterDriverExW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPrinterDriverW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, level: u32, pdriverinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -636,8 +636,8 @@ pub unsafe fn AddPrinterDriverW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPrinterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -651,8 +651,8 @@ pub unsafe fn AddPrinterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn AdvancedDocumentPropertiesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, hprinter: Param1, pdevicename: Param2, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevmodeinput: *const super::Gdi::DEVMODEA) -> i32 {
     #[cfg(windows)]
@@ -666,8 +666,8 @@ pub unsafe fn AdvancedDocumentPropertiesA<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn AdvancedDocumentPropertiesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, hprinter: Param1, pdevicename: Param2, pdevmodeoutput: *mut super::Gdi::DEVMODEW, pdevmodeinput: *const super::Gdi::DEVMODEW) -> i32 {
     #[cfg(windows)]
@@ -681,8 +681,8 @@ pub unsafe fn AdvancedDocumentPropertiesW<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppendPrinterNotifyInfoData(pinfodest: *const PRINTER_NOTIFY_INFO, pdatasrc: *const PRINTER_NOTIFY_INFO_DATA, fdwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -731,7 +731,6 @@ unsafe impl ::windows::runtime::Abi for BIDI_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 pub union BIDI_DATA_0 {
     pub bData: super::super::Foundation::BOOL,
     pub iData: i32,
@@ -968,7 +967,6 @@ unsafe impl ::windows::runtime::Abi for BranchOfficeJobData {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 pub union BranchOfficeJobData_0 {
     pub LogJobPrinted: BranchOfficeJobDataPrinted,
     pub LogJobRendered: BranchOfficeJobDataRendered,
@@ -1582,23 +1580,28 @@ unsafe impl ::windows::runtime::Abi for CPSUICBPARAM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Printing`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union CPSUICBPARAM_0 {
     pub OldSel: i32,
     pub pOldSel: *mut i8,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl CPSUICBPARAM_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for CPSUICBPARAM_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for CPSUICBPARAM_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for CPSUICBPARAM_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for CPSUICBPARAM_0 {
     type Abi = Self;
 }
@@ -1717,8 +1720,8 @@ impl ::std::cmp::Eq for CUSTOMSIZEPARAM {}
 unsafe impl ::windows::runtime::Abi for CUSTOMSIZEPARAM {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CallRouterFindFirstPrinterChangeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinterrpc: Param0, fdwfilterflags: u32, fdwoptions: u32, hnotify: Param3, pprinternotifyoptions: *const PRINTER_NOTIFY_OPTIONS) -> u32 {
     #[cfg(windows)]
@@ -1732,8 +1735,8 @@ pub unsafe fn CallRouterFindFirstPrinterChangeNotification<'a, Param0: ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClosePrinter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1747,8 +1750,8 @@ pub unsafe fn ClosePrinter<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseSpoolFileHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, hspoolfile: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1762,8 +1765,8 @@ pub unsafe fn CloseSpoolFileHandle<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommitSpoolData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, hspoolfile: Param1, cbcommit: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -1777,8 +1780,8 @@ pub unsafe fn CommitSpoolData<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommonPropertySheetUIA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwndowner: Param0, pfnpropsheetui: ::std::option::Option<PFNPROPSHEETUI>, lparam: Param2, presult: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -1792,8 +1795,8 @@ pub unsafe fn CommonPropertySheetUIA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommonPropertySheetUIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwndowner: Param0, pfnpropsheetui: ::std::option::Option<PFNPROPSHEETUI>, lparam: Param2, presult: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -1807,8 +1810,8 @@ pub unsafe fn CommonPropertySheetUIW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ConfigurePortA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, hwnd: Param1, pportname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1822,8 +1825,8 @@ pub unsafe fn ConfigurePortA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ConfigurePortW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, hwnd: Param1, pportname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1837,8 +1840,8 @@ pub unsafe fn ConfigurePortW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ConnectToPrinterDlg<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, flags: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -1852,8 +1855,8 @@ pub unsafe fn ConnectToPrinterDlg<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CorePrinterDriverInstalledA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>>(
     pszserver: Param0,
@@ -1874,8 +1877,8 @@ pub unsafe fn CorePrinterDriverInstalledA<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CorePrinterDriverInstalledW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>>(
     pszserver: Param0,
@@ -1896,8 +1899,8 @@ pub unsafe fn CorePrinterDriverInstalledW<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePrintAsyncNotifyChannel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyCallback>>(pszname: Param0, pnotificationtype: *const ::windows::runtime::GUID, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: Param4) -> ::windows::runtime::Result<IPrintAsyncNotifyChannel> {
     #[cfg(windows)]
@@ -1912,8 +1915,8 @@ pub unsafe fn CreatePrintAsyncNotifyChannel<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CreatePrinterIC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pdevmode: *const super::Gdi::DEVMODEW) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -2466,29 +2469,28 @@ unsafe impl ::windows::runtime::Abi for DLGPAGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union DLGPAGE_0 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl DLGPAGE_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for DLGPAGE_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for DLGPAGE_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for DLGPAGE_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for DLGPAGE_0 {
     type Abi = Self;
 }
@@ -3958,8 +3960,8 @@ pub const DSPRINT_REPUBLISH: u32 = 8u32;
 pub const DSPRINT_UNPUBLISH: u32 = 4u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const DSPRINT_UPDATE: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteFormA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pformname: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3973,8 +3975,8 @@ pub unsafe fn DeleteFormA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteFormW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pformname: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3988,8 +3990,8 @@ pub unsafe fn DeleteFormW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteJobNamedProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, jobid: u32, pszname: Param2) -> u32 {
     #[cfg(windows)]
@@ -4003,8 +4005,8 @@ pub unsafe fn DeleteJobNamedProperty<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteMonitorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, pmonitorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4018,8 +4020,8 @@ pub unsafe fn DeleteMonitorA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteMonitorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, pmonitorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4033,8 +4035,8 @@ pub unsafe fn DeleteMonitorW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePortA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, hwnd: Param1, pportname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4048,8 +4050,8 @@ pub unsafe fn DeletePortA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePortW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, hwnd: Param1, pportname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4063,8 +4065,8 @@ pub unsafe fn DeletePortW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrintProcessorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, pprintprocessorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4078,8 +4080,8 @@ pub unsafe fn DeletePrintProcessorA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrintProcessorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, pprintprocessorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4093,8 +4095,8 @@ pub unsafe fn DeletePrintProcessorW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrintProvidorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, pprintprovidorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4108,8 +4110,8 @@ pub unsafe fn DeletePrintProvidorA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrintProvidorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, pprintprovidorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4123,8 +4125,8 @@ pub unsafe fn DeletePrintProvidorW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrinter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4138,8 +4140,8 @@ pub unsafe fn DeletePrinter<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrinterConnectionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4153,8 +4155,8 @@ pub unsafe fn DeletePrinterConnectionA<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrinterConnectionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4168,8 +4170,8 @@ pub unsafe fn DeletePrinterConnectionW<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrinterDataA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pvaluename: Param1) -> u32 {
     #[cfg(windows)]
@@ -4183,8 +4185,8 @@ pub unsafe fn DeletePrinterDataA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrinterDataExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2) -> u32 {
     #[cfg(windows)]
@@ -4198,8 +4200,8 @@ pub unsafe fn DeletePrinterDataExA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrinterDataExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2) -> u32 {
     #[cfg(windows)]
@@ -4213,8 +4215,8 @@ pub unsafe fn DeletePrinterDataExW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrinterDataW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pvaluename: Param1) -> u32 {
     #[cfg(windows)]
@@ -4228,8 +4230,8 @@ pub unsafe fn DeletePrinterDataW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrinterDriverA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, pdrivername: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4243,8 +4245,8 @@ pub unsafe fn DeletePrinterDriverA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrinterDriverExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, pdrivername: Param2, dwdeleteflag: u32, dwversionflag: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4258,8 +4260,8 @@ pub unsafe fn DeletePrinterDriverExA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrinterDriverExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, pdrivername: Param2, dwdeleteflag: u32, dwversionflag: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4273,8 +4275,8 @@ pub unsafe fn DeletePrinterDriverExW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrinterDriverPackageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszserver: Param0, pszinfpath: Param1, pszenvironment: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4288,8 +4290,8 @@ pub unsafe fn DeletePrinterDriverPackageA<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrinterDriverPackageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszserver: Param0, pszinfpath: Param1, pszenvironment: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4303,8 +4305,8 @@ pub unsafe fn DeletePrinterDriverPackageW<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrinterDriverW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, pdrivername: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4318,8 +4320,8 @@ pub unsafe fn DeletePrinterDriverW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrinterIC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinteric: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4333,8 +4335,8 @@ pub unsafe fn DeletePrinterIC<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrinterKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pkeyname: Param1) -> u32 {
     #[cfg(windows)]
@@ -4348,8 +4350,8 @@ pub unsafe fn DeletePrinterKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePrinterKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pkeyname: Param1) -> u32 {
     #[cfg(windows)]
@@ -4363,8 +4365,8 @@ pub unsafe fn DeletePrinterKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DevQueryPrint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pdevmode: *const super::Gdi::DEVMODEA, presid: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4378,8 +4380,8 @@ pub unsafe fn DevQueryPrint<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DevQueryPrintEx(pdqpinfo: *mut DEVQUERYPRINT_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4393,8 +4395,8 @@ pub unsafe fn DevQueryPrintEx(pdqpinfo: *mut DEVQUERYPRINT_INFO) -> super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DocumentPropertiesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, hprinter: Param1, pdevicename: Param2, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevmodeinput: *const super::Gdi::DEVMODEA, fmode: u32) -> i32 {
     #[cfg(windows)]
@@ -4408,8 +4410,8 @@ pub unsafe fn DocumentPropertiesA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DocumentPropertiesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, hprinter: Param1, pdevicename: Param2, pdevmodeoutput: *mut super::Gdi::DEVMODEW, pdevmodeinput: *const super::Gdi::DEVMODEW, fmode: u32) -> i32 {
     #[cfg(windows)]
@@ -4482,6 +4484,7 @@ pub const ECBF_OVERLAY_NO_ICON: u32 = 64u32;
 pub const ECBF_OVERLAY_STOP_ICON: u32 = 32u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const ECBF_OVERLAY_WARNING_ICON: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type EMFPLAYPROC = unsafe extern "system" fn(param0: super::Gdi::HDC, param1: i32, param2: super::super::Foundation::HANDLE) -> i32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -4780,7 +4783,6 @@ impl ::std::clone::Clone for EXTPUSH_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 pub union EXTPUSH_0 {
     pub DlgProc: ::windows::runtime::RawPtr,
     pub pfnCallBack: ::windows::runtime::RawPtr,
@@ -4807,29 +4809,28 @@ unsafe impl ::windows::runtime::Abi for EXTPUSH_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union EXTPUSH_1 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl EXTPUSH_1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for EXTPUSH_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for EXTPUSH_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for EXTPUSH_1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for EXTPUSH_1 {
     type Abi = Self;
 }
@@ -4999,8 +5000,8 @@ unsafe impl ::windows::runtime::Abi for EXpsJobConsumption {
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const E_VERSION_NOT_SUPPORTED: u32 = 2147745793u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EndDocPrinter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5014,8 +5015,8 @@ pub unsafe fn EndDocPrinter<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EndPagePrinter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5029,8 +5030,8 @@ pub unsafe fn EndPagePrinter<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFormsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5044,8 +5045,8 @@ pub unsafe fn EnumFormsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFormsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5059,8 +5060,8 @@ pub unsafe fn EnumFormsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumJobNamedProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, pcproperties: *mut u32, ppproperties: *mut *mut PrintNamedProperty) -> u32 {
     #[cfg(windows)]
@@ -5074,8 +5075,8 @@ pub unsafe fn EnumJobNamedProperties<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumJobsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, firstjob: u32, nojobs: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5089,8 +5090,8 @@ pub unsafe fn EnumJobsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumJobsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, firstjob: u32, nojobs: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5104,8 +5105,8 @@ pub unsafe fn EnumJobsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumMonitorsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, level: u32, pmonitor: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5119,8 +5120,8 @@ pub unsafe fn EnumMonitorsA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumMonitorsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, level: u32, pmonitor: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5134,8 +5135,8 @@ pub unsafe fn EnumMonitorsW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPortsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, level: u32, pport: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5149,8 +5150,8 @@ pub unsafe fn EnumPortsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPortsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, level: u32, pport: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5164,8 +5165,8 @@ pub unsafe fn EnumPortsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPrintProcessorDatatypesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, pprintprocessorname: Param1, level: u32, pdatatypes: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5179,8 +5180,8 @@ pub unsafe fn EnumPrintProcessorDatatypesA<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPrintProcessorDatatypesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, pprintprocessorname: Param1, level: u32, pdatatypes: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5194,8 +5195,8 @@ pub unsafe fn EnumPrintProcessorDatatypesW<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPrintProcessorsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5209,8 +5210,8 @@ pub unsafe fn EnumPrintProcessorsA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPrintProcessorsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5224,8 +5225,8 @@ pub unsafe fn EnumPrintProcessorsW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPrinterDataA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, dwindex: u32, pvaluename: super::super::Foundation::PSTR, cbvaluename: u32, pcbvaluename: *mut u32, ptype: *mut u32, pdata: *mut u8, cbdata: u32, pcbdata: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -5249,8 +5250,8 @@ pub unsafe fn EnumPrinterDataA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPrinterDataExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pkeyname: Param1, penumvalues: *mut u8, cbenumvalues: u32, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -5264,8 +5265,8 @@ pub unsafe fn EnumPrinterDataExA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPrinterDataExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pkeyname: Param1, penumvalues: *mut u8, cbenumvalues: u32, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -5279,8 +5280,8 @@ pub unsafe fn EnumPrinterDataExW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPrinterDataW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, dwindex: u32, pvaluename: super::super::Foundation::PWSTR, cbvaluename: u32, pcbvaluename: *mut u32, ptype: *mut u32, pdata: *mut u8, cbdata: u32, pcbdata: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -5304,8 +5305,8 @@ pub unsafe fn EnumPrinterDataW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPrinterDriversA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5319,8 +5320,8 @@ pub unsafe fn EnumPrinterDriversA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPrinterDriversW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5334,8 +5335,8 @@ pub unsafe fn EnumPrinterDriversW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPrinterKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pkeyname: Param1, psubkey: super::super::Foundation::PSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -5349,8 +5350,8 @@ pub unsafe fn EnumPrinterKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPrinterKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pkeyname: Param1, psubkey: super::super::Foundation::PWSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -5364,8 +5365,8 @@ pub unsafe fn EnumPrinterKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPrintersA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(flags: u32, name: Param1, level: u32, pprinterenum: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5379,8 +5380,8 @@ pub unsafe fn EnumPrintersA<'a, Param1: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPrintersW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, name: Param1, level: u32, pprinterenum: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5394,8 +5395,8 @@ pub unsafe fn EnumPrintersW<'a, Param1: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ExtDeviceMode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     hwnd: Param0,
@@ -5655,8 +5656,8 @@ unsafe impl ::windows::runtime::Abi for FORM_INFO_2W {
 pub const FORM_PRINTER: u32 = 2u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const FORM_USER: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindClosePrinterChangeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hchange: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5670,8 +5671,8 @@ pub unsafe fn FindClosePrinterChangeNotification<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstPrinterChangeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, fdwfilter: u32, fdwoptions: u32, pprinternotifyoptions: *const ::std::ffi::c_void) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -5685,8 +5686,8 @@ pub unsafe fn FindFirstPrinterChangeNotification<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextPrinterChangeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hchange: Param0, pdwchange: *mut u32, pvreserved: *const ::std::ffi::c_void, ppprinternotifyinfo: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5700,8 +5701,8 @@ pub unsafe fn FindNextPrinterChangeNotification<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FlushPrinter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pbuf: *const ::std::ffi::c_void, cbbuf: u32, pcwritten: *mut u32, csleep: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5715,8 +5716,8 @@ pub unsafe fn FlushPrinter<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreePrintNamedPropertyArray(cproperties: u32, ppproperties: *mut *mut PrintNamedProperty) {
     #[cfg(windows)]
@@ -5730,8 +5731,8 @@ pub unsafe fn FreePrintNamedPropertyArray(cproperties: u32, ppproperties: *mut *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreePrintPropertyValue(pvalue: *mut PrintPropertyValue) {
     #[cfg(windows)]
@@ -5745,8 +5746,8 @@ pub unsafe fn FreePrintPropertyValue(pvalue: *mut PrintPropertyValue) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreePrinterNotifyInfo(pprinternotifyinfo: *const PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5791,8 +5792,8 @@ unsafe impl ::windows::runtime::Abi for GLYPHRUN {
 pub const GPD_OEMCUSTOMDATA: u32 = 1u32;
 pub const GUID_DEVINTERFACE_IPPUSB_PRINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4076077953, 62573, 20049, [188, 231, 98, 222, 108, 242, 208, 152]);
 pub const GUID_DEVINTERFACE_USBPRINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(685215661, 23058, 4561, [174, 91, 0, 0, 248, 3, 168, 194]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiDeleteSpoolFileHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5806,8 +5807,8 @@ pub unsafe fn GdiDeleteSpoolFileHandle<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiEndDocEMF<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5821,8 +5822,8 @@ pub unsafe fn GdiEndDocEMF<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiEndPageEMF<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0, dwoptimization: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5836,8 +5837,8 @@ pub unsafe fn GdiEndPageEMF<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GdiGetDC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0) -> super::Gdi::HDC {
     #[cfg(windows)]
@@ -5851,8 +5852,8 @@ pub unsafe fn GdiGetDC<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GdiGetDevmodeForPage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0, dwpagenumber: u32, pcurrdm: *mut *mut super::Gdi::DEVMODEW, plastdm: *mut *mut super::Gdi::DEVMODEW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5866,8 +5867,8 @@ pub unsafe fn GdiGetDevmodeForPage<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiGetPageCount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -5881,8 +5882,8 @@ pub unsafe fn GdiGetPageCount<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiGetPageHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0, page: u32, pdwpagetype: *mut u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -5896,8 +5897,8 @@ pub unsafe fn GdiGetPageHandle<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GdiGetSpoolFileHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszprintername: Param0, pdevmode: *mut super::Gdi::DEVMODEW, pwszdocname: Param2) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -5911,8 +5912,8 @@ pub unsafe fn GdiGetSpoolFileHandle<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiPlayPageEMF<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0, hemf: Param1, prectdocument: *mut super::super::Foundation::RECT, prectborder: *mut super::super::Foundation::RECT, prectclip: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5926,8 +5927,8 @@ pub unsafe fn GdiPlayPageEMF<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GdiResetDCEMF<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0, pcurrdm: *mut super::Gdi::DEVMODEW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5941,8 +5942,8 @@ pub unsafe fn GdiResetDCEMF<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Storage_Xps`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))]
 #[inline]
 pub unsafe fn GdiStartDocEMF<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0, pdocinfo: *mut super::super::Storage::Xps::DOCINFOW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5956,8 +5957,8 @@ pub unsafe fn GdiStartDocEMF<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiStartPageEMF<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5971,8 +5972,8 @@ pub unsafe fn GdiStartPageEMF<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GenerateCopyFilePaths<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     pszprintername: Param0,
@@ -6006,8 +6007,8 @@ pub unsafe fn GenerateCopyFilePaths<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCPSUIUserData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0) -> usize {
     #[cfg(windows)]
@@ -6021,8 +6022,8 @@ pub unsafe fn GetCPSUIUserData<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCorePrinterDriversA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszserver: Param0, pszenvironment: Param1, pszzcoredriverdependencies: Param2, ccoreprinterdrivers: u32, pcoreprinterdrivers: *mut CORE_PRINTER_DRIVERA) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6036,8 +6037,8 @@ pub unsafe fn GetCorePrinterDriversA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCorePrinterDriversW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszserver: Param0, pszenvironment: Param1, pszzcoredriverdependencies: Param2, ccoreprinterdrivers: u32, pcoreprinterdrivers: *mut CORE_PRINTER_DRIVERW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6051,8 +6052,8 @@ pub unsafe fn GetCorePrinterDriversW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDefaultPrinterA(pszbuffer: super::super::Foundation::PSTR, pcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6066,8 +6067,8 @@ pub unsafe fn GetDefaultPrinterA(pszbuffer: super::super::Foundation::PSTR, pcch
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDefaultPrinterW(pszbuffer: super::super::Foundation::PWSTR, pcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6081,8 +6082,8 @@ pub unsafe fn GetDefaultPrinterW(pszbuffer: super::super::Foundation::PWSTR, pcc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFormA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pformname: Param1, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6096,8 +6097,8 @@ pub unsafe fn GetFormA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFormW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pformname: Param1, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6111,8 +6112,8 @@ pub unsafe fn GetFormW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetJobA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6126,8 +6127,8 @@ pub unsafe fn GetJobA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GetJobAttributes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pprintername: Param0, pdevmode: *const super::Gdi::DEVMODEW, pattributeinfo: *mut ATTRIBUTE_INFO_3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6141,8 +6142,8 @@ pub unsafe fn GetJobAttributes<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GetJobAttributesEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pprintername: Param0, pdevmode: *const super::Gdi::DEVMODEW, dwlevel: u32, pattributeinfo: *mut u8, nsize: u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6156,8 +6157,8 @@ pub unsafe fn GetJobAttributesEx<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetJobNamedPropertyValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, jobid: u32, pszname: Param2, pvalue: *mut PrintPropertyValue) -> u32 {
     #[cfg(windows)]
@@ -6171,8 +6172,8 @@ pub unsafe fn GetJobNamedPropertyValue<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetJobW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6186,8 +6187,8 @@ pub unsafe fn GetJobW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrintExecutionData(pdata: *mut PRINT_EXECUTION_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6201,8 +6202,8 @@ pub unsafe fn GetPrintExecutionData(pdata: *mut PRINT_EXECUTION_DATA) -> super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrintOutputInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pszprinter: Param1, phfile: *mut super::super::Foundation::HANDLE, ppszoutputfile: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6216,8 +6217,8 @@ pub unsafe fn GetPrintOutputInfo<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrintProcessorDirectoryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6231,8 +6232,8 @@ pub unsafe fn GetPrintProcessorDirectoryA<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrintProcessorDirectoryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6246,8 +6247,8 @@ pub unsafe fn GetPrintProcessorDirectoryW<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrinterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pprinter: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6261,8 +6262,8 @@ pub unsafe fn GetPrinterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrinterDataA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pvaluename: Param1, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6276,8 +6277,8 @@ pub unsafe fn GetPrinterDataA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrinterDataExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6291,8 +6292,8 @@ pub unsafe fn GetPrinterDataExA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrinterDataExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6306,8 +6307,8 @@ pub unsafe fn GetPrinterDataExW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrinterDataW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pvaluename: Param1, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6321,8 +6322,8 @@ pub unsafe fn GetPrinterDataW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrinterDriver2A<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, hprinter: Param1, penvironment: Param2, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6336,8 +6337,8 @@ pub unsafe fn GetPrinterDriver2A<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrinterDriver2W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, hprinter: Param1, penvironment: Param2, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6351,8 +6352,8 @@ pub unsafe fn GetPrinterDriver2W<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrinterDriverA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, penvironment: Param1, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6366,8 +6367,8 @@ pub unsafe fn GetPrinterDriverA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrinterDriverDirectoryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, level: u32, pdriverdirectory: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6381,8 +6382,8 @@ pub unsafe fn GetPrinterDriverDirectoryA<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrinterDriverDirectoryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, level: u32, pdriverdirectory: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6396,8 +6397,8 @@ pub unsafe fn GetPrinterDriverDirectoryW<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrinterDriverPackagePathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     pszserver: Param0,
@@ -6419,8 +6420,8 @@ pub unsafe fn GetPrinterDriverPackagePathA<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrinterDriverPackagePathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     pszserver: Param0,
@@ -6442,8 +6443,8 @@ pub unsafe fn GetPrinterDriverPackagePathW<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrinterDriverW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, penvironment: Param1, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6457,8 +6458,8 @@ pub unsafe fn GetPrinterDriverW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrinterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pprinter: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6472,8 +6473,8 @@ pub unsafe fn GetPrinterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSpoolFileHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -6489,8 +6490,8 @@ pub unsafe fn GetSpoolFileHandle<'a, Param0: ::windows::runtime::IntoParam<'a, s
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAsyncGetSendNotificationCookie(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAsyncGetSendNotificationCookie(pub ::windows::runtime::IUnknown);
 impl IAsyncGetSendNotificationCookie {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn FinishAsyncCall(&self, param0: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
@@ -6510,6 +6511,26 @@ unsafe impl ::windows::runtime::Interface for IAsyncGetSendNotificationCookie {
     type Vtable = IAsyncGetSendNotificationCookie_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IAsyncGetSendNotificationCookie> for ::windows::runtime::IUnknown {
+    fn from(value: IAsyncGetSendNotificationCookie) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAsyncGetSendNotificationCookie> for ::windows::runtime::IUnknown {
+    fn from(value: &IAsyncGetSendNotificationCookie) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAsyncGetSendNotificationCookie {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAsyncGetSendNotificationCookie {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAsyncGetSendNotificationCookie> for IPrintAsyncCookie {
     fn from(value: IAsyncGetSendNotificationCookie) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6522,12 +6543,12 @@ impl ::std::convert::From<&IAsyncGetSendNotificationCookie> for IPrintAsyncCooki
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncCookie> for IAsyncGetSendNotificationCookie {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncCookie> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncCookie>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncCookie> for &IAsyncGetSendNotificationCookie {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncCookie> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncCookie>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6543,8 +6564,8 @@ pub struct IAsyncGetSendNotificationCookie_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAsyncGetSrvReferralCookie(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAsyncGetSrvReferralCookie(pub ::windows::runtime::IUnknown);
 impl IAsyncGetSrvReferralCookie {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn FinishAsyncCall(&self, param0: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
@@ -6564,6 +6585,26 @@ unsafe impl ::windows::runtime::Interface for IAsyncGetSrvReferralCookie {
     type Vtable = IAsyncGetSrvReferralCookie_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IAsyncGetSrvReferralCookie> for ::windows::runtime::IUnknown {
+    fn from(value: IAsyncGetSrvReferralCookie) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAsyncGetSrvReferralCookie> for ::windows::runtime::IUnknown {
+    fn from(value: &IAsyncGetSrvReferralCookie) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAsyncGetSrvReferralCookie {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAsyncGetSrvReferralCookie {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsyncGetSrvReferralCookie_abi(
@@ -6577,8 +6618,8 @@ pub struct IAsyncGetSrvReferralCookie_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IBidiAsyncNotifyChannel(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IBidiAsyncNotifyChannel(pub ::windows::runtime::IUnknown);
 impl IBidiAsyncNotifyChannel {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn SendNotification<'a, Param0: ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyDataObject>>(&self, pdata: Param0) -> ::windows::runtime::Result<()> {
@@ -6613,6 +6654,26 @@ unsafe impl ::windows::runtime::Interface for IBidiAsyncNotifyChannel {
     type Vtable = IBidiAsyncNotifyChannel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1395136759, 37403, 20402, [191, 248, 47, 79, 213, 46, 190, 191]);
 }
+impl ::std::convert::From<IBidiAsyncNotifyChannel> for ::windows::runtime::IUnknown {
+    fn from(value: IBidiAsyncNotifyChannel) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IBidiAsyncNotifyChannel> for ::windows::runtime::IUnknown {
+    fn from(value: &IBidiAsyncNotifyChannel) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBidiAsyncNotifyChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBidiAsyncNotifyChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IBidiAsyncNotifyChannel> for IPrintAsyncNotifyChannel {
     fn from(value: IBidiAsyncNotifyChannel) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6625,12 +6686,12 @@ impl ::std::convert::From<&IBidiAsyncNotifyChannel> for IPrintAsyncNotifyChannel
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyChannel> for IBidiAsyncNotifyChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncNotifyChannel> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncNotifyChannel>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyChannel> for &IBidiAsyncNotifyChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncNotifyChannel> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncNotifyChannel>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8650,8 +8711,8 @@ unsafe impl ::windows::runtime::Abi for IPartThumbnailVtbl {
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintAsyncCookie(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintAsyncCookie(pub ::windows::runtime::IUnknown);
 impl IPrintAsyncCookie {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn FinishAsyncCall(&self, param0: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
@@ -8666,6 +8727,26 @@ unsafe impl ::windows::runtime::Interface for IPrintAsyncCookie {
     type Vtable = IPrintAsyncCookie_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IPrintAsyncCookie> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintAsyncCookie) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintAsyncCookie> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintAsyncCookie) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintAsyncCookie {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintAsyncCookie {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncCookie_abi(
@@ -8677,8 +8758,8 @@ pub struct IPrintAsyncCookie_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintAsyncNewChannelCookie(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintAsyncNewChannelCookie(pub ::windows::runtime::IUnknown);
 impl IPrintAsyncNewChannelCookie {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn FinishAsyncCall(&self, param0: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
@@ -8697,6 +8778,26 @@ unsafe impl ::windows::runtime::Interface for IPrintAsyncNewChannelCookie {
     type Vtable = IPrintAsyncNewChannelCookie_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IPrintAsyncNewChannelCookie> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintAsyncNewChannelCookie) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintAsyncNewChannelCookie> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintAsyncNewChannelCookie) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintAsyncNewChannelCookie {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintAsyncNewChannelCookie {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintAsyncNewChannelCookie> for IPrintAsyncCookie {
     fn from(value: IPrintAsyncNewChannelCookie) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8709,12 +8810,12 @@ impl ::std::convert::From<&IPrintAsyncNewChannelCookie> for IPrintAsyncCookie {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncCookie> for IPrintAsyncNewChannelCookie {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncCookie> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncCookie>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncCookie> for &IPrintAsyncNewChannelCookie {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncCookie> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncCookie>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8729,8 +8830,8 @@ pub struct IPrintAsyncNewChannelCookie_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintAsyncNotify(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintAsyncNotify(pub ::windows::runtime::IUnknown);
 impl IPrintAsyncNotify {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn CreatePrintAsyncNotifyChannel<'a, Param4: ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyCallback>>(&self, param0: u32, param1: *const ::windows::runtime::GUID, param2: PrintAsyncNotifyUserFilter, param3: PrintAsyncNotifyConversationStyle, param4: Param4) -> ::windows::runtime::Result<IPrintAsyncNotifyChannel> {
@@ -8747,6 +8848,26 @@ unsafe impl ::windows::runtime::Interface for IPrintAsyncNotify {
     type Vtable = IPrintAsyncNotify_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1395136759, 37403, 20402, [191, 248, 47, 79, 213, 46, 190, 191]);
 }
+impl ::std::convert::From<IPrintAsyncNotify> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintAsyncNotify) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintAsyncNotify> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintAsyncNotify) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintAsyncNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintAsyncNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotify_abi(
@@ -8758,8 +8879,8 @@ pub struct IPrintAsyncNotify_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintAsyncNotifyCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintAsyncNotifyCallback(pub ::windows::runtime::IUnknown);
 impl IPrintAsyncNotifyCallback {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn OnEventNotify<'a, Param0: ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyChannel>, Param1: ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyDataObject>>(&self, pchannel: Param0, pdata: Param1) -> ::windows::runtime::Result<()> {
@@ -8774,6 +8895,26 @@ unsafe impl ::windows::runtime::Interface for IPrintAsyncNotifyCallback {
     type Vtable = IPrintAsyncNotifyCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2112828609, 40338, 19609, [179, 179, 219, 148, 169, 212, 25, 27]);
 }
+impl ::std::convert::From<IPrintAsyncNotifyCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintAsyncNotifyCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintAsyncNotifyCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintAsyncNotifyCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintAsyncNotifyCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintAsyncNotifyCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyCallback_abi(
@@ -8785,8 +8926,8 @@ pub struct IPrintAsyncNotifyCallback_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintAsyncNotifyChannel(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintAsyncNotifyChannel(pub ::windows::runtime::IUnknown);
 impl IPrintAsyncNotifyChannel {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn SendNotification<'a, Param0: ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyDataObject>>(&self, pdata: Param0) -> ::windows::runtime::Result<()> {
@@ -8801,6 +8942,26 @@ unsafe impl ::windows::runtime::Interface for IPrintAsyncNotifyChannel {
     type Vtable = IPrintAsyncNotifyChannel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1246769585, 7999, 19888, [164, 98, 69, 48, 237, 139, 4, 81]);
 }
+impl ::std::convert::From<IPrintAsyncNotifyChannel> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintAsyncNotifyChannel) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintAsyncNotifyChannel> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintAsyncNotifyChannel) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintAsyncNotifyChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintAsyncNotifyChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyChannel_abi(
@@ -8812,8 +8973,8 @@ pub struct IPrintAsyncNotifyChannel_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintAsyncNotifyDataObject(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintAsyncNotifyDataObject(pub ::windows::runtime::IUnknown);
 impl IPrintAsyncNotifyDataObject {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn AcquireData(&self, ppnotificationdata: *mut *mut u8, psize: *mut u32, ppschema: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
@@ -8828,6 +8989,26 @@ unsafe impl ::windows::runtime::Interface for IPrintAsyncNotifyDataObject {
     type Vtable = IPrintAsyncNotifyDataObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2010075454, 23881, 18313, [159, 48, 208, 130, 43, 51, 92, 13]);
 }
+impl ::std::convert::From<IPrintAsyncNotifyDataObject> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintAsyncNotifyDataObject) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintAsyncNotifyDataObject> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintAsyncNotifyDataObject) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintAsyncNotifyDataObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintAsyncNotifyDataObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyDataObject_abi(
@@ -8839,8 +9020,8 @@ pub struct IPrintAsyncNotifyDataObject_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintAsyncNotifyRegistration(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintAsyncNotifyRegistration(pub ::windows::runtime::IUnknown);
 impl IPrintAsyncNotifyRegistration {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn RegisterForNotifications(&self) -> ::windows::runtime::Result<()> {
@@ -8855,6 +9036,26 @@ unsafe impl ::windows::runtime::Interface for IPrintAsyncNotifyRegistration {
     type Vtable = IPrintAsyncNotifyRegistration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(258942902, 28550, 17809, [146, 3, 100, 195, 191, 173, 237, 254]);
 }
+impl ::std::convert::From<IPrintAsyncNotifyRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintAsyncNotifyRegistration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintAsyncNotifyRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintAsyncNotifyRegistration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintAsyncNotifyRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintAsyncNotifyRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyRegistration_abi(
@@ -8866,8 +9067,8 @@ pub struct IPrintAsyncNotifyRegistration_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintAsyncNotifyServerReferral(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintAsyncNotifyServerReferral(pub ::windows::runtime::IUnknown);
 impl IPrintAsyncNotifyServerReferral {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
@@ -8889,6 +9090,26 @@ unsafe impl ::windows::runtime::Interface for IPrintAsyncNotifyServerReferral {
     type Vtable = IPrintAsyncNotifyServerReferral_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IPrintAsyncNotifyServerReferral> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintAsyncNotifyServerReferral) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintAsyncNotifyServerReferral> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintAsyncNotifyServerReferral) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintAsyncNotifyServerReferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintAsyncNotifyServerReferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyServerReferral_abi(
@@ -8903,8 +9124,8 @@ pub struct IPrintAsyncNotifyServerReferral_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintBidiAsyncNotifyRegistration(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintBidiAsyncNotifyRegistration(pub ::windows::runtime::IUnknown);
 impl IPrintBidiAsyncNotifyRegistration {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn RegisterForNotifications(&self) -> ::windows::runtime::Result<()> {
@@ -8923,6 +9144,26 @@ unsafe impl ::windows::runtime::Interface for IPrintBidiAsyncNotifyRegistration 
     type Vtable = IPrintBidiAsyncNotifyRegistration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IPrintBidiAsyncNotifyRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintBidiAsyncNotifyRegistration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintBidiAsyncNotifyRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintBidiAsyncNotifyRegistration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintBidiAsyncNotifyRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintBidiAsyncNotifyRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintBidiAsyncNotifyRegistration> for IPrintAsyncNotifyRegistration {
     fn from(value: IPrintBidiAsyncNotifyRegistration) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8935,12 +9176,12 @@ impl ::std::convert::From<&IPrintBidiAsyncNotifyRegistration> for IPrintAsyncNot
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyRegistration> for IPrintBidiAsyncNotifyRegistration {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncNotifyRegistration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncNotifyRegistration>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyRegistration> for &IPrintBidiAsyncNotifyRegistration {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncNotifyRegistration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncNotifyRegistration>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9010,8 +9251,8 @@ unsafe impl ::windows::runtime::Abi for IPrintClassObjectFactoryVtbl {
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintCoreHelper(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintCoreHelper(pub ::windows::runtime::IUnknown);
 impl IPrintCoreHelper {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -9063,6 +9304,26 @@ unsafe impl ::windows::runtime::Interface for IPrintCoreHelper {
     type Vtable = IPrintCoreHelper_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2828977470, 14597, 18886, [156, 26, 192, 168, 129, 23, 253, 182]);
 }
+impl ::std::convert::From<IPrintCoreHelper> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintCoreHelper) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintCoreHelper> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintCoreHelper) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintCoreHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintCoreHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintCoreHelper_abi(
@@ -9089,8 +9350,8 @@ pub struct IPrintCoreHelper_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintCoreHelperPS(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintCoreHelperPS(pub ::windows::runtime::IUnknown);
 impl IPrintCoreHelperPS {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -9157,6 +9418,26 @@ unsafe impl ::windows::runtime::Interface for IPrintCoreHelperPS {
     type Vtable = IPrintCoreHelperPS_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3267448687, 38355, 19811, [150, 207, 107, 217, 230, 201, 7, 194]);
 }
+impl ::std::convert::From<IPrintCoreHelperPS> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintCoreHelperPS) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintCoreHelperPS> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintCoreHelperPS) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintCoreHelperPS {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintCoreHelperPS {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintCoreHelperPS> for IPrintCoreHelper {
     fn from(value: IPrintCoreHelperPS) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9169,12 +9450,12 @@ impl ::std::convert::From<&IPrintCoreHelperPS> for IPrintCoreHelper {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintCoreHelper> for IPrintCoreHelperPS {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintCoreHelper> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintCoreHelper>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintCoreHelper> for &IPrintCoreHelperPS {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintCoreHelper> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintCoreHelper>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9209,8 +9490,8 @@ pub struct IPrintCoreHelperPS_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintCoreHelperUni(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintCoreHelperUni(pub ::windows::runtime::IUnknown);
 impl IPrintCoreHelperUni {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -9273,6 +9554,26 @@ unsafe impl ::windows::runtime::Interface for IPrintCoreHelperUni {
     type Vtable = IPrintCoreHelperUni_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2123256278, 58862, 17446, [129, 123, 149, 139, 148, 68, 235, 121]);
 }
+impl ::std::convert::From<IPrintCoreHelperUni> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintCoreHelperUni) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintCoreHelperUni> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintCoreHelperUni) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintCoreHelperUni {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintCoreHelperUni {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintCoreHelperUni> for IPrintCoreHelper {
     fn from(value: IPrintCoreHelperUni) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9285,12 +9586,12 @@ impl ::std::convert::From<&IPrintCoreHelperUni> for IPrintCoreHelper {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintCoreHelper> for IPrintCoreHelperUni {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintCoreHelper> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintCoreHelper>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintCoreHelper> for &IPrintCoreHelperUni {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintCoreHelper> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintCoreHelper>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9323,8 +9624,8 @@ pub struct IPrintCoreHelperUni_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintCoreHelperUni2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintCoreHelperUni2(pub ::windows::runtime::IUnknown);
 impl IPrintCoreHelperUni2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -9392,6 +9693,26 @@ unsafe impl ::windows::runtime::Interface for IPrintCoreHelperUni2 {
     type Vtable = IPrintCoreHelperUni2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1821048316, 60112, 19757, [128, 113, 155, 240, 23, 90, 108, 58]);
 }
+impl ::std::convert::From<IPrintCoreHelperUni2> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintCoreHelperUni2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintCoreHelperUni2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintCoreHelperUni2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintCoreHelperUni2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintCoreHelperUni2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintCoreHelperUni2> for IPrintCoreHelperUni {
     fn from(value: IPrintCoreHelperUni2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9404,12 +9725,12 @@ impl ::std::convert::From<&IPrintCoreHelperUni2> for IPrintCoreHelperUni {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintCoreHelperUni> for IPrintCoreHelperUni2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintCoreHelperUni> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintCoreHelperUni>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintCoreHelperUni> for &IPrintCoreHelperUni2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintCoreHelperUni> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintCoreHelperUni>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintCoreHelperUni2> for IPrintCoreHelper {
@@ -9424,12 +9745,12 @@ impl ::std::convert::From<&IPrintCoreHelperUni2> for IPrintCoreHelper {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintCoreHelper> for IPrintCoreHelperUni2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintCoreHelper> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintCoreHelper>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintCoreHelper> for &IPrintCoreHelperUni2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintCoreHelper> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintCoreHelper>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9464,8 +9785,8 @@ pub struct IPrintCoreHelperUni2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintCoreUI2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintCoreUI2(pub ::windows::runtime::IUnknown);
 impl IPrintCoreUI2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
@@ -9560,6 +9881,26 @@ unsafe impl ::windows::runtime::Interface for IPrintCoreUI2 {
     type Vtable = IPrintCoreUI2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(140300234, 15071, 19614, [180, 145, 216, 81, 166, 237, 201, 151]);
 }
+impl ::std::convert::From<IPrintCoreUI2> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintCoreUI2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintCoreUI2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintCoreUI2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintCoreUI2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintCoreUI2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintCoreUI2> for IPrintOemDriverUI {
     fn from(value: IPrintCoreUI2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9572,12 +9913,12 @@ impl ::std::convert::From<&IPrintCoreUI2> for IPrintOemDriverUI {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOemDriverUI> for IPrintCoreUI2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOemDriverUI> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOemDriverUI>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOemDriverUI> for &IPrintCoreUI2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOemDriverUI> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOemDriverUI>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9614,8 +9955,8 @@ pub struct IPrintCoreUI2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintJob(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintJob(pub ::windows::runtime::IUnknown);
 impl IPrintJob {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
@@ -9657,6 +9998,26 @@ unsafe impl ::windows::runtime::Interface for IPrintJob {
     type Vtable = IPrintJob_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3077692088, 4738, 16823, [133, 140, 242, 6, 228, 210, 5, 119]);
 }
+impl ::std::convert::From<IPrintJob> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintJob) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintJob> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintJob) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintJob {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintJob {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintJob_abi(
@@ -9674,8 +10035,8 @@ pub struct IPrintJob_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintJobCollection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintJobCollection(pub ::windows::runtime::IUnknown);
 impl IPrintJobCollection {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<u32> {
@@ -9697,6 +10058,26 @@ unsafe impl ::windows::runtime::Interface for IPrintJobCollection {
     type Vtable = IPrintJobCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1924672036, 42392, 20103, [137, 95, 205, 178, 58, 73, 233, 220]);
 }
+impl ::std::convert::From<IPrintJobCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintJobCollection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintJobCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintJobCollection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintJobCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintJobCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrintJobCollection> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IPrintJobCollection) -> Self {
@@ -9712,13 +10093,13 @@ impl ::std::convert::From<&IPrintJobCollection> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintJobCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintJobCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9741,8 +10122,8 @@ pub struct IPrintJobCollection_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintOemCommon(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintOemCommon(pub ::windows::runtime::IUnknown);
 impl IPrintOemCommon {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetInfo(&self, dwmode: u32, pbuffer: *mut ::std::ffi::c_void, cbsize: u32, pcbneeded: *mut u32) -> ::windows::runtime::Result<()> {
@@ -9758,6 +10139,26 @@ unsafe impl ::windows::runtime::Interface for IPrintOemCommon {
     type Vtable = IPrintOemCommon_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2135042142, 37333, 4561, [136, 32, 0, 192, 79, 185, 97, 236]);
 }
+impl ::std::convert::From<IPrintOemCommon> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintOemCommon) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintOemCommon> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintOemCommon) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintOemCommon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintOemCommon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintOemCommon_abi(
@@ -9770,8 +10171,8 @@ pub struct IPrintOemCommon_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintOemDriverUI(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintOemDriverUI(pub ::windows::runtime::IUnknown);
 impl IPrintOemDriverUI {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
@@ -9792,6 +10193,26 @@ unsafe impl ::windows::runtime::Interface for IPrintOemDriverUI {
     type Vtable = IPrintOemDriverUI_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2461031760, 30908, 4561, [148, 128, 0, 160, 201, 6, 64, 184]);
 }
+impl ::std::convert::From<IPrintOemDriverUI> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintOemDriverUI) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintOemDriverUI> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintOemDriverUI) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintOemDriverUI {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintOemDriverUI {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintOemDriverUI_abi(
@@ -9806,8 +10227,8 @@ pub struct IPrintOemDriverUI_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintOemUI(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintOemUI(pub ::windows::runtime::IUnknown);
 impl IPrintOemUI {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetInfo(&self, dwmode: u32, pbuffer: *mut ::std::ffi::c_void, cbsize: u32, pcbneeded: *mut u32) -> ::windows::runtime::Result<()> {
@@ -9904,6 +10325,26 @@ unsafe impl ::windows::runtime::Interface for IPrintOemUI {
     type Vtable = IPrintOemUI_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3332876752, 30540, 4561, [148, 127, 0, 160, 201, 6, 64, 184]);
 }
+impl ::std::convert::From<IPrintOemUI> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintOemUI) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintOemUI> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintOemUI) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintOemUI {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintOemUI {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintOemUI> for IPrintOemCommon {
     fn from(value: IPrintOemUI) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9916,12 +10357,12 @@ impl ::std::convert::From<&IPrintOemUI> for IPrintOemCommon {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOemCommon> for IPrintOemUI {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOemCommon> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOemCommon>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOemCommon> for &IPrintOemUI {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOemCommon> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOemCommon>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9958,8 +10399,8 @@ pub struct IPrintOemUI_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintOemUI2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintOemUI2(pub ::windows::runtime::IUnknown);
 impl IPrintOemUI2 {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetInfo(&self, dwmode: u32, pbuffer: *mut ::std::ffi::c_void, cbsize: u32, pcbneeded: *mut u32) -> ::windows::runtime::Result<()> {
@@ -10070,6 +10511,26 @@ unsafe impl ::windows::runtime::Interface for IPrintOemUI2 {
     type Vtable = IPrintOemUI2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(690296313, 46411, 18587, [146, 117, 186, 181, 104, 33, 57, 94]);
 }
+impl ::std::convert::From<IPrintOemUI2> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintOemUI2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintOemUI2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintOemUI2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintOemUI2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintOemUI2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintOemUI2> for IPrintOemUI {
     fn from(value: IPrintOemUI2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10082,12 +10543,12 @@ impl ::std::convert::From<&IPrintOemUI2> for IPrintOemUI {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOemUI> for IPrintOemUI2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOemUI> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOemUI>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOemUI> for &IPrintOemUI2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOemUI> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOemUI>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintOemUI2> for IPrintOemCommon {
@@ -10102,12 +10563,12 @@ impl ::std::convert::From<&IPrintOemUI2> for IPrintOemCommon {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOemCommon> for IPrintOemUI2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOemCommon> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOemCommon>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOemCommon> for &IPrintOemUI2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOemCommon> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOemCommon>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10149,8 +10610,8 @@ pub struct IPrintOemUI2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintOemUIMXDC(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintOemUIMXDC(pub ::windows::runtime::IUnknown);
 impl IPrintOemUIMXDC {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -10171,6 +10632,26 @@ impl IPrintOemUIMXDC {
 unsafe impl ::windows::runtime::Interface for IPrintOemUIMXDC {
     type Vtable = IPrintOemUIMXDC_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1934219045, 58049, 19914, [175, 181, 193, 62, 145, 188, 147, 6]);
+}
+impl ::std::convert::From<IPrintOemUIMXDC> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintOemUIMXDC) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintOemUIMXDC> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintOemUIMXDC) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintOemUIMXDC {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintOemUIMXDC {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10419,8 +10900,8 @@ unsafe impl ::windows::runtime::Abi for IPrintPipelinePropertyBagVtbl {
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintPreviewDxgiPackageTarget(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintPreviewDxgiPackageTarget(pub ::windows::runtime::IUnknown);
 impl IPrintPreviewDxgiPackageTarget {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn SetJobPageCount(&self, counttype: PageCountType, count: u32) -> ::windows::runtime::Result<()> {
@@ -10439,6 +10920,26 @@ impl IPrintPreviewDxgiPackageTarget {
 unsafe impl ::windows::runtime::Interface for IPrintPreviewDxgiPackageTarget {
     type Vtable = IPrintPreviewDxgiPackageTarget_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(443404461, 7722, 20121, [165, 186, 145, 241, 120, 24, 41, 14]);
+}
+impl ::std::convert::From<IPrintPreviewDxgiPackageTarget> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintPreviewDxgiPackageTarget) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintPreviewDxgiPackageTarget> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintPreviewDxgiPackageTarget) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintPreviewDxgiPackageTarget {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintPreviewDxgiPackageTarget {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10564,8 +11065,8 @@ unsafe impl ::windows::runtime::Abi for IPrintReadStreamVtbl {
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintSchemaAsyncOperation(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintSchemaAsyncOperation(pub ::windows::runtime::IUnknown);
 impl IPrintSchemaAsyncOperation {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn Start(&self) -> ::windows::runtime::Result<()> {
@@ -10579,6 +11080,26 @@ impl IPrintSchemaAsyncOperation {
 unsafe impl ::windows::runtime::Interface for IPrintSchemaAsyncOperation {
     type Vtable = IPrintSchemaAsyncOperation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(339512779, 54143, 18423, [136, 232, 107, 29, 33, 242, 197, 247]);
+}
+impl ::std::convert::From<IPrintSchemaAsyncOperation> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaAsyncOperation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintSchemaAsyncOperation> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaAsyncOperation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaAsyncOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintSchemaAsyncOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrintSchemaAsyncOperation> for super::super::System::Ole::Automation::IDispatch {
@@ -10595,13 +11116,13 @@ impl ::std::convert::From<&IPrintSchemaAsyncOperation> for super::super::System:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaAsyncOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaAsyncOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10623,8 +11144,8 @@ pub struct IPrintSchemaAsyncOperation_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintSchemaAsyncOperationEvent(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintSchemaAsyncOperationEvent(pub ::windows::runtime::IUnknown);
 impl IPrintSchemaAsyncOperationEvent {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn Completed<'a, Param0: ::windows::runtime::IntoParam<'a, IPrintSchemaTicket>>(&self, pticket: Param0, hroperation: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
@@ -10634,6 +11155,26 @@ impl IPrintSchemaAsyncOperationEvent {
 unsafe impl ::windows::runtime::Interface for IPrintSchemaAsyncOperationEvent {
     type Vtable = IPrintSchemaAsyncOperationEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(598588182, 307, 18694, [178, 154, 29, 206, 29, 2, 99, 121]);
+}
+impl ::std::convert::From<IPrintSchemaAsyncOperationEvent> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaAsyncOperationEvent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintSchemaAsyncOperationEvent> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaAsyncOperationEvent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaAsyncOperationEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintSchemaAsyncOperationEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrintSchemaAsyncOperationEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -10650,13 +11191,13 @@ impl ::std::convert::From<&IPrintSchemaAsyncOperationEvent> for super::super::Sy
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaAsyncOperationEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaAsyncOperationEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10677,8 +11218,8 @@ pub struct IPrintSchemaAsyncOperationEvent_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintSchemaCapabilities(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintSchemaCapabilities(pub ::windows::runtime::IUnknown);
 impl IPrintSchemaCapabilities {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -10760,6 +11301,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaCapabilities {
     type Vtable = IPrintSchemaCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1515681344, 20509, 18727, [188, 208, 94, 245, 122, 126, 209, 117]);
 }
+impl ::std::convert::From<IPrintSchemaCapabilities> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaCapabilities) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintSchemaCapabilities> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaCapabilities) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaCapabilities {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintSchemaCapabilities {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintSchemaCapabilities> for IPrintSchemaElement {
     fn from(value: IPrintSchemaCapabilities) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10772,12 +11333,12 @@ impl ::std::convert::From<&IPrintSchemaCapabilities> for IPrintSchemaElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -10795,13 +11356,13 @@ impl ::std::convert::From<&IPrintSchemaCapabilities> for super::super::System::O
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10835,8 +11396,8 @@ pub struct IPrintSchemaCapabilities_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintSchemaCapabilities2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintSchemaCapabilities2(pub ::windows::runtime::IUnknown);
 impl IPrintSchemaCapabilities2 {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -10924,6 +11485,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaCapabilities2 {
     type Vtable = IPrintSchemaCapabilities2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3045606900, 39280, 19847, [166, 54, 22, 159, 184, 46, 214, 66]);
 }
+impl ::std::convert::From<IPrintSchemaCapabilities2> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaCapabilities2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintSchemaCapabilities2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaCapabilities2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaCapabilities2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintSchemaCapabilities2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintSchemaCapabilities2> for IPrintSchemaCapabilities {
     fn from(value: IPrintSchemaCapabilities2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10936,12 +11517,12 @@ impl ::std::convert::From<&IPrintSchemaCapabilities2> for IPrintSchemaCapabiliti
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaCapabilities> for IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaCapabilities> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaCapabilities>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaCapabilities> for &IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaCapabilities> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaCapabilities>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaCapabilities2> for IPrintSchemaElement {
@@ -10956,12 +11537,12 @@ impl ::std::convert::From<&IPrintSchemaCapabilities2> for IPrintSchemaElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -10979,13 +11560,13 @@ impl ::std::convert::From<&IPrintSchemaCapabilities2> for super::super::System::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11021,8 +11602,8 @@ pub struct IPrintSchemaCapabilities2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintSchemaDisplayableElement(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintSchemaDisplayableElement(pub ::windows::runtime::IUnknown);
 impl IPrintSchemaDisplayableElement {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -11073,6 +11654,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaDisplayableElement {
     type Vtable = IPrintSchemaDisplayableElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2940579657, 54954, 16509, [191, 135, 57, 18, 35, 110, 157, 148]);
 }
+impl ::std::convert::From<IPrintSchemaDisplayableElement> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaDisplayableElement) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintSchemaDisplayableElement> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaDisplayableElement) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaDisplayableElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintSchemaDisplayableElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintSchemaDisplayableElement> for IPrintSchemaElement {
     fn from(value: IPrintSchemaDisplayableElement) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11085,12 +11686,12 @@ impl ::std::convert::From<&IPrintSchemaDisplayableElement> for IPrintSchemaEleme
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaDisplayableElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaDisplayableElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11108,13 +11709,13 @@ impl ::std::convert::From<&IPrintSchemaDisplayableElement> for super::super::Sys
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaDisplayableElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaDisplayableElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11141,8 +11742,8 @@ pub struct IPrintSchemaDisplayableElement_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintSchemaElement(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintSchemaElement(pub ::windows::runtime::IUnknown);
 impl IPrintSchemaElement {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn XmlNode(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -11166,6 +11767,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaElement {
     type Vtable = IPrintSchemaElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1917589062, 58955, 19391, [142, 180, 212, 94, 79, 213, 128, 218]);
 }
+impl ::std::convert::From<IPrintSchemaElement> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaElement) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintSchemaElement> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaElement) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintSchemaElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrintSchemaElement> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IPrintSchemaElement) -> Self {
@@ -11181,13 +11802,13 @@ impl ::std::convert::From<&IPrintSchemaElement> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11212,8 +11833,8 @@ pub struct IPrintSchemaElement_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintSchemaFeature(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintSchemaFeature(pub ::windows::runtime::IUnknown);
 impl IPrintSchemaFeature {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -11290,6 +11911,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaFeature {
     type Vtable = IPrintSchemaFeature_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4011365473, 23906, 17958, [142, 87, 255, 131, 88, 60, 72, 38]);
 }
+impl ::std::convert::From<IPrintSchemaFeature> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaFeature) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintSchemaFeature> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaFeature) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaFeature {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintSchemaFeature {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintSchemaFeature> for IPrintSchemaDisplayableElement {
     fn from(value: IPrintSchemaFeature) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11302,12 +11943,12 @@ impl ::std::convert::From<&IPrintSchemaFeature> for IPrintSchemaDisplayableEleme
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for IPrintSchemaFeature {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for &IPrintSchemaFeature {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaFeature> for IPrintSchemaElement {
@@ -11322,12 +11963,12 @@ impl ::std::convert::From<&IPrintSchemaFeature> for IPrintSchemaElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaFeature {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaFeature {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11345,13 +11986,13 @@ impl ::std::convert::From<&IPrintSchemaFeature> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaFeature {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaFeature {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11385,8 +12026,8 @@ pub struct IPrintSchemaFeature_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintSchemaNUpOption(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintSchemaNUpOption(pub ::windows::runtime::IUnknown);
 impl IPrintSchemaNUpOption {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -11459,6 +12100,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaNUpOption {
     type Vtable = IPrintSchemaNUpOption_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(526598898, 55368, 17123, [137, 149, 193, 10, 158, 249, 163, 186]);
 }
+impl ::std::convert::From<IPrintSchemaNUpOption> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaNUpOption) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintSchemaNUpOption> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaNUpOption) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaNUpOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintSchemaNUpOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintSchemaNUpOption> for IPrintSchemaOption {
     fn from(value: IPrintSchemaNUpOption) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11471,12 +12132,12 @@ impl ::std::convert::From<&IPrintSchemaNUpOption> for IPrintSchemaOption {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaOption> for IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaOption> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaOption>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaOption> for &IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaOption> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaOption>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaNUpOption> for IPrintSchemaDisplayableElement {
@@ -11491,12 +12152,12 @@ impl ::std::convert::From<&IPrintSchemaNUpOption> for IPrintSchemaDisplayableEle
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for &IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaNUpOption> for IPrintSchemaElement {
@@ -11511,12 +12172,12 @@ impl ::std::convert::From<&IPrintSchemaNUpOption> for IPrintSchemaElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11534,13 +12195,13 @@ impl ::std::convert::From<&IPrintSchemaNUpOption> for super::super::System::Ole:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11573,8 +12234,8 @@ pub struct IPrintSchemaNUpOption_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintSchemaOption(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintSchemaOption(pub ::windows::runtime::IUnknown);
 impl IPrintSchemaOption {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -11642,6 +12303,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaOption {
     type Vtable = IPrintSchemaOption_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1723543377, 22596, 18839, [141, 112, 75, 124, 194, 33, 207, 146]);
 }
+impl ::std::convert::From<IPrintSchemaOption> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaOption) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintSchemaOption> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaOption) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintSchemaOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintSchemaOption> for IPrintSchemaDisplayableElement {
     fn from(value: IPrintSchemaOption) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11654,12 +12335,12 @@ impl ::std::convert::From<&IPrintSchemaOption> for IPrintSchemaDisplayableElemen
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for IPrintSchemaOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for &IPrintSchemaOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaOption> for IPrintSchemaElement {
@@ -11674,12 +12355,12 @@ impl ::std::convert::From<&IPrintSchemaOption> for IPrintSchemaElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11697,13 +12378,13 @@ impl ::std::convert::From<&IPrintSchemaOption> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11735,8 +12416,8 @@ pub struct IPrintSchemaOption_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintSchemaOptionCollection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintSchemaOptionCollection(pub ::windows::runtime::IUnknown);
 impl IPrintSchemaOptionCollection {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<u32> {
@@ -11758,6 +12439,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaOptionCollection {
     type Vtable = IPrintSchemaOptionCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3136073917, 43334, 18289, [188, 48, 232, 178, 79, 141, 69, 193]);
 }
+impl ::std::convert::From<IPrintSchemaOptionCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaOptionCollection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintSchemaOptionCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaOptionCollection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaOptionCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintSchemaOptionCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrintSchemaOptionCollection> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IPrintSchemaOptionCollection) -> Self {
@@ -11773,13 +12474,13 @@ impl ::std::convert::From<&IPrintSchemaOptionCollection> for super::super::Syste
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaOptionCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaOptionCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11802,8 +12503,8 @@ pub struct IPrintSchemaOptionCollection_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintSchemaPageImageableSize(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintSchemaPageImageableSize(pub ::windows::runtime::IUnknown);
 impl IPrintSchemaPageImageableSize {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -11878,6 +12579,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaPageImageableSize {
     type Vtable = IPrintSchemaPageImageableSize_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2089140062, 56444, 20321, [131, 155, 65, 7, 225, 201, 182, 142]);
 }
+impl ::std::convert::From<IPrintSchemaPageImageableSize> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaPageImageableSize) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintSchemaPageImageableSize> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaPageImageableSize) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaPageImageableSize {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintSchemaPageImageableSize {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintSchemaPageImageableSize> for IPrintSchemaElement {
     fn from(value: IPrintSchemaPageImageableSize) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11890,12 +12611,12 @@ impl ::std::convert::From<&IPrintSchemaPageImageableSize> for IPrintSchemaElemen
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaPageImageableSize {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaPageImageableSize {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11913,13 +12634,13 @@ impl ::std::convert::From<&IPrintSchemaPageImageableSize> for super::super::Syst
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaPageImageableSize {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaPageImageableSize {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11950,8 +12671,8 @@ pub struct IPrintSchemaPageImageableSize_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintSchemaPageMediaSizeOption(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintSchemaPageMediaSizeOption(pub ::windows::runtime::IUnknown);
 impl IPrintSchemaPageMediaSizeOption {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -12029,6 +12750,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaPageMediaSizeOption {
     type Vtable = IPrintSchemaPageMediaSizeOption_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1752459049, 62611, 18480, [161, 15, 105, 2, 135, 116, 96, 93]);
 }
+impl ::std::convert::From<IPrintSchemaPageMediaSizeOption> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaPageMediaSizeOption) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintSchemaPageMediaSizeOption> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaPageMediaSizeOption) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaPageMediaSizeOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintSchemaPageMediaSizeOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintSchemaPageMediaSizeOption> for IPrintSchemaOption {
     fn from(value: IPrintSchemaPageMediaSizeOption) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12041,12 +12782,12 @@ impl ::std::convert::From<&IPrintSchemaPageMediaSizeOption> for IPrintSchemaOpti
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaOption> for IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaOption> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaOption>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaOption> for &IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaOption> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaOption>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaPageMediaSizeOption> for IPrintSchemaDisplayableElement {
@@ -12061,12 +12802,12 @@ impl ::std::convert::From<&IPrintSchemaPageMediaSizeOption> for IPrintSchemaDisp
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for &IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaPageMediaSizeOption> for IPrintSchemaElement {
@@ -12081,12 +12822,12 @@ impl ::std::convert::From<&IPrintSchemaPageMediaSizeOption> for IPrintSchemaElem
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12104,13 +12845,13 @@ impl ::std::convert::From<&IPrintSchemaPageMediaSizeOption> for super::super::Sy
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12144,8 +12885,8 @@ pub struct IPrintSchemaPageMediaSizeOption_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintSchemaParameterDefinition(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintSchemaParameterDefinition(pub ::windows::runtime::IUnknown);
 impl IPrintSchemaParameterDefinition {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -12223,6 +12964,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaParameterDefinition {
     type Vtable = IPrintSchemaParameterDefinition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3048073246, 3681, 20449, [129, 198, 195, 51, 228, 255, 224, 241]);
 }
+impl ::std::convert::From<IPrintSchemaParameterDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaParameterDefinition) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintSchemaParameterDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaParameterDefinition) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaParameterDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintSchemaParameterDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintSchemaParameterDefinition> for IPrintSchemaDisplayableElement {
     fn from(value: IPrintSchemaParameterDefinition) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12235,12 +12996,12 @@ impl ::std::convert::From<&IPrintSchemaParameterDefinition> for IPrintSchemaDisp
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for &IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaParameterDefinition> for IPrintSchemaElement {
@@ -12255,12 +13016,12 @@ impl ::std::convert::From<&IPrintSchemaParameterDefinition> for IPrintSchemaElem
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12278,13 +13039,13 @@ impl ::std::convert::From<&IPrintSchemaParameterDefinition> for super::super::Sy
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12318,8 +13079,8 @@ pub struct IPrintSchemaParameterDefinition_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintSchemaParameterInitializer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintSchemaParameterInitializer(pub ::windows::runtime::IUnknown);
 impl IPrintSchemaParameterInitializer {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -12375,6 +13136,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaParameterInitializer {
     type Vtable = IPrintSchemaParameterInitializer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1375891586, 2932, 17992, [149, 100, 130, 140, 198, 203, 101, 108]);
 }
+impl ::std::convert::From<IPrintSchemaParameterInitializer> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaParameterInitializer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintSchemaParameterInitializer> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaParameterInitializer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaParameterInitializer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintSchemaParameterInitializer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintSchemaParameterInitializer> for IPrintSchemaElement {
     fn from(value: IPrintSchemaParameterInitializer) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12387,12 +13168,12 @@ impl ::std::convert::From<&IPrintSchemaParameterInitializer> for IPrintSchemaEle
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaParameterInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaParameterInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12410,13 +13191,13 @@ impl ::std::convert::From<&IPrintSchemaParameterInitializer> for super::super::S
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaParameterInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaParameterInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12445,8 +13226,8 @@ pub struct IPrintSchemaParameterInitializer_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintSchemaTicket(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintSchemaTicket(pub ::windows::runtime::IUnknown);
 impl IPrintSchemaTicket {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -12531,6 +13312,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaTicket {
     type Vtable = IPrintSchemaTicket_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3833641057, 18184, 20077, [165, 180, 162, 180, 238, 185, 186, 164]);
 }
+impl ::std::convert::From<IPrintSchemaTicket> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaTicket) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintSchemaTicket> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaTicket) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaTicket {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintSchemaTicket {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintSchemaTicket> for IPrintSchemaElement {
     fn from(value: IPrintSchemaTicket) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12543,12 +13344,12 @@ impl ::std::convert::From<&IPrintSchemaTicket> for IPrintSchemaElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaTicket {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaTicket {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12566,13 +13367,13 @@ impl ::std::convert::From<&IPrintSchemaTicket> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaTicket {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaTicket {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12607,8 +13408,8 @@ pub struct IPrintSchemaTicket_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintSchemaTicket2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintSchemaTicket2(pub ::windows::runtime::IUnknown);
 impl IPrintSchemaTicket2 {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -12699,6 +13500,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaTicket2 {
     type Vtable = IPrintSchemaTicket2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(784463940, 30314, 18337, [145, 244, 46, 235, 97, 144, 248, 12]);
 }
+impl ::std::convert::From<IPrintSchemaTicket2> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaTicket2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintSchemaTicket2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaTicket2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaTicket2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintSchemaTicket2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintSchemaTicket2> for IPrintSchemaTicket {
     fn from(value: IPrintSchemaTicket2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12711,12 +13532,12 @@ impl ::std::convert::From<&IPrintSchemaTicket2> for IPrintSchemaTicket {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaTicket> for IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaTicket> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaTicket>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaTicket> for &IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaTicket> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaTicket>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaTicket2> for IPrintSchemaElement {
@@ -12731,12 +13552,12 @@ impl ::std::convert::From<&IPrintSchemaTicket2> for IPrintSchemaElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12754,13 +13575,13 @@ impl ::std::convert::From<&IPrintSchemaTicket2> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12797,8 +13618,8 @@ pub struct IPrintSchemaTicket2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintTicketProvider(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintTicketProvider(pub ::windows::runtime::IUnknown);
 impl IPrintTicketProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
@@ -12841,6 +13662,26 @@ unsafe impl ::windows::runtime::Interface for IPrintTicketProvider {
     type Vtable = IPrintTicketProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3142653659, 2595, 19514, [166, 182, 137, 229, 85, 141, 251, 93]);
 }
+impl ::std::convert::From<IPrintTicketProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintTicketProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintTicketProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintTicketProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintTicketProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintTicketProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketProvider_abi(
@@ -12864,8 +13705,8 @@ pub struct IPrintTicketProvider_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintTicketProvider2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintTicketProvider2(pub ::windows::runtime::IUnknown);
 impl IPrintTicketProvider2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
@@ -12920,6 +13761,26 @@ unsafe impl ::windows::runtime::Interface for IPrintTicketProvider2 {
     type Vtable = IPrintTicketProvider2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3097954994, 15868, 20460, [160, 116, 81, 27, 19, 198, 81, 203]);
 }
+impl ::std::convert::From<IPrintTicketProvider2> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintTicketProvider2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintTicketProvider2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintTicketProvider2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintTicketProvider2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintTicketProvider2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintTicketProvider2> for IPrintTicketProvider {
     fn from(value: IPrintTicketProvider2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12932,12 +13793,12 @@ impl ::std::convert::From<&IPrintTicketProvider2> for IPrintTicketProvider {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintTicketProvider> for IPrintTicketProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintTicketProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintTicketProvider>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintTicketProvider> for &IPrintTicketProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintTicketProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintTicketProvider>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12967,8 +13828,8 @@ pub struct IPrintTicketProvider2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrintUnidiAsyncNotifyRegistration(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrintUnidiAsyncNotifyRegistration(pub ::windows::runtime::IUnknown);
 impl IPrintUnidiAsyncNotifyRegistration {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn RegisterForNotifications(&self) -> ::windows::runtime::Result<()> {
@@ -12987,6 +13848,26 @@ unsafe impl ::windows::runtime::Interface for IPrintUnidiAsyncNotifyRegistration
     type Vtable = IPrintUnidiAsyncNotifyRegistration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IPrintUnidiAsyncNotifyRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintUnidiAsyncNotifyRegistration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrintUnidiAsyncNotifyRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintUnidiAsyncNotifyRegistration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintUnidiAsyncNotifyRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintUnidiAsyncNotifyRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrintUnidiAsyncNotifyRegistration> for IPrintAsyncNotifyRegistration {
     fn from(value: IPrintUnidiAsyncNotifyRegistration) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12999,12 +13880,12 @@ impl ::std::convert::From<&IPrintUnidiAsyncNotifyRegistration> for IPrintAsyncNo
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyRegistration> for IPrintUnidiAsyncNotifyRegistration {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncNotifyRegistration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncNotifyRegistration>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyRegistration> for &IPrintUnidiAsyncNotifyRegistration {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncNotifyRegistration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncNotifyRegistration>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13130,8 +14011,8 @@ unsafe impl ::windows::runtime::Abi for IPrintWriteStreamVtbl {
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterBidiSetRequestCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterBidiSetRequestCallback(pub ::windows::runtime::IUnknown);
 impl IPrinterBidiSetRequestCallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
@@ -13142,6 +14023,26 @@ impl IPrinterBidiSetRequestCallback {
 unsafe impl ::windows::runtime::Interface for IPrinterBidiSetRequestCallback {
     type Vtable = IPrinterBidiSetRequestCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3308073693, 62132, 16466, [133, 2, 236, 67, 5, 236, 183, 31]);
+}
+impl ::std::convert::From<IPrinterBidiSetRequestCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterBidiSetRequestCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterBidiSetRequestCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterBidiSetRequestCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterBidiSetRequestCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterBidiSetRequestCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13154,8 +14055,8 @@ pub struct IPrinterBidiSetRequestCallback_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterExtensionAsyncOperation(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterExtensionAsyncOperation(pub ::windows::runtime::IUnknown);
 impl IPrinterExtensionAsyncOperation {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
@@ -13165,6 +14066,26 @@ impl IPrinterExtensionAsyncOperation {
 unsafe impl ::windows::runtime::Interface for IPrinterExtensionAsyncOperation {
     type Vtable = IPrinterExtensionAsyncOperation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(277703203, 27211, 17746, [148, 72, 104, 180, 39, 24, 106, 205]);
+}
+impl ::std::convert::From<IPrinterExtensionAsyncOperation> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterExtensionAsyncOperation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterExtensionAsyncOperation> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterExtensionAsyncOperation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterExtensionAsyncOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterExtensionAsyncOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13176,8 +14097,8 @@ pub struct IPrinterExtensionAsyncOperation_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterExtensionContext(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterExtensionContext(pub ::windows::runtime::IUnknown);
 impl IPrinterExtensionContext {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn PrinterQueue(&self) -> ::windows::runtime::Result<IPrinterQueue> {
@@ -13204,6 +14125,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterExtensionContext {
     type Vtable = IPrinterExtensionContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(964967410, 50386, 16893, [180, 178, 174, 219, 238, 94, 25, 0]);
 }
+impl ::std::convert::From<IPrinterExtensionContext> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterExtensionContext) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterExtensionContext> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterExtensionContext) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterExtensionContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterExtensionContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterExtensionContext> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IPrinterExtensionContext) -> Self {
@@ -13219,13 +14160,13 @@ impl ::std::convert::From<&IPrinterExtensionContext> for super::super::System::O
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterExtensionContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterExtensionContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13249,8 +14190,8 @@ pub struct IPrinterExtensionContext_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterExtensionContextCollection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterExtensionContextCollection(pub ::windows::runtime::IUnknown);
 impl IPrinterExtensionContextCollection {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<u32> {
@@ -13272,6 +14213,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterExtensionContextCollection
     type Vtable = IPrinterExtensionContextCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4215761264, 39851, 18529, [129, 30, 62, 152, 176, 197, 173, 223]);
 }
+impl ::std::convert::From<IPrinterExtensionContextCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterExtensionContextCollection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterExtensionContextCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterExtensionContextCollection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterExtensionContextCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterExtensionContextCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterExtensionContextCollection> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IPrinterExtensionContextCollection) -> Self {
@@ -13287,13 +14248,13 @@ impl ::std::convert::From<&IPrinterExtensionContextCollection> for super::super:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterExtensionContextCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterExtensionContextCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13316,8 +14277,8 @@ pub struct IPrinterExtensionContextCollection_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterExtensionEvent(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterExtensionEvent(pub ::windows::runtime::IUnknown);
 impl IPrinterExtensionEvent {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn OnDriverEvent<'a, Param0: ::windows::runtime::IntoParam<'a, IPrinterExtensionEventArgs>>(&self, peventargs: Param0) -> ::windows::runtime::Result<()> {
@@ -13331,6 +14292,26 @@ impl IPrinterExtensionEvent {
 unsafe impl ::windows::runtime::Interface for IPrinterExtensionEvent {
     type Vtable = IPrinterExtensionEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230911331, 24309, 17797, [175, 142, 77, 86, 55, 72, 123, 87]);
+}
+impl ::std::convert::From<IPrinterExtensionEvent> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterExtensionEvent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterExtensionEvent> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterExtensionEvent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterExtensionEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterExtensionEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterExtensionEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -13347,13 +14328,13 @@ impl ::std::convert::From<&IPrinterExtensionEvent> for super::super::System::Ole
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterExtensionEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterExtensionEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13375,8 +14356,8 @@ pub struct IPrinterExtensionEvent_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterExtensionEventArgs(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterExtensionEventArgs(pub ::windows::runtime::IUnknown);
 impl IPrinterExtensionEventArgs {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -13463,6 +14444,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterExtensionEventArgs {
     type Vtable = IPrinterExtensionEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(964967412, 50386, 16893, [180, 178, 174, 219, 238, 94, 25, 0]);
 }
+impl ::std::convert::From<IPrinterExtensionEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterExtensionEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterExtensionEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterExtensionEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterExtensionEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterExtensionEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrinterExtensionEventArgs> for IPrinterExtensionContext {
     fn from(value: IPrinterExtensionEventArgs) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13475,12 +14476,12 @@ impl ::std::convert::From<&IPrinterExtensionEventArgs> for IPrinterExtensionCont
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrinterExtensionContext> for IPrinterExtensionEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrinterExtensionContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrinterExtensionContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrinterExtensionContext> for &IPrinterExtensionEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrinterExtensionContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrinterExtensionContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -13498,13 +14499,13 @@ impl ::std::convert::From<&IPrinterExtensionEventArgs> for super::super::System:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterExtensionEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterExtensionEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13539,8 +14540,8 @@ pub struct IPrinterExtensionEventArgs_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterExtensionManager(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterExtensionManager(pub ::windows::runtime::IUnknown);
 impl IPrinterExtensionManager {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn EnableEvents<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, printerdriverid: Param0) -> ::windows::runtime::Result<()> {
@@ -13555,6 +14556,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterExtensionManager {
     type Vtable = IPrinterExtensionManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2479287180, 45057, 17237, [150, 41, 142, 138, 27, 63, 142, 119]);
 }
+impl ::std::convert::From<IPrinterExtensionManager> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterExtensionManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterExtensionManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterExtensionManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterExtensionManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterExtensionManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterExtensionManager_abi(
@@ -13566,8 +14587,8 @@ pub struct IPrinterExtensionManager_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterExtensionRequest(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterExtensionRequest(pub ::windows::runtime::IUnknown);
 impl IPrinterExtensionRequest {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
@@ -13582,6 +14603,26 @@ impl IPrinterExtensionRequest {
 unsafe impl ::windows::runtime::Interface for IPrinterExtensionRequest {
     type Vtable = IPrinterExtensionRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(964967411, 50386, 16893, [180, 178, 174, 219, 238, 94, 25, 0]);
+}
+impl ::std::convert::From<IPrinterExtensionRequest> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterExtensionRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterExtensionRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterExtensionRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterExtensionRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterExtensionRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterExtensionRequest> for super::super::System::Ole::Automation::IDispatch {
@@ -13598,13 +14639,13 @@ impl ::std::convert::From<&IPrinterExtensionRequest> for super::super::System::O
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterExtensionRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterExtensionRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13627,8 +14668,8 @@ pub struct IPrinterExtensionRequest_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterPropertyBag(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterPropertyBag(pub ::windows::runtime::IUnknown);
 impl IPrinterPropertyBag {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
@@ -13690,6 +14731,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterPropertyBag {
     type Vtable = IPrinterPropertyBag_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4272386916, 57237, 18979, [169, 5, 1, 155, 121, 168, 228, 129]);
 }
+impl ::std::convert::From<IPrinterPropertyBag> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterPropertyBag) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterPropertyBag> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterPropertyBag) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterPropertyBag {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterPropertyBag {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterPropertyBag> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IPrinterPropertyBag) -> Self {
@@ -13705,13 +14766,13 @@ impl ::std::convert::From<&IPrinterPropertyBag> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterPropertyBag {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterPropertyBag {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13751,8 +14812,8 @@ pub struct IPrinterPropertyBag_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterQueue(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterQueue(pub ::windows::runtime::IUnknown);
 impl IPrinterQueue {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
@@ -13781,6 +14842,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterQueue {
     type Vtable = IPrinterQueue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(897624104, 2046, 19348, [172, 26, 117, 125, 157, 45, 48, 86]);
 }
+impl ::std::convert::From<IPrinterQueue> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterQueue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterQueue> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterQueue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterQueue> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IPrinterQueue) -> Self {
@@ -13796,13 +14877,13 @@ impl ::std::convert::From<&IPrinterQueue> for super::super::System::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13829,8 +14910,8 @@ pub struct IPrinterQueue_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterQueue2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterQueue2(pub ::windows::runtime::IUnknown);
 impl IPrinterQueue2 {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -13891,6 +14972,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterQueue2 {
     type Vtable = IPrinterQueue2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2362721512, 51643, 18867, [142, 56, 224, 50, 9, 65, 97, 49]);
 }
+impl ::std::convert::From<IPrinterQueue2> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterQueue2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterQueue2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterQueue2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterQueue2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterQueue2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrinterQueue2> for IPrinterQueue {
     fn from(value: IPrinterQueue2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13903,12 +15004,12 @@ impl ::std::convert::From<&IPrinterQueue2> for IPrinterQueue {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrinterQueue> for IPrinterQueue2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrinterQueue> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrinterQueue>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrinterQueue> for &IPrinterQueue2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrinterQueue> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrinterQueue>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -13926,13 +15027,13 @@ impl ::std::convert::From<&IPrinterQueue2> for super::super::System::Ole::Automa
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterQueue2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterQueue2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13962,8 +15063,8 @@ pub struct IPrinterQueue2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterQueueEvent(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterQueueEvent(pub ::windows::runtime::IUnknown);
 impl IPrinterQueueEvent {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
@@ -13974,6 +15075,26 @@ impl IPrinterQueueEvent {
 unsafe impl ::windows::runtime::Interface for IPrinterQueueEvent {
     type Vtable = IPrinterQueueEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(558269942, 31608, 18049, [135, 224, 73, 95, 115, 146, 115, 209]);
+}
+impl ::std::convert::From<IPrinterQueueEvent> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterQueueEvent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterQueueEvent> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterQueueEvent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterQueueEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterQueueEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterQueueEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -13990,13 +15111,13 @@ impl ::std::convert::From<&IPrinterQueueEvent> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterQueueEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterQueueEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14018,8 +15139,8 @@ pub struct IPrinterQueueEvent_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterQueueView(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterQueueView(pub ::windows::runtime::IUnknown);
 impl IPrinterQueueView {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn SetViewRange(&self, ulviewoffset: u32, ulviewsize: u32) -> ::windows::runtime::Result<()> {
@@ -14029,6 +15150,26 @@ impl IPrinterQueueView {
 unsafe impl ::windows::runtime::Interface for IPrinterQueueView {
     type Vtable = IPrinterQueueView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1198401897, 15147, 19263, [130, 119, 207, 246, 5, 96, 66, 170]);
+}
+impl ::std::convert::From<IPrinterQueueView> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterQueueView) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterQueueView> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterQueueView) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterQueueView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterQueueView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterQueueView> for super::super::System::Ole::Automation::IDispatch {
@@ -14045,13 +15186,13 @@ impl ::std::convert::From<&IPrinterQueueView> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterQueueView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterQueueView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14072,8 +15213,8 @@ pub struct IPrinterQueueView_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterQueueViewEvent(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterQueueViewEvent(pub ::windows::runtime::IUnknown);
 impl IPrinterQueueViewEvent {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn OnChanged<'a, Param0: ::windows::runtime::IntoParam<'a, IPrintJobCollection>>(&self, pcollection: Param0, ulviewoffset: u32, ulviewsize: u32, ulcountjobsinprintqueue: u32) -> ::windows::runtime::Result<()> {
@@ -14083,6 +15224,26 @@ impl IPrinterQueueViewEvent {
 unsafe impl ::windows::runtime::Interface for IPrinterQueueViewEvent {
     type Vtable = IPrinterQueueViewEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3317040171, 64801, 16458, [160, 239, 226, 251, 181, 43, 144, 128]);
+}
+impl ::std::convert::From<IPrinterQueueViewEvent> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterQueueViewEvent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterQueueViewEvent> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterQueueViewEvent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterQueueViewEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterQueueViewEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterQueueViewEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -14099,13 +15260,13 @@ impl ::std::convert::From<&IPrinterQueueViewEvent> for super::super::System::Ole
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterQueueViewEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterQueueViewEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14126,8 +15287,8 @@ pub struct IPrinterQueueViewEvent_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterScriptContext(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterScriptContext(pub ::windows::runtime::IUnknown);
 impl IPrinterScriptContext {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn DriverProperties(&self) -> ::windows::runtime::Result<IPrinterScriptablePropertyBag> {
@@ -14149,6 +15310,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterScriptContext {
     type Vtable = IPrinterScriptContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(107662282, 34945, 18889, [187, 152, 250, 225, 107, 72, 137, 225]);
 }
+impl ::std::convert::From<IPrinterScriptContext> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterScriptContext) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterScriptContext> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterScriptContext) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterScriptContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterScriptContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterScriptContext> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IPrinterScriptContext) -> Self {
@@ -14164,13 +15345,13 @@ impl ::std::convert::From<&IPrinterScriptContext> for super::super::System::Ole:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterScriptContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterScriptContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14193,8 +15374,8 @@ pub struct IPrinterScriptContext_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterScriptablePropertyBag(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterScriptablePropertyBag(pub ::windows::runtime::IUnknown);
 impl IPrinterScriptablePropertyBag {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
@@ -14257,6 +15438,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterScriptablePropertyBag {
     type Vtable = IPrinterScriptablePropertyBag_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2445768287, 60759, 18861, [139, 1, 220, 36, 129, 106, 82, 148]);
 }
+impl ::std::convert::From<IPrinterScriptablePropertyBag> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterScriptablePropertyBag) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterScriptablePropertyBag> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterScriptablePropertyBag) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterScriptablePropertyBag {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterScriptablePropertyBag {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterScriptablePropertyBag> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IPrinterScriptablePropertyBag) -> Self {
@@ -14272,13 +15473,13 @@ impl ::std::convert::From<&IPrinterScriptablePropertyBag> for super::super::Syst
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterScriptablePropertyBag {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterScriptablePropertyBag {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14318,8 +15519,8 @@ pub struct IPrinterScriptablePropertyBag_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterScriptablePropertyBag2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterScriptablePropertyBag2(pub ::windows::runtime::IUnknown);
 impl IPrinterScriptablePropertyBag2 {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -14409,6 +15610,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterScriptablePropertyBag2 {
     type Vtable = IPrinterScriptablePropertyBag2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(706499524, 34360, 19262, [181, 24, 39, 115, 201, 69, 86, 163]);
 }
+impl ::std::convert::From<IPrinterScriptablePropertyBag2> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterScriptablePropertyBag2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterScriptablePropertyBag2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterScriptablePropertyBag2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterScriptablePropertyBag2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterScriptablePropertyBag2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrinterScriptablePropertyBag2> for IPrinterScriptablePropertyBag {
     fn from(value: IPrinterScriptablePropertyBag2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -14421,12 +15642,12 @@ impl ::std::convert::From<&IPrinterScriptablePropertyBag2> for IPrinterScriptabl
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrinterScriptablePropertyBag> for IPrinterScriptablePropertyBag2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrinterScriptablePropertyBag> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrinterScriptablePropertyBag>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrinterScriptablePropertyBag> for &IPrinterScriptablePropertyBag2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrinterScriptablePropertyBag> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrinterScriptablePropertyBag>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -14444,13 +15665,13 @@ impl ::std::convert::From<&IPrinterScriptablePropertyBag2> for super::super::Sys
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterScriptablePropertyBag2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterScriptablePropertyBag2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14492,8 +15713,8 @@ pub struct IPrinterScriptablePropertyBag2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterScriptableSequentialStream(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterScriptableSequentialStream(pub ::windows::runtime::IUnknown);
 impl IPrinterScriptableSequentialStream {
     #[cfg(feature = "Win32_System_Ole_Automation")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_System_Ole_Automation`*"]
@@ -14512,6 +15733,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterScriptableSequentialStream
     type Vtable = IPrinterScriptableSequentialStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(544375690, 12655, 18042, [169, 73, 39, 246, 140, 68, 168, 84]);
 }
+impl ::std::convert::From<IPrinterScriptableSequentialStream> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterScriptableSequentialStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterScriptableSequentialStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterScriptableSequentialStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterScriptableSequentialStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterScriptableSequentialStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterScriptableSequentialStream> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IPrinterScriptableSequentialStream) -> Self {
@@ -14527,13 +15768,13 @@ impl ::std::convert::From<&IPrinterScriptableSequentialStream> for super::super:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterScriptableSequentialStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterScriptableSequentialStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14557,8 +15798,8 @@ pub struct IPrinterScriptableSequentialStream_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPrinterScriptableStream(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPrinterScriptableStream(pub ::windows::runtime::IUnknown);
 impl IPrinterScriptableStream {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -14612,6 +15853,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterScriptableStream {
     type Vtable = IPrinterScriptableStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2128583314, 18256, 16805, [161, 127, 135, 154, 111, 79, 125, 203]);
 }
+impl ::std::convert::From<IPrinterScriptableStream> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterScriptableStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPrinterScriptableStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterScriptableStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterScriptableStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrinterScriptableStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPrinterScriptableStream> for IPrinterScriptableSequentialStream {
     fn from(value: IPrinterScriptableStream) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -14624,12 +15885,12 @@ impl ::std::convert::From<&IPrinterScriptableStream> for IPrinterScriptableSeque
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrinterScriptableSequentialStream> for IPrinterScriptableStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrinterScriptableSequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrinterScriptableSequentialStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrinterScriptableSequentialStream> for &IPrinterScriptableStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrinterScriptableSequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrinterScriptableSequentialStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -14647,13 +15908,13 @@ impl ::std::convert::From<&IPrinterScriptableStream> for super::super::System::O
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterScriptableStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterScriptableStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14922,8 +16183,8 @@ unsafe impl ::windows::runtime::Abi for IXpsPartIteratorVtbl {
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IXpsRasterizationFactory(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IXpsRasterizationFactory(pub ::windows::runtime::IUnknown);
 impl IXpsRasterizationFactory {
     #[cfg(feature = "Win32_Storage_Xps")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Storage_Xps`*"]
@@ -14936,6 +16197,26 @@ unsafe impl ::windows::runtime::Interface for IXpsRasterizationFactory {
     type Vtable = IXpsRasterizationFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3767828618, 9414, 18475, [163, 167, 194, 26, 201, 181, 95, 23]);
 }
+impl ::std::convert::From<IXpsRasterizationFactory> for ::windows::runtime::IUnknown {
+    fn from(value: IXpsRasterizationFactory) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IXpsRasterizationFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &IXpsRasterizationFactory) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsRasterizationFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsRasterizationFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizationFactory_abi(
@@ -14947,8 +16228,8 @@ pub struct IXpsRasterizationFactory_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IXpsRasterizationFactory1(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IXpsRasterizationFactory1(pub ::windows::runtime::IUnknown);
 impl IXpsRasterizationFactory1 {
     #[cfg(feature = "Win32_Storage_Xps")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Storage_Xps`*"]
@@ -14961,6 +16242,26 @@ unsafe impl ::windows::runtime::Interface for IXpsRasterizationFactory1 {
     type Vtable = IXpsRasterizationFactory1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(762208119, 25620, 18974, [168, 224, 212, 25, 76, 230, 162, 111]);
 }
+impl ::std::convert::From<IXpsRasterizationFactory1> for ::windows::runtime::IUnknown {
+    fn from(value: IXpsRasterizationFactory1) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IXpsRasterizationFactory1> for ::windows::runtime::IUnknown {
+    fn from(value: &IXpsRasterizationFactory1) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsRasterizationFactory1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsRasterizationFactory1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizationFactory1_abi(
@@ -14972,8 +16273,8 @@ pub struct IXpsRasterizationFactory1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IXpsRasterizationFactory2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IXpsRasterizationFactory2(pub ::windows::runtime::IUnknown);
 impl IXpsRasterizationFactory2 {
     #[cfg(feature = "Win32_Storage_Xps")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Storage_Xps`*"]
@@ -14986,6 +16287,26 @@ unsafe impl ::windows::runtime::Interface for IXpsRasterizationFactory2 {
     type Vtable = IXpsRasterizationFactory2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2618740286, 4341, 16893, [157, 220, 104, 38, 102, 156, 47, 246]);
 }
+impl ::std::convert::From<IXpsRasterizationFactory2> for ::windows::runtime::IUnknown {
+    fn from(value: IXpsRasterizationFactory2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IXpsRasterizationFactory2> for ::windows::runtime::IUnknown {
+    fn from(value: &IXpsRasterizationFactory2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsRasterizationFactory2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsRasterizationFactory2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizationFactory2_abi(
@@ -14997,8 +16318,8 @@ pub struct IXpsRasterizationFactory2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IXpsRasterizer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IXpsRasterizer(pub ::windows::runtime::IUnknown);
 impl IXpsRasterizer {
     #[cfg(feature = "Win32_Graphics_Imaging")]
     #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Graphics_Imaging`*"]
@@ -15015,6 +16336,26 @@ unsafe impl ::windows::runtime::Interface for IXpsRasterizer {
     type Vtable = IXpsRasterizer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1969737672, 49494, 18344, [157, 172, 17, 162, 174, 91, 221, 107]);
 }
+impl ::std::convert::From<IXpsRasterizer> for ::windows::runtime::IUnknown {
+    fn from(value: IXpsRasterizer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IXpsRasterizer> for ::windows::runtime::IUnknown {
+    fn from(value: &IXpsRasterizer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsRasterizer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsRasterizer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizer_abi(
@@ -15027,8 +16368,8 @@ pub struct IXpsRasterizer_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IXpsRasterizerNotificationCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IXpsRasterizerNotificationCallback(pub ::windows::runtime::IUnknown);
 impl IXpsRasterizerNotificationCallback {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
     pub unsafe fn Continue(&self) -> ::windows::runtime::Result<()> {
@@ -15039,6 +16380,26 @@ unsafe impl ::windows::runtime::Interface for IXpsRasterizerNotificationCallback
     type Vtable = IXpsRasterizerNotificationCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2595814669, 52116, 18882, [156, 176, 151, 236, 29, 84, 105, 210]);
 }
+impl ::std::convert::From<IXpsRasterizerNotificationCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IXpsRasterizerNotificationCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IXpsRasterizerNotificationCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IXpsRasterizerNotificationCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsRasterizerNotificationCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsRasterizerNotificationCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizerNotificationCallback_abi(
@@ -15047,8 +16408,8 @@ pub struct IXpsRasterizerNotificationCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImpersonatePrinterClient<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(htoken: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15062,8 +16423,8 @@ pub unsafe fn ImpersonatePrinterClient<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InstallPrinterDriverFromPackageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszserver: Param0, pszinfpath: Param1, pszdrivername: Param2, pszenvironment: Param3, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -15077,8 +16438,8 @@ pub unsafe fn InstallPrinterDriverFromPackageA<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InstallPrinterDriverFromPackageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszserver: Param0, pszinfpath: Param1, pszdrivername: Param2, pszenvironment: Param3, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -15092,8 +16453,8 @@ pub unsafe fn InstallPrinterDriverFromPackageW<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn IsValidDevmodeA(pdevmode: *const super::Gdi::DEVMODEA, devmodesize: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15107,8 +16468,8 @@ pub unsafe fn IsValidDevmodeA(pdevmode: *const super::Gdi::DEVMODEA, devmodesize
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn IsValidDevmodeW(pdevmode: *const super::Gdi::DEVMODEW, devmodesize: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -16721,6 +18082,7 @@ pub const NO_BORDER_PRINT: u32 = 1u32;
 pub const NO_COLOR_OPTIMIZATION: u32 = 0u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const NO_PRIORITY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type OEMCUIPCALLBACK = unsafe extern "system" fn(param0: *mut CPSUICBPARAM, param1: *mut ::std::mem::ManuallyDrop<OEMCUIPPARAM>) -> i32;
 #[derive(:: std :: clone :: Clone)]
@@ -17271,30 +18633,34 @@ unsafe impl ::windows::runtime::Abi for OPTITEM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Printing`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union OPTITEM_0 {
     pub Sel: i32,
     pub pSel: *mut i8,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl OPTITEM_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for OPTITEM_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for OPTITEM_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for OPTITEM_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for OPTITEM_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 pub union OPTITEM_1 {
     pub pExtChkBox: *mut EXTCHKBOX,
     pub pExtPush: *mut ::std::mem::ManuallyDrop<EXTPUSH>,
@@ -17449,8 +18815,8 @@ pub const OTS_PUSH_ENABLE_ALWAYS: u32 = 128u32;
 pub const OTS_PUSH_INCL_SETUP_TITLE: u32 = 32u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const OTS_PUSH_NO_DOT_DOT_DOT: u32 = 64u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn OpenPrinter2A<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pprintername: Param0, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA, poptions: *const PRINTER_OPTIONSA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17464,8 +18830,8 @@ pub unsafe fn OpenPrinter2A<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn OpenPrinter2W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pprintername: Param0, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW, poptions: *const PRINTER_OPTIONSW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17479,8 +18845,8 @@ pub unsafe fn OpenPrinter2W<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn OpenPrinterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pprintername: Param0, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17494,8 +18860,8 @@ pub unsafe fn OpenPrinterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn OpenPrinterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pprintername: Param0, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17515,14 +18881,19 @@ pub const PDEV_ADJUST_PAPER_MARGIN_TYPE: u32 = 1u32;
 pub const PDEV_HOSTFONT_ENABLED_TYPE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const PDEV_USE_TRUE_COLOR_TYPE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNCOMPROPSHEET = unsafe extern "system" fn(hcompropsheet: super::super::Foundation::HANDLE, function: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> isize;
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNPROPSHEETUI = unsafe extern "system" fn(ppsuiinfo: *mut ::std::mem::ManuallyDrop<PROPSHEETUI_INFO>, lparam: super::super::Foundation::LPARAM) -> i32;
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvGetDriverSetting = unsafe extern "system" fn(pdriverobj: *mut ::std::ffi::c_void, feature: super::super::Foundation::PSTR, poutput: *mut ::std::ffi::c_void, cbsize: u32, pcbneeded: *mut u32, pdwoptionsreturned: *mut u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvUpdateUISetting = unsafe extern "system" fn(pdriverobj: *mut ::std::ffi::c_void, poptitem: *mut ::std::ffi::c_void, dwpreviousselection: u32, dwmode: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvUpgradeRegistrySetting = unsafe extern "system" fn(hprinter: super::super::Foundation::HANDLE, pfeature: super::super::Foundation::PSTR, poption: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -20408,29 +21779,28 @@ unsafe impl ::windows::runtime::Abi for PROPSHEETUI_INFO_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETUI_INFO_HEADER_0 {
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub IconID: usize,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl PROPSHEETUI_INFO_HEADER_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for PROPSHEETUI_INFO_HEADER_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for PROPSHEETUI_INFO_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for PROPSHEETUI_INFO_HEADER_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for PROPSHEETUI_INFO_HEADER_0 {
     type Abi = Self;
 }
@@ -20730,8 +22100,8 @@ impl ::std::convert::From<i32> for PageCountType {
 unsafe impl ::windows::runtime::Abi for PageCountType {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PartialReplyPrinterChangeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pdatasrc: *const PRINTER_NOTIFY_INFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20745,8 +22115,8 @@ pub unsafe fn PartialReplyPrinterChangeNotification<'a, Param0: ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PlayGdiScriptOnPrinterIC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinteric: Param0, pin: *const u8, cin: u32, pout: *mut u8, cout: u32, ul: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20943,7 +22313,6 @@ unsafe impl ::windows::runtime::Abi for PrintPropertyValue {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 pub union PrintPropertyValue_0 {
     pub propertyByte: u8,
     pub propertyString: super::super::Foundation::PWSTR,
@@ -20973,28 +22342,34 @@ unsafe impl ::windows::runtime::Abi for PrintPropertyValue_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Printing`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PrintPropertyValue_0_0 {
     pub cbBuf: u32,
     pub pBuf: *mut ::std::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl PrintPropertyValue_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PrintPropertyValue_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PrintPropertyValue_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_propertyBlob_e__Struct").field("cbBuf", &self.cbBuf).field("pBuf", &self.pBuf).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PrintPropertyValue_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.cbBuf == other.cbBuf && self.pBuf == other.pBuf
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PrintPropertyValue_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PrintPropertyValue_0_0 {
     type Abi = Self;
 }
@@ -21045,8 +22420,8 @@ unsafe impl ::windows::runtime::Abi for PrintSchemaSelectionType {
     type Abi = Self;
 }
 pub const PrinterExtensionManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(857432282, 40592, 19920, [156, 132, 234, 196, 230, 89, 182, 31]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrinterMessageBoxA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, error: u32, hwnd: Param2, ptext: Param3, pcaption: Param4, dwtype: u32) -> u32 {
     #[cfg(windows)]
@@ -21060,8 +22435,8 @@ pub unsafe fn PrinterMessageBoxA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrinterMessageBoxW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, error: u32, hwnd: Param2, ptext: Param3, pcaption: Param4, dwtype: u32) -> u32 {
     #[cfg(windows)]
@@ -21075,8 +22450,8 @@ pub unsafe fn PrinterMessageBoxW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrinterProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hwnd: Param0, hprinter: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21092,8 +22467,8 @@ pub unsafe fn PrinterProperties<'a, Param0: ::windows::runtime::IntoParam<'a, su
 }
 pub const PrinterQueue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3948200496, 31116, 19614, [180, 97, 41, 250, 208, 64, 57, 177]);
 pub const PrinterQueueView: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3948200497, 31116, 19614, [180, 97, 41, 250, 208, 64, 57, 177]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ProvidorFindClosePrinterChangeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21107,8 +22482,8 @@ pub unsafe fn ProvidorFindClosePrinterChangeNotification<'a, Param0: ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ProvidorFindFirstPrinterChangeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, fdwflags: u32, fdwoptions: u32, hnotify: Param3, pprinternotifyoptions: *const ::std::ffi::c_void, pvreserved1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21138,6 +22513,7 @@ pub const REVERSE_PAGES_FOR_REVERSE_DUPLEX: u32 = 1u32;
 pub const REVERSE_PRINT: u32 = 1u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const RIGHT_THEN_DOWN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ROUTER_NOTIFY_CALLBACK = unsafe extern "system" fn(dwcommand: u32, pcontext: *const ::std::ffi::c_void, dwcolor: u32, pnofityinfo: *const PRINTER_NOTIFY_INFO, fdwflags: u32, pdwresult: *mut u32) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -21146,8 +22522,8 @@ pub const ROUTER_STOP_ROUTING: u32 = 2u32;
 pub const ROUTER_SUCCESS: u32 = 1u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const ROUTER_UNKNOWN: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadPrinter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pbuf: *mut ::std::ffi::c_void, cbbuf: u32, pnobytesread: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21161,8 +22537,8 @@ pub unsafe fn ReadPrinter<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterForPrintAsyncNotifications<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyCallback>>(pszname: Param0, pnotificationtype: *const ::windows::runtime::GUID, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: Param4) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -21177,8 +22553,8 @@ pub unsafe fn RegisterForPrintAsyncNotifications<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemovePrintDeviceObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdeviceobject: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -21192,8 +22568,8 @@ pub unsafe fn RemovePrintDeviceObject<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReplyPrinterChangeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, fdwchangeflags: u32, pdwresult: *mut u32, pprinternotifyinfo: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21207,8 +22583,8 @@ pub unsafe fn ReplyPrinterChangeNotification<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReplyPrinterChangeNotificationEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hnotify: Param0, dwcolor: u32, fdwflags: u32, pdwresult: *mut u32, pprinternotifyinfo: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21222,8 +22598,8 @@ pub unsafe fn ReplyPrinterChangeNotificationEx<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReportJobProcessingProgress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(printerhandle: Param0, jobid: u32, joboperation: EPrintXPSJobOperation, jobprogress: EPrintXPSJobProgress) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -21237,8 +22613,8 @@ pub unsafe fn ReportJobProcessingProgress<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ResetPrinterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pdefault: *const PRINTER_DEFAULTSA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21252,8 +22628,8 @@ pub unsafe fn ResetPrinterA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ResetPrinterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pdefault: *const PRINTER_DEFAULTSW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21267,8 +22643,8 @@ pub unsafe fn ResetPrinterW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -21296,8 +22672,8 @@ pub unsafe fn RouterAllocBidiMem(numbytes: usize) -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterAllocBidiResponseContainer(count: u32) -> *mut BIDI_RESPONSE_CONTAINER {
     #[cfg(windows)]
@@ -21339,8 +22715,8 @@ pub unsafe fn RouterFreeBidiMem(pmempointer: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterFreeBidiResponseContainer(pdata: *const BIDI_RESPONSE_CONTAINER) -> u32 {
     #[cfg(windows)]
@@ -21354,8 +22730,8 @@ pub unsafe fn RouterFreeBidiResponseContainer(pdata: *const BIDI_RESPONSE_CONTAI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21627,8 +23003,8 @@ pub const S_CONFLICT_RESOLVED: u32 = 262146u32;
 pub const S_DEVCAP_OUTPUT_FULL_REPLACEMENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(318465i32 as _);
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const S_NO_CONFLICT: u32 = 262145u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScheduleJob<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21642,8 +23018,8 @@ pub unsafe fn ScheduleJob<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCPSUIUserData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0, cpsuiuserdata: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21657,8 +23033,8 @@ pub unsafe fn SetCPSUIUserData<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDefaultPrinterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21672,8 +23048,8 @@ pub unsafe fn SetDefaultPrinterA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDefaultPrinterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21687,8 +23063,8 @@ pub unsafe fn SetDefaultPrinterW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFormA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pformname: Param1, level: u32, pform: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21702,8 +23078,8 @@ pub unsafe fn SetFormA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFormW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pformname: Param1, level: u32, pform: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21717,8 +23093,8 @@ pub unsafe fn SetFormW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetJobA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, level: u32, pjob: *mut u8, command: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21732,8 +23108,8 @@ pub unsafe fn SetJobA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetJobNamedProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, pproperty: *const PrintNamedProperty) -> u32 {
     #[cfg(windows)]
@@ -21747,8 +23123,8 @@ pub unsafe fn SetJobNamedProperty<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetJobW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, level: u32, pjob: *mut u8, command: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21762,8 +23138,8 @@ pub unsafe fn SetJobW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetPortA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, pportname: Param1, dwlevel: u32, pportinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21777,8 +23153,8 @@ pub unsafe fn SetPortA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetPortW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, pportname: Param1, dwlevel: u32, pportinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21792,8 +23168,8 @@ pub unsafe fn SetPortW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetPrinterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pprinter: *const u8, command: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21807,8 +23183,8 @@ pub unsafe fn SetPrinterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetPrinterDataA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pvaluename: Param1, r#type: u32, pdata: *const u8, cbdata: u32) -> u32 {
     #[cfg(windows)]
@@ -21822,8 +23198,8 @@ pub unsafe fn SetPrinterDataA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetPrinterDataExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2, r#type: u32, pdata: *const u8, cbdata: u32) -> u32 {
     #[cfg(windows)]
@@ -21837,8 +23213,8 @@ pub unsafe fn SetPrinterDataExA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetPrinterDataExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2, r#type: u32, pdata: *const u8, cbdata: u32) -> u32 {
     #[cfg(windows)]
@@ -21852,8 +23228,8 @@ pub unsafe fn SetPrinterDataExW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetPrinterDataW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pvaluename: Param1, r#type: u32, pdata: *const u8, cbdata: u32) -> u32 {
     #[cfg(windows)]
@@ -21867,8 +23243,8 @@ pub unsafe fn SetPrinterDataW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetPrinterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pprinter: *const u8, command: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21882,8 +23258,8 @@ pub unsafe fn SetPrinterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SplIsSessionZero<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, pissessionzero: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
@@ -21897,8 +23273,8 @@ pub unsafe fn SplIsSessionZero<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SplPromptUIInUsersSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, puiparams: *const SHOWUIPARAMS, presponse: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21912,8 +23288,8 @@ pub unsafe fn SplPromptUIInUsersSession<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SpoolerCopyFileEvent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprintername: Param0, pszkey: Param1, dwcopyfileevent: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21927,8 +23303,8 @@ pub unsafe fn SpoolerCopyFileEvent<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SpoolerFindClosePrinterChangeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21942,8 +23318,8 @@ pub unsafe fn SpoolerFindClosePrinterChangeNotification<'a, Param0: ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SpoolerFindFirstPrinterChangeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, fdwfilterflags: u32, fdwoptions: u32, pprinternotifyoptions: *const ::std::ffi::c_void, pvreserved: *const ::std::ffi::c_void, pnotificationconfig: *const ::std::ffi::c_void, phnotify: *mut super::super::Foundation::HANDLE, phevent: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21966,8 +23342,8 @@ pub unsafe fn SpoolerFindFirstPrinterChangeNotification<'a, Param0: ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SpoolerFindNextPrinterChangeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pfdwchange: *mut u32, pprinternotifyoptions: *const ::std::ffi::c_void, ppprinternotifyinfo: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21995,8 +23371,8 @@ pub unsafe fn SpoolerFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SpoolerRefreshPrinterChangeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, dwcolor: u32, poptions: *const PRINTER_NOTIFY_OPTIONS, ppinfo: *mut *mut PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22010,8 +23386,8 @@ pub unsafe fn SpoolerRefreshPrinterChangeNotification<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StartDocPrinterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pdocinfo: *const DOC_INFO_1A) -> u32 {
     #[cfg(windows)]
@@ -22025,8 +23401,8 @@ pub unsafe fn StartDocPrinterA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StartDocPrinterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pdocinfo: *const DOC_INFO_1W) -> u32 {
     #[cfg(windows)]
@@ -22040,8 +23416,8 @@ pub unsafe fn StartDocPrinterW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StartPagePrinter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22535,8 +23911,8 @@ impl ::std::cmp::Eq for USERDATA {}
 unsafe impl ::windows::runtime::Abi for USERDATA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnRegisterForPrintAsyncNotifications<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(param0: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -22550,8 +23926,8 @@ pub unsafe fn UnRegisterForPrintAsyncNotifications<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdatePrintDeviceObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, hdeviceobject: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -22565,8 +23941,8 @@ pub unsafe fn UpdatePrintDeviceObject<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UploadPrinterDriverPackageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(
     pszserver: Param0,
@@ -22588,8 +23964,8 @@ pub unsafe fn UploadPrinterDriverPackageA<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UploadPrinterDriverPackageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(
     pszserver: Param0,
@@ -22669,8 +24045,8 @@ unsafe impl ::windows::runtime::Abi for WIDTHTABLE {
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const WM_FI_FILENAME: u32 = 900u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WaitForPrinterChange<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -22684,8 +24060,8 @@ pub unsafe fn WaitForPrinterChange<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WritePrinter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pbuf: *const ::std::ffi::c_void, cbbuf: u32, pcwritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22742,8 +24118,8 @@ impl ::std::convert::From<i32> for XPSRAS_RENDERING_MODE {
 unsafe impl ::windows::runtime::Abi for XPSRAS_RENDERING_MODE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn XcvDataW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hxcv: Param0, pszdataname: Param1, pinputdata: *const u8, cbinputdata: u32, poutputdata: *mut u8, cboutputdata: u32, pcboutputneeded: *mut u32, pdwstatus: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22757,6 +24133,7 @@ pub unsafe fn XcvDataW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type _CPSUICALLBACK = unsafe extern "system" fn(pcpsuicbparam: *mut CPSUICBPARAM) -> i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -22787,27 +24164,67 @@ unsafe impl ::windows::runtime::Abi for _SPLCLIENT_INFO_2_V1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub struct _SPLCLIENT_INFO_2_V2 {
     pub hSplPrinter: u64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl _SPLCLIENT_INFO_2_V2 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for _SPLCLIENT_INFO_2_V2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for _SPLCLIENT_INFO_2_V2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_SPLCLIENT_INFO_2_V2").field("hSplPrinter", &self.hSplPrinter).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for _SPLCLIENT_INFO_2_V2 {
     fn eq(&self, other: &Self) -> bool {
         self.hSplPrinter == other.hSplPrinter
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for _SPLCLIENT_INFO_2_V2 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for _SPLCLIENT_INFO_2_V2 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Graphics_Printing`*"]
+pub struct _SPLCLIENT_INFO_2_V2 {
+    pub hSplPrinter: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl _SPLCLIENT_INFO_2_V2 {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for _SPLCLIENT_INFO_2_V2 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::fmt::Debug for _SPLCLIENT_INFO_2_V2 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("_SPLCLIENT_INFO_2_V2").field("hSplPrinter", &self.hSplPrinter).finish()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for _SPLCLIENT_INFO_2_V2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.hSplPrinter == other.hSplPrinter
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for _SPLCLIENT_INFO_2_V2 {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for _SPLCLIENT_INFO_2_V2 {
     type Abi = Self;
 }

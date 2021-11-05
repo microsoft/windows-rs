@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DnssdRegistrationResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DnssdRegistrationResult(pub ::windows::runtime::IInspectable);
 impl DnssdRegistrationResult {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -54,6 +54,46 @@ unsafe impl ::windows::runtime::Interface for DnssdRegistrationResult {
 }
 impl ::windows::runtime::RuntimeName for DnssdRegistrationResult {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult";
+}
+impl ::std::convert::From<DnssdRegistrationResult> for ::windows::runtime::IUnknown {
+    fn from(value: DnssdRegistrationResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DnssdRegistrationResult> for ::windows::runtime::IUnknown {
+    fn from(value: &DnssdRegistrationResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DnssdRegistrationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DnssdRegistrationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DnssdRegistrationResult> for ::windows::runtime::IInspectable {
+    fn from(value: DnssdRegistrationResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DnssdRegistrationResult> for ::windows::runtime::IInspectable {
+    fn from(value: &DnssdRegistrationResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DnssdRegistrationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DnssdRegistrationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<DnssdRegistrationResult> for super::super::super::Foundation::IStringable {
@@ -109,8 +149,8 @@ impl ::windows::runtime::DefaultType for DnssdRegistrationStatus {
 }
 #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DnssdServiceInstance(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DnssdServiceInstance(pub ::windows::runtime::IInspectable);
 impl DnssdServiceInstance {
     #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn DnssdServiceInstanceName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -253,6 +293,46 @@ unsafe impl ::windows::runtime::Interface for DnssdServiceInstance {
 impl ::windows::runtime::RuntimeName for DnssdServiceInstance {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance";
 }
+impl ::std::convert::From<DnssdServiceInstance> for ::windows::runtime::IUnknown {
+    fn from(value: DnssdServiceInstance) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DnssdServiceInstance> for ::windows::runtime::IUnknown {
+    fn from(value: &DnssdServiceInstance) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DnssdServiceInstance {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DnssdServiceInstance {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DnssdServiceInstance> for ::windows::runtime::IInspectable {
+    fn from(value: DnssdServiceInstance) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DnssdServiceInstance> for ::windows::runtime::IInspectable {
+    fn from(value: &DnssdServiceInstance) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DnssdServiceInstance {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DnssdServiceInstance {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<DnssdServiceInstance> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -284,8 +364,8 @@ unsafe impl ::std::marker::Sync for DnssdServiceInstance {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DnssdServiceInstanceCollection(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DnssdServiceInstanceCollection(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl DnssdServiceInstanceCollection {
     #[cfg(feature = "Foundation_Collections")]
@@ -346,6 +426,54 @@ unsafe impl ::windows::runtime::Interface for DnssdServiceInstanceCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::runtime::RuntimeName for DnssdServiceInstanceCollection {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstanceCollection";
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<DnssdServiceInstanceCollection> for ::windows::runtime::IUnknown {
+    fn from(value: DnssdServiceInstanceCollection) -> Self {
+        value.0 .0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<&DnssdServiceInstanceCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &DnssdServiceInstanceCollection) -> Self {
+        value.0 .0.clone()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DnssdServiceInstanceCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DnssdServiceInstanceCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<DnssdServiceInstanceCollection> for ::windows::runtime::IInspectable {
+    fn from(value: DnssdServiceInstanceCollection) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<&DnssdServiceInstanceCollection> for ::windows::runtime::IInspectable {
+    fn from(value: &DnssdServiceInstanceCollection) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DnssdServiceInstanceCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DnssdServiceInstanceCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<DnssdServiceInstanceCollection> for super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance> {
@@ -419,8 +547,8 @@ impl ::std::iter::IntoIterator for &DnssdServiceInstanceCollection {
 }
 #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DnssdServiceWatcher(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DnssdServiceWatcher(pub ::windows::runtime::IInspectable);
 impl DnssdServiceWatcher {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation`*"]
@@ -496,6 +624,46 @@ unsafe impl ::windows::runtime::Interface for DnssdServiceWatcher {
 impl ::windows::runtime::RuntimeName for DnssdServiceWatcher {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcher";
 }
+impl ::std::convert::From<DnssdServiceWatcher> for ::windows::runtime::IUnknown {
+    fn from(value: DnssdServiceWatcher) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DnssdServiceWatcher> for ::windows::runtime::IUnknown {
+    fn from(value: &DnssdServiceWatcher) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DnssdServiceWatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DnssdServiceWatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DnssdServiceWatcher> for ::windows::runtime::IInspectable {
+    fn from(value: DnssdServiceWatcher) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DnssdServiceWatcher> for ::windows::runtime::IInspectable {
+    fn from(value: &DnssdServiceWatcher) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DnssdServiceWatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DnssdServiceWatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for DnssdServiceWatcher {}
 unsafe impl ::std::marker::Sync for DnssdServiceWatcher {}
 #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
@@ -526,7 +694,7 @@ impl ::windows::runtime::DefaultType for DnssdServiceWatcherStatus {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDnssdRegistrationResult(::windows::runtime::IInspectable);
+pub struct IDnssdRegistrationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDnssdRegistrationResult {
     type Vtable = IDnssdRegistrationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1031301842, 58886, 21328, [115, 234, 126, 151, 240, 102, 22, 47]);
@@ -546,7 +714,7 @@ pub struct IDnssdRegistrationResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDnssdServiceInstance(::windows::runtime::IInspectable);
+pub struct IDnssdServiceInstance(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDnssdServiceInstance {
     type Vtable = IDnssdServiceInstance_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3796294526, 39077, 19617, [185, 228, 194, 83, 211, 60, 53, 255]);
@@ -583,7 +751,7 @@ pub struct IDnssdServiceInstance_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDnssdServiceInstanceFactory(::windows::runtime::IInspectable);
+pub struct IDnssdServiceInstanceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDnssdServiceInstanceFactory {
     type Vtable = IDnssdServiceInstanceFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1823498657, 50296, 17201, [150, 132, 74, 242, 24, 108, 10, 43]);
@@ -601,7 +769,7 @@ pub struct IDnssdServiceInstanceFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDnssdServiceWatcher(::windows::runtime::IInspectable);
+pub struct IDnssdServiceWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDnssdServiceWatcher {
     type Vtable = IDnssdServiceWatcher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3426015681, 56189, 19305, [152, 61, 198, 248, 63, 32, 86, 130]);

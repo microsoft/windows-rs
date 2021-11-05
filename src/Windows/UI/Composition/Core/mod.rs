@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_Composition_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CompositorController(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CompositorController(pub ::windows::runtime::IInspectable);
 impl CompositorController {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -65,6 +65,46 @@ unsafe impl ::windows::runtime::Interface for CompositorController {
 impl ::windows::runtime::RuntimeName for CompositorController {
     const NAME: &'static str = "Windows.UI.Composition.Core.CompositorController";
 }
+impl ::std::convert::From<CompositorController> for ::windows::runtime::IUnknown {
+    fn from(value: CompositorController) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CompositorController> for ::windows::runtime::IUnknown {
+    fn from(value: &CompositorController) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositorController {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CompositorController {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CompositorController> for ::windows::runtime::IInspectable {
+    fn from(value: CompositorController) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CompositorController> for ::windows::runtime::IInspectable {
+    fn from(value: &CompositorController) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositorController {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositorController {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositorController> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -95,7 +135,7 @@ unsafe impl ::std::marker::Send for CompositorController {}
 unsafe impl ::std::marker::Sync for CompositorController {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompositorController(::windows::runtime::IInspectable);
+pub struct ICompositorController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositorController {
     type Vtable = ICompositorController_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(762704730, 28839, 17301, [186, 45, 206, 240, 177, 131, 153, 249]);

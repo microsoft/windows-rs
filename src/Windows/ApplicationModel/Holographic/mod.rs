@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `ApplicationModel_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct HolographicKeyboard(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct HolographicKeyboard(pub ::windows::runtime::IInspectable);
 impl HolographicKeyboard {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     #[doc = "*Required features: `ApplicationModel_Holographic`, `Foundation_Numerics`, `Perception_Spatial`*"]
@@ -49,11 +49,51 @@ unsafe impl ::windows::runtime::Interface for HolographicKeyboard {
 impl ::windows::runtime::RuntimeName for HolographicKeyboard {
     const NAME: &'static str = "Windows.ApplicationModel.Holographic.HolographicKeyboard";
 }
+impl ::std::convert::From<HolographicKeyboard> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicKeyboard) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&HolographicKeyboard> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicKeyboard) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicKeyboard {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HolographicKeyboard {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<HolographicKeyboard> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicKeyboard) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicKeyboard> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicKeyboard) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicKeyboard {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicKeyboard {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HolographicKeyboard {}
 unsafe impl ::std::marker::Sync for HolographicKeyboard {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHolographicKeyboard(::windows::runtime::IInspectable);
+pub struct IHolographicKeyboard(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicKeyboard {
     type Vtable = IHolographicKeyboard_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131926163, 43553, 24175, [169, 27, 17, 178, 179, 253, 123, 227]);
@@ -75,7 +115,7 @@ pub struct IHolographicKeyboard_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHolographicKeyboardStatics(::windows::runtime::IInspectable);
+pub struct IHolographicKeyboardStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicKeyboardStatics {
     type Vtable = IHolographicKeyboardStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3061237284, 25559, 22735, [176, 107, 8, 186, 160, 50, 162, 63]);

@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISceneLightingEffect(::windows::runtime::IInspectable);
+pub struct ISceneLightingEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneLightingEffect {
     type Vtable = ISceneLightingEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2444975698, 38353, 20363, [154, 90, 100, 8, 178, 75, 140, 106]);
@@ -30,7 +30,7 @@ pub struct ISceneLightingEffect_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISceneLightingEffect2(::windows::runtime::IInspectable);
+pub struct ISceneLightingEffect2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneLightingEffect2 {
     type Vtable = ISceneLightingEffect2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2653359745, 29424, 19548, [149, 248, 138, 110, 0, 36, 244, 9]);
@@ -49,8 +49,8 @@ pub struct ISceneLightingEffect2_abi(
 );
 #[doc = "*Required features: `UI_Composition_Effects`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SceneLightingEffect(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SceneLightingEffect(pub ::windows::runtime::IInspectable);
 impl SceneLightingEffect {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -164,6 +164,46 @@ unsafe impl ::windows::runtime::Interface for SceneLightingEffect {
 }
 impl ::windows::runtime::RuntimeName for SceneLightingEffect {
     const NAME: &'static str = "Windows.UI.Composition.Effects.SceneLightingEffect";
+}
+impl ::std::convert::From<SceneLightingEffect> for ::windows::runtime::IUnknown {
+    fn from(value: SceneLightingEffect) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SceneLightingEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneLightingEffect) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneLightingEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SceneLightingEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SceneLightingEffect> for ::windows::runtime::IInspectable {
+    fn from(value: SceneLightingEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneLightingEffect> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneLightingEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneLightingEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneLightingEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Graphics_Effects")]
 impl ::std::convert::TryFrom<SceneLightingEffect> for super::super::super::Graphics::Effects::IGraphicsEffect {

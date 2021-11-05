@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Devices_Sensors_Custom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CustomSensor(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CustomSensor(pub ::windows::runtime::IInspectable);
 impl CustomSensor {
     #[doc = "*Required features: `Devices_Sensors_Custom`*"]
     pub fn GetCurrentReading(&self) -> ::windows::runtime::Result<CustomSensorReading> {
@@ -107,12 +107,52 @@ unsafe impl ::windows::runtime::Interface for CustomSensor {
 impl ::windows::runtime::RuntimeName for CustomSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.CustomSensor";
 }
+impl ::std::convert::From<CustomSensor> for ::windows::runtime::IUnknown {
+    fn from(value: CustomSensor) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CustomSensor> for ::windows::runtime::IUnknown {
+    fn from(value: &CustomSensor) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CustomSensor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CustomSensor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CustomSensor> for ::windows::runtime::IInspectable {
+    fn from(value: CustomSensor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CustomSensor> for ::windows::runtime::IInspectable {
+    fn from(value: &CustomSensor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CustomSensor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CustomSensor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CustomSensor {}
 unsafe impl ::std::marker::Sync for CustomSensor {}
 #[doc = "*Required features: `Devices_Sensors_Custom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CustomSensorReading(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CustomSensorReading(pub ::windows::runtime::IInspectable);
 impl CustomSensorReading {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors_Custom`, `Foundation`*"]
@@ -152,12 +192,52 @@ unsafe impl ::windows::runtime::Interface for CustomSensorReading {
 impl ::windows::runtime::RuntimeName for CustomSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.CustomSensorReading";
 }
+impl ::std::convert::From<CustomSensorReading> for ::windows::runtime::IUnknown {
+    fn from(value: CustomSensorReading) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CustomSensorReading> for ::windows::runtime::IUnknown {
+    fn from(value: &CustomSensorReading) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CustomSensorReading {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CustomSensorReading {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CustomSensorReading> for ::windows::runtime::IInspectable {
+    fn from(value: CustomSensorReading) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CustomSensorReading> for ::windows::runtime::IInspectable {
+    fn from(value: &CustomSensorReading) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CustomSensorReading {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CustomSensorReading {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CustomSensorReading {}
 unsafe impl ::std::marker::Sync for CustomSensorReading {}
 #[doc = "*Required features: `Devices_Sensors_Custom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CustomSensorReadingChangedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CustomSensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl CustomSensorReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors_Custom`*"]
     pub fn Reading(&self) -> ::windows::runtime::Result<CustomSensorReading> {
@@ -178,11 +258,51 @@ unsafe impl ::windows::runtime::Interface for CustomSensorReadingChangedEventArg
 impl ::windows::runtime::RuntimeName for CustomSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.CustomSensorReadingChangedEventArgs";
 }
+impl ::std::convert::From<CustomSensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: CustomSensorReadingChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CustomSensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &CustomSensorReadingChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CustomSensorReadingChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CustomSensorReadingChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CustomSensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: CustomSensorReadingChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CustomSensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &CustomSensorReadingChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CustomSensorReadingChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CustomSensorReadingChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CustomSensorReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for CustomSensorReadingChangedEventArgs {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICustomSensor(::windows::runtime::IInspectable);
+pub struct ICustomSensor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensor {
     type Vtable = ICustomSensor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2704734637, 16436, 19277, [153, 221, 83, 26, 172, 100, 156, 9]);
@@ -208,7 +328,7 @@ pub struct ICustomSensor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICustomSensor2(::windows::runtime::IInspectable);
+pub struct ICustomSensor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensor2 {
     type Vtable = ICustomSensor2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(551235857, 60504, 19871, [191, 189, 231, 120, 37, 8, 133, 16]);
@@ -228,7 +348,7 @@ pub struct ICustomSensor2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICustomSensorReading(::windows::runtime::IInspectable);
+pub struct ICustomSensorReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensorReading {
     type Vtable = ICustomSensorReading_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1677741901, 17514, 17254, [168, 122, 95, 150, 50, 104, 236, 83]);
@@ -249,7 +369,7 @@ pub struct ICustomSensorReading_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICustomSensorReading2(::windows::runtime::IInspectable);
+pub struct ICustomSensorReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensorReading2 {
     type Vtable = ICustomSensorReading2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(574396650, 49011, 18834, [154, 72, 211, 200, 151, 89, 76, 203]);
@@ -268,7 +388,7 @@ pub struct ICustomSensorReading2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICustomSensorReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct ICustomSensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensorReadingChangedEventArgs {
     type Vtable = ICustomSensorReadingChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1797267491, 53245, 19649, [143, 240, 226, 24, 35, 215, 111, 204]);
@@ -286,7 +406,7 @@ pub struct ICustomSensorReadingChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICustomSensorStatics(::windows::runtime::IInspectable);
+pub struct ICustomSensorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensorStatics {
     type Vtable = ICustomSensorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2569032399, 62498, 19581, [131, 107, 231, 220, 116, 167, 18, 75]);

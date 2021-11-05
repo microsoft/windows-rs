@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IServiceDeviceStatics(::windows::runtime::IInspectable);
+pub struct IServiceDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServiceDeviceStatics {
     type Vtable = IServiceDeviceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2827097313, 22983, 18976, [171, 166, 159, 103, 7, 147, 114, 48]);
@@ -20,7 +20,7 @@ pub struct IServiceDeviceStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorageDeviceStatics(::windows::runtime::IInspectable);
+pub struct IStorageDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageDeviceStatics {
     type Vtable = IStorageDeviceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1590576366, 6947, 19922, [134, 82, 188, 22, 79, 0, 49, 40]);

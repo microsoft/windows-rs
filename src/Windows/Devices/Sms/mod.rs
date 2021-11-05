@@ -25,8 +25,8 @@ impl ::windows::runtime::DefaultType for CellularClass {
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DeleteSmsMessageOperation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DeleteSmsMessageOperation(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl DeleteSmsMessageOperation {
     #[cfg(feature = "Foundation")]
@@ -89,6 +89,7 @@ impl DeleteSmsMessageOperation {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
     pub fn get(&self) -> ::windows::runtime::Result<()> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -115,6 +116,7 @@ unsafe impl ::windows::runtime::Interface for DeleteSmsMessageOperation {
 impl ::windows::runtime::RuntimeName for DeleteSmsMessageOperation {
     const NAME: &'static str = "Windows.Devices.Sms.DeleteSmsMessageOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for DeleteSmsMessageOperation {
     type Output = ::windows::runtime::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -128,6 +130,54 @@ impl ::std::future::Future for DeleteSmsMessageOperation {
         } else {
             ::std::task::Poll::Ready(self.GetResults())
         }
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<DeleteSmsMessageOperation> for ::windows::runtime::IUnknown {
+    fn from(value: DeleteSmsMessageOperation) -> Self {
+        value.0 .0
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<&DeleteSmsMessageOperation> for ::windows::runtime::IUnknown {
+    fn from(value: &DeleteSmsMessageOperation) -> Self {
+        value.0 .0.clone()
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeleteSmsMessageOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DeleteSmsMessageOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<DeleteSmsMessageOperation> for ::windows::runtime::IInspectable {
+    fn from(value: DeleteSmsMessageOperation) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<&DeleteSmsMessageOperation> for ::windows::runtime::IInspectable {
+    fn from(value: &DeleteSmsMessageOperation) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DeleteSmsMessageOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DeleteSmsMessageOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Foundation")]
@@ -183,8 +233,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncInfo>
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DeleteSmsMessagesOperation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DeleteSmsMessagesOperation(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl DeleteSmsMessagesOperation {
     #[cfg(feature = "Foundation")]
@@ -247,6 +297,7 @@ impl DeleteSmsMessagesOperation {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
     pub fn get(&self) -> ::windows::runtime::Result<()> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -273,6 +324,7 @@ unsafe impl ::windows::runtime::Interface for DeleteSmsMessagesOperation {
 impl ::windows::runtime::RuntimeName for DeleteSmsMessagesOperation {
     const NAME: &'static str = "Windows.Devices.Sms.DeleteSmsMessagesOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for DeleteSmsMessagesOperation {
     type Output = ::windows::runtime::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -286,6 +338,54 @@ impl ::std::future::Future for DeleteSmsMessagesOperation {
         } else {
             ::std::task::Poll::Ready(self.GetResults())
         }
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<DeleteSmsMessagesOperation> for ::windows::runtime::IUnknown {
+    fn from(value: DeleteSmsMessagesOperation) -> Self {
+        value.0 .0
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<&DeleteSmsMessagesOperation> for ::windows::runtime::IUnknown {
+    fn from(value: &DeleteSmsMessagesOperation) -> Self {
+        value.0 .0.clone()
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeleteSmsMessagesOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DeleteSmsMessagesOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<DeleteSmsMessagesOperation> for ::windows::runtime::IInspectable {
+    fn from(value: DeleteSmsMessagesOperation) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<&DeleteSmsMessagesOperation> for ::windows::runtime::IInspectable {
+    fn from(value: &DeleteSmsMessagesOperation) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DeleteSmsMessagesOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DeleteSmsMessagesOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Foundation")]
@@ -341,8 +441,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncInfo>
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct GetSmsDeviceOperation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct GetSmsDeviceOperation(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl GetSmsDeviceOperation {
     #[cfg(feature = "Foundation")]
@@ -408,6 +508,7 @@ impl GetSmsDeviceOperation {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
     pub fn get(&self) -> ::windows::runtime::Result<SmsDevice> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -434,6 +535,7 @@ unsafe impl ::windows::runtime::Interface for GetSmsDeviceOperation {
 impl ::windows::runtime::RuntimeName for GetSmsDeviceOperation {
     const NAME: &'static str = "Windows.Devices.Sms.GetSmsDeviceOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for GetSmsDeviceOperation {
     type Output = ::windows::runtime::Result<SmsDevice>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -447,6 +549,54 @@ impl ::std::future::Future for GetSmsDeviceOperation {
         } else {
             ::std::task::Poll::Ready(self.GetResults())
         }
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<GetSmsDeviceOperation> for ::windows::runtime::IUnknown {
+    fn from(value: GetSmsDeviceOperation) -> Self {
+        value.0 .0
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<&GetSmsDeviceOperation> for ::windows::runtime::IUnknown {
+    fn from(value: &GetSmsDeviceOperation) -> Self {
+        value.0 .0.clone()
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GetSmsDeviceOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GetSmsDeviceOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<GetSmsDeviceOperation> for ::windows::runtime::IInspectable {
+    fn from(value: GetSmsDeviceOperation) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<&GetSmsDeviceOperation> for ::windows::runtime::IInspectable {
+    fn from(value: &GetSmsDeviceOperation) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GetSmsDeviceOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GetSmsDeviceOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Foundation")]
@@ -502,8 +652,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncInfo>
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct GetSmsMessageOperation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct GetSmsMessageOperation(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl GetSmsMessageOperation {
     #[cfg(feature = "Foundation")]
@@ -569,6 +719,7 @@ impl GetSmsMessageOperation {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
     pub fn get(&self) -> ::windows::runtime::Result<ISmsMessage> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -595,6 +746,7 @@ unsafe impl ::windows::runtime::Interface for GetSmsMessageOperation {
 impl ::windows::runtime::RuntimeName for GetSmsMessageOperation {
     const NAME: &'static str = "Windows.Devices.Sms.GetSmsMessageOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for GetSmsMessageOperation {
     type Output = ::windows::runtime::Result<ISmsMessage>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -608,6 +760,54 @@ impl ::std::future::Future for GetSmsMessageOperation {
         } else {
             ::std::task::Poll::Ready(self.GetResults())
         }
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<GetSmsMessageOperation> for ::windows::runtime::IUnknown {
+    fn from(value: GetSmsMessageOperation) -> Self {
+        value.0 .0
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<&GetSmsMessageOperation> for ::windows::runtime::IUnknown {
+    fn from(value: &GetSmsMessageOperation) -> Self {
+        value.0 .0.clone()
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GetSmsMessageOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GetSmsMessageOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<GetSmsMessageOperation> for ::windows::runtime::IInspectable {
+    fn from(value: GetSmsMessageOperation) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<&GetSmsMessageOperation> for ::windows::runtime::IInspectable {
+    fn from(value: &GetSmsMessageOperation) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GetSmsMessageOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GetSmsMessageOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Foundation")]
@@ -663,8 +863,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncInfo>
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct GetSmsMessagesOperation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct GetSmsMessagesOperation(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl GetSmsMessagesOperation {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -745,6 +945,7 @@ impl GetSmsMessagesOperation {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
     pub fn get(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ISmsMessage>> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -771,6 +972,7 @@ unsafe impl ::windows::runtime::Interface for GetSmsMessagesOperation {
 impl ::windows::runtime::RuntimeName for GetSmsMessagesOperation {
     const NAME: &'static str = "Windows.Devices.Sms.GetSmsMessagesOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for GetSmsMessagesOperation {
     type Output = ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ISmsMessage>>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -784,6 +986,54 @@ impl ::std::future::Future for GetSmsMessagesOperation {
         } else {
             ::std::task::Poll::Ready(self.GetResults())
         }
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<GetSmsMessagesOperation> for ::windows::runtime::IUnknown {
+    fn from(value: GetSmsMessagesOperation) -> Self {
+        value.0 .0
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<&GetSmsMessagesOperation> for ::windows::runtime::IUnknown {
+    fn from(value: &GetSmsMessagesOperation) -> Self {
+        value.0 .0.clone()
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GetSmsMessagesOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GetSmsMessagesOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<GetSmsMessagesOperation> for ::windows::runtime::IInspectable {
+    fn from(value: GetSmsMessagesOperation) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<&GetSmsMessagesOperation> for ::windows::runtime::IInspectable {
+    fn from(value: &GetSmsMessagesOperation) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GetSmsMessagesOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GetSmsMessagesOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Foundation")]
@@ -838,7 +1088,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncInfo>
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsAppMessage(::windows::runtime::IInspectable);
+pub struct ISmsAppMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsAppMessage {
     type Vtable = ISmsAppMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3904603284, 54176, 18954, [134, 215, 41, 16, 51, 168, 207, 84]);
@@ -879,9 +1129,9 @@ pub struct ISmsAppMessage_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Sms`*"]
-pub struct ISmsBinaryMessage(::windows::runtime::IInspectable);
+pub struct ISmsBinaryMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsBinaryMessage {
     type Vtable = ISmsBinaryMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1542776851, 15187, 19566, [182, 26, 216, 106, 99, 117, 86, 80]);
@@ -937,6 +1187,46 @@ impl ISmsBinaryMessage {
 unsafe impl ::windows::runtime::RuntimeType for ISmsBinaryMessage {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{5bf4e813-3b53-4c6e-b61a-d86a63755650}");
 }
+impl ::std::convert::From<ISmsBinaryMessage> for ::windows::runtime::IUnknown {
+    fn from(value: ISmsBinaryMessage) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ISmsBinaryMessage> for ::windows::runtime::IUnknown {
+    fn from(value: &ISmsBinaryMessage) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISmsBinaryMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISmsBinaryMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ISmsBinaryMessage> for ::windows::runtime::IInspectable {
+    fn from(value: ISmsBinaryMessage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISmsBinaryMessage> for ::windows::runtime::IInspectable {
+    fn from(value: &ISmsBinaryMessage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISmsBinaryMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISmsBinaryMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<ISmsBinaryMessage> for ISmsMessage {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ISmsBinaryMessage) -> ::windows::runtime::Result<Self> {
@@ -975,7 +1265,7 @@ pub struct ISmsBinaryMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsBroadcastMessage(::windows::runtime::IInspectable);
+pub struct ISmsBroadcastMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsBroadcastMessage {
     type Vtable = ISmsBroadcastMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1974385649, 58551, 18548, [160, 156, 41, 86, 229, 146, 249, 87]);
@@ -1002,9 +1292,9 @@ pub struct ISmsBroadcastMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Sms`*"]
-pub struct ISmsDevice(::windows::runtime::IInspectable);
+pub struct ISmsDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDevice {
     type Vtable = ISmsDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(152539629, 34603, 20204, [156, 114, 171, 17, 98, 123, 52, 236]);
@@ -1103,6 +1393,46 @@ impl ISmsDevice {
 unsafe impl ::windows::runtime::RuntimeType for ISmsDevice {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{091791ed-872b-4eec-9c72-ab11627b34ec}");
 }
+impl ::std::convert::From<ISmsDevice> for ::windows::runtime::IUnknown {
+    fn from(value: ISmsDevice) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ISmsDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &ISmsDevice) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISmsDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISmsDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ISmsDevice> for ::windows::runtime::IInspectable {
+    fn from(value: ISmsDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISmsDevice> for ::windows::runtime::IInspectable {
+    fn from(value: &ISmsDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISmsDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISmsDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsDevice_abi(
@@ -1130,7 +1460,7 @@ pub struct ISmsDevice_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsDevice2(::windows::runtime::IInspectable);
+pub struct ISmsDevice2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDevice2 {
     type Vtable = ISmsDevice2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3179961363, 58658, 18123, [184, 213, 158, 173, 48, 251, 108, 71]);
@@ -1161,7 +1491,7 @@ pub struct ISmsDevice2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsDevice2Statics(::windows::runtime::IInspectable);
+pub struct ISmsDevice2Statics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDevice2Statics {
     type Vtable = ISmsDevice2Statics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1707574053, 4145, 18718, [143, 182, 239, 153, 145, 175, 227, 99]);
@@ -1182,7 +1512,7 @@ pub struct ISmsDevice2Statics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsDeviceMessageStore(::windows::runtime::IInspectable);
+pub struct ISmsDeviceMessageStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDeviceMessageStore {
     type Vtable = ISmsDeviceMessageStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2559177299, 61832, 17447, [141, 84, 206, 12, 36, 35, 197, 193]);
@@ -1208,7 +1538,7 @@ pub struct ISmsDeviceMessageStore_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsDeviceStatics(::windows::runtime::IInspectable);
+pub struct ISmsDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDeviceStatics {
     type Vtable = ISmsDeviceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4169992170, 55317, 19921, [162, 52, 69, 32, 206, 70, 4, 164]);
@@ -1230,7 +1560,7 @@ pub struct ISmsDeviceStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsDeviceStatics2(::windows::runtime::IInspectable);
+pub struct ISmsDeviceStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDeviceStatics2 {
     type Vtable = ISmsDeviceStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(748756103, 2163, 19631, [138, 125, 189, 71, 30, 133, 134, 209]);
@@ -1249,7 +1579,7 @@ pub struct ISmsDeviceStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsFilterRule(::windows::runtime::IInspectable);
+pub struct ISmsFilterRule(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsFilterRule {
     type Vtable = ISmsFilterRule_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1088630702, 45129, 20412, [175, 233, 226, 166, 16, 239, 245, 92]);
@@ -1291,7 +1621,7 @@ pub struct ISmsFilterRule_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsFilterRuleFactory(::windows::runtime::IInspectable);
+pub struct ISmsFilterRuleFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsFilterRuleFactory {
     type Vtable = ISmsFilterRuleFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(12805384, 25238, 20265, [154, 173, 137, 32, 206, 186, 60, 232]);
@@ -1309,7 +1639,7 @@ pub struct ISmsFilterRuleFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsFilterRules(::windows::runtime::IInspectable);
+pub struct ISmsFilterRules(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsFilterRules {
     type Vtable = ISmsFilterRules_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1313336059, 31181, 18561, [152, 148, 85, 164, 19, 91, 35, 250]);
@@ -1329,7 +1659,7 @@ pub struct ISmsFilterRules_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsFilterRulesFactory(::windows::runtime::IInspectable);
+pub struct ISmsFilterRulesFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsFilterRulesFactory {
     type Vtable = ISmsFilterRulesFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2694391021, 28206, 17712, [159, 222, 70, 93, 2, 238, 208, 14]);
@@ -1346,9 +1676,9 @@ pub struct ISmsFilterRulesFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, actiontype: SmsFilterActionType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Sms`*"]
-pub struct ISmsMessage(::windows::runtime::IInspectable);
+pub struct ISmsMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessage {
     type Vtable = ISmsMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3980156456, 27012, 19207, [129, 29, 141, 89, 6, 237, 60, 234]);
@@ -1374,6 +1704,46 @@ impl ISmsMessage {
 unsafe impl ::windows::runtime::RuntimeType for ISmsMessage {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{ed3c5e28-6984-4b07-811d-8d5906ed3cea}");
 }
+impl ::std::convert::From<ISmsMessage> for ::windows::runtime::IUnknown {
+    fn from(value: ISmsMessage) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ISmsMessage> for ::windows::runtime::IUnknown {
+    fn from(value: &ISmsMessage) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISmsMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISmsMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ISmsMessage> for ::windows::runtime::IInspectable {
+    fn from(value: ISmsMessage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISmsMessage> for ::windows::runtime::IInspectable {
+    fn from(value: &ISmsMessage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISmsMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISmsMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsMessage_abi(
@@ -1387,9 +1757,9 @@ pub struct ISmsMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SmsMessageClass) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Sms`*"]
-pub struct ISmsMessageBase(::windows::runtime::IInspectable);
+pub struct ISmsMessageBase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageBase {
     type Vtable = ISmsMessageBase_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(753991216, 65104, 20422, [170, 136, 76, 207, 226, 122, 41, 234]);
@@ -1439,6 +1809,46 @@ impl ISmsMessageBase {
 unsafe impl ::windows::runtime::RuntimeType for ISmsMessageBase {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{2cf0fe30-fe50-4fc6-aa88-4ccfe27a29ea}");
 }
+impl ::std::convert::From<ISmsMessageBase> for ::windows::runtime::IUnknown {
+    fn from(value: ISmsMessageBase) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ISmsMessageBase> for ::windows::runtime::IUnknown {
+    fn from(value: &ISmsMessageBase) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISmsMessageBase {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISmsMessageBase {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ISmsMessageBase> for ::windows::runtime::IInspectable {
+    fn from(value: ISmsMessageBase) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISmsMessageBase> for ::windows::runtime::IInspectable {
+    fn from(value: &ISmsMessageBase) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISmsMessageBase {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISmsMessageBase {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsMessageBase_abi(
@@ -1456,7 +1866,7 @@ pub struct ISmsMessageBase_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsMessageReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct ISmsMessageReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageReceivedEventArgs {
     type Vtable = ISmsMessageReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(149424792, 47333, 16833, [163, 216, 211, 171, 250, 226, 38, 117]);
@@ -1475,7 +1885,7 @@ pub struct ISmsMessageReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsMessageReceivedTriggerDetails(::windows::runtime::IInspectable);
+pub struct ISmsMessageReceivedTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageReceivedTriggerDetails {
     type Vtable = ISmsMessageReceivedTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(735038420, 9815, 16680, [173, 95, 227, 135, 113, 50, 189, 177]);
@@ -1501,7 +1911,7 @@ pub struct ISmsMessageReceivedTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsMessageRegistration(::windows::runtime::IInspectable);
+pub struct ISmsMessageRegistration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageRegistration {
     type Vtable = ISmsMessageRegistration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(387993662, 62287, 17515, [131, 179, 15, 241, 153, 35, 180, 9]);
@@ -1524,7 +1934,7 @@ pub struct ISmsMessageRegistration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsMessageRegistrationStatics(::windows::runtime::IInspectable);
+pub struct ISmsMessageRegistrationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageRegistrationStatics {
     type Vtable = ISmsMessageRegistrationStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1671451748, 10392, 18296, [160, 60, 111, 153, 73, 7, 214, 58]);
@@ -1544,7 +1954,7 @@ pub struct ISmsMessageRegistrationStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsReceivedEventDetails(::windows::runtime::IInspectable);
+pub struct ISmsReceivedEventDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsReceivedEventDetails {
     type Vtable = ISmsReceivedEventDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1538592533, 58477, 19586, [132, 125, 90, 3, 4, 193, 213, 61]);
@@ -1563,7 +1973,7 @@ pub struct ISmsReceivedEventDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsReceivedEventDetails2(::windows::runtime::IInspectable);
+pub struct ISmsReceivedEventDetails2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsReceivedEventDetails2 {
     type Vtable = ISmsReceivedEventDetails2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1088445574, 42932, 18289, [154, 231, 11, 95, 251, 18, 192, 58]);
@@ -1582,7 +1992,7 @@ pub struct ISmsReceivedEventDetails2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsSendMessageResult(::windows::runtime::IInspectable);
+pub struct ISmsSendMessageResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsSendMessageResult {
     type Vtable = ISmsSendMessageResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3675495154, 30921, 20459, [150, 34, 69, 35, 40, 8, 141, 98]);
@@ -1607,7 +2017,7 @@ pub struct ISmsSendMessageResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsStatusMessage(::windows::runtime::IInspectable);
+pub struct ISmsStatusMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsStatusMessage {
     type Vtable = ISmsStatusMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872555842, 46859, 18039, [147, 121, 201, 120, 63, 223, 248, 244]);
@@ -1632,9 +2042,9 @@ pub struct ISmsStatusMessage_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Sms`*"]
-pub struct ISmsTextMessage(::windows::runtime::IInspectable);
+pub struct ISmsTextMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsTextMessage {
     type Vtable = ISmsTextMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3592196172, 42133, 18559, [154, 111, 151, 21, 72, 197, 188, 159]);
@@ -1767,6 +2177,46 @@ impl ISmsTextMessage {
 unsafe impl ::windows::runtime::RuntimeType for ISmsTextMessage {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{d61c904c-a495-487f-9a6f-971548c5bc9f}");
 }
+impl ::std::convert::From<ISmsTextMessage> for ::windows::runtime::IUnknown {
+    fn from(value: ISmsTextMessage) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ISmsTextMessage> for ::windows::runtime::IUnknown {
+    fn from(value: &ISmsTextMessage) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISmsTextMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISmsTextMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ISmsTextMessage> for ::windows::runtime::IInspectable {
+    fn from(value: ISmsTextMessage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISmsTextMessage> for ::windows::runtime::IInspectable {
+    fn from(value: &ISmsTextMessage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISmsTextMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISmsTextMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<ISmsTextMessage> for ISmsMessage {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ISmsTextMessage) -> ::windows::runtime::Result<Self> {
@@ -1816,7 +2266,7 @@ pub struct ISmsTextMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsTextMessage2(::windows::runtime::IInspectable);
+pub struct ISmsTextMessage2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsTextMessage2 {
     type Vtable = ISmsTextMessage2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(580966547, 17749, 18261, [181, 161, 231, 253, 132, 149, 95, 141]);
@@ -1850,7 +2300,7 @@ pub struct ISmsTextMessage2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsTextMessageStatics(::windows::runtime::IInspectable);
+pub struct ISmsTextMessageStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsTextMessageStatics {
     type Vtable = ISmsTextMessageStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2137572845, 15564, 18339, [140, 85, 56, 13, 59, 1, 8, 146]);
@@ -1869,7 +2319,7 @@ pub struct ISmsTextMessageStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsVoicemailMessage(::windows::runtime::IInspectable);
+pub struct ISmsVoicemailMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsVoicemailMessage {
     type Vtable = ISmsVoicemailMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(656056486, 38321, 17663, [188, 184, 184, 253, 215, 224, 139, 195]);
@@ -1892,7 +2342,7 @@ pub struct ISmsVoicemailMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsWapMessage(::windows::runtime::IInspectable);
+pub struct ISmsWapMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsWapMessage {
     type Vtable = ISmsWapMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3448993603, 31317, 19771, [144, 33, 242, 46, 2, 45, 9, 197]);
@@ -1923,8 +2373,8 @@ pub struct LegacySmsApiContract(pub u8);
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SendSmsMessageOperation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SendSmsMessageOperation(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl SendSmsMessageOperation {
     #[cfg(feature = "Foundation")]
@@ -1987,6 +2437,7 @@ impl SendSmsMessageOperation {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
     pub fn get(&self) -> ::windows::runtime::Result<()> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -2013,6 +2464,7 @@ unsafe impl ::windows::runtime::Interface for SendSmsMessageOperation {
 impl ::windows::runtime::RuntimeName for SendSmsMessageOperation {
     const NAME: &'static str = "Windows.Devices.Sms.SendSmsMessageOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for SendSmsMessageOperation {
     type Output = ::windows::runtime::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -2026,6 +2478,54 @@ impl ::std::future::Future for SendSmsMessageOperation {
         } else {
             ::std::task::Poll::Ready(self.GetResults())
         }
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<SendSmsMessageOperation> for ::windows::runtime::IUnknown {
+    fn from(value: SendSmsMessageOperation) -> Self {
+        value.0 .0
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<&SendSmsMessageOperation> for ::windows::runtime::IUnknown {
+    fn from(value: &SendSmsMessageOperation) -> Self {
+        value.0 .0.clone()
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SendSmsMessageOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SendSmsMessageOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<SendSmsMessageOperation> for ::windows::runtime::IInspectable {
+    fn from(value: SendSmsMessageOperation) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<&SendSmsMessageOperation> for ::windows::runtime::IInspectable {
+    fn from(value: &SendSmsMessageOperation) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SendSmsMessageOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SendSmsMessageOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2080,8 +2580,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncInfo>
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsAppMessage(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsAppMessage(pub ::windows::runtime::IInspectable);
 impl SmsAppMessage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2290,6 +2790,46 @@ unsafe impl ::windows::runtime::Interface for SmsAppMessage {
 impl ::windows::runtime::RuntimeName for SmsAppMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsAppMessage";
 }
+impl ::std::convert::From<SmsAppMessage> for ::windows::runtime::IUnknown {
+    fn from(value: SmsAppMessage) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsAppMessage> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsAppMessage) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsAppMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsAppMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsAppMessage> for ::windows::runtime::IInspectable {
+    fn from(value: SmsAppMessage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsAppMessage> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsAppMessage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsAppMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsAppMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SmsAppMessage> for ISmsMessageBase {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SmsAppMessage) -> ::windows::runtime::Result<Self> {
@@ -2316,8 +2856,8 @@ unsafe impl ::std::marker::Send for SmsAppMessage {}
 unsafe impl ::std::marker::Sync for SmsAppMessage {}
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsBinaryMessage(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsBinaryMessage(pub ::windows::runtime::IInspectable);
 impl SmsBinaryMessage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2383,6 +2923,46 @@ unsafe impl ::windows::runtime::Interface for SmsBinaryMessage {
 impl ::windows::runtime::RuntimeName for SmsBinaryMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsBinaryMessage";
 }
+impl ::std::convert::From<SmsBinaryMessage> for ::windows::runtime::IUnknown {
+    fn from(value: SmsBinaryMessage) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsBinaryMessage> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsBinaryMessage) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsBinaryMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsBinaryMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsBinaryMessage> for ::windows::runtime::IInspectable {
+    fn from(value: SmsBinaryMessage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsBinaryMessage> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsBinaryMessage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsBinaryMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsBinaryMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<SmsBinaryMessage> for ISmsBinaryMessage {
     fn from(value: SmsBinaryMessage) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2429,8 +3009,8 @@ unsafe impl ::std::marker::Send for SmsBinaryMessage {}
 unsafe impl ::std::marker::Sync for SmsBinaryMessage {}
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsBroadcastMessage(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsBroadcastMessage(pub ::windows::runtime::IInspectable);
 impl SmsBroadcastMessage {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
@@ -2564,6 +3144,46 @@ unsafe impl ::windows::runtime::Interface for SmsBroadcastMessage {
 impl ::windows::runtime::RuntimeName for SmsBroadcastMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsBroadcastMessage";
 }
+impl ::std::convert::From<SmsBroadcastMessage> for ::windows::runtime::IUnknown {
+    fn from(value: SmsBroadcastMessage) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsBroadcastMessage> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsBroadcastMessage) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsBroadcastMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsBroadcastMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsBroadcastMessage> for ::windows::runtime::IInspectable {
+    fn from(value: SmsBroadcastMessage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsBroadcastMessage> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsBroadcastMessage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsBroadcastMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsBroadcastMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SmsBroadcastMessage> for ISmsMessageBase {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SmsBroadcastMessage) -> ::windows::runtime::Result<Self> {
@@ -2650,8 +3270,8 @@ impl ::windows::runtime::DefaultType for SmsDataFormat {
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsDevice(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsDevice(pub ::windows::runtime::IInspectable);
 impl SmsDevice {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
@@ -2796,6 +3416,46 @@ unsafe impl ::windows::runtime::Interface for SmsDevice {
 impl ::windows::runtime::RuntimeName for SmsDevice {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDevice";
 }
+impl ::std::convert::From<SmsDevice> for ::windows::runtime::IUnknown {
+    fn from(value: SmsDevice) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsDevice) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsDevice> for ::windows::runtime::IInspectable {
+    fn from(value: SmsDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsDevice> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<SmsDevice> for ISmsDevice {
     fn from(value: SmsDevice) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2818,8 +3478,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISmsDevice> for &SmsDevice {
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsDevice2(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsDevice2(pub ::windows::runtime::IInspectable);
 impl SmsDevice2 {
     #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SmscAddress(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -2949,10 +3609,50 @@ unsafe impl ::windows::runtime::Interface for SmsDevice2 {
 impl ::windows::runtime::RuntimeName for SmsDevice2 {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDevice2";
 }
+impl ::std::convert::From<SmsDevice2> for ::windows::runtime::IUnknown {
+    fn from(value: SmsDevice2) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsDevice2> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsDevice2) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsDevice2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsDevice2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsDevice2> for ::windows::runtime::IInspectable {
+    fn from(value: SmsDevice2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsDevice2> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsDevice2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsDevice2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsDevice2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsDeviceMessageStore(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsDeviceMessageStore(pub ::windows::runtime::IInspectable);
 impl SmsDeviceMessageStore {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
@@ -3013,6 +3713,46 @@ unsafe impl ::windows::runtime::Interface for SmsDeviceMessageStore {
 }
 impl ::windows::runtime::RuntimeName for SmsDeviceMessageStore {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDeviceMessageStore";
+}
+impl ::std::convert::From<SmsDeviceMessageStore> for ::windows::runtime::IUnknown {
+    fn from(value: SmsDeviceMessageStore) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsDeviceMessageStore> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsDeviceMessageStore) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsDeviceMessageStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsDeviceMessageStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsDeviceMessageStore> for ::windows::runtime::IInspectable {
+    fn from(value: SmsDeviceMessageStore) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsDeviceMessageStore> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsDeviceMessageStore) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsDeviceMessageStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsDeviceMessageStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3214,8 +3954,8 @@ impl ::windows::runtime::DefaultType for SmsFilterActionType {
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsFilterRule(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsFilterRule(pub ::windows::runtime::IInspectable);
 impl SmsFilterRule {
     #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageType(&self) -> ::windows::runtime::Result<SmsMessageType> {
@@ -3359,12 +4099,52 @@ unsafe impl ::windows::runtime::Interface for SmsFilterRule {
 impl ::windows::runtime::RuntimeName for SmsFilterRule {
     const NAME: &'static str = "Windows.Devices.Sms.SmsFilterRule";
 }
+impl ::std::convert::From<SmsFilterRule> for ::windows::runtime::IUnknown {
+    fn from(value: SmsFilterRule) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsFilterRule> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsFilterRule) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsFilterRule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsFilterRule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsFilterRule> for ::windows::runtime::IInspectable {
+    fn from(value: SmsFilterRule) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsFilterRule> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsFilterRule) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsFilterRule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsFilterRule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmsFilterRule {}
 unsafe impl ::std::marker::Sync for SmsFilterRule {}
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsFilterRules(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsFilterRules(pub ::windows::runtime::IInspectable);
 impl SmsFilterRules {
     #[doc = "*Required features: `Devices_Sms`*"]
     pub fn ActionType(&self) -> ::windows::runtime::Result<SmsFilterActionType> {
@@ -3404,6 +4184,46 @@ unsafe impl ::windows::runtime::Interface for SmsFilterRules {
 }
 impl ::windows::runtime::RuntimeName for SmsFilterRules {
     const NAME: &'static str = "Windows.Devices.Sms.SmsFilterRules";
+}
+impl ::std::convert::From<SmsFilterRules> for ::windows::runtime::IUnknown {
+    fn from(value: SmsFilterRules) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsFilterRules> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsFilterRules) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsFilterRules {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsFilterRules {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsFilterRules> for ::windows::runtime::IInspectable {
+    fn from(value: SmsFilterRules) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsFilterRules> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsFilterRules) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsFilterRules {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsFilterRules {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for SmsFilterRules {}
 unsafe impl ::std::marker::Sync for SmsFilterRules {}
@@ -3484,8 +4304,8 @@ impl ::windows::runtime::DefaultType for SmsMessageFilter {
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsMessageReceivedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsMessageReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl SmsMessageReceivedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_Sms`*"]
@@ -3515,6 +4335,46 @@ unsafe impl ::windows::runtime::Interface for SmsMessageReceivedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for SmsMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sms.SmsMessageReceivedEventArgs";
+}
+impl ::std::convert::From<SmsMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: SmsMessageReceivedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsMessageReceivedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsMessageReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsMessageReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: SmsMessageReceivedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsMessageReceivedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsMessageReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsMessageReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
@@ -3595,8 +4455,8 @@ impl<F: FnMut(&::std::option::Option<SmsDevice>, &::std::option::Option<SmsMessa
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsMessageReceivedTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsMessageReceivedTriggerDetails(pub ::windows::runtime::IInspectable);
 impl SmsMessageReceivedTriggerDetails {
     #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageType(&self) -> ::windows::runtime::Result<SmsMessageType> {
@@ -3675,12 +4535,52 @@ unsafe impl ::windows::runtime::Interface for SmsMessageReceivedTriggerDetails {
 impl ::windows::runtime::RuntimeName for SmsMessageReceivedTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sms.SmsMessageReceivedTriggerDetails";
 }
+impl ::std::convert::From<SmsMessageReceivedTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: SmsMessageReceivedTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsMessageReceivedTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsMessageReceivedTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsMessageReceivedTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsMessageReceivedTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsMessageReceivedTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: SmsMessageReceivedTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsMessageReceivedTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsMessageReceivedTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsMessageReceivedTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsMessageReceivedTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmsMessageReceivedTriggerDetails {}
 unsafe impl ::std::marker::Sync for SmsMessageReceivedTriggerDetails {}
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsMessageRegistration(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsMessageRegistration(pub ::windows::runtime::IInspectable);
 impl SmsMessageRegistration {
     #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -3739,6 +4639,46 @@ unsafe impl ::windows::runtime::Interface for SmsMessageRegistration {
 }
 impl ::windows::runtime::RuntimeName for SmsMessageRegistration {
     const NAME: &'static str = "Windows.Devices.Sms.SmsMessageRegistration";
+}
+impl ::std::convert::From<SmsMessageRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: SmsMessageRegistration) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsMessageRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsMessageRegistration) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsMessageRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsMessageRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsMessageRegistration> for ::windows::runtime::IInspectable {
+    fn from(value: SmsMessageRegistration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsMessageRegistration> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsMessageRegistration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsMessageRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsMessageRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3801,8 +4741,8 @@ impl ::windows::runtime::DefaultType for SmsModemErrorCode {
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsReceivedEventDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsReceivedEventDetails(pub ::windows::runtime::IInspectable);
 impl SmsReceivedEventDetails {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_Sms`*"]
@@ -3851,12 +4791,52 @@ unsafe impl ::windows::runtime::Interface for SmsReceivedEventDetails {
 impl ::windows::runtime::RuntimeName for SmsReceivedEventDetails {
     const NAME: &'static str = "Windows.Devices.Sms.SmsReceivedEventDetails";
 }
+impl ::std::convert::From<SmsReceivedEventDetails> for ::windows::runtime::IUnknown {
+    fn from(value: SmsReceivedEventDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsReceivedEventDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsReceivedEventDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsReceivedEventDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsReceivedEventDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsReceivedEventDetails> for ::windows::runtime::IInspectable {
+    fn from(value: SmsReceivedEventDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsReceivedEventDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsReceivedEventDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsReceivedEventDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsReceivedEventDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmsReceivedEventDetails {}
 unsafe impl ::std::marker::Sync for SmsReceivedEventDetails {}
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsSendMessageResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsSendMessageResult(pub ::windows::runtime::IInspectable);
 impl SmsSendMessageResult {
     #[doc = "*Required features: `Devices_Sms`*"]
     pub fn IsSuccessful(&self) -> ::windows::runtime::Result<bool> {
@@ -3926,12 +4906,52 @@ unsafe impl ::windows::runtime::Interface for SmsSendMessageResult {
 impl ::windows::runtime::RuntimeName for SmsSendMessageResult {
     const NAME: &'static str = "Windows.Devices.Sms.SmsSendMessageResult";
 }
+impl ::std::convert::From<SmsSendMessageResult> for ::windows::runtime::IUnknown {
+    fn from(value: SmsSendMessageResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsSendMessageResult> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsSendMessageResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsSendMessageResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsSendMessageResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsSendMessageResult> for ::windows::runtime::IInspectable {
+    fn from(value: SmsSendMessageResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsSendMessageResult> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsSendMessageResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsSendMessageResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsSendMessageResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmsSendMessageResult {}
 unsafe impl ::std::marker::Sync for SmsSendMessageResult {}
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsStatusMessage(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsStatusMessage(pub ::windows::runtime::IInspectable);
 impl SmsStatusMessage {
     #[doc = "*Required features: `Devices_Sms`*"]
     pub fn To(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -4042,6 +5062,46 @@ unsafe impl ::windows::runtime::Interface for SmsStatusMessage {
 impl ::windows::runtime::RuntimeName for SmsStatusMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsStatusMessage";
 }
+impl ::std::convert::From<SmsStatusMessage> for ::windows::runtime::IUnknown {
+    fn from(value: SmsStatusMessage) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsStatusMessage> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsStatusMessage) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsStatusMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsStatusMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsStatusMessage> for ::windows::runtime::IInspectable {
+    fn from(value: SmsStatusMessage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsStatusMessage> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsStatusMessage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsStatusMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsStatusMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SmsStatusMessage> for ISmsMessageBase {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SmsStatusMessage) -> ::windows::runtime::Result<Self> {
@@ -4068,8 +5128,8 @@ unsafe impl ::std::marker::Send for SmsStatusMessage {}
 unsafe impl ::std::marker::Sync for SmsStatusMessage {}
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsTextMessage(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsTextMessage(pub ::windows::runtime::IInspectable);
 impl SmsTextMessage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -4232,6 +5292,46 @@ unsafe impl ::windows::runtime::Interface for SmsTextMessage {
 impl ::windows::runtime::RuntimeName for SmsTextMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsTextMessage";
 }
+impl ::std::convert::From<SmsTextMessage> for ::windows::runtime::IUnknown {
+    fn from(value: SmsTextMessage) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsTextMessage> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsTextMessage) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsTextMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsTextMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsTextMessage> for ::windows::runtime::IInspectable {
+    fn from(value: SmsTextMessage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsTextMessage> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsTextMessage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsTextMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsTextMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<SmsTextMessage> for ISmsTextMessage {
     fn from(value: SmsTextMessage) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4278,8 +5378,8 @@ unsafe impl ::std::marker::Send for SmsTextMessage {}
 unsafe impl ::std::marker::Sync for SmsTextMessage {}
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsTextMessage2(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsTextMessage2(pub ::windows::runtime::IInspectable);
 impl SmsTextMessage2 {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -4450,6 +5550,46 @@ unsafe impl ::windows::runtime::Interface for SmsTextMessage2 {
 impl ::windows::runtime::RuntimeName for SmsTextMessage2 {
     const NAME: &'static str = "Windows.Devices.Sms.SmsTextMessage2";
 }
+impl ::std::convert::From<SmsTextMessage2> for ::windows::runtime::IUnknown {
+    fn from(value: SmsTextMessage2) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsTextMessage2> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsTextMessage2) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsTextMessage2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsTextMessage2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsTextMessage2> for ::windows::runtime::IInspectable {
+    fn from(value: SmsTextMessage2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsTextMessage2> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsTextMessage2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsTextMessage2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsTextMessage2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SmsTextMessage2> for ISmsMessageBase {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SmsTextMessage2) -> ::windows::runtime::Result<Self> {
@@ -4476,8 +5616,8 @@ unsafe impl ::std::marker::Send for SmsTextMessage2 {}
 unsafe impl ::std::marker::Sync for SmsTextMessage2 {}
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsVoicemailMessage(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsVoicemailMessage(pub ::windows::runtime::IInspectable);
 impl SmsVoicemailMessage {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
@@ -4564,6 +5704,46 @@ unsafe impl ::windows::runtime::Interface for SmsVoicemailMessage {
 impl ::windows::runtime::RuntimeName for SmsVoicemailMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsVoicemailMessage";
 }
+impl ::std::convert::From<SmsVoicemailMessage> for ::windows::runtime::IUnknown {
+    fn from(value: SmsVoicemailMessage) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsVoicemailMessage> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsVoicemailMessage) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsVoicemailMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsVoicemailMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsVoicemailMessage> for ::windows::runtime::IInspectable {
+    fn from(value: SmsVoicemailMessage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsVoicemailMessage> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsVoicemailMessage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsVoicemailMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsVoicemailMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SmsVoicemailMessage> for ISmsMessageBase {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SmsVoicemailMessage) -> ::windows::runtime::Result<Self> {
@@ -4590,8 +5770,8 @@ unsafe impl ::std::marker::Send for SmsVoicemailMessage {}
 unsafe impl ::std::marker::Sync for SmsVoicemailMessage {}
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SmsWapMessage(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SmsWapMessage(pub ::windows::runtime::IInspectable);
 impl SmsWapMessage {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
@@ -4702,6 +5882,46 @@ unsafe impl ::windows::runtime::Interface for SmsWapMessage {
 }
 impl ::windows::runtime::RuntimeName for SmsWapMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsWapMessage";
+}
+impl ::std::convert::From<SmsWapMessage> for ::windows::runtime::IUnknown {
+    fn from(value: SmsWapMessage) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SmsWapMessage> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsWapMessage) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsWapMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SmsWapMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SmsWapMessage> for ::windows::runtime::IInspectable {
+    fn from(value: SmsWapMessage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsWapMessage> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsWapMessage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsWapMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsWapMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<SmsWapMessage> for ISmsMessageBase {
     type Error = ::windows::runtime::Error;

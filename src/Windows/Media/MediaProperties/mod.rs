@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Media_MediaProperties`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct AudioEncodingProperties(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct AudioEncodingProperties(pub ::windows::runtime::IInspectable);
 impl AudioEncodingProperties {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -187,6 +187,46 @@ unsafe impl ::windows::runtime::Interface for AudioEncodingProperties {
 impl ::windows::runtime::RuntimeName for AudioEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.AudioEncodingProperties";
 }
+impl ::std::convert::From<AudioEncodingProperties> for ::windows::runtime::IUnknown {
+    fn from(value: AudioEncodingProperties) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&AudioEncodingProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &AudioEncodingProperties) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<AudioEncodingProperties> for ::windows::runtime::IInspectable {
+    fn from(value: AudioEncodingProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AudioEncodingProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &AudioEncodingProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AudioEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AudioEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<AudioEncodingProperties> for IMediaEncodingProperties {
     type Error = ::windows::runtime::Error;
     fn try_from(value: AudioEncodingProperties) -> ::windows::runtime::Result<Self> {
@@ -237,8 +277,8 @@ impl ::windows::runtime::DefaultType for AudioEncodingQuality {
 }
 #[doc = "*Required features: `Media_MediaProperties`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ContainerEncodingProperties(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ContainerEncodingProperties(pub ::windows::runtime::IInspectable);
 impl ContainerEncodingProperties {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -295,6 +335,46 @@ unsafe impl ::windows::runtime::Interface for ContainerEncodingProperties {
 }
 impl ::windows::runtime::RuntimeName for ContainerEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.ContainerEncodingProperties";
+}
+impl ::std::convert::From<ContainerEncodingProperties> for ::windows::runtime::IUnknown {
+    fn from(value: ContainerEncodingProperties) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ContainerEncodingProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &ContainerEncodingProperties) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContainerEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ContainerEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ContainerEncodingProperties> for ::windows::runtime::IInspectable {
+    fn from(value: ContainerEncodingProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ContainerEncodingProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &ContainerEncodingProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContainerEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContainerEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<ContainerEncodingProperties> for IMediaEncodingProperties {
     type Error = ::windows::runtime::Error;
@@ -403,7 +483,7 @@ impl ::windows::runtime::RuntimeName for H264ProfileIds {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioEncodingProperties(::windows::runtime::IInspectable);
+pub struct IAudioEncodingProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEncodingProperties {
     type Vtable = IAudioEncodingProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1656519190, 92, 19259, [138, 11, 10, 9, 14, 150, 135, 243]);
@@ -428,7 +508,7 @@ pub struct IAudioEncodingProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioEncodingProperties2(::windows::runtime::IInspectable);
+pub struct IAudioEncodingProperties2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEncodingProperties2 {
     type Vtable = IAudioEncodingProperties2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3294450906, 32957, 19491, [128, 213, 114, 212, 161, 129, 232, 148]);
@@ -446,7 +526,7 @@ pub struct IAudioEncodingProperties2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioEncodingProperties3(::windows::runtime::IInspectable);
+pub struct IAudioEncodingProperties3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEncodingProperties3 {
     type Vtable = IAudioEncodingProperties3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2271216449, 29836, 20365, [176, 253, 16, 202, 240, 143, 240, 135]);
@@ -464,7 +544,7 @@ pub struct IAudioEncodingProperties3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioEncodingPropertiesStatics(::windows::runtime::IInspectable);
+pub struct IAudioEncodingPropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEncodingPropertiesStatics {
     type Vtable = IAudioEncodingPropertiesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(212677420, 60393, 17703, [179, 109, 228, 42, 19, 207, 56, 219]);
@@ -486,7 +566,7 @@ pub struct IAudioEncodingPropertiesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioEncodingPropertiesStatics2(::windows::runtime::IInspectable);
+pub struct IAudioEncodingPropertiesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEncodingPropertiesStatics2 {
     type Vtable = IAudioEncodingPropertiesStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1955148143, 30624, 17213, [142, 213, 64, 64, 40, 14, 134, 101]);
@@ -505,7 +585,7 @@ pub struct IAudioEncodingPropertiesStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioEncodingPropertiesWithFormatUserData(::windows::runtime::IInspectable);
+pub struct IAudioEncodingPropertiesWithFormatUserData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEncodingPropertiesWithFormatUserData {
     type Vtable = IAudioEncodingPropertiesWithFormatUserData_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2565934457, 5098, 18943, [190, 112, 38, 115, 219, 105, 112, 44]);
@@ -524,7 +604,7 @@ pub struct IAudioEncodingPropertiesWithFormatUserData_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IContainerEncodingProperties(::windows::runtime::IInspectable);
+pub struct IContainerEncodingProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContainerEncodingProperties {
     type Vtable = IContainerEncodingProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1504455255, 45866, 18334, [138, 97, 75, 127, 46, 158, 126, 160]);
@@ -541,7 +621,7 @@ pub struct IContainerEncodingProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IContainerEncodingProperties2(::windows::runtime::IInspectable);
+pub struct IContainerEncodingProperties2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContainerEncodingProperties2 {
     type Vtable = IContainerEncodingProperties2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2993864745, 44582, 18457, [186, 173, 173, 122, 73, 176, 168, 118]);
@@ -559,7 +639,7 @@ pub struct IContainerEncodingProperties2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IH264ProfileIdsStatics(::windows::runtime::IInspectable);
+pub struct IH264ProfileIdsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IH264ProfileIdsStatics {
     type Vtable = IH264ProfileIdsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(946162855, 33898, 20375, [162, 229, 195, 161, 91, 191, 112, 253]);
@@ -586,7 +666,7 @@ pub struct IH264ProfileIdsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageEncodingProperties(::windows::runtime::IInspectable);
+pub struct IImageEncodingProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageEncodingProperties {
     type Vtable = IImageEncodingProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2019710517, 62257, 16777, [177, 195, 180, 141, 90, 224, 52, 241]);
@@ -607,7 +687,7 @@ pub struct IImageEncodingProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageEncodingProperties2(::windows::runtime::IInspectable);
+pub struct IImageEncodingProperties2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageEncodingProperties2 {
     type Vtable = IImageEncodingProperties2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3360989919, 51491, 18075, [172, 142, 106, 159, 60, 28, 217, 227]);
@@ -625,7 +705,7 @@ pub struct IImageEncodingProperties2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageEncodingPropertiesStatics(::windows::runtime::IInspectable);
+pub struct IImageEncodingPropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageEncodingPropertiesStatics {
     type Vtable = IImageEncodingPropertiesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(628910300, 35737, 17310, [170, 89, 145, 58, 54, 22, 18, 151]);
@@ -645,7 +725,7 @@ pub struct IImageEncodingPropertiesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageEncodingPropertiesStatics2(::windows::runtime::IInspectable);
+pub struct IImageEncodingPropertiesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageEncodingPropertiesStatics2 {
     type Vtable = IImageEncodingPropertiesStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4139932457, 14372, 18096, [149, 110, 80, 19, 41, 225, 190, 60]);
@@ -664,7 +744,7 @@ pub struct IImageEncodingPropertiesStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageEncodingPropertiesStatics3(::windows::runtime::IInspectable);
+pub struct IImageEncodingPropertiesStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageEncodingPropertiesStatics3 {
     type Vtable = IImageEncodingPropertiesStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1223983437, 41727, 18652, [142, 160, 233, 6, 128, 102, 54, 86]);
@@ -682,7 +762,7 @@ pub struct IImageEncodingPropertiesStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaEncodingProfile(::windows::runtime::IInspectable);
+pub struct IMediaEncodingProfile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingProfile {
     type Vtable = IMediaEncodingProfile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3889952168, 7609, 18307, [135, 107, 61, 254, 18, 172, 253, 179]);
@@ -705,7 +785,7 @@ pub struct IMediaEncodingProfile_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaEncodingProfile2(::windows::runtime::IInspectable);
+pub struct IMediaEncodingProfile2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingProfile2 {
     type Vtable = IMediaEncodingProfile2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(882589194, 16437, 18574, [152, 119, 133, 99, 40, 101, 237, 16]);
@@ -730,7 +810,7 @@ pub struct IMediaEncodingProfile2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaEncodingProfile3(::windows::runtime::IInspectable);
+pub struct IMediaEncodingProfile3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingProfile3 {
     type Vtable = IMediaEncodingProfile3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3127819912, 30064, 20073, [172, 207, 86, 17, 173, 1, 95, 136]);
@@ -751,7 +831,7 @@ pub struct IMediaEncodingProfile3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaEncodingProfileStatics(::windows::runtime::IInspectable);
+pub struct IMediaEncodingProfileStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingProfileStatics {
     type Vtable = IMediaEncodingProfileStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(427767084, 11998, 19013, [168, 150, 129, 122, 72, 84, 248, 254]);
@@ -777,7 +857,7 @@ pub struct IMediaEncodingProfileStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaEncodingProfileStatics2(::windows::runtime::IInspectable);
+pub struct IMediaEncodingProfileStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingProfileStatics2 {
     type Vtable = IMediaEncodingProfileStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3465406287, 27380, 17032, [143, 226, 121, 173, 241, 247, 154, 67]);
@@ -796,7 +876,7 @@ pub struct IMediaEncodingProfileStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaEncodingProfileStatics3(::windows::runtime::IInspectable);
+pub struct IMediaEncodingProfileStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingProfileStatics3 {
     type Vtable = IMediaEncodingProfileStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2430256554, 53110, 17044, [169, 237, 26, 20, 32, 245, 31, 107]);
@@ -815,9 +895,9 @@ pub struct IMediaEncodingProfileStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, quality: VideoEncodingQuality, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Media_MediaProperties`*"]
-pub struct IMediaEncodingProperties(::windows::runtime::IInspectable);
+pub struct IMediaEncodingProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingProperties {
     type Vtable = IMediaEncodingProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3019909878, 44244, 20058, [162, 75, 93, 116, 152, 168, 184, 196]);
@@ -857,6 +937,46 @@ impl IMediaEncodingProperties {
 unsafe impl ::windows::runtime::RuntimeType for IMediaEncodingProperties {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{b4002af6-acd4-4e5a-a24b-5d7498a8b8c4}");
 }
+impl ::std::convert::From<IMediaEncodingProperties> for ::windows::runtime::IUnknown {
+    fn from(value: IMediaEncodingProperties) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IMediaEncodingProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &IMediaEncodingProperties) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMediaEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMediaEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IMediaEncodingProperties> for ::windows::runtime::IInspectable {
+    fn from(value: IMediaEncodingProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMediaEncodingProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &IMediaEncodingProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IMediaEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IMediaEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEncodingProperties_abi(
@@ -874,7 +994,7 @@ pub struct IMediaEncodingProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaEncodingSubtypesStatics(::windows::runtime::IInspectable);
+pub struct IMediaEncodingSubtypesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingSubtypesStatics {
     type Vtable = IMediaEncodingSubtypesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(934696974, 41329, 17508, [186, 90, 83, 24, 158, 72, 193, 200]);
@@ -931,7 +1051,7 @@ pub struct IMediaEncodingSubtypesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaEncodingSubtypesStatics2(::windows::runtime::IInspectable);
+pub struct IMediaEncodingSubtypesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingSubtypesStatics2 {
     type Vtable = IMediaEncodingSubtypesStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1266471485, 17151, 19763, [133, 49, 6, 38, 190, 228, 181, 45]);
@@ -952,7 +1072,7 @@ pub struct IMediaEncodingSubtypesStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaEncodingSubtypesStatics3(::windows::runtime::IInspectable);
+pub struct IMediaEncodingSubtypesStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingSubtypesStatics3 {
     type Vtable = IMediaEncodingSubtypesStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3122926820, 34877, 17998, [164, 79, 9, 125, 160, 142, 247, 255]);
@@ -971,7 +1091,7 @@ pub struct IMediaEncodingSubtypesStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaEncodingSubtypesStatics4(::windows::runtime::IInspectable);
+pub struct IMediaEncodingSubtypesStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingSubtypesStatics4 {
     type Vtable = IMediaEncodingSubtypesStatics4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3723289994, 14665, 17988, [138, 44, 89, 239, 2, 198, 66, 250]);
@@ -989,7 +1109,7 @@ pub struct IMediaEncodingSubtypesStatics4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaEncodingSubtypesStatics5(::windows::runtime::IInspectable);
+pub struct IMediaEncodingSubtypesStatics5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingSubtypesStatics5 {
     type Vtable = IMediaEncodingSubtypesStatics5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1523884039, 65486, 18272, [152, 40, 93, 12, 153, 99, 126, 106]);
@@ -1007,7 +1127,7 @@ pub struct IMediaEncodingSubtypesStatics5_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaEncodingSubtypesStatics6(::windows::runtime::IInspectable);
+pub struct IMediaEncodingSubtypesStatics6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingSubtypesStatics6 {
     type Vtable = IMediaEncodingSubtypesStatics6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2703567219, 43396, 22802, [147, 187, 84, 231, 229, 105, 224, 83]);
@@ -1028,7 +1148,7 @@ pub struct IMediaEncodingSubtypesStatics6_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaRatio(::windows::runtime::IInspectable);
+pub struct IMediaRatio(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaRatio {
     type Vtable = IMediaRatio_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3536912101, 35113, 16413, [172, 120, 125, 53, 126, 55, 129, 99]);
@@ -1049,7 +1169,7 @@ pub struct IMediaRatio_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMpeg2ProfileIdsStatics(::windows::runtime::IInspectable);
+pub struct IMpeg2ProfileIdsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMpeg2ProfileIdsStatics {
     type Vtable = IMpeg2ProfileIdsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2757885829, 58746, 16680, [155, 33, 213, 51, 27, 4, 35, 92]);
@@ -1071,7 +1191,7 @@ pub struct IMpeg2ProfileIdsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITimedMetadataEncodingProperties(::windows::runtime::IInspectable);
+pub struct ITimedMetadataEncodingProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataEncodingProperties {
     type Vtable = ITimedMetadataEncodingProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1372401875, 54928, 19706, [151, 244, 74, 57, 142, 157, 180, 32]);
@@ -1091,7 +1211,7 @@ pub struct ITimedMetadataEncodingProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITimedMetadataEncodingPropertiesStatics(::windows::runtime::IInspectable);
+pub struct ITimedMetadataEncodingPropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataEncodingPropertiesStatics {
     type Vtable = ITimedMetadataEncodingPropertiesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1714010983, 28245, 22083, [137, 160, 122, 126, 141, 133, 181, 44]);
@@ -1112,7 +1232,7 @@ pub struct ITimedMetadataEncodingPropertiesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVideoEncodingProperties(::windows::runtime::IInspectable);
+pub struct IVideoEncodingProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEncodingProperties {
     type Vtable = IVideoEncodingProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1995336858, 14274, 20266, [136, 10, 18, 130, 187, 180, 55, 61]);
@@ -1137,7 +1257,7 @@ pub struct IVideoEncodingProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVideoEncodingProperties2(::windows::runtime::IInspectable);
+pub struct IVideoEncodingProperties2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEncodingProperties2 {
     type Vtable = IVideoEncodingProperties2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4148404719, 54373, 17040, [169, 75, 239, 15, 21, 40, 248, 227]);
@@ -1158,7 +1278,7 @@ pub struct IVideoEncodingProperties2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVideoEncodingProperties3(::windows::runtime::IInspectable);
+pub struct IVideoEncodingProperties3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEncodingProperties3 {
     type Vtable = IVideoEncodingProperties3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(946589124, 34618, 18335, [179, 235, 86, 193, 252, 190, 198, 215]);
@@ -1176,7 +1296,7 @@ pub struct IVideoEncodingProperties3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVideoEncodingProperties4(::windows::runtime::IInspectable);
+pub struct IVideoEncodingProperties4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEncodingProperties4 {
     type Vtable = IVideoEncodingProperties4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1917775892, 49420, 16626, [157, 114, 62, 225, 59, 69, 250, 142]);
@@ -1194,7 +1314,7 @@ pub struct IVideoEncodingProperties4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVideoEncodingProperties5(::windows::runtime::IInspectable);
+pub struct IVideoEncodingProperties5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEncodingProperties5 {
     type Vtable = IVideoEncodingProperties5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1230571535, 10031, 20174, [164, 223, 192, 204, 219, 51, 216, 64]);
@@ -1212,7 +1332,7 @@ pub struct IVideoEncodingProperties5_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVideoEncodingPropertiesStatics(::windows::runtime::IInspectable);
+pub struct IVideoEncodingPropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEncodingPropertiesStatics {
     type Vtable = IVideoEncodingPropertiesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1021398340, 7621, 17371, [159, 56, 235, 235, 249, 1, 82, 203]);
@@ -1232,7 +1352,7 @@ pub struct IVideoEncodingPropertiesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVideoEncodingPropertiesStatics2(::windows::runtime::IInspectable);
+pub struct IVideoEncodingPropertiesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEncodingPropertiesStatics2 {
     type Vtable = IVideoEncodingPropertiesStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3474898269, 18942, 19712, [181, 154, 207, 164, 223, 197, 25, 68]);
@@ -1250,8 +1370,8 @@ pub struct IVideoEncodingPropertiesStatics2_abi(
 );
 #[doc = "*Required features: `Media_MediaProperties`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ImageEncodingProperties(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ImageEncodingProperties(pub ::windows::runtime::IInspectable);
 impl ImageEncodingProperties {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1389,6 +1509,46 @@ unsafe impl ::windows::runtime::Interface for ImageEncodingProperties {
 impl ::windows::runtime::RuntimeName for ImageEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.ImageEncodingProperties";
 }
+impl ::std::convert::From<ImageEncodingProperties> for ::windows::runtime::IUnknown {
+    fn from(value: ImageEncodingProperties) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ImageEncodingProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &ImageEncodingProperties) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ImageEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ImageEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ImageEncodingProperties> for ::windows::runtime::IInspectable {
+    fn from(value: ImageEncodingProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ImageEncodingProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &ImageEncodingProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ImageEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ImageEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<ImageEncodingProperties> for IMediaEncodingProperties {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ImageEncodingProperties) -> ::windows::runtime::Result<Self> {
@@ -1415,8 +1575,8 @@ unsafe impl ::std::marker::Send for ImageEncodingProperties {}
 unsafe impl ::std::marker::Sync for ImageEncodingProperties {}
 #[doc = "*Required features: `Media_MediaProperties`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaEncodingProfile(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaEncodingProfile(pub ::windows::runtime::IInspectable);
 impl MediaEncodingProfile {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1617,6 +1777,46 @@ unsafe impl ::windows::runtime::Interface for MediaEncodingProfile {
 }
 impl ::windows::runtime::RuntimeName for MediaEncodingProfile {
     const NAME: &'static str = "Windows.Media.MediaProperties.MediaEncodingProfile";
+}
+impl ::std::convert::From<MediaEncodingProfile> for ::windows::runtime::IUnknown {
+    fn from(value: MediaEncodingProfile) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaEncodingProfile> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaEncodingProfile) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaEncodingProfile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaEncodingProfile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaEncodingProfile> for ::windows::runtime::IInspectable {
+    fn from(value: MediaEncodingProfile) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaEncodingProfile> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaEncodingProfile) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaEncodingProfile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaEncodingProfile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MediaEncodingProfile {}
 unsafe impl ::std::marker::Sync for MediaEncodingProfile {}
@@ -2092,8 +2292,8 @@ impl ::windows::runtime::DefaultType for MediaPixelFormat {
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaPropertySet(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaPropertySet(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl MediaPropertySet {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2184,6 +2384,54 @@ impl ::windows::runtime::RuntimeName for MediaPropertySet {
     const NAME: &'static str = "Windows.Media.MediaProperties.MediaPropertySet";
 }
 #[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<MediaPropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: MediaPropertySet) -> Self {
+        value.0 .0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<&MediaPropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaPropertySet) -> Self {
+        value.0 .0.clone()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaPropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaPropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<MediaPropertySet> for ::windows::runtime::IInspectable {
+    fn from(value: MediaPropertySet) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<&MediaPropertySet> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaPropertySet) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaPropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaPropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<MediaPropertySet> for super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable> {
     fn from(value: MediaPropertySet) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2255,8 +2503,8 @@ impl ::std::iter::IntoIterator for &MediaPropertySet {
 }
 #[doc = "*Required features: `Media_MediaProperties`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaRatio(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaRatio(pub ::windows::runtime::IInspectable);
 impl MediaRatio {
     #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetNumerator(&self, value: u32) -> ::windows::runtime::Result<()> {
@@ -2294,6 +2542,46 @@ unsafe impl ::windows::runtime::Interface for MediaRatio {
 }
 impl ::windows::runtime::RuntimeName for MediaRatio {
     const NAME: &'static str = "Windows.Media.MediaProperties.MediaRatio";
+}
+impl ::std::convert::From<MediaRatio> for ::windows::runtime::IUnknown {
+    fn from(value: MediaRatio) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaRatio> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaRatio) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaRatio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaRatio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaRatio> for ::windows::runtime::IInspectable {
+    fn from(value: MediaRatio) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaRatio> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaRatio) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaRatio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaRatio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MediaRatio {}
 unsafe impl ::std::marker::Sync for MediaRatio {}
@@ -2437,8 +2725,8 @@ impl ::windows::runtime::DefaultType for StereoscopicVideoPackingMode {
 }
 #[doc = "*Required features: `Media_MediaProperties`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct TimedMetadataEncodingProperties(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct TimedMetadataEncodingProperties(pub ::windows::runtime::IInspectable);
 impl TimedMetadataEncodingProperties {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2538,6 +2826,46 @@ unsafe impl ::windows::runtime::Interface for TimedMetadataEncodingProperties {
 impl ::windows::runtime::RuntimeName for TimedMetadataEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.TimedMetadataEncodingProperties";
 }
+impl ::std::convert::From<TimedMetadataEncodingProperties> for ::windows::runtime::IUnknown {
+    fn from(value: TimedMetadataEncodingProperties) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&TimedMetadataEncodingProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &TimedMetadataEncodingProperties) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimedMetadataEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TimedMetadataEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<TimedMetadataEncodingProperties> for ::windows::runtime::IInspectable {
+    fn from(value: TimedMetadataEncodingProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TimedMetadataEncodingProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &TimedMetadataEncodingProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimedMetadataEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimedMetadataEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<TimedMetadataEncodingProperties> for IMediaEncodingProperties {
     fn from(value: TimedMetadataEncodingProperties) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2562,8 +2890,8 @@ unsafe impl ::std::marker::Send for TimedMetadataEncodingProperties {}
 unsafe impl ::std::marker::Sync for TimedMetadataEncodingProperties {}
 #[doc = "*Required features: `Media_MediaProperties`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct VideoEncodingProperties(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct VideoEncodingProperties(pub ::windows::runtime::IInspectable);
 impl VideoEncodingProperties {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2750,6 +3078,46 @@ unsafe impl ::windows::runtime::Interface for VideoEncodingProperties {
 }
 impl ::windows::runtime::RuntimeName for VideoEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.VideoEncodingProperties";
+}
+impl ::std::convert::From<VideoEncodingProperties> for ::windows::runtime::IUnknown {
+    fn from(value: VideoEncodingProperties) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&VideoEncodingProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &VideoEncodingProperties) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VideoEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VideoEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<VideoEncodingProperties> for ::windows::runtime::IInspectable {
+    fn from(value: VideoEncodingProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&VideoEncodingProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &VideoEncodingProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VideoEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VideoEncodingProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<VideoEncodingProperties> for IMediaEncodingProperties {
     type Error = ::windows::runtime::Error;

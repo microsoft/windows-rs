@@ -24,8 +24,8 @@ impl ::std::convert::From<i32> for AutoPathFormat {
 unsafe impl ::windows::runtime::Abi for AutoPathFormat {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BackupPerfRegistryToFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szfilename: Param0, szcommentstring: Param1) -> u32 {
     #[cfg(windows)]
@@ -77,17 +77,38 @@ unsafe impl ::windows::runtime::Abi for CommitMode {
 }
 pub const CounterItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3302152416, 53725, 4558, [148, 15, 0, 128, 41, 0, 67, 72]);
 pub const CounterItem2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1125739618, 49951, 19683, [160, 46, 121, 239, 224, 246, 165, 37]);
+#[doc = "*Required features: `Win32_System_Performance`*"]
 pub type CounterPathCallBack = unsafe extern "system" fn(param0: usize) -> i32;
 pub const CounterPropPage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3482617185, 60904, 4558, [148, 30, 0, 128, 41, 0, 67, 71]);
 pub const Counters: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2997905106, 10924, 4559, [148, 47, 0, 128, 41, 0, 67, 71]);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DICounterItem(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DICounterItem(pub ::windows::runtime::IUnknown);
 impl DICounterItem {}
 unsafe impl ::windows::runtime::Interface for DICounterItem {
     type Vtable = DICounterItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230420978, 3630, 4559, [148, 44, 0, 128, 41, 0, 67, 71]);
+}
+impl ::std::convert::From<DICounterItem> for ::windows::runtime::IUnknown {
+    fn from(value: DICounterItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DICounterItem> for ::windows::runtime::IUnknown {
+    fn from(value: &DICounterItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DICounterItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DICounterItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<DICounterItem> for super::Ole::Automation::IDispatch {
@@ -104,13 +125,13 @@ impl ::std::convert::From<&DICounterItem> for super::Ole::Automation::IDispatch 
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for DICounterItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &DICounterItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -135,12 +156,32 @@ pub const DIID_DISystemMonitorEvents: ::windows::runtime::GUID = ::windows::runt
 pub const DIID_DISystemMonitorInternal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(424587842, 49964, 4559, [147, 152, 0, 170, 0, 163, 221, 234]);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DILogFileItem(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DILogFileItem(pub ::windows::runtime::IUnknown);
 impl DILogFileItem {}
 unsafe impl ::windows::runtime::Interface for DILogFileItem {
     type Vtable = DILogFileItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2366193660, 63351, 18711, [130, 209, 131, 63, 188, 84, 197, 143]);
+}
+impl ::std::convert::From<DILogFileItem> for ::windows::runtime::IUnknown {
+    fn from(value: DILogFileItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DILogFileItem> for ::windows::runtime::IUnknown {
+    fn from(value: &DILogFileItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DILogFileItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DILogFileItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<DILogFileItem> for super::Ole::Automation::IDispatch {
@@ -157,13 +198,13 @@ impl ::std::convert::From<&DILogFileItem> for super::Ole::Automation::IDispatch 
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for DILogFileItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &DILogFileItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -183,12 +224,32 @@ pub struct DILogFileItem_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DISystemMonitor(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DISystemMonitor(pub ::windows::runtime::IUnknown);
 impl DISystemMonitor {}
 unsafe impl ::windows::runtime::Interface for DISystemMonitor {
     type Vtable = DISystemMonitor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(332873089, 49966, 4559, [147, 152, 0, 170, 0, 163, 221, 234]);
+}
+impl ::std::convert::From<DISystemMonitor> for ::windows::runtime::IUnknown {
+    fn from(value: DISystemMonitor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DISystemMonitor> for ::windows::runtime::IUnknown {
+    fn from(value: &DISystemMonitor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DISystemMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DISystemMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<DISystemMonitor> for super::Ole::Automation::IDispatch {
@@ -205,13 +266,13 @@ impl ::std::convert::From<&DISystemMonitor> for super::Ole::Automation::IDispatc
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for DISystemMonitor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &DISystemMonitor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -231,12 +292,32 @@ pub struct DISystemMonitor_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DISystemMonitorEvents(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DISystemMonitorEvents(pub ::windows::runtime::IUnknown);
 impl DISystemMonitorEvents {}
 unsafe impl ::windows::runtime::Interface for DISystemMonitorEvents {
     type Vtable = DISystemMonitorEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2224527664, 19123, 4559, [148, 58, 0, 128, 41, 0, 67, 71]);
+}
+impl ::std::convert::From<DISystemMonitorEvents> for ::windows::runtime::IUnknown {
+    fn from(value: DISystemMonitorEvents) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DISystemMonitorEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &DISystemMonitorEvents) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DISystemMonitorEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DISystemMonitorEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<DISystemMonitorEvents> for super::Ole::Automation::IDispatch {
@@ -253,13 +334,13 @@ impl ::std::convert::From<&DISystemMonitorEvents> for super::Ole::Automation::ID
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for DISystemMonitorEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &DISystemMonitorEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -279,12 +360,32 @@ pub struct DISystemMonitorEvents_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DISystemMonitorInternal(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DISystemMonitorInternal(pub ::windows::runtime::IUnknown);
 impl DISystemMonitorInternal {}
 unsafe impl ::windows::runtime::Interface for DISystemMonitorInternal {
     type Vtable = DISystemMonitorInternal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(424587842, 49964, 4559, [147, 152, 0, 170, 0, 163, 221, 234]);
+}
+impl ::std::convert::From<DISystemMonitorInternal> for ::windows::runtime::IUnknown {
+    fn from(value: DISystemMonitorInternal) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DISystemMonitorInternal> for ::windows::runtime::IUnknown {
+    fn from(value: &DISystemMonitorInternal) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DISystemMonitorInternal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DISystemMonitorInternal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<DISystemMonitorInternal> for super::Ole::Automation::IDispatch {
@@ -301,13 +402,13 @@ impl ::std::convert::From<&DISystemMonitorInternal> for super::Ole::Automation::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for DISystemMonitorInternal {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &DISystemMonitorInternal {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -450,8 +551,8 @@ pub const GraphPropPage: ::windows::runtime::GUID = ::windows::runtime::GUID::fr
 pub const H_WBEM_DATASOURCE: i32 = -1i32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAlertDataCollector(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAlertDataCollector(pub ::windows::runtime::IUnknown);
 impl IAlertDataCollector {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -688,6 +789,26 @@ unsafe impl ::windows::runtime::Interface for IAlertDataCollector {
     type Vtable = IAlertDataCollector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946838, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<IAlertDataCollector> for ::windows::runtime::IUnknown {
+    fn from(value: IAlertDataCollector) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAlertDataCollector> for ::windows::runtime::IUnknown {
+    fn from(value: &IAlertDataCollector) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAlertDataCollector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAlertDataCollector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAlertDataCollector> for IDataCollector {
     fn from(value: IAlertDataCollector) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -700,12 +821,12 @@ impl ::std::convert::From<&IAlertDataCollector> for IDataCollector {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDataCollector> for IAlertDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDataCollector> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDataCollector>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDataCollector> for &IAlertDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDataCollector> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDataCollector>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -723,13 +844,13 @@ impl ::std::convert::From<&IAlertDataCollector> for super::Ole::Automation::IDis
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IAlertDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IAlertDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -812,8 +933,8 @@ pub struct IAlertDataCollector_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IApiTracingDataCollector(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IApiTracingDataCollector(pub ::windows::runtime::IUnknown);
 impl IApiTracingDataCollector {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -1041,6 +1162,26 @@ unsafe impl ::windows::runtime::Interface for IApiTracingDataCollector {
     type Vtable = IApiTracingDataCollector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946842, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<IApiTracingDataCollector> for ::windows::runtime::IUnknown {
+    fn from(value: IApiTracingDataCollector) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IApiTracingDataCollector> for ::windows::runtime::IUnknown {
+    fn from(value: &IApiTracingDataCollector) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IApiTracingDataCollector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IApiTracingDataCollector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IApiTracingDataCollector> for IDataCollector {
     fn from(value: IApiTracingDataCollector) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1053,12 +1194,12 @@ impl ::std::convert::From<&IApiTracingDataCollector> for IDataCollector {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDataCollector> for IApiTracingDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDataCollector> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDataCollector>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDataCollector> for &IApiTracingDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDataCollector> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDataCollector>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1076,13 +1217,13 @@ impl ::std::convert::From<&IApiTracingDataCollector> for super::Ole::Automation:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IApiTracingDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IApiTracingDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1163,8 +1304,8 @@ pub struct IApiTracingDataCollector_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IConfigurationDataCollector(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IConfigurationDataCollector(pub ::windows::runtime::IUnknown);
 impl IConfigurationDataCollector {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -1408,6 +1549,26 @@ unsafe impl ::windows::runtime::Interface for IConfigurationDataCollector {
     type Vtable = IConfigurationDataCollector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946836, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<IConfigurationDataCollector> for ::windows::runtime::IUnknown {
+    fn from(value: IConfigurationDataCollector) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IConfigurationDataCollector> for ::windows::runtime::IUnknown {
+    fn from(value: &IConfigurationDataCollector) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IConfigurationDataCollector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IConfigurationDataCollector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IConfigurationDataCollector> for IDataCollector {
     fn from(value: IConfigurationDataCollector) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1420,12 +1581,12 @@ impl ::std::convert::From<&IConfigurationDataCollector> for IDataCollector {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDataCollector> for IConfigurationDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDataCollector> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDataCollector>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDataCollector> for &IConfigurationDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDataCollector> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDataCollector>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1443,13 +1604,13 @@ impl ::std::convert::From<&IConfigurationDataCollector> for super::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IConfigurationDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IConfigurationDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1532,8 +1693,8 @@ pub struct IConfigurationDataCollector_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ICounterItem(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ICounterItem(pub ::windows::runtime::IUnknown);
 impl ICounterItem {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn Value(&self) -> ::windows::runtime::Result<f64> {
@@ -1595,6 +1756,26 @@ unsafe impl ::windows::runtime::Interface for ICounterItem {
     type Vtable = ICounterItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1998230816, 60968, 4558, [148, 30, 0, 128, 41, 0, 67, 71]);
 }
+impl ::std::convert::From<ICounterItem> for ::windows::runtime::IUnknown {
+    fn from(value: ICounterItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ICounterItem> for ::windows::runtime::IUnknown {
+    fn from(value: &ICounterItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICounterItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICounterItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICounterItem_abi(
@@ -1617,8 +1798,8 @@ pub struct ICounterItem_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ICounterItem2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ICounterItem2(pub ::windows::runtime::IUnknown);
 impl ICounterItem2 {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn Value(&self) -> ::windows::runtime::Result<f64> {
@@ -1704,6 +1885,26 @@ unsafe impl ::windows::runtime::Interface for ICounterItem2 {
     type Vtable = ICounterItem2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4009546977, 59932, 17461, [183, 244, 227, 65, 186, 3, 180, 249]);
 }
+impl ::std::convert::From<ICounterItem2> for ::windows::runtime::IUnknown {
+    fn from(value: ICounterItem2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ICounterItem2> for ::windows::runtime::IUnknown {
+    fn from(value: &ICounterItem2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICounterItem2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICounterItem2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ICounterItem2> for ICounterItem {
     fn from(value: ICounterItem2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1716,12 +1917,12 @@ impl ::std::convert::From<&ICounterItem2> for ICounterItem {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICounterItem> for ICounterItem2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICounterItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICounterItem>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICounterItem> for &ICounterItem2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICounterItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICounterItem>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1752,8 +1953,8 @@ pub struct ICounterItem2_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ICounters(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ICounters(pub ::windows::runtime::IUnknown);
 impl ICounters {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -1787,6 +1988,26 @@ unsafe impl ::windows::runtime::Interface for ICounters {
     type Vtable = ICounters_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2031516002, 10492, 4559, [148, 47, 0, 128, 41, 0, 67, 71]);
 }
+impl ::std::convert::From<ICounters> for ::windows::runtime::IUnknown {
+    fn from(value: ICounters) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ICounters> for ::windows::runtime::IUnknown {
+    fn from(value: &ICounters) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICounters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICounters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ICounters> for super::Ole::Automation::IDispatch {
     fn from(value: ICounters) -> Self {
@@ -1802,13 +2023,13 @@ impl ::std::convert::From<&ICounters> for super::Ole::Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ICounters {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ICounters {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1836,8 +2057,8 @@ pub struct ICounters_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDataCollector(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDataCollector(pub ::windows::runtime::IUnknown);
 impl IDataCollector {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn DataCollectorSet(&self) -> ::windows::runtime::Result<IDataCollectorSet> {
@@ -1971,6 +2192,26 @@ unsafe impl ::windows::runtime::Interface for IDataCollector {
     type Vtable = IDataCollector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946815, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<IDataCollector> for ::windows::runtime::IUnknown {
+    fn from(value: IDataCollector) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDataCollector> for ::windows::runtime::IUnknown {
+    fn from(value: &IDataCollector) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDataCollector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDataCollector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IDataCollector> for super::Ole::Automation::IDispatch {
     fn from(value: IDataCollector) -> Self {
@@ -1986,13 +2227,13 @@ impl ::std::convert::From<&IDataCollector> for super::Ole::Automation::IDispatch
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2049,8 +2290,8 @@ pub struct IDataCollector_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDataCollectorCollection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDataCollectorCollection(pub ::windows::runtime::IUnknown);
 impl IDataCollectorCollection {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -2100,6 +2341,26 @@ unsafe impl ::windows::runtime::Interface for IDataCollectorCollection {
     type Vtable = IDataCollectorCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946818, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<IDataCollectorCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IDataCollectorCollection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDataCollectorCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IDataCollectorCollection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDataCollectorCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDataCollectorCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IDataCollectorCollection> for super::Ole::Automation::IDispatch {
     fn from(value: IDataCollectorCollection) -> Self {
@@ -2115,13 +2376,13 @@ impl ::std::convert::From<&IDataCollectorCollection> for super::Ole::Automation:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IDataCollectorCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IDataCollectorCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2153,8 +2414,8 @@ pub struct IDataCollectorCollection_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDataCollectorSet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDataCollectorSet(pub ::windows::runtime::IUnknown);
 impl IDataCollectorSet {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn DataCollectors(&self) -> ::windows::runtime::Result<IDataCollectorCollection> {
@@ -2470,6 +2731,26 @@ unsafe impl ::windows::runtime::Interface for IDataCollectorSet {
     type Vtable = IDataCollectorSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946848, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<IDataCollectorSet> for ::windows::runtime::IUnknown {
+    fn from(value: IDataCollectorSet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDataCollectorSet> for ::windows::runtime::IUnknown {
+    fn from(value: &IDataCollectorSet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDataCollectorSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDataCollectorSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IDataCollectorSet> for super::Ole::Automation::IDispatch {
     fn from(value: IDataCollectorSet) -> Self {
@@ -2485,13 +2766,13 @@ impl ::std::convert::From<&IDataCollectorSet> for super::Ole::Automation::IDispa
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IDataCollectorSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IDataCollectorSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2606,8 +2887,8 @@ pub struct IDataCollectorSet_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDataCollectorSetCollection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDataCollectorSetCollection(pub ::windows::runtime::IUnknown);
 impl IDataCollectorSetCollection {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -2652,6 +2933,26 @@ unsafe impl ::windows::runtime::Interface for IDataCollectorSetCollection {
     type Vtable = IDataCollectorSetCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946852, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<IDataCollectorSetCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IDataCollectorSetCollection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDataCollectorSetCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IDataCollectorSetCollection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDataCollectorSetCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDataCollectorSetCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IDataCollectorSetCollection> for super::Ole::Automation::IDispatch {
     fn from(value: IDataCollectorSetCollection) -> Self {
@@ -2667,13 +2968,13 @@ impl ::std::convert::From<&IDataCollectorSetCollection> for super::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IDataCollectorSetCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IDataCollectorSetCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2704,8 +3005,8 @@ pub struct IDataCollectorSetCollection_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDataManager(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDataManager(pub ::windows::runtime::IUnknown);
 impl IDataManager {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn Enabled(&self) -> ::windows::runtime::Result<i16> {
@@ -2837,6 +3138,26 @@ unsafe impl ::windows::runtime::Interface for IDataManager {
     type Vtable = IDataManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946881, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<IDataManager> for ::windows::runtime::IUnknown {
+    fn from(value: IDataManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDataManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IDataManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDataManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDataManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IDataManager> for super::Ole::Automation::IDispatch {
     fn from(value: IDataManager) -> Self {
@@ -2852,13 +3173,13 @@ impl ::std::convert::From<&IDataManager> for super::Ole::Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IDataManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IDataManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2915,8 +3236,8 @@ pub struct IDataManager_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFolderAction(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFolderAction(pub ::windows::runtime::IUnknown);
 impl IFolderAction {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn Age(&self) -> ::windows::runtime::Result<u32> {
@@ -2961,6 +3282,26 @@ unsafe impl ::windows::runtime::Interface for IFolderAction {
     type Vtable = IFolderAction_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946883, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<IFolderAction> for ::windows::runtime::IUnknown {
+    fn from(value: IFolderAction) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFolderAction> for ::windows::runtime::IUnknown {
+    fn from(value: &IFolderAction) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFolderAction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFolderAction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFolderAction> for super::Ole::Automation::IDispatch {
     fn from(value: IFolderAction) -> Self {
@@ -2976,13 +3317,13 @@ impl ::std::convert::From<&IFolderAction> for super::Ole::Automation::IDispatch 
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IFolderAction {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IFolderAction {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3012,8 +3353,8 @@ pub struct IFolderAction_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFolderActionCollection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFolderActionCollection(pub ::windows::runtime::IUnknown);
 impl IFolderActionCollection {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<u32> {
@@ -3058,6 +3399,26 @@ unsafe impl ::windows::runtime::Interface for IFolderActionCollection {
     type Vtable = IFolderActionCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946884, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<IFolderActionCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IFolderActionCollection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFolderActionCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IFolderActionCollection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFolderActionCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFolderActionCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFolderActionCollection> for super::Ole::Automation::IDispatch {
     fn from(value: IFolderActionCollection) -> Self {
@@ -3073,13 +3434,13 @@ impl ::std::convert::From<&IFolderActionCollection> for super::Ole::Automation::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IFolderActionCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IFolderActionCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3109,8 +3470,8 @@ pub struct IFolderActionCollection_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ILogFileItem(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ILogFileItem(pub ::windows::runtime::IUnknown);
 impl ILogFileItem {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
@@ -3123,6 +3484,26 @@ unsafe impl ::windows::runtime::Interface for ILogFileItem {
     type Vtable = ILogFileItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3602192605, 1479, 16778, [137, 230, 79, 156, 232, 198, 132, 30]);
 }
+impl ::std::convert::From<ILogFileItem> for ::windows::runtime::IUnknown {
+    fn from(value: ILogFileItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ILogFileItem> for ::windows::runtime::IUnknown {
+    fn from(value: &ILogFileItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILogFileItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILogFileItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILogFileItem_abi(
@@ -3134,8 +3515,8 @@ pub struct ILogFileItem_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ILogFiles(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ILogFiles(pub ::windows::runtime::IUnknown);
 impl ILogFiles {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -3169,6 +3550,26 @@ unsafe impl ::windows::runtime::Interface for ILogFiles {
     type Vtable = ILogFiles_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1781176294, 26705, 16874, [135, 173, 42, 130, 37, 51, 88, 101]);
 }
+impl ::std::convert::From<ILogFiles> for ::windows::runtime::IUnknown {
+    fn from(value: ILogFiles) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ILogFiles> for ::windows::runtime::IUnknown {
+    fn from(value: &ILogFiles) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILogFiles {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILogFiles {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ILogFiles> for super::Ole::Automation::IDispatch {
     fn from(value: ILogFiles) -> Self {
@@ -3184,13 +3585,13 @@ impl ::std::convert::From<&ILogFiles> for super::Ole::Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ILogFiles {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ILogFiles {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3218,8 +3619,8 @@ pub struct ILogFiles_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPerformanceCounterDataCollector(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPerformanceCounterDataCollector(pub ::windows::runtime::IUnknown);
 impl IPerformanceCounterDataCollector {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -3423,6 +3824,26 @@ unsafe impl ::windows::runtime::Interface for IPerformanceCounterDataCollector {
     type Vtable = IPerformanceCounterDataCollector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946822, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<IPerformanceCounterDataCollector> for ::windows::runtime::IUnknown {
+    fn from(value: IPerformanceCounterDataCollector) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPerformanceCounterDataCollector> for ::windows::runtime::IUnknown {
+    fn from(value: &IPerformanceCounterDataCollector) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPerformanceCounterDataCollector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPerformanceCounterDataCollector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IPerformanceCounterDataCollector> for IDataCollector {
     fn from(value: IPerformanceCounterDataCollector) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3435,12 +3856,12 @@ impl ::std::convert::From<&IPerformanceCounterDataCollector> for IDataCollector 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDataCollector> for IPerformanceCounterDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDataCollector> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDataCollector>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDataCollector> for &IPerformanceCounterDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDataCollector> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDataCollector>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3458,13 +3879,13 @@ impl ::std::convert::From<&IPerformanceCounterDataCollector> for super::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IPerformanceCounterDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IPerformanceCounterDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3535,8 +3956,8 @@ pub struct IPerformanceCounterDataCollector_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISchedule(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISchedule(pub ::windows::runtime::IUnknown);
 impl ISchedule {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -3585,6 +4006,26 @@ unsafe impl ::windows::runtime::Interface for ISchedule {
     type Vtable = ISchedule_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946874, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<ISchedule> for ::windows::runtime::IUnknown {
+    fn from(value: ISchedule) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISchedule> for ::windows::runtime::IUnknown {
+    fn from(value: &ISchedule) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchedule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISchedule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISchedule> for super::Ole::Automation::IDispatch {
     fn from(value: ISchedule) -> Self {
@@ -3600,13 +4041,13 @@ impl ::std::convert::From<&ISchedule> for super::Ole::Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISchedule {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISchedule {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3640,8 +4081,8 @@ pub struct ISchedule_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IScheduleCollection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IScheduleCollection(pub ::windows::runtime::IUnknown);
 impl IScheduleCollection {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -3686,6 +4127,26 @@ unsafe impl ::windows::runtime::Interface for IScheduleCollection {
     type Vtable = IScheduleCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946877, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<IScheduleCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IScheduleCollection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IScheduleCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IScheduleCollection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IScheduleCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IScheduleCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IScheduleCollection> for super::Ole::Automation::IDispatch {
     fn from(value: IScheduleCollection) -> Self {
@@ -3701,13 +4162,13 @@ impl ::std::convert::From<&IScheduleCollection> for super::Ole::Automation::IDis
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IScheduleCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IScheduleCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3737,8 +4198,8 @@ pub struct IScheduleCollection_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISystemMonitor(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISystemMonitor(pub ::windows::runtime::IUnknown);
 impl ISystemMonitor {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn Appearance(&self) -> ::windows::runtime::Result<i32> {
@@ -4098,6 +4559,26 @@ unsafe impl ::windows::runtime::Interface for ISystemMonitor {
     type Vtable = ISystemMonitor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(424587841, 49964, 4559, [147, 152, 0, 170, 0, 163, 221, 234]);
 }
+impl ::std::convert::From<ISystemMonitor> for ::windows::runtime::IUnknown {
+    fn from(value: ISystemMonitor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISystemMonitor> for ::windows::runtime::IUnknown {
+    fn from(value: &ISystemMonitor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISystemMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISystemMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMonitor_abi(
@@ -4196,8 +4677,8 @@ pub struct ISystemMonitor_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISystemMonitor2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISystemMonitor2(pub ::windows::runtime::IUnknown);
 impl ISystemMonitor2 {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn Appearance(&self) -> ::windows::runtime::Result<i32> {
@@ -4647,6 +5128,26 @@ unsafe impl ::windows::runtime::Interface for ISystemMonitor2 {
     type Vtable = ISystemMonitor2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(149102698, 24530, 20446, [168, 165, 140, 179, 182, 61, 38, 119]);
 }
+impl ::std::convert::From<ISystemMonitor2> for ::windows::runtime::IUnknown {
+    fn from(value: ISystemMonitor2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISystemMonitor2> for ::windows::runtime::IUnknown {
+    fn from(value: &ISystemMonitor2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISystemMonitor2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISystemMonitor2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISystemMonitor2> for ISystemMonitor {
     fn from(value: ISystemMonitor2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4659,12 +5160,12 @@ impl ::std::convert::From<&ISystemMonitor2> for ISystemMonitor {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISystemMonitor> for ISystemMonitor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISystemMonitor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISystemMonitor>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISystemMonitor> for &ISystemMonitor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISystemMonitor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISystemMonitor>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4788,8 +5289,8 @@ pub struct ISystemMonitor2_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISystemMonitorEvents(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISystemMonitorEvents(pub ::windows::runtime::IUnknown);
 impl ISystemMonitorEvents {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn OnCounterSelected(&self, index: i32) {
@@ -4816,6 +5317,26 @@ unsafe impl ::windows::runtime::Interface for ISystemMonitorEvents {
     type Vtable = ISystemMonitorEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3999665824, 19133, 4559, [148, 58, 0, 128, 41, 0, 67, 71]);
 }
+impl ::std::convert::From<ISystemMonitorEvents> for ::windows::runtime::IUnknown {
+    fn from(value: ISystemMonitorEvents) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISystemMonitorEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &ISystemMonitorEvents) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISystemMonitorEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISystemMonitorEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMonitorEvents_abi(
@@ -4830,8 +5351,8 @@ pub struct ISystemMonitorEvents_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITraceDataCollector(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITraceDataCollector(pub ::windows::runtime::IUnknown);
 impl ITraceDataCollector {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -5169,6 +5690,26 @@ unsafe impl ::windows::runtime::Interface for ITraceDataCollector {
     type Vtable = ITraceDataCollector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946827, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<ITraceDataCollector> for ::windows::runtime::IUnknown {
+    fn from(value: ITraceDataCollector) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITraceDataCollector> for ::windows::runtime::IUnknown {
+    fn from(value: &ITraceDataCollector) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITraceDataCollector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITraceDataCollector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITraceDataCollector> for IDataCollector {
     fn from(value: ITraceDataCollector) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5181,12 +5722,12 @@ impl ::std::convert::From<&ITraceDataCollector> for IDataCollector {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDataCollector> for ITraceDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDataCollector> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDataCollector>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDataCollector> for &ITraceDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDataCollector> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDataCollector>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5204,13 +5745,13 @@ impl ::std::convert::From<&ITraceDataCollector> for super::Ole::Automation::IDis
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ITraceDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ITraceDataCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5309,8 +5850,8 @@ pub struct ITraceDataCollector_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITraceDataProvider(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITraceDataProvider(pub ::windows::runtime::IUnknown);
 impl ITraceDataProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
@@ -5412,6 +5953,26 @@ unsafe impl ::windows::runtime::Interface for ITraceDataProvider {
     type Vtable = ITraceDataProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946834, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<ITraceDataProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ITraceDataProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITraceDataProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ITraceDataProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITraceDataProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITraceDataProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITraceDataProvider> for super::Ole::Automation::IDispatch {
     fn from(value: ITraceDataProvider) -> Self {
@@ -5427,13 +5988,13 @@ impl ::std::convert::From<&ITraceDataProvider> for super::Ole::Automation::IDisp
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ITraceDataProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ITraceDataProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5480,8 +6041,8 @@ pub struct ITraceDataProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITraceDataProviderCollection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITraceDataProviderCollection(pub ::windows::runtime::IUnknown);
 impl ITraceDataProviderCollection {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -5536,6 +6097,26 @@ unsafe impl ::windows::runtime::Interface for ITraceDataProviderCollection {
     type Vtable = ITraceDataProviderCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946832, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<ITraceDataProviderCollection> for ::windows::runtime::IUnknown {
+    fn from(value: ITraceDataProviderCollection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITraceDataProviderCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &ITraceDataProviderCollection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITraceDataProviderCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITraceDataProviderCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITraceDataProviderCollection> for super::Ole::Automation::IDispatch {
     fn from(value: ITraceDataProviderCollection) -> Self {
@@ -5551,13 +6132,13 @@ impl ::std::convert::From<&ITraceDataProviderCollection> for super::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ITraceDataProviderCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ITraceDataProviderCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5591,8 +6172,8 @@ pub struct ITraceDataProviderCollection_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IValueMap(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IValueMap(pub ::windows::runtime::IUnknown);
 impl IValueMap {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -5669,6 +6250,26 @@ unsafe impl ::windows::runtime::Interface for IValueMap {
     type Vtable = IValueMap_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946868, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<IValueMap> for ::windows::runtime::IUnknown {
+    fn from(value: IValueMap) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IValueMap> for ::windows::runtime::IUnknown {
+    fn from(value: &IValueMap) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IValueMap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IValueMap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IValueMap> for super::Ole::Automation::IDispatch {
     fn from(value: IValueMap) -> Self {
@@ -5684,13 +6285,13 @@ impl ::std::convert::From<&IValueMap> for super::Ole::Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IValueMap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IValueMap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5731,8 +6332,8 @@ pub struct IValueMap_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IValueMapItem(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IValueMapItem(pub ::windows::runtime::IUnknown);
 impl IValueMapItem {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
@@ -5790,6 +6391,26 @@ unsafe impl ::windows::runtime::Interface for IValueMapItem {
     type Vtable = IValueMapItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946867, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 }
+impl ::std::convert::From<IValueMapItem> for ::windows::runtime::IUnknown {
+    fn from(value: IValueMapItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IValueMapItem> for ::windows::runtime::IUnknown {
+    fn from(value: &IValueMapItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IValueMapItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IValueMapItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IValueMapItem> for super::Ole::Automation::IDispatch {
     fn from(value: IValueMapItem) -> Self {
@@ -5805,13 +6426,13 @@ impl ::std::convert::From<&IValueMapItem> for super::Ole::Automation::IDispatch 
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IValueMapItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IValueMapItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5845,8 +6466,8 @@ pub struct IValueMapItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: *mut ValueMapType) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: ValueMapType) -> ::windows::runtime::HRESULT,
 );
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InstallPerfDllA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szcomputername: Param0, lpinifile: Param1, dwflags: usize) -> u32 {
     #[cfg(windows)]
@@ -5860,8 +6481,8 @@ pub unsafe fn InstallPerfDllA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InstallPerfDllW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szcomputername: Param0, lpinifile: Param1, dwflags: usize) -> u32 {
     #[cfg(windows)]
@@ -5880,8 +6501,8 @@ pub const LegacyDataCollectorSet: ::windows::runtime::GUID = ::windows::runtime:
 pub const LegacyDataCollectorSetCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946855, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 pub const LegacyTraceSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946856, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 pub const LegacyTraceSessionCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946857, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadPerfCounterTextStringsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpcommandline: Param0, bquietmodearg: Param1) -> u32 {
     #[cfg(windows)]
@@ -5895,8 +6516,8 @@ pub unsafe fn LoadPerfCounterTextStringsA<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadPerfCounterTextStringsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpcommandline: Param0, bquietmodearg: Param1) -> u32 {
     #[cfg(windows)]
@@ -6223,7 +6844,6 @@ unsafe impl ::windows::runtime::Abi for PDH_COUNTER_INFO_A {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub union PDH_COUNTER_INFO_A_0 {
     pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_A,
     pub CounterPath: PDH_COUNTER_PATH_ELEMENTS_A,
@@ -6252,7 +6872,6 @@ unsafe impl ::windows::runtime::Abi for PDH_COUNTER_INFO_A_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PDH_COUNTER_INFO_A_0_0 {
     pub szMachineName: super::super::Foundation::PSTR,
     pub szObjectName: super::super::Foundation::PSTR,
@@ -6335,7 +6954,6 @@ unsafe impl ::windows::runtime::Abi for PDH_COUNTER_INFO_W {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub union PDH_COUNTER_INFO_W_0 {
     pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_W,
     pub CounterPath: PDH_COUNTER_PATH_ELEMENTS_W,
@@ -6364,7 +6982,6 @@ unsafe impl ::windows::runtime::Abi for PDH_COUNTER_INFO_W_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PDH_COUNTER_INFO_W_0_0 {
     pub szMachineName: super::super::Foundation::PWSTR,
     pub szObjectName: super::super::Foundation::PWSTR,
@@ -6718,7 +7335,6 @@ unsafe impl ::windows::runtime::Abi for PDH_FMT_COUNTERVALUE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub union PDH_FMT_COUNTERVALUE_0 {
     pub longValue: i32,
     pub doubleValue: f64,
@@ -6919,7 +7535,6 @@ unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_A {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub union PDH_LOG_SERVICE_QUERY_INFO_A_0 {
     pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_A_0_0,
     pub Anonymous2: PDH_LOG_SERVICE_QUERY_INFO_A_0_1,
@@ -6947,7 +7562,6 @@ unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlAutoNameInterval: u32,
     pub PdlAutoNameUnits: u32,
@@ -6996,7 +7610,6 @@ unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlNumberOfBuffers: u32,
     pub TlMinimumBuffers: u32,
@@ -7084,7 +7697,6 @@ unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_W {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub union PDH_LOG_SERVICE_QUERY_INFO_W_0 {
     pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_W_0_0,
     pub Anonymous2: PDH_LOG_SERVICE_QUERY_INFO_W_0_1,
@@ -7112,7 +7724,6 @@ unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlAutoNameInterval: u32,
     pub PdlAutoNameUnits: u32,
@@ -7161,7 +7772,6 @@ unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlNumberOfBuffers: u32,
     pub TlMinimumBuffers: u32,
@@ -7639,6 +8249,7 @@ pub const PDH_UNKNOWN_LOG_FORMAT: i32 = -1073738794i32;
 pub const PDH_UNMATCHED_APPEND_COUNTER: i32 = -1073738756i32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_WBEM_ERROR: i32 = -1073738790i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
 pub type PERFLIBREQUEST = unsafe extern "system" fn(requestcode: u32, buffer: *mut ::std::ffi::c_void, buffersize: u32) -> u32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_ADD_COUNTER: u32 = 1u32;
@@ -7862,7 +8473,9 @@ unsafe impl ::windows::runtime::Abi for PERF_COUNTER_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Performance`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: u32,
     pub CounterNameTitleIndex: u32,
@@ -7875,12 +8488,18 @@ pub struct PERF_COUNTER_DEFINITION {
     pub CounterSize: u32,
     pub CounterOffset: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl PERF_COUNTER_DEFINITION {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PERF_COUNTER_DEFINITION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PERF_COUNTER_DEFINITION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PERF_COUNTER_DEFINITION")
@@ -7897,12 +8516,78 @@ impl ::std::fmt::Debug for PERF_COUNTER_DEFINITION {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PERF_COUNTER_DEFINITION {
     fn eq(&self, other: &Self) -> bool {
         self.ByteLength == other.ByteLength && self.CounterNameTitleIndex == other.CounterNameTitleIndex && self.CounterNameTitle == other.CounterNameTitle && self.CounterHelpTitleIndex == other.CounterHelpTitleIndex && self.CounterHelpTitle == other.CounterHelpTitle && self.DefaultScale == other.DefaultScale && self.DetailLevel == other.DetailLevel && self.CounterType == other.CounterType && self.CounterSize == other.CounterSize && self.CounterOffset == other.CounterOffset
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PERF_COUNTER_DEFINITION {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for PERF_COUNTER_DEFINITION {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+pub struct PERF_COUNTER_DEFINITION {
+    pub ByteLength: u32,
+    pub CounterNameTitleIndex: u32,
+    pub CounterNameTitle: super::super::Foundation::PWSTR,
+    pub CounterHelpTitleIndex: u32,
+    pub CounterHelpTitle: super::super::Foundation::PWSTR,
+    pub DefaultScale: i32,
+    pub DetailLevel: u32,
+    pub CounterType: u32,
+    pub CounterSize: u32,
+    pub CounterOffset: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl PERF_COUNTER_DEFINITION {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for PERF_COUNTER_DEFINITION {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::fmt::Debug for PERF_COUNTER_DEFINITION {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("PERF_COUNTER_DEFINITION")
+            .field("ByteLength", &self.ByteLength)
+            .field("CounterNameTitleIndex", &self.CounterNameTitleIndex)
+            .field("CounterNameTitle", &self.CounterNameTitle)
+            .field("CounterHelpTitleIndex", &self.CounterHelpTitleIndex)
+            .field("CounterHelpTitle", &self.CounterHelpTitle)
+            .field("DefaultScale", &self.DefaultScale)
+            .field("DetailLevel", &self.DetailLevel)
+            .field("CounterType", &self.CounterType)
+            .field("CounterSize", &self.CounterSize)
+            .field("CounterOffset", &self.CounterOffset)
+            .finish()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for PERF_COUNTER_DEFINITION {
+    fn eq(&self, other: &Self) -> bool {
+        self.ByteLength == other.ByteLength && self.CounterNameTitleIndex == other.CounterNameTitleIndex && self.CounterNameTitle == other.CounterNameTitle && self.CounterHelpTitleIndex == other.CounterHelpTitleIndex && self.CounterHelpTitle == other.CounterHelpTitle && self.DefaultScale == other.DefaultScale && self.DetailLevel == other.DetailLevel && self.CounterType == other.CounterType && self.CounterSize == other.CounterSize && self.CounterOffset == other.CounterOffset
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for PERF_COUNTER_DEFINITION {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PERF_COUNTER_DEFINITION {
     type Abi = Self;
 }
@@ -8350,7 +9035,9 @@ unsafe impl ::windows::runtime::Abi for PERF_INSTANCE_HEADER {
 pub const PERF_INVERSE_COUNTER: u32 = 16777216u32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_MAX_INSTANCE_NAME: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
 pub type PERF_MEM_ALLOC = unsafe extern "system" fn(allocsize: usize, pcontext: *mut ::std::ffi::c_void) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_System_Performance`*"]
 pub type PERF_MEM_FREE = unsafe extern "system" fn(pbuffer: *mut ::std::ffi::c_void, pcontext: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_METADATA_MULTIPLE_INSTANCES: i32 = -2i32;
@@ -8426,7 +9113,9 @@ pub const PERF_NUMBER_HEX: u32 = 0u32;
 pub const PERF_OBJECT_TIMER: u32 = 2097152u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Performance`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
     pub DefinitionLength: u32,
@@ -8443,12 +9132,18 @@ pub struct PERF_OBJECT_TYPE {
     pub PerfTime: i64,
     pub PerfFreq: i64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl PERF_OBJECT_TYPE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PERF_OBJECT_TYPE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PERF_OBJECT_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PERF_OBJECT_TYPE")
@@ -8469,6 +9164,8 @@ impl ::std::fmt::Debug for PERF_OBJECT_TYPE {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PERF_OBJECT_TYPE {
     fn eq(&self, other: &Self) -> bool {
         self.TotalByteLength == other.TotalByteLength
@@ -8487,7 +9184,92 @@ impl ::std::cmp::PartialEq for PERF_OBJECT_TYPE {
             && self.PerfFreq == other.PerfFreq
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PERF_OBJECT_TYPE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for PERF_OBJECT_TYPE {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+pub struct PERF_OBJECT_TYPE {
+    pub TotalByteLength: u32,
+    pub DefinitionLength: u32,
+    pub HeaderLength: u32,
+    pub ObjectNameTitleIndex: u32,
+    pub ObjectNameTitle: super::super::Foundation::PWSTR,
+    pub ObjectHelpTitleIndex: u32,
+    pub ObjectHelpTitle: super::super::Foundation::PWSTR,
+    pub DetailLevel: u32,
+    pub NumCounters: u32,
+    pub DefaultCounter: i32,
+    pub NumInstances: i32,
+    pub CodePage: u32,
+    pub PerfTime: i64,
+    pub PerfFreq: i64,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl PERF_OBJECT_TYPE {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for PERF_OBJECT_TYPE {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::fmt::Debug for PERF_OBJECT_TYPE {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("PERF_OBJECT_TYPE")
+            .field("TotalByteLength", &self.TotalByteLength)
+            .field("DefinitionLength", &self.DefinitionLength)
+            .field("HeaderLength", &self.HeaderLength)
+            .field("ObjectNameTitleIndex", &self.ObjectNameTitleIndex)
+            .field("ObjectNameTitle", &self.ObjectNameTitle)
+            .field("ObjectHelpTitleIndex", &self.ObjectHelpTitleIndex)
+            .field("ObjectHelpTitle", &self.ObjectHelpTitle)
+            .field("DetailLevel", &self.DetailLevel)
+            .field("NumCounters", &self.NumCounters)
+            .field("DefaultCounter", &self.DefaultCounter)
+            .field("NumInstances", &self.NumInstances)
+            .field("CodePage", &self.CodePage)
+            .field("PerfTime", &self.PerfTime)
+            .field("PerfFreq", &self.PerfFreq)
+            .finish()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for PERF_OBJECT_TYPE {
+    fn eq(&self, other: &Self) -> bool {
+        self.TotalByteLength == other.TotalByteLength
+            && self.DefinitionLength == other.DefinitionLength
+            && self.HeaderLength == other.HeaderLength
+            && self.ObjectNameTitleIndex == other.ObjectNameTitleIndex
+            && self.ObjectNameTitle == other.ObjectNameTitle
+            && self.ObjectHelpTitleIndex == other.ObjectHelpTitleIndex
+            && self.ObjectHelpTitle == other.ObjectHelpTitle
+            && self.DetailLevel == other.DetailLevel
+            && self.NumCounters == other.NumCounters
+            && self.DefaultCounter == other.DefaultCounter
+            && self.NumInstances == other.NumInstances
+            && self.CodePage == other.CodePage
+            && self.PerfTime == other.PerfTime
+            && self.PerfFreq == other.PerfFreq
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for PERF_OBJECT_TYPE {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PERF_OBJECT_TYPE {
     type Abi = Self;
 }
@@ -8610,6 +9392,7 @@ pub const PERF_TYPE_TEXT: u32 = 2048u32;
 pub const PERF_TYPE_ZERO: u32 = 3072u32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_WILDCARD_COUNTER: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLA_CABEXTRACT_CALLBACK = unsafe extern "system" fn(filename: super::super::Foundation::PWSTR, context: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Performance`*"]
@@ -8626,13 +9409,16 @@ pub const PLA_CAPABILITY_V1_SESSION: u32 = 2u32;
 pub const PLA_CAPABILITY_V1_SVC: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PLA_CAPABILITY_V1_SYSTEM: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
 pub type PM_CLOSE_PROC = unsafe extern "system" fn() -> u32;
+#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PM_COLLECT_PROC = unsafe extern "system" fn(pvaluename: super::super::Foundation::PWSTR, ppdata: *mut *mut ::std::ffi::c_void, pcbtotalbytes: *mut u32, pnumobjecttypes: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PM_OPEN_PROC = unsafe extern "system" fn(pcontext: super::super::Foundation::PWSTR) -> u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhAddCounterA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hquery: isize, szfullcounterpath: Param1, dwuserdata: usize, phcounter: *mut isize) -> i32 {
     #[cfg(windows)]
@@ -8646,8 +9432,8 @@ pub unsafe fn PdhAddCounterA<'a, Param1: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhAddCounterW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hquery: isize, szfullcounterpath: Param1, dwuserdata: usize, phcounter: *mut isize) -> i32 {
     #[cfg(windows)]
@@ -8661,8 +9447,8 @@ pub unsafe fn PdhAddCounterW<'a, Param1: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhAddEnglishCounterA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hquery: isize, szfullcounterpath: Param1, dwuserdata: usize, phcounter: *mut isize) -> i32 {
     #[cfg(windows)]
@@ -8676,8 +9462,8 @@ pub unsafe fn PdhAddEnglishCounterA<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhAddEnglishCounterW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hquery: isize, szfullcounterpath: Param1, dwuserdata: usize, phcounter: *mut isize) -> i32 {
     #[cfg(windows)]
@@ -8691,8 +9477,8 @@ pub unsafe fn PdhAddEnglishCounterW<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhBindInputDataSourceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(phdatasource: *mut isize, logfilenamelist: Param1) -> i32 {
     #[cfg(windows)]
@@ -8706,8 +9492,8 @@ pub unsafe fn PdhBindInputDataSourceA<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhBindInputDataSourceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(phdatasource: *mut isize, logfilenamelist: Param1) -> i32 {
     #[cfg(windows)]
@@ -8721,8 +9507,8 @@ pub unsafe fn PdhBindInputDataSourceW<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A) -> i32 {
     #[cfg(windows)]
@@ -8736,8 +9522,8 @@ pub unsafe fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhBrowseCountersHA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HA) -> i32 {
     #[cfg(windows)]
@@ -8751,8 +9537,8 @@ pub unsafe fn PdhBrowseCountersHA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhBrowseCountersHW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HW) -> i32 {
     #[cfg(windows)]
@@ -8766,8 +9552,8 @@ pub unsafe fn PdhBrowseCountersHW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W) -> i32 {
     #[cfg(windows)]
@@ -8781,8 +9567,8 @@ pub unsafe fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhCalculateCounterFromRawValue(hcounter: isize, dwformat: PDH_FMT, rawvalue1: *const PDH_RAW_COUNTER, rawvalue2: *const PDH_RAW_COUNTER, fmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32 {
     #[cfg(windows)]
@@ -8838,8 +9624,8 @@ pub unsafe fn PdhCollectQueryData(hquery: isize) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhCollectQueryDataEx<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hquery: isize, dwintervaltime: u32, hnewdataevent: Param2) -> i32 {
     #[cfg(windows)]
@@ -8867,8 +9653,8 @@ pub unsafe fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: *mut i64)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhComputeCounterStatistics(hcounter: isize, dwformat: PDH_FMT, dwfirstentry: u32, dwnumentries: u32, lprawvaluearray: *const PDH_RAW_COUNTER, data: *mut PDH_STATISTICS) -> i32 {
     #[cfg(windows)]
@@ -8882,8 +9668,8 @@ pub unsafe fn PdhComputeCounterStatistics(hcounter: isize, dwformat: PDH_FMT, dw
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhConnectMachineA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szmachinename: Param0) -> i32 {
     #[cfg(windows)]
@@ -8897,8 +9683,8 @@ pub unsafe fn PdhConnectMachineA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhConnectMachineW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szmachinename: Param0) -> i32 {
     #[cfg(windows)]
@@ -8912,8 +9698,8 @@ pub unsafe fn PdhConnectMachineW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhCreateSQLTablesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0) -> i32 {
     #[cfg(windows)]
@@ -8927,8 +9713,8 @@ pub unsafe fn PdhCreateSQLTablesA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhCreateSQLTablesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0) -> i32 {
     #[cfg(windows)]
@@ -8942,8 +9728,8 @@ pub unsafe fn PdhCreateSQLTablesW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumLogSetNamesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0, mszdatasetnamelist: super::super::Foundation::PSTR, pcchbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -8957,8 +9743,8 @@ pub unsafe fn PdhEnumLogSetNamesA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumLogSetNamesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0, mszdatasetnamelist: super::super::Foundation::PWSTR, pcchbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -8972,8 +9758,8 @@ pub unsafe fn PdhEnumLogSetNamesW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumMachinesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0, mszmachinelist: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -8987,8 +9773,8 @@ pub unsafe fn PdhEnumMachinesA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumMachinesHA(hdatasource: isize, mszmachinelist: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9002,8 +9788,8 @@ pub unsafe fn PdhEnumMachinesHA(hdatasource: isize, mszmachinelist: super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumMachinesHW(hdatasource: isize, mszmachinelist: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9017,8 +9803,8 @@ pub unsafe fn PdhEnumMachinesHW(hdatasource: isize, mszmachinelist: super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumMachinesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0, mszmachinelist: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9032,8 +9818,8 @@ pub unsafe fn PdhEnumMachinesW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectItemsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     szdatasource: Param0,
@@ -9067,8 +9853,8 @@ pub unsafe fn PdhEnumObjectItemsA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectItemsHA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdatasource: isize, szmachinename: Param1, szobjectname: Param2, mszcounterlist: super::super::Foundation::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: super::super::Foundation::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -9092,8 +9878,8 @@ pub unsafe fn PdhEnumObjectItemsHA<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectItemsHW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatasource: isize, szmachinename: Param1, szobjectname: Param2, mszcounterlist: super::super::Foundation::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: super::super::Foundation::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -9117,8 +9903,8 @@ pub unsafe fn PdhEnumObjectItemsHW<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectItemsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     szdatasource: Param0,
@@ -9152,8 +9938,8 @@ pub unsafe fn PdhEnumObjectItemsW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(szdatasource: Param0, szmachinename: Param1, mszobjectlist: super::super::Foundation::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: Param5) -> i32 {
     #[cfg(windows)]
@@ -9167,8 +9953,8 @@ pub unsafe fn PdhEnumObjectsA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectsHA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hdatasource: isize, szmachinename: Param1, mszobjectlist: super::super::Foundation::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: Param5) -> i32 {
     #[cfg(windows)]
@@ -9182,8 +9968,8 @@ pub unsafe fn PdhEnumObjectsHA<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectsHW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hdatasource: isize, szmachinename: Param1, mszobjectlist: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: Param5) -> i32 {
     #[cfg(windows)]
@@ -9197,8 +9983,8 @@ pub unsafe fn PdhEnumObjectsHW<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(szdatasource: Param0, szmachinename: Param1, mszobjectlist: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: Param5) -> i32 {
     #[cfg(windows)]
@@ -9212,8 +9998,8 @@ pub unsafe fn PdhEnumObjectsW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhExpandCounterPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szwildcardpath: Param0, mszexpandedpathlist: super::super::Foundation::PSTR, pcchpathlistlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9227,8 +10013,8 @@ pub unsafe fn PdhExpandCounterPathA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhExpandCounterPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szwildcardpath: Param0, mszexpandedpathlist: super::super::Foundation::PWSTR, pcchpathlistlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9242,8 +10028,8 @@ pub unsafe fn PdhExpandCounterPathW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhExpandWildCardPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0, szwildcardpath: Param1, mszexpandedpathlist: super::super::Foundation::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -9257,8 +10043,8 @@ pub unsafe fn PdhExpandWildCardPathA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhExpandWildCardPathHA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdatasource: isize, szwildcardpath: Param1, mszexpandedpathlist: super::super::Foundation::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -9272,8 +10058,8 @@ pub unsafe fn PdhExpandWildCardPathHA<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhExpandWildCardPathHW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatasource: isize, szwildcardpath: Param1, mszexpandedpathlist: super::super::Foundation::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -9287,8 +10073,8 @@ pub unsafe fn PdhExpandWildCardPathHW<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhExpandWildCardPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0, szwildcardpath: Param1, mszexpandedpathlist: super::super::Foundation::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -9302,8 +10088,8 @@ pub unsafe fn PdhExpandWildCardPathW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptimebase: *const i64, prawvalue1: *const PDH_RAW_COUNTER, prawvalue2: *const PDH_RAW_COUNTER, pfmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32 {
     #[cfg(windows)]
@@ -9317,8 +10103,8 @@ pub unsafe fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetCounterInfoA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(hcounter: isize, bretrieveexplaintext: Param1, pdwbuffersize: *mut u32, lpbuffer: *mut PDH_COUNTER_INFO_A) -> i32 {
     #[cfg(windows)]
@@ -9332,8 +10118,8 @@ pub unsafe fn PdhGetCounterInfoA<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetCounterInfoW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(hcounter: isize, bretrieveexplaintext: Param1, pdwbuffersize: *mut u32, lpbuffer: *mut PDH_COUNTER_INFO_W) -> i32 {
     #[cfg(windows)]
@@ -9361,8 +10147,8 @@ pub unsafe fn PdhGetCounterTimeBase(hcounter: isize, ptimebase: *mut i64) -> i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDataSourceTimeRangeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9390,8 +10176,8 @@ pub unsafe fn PdhGetDataSourceTimeRangeH(hdatasource: isize, pdwnumentries: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDataSourceTimeRangeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9405,8 +10191,8 @@ pub unsafe fn PdhGetDataSourceTimeRangeW<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfCounterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0, szmachinename: Param1, szobjectname: Param2, szdefaultcountername: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9420,8 +10206,8 @@ pub unsafe fn PdhGetDefaultPerfCounterA<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfCounterHA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdatasource: isize, szmachinename: Param1, szobjectname: Param2, szdefaultcountername: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9435,8 +10221,8 @@ pub unsafe fn PdhGetDefaultPerfCounterHA<'a, Param1: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfCounterHW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatasource: isize, szmachinename: Param1, szobjectname: Param2, szdefaultcountername: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9450,8 +10236,8 @@ pub unsafe fn PdhGetDefaultPerfCounterHW<'a, Param1: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfCounterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0, szmachinename: Param1, szobjectname: Param2, szdefaultcountername: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9465,8 +10251,8 @@ pub unsafe fn PdhGetDefaultPerfCounterW<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfObjectA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0, szmachinename: Param1, szdefaultobjectname: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9480,8 +10266,8 @@ pub unsafe fn PdhGetDefaultPerfObjectA<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfObjectHA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdatasource: isize, szmachinename: Param1, szdefaultobjectname: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9495,8 +10281,8 @@ pub unsafe fn PdhGetDefaultPerfObjectHA<'a, Param1: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfObjectHW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatasource: isize, szmachinename: Param1, szdefaultobjectname: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9510,8 +10296,8 @@ pub unsafe fn PdhGetDefaultPerfObjectHW<'a, Param1: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfObjectW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0, szmachinename: Param1, szdefaultobjectname: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9539,8 +10325,8 @@ pub unsafe fn PdhGetDllVersion(lpdwversion: *mut PDH_DLL_VERSION) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetFormattedCounterArrayA(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_A) -> i32 {
     #[cfg(windows)]
@@ -9554,8 +10340,8 @@ pub unsafe fn PdhGetFormattedCounterArrayA(hcounter: isize, dwformat: PDH_FMT, l
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetFormattedCounterArrayW(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_W) -> i32 {
     #[cfg(windows)]
@@ -9569,8 +10355,8 @@ pub unsafe fn PdhGetFormattedCounterArrayW(hcounter: isize, dwformat: PDH_FMT, l
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetFormattedCounterValue(hcounter: isize, dwformat: PDH_FMT, lpdwtype: *mut u32, pvalue: *mut PDH_FMT_COUNTERVALUE) -> i32 {
     #[cfg(windows)]
@@ -9612,8 +10398,8 @@ pub unsafe fn PdhGetLogSetGUID(hlog: isize, pguid: *mut ::windows::runtime::GUID
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetRawCounterArrayA(hcounter: isize, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_RAW_COUNTER_ITEM_A) -> i32 {
     #[cfg(windows)]
@@ -9627,8 +10413,8 @@ pub unsafe fn PdhGetRawCounterArrayA(hcounter: isize, lpdwbuffersize: *mut u32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetRawCounterArrayW(hcounter: isize, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_RAW_COUNTER_ITEM_W) -> i32 {
     #[cfg(windows)]
@@ -9642,8 +10428,8 @@ pub unsafe fn PdhGetRawCounterArrayW(hcounter: isize, lpdwbuffersize: *mut u32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetRawCounterValue(hcounter: isize, lpdwtype: *mut u32, pvalue: *mut PDH_RAW_COUNTER) -> i32 {
     #[cfg(windows)]
@@ -9657,8 +10443,8 @@ pub unsafe fn PdhGetRawCounterValue(hcounter: isize, lpdwtype: *mut u32, pvalue:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhIsRealTimeQuery(hquery: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9672,8 +10458,8 @@ pub unsafe fn PdhIsRealTimeQuery(hquery: isize) -> super::super::Foundation::BOO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhLookupPerfIndexByNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szmachinename: Param0, sznamebuffer: Param1, pdwindex: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9687,8 +10473,8 @@ pub unsafe fn PdhLookupPerfIndexByNameA<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhLookupPerfIndexByNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szmachinename: Param0, sznamebuffer: Param1, pdwindex: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9702,8 +10488,8 @@ pub unsafe fn PdhLookupPerfIndexByNameW<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhLookupPerfNameByIndexA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szmachinename: Param0, dwnameindex: u32, sznamebuffer: super::super::Foundation::PSTR, pcchnamebuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9717,8 +10503,8 @@ pub unsafe fn PdhLookupPerfNameByIndexA<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhLookupPerfNameByIndexW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szmachinename: Param0, dwnameindex: u32, sznamebuffer: super::super::Foundation::PWSTR, pcchnamebuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9732,8 +10518,8 @@ pub unsafe fn PdhLookupPerfNameByIndexW<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: super::super::Foundation::PSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -9747,8 +10533,8 @@ pub unsafe fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -9762,8 +10548,8 @@ pub unsafe fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhOpenLogA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szlogfilename: Param0, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: Param5, phlog: *mut isize) -> i32 {
     #[cfg(windows)]
@@ -9777,8 +10563,8 @@ pub unsafe fn PdhOpenLogA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhOpenLogW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szlogfilename: Param0, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: Param5, phlog: *mut isize) -> i32 {
     #[cfg(windows)]
@@ -9792,8 +10578,8 @@ pub unsafe fn PdhOpenLogW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhOpenQueryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0, dwuserdata: usize, phquery: *mut isize) -> i32 {
     #[cfg(windows)]
@@ -9821,8 +10607,8 @@ pub unsafe fn PdhOpenQueryH(hdatasource: isize, dwuserdata: usize, phquery: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhOpenQueryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0, dwuserdata: usize, phquery: *mut isize) -> i32 {
     #[cfg(windows)]
@@ -9836,8 +10622,8 @@ pub unsafe fn PdhOpenQueryW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhParseCounterPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szfullpathbuffer: Param0, pcounterpathelements: *mut PDH_COUNTER_PATH_ELEMENTS_A, pdwbuffersize: *mut u32, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -9851,8 +10637,8 @@ pub unsafe fn PdhParseCounterPathA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhParseCounterPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szfullpathbuffer: Param0, pcounterpathelements: *mut PDH_COUNTER_PATH_ELEMENTS_W, pdwbuffersize: *mut u32, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -9866,8 +10652,8 @@ pub unsafe fn PdhParseCounterPathW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhParseInstanceNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szinstancestring: Param0, szinstancename: super::super::Foundation::PSTR, pcchinstancenamelength: *mut u32, szparentname: super::super::Foundation::PSTR, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9881,8 +10667,8 @@ pub unsafe fn PdhParseInstanceNameA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhParseInstanceNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szinstancestring: Param0, szinstancename: super::super::Foundation::PWSTR, pcchinstancenamelength: *mut u32, szparentname: super::super::Foundation::PWSTR, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9896,8 +10682,8 @@ pub unsafe fn PdhParseInstanceNameW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhReadRawLogRecord<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>>(hlog: isize, ftrecord: Param1, prawlogrecord: *mut PDH_RAW_LOG_RECORD, pdwbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9925,8 +10711,8 @@ pub unsafe fn PdhRemoveCounter(hcounter: isize) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhSelectDataSourceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwndowner: Param0, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: Param2, pcchbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9940,8 +10726,8 @@ pub unsafe fn PdhSelectDataSourceA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhSelectDataSourceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndowner: Param0, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: Param2, pcchbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -10011,8 +10797,8 @@ pub unsafe fn PdhSetQueryTimeRange(hquery: isize, pinfo: *const PDH_TIME_INFO) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhUpdateLogA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hlog: isize, szuserstring: Param1) -> i32 {
     #[cfg(windows)]
@@ -10040,8 +10826,8 @@ pub unsafe fn PdhUpdateLogFileCatalog(hlog: isize) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhUpdateLogW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hlog: isize, szuserstring: Param1) -> i32 {
     #[cfg(windows)]
@@ -10055,8 +10841,8 @@ pub unsafe fn PdhUpdateLogW<'a, Param1: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhValidatePathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szfullpathbuffer: Param0) -> i32 {
     #[cfg(windows)]
@@ -10070,8 +10856,8 @@ pub unsafe fn PdhValidatePathA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhValidatePathExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdatasource: isize, szfullpathbuffer: Param1) -> i32 {
     #[cfg(windows)]
@@ -10085,8 +10871,8 @@ pub unsafe fn PdhValidatePathExA<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhValidatePathExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatasource: isize, szfullpathbuffer: Param1) -> i32 {
     #[cfg(windows)]
@@ -10100,8 +10886,8 @@ pub unsafe fn PdhValidatePathExW<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhValidatePathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szfullpathbuffer: Param0) -> i32 {
     #[cfg(windows)]
@@ -10115,8 +10901,8 @@ pub unsafe fn PdhValidatePathW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhVerifySQLDBA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0) -> i32 {
     #[cfg(windows)]
@@ -10130,8 +10916,8 @@ pub unsafe fn PdhVerifySQLDBA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhVerifySQLDBW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0) -> i32 {
     #[cfg(windows)]
@@ -10159,8 +10945,8 @@ pub unsafe fn PerfAddCounters<'a, Param0: ::windows::runtime::IntoParam<'a, Perf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfCloseQueryHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hquery: Param0) -> u32 {
     #[cfg(windows)]
@@ -10191,8 +10977,8 @@ impl ::std::convert::From<i32> for PerfCounterDataType {
 unsafe impl ::windows::runtime::Abi for PerfCounterDataType {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfCreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, PerfProviderHandle>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(providerhandle: Param0, countersetguid: *const ::windows::runtime::GUID, name: Param2, id: u32) -> *mut PERF_COUNTERSET_INSTANCE {
     #[cfg(windows)]
@@ -10206,8 +10992,8 @@ pub unsafe fn PerfCreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfDecrementULongCounterValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(provider: Param0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32 {
     #[cfg(windows)]
@@ -10221,8 +11007,8 @@ pub unsafe fn PerfDecrementULongCounterValue<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfDecrementULongLongCounterValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(provider: Param0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32 {
     #[cfg(windows)]
@@ -10264,8 +11050,8 @@ pub unsafe fn PerfDeleteInstance<'a, Param0: ::windows::runtime::IntoParam<'a, P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfEnumerateCounterSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szmachine: Param0, pcountersetids: *mut ::windows::runtime::GUID, ccountersetids: u32, pccountersetidsactual: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -10279,8 +11065,8 @@ pub unsafe fn PerfEnumerateCounterSet<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfEnumerateCounterSetInstances<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szmachine: Param0, pcountersetid: *const ::windows::runtime::GUID, pinstances: *mut PERF_INSTANCE_HEADER, cbinstances: u32, pcbinstancesactual: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -10294,8 +11080,8 @@ pub unsafe fn PerfEnumerateCounterSetInstances<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfIncrementULongCounterValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(provider: Param0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32 {
     #[cfg(windows)]
@@ -10309,8 +11095,8 @@ pub unsafe fn PerfIncrementULongCounterValue<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfIncrementULongLongCounterValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(provider: Param0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32 {
     #[cfg(windows)]
@@ -10324,8 +11110,8 @@ pub unsafe fn PerfIncrementULongLongCounterValue<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfOpenQueryHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szmachine: Param0, phquery: *mut PerfQueryHandle) -> u32 {
     #[cfg(windows)]
@@ -10351,8 +11137,8 @@ unsafe impl ::windows::runtime::Handle for PerfProviderHandle {}
 unsafe impl ::windows::runtime::Abi for PerfProviderHandle {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfQueryCounterData<'a, Param0: ::windows::runtime::IntoParam<'a, PerfQueryHandle>>(hquery: Param0, pcounterblock: *mut PERF_DATA_HEADER, cbcounterblock: u32, pcbcounterblockactual: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -10380,8 +11166,8 @@ pub unsafe fn PerfQueryCounterInfo<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfQueryCounterSetRegistrationInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szmachine: Param0, pcountersetid: *const ::windows::runtime::GUID, requestcode: PerfRegInfoType, requestlangid: u32, pbreginfo: *mut u8, cbreginfo: u32, pcbreginfoactual: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -10407,8 +11193,8 @@ unsafe impl ::windows::runtime::Handle for PerfQueryHandle {}
 unsafe impl ::windows::runtime::Abi for PerfQueryHandle {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfQueryInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(providerhandle: Param0, countersetguid: *const ::windows::runtime::GUID, name: Param2, id: u32) -> *mut PERF_COUNTERSET_INSTANCE {
     #[cfg(windows)]
@@ -10444,8 +11230,8 @@ impl ::std::convert::From<i32> for PerfRegInfoType {
 unsafe impl ::windows::runtime::Abi for PerfRegInfoType {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfSetCounterRefValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(provider: Param0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, address: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -10459,8 +11245,8 @@ pub unsafe fn PerfSetCounterRefValue<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfSetCounterSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(providerhandle: Param0, template: *mut PERF_COUNTERSET_INFO, templatesize: u32) -> u32 {
     #[cfg(windows)]
@@ -10474,8 +11260,8 @@ pub unsafe fn PerfSetCounterSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfSetULongCounterValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(provider: Param0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32 {
     #[cfg(windows)]
@@ -10489,8 +11275,8 @@ pub unsafe fn PerfSetULongCounterValue<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfSetULongLongCounterValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(provider: Param0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32 {
     #[cfg(windows)]
@@ -10546,8 +11332,8 @@ pub unsafe fn PerfStopProvider<'a, Param0: ::windows::runtime::IntoParam<'a, Per
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryPerformanceCounter(lpperformancecount: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10561,8 +11347,8 @@ pub unsafe fn QueryPerformanceCounter(lpperformancecount: *mut i64) -> super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10649,8 +11435,8 @@ impl ::std::convert::From<i32> for ResourcePolicy {
 unsafe impl ::windows::runtime::Abi for ResourcePolicy {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RestorePerfRegistryFromFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szfilename: Param0, szlangid: Param1) -> u32 {
     #[cfg(windows)]
@@ -10667,8 +11453,8 @@ pub unsafe fn RestorePerfRegistryFromFileW<'a, Param0: ::windows::runtime::IntoP
 pub const S_PDH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(81159000, 50337, 16795, [128, 35, 35, 183, 57, 2, 222, 44]);
 pub const ServerDataCollectorSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946865, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 pub const ServerDataCollectorSetCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946866, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetServiceAsTrustedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szreserved: Param0, szservicename: Param1) -> u32 {
     #[cfg(windows)]
@@ -10682,8 +11468,8 @@ pub unsafe fn SetServiceAsTrustedA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetServiceAsTrustedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szreserved: Param0, szservicename: Param1) -> u32 {
     #[cfg(windows)]
@@ -10774,8 +11560,8 @@ pub const TraceDataProvider: ::windows::runtime::GUID = ::windows::runtime::GUID
 pub const TraceDataProviderCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946833, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 pub const TraceSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946844, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 pub const TraceSessionCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946864, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnloadPerfCounterTextStringsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpcommandline: Param0, bquietmodearg: Param1) -> u32 {
     #[cfg(windows)]
@@ -10789,8 +11575,8 @@ pub unsafe fn UnloadPerfCounterTextStringsA<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnloadPerfCounterTextStringsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpcommandline: Param0, bquietmodearg: Param1) -> u32 {
     #[cfg(windows)]
@@ -10804,8 +11590,8 @@ pub unsafe fn UnloadPerfCounterTextStringsW<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdatePerfNameFilesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(sznewctrfilepath: Param0, sznewhlpfilepath: Param1, szlanguageid: Param2, dwflags: usize) -> u32 {
     #[cfg(windows)]
@@ -10819,8 +11605,8 @@ pub unsafe fn UpdatePerfNameFilesA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdatePerfNameFilesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(sznewctrfilepath: Param0, sznewhlpfilepath: Param1, szlanguageid: Param2, dwflags: usize) -> u32 {
     #[cfg(windows)]
@@ -10881,8 +11667,8 @@ unsafe impl ::windows::runtime::Abi for WeekDays {
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct _ICounterItemUnion(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct _ICounterItemUnion(pub ::windows::runtime::IUnknown);
 impl _ICounterItemUnion {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn Value(&self) -> ::windows::runtime::Result<f64> {
@@ -10968,6 +11754,26 @@ unsafe impl ::windows::runtime::Interface for _ICounterItemUnion {
     type Vtable = _ICounterItemUnion_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3726273396, 37250, 19521, [142, 44, 36, 194, 205, 48, 238, 131]);
 }
+impl ::std::convert::From<_ICounterItemUnion> for ::windows::runtime::IUnknown {
+    fn from(value: _ICounterItemUnion) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&_ICounterItemUnion> for ::windows::runtime::IUnknown {
+    fn from(value: &_ICounterItemUnion) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _ICounterItemUnion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _ICounterItemUnion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct _ICounterItemUnion_abi(
@@ -10996,8 +11802,8 @@ pub struct _ICounterItemUnion_abi(
 );
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct _ISystemMonitorUnion(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct _ISystemMonitorUnion(pub ::windows::runtime::IUnknown);
 impl _ISystemMonitorUnion {
     #[doc = "*Required features: `Win32_System_Performance`*"]
     pub unsafe fn Appearance(&self) -> ::windows::runtime::Result<i32> {
@@ -11446,6 +12252,26 @@ impl _ISystemMonitorUnion {
 unsafe impl ::windows::runtime::Interface for _ISystemMonitorUnion {
     type Vtable = _ISystemMonitorUnion_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3366417208, 9823, 19941, [170, 37, 199, 218, 28, 229, 168, 244]);
+}
+impl ::std::convert::From<_ISystemMonitorUnion> for ::windows::runtime::IUnknown {
+    fn from(value: _ISystemMonitorUnion) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&_ISystemMonitorUnion> for ::windows::runtime::IUnknown {
+    fn from(value: &_ISystemMonitorUnion) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _ISystemMonitorUnion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _ISystemMonitorUnion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

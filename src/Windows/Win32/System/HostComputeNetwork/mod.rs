@@ -26,6 +26,7 @@ impl ::std::convert::From<i32> for HCN_NOTIFICATIONS {
 unsafe impl ::windows::runtime::Abi for HCN_NOTIFICATIONS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type HCN_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: u32, context: *const ::std::ffi::c_void, notificationstatus: ::windows::runtime::HRESULT, notificationdata: super::super::Foundation::PWSTR);
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
@@ -198,8 +199,8 @@ pub unsafe fn HcnCloseNetwork(network: *const ::std::ffi::c_void) -> ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnCreateEndpoint<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(network: *const ::std::ffi::c_void, id: *const ::windows::runtime::GUID, settings: Param2, endpoint: *mut *mut ::std::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -213,8 +214,8 @@ pub unsafe fn HcnCreateEndpoint<'a, Param2: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnCreateGuestNetworkService<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(id: *const ::windows::runtime::GUID, settings: Param1, guestnetworkservice: *mut *mut ::std::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -228,8 +229,8 @@ pub unsafe fn HcnCreateGuestNetworkService<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnCreateLoadBalancer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(id: *const ::windows::runtime::GUID, settings: Param1, loadbalancer: *mut *mut ::std::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -243,8 +244,8 @@ pub unsafe fn HcnCreateLoadBalancer<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnCreateNamespace<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(id: *const ::windows::runtime::GUID, settings: Param1, namespace: *mut *mut ::std::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -258,8 +259,8 @@ pub unsafe fn HcnCreateNamespace<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnCreateNetwork<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(id: *const ::windows::runtime::GUID, settings: Param1, network: *mut *mut ::std::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -273,8 +274,8 @@ pub unsafe fn HcnCreateNetwork<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnDeleteEndpoint(id: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -289,8 +290,8 @@ pub unsafe fn HcnDeleteEndpoint(id: *const ::windows::runtime::GUID) -> ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnDeleteGuestNetworkService(id: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -305,8 +306,8 @@ pub unsafe fn HcnDeleteGuestNetworkService(id: *const ::windows::runtime::GUID) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnDeleteLoadBalancer(id: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -321,8 +322,8 @@ pub unsafe fn HcnDeleteLoadBalancer(id: *const ::windows::runtime::GUID) -> ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnDeleteNamespace(id: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -337,8 +338,8 @@ pub unsafe fn HcnDeleteNamespace(id: *const ::windows::runtime::GUID) -> ::windo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnDeleteNetwork(id: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -353,8 +354,8 @@ pub unsafe fn HcnDeleteNetwork(id: *const ::windows::runtime::GUID) -> ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnEnumerateEndpoints<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(query: Param0, endpoints: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -382,8 +383,8 @@ pub unsafe fn HcnEnumerateGuestNetworkPortReservations(returncount: *mut u32, po
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnEnumerateLoadBalancers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(query: Param0, loadbalancer: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -397,8 +398,8 @@ pub unsafe fn HcnEnumerateLoadBalancers<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnEnumerateNamespaces<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(query: Param0, namespaces: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -412,8 +413,8 @@ pub unsafe fn HcnEnumerateNamespaces<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnEnumerateNetworks<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(query: Param0, networks: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -441,8 +442,8 @@ pub unsafe fn HcnFreeGuestNetworkPortReservations(portentries: *mut HCN_PORT_RAN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnModifyEndpoint<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(endpoint: *const ::std::ffi::c_void, settings: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -457,8 +458,8 @@ pub unsafe fn HcnModifyEndpoint<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnModifyGuestNetworkService<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(guestnetworkservice: *const ::std::ffi::c_void, settings: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -473,8 +474,8 @@ pub unsafe fn HcnModifyGuestNetworkService<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnModifyLoadBalancer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(loadbalancer: *const ::std::ffi::c_void, settings: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -489,8 +490,8 @@ pub unsafe fn HcnModifyLoadBalancer<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnModifyNamespace<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(namespace: *const ::std::ffi::c_void, settings: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -505,8 +506,8 @@ pub unsafe fn HcnModifyNamespace<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnModifyNetwork<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(network: *const ::std::ffi::c_void, settings: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -521,8 +522,8 @@ pub unsafe fn HcnModifyNetwork<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnOpenEndpoint(id: *const ::windows::runtime::GUID, endpoint: *mut *mut ::std::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -536,8 +537,8 @@ pub unsafe fn HcnOpenEndpoint(id: *const ::windows::runtime::GUID, endpoint: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnOpenLoadBalancer(id: *const ::windows::runtime::GUID, loadbalancer: *mut *mut ::std::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -551,8 +552,8 @@ pub unsafe fn HcnOpenLoadBalancer(id: *const ::windows::runtime::GUID, loadbalan
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnOpenNamespace(id: *const ::windows::runtime::GUID, namespace: *mut *mut ::std::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -566,8 +567,8 @@ pub unsafe fn HcnOpenNamespace(id: *const ::windows::runtime::GUID, namespace: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnOpenNetwork(id: *const ::windows::runtime::GUID, network: *mut *mut ::std::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -581,8 +582,8 @@ pub unsafe fn HcnOpenNetwork(id: *const ::windows::runtime::GUID, network: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnQueryEndpointProperties<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(endpoint: *const ::std::ffi::c_void, query: Param1, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -596,8 +597,8 @@ pub unsafe fn HcnQueryEndpointProperties<'a, Param1: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnQueryLoadBalancerProperties<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(loadbalancer: *const ::std::ffi::c_void, query: Param1, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -611,8 +612,8 @@ pub unsafe fn HcnQueryLoadBalancerProperties<'a, Param1: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnQueryNamespaceProperties<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(namespace: *const ::std::ffi::c_void, query: Param1, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -626,8 +627,8 @@ pub unsafe fn HcnQueryNamespaceProperties<'a, Param1: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnQueryNetworkProperties<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(network: *const ::std::ffi::c_void, query: Param1, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -641,8 +642,8 @@ pub unsafe fn HcnQueryNetworkProperties<'a, Param1: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnRegisterGuestNetworkServiceCallback(guestnetworkservice: *const ::std::ffi::c_void, callback: ::std::option::Option<HCN_NOTIFICATION_CALLBACK>, context: *const ::std::ffi::c_void, callbackhandle: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -656,8 +657,8 @@ pub unsafe fn HcnRegisterGuestNetworkServiceCallback(guestnetworkservice: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnRegisterServiceCallback(callback: ::std::option::Option<HCN_NOTIFICATION_CALLBACK>, context: *const ::std::ffi::c_void, callbackhandle: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -671,8 +672,8 @@ pub unsafe fn HcnRegisterServiceCallback(callback: ::std::option::Option<HCN_NOT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnReleaseGuestNetworkServicePortReservationHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(portreservationhandle: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -686,8 +687,8 @@ pub unsafe fn HcnReleaseGuestNetworkServicePortReservationHandle<'a, Param0: ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnReserveGuestNetworkServicePort(guestnetworkservice: *const ::std::ffi::c_void, protocol: HCN_PORT_PROTOCOL, access: HCN_PORT_ACCESS, port: u16) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -702,8 +703,8 @@ pub unsafe fn HcnReserveGuestNetworkServicePort(guestnetworkservice: *const ::st
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcnReserveGuestNetworkServicePortRange(guestnetworkservice: *const ::std::ffi::c_void, portcount: u16, portrangereservation: *mut HCN_PORT_RANGE_RESERVATION, portreservationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

@@ -24,8 +24,8 @@ impl ::windows::runtime::DefaultType for BluetoothEventTriggeringMode {
 }
 #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BluetoothLEAdvertisementPublisherTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BluetoothLEAdvertisementPublisherTriggerDetails(pub ::windows::runtime::IInspectable);
 impl BluetoothLEAdvertisementPublisherTriggerDetails {
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
     #[doc = "*Required features: `Devices_Bluetooth_Background`, `Devices_Bluetooth_Advertisement`*"]
@@ -64,12 +64,52 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisementPublisherT
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementPublisherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementPublisherTriggerDetails";
 }
+impl ::std::convert::From<BluetoothLEAdvertisementPublisherTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEAdvertisementPublisherTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementPublisherTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEAdvertisementPublisherTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEAdvertisementPublisherTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BluetoothLEAdvertisementPublisherTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BluetoothLEAdvertisementPublisherTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEAdvertisementPublisherTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementPublisherTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEAdvertisementPublisherTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEAdvertisementPublisherTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEAdvertisementPublisherTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothLEAdvertisementPublisherTriggerDetails {}
 unsafe impl ::std::marker::Sync for BluetoothLEAdvertisementPublisherTriggerDetails {}
 #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BluetoothLEAdvertisementWatcherTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BluetoothLEAdvertisementWatcherTriggerDetails(pub ::windows::runtime::IInspectable);
 impl BluetoothLEAdvertisementWatcherTriggerDetails {
     #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
     pub fn Error(&self) -> ::windows::runtime::Result<super::BluetoothError> {
@@ -107,12 +147,52 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisementWatcherTri
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementWatcherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementWatcherTriggerDetails";
 }
+impl ::std::convert::From<BluetoothLEAdvertisementWatcherTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEAdvertisementWatcherTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementWatcherTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEAdvertisementWatcherTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEAdvertisementWatcherTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BluetoothLEAdvertisementWatcherTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BluetoothLEAdvertisementWatcherTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEAdvertisementWatcherTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementWatcherTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEAdvertisementWatcherTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEAdvertisementWatcherTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEAdvertisementWatcherTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothLEAdvertisementWatcherTriggerDetails {}
 unsafe impl ::std::marker::Sync for BluetoothLEAdvertisementWatcherTriggerDetails {}
 #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct GattCharacteristicNotificationTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct GattCharacteristicNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 impl GattCharacteristicNotificationTriggerDetails {
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     #[doc = "*Required features: `Devices_Bluetooth_Background`, `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -168,12 +248,52 @@ unsafe impl ::windows::runtime::Interface for GattCharacteristicNotificationTrig
 impl ::windows::runtime::RuntimeName for GattCharacteristicNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.GattCharacteristicNotificationTriggerDetails";
 }
+impl ::std::convert::From<GattCharacteristicNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: GattCharacteristicNotificationTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&GattCharacteristicNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &GattCharacteristicNotificationTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattCharacteristicNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GattCharacteristicNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<GattCharacteristicNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: GattCharacteristicNotificationTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattCharacteristicNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &GattCharacteristicNotificationTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattCharacteristicNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattCharacteristicNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattCharacteristicNotificationTriggerDetails {}
 unsafe impl ::std::marker::Sync for GattCharacteristicNotificationTriggerDetails {}
 #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct GattServiceProviderConnection(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct GattServiceProviderConnection(pub ::windows::runtime::IInspectable);
 impl GattServiceProviderConnection {
     #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
     pub fn TriggerId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -220,12 +340,52 @@ unsafe impl ::windows::runtime::Interface for GattServiceProviderConnection {
 impl ::windows::runtime::RuntimeName for GattServiceProviderConnection {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.GattServiceProviderConnection";
 }
+impl ::std::convert::From<GattServiceProviderConnection> for ::windows::runtime::IUnknown {
+    fn from(value: GattServiceProviderConnection) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&GattServiceProviderConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &GattServiceProviderConnection) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattServiceProviderConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GattServiceProviderConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<GattServiceProviderConnection> for ::windows::runtime::IInspectable {
+    fn from(value: GattServiceProviderConnection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattServiceProviderConnection> for ::windows::runtime::IInspectable {
+    fn from(value: &GattServiceProviderConnection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattServiceProviderConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattServiceProviderConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattServiceProviderConnection {}
 unsafe impl ::std::marker::Sync for GattServiceProviderConnection {}
 #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct GattServiceProviderTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct GattServiceProviderTriggerDetails(pub ::windows::runtime::IInspectable);
 impl GattServiceProviderTriggerDetails {
     #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
     pub fn Connection(&self) -> ::windows::runtime::Result<GattServiceProviderConnection> {
@@ -246,11 +406,51 @@ unsafe impl ::windows::runtime::Interface for GattServiceProviderTriggerDetails 
 impl ::windows::runtime::RuntimeName for GattServiceProviderTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.GattServiceProviderTriggerDetails";
 }
+impl ::std::convert::From<GattServiceProviderTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: GattServiceProviderTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&GattServiceProviderTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &GattServiceProviderTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattServiceProviderTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GattServiceProviderTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<GattServiceProviderTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: GattServiceProviderTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattServiceProviderTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &GattServiceProviderTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattServiceProviderTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattServiceProviderTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattServiceProviderTriggerDetails {}
 unsafe impl ::std::marker::Sync for GattServiceProviderTriggerDetails {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementPublisherTriggerDetails(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementPublisherTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementPublisherTriggerDetails {
     type Vtable = IBluetoothLEAdvertisementPublisherTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1628359302, 13440, 16841, [169, 24, 125, 218, 223, 32, 126, 0]);
@@ -270,7 +470,7 @@ pub struct IBluetoothLEAdvertisementPublisherTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementPublisherTriggerDetails2(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementPublisherTriggerDetails2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementPublisherTriggerDetails2 {
     type Vtable = IBluetoothLEAdvertisementPublisherTriggerDetails2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3567505445, 50689, 17110, [152, 41, 76, 203, 63, 92, 215, 127]);
@@ -289,7 +489,7 @@ pub struct IBluetoothLEAdvertisementPublisherTriggerDetails2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementWatcherTriggerDetails(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementWatcherTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementWatcherTriggerDetails {
     type Vtable = IBluetoothLEAdvertisementWatcherTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2816170711, 8791, 20073, [151, 132, 254, 230, 69, 193, 220, 224]);
@@ -310,7 +510,7 @@ pub struct IBluetoothLEAdvertisementWatcherTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGattCharacteristicNotificationTriggerDetails(::windows::runtime::IInspectable);
+pub struct IGattCharacteristicNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicNotificationTriggerDetails {
     type Vtable = IGattCharacteristicNotificationTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2610969368, 4076, 17258, [147, 177, 244, 108, 105, 117, 50, 162]);
@@ -331,7 +531,7 @@ pub struct IGattCharacteristicNotificationTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGattCharacteristicNotificationTriggerDetails2(::windows::runtime::IInspectable);
+pub struct IGattCharacteristicNotificationTriggerDetails2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicNotificationTriggerDetails2 {
     type Vtable = IGattCharacteristicNotificationTriggerDetails2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920618716, 38045, 17738, [177, 146, 152, 52, 103, 227, 213, 15]);
@@ -352,7 +552,7 @@ pub struct IGattCharacteristicNotificationTriggerDetails2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGattServiceProviderConnection(::windows::runtime::IInspectable);
+pub struct IGattServiceProviderConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderConnection {
     type Vtable = IGattServiceProviderConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2141305273, 12051, 16565, [149, 130, 142, 183, 142, 152, 239, 19]);
@@ -373,7 +573,7 @@ pub struct IGattServiceProviderConnection_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGattServiceProviderConnectionStatics(::windows::runtime::IInspectable);
+pub struct IGattServiceProviderConnectionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderConnectionStatics {
     type Vtable = IGattServiceProviderConnectionStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1028693835, 2830, 17510, [184, 205, 110, 189, 218, 31, 161, 125]);
@@ -392,7 +592,7 @@ pub struct IGattServiceProviderConnectionStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGattServiceProviderTriggerDetails(::windows::runtime::IInspectable);
+pub struct IGattServiceProviderTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderTriggerDetails {
     type Vtable = IGattServiceProviderTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2928412197, 1535, 19195, [177, 106, 222, 149, 243, 207, 1, 88]);
@@ -410,7 +610,7 @@ pub struct IGattServiceProviderTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRfcommConnectionTriggerDetails(::windows::runtime::IInspectable);
+pub struct IRfcommConnectionTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommConnectionTriggerDetails {
     type Vtable = IRfcommConnectionTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4179784525, 11836, 20220, [171, 89, 252, 92, 249, 111, 151, 227]);
@@ -431,7 +631,7 @@ pub struct IRfcommConnectionTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRfcommInboundConnectionInformation(::windows::runtime::IInspectable);
+pub struct IRfcommInboundConnectionInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommInboundConnectionInformation {
     type Vtable = IRfcommInboundConnectionInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1832809896, 21545, 16473, [146, 227, 30, 139, 101, 82, 135, 7]);
@@ -458,7 +658,7 @@ pub struct IRfcommInboundConnectionInformation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRfcommOutboundConnectionInformation(::windows::runtime::IInspectable);
+pub struct IRfcommOutboundConnectionInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommOutboundConnectionInformation {
     type Vtable = IRfcommOutboundConnectionInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2962301563, 62516, 19632, [153, 177, 74, 184, 206, 218, 237, 215]);
@@ -479,8 +679,8 @@ pub struct IRfcommOutboundConnectionInformation_abi(
 );
 #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct RfcommConnectionTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct RfcommConnectionTriggerDetails(pub ::windows::runtime::IInspectable);
 impl RfcommConnectionTriggerDetails {
     #[cfg(feature = "Networking_Sockets")]
     #[doc = "*Required features: `Devices_Bluetooth_Background`, `Networking_Sockets`*"]
@@ -518,12 +718,52 @@ unsafe impl ::windows::runtime::Interface for RfcommConnectionTriggerDetails {
 impl ::windows::runtime::RuntimeName for RfcommConnectionTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.RfcommConnectionTriggerDetails";
 }
+impl ::std::convert::From<RfcommConnectionTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: RfcommConnectionTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&RfcommConnectionTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &RfcommConnectionTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RfcommConnectionTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RfcommConnectionTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<RfcommConnectionTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: RfcommConnectionTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RfcommConnectionTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &RfcommConnectionTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RfcommConnectionTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RfcommConnectionTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for RfcommConnectionTriggerDetails {}
 unsafe impl ::std::marker::Sync for RfcommConnectionTriggerDetails {}
 #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct RfcommInboundConnectionInformation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct RfcommInboundConnectionInformation(pub ::windows::runtime::IInspectable);
 impl RfcommInboundConnectionInformation {
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_Bluetooth_Background`, `Storage_Streams`*"]
@@ -579,12 +819,52 @@ unsafe impl ::windows::runtime::Interface for RfcommInboundConnectionInformation
 impl ::windows::runtime::RuntimeName for RfcommInboundConnectionInformation {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.RfcommInboundConnectionInformation";
 }
+impl ::std::convert::From<RfcommInboundConnectionInformation> for ::windows::runtime::IUnknown {
+    fn from(value: RfcommInboundConnectionInformation) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&RfcommInboundConnectionInformation> for ::windows::runtime::IUnknown {
+    fn from(value: &RfcommInboundConnectionInformation) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RfcommInboundConnectionInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RfcommInboundConnectionInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<RfcommInboundConnectionInformation> for ::windows::runtime::IInspectable {
+    fn from(value: RfcommInboundConnectionInformation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RfcommInboundConnectionInformation> for ::windows::runtime::IInspectable {
+    fn from(value: &RfcommInboundConnectionInformation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RfcommInboundConnectionInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RfcommInboundConnectionInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for RfcommInboundConnectionInformation {}
 unsafe impl ::std::marker::Sync for RfcommInboundConnectionInformation {}
 #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct RfcommOutboundConnectionInformation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct RfcommOutboundConnectionInformation(pub ::windows::runtime::IInspectable);
 impl RfcommOutboundConnectionInformation {
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
     #[doc = "*Required features: `Devices_Bluetooth_Background`, `Devices_Bluetooth_Rfcomm`*"]
@@ -611,6 +891,46 @@ unsafe impl ::windows::runtime::Interface for RfcommOutboundConnectionInformatio
 }
 impl ::windows::runtime::RuntimeName for RfcommOutboundConnectionInformation {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.RfcommOutboundConnectionInformation";
+}
+impl ::std::convert::From<RfcommOutboundConnectionInformation> for ::windows::runtime::IUnknown {
+    fn from(value: RfcommOutboundConnectionInformation) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&RfcommOutboundConnectionInformation> for ::windows::runtime::IUnknown {
+    fn from(value: &RfcommOutboundConnectionInformation) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RfcommOutboundConnectionInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RfcommOutboundConnectionInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<RfcommOutboundConnectionInformation> for ::windows::runtime::IInspectable {
+    fn from(value: RfcommOutboundConnectionInformation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RfcommOutboundConnectionInformation> for ::windows::runtime::IInspectable {
+    fn from(value: &RfcommOutboundConnectionInformation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RfcommOutboundConnectionInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RfcommOutboundConnectionInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for RfcommOutboundConnectionInformation {}
 unsafe impl ::std::marker::Sync for RfcommOutboundConnectionInformation {}

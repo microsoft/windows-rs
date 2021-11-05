@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrintSupportExtensionSession(::windows::runtime::IInspectable);
+pub struct IPrintSupportExtensionSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintSupportExtensionSession {
     type Vtable = IPrintSupportExtensionSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4003749658, 62662, 21683, [160, 184, 165, 89, 131, 154, 164, 195]);
@@ -29,7 +29,7 @@ pub struct IPrintSupportExtensionSession_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrintSupportExtensionTriggerDetails(::windows::runtime::IInspectable);
+pub struct IPrintSupportExtensionTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintSupportExtensionTriggerDetails {
     type Vtable = IPrintSupportExtensionTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2919773969, 39689, 21969, [160, 174, 42, 20, 197, 248, 61, 106]);
@@ -47,7 +47,7 @@ pub struct IPrintSupportExtensionTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     type Vtable = IPrintSupportPrintDeviceCapabilitiesChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(362191856, 36904, 22306, [138, 55, 125, 124, 52, 180, 29, 214]);
@@ -70,7 +70,7 @@ pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrintSupportPrintTicketValidationRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IPrintSupportPrintTicketValidationRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintSupportPrintTicketValidationRequestedEventArgs {
     type Vtable = IPrintSupportPrintTicketValidationRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(864964201, 56149, 21959, [131, 56, 239, 100, 104, 10, 143, 144]);
@@ -92,7 +92,7 @@ pub struct IPrintSupportPrintTicketValidationRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrintSupportSessionInfo(::windows::runtime::IInspectable);
+pub struct IPrintSupportSessionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintSupportSessionInfo {
     type Vtable = IPrintSupportSessionInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2233551279, 30589, 21481, [158, 233, 69, 211, 244, 181, 190, 156]);
@@ -113,7 +113,7 @@ pub struct IPrintSupportSessionInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrintSupportSettingsActivatedEventArgs(::windows::runtime::IInspectable);
+pub struct IPrintSupportSettingsActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintSupportSettingsActivatedEventArgs {
     type Vtable = IPrintSupportSettingsActivatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(505108062, 40979, 21994, [155, 140, 238, 163, 157, 159, 182, 193]);
@@ -133,7 +133,7 @@ pub struct IPrintSupportSettingsActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrintSupportSettingsUISession(::windows::runtime::IInspectable);
+pub struct IPrintSupportSettingsUISession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintSupportSettingsUISession {
     type Vtable = IPrintSupportSettingsUISession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3336184401, 33731, 21988, [160, 248, 93, 232, 176, 98, 173, 191]);
@@ -157,8 +157,8 @@ pub struct IPrintSupportSettingsUISession_abi(
 );
 #[doc = "*Required features: `Graphics_Printing_PrintSupport`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PrintSupportExtensionSession(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PrintSupportExtensionSession(pub ::windows::runtime::IInspectable);
 impl PrintSupportExtensionSession {
     #[cfg(feature = "Devices_Printers")]
     #[doc = "*Required features: `Graphics_Printing_PrintSupport`, `Devices_Printers`*"]
@@ -215,12 +215,52 @@ unsafe impl ::windows::runtime::Interface for PrintSupportExtensionSession {
 impl ::windows::runtime::RuntimeName for PrintSupportExtensionSession {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionSession";
 }
+impl ::std::convert::From<PrintSupportExtensionSession> for ::windows::runtime::IUnknown {
+    fn from(value: PrintSupportExtensionSession) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PrintSupportExtensionSession> for ::windows::runtime::IUnknown {
+    fn from(value: &PrintSupportExtensionSession) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintSupportExtensionSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PrintSupportExtensionSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PrintSupportExtensionSession> for ::windows::runtime::IInspectable {
+    fn from(value: PrintSupportExtensionSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PrintSupportExtensionSession> for ::windows::runtime::IInspectable {
+    fn from(value: &PrintSupportExtensionSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintSupportExtensionSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintSupportExtensionSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PrintSupportExtensionSession {}
 unsafe impl ::std::marker::Sync for PrintSupportExtensionSession {}
 #[doc = "*Required features: `Graphics_Printing_PrintSupport`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PrintSupportExtensionTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PrintSupportExtensionTriggerDetails(pub ::windows::runtime::IInspectable);
 impl PrintSupportExtensionTriggerDetails {
     #[doc = "*Required features: `Graphics_Printing_PrintSupport`*"]
     pub fn Session(&self) -> ::windows::runtime::Result<PrintSupportExtensionSession> {
@@ -241,12 +281,52 @@ unsafe impl ::windows::runtime::Interface for PrintSupportExtensionTriggerDetail
 impl ::windows::runtime::RuntimeName for PrintSupportExtensionTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionTriggerDetails";
 }
+impl ::std::convert::From<PrintSupportExtensionTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: PrintSupportExtensionTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PrintSupportExtensionTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &PrintSupportExtensionTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintSupportExtensionTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PrintSupportExtensionTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PrintSupportExtensionTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: PrintSupportExtensionTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PrintSupportExtensionTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &PrintSupportExtensionTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintSupportExtensionTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintSupportExtensionTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PrintSupportExtensionTriggerDetails {}
 unsafe impl ::std::marker::Sync for PrintSupportExtensionTriggerDetails {}
 #[doc = "*Required features: `Graphics_Printing_PrintSupport`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PrintSupportPrintDeviceCapabilitiesChangedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PrintSupportPrintDeviceCapabilitiesChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     #[cfg(feature = "Data_Xml_Dom")]
     #[doc = "*Required features: `Graphics_Printing_PrintSupport`, `Data_Xml_Dom`*"]
@@ -283,12 +363,52 @@ unsafe impl ::windows::runtime::Interface for PrintSupportPrintDeviceCapabilitie
 impl ::windows::runtime::RuntimeName for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs";
 }
+impl ::std::convert::From<PrintSupportPrintDeviceCapabilitiesChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: PrintSupportPrintDeviceCapabilitiesChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PrintSupportPrintDeviceCapabilitiesChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &PrintSupportPrintDeviceCapabilitiesChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PrintSupportPrintDeviceCapabilitiesChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: PrintSupportPrintDeviceCapabilitiesChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PrintSupportPrintDeviceCapabilitiesChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &PrintSupportPrintDeviceCapabilitiesChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
 unsafe impl ::std::marker::Sync for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
 #[doc = "*Required features: `Graphics_Printing_PrintSupport`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PrintSupportPrintTicketValidationRequestedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PrintSupportPrintTicketValidationRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl PrintSupportPrintTicketValidationRequestedEventArgs {
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     #[doc = "*Required features: `Graphics_Printing_PrintSupport`, `Graphics_Printing_PrintTicket`*"]
@@ -324,12 +444,52 @@ unsafe impl ::windows::runtime::Interface for PrintSupportPrintTicketValidationR
 impl ::windows::runtime::RuntimeName for PrintSupportPrintTicketValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketValidationRequestedEventArgs";
 }
+impl ::std::convert::From<PrintSupportPrintTicketValidationRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: PrintSupportPrintTicketValidationRequestedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PrintSupportPrintTicketValidationRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &PrintSupportPrintTicketValidationRequestedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintSupportPrintTicketValidationRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PrintSupportPrintTicketValidationRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PrintSupportPrintTicketValidationRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: PrintSupportPrintTicketValidationRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PrintSupportPrintTicketValidationRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &PrintSupportPrintTicketValidationRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintSupportPrintTicketValidationRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintSupportPrintTicketValidationRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PrintSupportPrintTicketValidationRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for PrintSupportPrintTicketValidationRequestedEventArgs {}
 #[doc = "*Required features: `Graphics_Printing_PrintSupport`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PrintSupportSessionInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PrintSupportSessionInfo(pub ::windows::runtime::IInspectable);
 impl PrintSupportSessionInfo {
     #[cfg(feature = "ApplicationModel")]
     #[doc = "*Required features: `Graphics_Printing_PrintSupport`, `ApplicationModel`*"]
@@ -360,12 +520,52 @@ unsafe impl ::windows::runtime::Interface for PrintSupportSessionInfo {
 impl ::windows::runtime::RuntimeName for PrintSupportSessionInfo {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSessionInfo";
 }
+impl ::std::convert::From<PrintSupportSessionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: PrintSupportSessionInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PrintSupportSessionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &PrintSupportSessionInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintSupportSessionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PrintSupportSessionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PrintSupportSessionInfo> for ::windows::runtime::IInspectable {
+    fn from(value: PrintSupportSessionInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PrintSupportSessionInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &PrintSupportSessionInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintSupportSessionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintSupportSessionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PrintSupportSessionInfo {}
 unsafe impl ::std::marker::Sync for PrintSupportSessionInfo {}
 #[doc = "*Required features: `Graphics_Printing_PrintSupport`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PrintSupportSettingsActivatedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PrintSupportSettingsActivatedEventArgs(pub ::windows::runtime::IInspectable);
 impl PrintSupportSettingsActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
     #[doc = "*Required features: `Graphics_Printing_PrintSupport`, `ApplicationModel_Activation`*"]
@@ -431,6 +631,46 @@ unsafe impl ::windows::runtime::Interface for PrintSupportSettingsActivatedEvent
 impl ::windows::runtime::RuntimeName for PrintSupportSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsActivatedEventArgs";
 }
+impl ::std::convert::From<PrintSupportSettingsActivatedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: PrintSupportSettingsActivatedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PrintSupportSettingsActivatedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &PrintSupportSettingsActivatedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintSupportSettingsActivatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PrintSupportSettingsActivatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PrintSupportSettingsActivatedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: PrintSupportSettingsActivatedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PrintSupportSettingsActivatedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &PrintSupportSettingsActivatedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintSupportSettingsActivatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintSupportSettingsActivatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::std::convert::TryFrom<PrintSupportSettingsActivatedEventArgs> for super::super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
@@ -487,8 +727,8 @@ unsafe impl ::std::marker::Send for PrintSupportSettingsActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for PrintSupportSettingsActivatedEventArgs {}
 #[doc = "*Required features: `Graphics_Printing_PrintSupport`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PrintSupportSettingsUISession(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PrintSupportSettingsUISession(pub ::windows::runtime::IInspectable);
 impl PrintSupportSettingsUISession {
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     #[doc = "*Required features: `Graphics_Printing_PrintSupport`, `Graphics_Printing_PrintTicket`*"]
@@ -539,6 +779,46 @@ unsafe impl ::windows::runtime::Interface for PrintSupportSettingsUISession {
 }
 impl ::windows::runtime::RuntimeName for PrintSupportSettingsUISession {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsUISession";
+}
+impl ::std::convert::From<PrintSupportSettingsUISession> for ::windows::runtime::IUnknown {
+    fn from(value: PrintSupportSettingsUISession) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PrintSupportSettingsUISession> for ::windows::runtime::IUnknown {
+    fn from(value: &PrintSupportSettingsUISession) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintSupportSettingsUISession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PrintSupportSettingsUISession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PrintSupportSettingsUISession> for ::windows::runtime::IInspectable {
+    fn from(value: PrintSupportSettingsUISession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PrintSupportSettingsUISession> for ::windows::runtime::IInspectable {
+    fn from(value: &PrintSupportSettingsUISession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintSupportSettingsUISession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintSupportSettingsUISession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for PrintSupportSettingsUISession {}
 unsafe impl ::std::marker::Sync for PrintSupportSettingsUISession {}

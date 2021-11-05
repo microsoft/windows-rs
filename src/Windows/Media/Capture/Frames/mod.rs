@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct AudioMediaFrame(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct AudioMediaFrame(pub ::windows::runtime::IInspectable);
 impl AudioMediaFrame {
     #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn FrameReference(&self) -> ::windows::runtime::Result<MediaFrameReference> {
@@ -40,12 +40,52 @@ unsafe impl ::windows::runtime::Interface for AudioMediaFrame {
 impl ::windows::runtime::RuntimeName for AudioMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.AudioMediaFrame";
 }
+impl ::std::convert::From<AudioMediaFrame> for ::windows::runtime::IUnknown {
+    fn from(value: AudioMediaFrame) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&AudioMediaFrame> for ::windows::runtime::IUnknown {
+    fn from(value: &AudioMediaFrame) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<AudioMediaFrame> for ::windows::runtime::IInspectable {
+    fn from(value: AudioMediaFrame) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AudioMediaFrame> for ::windows::runtime::IInspectable {
+    fn from(value: &AudioMediaFrame) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AudioMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AudioMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AudioMediaFrame {}
 unsafe impl ::std::marker::Sync for AudioMediaFrame {}
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BufferMediaFrame(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BufferMediaFrame(pub ::windows::runtime::IInspectable);
 impl BufferMediaFrame {
     #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn FrameReference(&self) -> ::windows::runtime::Result<MediaFrameReference> {
@@ -75,12 +115,52 @@ unsafe impl ::windows::runtime::Interface for BufferMediaFrame {
 impl ::windows::runtime::RuntimeName for BufferMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.BufferMediaFrame";
 }
+impl ::std::convert::From<BufferMediaFrame> for ::windows::runtime::IUnknown {
+    fn from(value: BufferMediaFrame) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BufferMediaFrame> for ::windows::runtime::IUnknown {
+    fn from(value: &BufferMediaFrame) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BufferMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BufferMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BufferMediaFrame> for ::windows::runtime::IInspectable {
+    fn from(value: BufferMediaFrame) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BufferMediaFrame> for ::windows::runtime::IInspectable {
+    fn from(value: &BufferMediaFrame) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BufferMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BufferMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BufferMediaFrame {}
 unsafe impl ::std::marker::Sync for BufferMediaFrame {}
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DepthMediaFrame(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DepthMediaFrame(pub ::windows::runtime::IInspectable);
 impl DepthMediaFrame {
     #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn FrameReference(&self) -> ::windows::runtime::Result<MediaFrameReference> {
@@ -142,12 +222,52 @@ unsafe impl ::windows::runtime::Interface for DepthMediaFrame {
 impl ::windows::runtime::RuntimeName for DepthMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.DepthMediaFrame";
 }
+impl ::std::convert::From<DepthMediaFrame> for ::windows::runtime::IUnknown {
+    fn from(value: DepthMediaFrame) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DepthMediaFrame> for ::windows::runtime::IUnknown {
+    fn from(value: &DepthMediaFrame) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DepthMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DepthMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DepthMediaFrame> for ::windows::runtime::IInspectable {
+    fn from(value: DepthMediaFrame) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DepthMediaFrame> for ::windows::runtime::IInspectable {
+    fn from(value: &DepthMediaFrame) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DepthMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DepthMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for DepthMediaFrame {}
 unsafe impl ::std::marker::Sync for DepthMediaFrame {}
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DepthMediaFrameFormat(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DepthMediaFrameFormat(pub ::windows::runtime::IInspectable);
 impl DepthMediaFrameFormat {
     #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn VideoFormat(&self) -> ::windows::runtime::Result<VideoMediaFrameFormat> {
@@ -176,11 +296,51 @@ unsafe impl ::windows::runtime::Interface for DepthMediaFrameFormat {
 impl ::windows::runtime::RuntimeName for DepthMediaFrameFormat {
     const NAME: &'static str = "Windows.Media.Capture.Frames.DepthMediaFrameFormat";
 }
+impl ::std::convert::From<DepthMediaFrameFormat> for ::windows::runtime::IUnknown {
+    fn from(value: DepthMediaFrameFormat) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DepthMediaFrameFormat> for ::windows::runtime::IUnknown {
+    fn from(value: &DepthMediaFrameFormat) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DepthMediaFrameFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DepthMediaFrameFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DepthMediaFrameFormat> for ::windows::runtime::IInspectable {
+    fn from(value: DepthMediaFrameFormat) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DepthMediaFrameFormat> for ::windows::runtime::IInspectable {
+    fn from(value: &DepthMediaFrameFormat) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DepthMediaFrameFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DepthMediaFrameFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for DepthMediaFrameFormat {}
 unsafe impl ::std::marker::Sync for DepthMediaFrameFormat {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioMediaFrame(::windows::runtime::IInspectable);
+pub struct IAudioMediaFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioMediaFrame {
     type Vtable = IAudioMediaFrame_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2745827071, 32801, 17435, [154, 70, 231, 240, 19, 123, 121, 129]);
@@ -201,7 +361,7 @@ pub struct IAudioMediaFrame_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBufferMediaFrame(::windows::runtime::IInspectable);
+pub struct IBufferMediaFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBufferMediaFrame {
     type Vtable = IBufferMediaFrame_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3048297415, 39812, 16482, [183, 156, 163, 101, 178, 89, 104, 84]);
@@ -221,7 +381,7 @@ pub struct IBufferMediaFrame_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDepthMediaFrame(::windows::runtime::IInspectable);
+pub struct IDepthMediaFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDepthMediaFrame {
     type Vtable = IDepthMediaFrame_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1192451663, 34121, 17856, [146, 91, 128, 211, 94, 253, 177, 10]);
@@ -243,7 +403,7 @@ pub struct IDepthMediaFrame_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDepthMediaFrame2(::windows::runtime::IInspectable);
+pub struct IDepthMediaFrame2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDepthMediaFrame2 {
     type Vtable = IDepthMediaFrame2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1825195837, 50340, 16758, [176, 205, 51, 234, 227, 179, 90, 163]);
@@ -262,7 +422,7 @@ pub struct IDepthMediaFrame2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDepthMediaFrameFormat(::windows::runtime::IInspectable);
+pub struct IDepthMediaFrameFormat(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDepthMediaFrameFormat {
     type Vtable = IDepthMediaFrameFormat_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3272789824, 55081, 17726, [135, 128, 46, 4, 241, 64, 210, 142]);
@@ -281,7 +441,7 @@ pub struct IDepthMediaFrameFormat_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInfraredMediaFrame(::windows::runtime::IInspectable);
+pub struct IInfraredMediaFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInfraredMediaFrame {
     type Vtable = IInfraredMediaFrame_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1070675203, 75, 20238, [145, 172, 70, 82, 153, 180, 22, 88]);
@@ -301,7 +461,7 @@ pub struct IInfraredMediaFrame_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameArrivedEventArgs(::windows::runtime::IInspectable);
+pub struct IMediaFrameArrivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameArrivedEventArgs {
     type Vtable = IMediaFrameArrivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(188943069, 42128, 17461, [173, 161, 154, 255, 213, 82, 57, 247]);
@@ -318,7 +478,7 @@ pub struct IMediaFrameArrivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameFormat(::windows::runtime::IInspectable);
+pub struct IMediaFrameFormat(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameFormat {
     type Vtable = IMediaFrameFormat_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1905273678, 45689, 19095, [169, 219, 189, 90, 47, 183, 143, 57]);
@@ -342,7 +502,7 @@ pub struct IMediaFrameFormat_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameFormat2(::windows::runtime::IInspectable);
+pub struct IMediaFrameFormat2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameFormat2 {
     type Vtable = IMediaFrameFormat2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1669686080, 24199, 19472, [134, 209, 109, 240, 151, 166, 198, 168]);
@@ -361,7 +521,7 @@ pub struct IMediaFrameFormat2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameReader(::windows::runtime::IInspectable);
+pub struct IMediaFrameReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameReader {
     type Vtable = IMediaFrameReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3838395285, 8232, 18669, [144, 176, 209, 193, 177, 98, 226, 76]);
@@ -387,7 +547,7 @@ pub struct IMediaFrameReader_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameReader2(::windows::runtime::IInspectable);
+pub struct IMediaFrameReader2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameReader2 {
     type Vtable = IMediaFrameReader2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2266048435, 34097, 16464, [135, 204, 161, 55, 51, 207, 62, 155]);
@@ -406,7 +566,7 @@ pub struct IMediaFrameReader2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameReference(::windows::runtime::IInspectable);
+pub struct IMediaFrameReference(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameReference {
     type Vtable = IMediaFrameReference_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4139288129, 61660, 16452, [141, 201, 150, 28, 237, 208, 91, 173]);
@@ -435,7 +595,7 @@ pub struct IMediaFrameReference_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameReference2(::windows::runtime::IInspectable);
+pub struct IMediaFrameReference2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameReference2 {
     type Vtable = IMediaFrameReference2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3720101580, 54706, 18927, [131, 106, 148, 125, 152, 155, 128, 193]);
@@ -453,7 +613,7 @@ pub struct IMediaFrameReference2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameSource(::windows::runtime::IInspectable);
+pub struct IMediaFrameSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSource {
     type Vtable = IMediaFrameSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3598199123, 37083, 18088, [138, 221, 42, 168, 132, 168, 210, 83]);
@@ -483,7 +643,7 @@ pub struct IMediaFrameSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceController(::windows::runtime::IInspectable);
+pub struct IMediaFrameSourceController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceController {
     type Vtable = IMediaFrameSourceController_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1829201461, 12653, 19343, [183, 182, 238, 176, 74, 140, 101, 37]);
@@ -506,7 +666,7 @@ pub struct IMediaFrameSourceController_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceController2(::windows::runtime::IInspectable);
+pub struct IMediaFrameSourceController2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceController2 {
     type Vtable = IMediaFrameSourceController2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4022640596, 64754, 18947, [180, 228, 172, 150, 40, 115, 155, 238]);
@@ -527,7 +687,7 @@ pub struct IMediaFrameSourceController2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceController3(::windows::runtime::IInspectable);
+pub struct IMediaFrameSourceController3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceController3 {
     type Vtable = IMediaFrameSourceController3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(520943637, 9316, 18001, [177, 232, 74, 130, 219, 219, 84, 222]);
@@ -546,7 +706,7 @@ pub struct IMediaFrameSourceController3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceGetPropertyResult(::windows::runtime::IInspectable);
+pub struct IMediaFrameSourceGetPropertyResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceGetPropertyResult {
     type Vtable = IMediaFrameSourceGetPropertyResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(143005378, 14948, 19413, [189, 43, 231, 200, 152, 210, 243, 122]);
@@ -565,7 +725,7 @@ pub struct IMediaFrameSourceGetPropertyResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceGroup(::windows::runtime::IInspectable);
+pub struct IMediaFrameSourceGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceGroup {
     type Vtable = IMediaFrameSourceGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2137021319, 18482, 19295, [174, 61, 65, 47, 170, 179, 125, 52]);
@@ -586,7 +746,7 @@ pub struct IMediaFrameSourceGroup_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceGroupStatics(::windows::runtime::IInspectable);
+pub struct IMediaFrameSourceGroupStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceGroupStatics {
     type Vtable = IMediaFrameSourceGroupStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(474529733, 17263, 17672, [148, 207, 213, 216, 183, 50, 100, 69]);
@@ -608,7 +768,7 @@ pub struct IMediaFrameSourceGroupStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceInfo(::windows::runtime::IInspectable);
+pub struct IMediaFrameSourceInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceInfo {
     type Vtable = IMediaFrameSourceInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2277362125, 17921, 16527, [145, 207, 3, 131, 24, 205, 10, 243]);
@@ -635,7 +795,7 @@ pub struct IMediaFrameSourceInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceInfo2(::windows::runtime::IInspectable);
+pub struct IMediaFrameSourceInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceInfo2 {
     type Vtable = IMediaFrameSourceInfo2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(425359445, 25687, 17094, [167, 105, 25, 182, 91, 211, 46, 110]);
@@ -655,7 +815,7 @@ pub struct IMediaFrameSourceInfo2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceInfo3(::windows::runtime::IInspectable);
+pub struct IMediaFrameSourceInfo3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceInfo3 {
     type Vtable = IMediaFrameSourceInfo3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3397536438, 26346, 22661, [162, 182, 38, 192, 238, 236, 60, 123]);
@@ -674,7 +834,7 @@ pub struct IMediaFrameSourceInfo3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMultiSourceMediaFrameArrivedEventArgs(::windows::runtime::IInspectable);
+pub struct IMultiSourceMediaFrameArrivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultiSourceMediaFrameArrivedEventArgs {
     type Vtable = IMultiSourceMediaFrameArrivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1662082561, 53073, 18685, [170, 176, 109, 105, 62, 180, 129, 39]);
@@ -691,7 +851,7 @@ pub struct IMultiSourceMediaFrameArrivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMultiSourceMediaFrameReader(::windows::runtime::IInspectable);
+pub struct IMultiSourceMediaFrameReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultiSourceMediaFrameReader {
     type Vtable = IMultiSourceMediaFrameReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2366915586, 63331, 18573, [152, 242, 180, 55, 188, 240, 117, 231]);
@@ -717,7 +877,7 @@ pub struct IMultiSourceMediaFrameReader_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMultiSourceMediaFrameReader2(::windows::runtime::IInspectable);
+pub struct IMultiSourceMediaFrameReader2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultiSourceMediaFrameReader2 {
     type Vtable = IMultiSourceMediaFrameReader2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4015819453, 64604, 19563, [157, 129, 60, 185, 204, 99, 124, 38]);
@@ -736,7 +896,7 @@ pub struct IMultiSourceMediaFrameReader2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMultiSourceMediaFrameReference(::windows::runtime::IInspectable);
+pub struct IMultiSourceMediaFrameReference(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultiSourceMediaFrameReference {
     type Vtable = IMultiSourceMediaFrameReference_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(563497754, 32738, 17622, [146, 229, 41, 142, 109, 40, 16, 233]);
@@ -754,7 +914,7 @@ pub struct IMultiSourceMediaFrameReference_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVideoMediaFrame(::windows::runtime::IInspectable);
+pub struct IVideoMediaFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoMediaFrame {
     type Vtable = IVideoMediaFrame_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(14503115, 12989, 20449, [160, 19, 124, 193, 60, 245, 219, 207]);
@@ -782,7 +942,7 @@ pub struct IVideoMediaFrame_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVideoMediaFrameFormat(::windows::runtime::IInspectable);
+pub struct IVideoMediaFrameFormat(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoMediaFrameFormat {
     type Vtable = IVideoMediaFrameFormat_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1174568896, 55067, 17863, [143, 20, 109, 154, 10, 230, 4, 228]);
@@ -803,8 +963,8 @@ pub struct IVideoMediaFrameFormat_abi(
 );
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct InfraredMediaFrame(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct InfraredMediaFrame(pub ::windows::runtime::IInspectable);
 impl InfraredMediaFrame {
     #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn FrameReference(&self) -> ::windows::runtime::Result<MediaFrameReference> {
@@ -841,12 +1001,52 @@ unsafe impl ::windows::runtime::Interface for InfraredMediaFrame {
 impl ::windows::runtime::RuntimeName for InfraredMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.InfraredMediaFrame";
 }
+impl ::std::convert::From<InfraredMediaFrame> for ::windows::runtime::IUnknown {
+    fn from(value: InfraredMediaFrame) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&InfraredMediaFrame> for ::windows::runtime::IUnknown {
+    fn from(value: &InfraredMediaFrame) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InfraredMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InfraredMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<InfraredMediaFrame> for ::windows::runtime::IInspectable {
+    fn from(value: InfraredMediaFrame) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InfraredMediaFrame> for ::windows::runtime::IInspectable {
+    fn from(value: &InfraredMediaFrame) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InfraredMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InfraredMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for InfraredMediaFrame {}
 unsafe impl ::std::marker::Sync for InfraredMediaFrame {}
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaFrameArrivedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaFrameArrivedEventArgs(pub ::windows::runtime::IInspectable);
 impl MediaFrameArrivedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for MediaFrameArrivedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs;{0b430add-a490-4435-ada1-9affd55239f7})");
@@ -858,12 +1058,52 @@ unsafe impl ::windows::runtime::Interface for MediaFrameArrivedEventArgs {
 impl ::windows::runtime::RuntimeName for MediaFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs";
 }
+impl ::std::convert::From<MediaFrameArrivedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MediaFrameArrivedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaFrameArrivedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaFrameArrivedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaFrameArrivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaFrameArrivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaFrameArrivedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MediaFrameArrivedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaFrameArrivedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaFrameArrivedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaFrameArrivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaFrameArrivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaFrameArrivedEventArgs {}
 unsafe impl ::std::marker::Sync for MediaFrameArrivedEventArgs {}
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaFrameFormat(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaFrameFormat(pub ::windows::runtime::IInspectable);
 impl MediaFrameFormat {
     #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn MajorType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -927,12 +1167,52 @@ unsafe impl ::windows::runtime::Interface for MediaFrameFormat {
 impl ::windows::runtime::RuntimeName for MediaFrameFormat {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameFormat";
 }
+impl ::std::convert::From<MediaFrameFormat> for ::windows::runtime::IUnknown {
+    fn from(value: MediaFrameFormat) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaFrameFormat> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaFrameFormat) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaFrameFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaFrameFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaFrameFormat> for ::windows::runtime::IInspectable {
+    fn from(value: MediaFrameFormat) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaFrameFormat> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaFrameFormat) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaFrameFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaFrameFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaFrameFormat {}
 unsafe impl ::std::marker::Sync for MediaFrameFormat {}
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaFrameReader(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaFrameReader(pub ::windows::runtime::IInspectable);
 impl MediaFrameReader {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
@@ -1004,6 +1284,46 @@ unsafe impl ::windows::runtime::Interface for MediaFrameReader {
 }
 impl ::windows::runtime::RuntimeName for MediaFrameReader {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameReader";
+}
+impl ::std::convert::From<MediaFrameReader> for ::windows::runtime::IUnknown {
+    fn from(value: MediaFrameReader) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaFrameReader> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaFrameReader) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaFrameReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaFrameReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaFrameReader> for ::windows::runtime::IInspectable {
+    fn from(value: MediaFrameReader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaFrameReader> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaFrameReader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaFrameReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaFrameReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<MediaFrameReader> for super::super::super::Foundation::IClosable {
@@ -1082,8 +1402,8 @@ impl ::windows::runtime::DefaultType for MediaFrameReaderStartStatus {
 }
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaFrameReference(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaFrameReference(pub ::windows::runtime::IInspectable);
 impl MediaFrameReference {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
@@ -1178,6 +1498,46 @@ unsafe impl ::windows::runtime::Interface for MediaFrameReference {
 impl ::windows::runtime::RuntimeName for MediaFrameReference {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameReference";
 }
+impl ::std::convert::From<MediaFrameReference> for ::windows::runtime::IUnknown {
+    fn from(value: MediaFrameReference) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaFrameReference> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaFrameReference) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaFrameReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaFrameReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaFrameReference> for ::windows::runtime::IInspectable {
+    fn from(value: MediaFrameReference) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaFrameReference> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaFrameReference) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaFrameReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaFrameReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<MediaFrameReference> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1208,8 +1568,8 @@ unsafe impl ::std::marker::Send for MediaFrameReference {}
 unsafe impl ::std::marker::Sync for MediaFrameReference {}
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaFrameSource(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaFrameSource(pub ::windows::runtime::IInspectable);
 impl MediaFrameSource {
     #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn Info(&self) -> ::windows::runtime::Result<MediaFrameSourceInfo> {
@@ -1288,12 +1648,52 @@ unsafe impl ::windows::runtime::Interface for MediaFrameSource {
 impl ::windows::runtime::RuntimeName for MediaFrameSource {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSource";
 }
+impl ::std::convert::From<MediaFrameSource> for ::windows::runtime::IUnknown {
+    fn from(value: MediaFrameSource) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaFrameSource> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaFrameSource) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaFrameSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaFrameSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaFrameSource> for ::windows::runtime::IInspectable {
+    fn from(value: MediaFrameSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaFrameSource> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaFrameSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaFrameSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaFrameSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaFrameSource {}
 unsafe impl ::std::marker::Sync for MediaFrameSource {}
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaFrameSourceController(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaFrameSourceController(pub ::windows::runtime::IInspectable);
 impl MediaFrameSourceController {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
@@ -1360,12 +1760,52 @@ unsafe impl ::windows::runtime::Interface for MediaFrameSourceController {
 impl ::windows::runtime::RuntimeName for MediaFrameSourceController {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceController";
 }
+impl ::std::convert::From<MediaFrameSourceController> for ::windows::runtime::IUnknown {
+    fn from(value: MediaFrameSourceController) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaFrameSourceController> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaFrameSourceController) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaFrameSourceController {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaFrameSourceController {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaFrameSourceController> for ::windows::runtime::IInspectable {
+    fn from(value: MediaFrameSourceController) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaFrameSourceController> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaFrameSourceController) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaFrameSourceController {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaFrameSourceController {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaFrameSourceController {}
 unsafe impl ::std::marker::Sync for MediaFrameSourceController {}
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaFrameSourceGetPropertyResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaFrameSourceGetPropertyResult(pub ::windows::runtime::IInspectable);
 impl MediaFrameSourceGetPropertyResult {
     #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<MediaFrameSourceGetPropertyStatus> {
@@ -1393,6 +1833,46 @@ unsafe impl ::windows::runtime::Interface for MediaFrameSourceGetPropertyResult 
 }
 impl ::windows::runtime::RuntimeName for MediaFrameSourceGetPropertyResult {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyResult";
+}
+impl ::std::convert::From<MediaFrameSourceGetPropertyResult> for ::windows::runtime::IUnknown {
+    fn from(value: MediaFrameSourceGetPropertyResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaFrameSourceGetPropertyResult> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaFrameSourceGetPropertyResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaFrameSourceGetPropertyResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaFrameSourceGetPropertyResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaFrameSourceGetPropertyResult> for ::windows::runtime::IInspectable {
+    fn from(value: MediaFrameSourceGetPropertyResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaFrameSourceGetPropertyResult> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaFrameSourceGetPropertyResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaFrameSourceGetPropertyResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaFrameSourceGetPropertyResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MediaFrameSourceGetPropertyResult {}
 unsafe impl ::std::marker::Sync for MediaFrameSourceGetPropertyResult {}
@@ -1424,8 +1904,8 @@ impl ::windows::runtime::DefaultType for MediaFrameSourceGetPropertyStatus {
 }
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaFrameSourceGroup(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaFrameSourceGroup(pub ::windows::runtime::IInspectable);
 impl MediaFrameSourceGroup {
     #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1490,12 +1970,52 @@ unsafe impl ::windows::runtime::Interface for MediaFrameSourceGroup {
 impl ::windows::runtime::RuntimeName for MediaFrameSourceGroup {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceGroup";
 }
+impl ::std::convert::From<MediaFrameSourceGroup> for ::windows::runtime::IUnknown {
+    fn from(value: MediaFrameSourceGroup) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaFrameSourceGroup> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaFrameSourceGroup) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaFrameSourceGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaFrameSourceGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaFrameSourceGroup> for ::windows::runtime::IInspectable {
+    fn from(value: MediaFrameSourceGroup) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaFrameSourceGroup> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaFrameSourceGroup) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaFrameSourceGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaFrameSourceGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaFrameSourceGroup {}
 unsafe impl ::std::marker::Sync for MediaFrameSourceGroup {}
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MediaFrameSourceInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MediaFrameSourceInfo(pub ::windows::runtime::IInspectable);
 impl MediaFrameSourceInfo {
     #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1593,6 +2113,46 @@ unsafe impl ::windows::runtime::Interface for MediaFrameSourceInfo {
 impl ::windows::runtime::RuntimeName for MediaFrameSourceInfo {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceInfo";
 }
+impl ::std::convert::From<MediaFrameSourceInfo> for ::windows::runtime::IUnknown {
+    fn from(value: MediaFrameSourceInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MediaFrameSourceInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaFrameSourceInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaFrameSourceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaFrameSourceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MediaFrameSourceInfo> for ::windows::runtime::IInspectable {
+    fn from(value: MediaFrameSourceInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaFrameSourceInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaFrameSourceInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaFrameSourceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaFrameSourceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaFrameSourceInfo {}
 unsafe impl ::std::marker::Sync for MediaFrameSourceInfo {}
 #[doc = "*Required features: `Media_Capture_Frames`*"]
@@ -1650,8 +2210,8 @@ impl ::windows::runtime::DefaultType for MediaFrameSourceSetPropertyStatus {
 }
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MultiSourceMediaFrameArrivedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MultiSourceMediaFrameArrivedEventArgs(pub ::windows::runtime::IInspectable);
 impl MultiSourceMediaFrameArrivedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for MultiSourceMediaFrameArrivedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MultiSourceMediaFrameArrivedEventArgs;{63115e01-cf51-48fd-aab0-6d693eb48127})");
@@ -1663,12 +2223,52 @@ unsafe impl ::windows::runtime::Interface for MultiSourceMediaFrameArrivedEventA
 impl ::windows::runtime::RuntimeName for MultiSourceMediaFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MultiSourceMediaFrameArrivedEventArgs";
 }
+impl ::std::convert::From<MultiSourceMediaFrameArrivedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MultiSourceMediaFrameArrivedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MultiSourceMediaFrameArrivedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MultiSourceMediaFrameArrivedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MultiSourceMediaFrameArrivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MultiSourceMediaFrameArrivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MultiSourceMediaFrameArrivedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MultiSourceMediaFrameArrivedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MultiSourceMediaFrameArrivedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MultiSourceMediaFrameArrivedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MultiSourceMediaFrameArrivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MultiSourceMediaFrameArrivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MultiSourceMediaFrameArrivedEventArgs {}
 unsafe impl ::std::marker::Sync for MultiSourceMediaFrameArrivedEventArgs {}
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MultiSourceMediaFrameReader(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MultiSourceMediaFrameReader(pub ::windows::runtime::IInspectable);
 impl MultiSourceMediaFrameReader {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
@@ -1741,6 +2341,46 @@ unsafe impl ::windows::runtime::Interface for MultiSourceMediaFrameReader {
 impl ::windows::runtime::RuntimeName for MultiSourceMediaFrameReader {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MultiSourceMediaFrameReader";
 }
+impl ::std::convert::From<MultiSourceMediaFrameReader> for ::windows::runtime::IUnknown {
+    fn from(value: MultiSourceMediaFrameReader) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MultiSourceMediaFrameReader> for ::windows::runtime::IUnknown {
+    fn from(value: &MultiSourceMediaFrameReader) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MultiSourceMediaFrameReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MultiSourceMediaFrameReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MultiSourceMediaFrameReader> for ::windows::runtime::IInspectable {
+    fn from(value: MultiSourceMediaFrameReader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MultiSourceMediaFrameReader> for ::windows::runtime::IInspectable {
+    fn from(value: &MultiSourceMediaFrameReader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MultiSourceMediaFrameReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MultiSourceMediaFrameReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<MultiSourceMediaFrameReader> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1796,8 +2436,8 @@ impl ::windows::runtime::DefaultType for MultiSourceMediaFrameReaderStartStatus 
 }
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MultiSourceMediaFrameReference(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MultiSourceMediaFrameReference(pub ::windows::runtime::IInspectable);
 impl MultiSourceMediaFrameReference {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
@@ -1823,6 +2463,46 @@ unsafe impl ::windows::runtime::Interface for MultiSourceMediaFrameReference {
 }
 impl ::windows::runtime::RuntimeName for MultiSourceMediaFrameReference {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MultiSourceMediaFrameReference";
+}
+impl ::std::convert::From<MultiSourceMediaFrameReference> for ::windows::runtime::IUnknown {
+    fn from(value: MultiSourceMediaFrameReference) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MultiSourceMediaFrameReference> for ::windows::runtime::IUnknown {
+    fn from(value: &MultiSourceMediaFrameReference) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MultiSourceMediaFrameReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MultiSourceMediaFrameReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MultiSourceMediaFrameReference> for ::windows::runtime::IInspectable {
+    fn from(value: MultiSourceMediaFrameReference) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MultiSourceMediaFrameReference> for ::windows::runtime::IInspectable {
+    fn from(value: &MultiSourceMediaFrameReference) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MultiSourceMediaFrameReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MultiSourceMediaFrameReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<MultiSourceMediaFrameReference> for super::super::super::Foundation::IClosable {
@@ -1854,8 +2534,8 @@ unsafe impl ::std::marker::Send for MultiSourceMediaFrameReference {}
 unsafe impl ::std::marker::Sync for MultiSourceMediaFrameReference {}
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct VideoMediaFrame(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct VideoMediaFrame(pub ::windows::runtime::IInspectable);
 impl VideoMediaFrame {
     #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn FrameReference(&self) -> ::windows::runtime::Result<MediaFrameReference> {
@@ -1935,12 +2615,52 @@ unsafe impl ::windows::runtime::Interface for VideoMediaFrame {
 impl ::windows::runtime::RuntimeName for VideoMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.VideoMediaFrame";
 }
+impl ::std::convert::From<VideoMediaFrame> for ::windows::runtime::IUnknown {
+    fn from(value: VideoMediaFrame) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&VideoMediaFrame> for ::windows::runtime::IUnknown {
+    fn from(value: &VideoMediaFrame) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VideoMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VideoMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<VideoMediaFrame> for ::windows::runtime::IInspectable {
+    fn from(value: VideoMediaFrame) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&VideoMediaFrame> for ::windows::runtime::IInspectable {
+    fn from(value: &VideoMediaFrame) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VideoMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VideoMediaFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for VideoMediaFrame {}
 unsafe impl ::std::marker::Sync for VideoMediaFrame {}
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct VideoMediaFrameFormat(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct VideoMediaFrameFormat(pub ::windows::runtime::IInspectable);
 impl VideoMediaFrameFormat {
     #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn MediaFrameFormat(&self) -> ::windows::runtime::Result<MediaFrameFormat> {
@@ -1984,6 +2704,46 @@ unsafe impl ::windows::runtime::Interface for VideoMediaFrameFormat {
 }
 impl ::windows::runtime::RuntimeName for VideoMediaFrameFormat {
     const NAME: &'static str = "Windows.Media.Capture.Frames.VideoMediaFrameFormat";
+}
+impl ::std::convert::From<VideoMediaFrameFormat> for ::windows::runtime::IUnknown {
+    fn from(value: VideoMediaFrameFormat) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&VideoMediaFrameFormat> for ::windows::runtime::IUnknown {
+    fn from(value: &VideoMediaFrameFormat) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VideoMediaFrameFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VideoMediaFrameFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<VideoMediaFrameFormat> for ::windows::runtime::IInspectable {
+    fn from(value: VideoMediaFrameFormat) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&VideoMediaFrameFormat> for ::windows::runtime::IInspectable {
+    fn from(value: &VideoMediaFrameFormat) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VideoMediaFrameFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VideoMediaFrameFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for VideoMediaFrameFormat {}
 unsafe impl ::std::marker::Sync for VideoMediaFrameFormat {}

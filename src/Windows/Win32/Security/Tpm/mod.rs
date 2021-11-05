@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_Security_Tpm`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITpmVirtualSmartCardManager(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITpmVirtualSmartCardManager(pub ::windows::runtime::IUnknown);
 impl ITpmVirtualSmartCardManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Tpm`, `Win32_Foundation`*"]
@@ -53,6 +53,26 @@ unsafe impl ::windows::runtime::Interface for ITpmVirtualSmartCardManager {
     type Vtable = ITpmVirtualSmartCardManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(288038399, 55772, 16887, [134, 159, 214, 127, 238, 124, 181, 145]);
 }
+impl ::std::convert::From<ITpmVirtualSmartCardManager> for ::windows::runtime::IUnknown {
+    fn from(value: ITpmVirtualSmartCardManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITpmVirtualSmartCardManager> for ::windows::runtime::IUnknown {
+    fn from(value: &ITpmVirtualSmartCardManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITpmVirtualSmartCardManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITpmVirtualSmartCardManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITpmVirtualSmartCardManager_abi(
@@ -67,8 +87,8 @@ pub struct ITpmVirtualSmartCardManager_abi(
 );
 #[doc = "*Required features: `Win32_Security_Tpm`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITpmVirtualSmartCardManager2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITpmVirtualSmartCardManager2(pub ::windows::runtime::IUnknown);
 impl ITpmVirtualSmartCardManager2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Tpm`, `Win32_Foundation`*"]
@@ -161,6 +181,26 @@ unsafe impl ::windows::runtime::Interface for ITpmVirtualSmartCardManager2 {
     type Vtable = ITpmVirtualSmartCardManager2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4260930233, 734, 18420, [188, 38, 170, 133, 171, 94, 82, 103]);
 }
+impl ::std::convert::From<ITpmVirtualSmartCardManager2> for ::windows::runtime::IUnknown {
+    fn from(value: ITpmVirtualSmartCardManager2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITpmVirtualSmartCardManager2> for ::windows::runtime::IUnknown {
+    fn from(value: &ITpmVirtualSmartCardManager2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITpmVirtualSmartCardManager2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITpmVirtualSmartCardManager2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITpmVirtualSmartCardManager2> for ITpmVirtualSmartCardManager {
     fn from(value: ITpmVirtualSmartCardManager2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -173,12 +213,12 @@ impl ::std::convert::From<&ITpmVirtualSmartCardManager2> for ITpmVirtualSmartCar
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITpmVirtualSmartCardManager> for ITpmVirtualSmartCardManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITpmVirtualSmartCardManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITpmVirtualSmartCardManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITpmVirtualSmartCardManager> for &ITpmVirtualSmartCardManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITpmVirtualSmartCardManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITpmVirtualSmartCardManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -216,8 +256,8 @@ pub struct ITpmVirtualSmartCardManager2_abi(
 );
 #[doc = "*Required features: `Win32_Security_Tpm`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITpmVirtualSmartCardManager3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITpmVirtualSmartCardManager3(pub ::windows::runtime::IUnknown);
 impl ITpmVirtualSmartCardManager3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Tpm`, `Win32_Foundation`*"]
@@ -352,6 +392,26 @@ unsafe impl ::windows::runtime::Interface for ITpmVirtualSmartCardManager3 {
     type Vtable = ITpmVirtualSmartCardManager3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1014258327, 62325, 16720, [190, 23, 89, 80, 246, 148, 198, 153]);
 }
+impl ::std::convert::From<ITpmVirtualSmartCardManager3> for ::windows::runtime::IUnknown {
+    fn from(value: ITpmVirtualSmartCardManager3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITpmVirtualSmartCardManager3> for ::windows::runtime::IUnknown {
+    fn from(value: &ITpmVirtualSmartCardManager3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITpmVirtualSmartCardManager3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITpmVirtualSmartCardManager3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ITpmVirtualSmartCardManager3> for ITpmVirtualSmartCardManager2 {
     fn from(value: ITpmVirtualSmartCardManager3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -364,12 +424,12 @@ impl ::std::convert::From<&ITpmVirtualSmartCardManager3> for ITpmVirtualSmartCar
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITpmVirtualSmartCardManager2> for ITpmVirtualSmartCardManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITpmVirtualSmartCardManager2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITpmVirtualSmartCardManager2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITpmVirtualSmartCardManager2> for &ITpmVirtualSmartCardManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITpmVirtualSmartCardManager2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITpmVirtualSmartCardManager2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ITpmVirtualSmartCardManager3> for ITpmVirtualSmartCardManager {
@@ -384,12 +444,12 @@ impl ::std::convert::From<&ITpmVirtualSmartCardManager3> for ITpmVirtualSmartCar
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITpmVirtualSmartCardManager> for ITpmVirtualSmartCardManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITpmVirtualSmartCardManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITpmVirtualSmartCardManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITpmVirtualSmartCardManager> for &ITpmVirtualSmartCardManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITpmVirtualSmartCardManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITpmVirtualSmartCardManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -448,8 +508,8 @@ pub struct ITpmVirtualSmartCardManager3_abi(
 );
 #[doc = "*Required features: `Win32_Security_Tpm`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ITpmVirtualSmartCardManagerStatusCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ITpmVirtualSmartCardManagerStatusCallback(pub ::windows::runtime::IUnknown);
 impl ITpmVirtualSmartCardManagerStatusCallback {
     #[doc = "*Required features: `Win32_Security_Tpm`*"]
     pub unsafe fn ReportProgress(&self, status: TPMVSCMGR_STATUS) -> ::windows::runtime::Result<()> {
@@ -463,6 +523,26 @@ impl ITpmVirtualSmartCardManagerStatusCallback {
 unsafe impl ::windows::runtime::Interface for ITpmVirtualSmartCardManagerStatusCallback {
     type Vtable = ITpmVirtualSmartCardManagerStatusCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(438023007, 43960, 17692, [161, 174, 51, 217, 143, 27, 239, 74]);
+}
+impl ::std::convert::From<ITpmVirtualSmartCardManagerStatusCallback> for ::windows::runtime::IUnknown {
+    fn from(value: ITpmVirtualSmartCardManagerStatusCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITpmVirtualSmartCardManagerStatusCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &ITpmVirtualSmartCardManagerStatusCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITpmVirtualSmartCardManagerStatusCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITpmVirtualSmartCardManagerStatusCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

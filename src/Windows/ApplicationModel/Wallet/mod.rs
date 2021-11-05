@@ -3,7 +3,7 @@
 pub mod System;
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWalletBarcode(::windows::runtime::IInspectable);
+pub struct IWalletBarcode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletBarcode {
     type Vtable = IWalletBarcode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1334147881, 56960, 20132, [161, 205, 129, 205, 8, 77, 172, 39]);
@@ -24,7 +24,7 @@ pub struct IWalletBarcode_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWalletBarcodeFactory(::windows::runtime::IInspectable);
+pub struct IWalletBarcodeFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletBarcodeFactory {
     type Vtable = IWalletBarcodeFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(806449505, 60828, 18078, [187, 253, 48, 108, 149, 234, 113, 8]);
@@ -44,7 +44,7 @@ pub struct IWalletBarcodeFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWalletItem(::windows::runtime::IInspectable);
+pub struct IWalletItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItem {
     type Vtable = IWalletItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(548752360, 4493, 20164, [153, 108, 185, 99, 231, 189, 62, 116]);
@@ -145,7 +145,7 @@ pub struct IWalletItem_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWalletItemCustomProperty(::windows::runtime::IInspectable);
+pub struct IWalletItemCustomProperty(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemCustomProperty {
     type Vtable = IWalletItemCustomProperty_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3108716787, 64000, 16637, [152, 220, 157, 228, 102, 151, 241, 231]);
@@ -172,7 +172,7 @@ pub struct IWalletItemCustomProperty_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWalletItemCustomPropertyFactory(::windows::runtime::IInspectable);
+pub struct IWalletItemCustomPropertyFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemCustomPropertyFactory {
     type Vtable = IWalletItemCustomPropertyFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3489950276, 24993, 16810, [178, 89, 165, 97, 10, 181, 213, 117]);
@@ -190,7 +190,7 @@ pub struct IWalletItemCustomPropertyFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWalletItemFactory(::windows::runtime::IInspectable);
+pub struct IWalletItemFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemFactory {
     type Vtable = IWalletItemFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1407349872, 20235, 19006, [153, 229, 11, 187, 30, 171, 56, 212]);
@@ -208,7 +208,7 @@ pub struct IWalletItemFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWalletItemStore(::windows::runtime::IInspectable);
+pub struct IWalletItemStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemStore {
     type Vtable = IWalletItemStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1902135371, 27977, 18680, [145, 169, 64, 161, 208, 241, 62, 244]);
@@ -245,7 +245,7 @@ pub struct IWalletItemStore_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWalletItemStore2(::windows::runtime::IInspectable);
+pub struct IWalletItemStore2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemStore2 {
     type Vtable = IWalletItemStore2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1709605616, 28681, 18965, [189, 84, 79, 255, 55, 155, 255, 226]);
@@ -266,7 +266,7 @@ pub struct IWalletItemStore2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWalletManagerStatics(::windows::runtime::IInspectable);
+pub struct IWalletManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletManagerStatics {
     type Vtable = IWalletManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1360123576, 51620, 19556, [180, 221, 225, 229, 72, 0, 28, 13]);
@@ -285,7 +285,7 @@ pub struct IWalletManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWalletRelevantLocation(::windows::runtime::IInspectable);
+pub struct IWalletRelevantLocation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletRelevantLocation {
     type Vtable = IWalletRelevantLocation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2681763882, 58361, 19937, [186, 179, 187, 25, 46, 70, 179, 243]);
@@ -308,7 +308,7 @@ pub struct IWalletRelevantLocation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWalletTransaction(::windows::runtime::IInspectable);
+pub struct IWalletTransaction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletTransaction {
     type Vtable = IWalletTransaction_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1088547136, 9734, 17689, [129, 203, 191, 241, 198, 13, 31, 121]);
@@ -339,7 +339,7 @@ pub struct IWalletTransaction_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWalletVerb(::windows::runtime::IInspectable);
+pub struct IWalletVerb(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletVerb {
     type Vtable = IWalletVerb_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(397944534, 58305, 19572, [138, 148, 33, 122, 173, 188, 72, 132]);
@@ -358,7 +358,7 @@ pub struct IWalletVerb_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWalletVerbFactory(::windows::runtime::IInspectable);
+pub struct IWalletVerbFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletVerbFactory {
     type Vtable = IWalletVerbFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1979787121, 48728, 19806, [131, 237, 88, 177, 102, 156, 122, 217]);
@@ -401,8 +401,8 @@ impl ::windows::runtime::DefaultType for WalletActionKind {
 }
 #[doc = "*Required features: `ApplicationModel_Wallet`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct WalletBarcode(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct WalletBarcode(pub ::windows::runtime::IInspectable);
 impl WalletBarcode {
     #[doc = "*Required features: `ApplicationModel_Wallet`*"]
     pub fn Symbology(&self) -> ::windows::runtime::Result<WalletBarcodeSymbology> {
@@ -458,6 +458,46 @@ unsafe impl ::windows::runtime::Interface for WalletBarcode {
 }
 impl ::windows::runtime::RuntimeName for WalletBarcode {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletBarcode";
+}
+impl ::std::convert::From<WalletBarcode> for ::windows::runtime::IUnknown {
+    fn from(value: WalletBarcode) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&WalletBarcode> for ::windows::runtime::IUnknown {
+    fn from(value: &WalletBarcode) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WalletBarcode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WalletBarcode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<WalletBarcode> for ::windows::runtime::IInspectable {
+    fn from(value: WalletBarcode) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WalletBarcode> for ::windows::runtime::IInspectable {
+    fn from(value: &WalletBarcode) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WalletBarcode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WalletBarcode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for WalletBarcode {}
 unsafe impl ::std::marker::Sync for WalletBarcode {}
@@ -533,8 +573,8 @@ impl ::windows::runtime::DefaultType for WalletDetailViewPosition {
 }
 #[doc = "*Required features: `ApplicationModel_Wallet`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct WalletItem(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct WalletItem(pub ::windows::runtime::IInspectable);
 impl WalletItem {
     #[doc = "*Required features: `ApplicationModel_Wallet`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -937,12 +977,52 @@ unsafe impl ::windows::runtime::Interface for WalletItem {
 impl ::windows::runtime::RuntimeName for WalletItem {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItem";
 }
+impl ::std::convert::From<WalletItem> for ::windows::runtime::IUnknown {
+    fn from(value: WalletItem) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&WalletItem> for ::windows::runtime::IUnknown {
+    fn from(value: &WalletItem) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WalletItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WalletItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<WalletItem> for ::windows::runtime::IInspectable {
+    fn from(value: WalletItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WalletItem> for ::windows::runtime::IInspectable {
+    fn from(value: &WalletItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WalletItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WalletItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for WalletItem {}
 unsafe impl ::std::marker::Sync for WalletItem {}
 #[doc = "*Required features: `ApplicationModel_Wallet`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct WalletItemCustomProperty(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct WalletItemCustomProperty(pub ::windows::runtime::IInspectable);
 impl WalletItemCustomProperty {
     #[doc = "*Required features: `ApplicationModel_Wallet`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1031,6 +1111,46 @@ unsafe impl ::windows::runtime::Interface for WalletItemCustomProperty {
 impl ::windows::runtime::RuntimeName for WalletItemCustomProperty {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemCustomProperty";
 }
+impl ::std::convert::From<WalletItemCustomProperty> for ::windows::runtime::IUnknown {
+    fn from(value: WalletItemCustomProperty) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&WalletItemCustomProperty> for ::windows::runtime::IUnknown {
+    fn from(value: &WalletItemCustomProperty) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WalletItemCustomProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WalletItemCustomProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<WalletItemCustomProperty> for ::windows::runtime::IInspectable {
+    fn from(value: WalletItemCustomProperty) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WalletItemCustomProperty> for ::windows::runtime::IInspectable {
+    fn from(value: &WalletItemCustomProperty) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WalletItemCustomProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WalletItemCustomProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for WalletItemCustomProperty {}
 unsafe impl ::std::marker::Sync for WalletItemCustomProperty {}
 #[doc = "*Required features: `ApplicationModel_Wallet`*"]
@@ -1062,8 +1182,8 @@ impl ::windows::runtime::DefaultType for WalletItemKind {
 }
 #[doc = "*Required features: `ApplicationModel_Wallet`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct WalletItemStore(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct WalletItemStore(pub ::windows::runtime::IInspectable);
 impl WalletItemStore {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_Wallet`, `Foundation`*"]
@@ -1166,6 +1286,46 @@ unsafe impl ::windows::runtime::Interface for WalletItemStore {
 impl ::windows::runtime::RuntimeName for WalletItemStore {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemStore";
 }
+impl ::std::convert::From<WalletItemStore> for ::windows::runtime::IUnknown {
+    fn from(value: WalletItemStore) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&WalletItemStore> for ::windows::runtime::IUnknown {
+    fn from(value: &WalletItemStore) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WalletItemStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WalletItemStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<WalletItemStore> for ::windows::runtime::IInspectable {
+    fn from(value: WalletItemStore) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WalletItemStore> for ::windows::runtime::IInspectable {
+    fn from(value: &WalletItemStore) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WalletItemStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WalletItemStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for WalletItemStore {}
 unsafe impl ::std::marker::Sync for WalletItemStore {}
 #[doc = "*Required features: `ApplicationModel_Wallet`*"]
@@ -1189,8 +1349,8 @@ impl ::windows::runtime::RuntimeName for WalletManager {
 }
 #[doc = "*Required features: `ApplicationModel_Wallet`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct WalletRelevantLocation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct WalletRelevantLocation(pub ::windows::runtime::IInspectable);
 impl WalletRelevantLocation {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1238,6 +1398,46 @@ unsafe impl ::windows::runtime::Interface for WalletRelevantLocation {
 impl ::windows::runtime::RuntimeName for WalletRelevantLocation {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletRelevantLocation";
 }
+impl ::std::convert::From<WalletRelevantLocation> for ::windows::runtime::IUnknown {
+    fn from(value: WalletRelevantLocation) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&WalletRelevantLocation> for ::windows::runtime::IUnknown {
+    fn from(value: &WalletRelevantLocation) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WalletRelevantLocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WalletRelevantLocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<WalletRelevantLocation> for ::windows::runtime::IInspectable {
+    fn from(value: WalletRelevantLocation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WalletRelevantLocation> for ::windows::runtime::IInspectable {
+    fn from(value: &WalletRelevantLocation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WalletRelevantLocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WalletRelevantLocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for WalletRelevantLocation {}
 unsafe impl ::std::marker::Sync for WalletRelevantLocation {}
 #[doc = "*Required features: `ApplicationModel_Wallet`*"]
@@ -1265,8 +1465,8 @@ impl ::windows::runtime::DefaultType for WalletSummaryViewPosition {
 }
 #[doc = "*Required features: `ApplicationModel_Wallet`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct WalletTransaction(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct WalletTransaction(pub ::windows::runtime::IInspectable);
 impl WalletTransaction {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1366,12 +1566,52 @@ unsafe impl ::windows::runtime::Interface for WalletTransaction {
 impl ::windows::runtime::RuntimeName for WalletTransaction {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletTransaction";
 }
+impl ::std::convert::From<WalletTransaction> for ::windows::runtime::IUnknown {
+    fn from(value: WalletTransaction) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&WalletTransaction> for ::windows::runtime::IUnknown {
+    fn from(value: &WalletTransaction) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WalletTransaction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WalletTransaction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<WalletTransaction> for ::windows::runtime::IInspectable {
+    fn from(value: WalletTransaction) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WalletTransaction> for ::windows::runtime::IInspectable {
+    fn from(value: &WalletTransaction) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WalletTransaction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WalletTransaction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for WalletTransaction {}
 unsafe impl ::std::marker::Sync for WalletTransaction {}
 #[doc = "*Required features: `ApplicationModel_Wallet`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct WalletVerb(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct WalletVerb(pub ::windows::runtime::IInspectable);
 impl WalletVerb {
     #[doc = "*Required features: `ApplicationModel_Wallet`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1407,6 +1647,46 @@ unsafe impl ::windows::runtime::Interface for WalletVerb {
 }
 impl ::windows::runtime::RuntimeName for WalletVerb {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletVerb";
+}
+impl ::std::convert::From<WalletVerb> for ::windows::runtime::IUnknown {
+    fn from(value: WalletVerb) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&WalletVerb> for ::windows::runtime::IUnknown {
+    fn from(value: &WalletVerb) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WalletVerb {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WalletVerb {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<WalletVerb> for ::windows::runtime::IInspectable {
+    fn from(value: WalletVerb) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WalletVerb> for ::windows::runtime::IInspectable {
+    fn from(value: &WalletVerb) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WalletVerb {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WalletVerb {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for WalletVerb {}
 unsafe impl ::std::marker::Sync for WalletVerb {}

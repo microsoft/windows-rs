@@ -54,6 +54,11 @@ impl TypeReader {
                     continue;
                 }
 
+                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/725
+                if type_name == TypeName::new("Windows.Win32.System.SystemServices", "DISPATCHER_CONTEXT_ARM64") {
+                    continue;
+                }
+
                 let extends = def.extends();
 
                 if extends == TypeName::Attribute {
@@ -147,6 +152,10 @@ impl TypeReader {
 
     pub fn nested_types(&'static self, enclosing: &TypeDef) -> Option<&BTreeMap<&'static str, TypeDef>> {
         self.nested.get(&enclosing.row)
+    }
+
+    pub fn get_type_entry<T: HasTypeName>(&'static self, type_name: T) -> Option<&TypeEntry> {
+        self.types.get_namespace(type_name.namespace()).and_then(|tree| tree.get_type(type_name.name()))
     }
 
     pub fn get_type<T: HasTypeName>(&'static self, type_name: T) -> Option<&ElementType> {

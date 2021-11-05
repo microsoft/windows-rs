@@ -16,8 +16,8 @@ unsafe impl ::windows::runtime::Abi for DeviceDiscoveryMechanism {
 }
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDAddress(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDAddress(pub ::windows::runtime::IUnknown);
 impl IWSDAddress {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -34,6 +34,26 @@ unsafe impl ::windows::runtime::Interface for IWSDAddress {
     type Vtable = IWSDAddress_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3109506156, 4774, 20340, [147, 161, 51, 24, 255, 96, 87, 89]);
 }
+impl ::std::convert::From<IWSDAddress> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDAddress) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDAddress> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDAddress) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDAddress_abi(
@@ -47,8 +67,8 @@ pub struct IWSDAddress_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDAsyncCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDAsyncCallback(pub ::windows::runtime::IUnknown);
 impl IWSDAsyncCallback {
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
     pub unsafe fn AsyncOperationComplete<'a, Param0: ::windows::runtime::IntoParam<'a, IWSDAsyncResult>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pasyncresult: Param0, pasyncstate: Param1) -> ::windows::runtime::Result<()> {
@@ -58,6 +78,26 @@ impl IWSDAsyncCallback {
 unsafe impl ::windows::runtime::Interface for IWSDAsyncCallback {
     type Vtable = IWSDAsyncCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2789085341, 52850, 18914, [186, 152, 232, 69, 245, 238, 22, 102]);
+}
+impl ::std::convert::From<IWSDAsyncCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDAsyncCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDAsyncCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDAsyncCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDAsyncCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDAsyncCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -69,8 +109,8 @@ pub struct IWSDAsyncCallback_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDAsyncResult(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDAsyncResult(pub ::windows::runtime::IUnknown);
 impl IWSDAsyncResult {
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
     pub unsafe fn SetCallback<'a, Param0: ::windows::runtime::IntoParam<'a, IWSDAsyncCallback>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pcallback: Param0, pasyncstate: Param1) -> ::windows::runtime::Result<()> {
@@ -110,6 +150,26 @@ unsafe impl ::windows::runtime::Interface for IWSDAsyncResult {
     type Vtable = IWSDAsyncResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(296322346, 36312, 16958, [181, 55, 147, 86, 219, 79, 191, 184]);
 }
+impl ::std::convert::From<IWSDAsyncResult> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDAsyncResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDAsyncResult> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDAsyncResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDAsyncResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDAsyncResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDAsyncResult_abi(
@@ -128,12 +188,32 @@ pub struct IWSDAsyncResult_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDAttachment(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDAttachment(pub ::windows::runtime::IUnknown);
 impl IWSDAttachment {}
 unsafe impl ::windows::runtime::Interface for IWSDAttachment {
     type Vtable = IWSDAttachment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1565894166, 40440, 19209, [177, 86, 155, 163, 81, 164, 139, 118]);
+}
+impl ::std::convert::From<IWSDAttachment> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDAttachment) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDAttachment> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDAttachment) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDAttachment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDAttachment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -144,8 +224,8 @@ pub struct IWSDAttachment_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDDeviceHost(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDDeviceHost(pub ::windows::runtime::IUnknown);
 impl IWSDDeviceHost {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -210,6 +290,26 @@ unsafe impl ::windows::runtime::Interface for IWSDDeviceHost {
     type Vtable = IWSDDeviceHost_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2441078929, 15635, 16696, [152, 9, 147, 76, 138, 190, 177, 44]);
 }
+impl ::std::convert::From<IWSDDeviceHost> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDDeviceHost) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDDeviceHost> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDDeviceHost) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDDeviceHost {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDDeviceHost {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDDeviceHost_abi(
@@ -241,8 +341,8 @@ pub struct IWSDDeviceHost_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDDeviceHostNotify(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDDeviceHostNotify(pub ::windows::runtime::IUnknown);
 impl IWSDDeviceHostNotify {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -255,6 +355,26 @@ unsafe impl ::windows::runtime::Interface for IWSDDeviceHostNotify {
     type Vtable = IWSDDeviceHostNotify_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3049187833, 61146, 16894, [150, 247, 244, 94, 20, 153, 15, 176]);
 }
+impl ::std::convert::From<IWSDDeviceHostNotify> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDDeviceHostNotify) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDDeviceHostNotify> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDDeviceHostNotify) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDDeviceHostNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDDeviceHostNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDDeviceHostNotify_abi(
@@ -266,8 +386,8 @@ pub struct IWSDDeviceHostNotify_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDDeviceProxy(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDDeviceProxy(pub ::windows::runtime::IUnknown);
 impl IWSDDeviceProxy {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -329,6 +449,26 @@ unsafe impl ::windows::runtime::Interface for IWSDDeviceProxy {
     type Vtable = IWSDDeviceProxy_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4007706673, 50552, 19470, [154, 59, 151, 60, 53, 244, 9, 219]);
 }
+impl ::std::convert::From<IWSDDeviceProxy> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDDeviceProxy) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDDeviceProxy> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDDeviceProxy) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDDeviceProxy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDDeviceProxy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDDeviceProxy_abi(
@@ -355,8 +495,8 @@ pub struct IWSDDeviceProxy_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDEndpointProxy(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDEndpointProxy(pub ::windows::runtime::IUnknown);
 impl IWSDEndpointProxy {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -400,6 +540,26 @@ unsafe impl ::windows::runtime::Interface for IWSDEndpointProxy {
     type Vtable = IWSDEndpointProxy_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(408998960, 45644, 18805, [159, 144, 219, 179, 155, 170, 36, 236]);
 }
+impl ::std::convert::From<IWSDEndpointProxy> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDEndpointProxy) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDEndpointProxy> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDEndpointProxy) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDEndpointProxy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDEndpointProxy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDEndpointProxy_abi(
@@ -422,8 +582,8 @@ pub struct IWSDEndpointProxy_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDEventingStatus(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDEventingStatus(pub ::windows::runtime::IUnknown);
 impl IWSDEventingStatus {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -445,6 +605,26 @@ unsafe impl ::windows::runtime::Interface for IWSDEventingStatus {
     type Vtable = IWSDEventingStatus_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1236369234, 25466, 16506, [174, 153, 251, 232, 42, 77, 56, 192]);
 }
+impl ::std::convert::From<IWSDEventingStatus> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDEventingStatus) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDEventingStatus> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDEventingStatus) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDEventingStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDEventingStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDEventingStatus_abi(
@@ -460,8 +640,8 @@ pub struct IWSDEventingStatus_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDHttpAddress(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDHttpAddress(pub ::windows::runtime::IUnknown);
 impl IWSDHttpAddress {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -524,6 +704,26 @@ unsafe impl ::windows::runtime::Interface for IWSDHttpAddress {
     type Vtable = IWSDHttpAddress_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3499804605, 10814, 19333, [134, 5, 39, 55, 255, 62, 78, 160]);
 }
+impl ::std::convert::From<IWSDHttpAddress> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDHttpAddress) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDHttpAddress> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDHttpAddress) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDHttpAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDHttpAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWSDHttpAddress> for IWSDTransportAddress {
     fn from(value: IWSDHttpAddress) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -536,12 +736,12 @@ impl ::std::convert::From<&IWSDHttpAddress> for IWSDTransportAddress {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDTransportAddress> for IWSDHttpAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDTransportAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDTransportAddress>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDTransportAddress> for &IWSDHttpAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDTransportAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDTransportAddress>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWSDHttpAddress> for IWSDAddress {
@@ -556,12 +756,12 @@ impl ::std::convert::From<&IWSDHttpAddress> for IWSDAddress {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAddress> for IWSDHttpAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAddress>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAddress> for &IWSDHttpAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAddress>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -592,8 +792,8 @@ pub struct IWSDHttpAddress_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDHttpAuthParameters(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDHttpAuthParameters(pub ::windows::runtime::IUnknown);
 impl IWSDHttpAuthParameters {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -611,6 +811,26 @@ unsafe impl ::windows::runtime::Interface for IWSDHttpAuthParameters {
     type Vtable = IWSDHttpAuthParameters_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(189230576, 36268, 18445, [176, 92, 153, 120, 26, 88, 132, 170]);
 }
+impl ::std::convert::From<IWSDHttpAuthParameters> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDHttpAuthParameters) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDHttpAuthParameters> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDHttpAuthParameters) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDHttpAuthParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDHttpAuthParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDHttpAuthParameters_abi(
@@ -623,8 +843,8 @@ pub struct IWSDHttpAuthParameters_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDHttpMessageParameters(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDHttpMessageParameters(pub ::windows::runtime::IUnknown);
 impl IWSDHttpMessageParameters {
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
     pub unsafe fn GetLocalAddress(&self) -> ::windows::runtime::Result<IWSDAddress> {
@@ -700,6 +920,26 @@ unsafe impl ::windows::runtime::Interface for IWSDHttpMessageParameters {
     type Vtable = IWSDHttpMessageParameters_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1410060578, 23683, 19948, [179, 150, 234, 98, 162, 105, 127, 223]);
 }
+impl ::std::convert::From<IWSDHttpMessageParameters> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDHttpMessageParameters) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDHttpMessageParameters> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDHttpMessageParameters) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDHttpMessageParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDHttpMessageParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWSDHttpMessageParameters> for IWSDMessageParameters {
     fn from(value: IWSDHttpMessageParameters) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -712,12 +952,12 @@ impl ::std::convert::From<&IWSDHttpMessageParameters> for IWSDMessageParameters 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDMessageParameters> for IWSDHttpMessageParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDMessageParameters> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDMessageParameters>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDMessageParameters> for &IWSDHttpMessageParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDMessageParameters> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDMessageParameters>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -749,8 +989,8 @@ pub struct IWSDHttpMessageParameters_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDInboundAttachment(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDInboundAttachment(pub ::windows::runtime::IUnknown);
 impl IWSDInboundAttachment {
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
     pub unsafe fn Read(&self, pbuffer: *mut u8, dwbytestoread: u32, pdwnumberofbytesread: *mut u32) -> ::windows::runtime::Result<()> {
@@ -765,6 +1005,26 @@ unsafe impl ::windows::runtime::Interface for IWSDInboundAttachment {
     type Vtable = IWSDInboundAttachment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1540803173, 9020, 20408, [159, 122, 38, 65, 97, 150, 85, 201]);
 }
+impl ::std::convert::From<IWSDInboundAttachment> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDInboundAttachment) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDInboundAttachment> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDInboundAttachment) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDInboundAttachment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDInboundAttachment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWSDInboundAttachment> for IWSDAttachment {
     fn from(value: IWSDInboundAttachment) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -777,12 +1037,12 @@ impl ::std::convert::From<&IWSDInboundAttachment> for IWSDAttachment {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAttachment> for IWSDInboundAttachment {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAttachment> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAttachment>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAttachment> for &IWSDInboundAttachment {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAttachment> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAttachment>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -796,8 +1056,8 @@ pub struct IWSDInboundAttachment_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDMessageParameters(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDMessageParameters(pub ::windows::runtime::IUnknown);
 impl IWSDMessageParameters {
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
     pub unsafe fn GetLocalAddress(&self) -> ::windows::runtime::Result<IWSDAddress> {
@@ -827,6 +1087,26 @@ unsafe impl ::windows::runtime::Interface for IWSDMessageParameters {
     type Vtable = IWSDMessageParameters_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(531622050, 59132, 19328, [182, 207, 183, 212, 92, 65, 109, 124]);
 }
+impl ::std::convert::From<IWSDMessageParameters> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDMessageParameters) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDMessageParameters> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDMessageParameters) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDMessageParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDMessageParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDMessageParameters_abi(
@@ -841,8 +1121,8 @@ pub struct IWSDMessageParameters_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDMetadataExchange(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDMetadataExchange(pub ::windows::runtime::IUnknown);
 impl IWSDMetadataExchange {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -855,6 +1135,26 @@ unsafe impl ::windows::runtime::Interface for IWSDMetadataExchange {
     type Vtable = IWSDMetadataExchange_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(110718295, 7527, 18728, [147, 7, 61, 120, 51, 253, 184, 70]);
 }
+impl ::std::convert::From<IWSDMetadataExchange> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDMetadataExchange) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDMetadataExchange> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDMetadataExchange) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDMetadataExchange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDMetadataExchange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDMetadataExchange_abi(
@@ -866,8 +1166,8 @@ pub struct IWSDMetadataExchange_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDOutboundAttachment(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDOutboundAttachment(pub ::windows::runtime::IUnknown);
 impl IWSDOutboundAttachment {
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
     pub unsafe fn Write(&self, pbuffer: *const u8, dwbytestowrite: u32) -> ::windows::runtime::Result<u32> {
@@ -887,6 +1187,26 @@ unsafe impl ::windows::runtime::Interface for IWSDOutboundAttachment {
     type Vtable = IWSDOutboundAttachment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2855284621, 23074, 19365, [179, 146, 170, 132, 134, 244, 193, 93]);
 }
+impl ::std::convert::From<IWSDOutboundAttachment> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDOutboundAttachment) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDOutboundAttachment> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDOutboundAttachment) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDOutboundAttachment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDOutboundAttachment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWSDOutboundAttachment> for IWSDAttachment {
     fn from(value: IWSDOutboundAttachment) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -899,12 +1219,12 @@ impl ::std::convert::From<&IWSDOutboundAttachment> for IWSDAttachment {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAttachment> for IWSDOutboundAttachment {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAttachment> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAttachment>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAttachment> for &IWSDOutboundAttachment {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAttachment> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAttachment>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -919,8 +1239,8 @@ pub struct IWSDOutboundAttachment_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDSSLClientCertificate(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDSSLClientCertificate(pub ::windows::runtime::IUnknown);
 impl IWSDSSLClientCertificate {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
@@ -939,6 +1259,26 @@ unsafe impl ::windows::runtime::Interface for IWSDSSLClientCertificate {
     type Vtable = IWSDSSLClientCertificate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3725614727, 41178, 16782, [152, 173, 39, 185, 238, 216, 123, 220]);
 }
+impl ::std::convert::From<IWSDSSLClientCertificate> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDSSLClientCertificate) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDSSLClientCertificate> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDSSLClientCertificate) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDSSLClientCertificate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDSSLClientCertificate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDSSLClientCertificate_abi(
@@ -952,8 +1292,8 @@ pub struct IWSDSSLClientCertificate_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDScopeMatchingRule(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDScopeMatchingRule(pub ::windows::runtime::IUnknown);
 impl IWSDScopeMatchingRule {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -972,6 +1312,26 @@ unsafe impl ::windows::runtime::Interface for IWSDScopeMatchingRule {
     type Vtable = IWSDScopeMatchingRule_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4239385636, 65269, 18458, [189, 159, 51, 206, 5, 116, 37, 111]);
 }
+impl ::std::convert::From<IWSDScopeMatchingRule> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDScopeMatchingRule) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDScopeMatchingRule> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDScopeMatchingRule) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDScopeMatchingRule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDScopeMatchingRule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDScopeMatchingRule_abi(
@@ -985,8 +1345,8 @@ pub struct IWSDScopeMatchingRule_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDServiceMessaging(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDServiceMessaging(pub ::windows::runtime::IUnknown);
 impl IWSDServiceMessaging {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -1003,6 +1363,26 @@ unsafe impl ::windows::runtime::Interface for IWSDServiceMessaging {
     type Vtable = IWSDServiceMessaging_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2492943604, 3243, 17933, [163, 246, 122, 10, 214, 35, 192, 230]);
 }
+impl ::std::convert::From<IWSDServiceMessaging> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDServiceMessaging) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDServiceMessaging> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDServiceMessaging) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDServiceMessaging {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDServiceMessaging {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDServiceMessaging_abi(
@@ -1016,8 +1396,8 @@ pub struct IWSDServiceMessaging_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDServiceProxy(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDServiceProxy(pub ::windows::runtime::IUnknown);
 impl IWSDServiceProxy {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -1067,6 +1447,26 @@ unsafe impl ::windows::runtime::Interface for IWSDServiceProxy {
     type Vtable = IWSDServiceProxy_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3569875868, 939, 16757, [157, 103, 9, 79, 175, 235, 244, 135]);
 }
+impl ::std::convert::From<IWSDServiceProxy> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDServiceProxy) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDServiceProxy> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDServiceProxy) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDServiceProxy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDServiceProxy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWSDServiceProxy> for IWSDMetadataExchange {
     fn from(value: IWSDServiceProxy) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1079,12 +1479,12 @@ impl ::std::convert::From<&IWSDServiceProxy> for IWSDMetadataExchange {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDMetadataExchange> for IWSDServiceProxy {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDMetadataExchange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDMetadataExchange>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDMetadataExchange> for &IWSDServiceProxy {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDMetadataExchange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDMetadataExchange>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1109,8 +1509,8 @@ pub struct IWSDServiceProxy_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDServiceProxyEventing(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDServiceProxyEventing(pub ::windows::runtime::IUnknown);
 impl IWSDServiceProxyEventing {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -1233,6 +1633,26 @@ unsafe impl ::windows::runtime::Interface for IWSDServiceProxyEventing {
     type Vtable = IWSDServiceProxyEventing_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4180122989, 4114, 19092, [184, 204, 253, 53, 210, 32, 43, 254]);
 }
+impl ::std::convert::From<IWSDServiceProxyEventing> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDServiceProxyEventing) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDServiceProxyEventing> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDServiceProxyEventing) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDServiceProxyEventing {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDServiceProxyEventing {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWSDServiceProxyEventing> for IWSDServiceProxy {
     fn from(value: IWSDServiceProxyEventing) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1245,12 +1665,12 @@ impl ::std::convert::From<&IWSDServiceProxyEventing> for IWSDServiceProxy {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDServiceProxy> for IWSDServiceProxyEventing {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDServiceProxy> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDServiceProxy>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDServiceProxy> for &IWSDServiceProxyEventing {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDServiceProxy> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDServiceProxy>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWSDServiceProxyEventing> for IWSDMetadataExchange {
@@ -1265,12 +1685,12 @@ impl ::std::convert::From<&IWSDServiceProxyEventing> for IWSDMetadataExchange {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDMetadataExchange> for IWSDServiceProxyEventing {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDMetadataExchange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDMetadataExchange>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDMetadataExchange> for &IWSDServiceProxyEventing {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDMetadataExchange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDMetadataExchange>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1319,8 +1739,8 @@ pub struct IWSDServiceProxyEventing_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDSignatureProperty(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDSignatureProperty(pub ::windows::runtime::IUnknown);
 impl IWSDSignatureProperty {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -1351,6 +1771,26 @@ unsafe impl ::windows::runtime::Interface for IWSDSignatureProperty {
     type Vtable = IWSDSignatureProperty_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(63840426, 29124, 17890, [179, 46, 55, 102, 198, 28, 121, 15]);
 }
+impl ::std::convert::From<IWSDSignatureProperty> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDSignatureProperty) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDSignatureProperty> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDSignatureProperty) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDSignatureProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDSignatureProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDSignatureProperty_abi(
@@ -1367,8 +1807,8 @@ pub struct IWSDSignatureProperty_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDTransportAddress(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDTransportAddress(pub ::windows::runtime::IUnknown);
 impl IWSDTransportAddress {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -1411,6 +1851,26 @@ unsafe impl ::windows::runtime::Interface for IWSDTransportAddress {
     type Vtable = IWSDTransportAddress_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1892824216, 20198, 17216, [163, 223, 216, 69, 210, 35, 84, 103]);
 }
+impl ::std::convert::From<IWSDTransportAddress> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDTransportAddress) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDTransportAddress> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDTransportAddress) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDTransportAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDTransportAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWSDTransportAddress> for IWSDAddress {
     fn from(value: IWSDTransportAddress) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1423,12 +1883,12 @@ impl ::std::convert::From<&IWSDTransportAddress> for IWSDAddress {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAddress> for IWSDTransportAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAddress>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAddress> for &IWSDTransportAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAddress>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1452,8 +1912,8 @@ pub struct IWSDTransportAddress_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDUdpAddress(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDUdpAddress(pub ::windows::runtime::IUnknown);
 impl IWSDUdpAddress {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -1543,6 +2003,26 @@ unsafe impl ::windows::runtime::Interface for IWSDUdpAddress {
     type Vtable = IWSDUdpAddress_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1960186442, 42049, 20344, [161, 235, 151, 168, 209, 153, 104, 147]);
 }
+impl ::std::convert::From<IWSDUdpAddress> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDUdpAddress) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDUdpAddress> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDUdpAddress) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDUdpAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDUdpAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWSDUdpAddress> for IWSDTransportAddress {
     fn from(value: IWSDUdpAddress) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1555,12 +2035,12 @@ impl ::std::convert::From<&IWSDUdpAddress> for IWSDTransportAddress {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDTransportAddress> for IWSDUdpAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDTransportAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDTransportAddress>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDTransportAddress> for &IWSDUdpAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDTransportAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDTransportAddress>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWSDUdpAddress> for IWSDAddress {
@@ -1575,12 +2055,12 @@ impl ::std::convert::From<&IWSDUdpAddress> for IWSDAddress {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAddress> for IWSDUdpAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAddress>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAddress> for &IWSDUdpAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAddress>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1617,8 +2097,8 @@ pub struct IWSDUdpAddress_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDUdpMessageParameters(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDUdpMessageParameters(pub ::windows::runtime::IUnknown);
 impl IWSDUdpMessageParameters {
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
     pub unsafe fn GetLocalAddress(&self) -> ::windows::runtime::Result<IWSDAddress> {
@@ -1657,6 +2137,26 @@ unsafe impl ::windows::runtime::Interface for IWSDUdpMessageParameters {
     type Vtable = IWSDUdpMessageParameters_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2570327199, 36620, 17531, [170, 11, 115, 18, 75, 12, 167, 240]);
 }
+impl ::std::convert::From<IWSDUdpMessageParameters> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDUdpMessageParameters) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDUdpMessageParameters> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDUdpMessageParameters) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDUdpMessageParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDUdpMessageParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWSDUdpMessageParameters> for IWSDMessageParameters {
     fn from(value: IWSDUdpMessageParameters) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1669,12 +2169,12 @@ impl ::std::convert::From<&IWSDUdpMessageParameters> for IWSDMessageParameters {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDMessageParameters> for IWSDUdpMessageParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDMessageParameters> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDMessageParameters>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDMessageParameters> for &IWSDUdpMessageParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDMessageParameters> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDMessageParameters>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1693,8 +2193,8 @@ pub struct IWSDUdpMessageParameters_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDXMLContext(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDXMLContext(pub ::windows::runtime::IUnknown);
 impl IWSDXMLContext {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -1723,6 +2223,26 @@ unsafe impl ::windows::runtime::Interface for IWSDXMLContext {
     type Vtable = IWSDXMLContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1977152494, 15962, 17332, [161, 90, 188, 246, 136, 116, 96, 192]);
 }
+impl ::std::convert::From<IWSDXMLContext> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDXMLContext) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDXMLContext> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDXMLContext) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDXMLContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDXMLContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDXMLContext_abi(
@@ -1740,8 +2260,8 @@ pub struct IWSDXMLContext_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDiscoveredService(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDiscoveredService(pub ::windows::runtime::IUnknown);
 impl IWSDiscoveredService {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -1810,6 +2330,26 @@ unsafe impl ::windows::runtime::Interface for IWSDiscoveredService {
     type Vtable = IWSDiscoveredService_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1269664315, 45940, 17440, [150, 50, 170, 201, 69, 179, 116, 170]);
 }
+impl ::std::convert::From<IWSDiscoveredService> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDiscoveredService) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDiscoveredService> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDiscoveredService) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDiscoveredService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDiscoveredService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDiscoveredService_abi(
@@ -1838,8 +2378,8 @@ pub struct IWSDiscoveredService_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDiscoveryProvider(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDiscoveryProvider(pub ::windows::runtime::IUnknown);
 impl IWSDiscoveryProvider {
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
     pub unsafe fn SetAddressFamily(&self, dwaddressfamily: u32) -> ::windows::runtime::Result<()> {
@@ -1878,6 +2418,26 @@ unsafe impl ::windows::runtime::Interface for IWSDiscoveryProvider {
     type Vtable = IWSDiscoveryProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2415693397, 61675, 18447, [136, 183, 180, 53, 221, 40, 29, 69]);
 }
+impl ::std::convert::From<IWSDiscoveryProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDiscoveryProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDiscoveryProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDiscoveryProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDiscoveryProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDiscoveryProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDiscoveryProvider_abi(
@@ -1897,8 +2457,8 @@ pub struct IWSDiscoveryProvider_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDiscoveryProviderNotify(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDiscoveryProviderNotify(pub ::windows::runtime::IUnknown);
 impl IWSDiscoveryProviderNotify {
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, IWSDiscoveredService>>(&self, pservice: Param0) -> ::windows::runtime::Result<()> {
@@ -1923,6 +2483,26 @@ unsafe impl ::windows::runtime::Interface for IWSDiscoveryProviderNotify {
     type Vtable = IWSDiscoveryProviderNotify_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1944993005, 46822, 17193, [165, 70, 62, 138, 212, 101, 99, 210]);
 }
+impl ::std::convert::From<IWSDiscoveryProviderNotify> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDiscoveryProviderNotify) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDiscoveryProviderNotify> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDiscoveryProviderNotify) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDiscoveryProviderNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDiscoveryProviderNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDiscoveryProviderNotify_abi(
@@ -1938,8 +2518,8 @@ pub struct IWSDiscoveryProviderNotify_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDiscoveryPublisher(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDiscoveryPublisher(pub ::windows::runtime::IUnknown);
 impl IWSDiscoveryPublisher {
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
     pub unsafe fn SetAddressFamily(&self, dwaddressfamily: u32) -> ::windows::runtime::Result<()> {
@@ -2168,6 +2748,26 @@ unsafe impl ::windows::runtime::Interface for IWSDiscoveryPublisher {
     type Vtable = IWSDiscoveryPublisher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2919358888, 16377, 16712, [129, 22, 5, 124, 198, 22, 254, 19]);
 }
+impl ::std::convert::From<IWSDiscoveryPublisher> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDiscoveryPublisher) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDiscoveryPublisher> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDiscoveryPublisher) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDiscoveryPublisher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDiscoveryPublisher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDiscoveryPublisher_abi(
@@ -2249,8 +2849,8 @@ pub struct IWSDiscoveryPublisher_abi(
 );
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSDiscoveryPublisherNotify(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSDiscoveryPublisherNotify(pub ::windows::runtime::IUnknown);
 impl IWSDiscoveryPublisherNotify {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -2267,6 +2867,26 @@ unsafe impl ::windows::runtime::Interface for IWSDiscoveryPublisherNotify {
     type Vtable = IWSDiscoveryPublisherNotify_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3866513840, 13178, 19260, [151, 88, 115, 51, 136, 86, 130, 81]);
 }
+impl ::std::convert::From<IWSDiscoveryPublisherNotify> for ::windows::runtime::IUnknown {
+    fn from(value: IWSDiscoveryPublisherNotify) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSDiscoveryPublisherNotify> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSDiscoveryPublisherNotify) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSDiscoveryPublisherNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSDiscoveryPublisherNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDiscoveryPublisherNotify_abi(
@@ -2278,6 +2898,7 @@ pub struct IWSDiscoveryPublisherNotify_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWSD_SOAP_MESSAGE_HANDLER = unsafe extern "system" fn(thisunknown: ::windows::runtime::RawPtr, event: *mut ::std::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -2641,8 +3262,8 @@ pub unsafe fn WSDAttachLinkedMemory(pparent: *mut ::std::ffi::c_void, pchild: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSDCreateDeviceHost<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IWSDXMLContext>>(pszlocalid: Param0, pcontext: Param1) -> ::windows::runtime::Result<IWSDDeviceHost> {
     #[cfg(windows)]
@@ -2657,8 +3278,8 @@ pub unsafe fn WSDCreateDeviceHost<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSDCreateDeviceHost2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IWSDXMLContext>>(pszlocalid: Param0, pcontext: Param1, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32) -> ::windows::runtime::Result<IWSDDeviceHost> {
     #[cfg(windows)]
@@ -2673,8 +3294,8 @@ pub unsafe fn WSDCreateDeviceHost2<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSDCreateDeviceHostAdvanced<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IWSDXMLContext>>(pszlocalid: Param0, pcontext: Param1, pphostaddresses: *const ::std::option::Option<IWSDAddress>, dwhostaddresscount: u32) -> ::windows::runtime::Result<IWSDDeviceHost> {
     #[cfg(windows)]
@@ -2689,8 +3310,8 @@ pub unsafe fn WSDCreateDeviceHostAdvanced<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSDCreateDeviceProxy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IWSDXMLContext>>(pszdeviceid: Param0, pszlocalid: Param1, pcontext: Param2) -> ::windows::runtime::Result<IWSDDeviceProxy> {
     #[cfg(windows)]
@@ -2705,8 +3326,8 @@ pub unsafe fn WSDCreateDeviceProxy<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSDCreateDeviceProxy2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IWSDXMLContext>>(pszdeviceid: Param0, pszlocalid: Param1, pcontext: Param2, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32) -> ::windows::runtime::Result<IWSDDeviceProxy> {
     #[cfg(windows)]
@@ -2721,8 +3342,8 @@ pub unsafe fn WSDCreateDeviceProxy2<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSDCreateDeviceProxyAdvanced<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IWSDAddress>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IWSDXMLContext>>(pszdeviceid: Param0, pdeviceaddress: Param1, pszlocalid: Param2, pcontext: Param3) -> ::windows::runtime::Result<IWSDDeviceProxy> {
     #[cfg(windows)]
@@ -2917,8 +3538,8 @@ pub unsafe fn WSDFreeLinkedMemory(pvoid: *mut ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSDGenerateFault<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, IWSDXMLContext>>(
     pszcode: Param0,
@@ -2939,8 +3560,8 @@ pub unsafe fn WSDGenerateFault<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSDGenerateFaultEx<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pcode: *const WSDXML_NAME, psubcode: *const WSDXML_NAME, preasons: *const WSD_LOCALIZED_STRING_LIST, pszdetail: Param3) -> ::windows::runtime::Result<*mut WSD_SOAP_FAULT> {
     #[cfg(windows)]
@@ -3027,8 +3648,8 @@ impl ::std::cmp::Eq for WSDUdpRetransmitParams {}
 unsafe impl ::windows::runtime::Abi for WSDUdpRetransmitParams {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSDUriDecode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(source: Param0, cchsource: u32, destout: *mut super::super::Foundation::PWSTR, cchdestout: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3042,8 +3663,8 @@ pub unsafe fn WSDUriDecode<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSDUriEncode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(source: Param0, cchsource: u32, destout: *mut super::super::Foundation::PWSTR, cchdestout: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3057,8 +3678,8 @@ pub unsafe fn WSDUriEncode<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSDXMLAddChild(pparent: *mut WSDXML_ELEMENT, pchild: *mut WSDXML_ELEMENT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3072,8 +3693,8 @@ pub unsafe fn WSDXMLAddChild(pparent: *mut WSDXML_ELEMENT, pchild: *mut WSDXML_E
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSDXMLAddSibling(pfirst: *mut WSDXML_ELEMENT, psecond: *mut WSDXML_ELEMENT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3087,8 +3708,8 @@ pub unsafe fn WSDXMLAddSibling(pfirst: *mut WSDXML_ELEMENT, psecond: *mut WSDXML
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSDXMLBuildAnyForSingleElement<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pelementname: *mut WSDXML_NAME, psztext: Param1, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3102,8 +3723,8 @@ pub unsafe fn WSDXMLBuildAnyForSingleElement<'a, Param1: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3132,8 +3753,8 @@ pub unsafe fn WSDXMLCreateContext() -> ::windows::runtime::Result<IWSDXMLContext
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSDXMLGetNameFromBuiltinNamespace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psznamespace: Param0, pszname: Param1) -> ::windows::runtime::Result<*mut WSDXML_NAME> {
     #[cfg(windows)]
@@ -3148,8 +3769,8 @@ pub unsafe fn WSDXMLGetNameFromBuiltinNamespace<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSDXMLGetValueFromAny<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psznamespace: Param0, pszname: Param1, pany: *mut WSDXML_ELEMENT, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5280,6 +5901,7 @@ impl ::std::cmp::Eq for WSD_SOAP_MESSAGE {}
 unsafe impl ::windows::runtime::Abi for WSD_SOAP_MESSAGE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSD_STUB_FUNCTION = unsafe extern "system" fn(server: ::windows::runtime::RawPtr, session: ::windows::runtime::RawPtr, event: *mut ::std::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone)]

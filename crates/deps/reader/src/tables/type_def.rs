@@ -151,7 +151,7 @@ impl TypeDef {
         }
     }
 
-    pub fn struct_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
+    pub fn features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
         if !keys.insert(self.row.clone()) {
             return;
         }
@@ -162,6 +162,10 @@ impl TypeDef {
             features.insert(self.namespace());
         }
 
+        for generic in &self.generics {
+            generic.features(features, keys);
+        }
+
         match self.kind() {
             TypeKind::Class => {
                 if let Some(def) = self.default_interface() {
@@ -169,26 +173,24 @@ impl TypeDef {
                 }
             }
             TypeKind::Struct => {
-                self.fields().for_each(|def| def.struct_features(Some(self), features, keys));
+                self.fields().for_each(|def| def.features(Some(self), features, keys));
 
                 if let Some(def) = self.is_convertible_to() {
                     // TODO: wonky
                     features.insert(def.type_name().namespace);
                 }
             }
-            TypeKind::Delegate => self.invoke_method().signature(&[]).struct_features(features, keys),
+            TypeKind::Delegate => self.invoke_method().signature(&[]).features(features, keys),
             _ => {}
         }
-    }
 
-    pub fn method_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
-        features.insert(self.namespace());
-
-        for generic in &self.generics {
-            generic.method_features(features, keys);
+        if let Some(entry) = TypeReader::get().get_type_entry(self.type_name()) {
+            for def in &entry.def {
+                if let ElementType::TypeDef(def) = def {
+                    def.features(features, keys);
+                }
+            }
         }
-
-        self.struct_features(features, keys);
     }
 
     pub fn is_udt(&self) -> bool {

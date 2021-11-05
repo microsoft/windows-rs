@@ -426,8 +426,8 @@ unsafe impl ::windows::runtime::Abi for CONFIRMSAFETY {
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoGetClassObjectFromURL<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::IBindCtx>>(
     rclassid: *const ::windows::runtime::GUID,
@@ -478,8 +478,8 @@ pub unsafe fn CoInternetCombineIUri<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetCombineUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzbaseurl: Param0, pwzrelativeurl: Param1, dwcombineflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -493,8 +493,8 @@ pub unsafe fn CoInternetCombineUrl<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetCombineUrlEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::IUri>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbaseuri: Param0, pwzrelativeurl: Param1, dwcombineflags: u32, ppcombineduri: *mut ::std::option::Option<super::IUri>, dwreserved: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -508,8 +508,8 @@ pub unsafe fn CoInternetCombineUrlEx<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetCompareUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl1: Param0, pwzurl2: Param1, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -551,8 +551,8 @@ pub unsafe fn CoInternetCreateZoneManager<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetGetProtocolFlags<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl: Param0, pdwflags: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -566,8 +566,8 @@ pub unsafe fn CoInternetGetProtocolFlags<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetGetSecurityUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszurl: Param0, ppwszsecurl: *mut super::super::super::Foundation::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -637,8 +637,8 @@ pub unsafe fn CoInternetIsFeatureEnabledForIUri<'a, Param2: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetIsFeatureEnabledForUrl<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IInternetSecurityManager>>(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: Param2, psecmgr: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -652,8 +652,8 @@ pub unsafe fn CoInternetIsFeatureEnabledForUrl<'a, Param2: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetIsFeatureZoneElevationEnabled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IInternetSecurityManager>>(szfromurl: Param0, sztourl: Param1, psecmgr: Param2, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -667,8 +667,8 @@ pub unsafe fn CoInternetIsFeatureZoneElevationEnabled<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetParseIUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::IUri>>(piuri: Param0, parseaction: PARSEACTION, dwflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -682,8 +682,8 @@ pub unsafe fn CoInternetParseIUri<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetParseUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl: Param0, parseaction: PARSEACTION, dwflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -697,8 +697,8 @@ pub unsafe fn CoInternetParseUrl<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetQueryInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl: Param0, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::std::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -712,8 +712,8 @@ pub unsafe fn CoInternetQueryInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetSetFeatureEnabled<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -755,8 +755,8 @@ pub unsafe fn CompatFlagsFromClsid(pclsid: *const ::windows::runtime::GUID, pdwc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO) -> ::windows::runtime::Result<super::BINDINFO> {
     #[cfg(windows)]
@@ -771,8 +771,8 @@ pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO) -> ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> ::windows::runtime::Result<super::STGMEDIUM> {
     #[cfg(windows)]
@@ -831,8 +831,8 @@ pub unsafe fn CreateFormatEnumerator(cfmtetc: u32, rgfmtetc: *const super::FORMA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateURLMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, super::IMoniker>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pmkctx: Param0, szurl: Param1) -> ::windows::runtime::Result<super::IMoniker> {
     #[cfg(windows)]
@@ -847,8 +847,8 @@ pub unsafe fn CreateURLMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateURLMonikerEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::IMoniker>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pmkctx: Param0, szurl: Param1, ppmk: *mut ::std::option::Option<super::IMoniker>, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -933,8 +933,8 @@ pub const FMFD_RETURNUPDATEDIMGMIMES: u32 = 32u32;
 pub const FMFD_SERVERMIME: u32 = 8u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const FMFD_URLASFILENAME: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FaultInIEFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, pclassspec: *const super::uCLSSPEC, pquery: *mut super::QUERYCONTEXT, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -948,8 +948,8 @@ pub unsafe fn FaultInIEFeature<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindMediaType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(rgsztypes: Param0) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -964,8 +964,8 @@ pub unsafe fn FindMediaType<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindMediaTypeClass<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(pbc: Param0, sztype: Param1, pclsid: *mut ::windows::runtime::GUID, reserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -979,8 +979,8 @@ pub unsafe fn FindMediaTypeClass<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindMimeFromData<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, pwzurl: Param1, pbuffer: *const ::std::ffi::c_void, cbsize: u32, pwzmimeproposed: Param4, dwmimeflags: u32, ppwzmimeout: *mut super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1010,8 +1010,8 @@ pub const GET_FEATURE_FROM_THREAD_LOCALMACHINE: u32 = 8u32;
 pub const GET_FEATURE_FROM_THREAD_RESTRICTED: u32 = 128u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClassFileOrMime<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, szfilename: Param1, pbuffer: *const ::std::ffi::c_void, cbsize: u32, szmime: Param4, dwreserved: u32) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
@@ -1026,8 +1026,8 @@ pub unsafe fn GetClassFileOrMime<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClassURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szurl: Param0) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
@@ -1042,8 +1042,8 @@ pub unsafe fn GetClassURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC) -> ::windows::runtime::Result<super::super::super::Foundation::PSTR> {
     #[cfg(windows)]
@@ -1058,8 +1058,8 @@ pub unsafe fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC) -> :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSoftwareUpdateInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szdistunit: Param0) -> ::windows::runtime::Result<SOFTDISTINFO> {
     #[cfg(windows)]
@@ -1153,8 +1153,8 @@ pub unsafe fn HlinkNavigateMoniker<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkNavigateString<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(punk: Param0, sztarget: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1168,8 +1168,8 @@ pub unsafe fn HlinkNavigateString<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkSimpleNavigateToMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, super::IMoniker>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param4: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param5: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(
     pmktarget: Param0,
@@ -1192,8 +1192,8 @@ pub unsafe fn HlinkSimpleNavigateToMoniker<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkSimpleNavigateToString<
     'a,
@@ -1226,8 +1226,8 @@ pub unsafe fn HlinkSimpleNavigateToString<
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAuthenticate(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAuthenticate(pub ::windows::runtime::IUnknown);
 impl IAuthenticate {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -1238,6 +1238,26 @@ impl IAuthenticate {
 unsafe impl ::windows::runtime::Interface for IAuthenticate {
     type Vtable = IAuthenticate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430224, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+}
+impl ::std::convert::From<IAuthenticate> for ::windows::runtime::IUnknown {
+    fn from(value: IAuthenticate) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAuthenticate> for ::windows::runtime::IUnknown {
+    fn from(value: &IAuthenticate) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAuthenticate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAuthenticate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1250,8 +1270,8 @@ pub struct IAuthenticate_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAuthenticateEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAuthenticateEx(pub ::windows::runtime::IUnknown);
 impl IAuthenticateEx {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -1268,6 +1288,26 @@ unsafe impl ::windows::runtime::Interface for IAuthenticateEx {
     type Vtable = IAuthenticateEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(718400943, 55357, 18613, [154, 223, 3, 219, 225, 159, 83, 189]);
 }
+impl ::std::convert::From<IAuthenticateEx> for ::windows::runtime::IUnknown {
+    fn from(value: IAuthenticateEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAuthenticateEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IAuthenticateEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAuthenticateEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAuthenticateEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAuthenticateEx> for IAuthenticate {
     fn from(value: IAuthenticateEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1280,12 +1320,12 @@ impl ::std::convert::From<&IAuthenticateEx> for IAuthenticate {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAuthenticate> for IAuthenticateEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAuthenticate> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAuthenticate>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAuthenticate> for &IAuthenticateEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAuthenticate> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAuthenticate>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1301,8 +1341,8 @@ pub struct IAuthenticateEx_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IBindCallbackRedirect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IBindCallbackRedirect(pub ::windows::runtime::IUnknown);
 impl IBindCallbackRedirect {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -1315,6 +1355,26 @@ unsafe impl ::windows::runtime::Interface for IBindCallbackRedirect {
     type Vtable = IBindCallbackRedirect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(298326978, 4638, 20181, [185, 196, 180, 48, 189, 84, 242, 192]);
 }
+impl ::std::convert::From<IBindCallbackRedirect> for ::windows::runtime::IUnknown {
+    fn from(value: IBindCallbackRedirect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IBindCallbackRedirect> for ::windows::runtime::IUnknown {
+    fn from(value: &IBindCallbackRedirect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBindCallbackRedirect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBindCallbackRedirect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindCallbackRedirect_abi(
@@ -1326,8 +1386,8 @@ pub struct IBindCallbackRedirect_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IBindHttpSecurity(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IBindHttpSecurity(pub ::windows::runtime::IUnknown);
 impl IBindHttpSecurity {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn GetIgnoreCertMask(&self) -> ::windows::runtime::Result<u32> {
@@ -1339,6 +1399,26 @@ unsafe impl ::windows::runtime::Interface for IBindHttpSecurity {
     type Vtable = IBindHttpSecurity_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2850924903, 62734, 18995, [179, 88, 32, 111, 110, 243, 8, 109]);
 }
+impl ::std::convert::From<IBindHttpSecurity> for ::windows::runtime::IUnknown {
+    fn from(value: IBindHttpSecurity) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IBindHttpSecurity> for ::windows::runtime::IUnknown {
+    fn from(value: &IBindHttpSecurity) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBindHttpSecurity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBindHttpSecurity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindHttpSecurity_abi(
@@ -1349,8 +1429,8 @@ pub struct IBindHttpSecurity_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IBindProtocol(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IBindProtocol(pub ::windows::runtime::IUnknown);
 impl IBindProtocol {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -1363,6 +1443,26 @@ unsafe impl ::windows::runtime::Interface for IBindProtocol {
     type Vtable = IBindProtocol_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430221, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IBindProtocol> for ::windows::runtime::IUnknown {
+    fn from(value: IBindProtocol) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IBindProtocol> for ::windows::runtime::IUnknown {
+    fn from(value: &IBindProtocol) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBindProtocol {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBindProtocol {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindProtocol_abi(
@@ -1374,8 +1474,8 @@ pub struct IBindProtocol_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ICatalogFileInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ICatalogFileInfo(pub ::windows::runtime::IUnknown);
 impl ICatalogFileInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -1392,6 +1492,26 @@ unsafe impl ::windows::runtime::Interface for ICatalogFileInfo {
     type Vtable = ICatalogFileInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1897690624, 27464, 4561, [180, 3, 0, 170, 0, 185, 42, 241]);
 }
+impl ::std::convert::From<ICatalogFileInfo> for ::windows::runtime::IUnknown {
+    fn from(value: ICatalogFileInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ICatalogFileInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &ICatalogFileInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICatalogFileInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICatalogFileInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICatalogFileInfo_abi(
@@ -1404,8 +1524,8 @@ pub struct ICatalogFileInfo_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ICodeInstall(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ICodeInstall(pub ::windows::runtime::IUnknown);
 impl ICodeInstall {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -1423,6 +1543,26 @@ unsafe impl ::windows::runtime::Interface for ICodeInstall {
     type Vtable = ICodeInstall_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430225, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<ICodeInstall> for ::windows::runtime::IUnknown {
+    fn from(value: ICodeInstall) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ICodeInstall> for ::windows::runtime::IUnknown {
+    fn from(value: &ICodeInstall) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICodeInstall {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICodeInstall {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ICodeInstall> for IWindowForBindingUI {
     fn from(value: ICodeInstall) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1435,12 +1575,12 @@ impl ::std::convert::From<&ICodeInstall> for IWindowForBindingUI {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWindowForBindingUI> for ICodeInstall {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWindowForBindingUI> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWindowForBindingUI>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWindowForBindingUI> for &ICodeInstall {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWindowForBindingUI> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWindowForBindingUI>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1456,8 +1596,8 @@ pub struct ICodeInstall_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDataFilter(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDataFilter(pub ::windows::runtime::IUnknown);
 impl IDataFilter {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn DoEncode(&self, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::runtime::Result<()> {
@@ -1500,6 +1640,26 @@ unsafe impl ::windows::runtime::Interface for IDataFilter {
     type Vtable = IDataFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1775324288, 49550, 4560, [169, 206, 0, 96, 151, 148, 35, 17]);
 }
+impl ::std::convert::From<IDataFilter> for ::windows::runtime::IUnknown {
+    fn from(value: IDataFilter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDataFilter> for ::windows::runtime::IUnknown {
+    fn from(value: &IDataFilter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDataFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDataFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataFilter_abi(
@@ -1510,8 +1670,8 @@ pub struct IDataFilter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwenclevel: u32) -> ::windows::runtime::HRESULT,
 );
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IEGetUserPrivateNamespaceName() -> super::super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -1562,8 +1722,8 @@ unsafe impl ::windows::runtime::Abi for IEObjectType {
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IEncodingFilterFactory(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IEncodingFilterFactory(pub ::windows::runtime::IUnknown);
 impl IEncodingFilterFactory {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -1582,6 +1742,26 @@ unsafe impl ::windows::runtime::Interface for IEncodingFilterFactory {
     type Vtable = IEncodingFilterFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1891491328, 49550, 4560, [169, 206, 0, 96, 151, 148, 35, 17]);
 }
+impl ::std::convert::From<IEncodingFilterFactory> for ::windows::runtime::IUnknown {
+    fn from(value: IEncodingFilterFactory) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IEncodingFilterFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &IEncodingFilterFactory) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEncodingFilterFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEncodingFilterFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEncodingFilterFactory_abi(
@@ -1595,8 +1775,8 @@ pub struct IEncodingFilterFactory_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IGetBindHandle(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IGetBindHandle(pub ::windows::runtime::IUnknown);
 impl IGetBindHandle {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -1609,6 +1789,26 @@ unsafe impl ::windows::runtime::Interface for IGetBindHandle {
     type Vtable = IGetBindHandle_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2937058312, 4765, 19232, [145, 240, 2, 189, 35, 216, 131, 82]);
 }
+impl ::std::convert::From<IGetBindHandle> for ::windows::runtime::IUnknown {
+    fn from(value: IGetBindHandle) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IGetBindHandle> for ::windows::runtime::IUnknown {
+    fn from(value: &IGetBindHandle) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGetBindHandle {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGetBindHandle {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetBindHandle_abi(
@@ -1620,8 +1820,8 @@ pub struct IGetBindHandle_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IHttpNegotiate(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IHttpNegotiate(pub ::windows::runtime::IUnknown);
 impl IHttpNegotiate {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -1640,6 +1840,26 @@ unsafe impl ::windows::runtime::Interface for IHttpNegotiate {
     type Vtable = IHttpNegotiate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430226, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IHttpNegotiate> for ::windows::runtime::IUnknown {
+    fn from(value: IHttpNegotiate) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IHttpNegotiate> for ::windows::runtime::IUnknown {
+    fn from(value: &IHttpNegotiate) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IHttpNegotiate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IHttpNegotiate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpNegotiate_abi(
@@ -1653,8 +1873,8 @@ pub struct IHttpNegotiate_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IHttpNegotiate2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IHttpNegotiate2(pub ::windows::runtime::IUnknown);
 impl IHttpNegotiate2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -1677,6 +1897,26 @@ unsafe impl ::windows::runtime::Interface for IHttpNegotiate2 {
     type Vtable = IHttpNegotiate2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1335861195, 57588, 18667, [183, 171, 250, 46, 169, 54, 92, 180]);
 }
+impl ::std::convert::From<IHttpNegotiate2> for ::windows::runtime::IUnknown {
+    fn from(value: IHttpNegotiate2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IHttpNegotiate2> for ::windows::runtime::IUnknown {
+    fn from(value: &IHttpNegotiate2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IHttpNegotiate2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IHttpNegotiate2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IHttpNegotiate2> for IHttpNegotiate {
     fn from(value: IHttpNegotiate2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1689,12 +1929,12 @@ impl ::std::convert::From<&IHttpNegotiate2> for IHttpNegotiate {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate> for IHttpNegotiate2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpNegotiate>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate> for &IHttpNegotiate2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpNegotiate>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1711,8 +1951,8 @@ pub struct IHttpNegotiate2_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IHttpNegotiate3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IHttpNegotiate3(pub ::windows::runtime::IUnknown);
 impl IHttpNegotiate3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -1739,6 +1979,26 @@ unsafe impl ::windows::runtime::Interface for IHttpNegotiate3 {
     type Vtable = IHttpNegotiate3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1471596554, 13506, 17922, [188, 38, 102, 160, 47, 197, 113, 83]);
 }
+impl ::std::convert::From<IHttpNegotiate3> for ::windows::runtime::IUnknown {
+    fn from(value: IHttpNegotiate3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IHttpNegotiate3> for ::windows::runtime::IUnknown {
+    fn from(value: &IHttpNegotiate3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IHttpNegotiate3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IHttpNegotiate3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IHttpNegotiate3> for IHttpNegotiate2 {
     fn from(value: IHttpNegotiate3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1751,12 +2011,12 @@ impl ::std::convert::From<&IHttpNegotiate3> for IHttpNegotiate2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate2> for IHttpNegotiate3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpNegotiate2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate2> for &IHttpNegotiate3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpNegotiate2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IHttpNegotiate3> for IHttpNegotiate {
@@ -1771,12 +2031,12 @@ impl ::std::convert::From<&IHttpNegotiate3> for IHttpNegotiate {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate> for IHttpNegotiate3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpNegotiate>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate> for &IHttpNegotiate3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpNegotiate>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1794,8 +2054,8 @@ pub struct IHttpNegotiate3_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IHttpSecurity(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IHttpSecurity(pub ::windows::runtime::IUnknown);
 impl IHttpSecurity {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -1812,6 +2072,26 @@ unsafe impl ::windows::runtime::Interface for IHttpSecurity {
     type Vtable = IHttpSecurity_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430231, 47866, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IHttpSecurity> for ::windows::runtime::IUnknown {
+    fn from(value: IHttpSecurity) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IHttpSecurity> for ::windows::runtime::IUnknown {
+    fn from(value: &IHttpSecurity) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IHttpSecurity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IHttpSecurity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IHttpSecurity> for IWindowForBindingUI {
     fn from(value: IHttpSecurity) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1824,12 +2104,12 @@ impl ::std::convert::From<&IHttpSecurity> for IWindowForBindingUI {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWindowForBindingUI> for IHttpSecurity {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWindowForBindingUI> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWindowForBindingUI>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWindowForBindingUI> for &IHttpSecurity {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWindowForBindingUI> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWindowForBindingUI>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1844,12 +2124,32 @@ pub struct IHttpSecurity_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternet(pub ::windows::runtime::IUnknown);
 impl IInternet {}
 unsafe impl ::windows::runtime::Interface for IInternet {
     type Vtable = IInternet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430240, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+}
+impl ::std::convert::From<IInternet> for ::windows::runtime::IUnknown {
+    fn from(value: IInternet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternet> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1860,8 +2160,8 @@ pub struct IInternet_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetBindInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetBindInfo(pub ::windows::runtime::IUnknown);
 impl IInternetBindInfo {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`*"]
@@ -1878,6 +2178,26 @@ unsafe impl ::windows::runtime::Interface for IInternetBindInfo {
     type Vtable = IInternetBindInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430241, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IInternetBindInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetBindInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetBindInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetBindInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetBindInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetBindInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetBindInfo_abi(
@@ -1891,8 +2211,8 @@ pub struct IInternetBindInfo_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetBindInfoEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetBindInfoEx(pub ::windows::runtime::IUnknown);
 impl IInternetBindInfoEx {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`*"]
@@ -1914,6 +2234,26 @@ unsafe impl ::windows::runtime::Interface for IInternetBindInfoEx {
     type Vtable = IInternetBindInfoEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2749371831, 43052, 19917, [161, 80, 86, 154, 238, 237, 54, 171]);
 }
+impl ::std::convert::From<IInternetBindInfoEx> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetBindInfoEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetBindInfoEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetBindInfoEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetBindInfoEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetBindInfoEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IInternetBindInfoEx> for IInternetBindInfo {
     fn from(value: IInternetBindInfoEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1926,12 +2266,12 @@ impl ::std::convert::From<&IInternetBindInfoEx> for IInternetBindInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetBindInfo> for IInternetBindInfoEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetBindInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetBindInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetBindInfo> for &IInternetBindInfoEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetBindInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetBindInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1949,8 +2289,8 @@ pub struct IInternetBindInfoEx_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetHostSecurityManager(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetHostSecurityManager(pub ::windows::runtime::IUnknown);
 impl IInternetHostSecurityManager {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn GetSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::runtime::Result<()> {
@@ -1969,6 +2309,26 @@ unsafe impl ::windows::runtime::Interface for IInternetHostSecurityManager {
     type Vtable = IInternetHostSecurityManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(988971190, 52031, 4560, [137, 30, 0, 192, 79, 182, 191, 196]);
 }
+impl ::std::convert::From<IInternetHostSecurityManager> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetHostSecurityManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetHostSecurityManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetHostSecurityManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetHostSecurityManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetHostSecurityManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetHostSecurityManager_abi(
@@ -1981,8 +2341,8 @@ pub struct IInternetHostSecurityManager_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetPriority(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetPriority(pub ::windows::runtime::IUnknown);
 impl IInternetPriority {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn SetPriority(&self, npriority: i32) -> ::windows::runtime::Result<()> {
@@ -1998,6 +2358,26 @@ unsafe impl ::windows::runtime::Interface for IInternetPriority {
     type Vtable = IInternetPriority_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430251, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IInternetPriority> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetPriority) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetPriority> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetPriority) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetPriority {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetPriority {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetPriority_abi(
@@ -2009,8 +2389,8 @@ pub struct IInternetPriority_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetProtocol(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetProtocol(pub ::windows::runtime::IUnknown);
 impl IInternetProtocol {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -2059,6 +2439,26 @@ unsafe impl ::windows::runtime::Interface for IInternetProtocol {
     type Vtable = IInternetProtocol_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430244, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IInternetProtocol> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetProtocol) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetProtocol> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetProtocol) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetProtocol {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetProtocol {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IInternetProtocol> for IInternetProtocolRoot {
     fn from(value: IInternetProtocol) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2071,12 +2471,12 @@ impl ::std::convert::From<&IInternetProtocol> for IInternetProtocolRoot {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocolRoot> for IInternetProtocol {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocolRoot> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetProtocolRoot>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocolRoot> for &IInternetProtocol {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocolRoot> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetProtocolRoot>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2099,8 +2499,8 @@ pub struct IInternetProtocol_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetProtocolEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetProtocolEx(pub ::windows::runtime::IUnknown);
 impl IInternetProtocolEx {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -2154,6 +2554,26 @@ unsafe impl ::windows::runtime::Interface for IInternetProtocolEx {
     type Vtable = IInternetProtocolEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3349778022, 4112, 18732, [161, 200, 200, 9, 225, 247, 89, 5]);
 }
+impl ::std::convert::From<IInternetProtocolEx> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetProtocolEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetProtocolEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetProtocolEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetProtocolEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetProtocolEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IInternetProtocolEx> for IInternetProtocol {
     fn from(value: IInternetProtocolEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2166,12 +2586,12 @@ impl ::std::convert::From<&IInternetProtocolEx> for IInternetProtocol {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocol> for IInternetProtocolEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocol> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetProtocol>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocol> for &IInternetProtocolEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocol> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetProtocol>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IInternetProtocolEx> for IInternetProtocolRoot {
@@ -2186,12 +2606,12 @@ impl ::std::convert::From<&IInternetProtocolEx> for IInternetProtocolRoot {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocolRoot> for IInternetProtocolEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocolRoot> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetProtocolRoot>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocolRoot> for &IInternetProtocolEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocolRoot> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetProtocolRoot>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2216,8 +2636,8 @@ pub struct IInternetProtocolEx_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetProtocolInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetProtocolInfo(pub ::windows::runtime::IUnknown);
 impl IInternetProtocolInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -2244,6 +2664,26 @@ unsafe impl ::windows::runtime::Interface for IInternetProtocolInfo {
     type Vtable = IInternetProtocolInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430252, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IInternetProtocolInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetProtocolInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetProtocolInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetProtocolInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetProtocolInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetProtocolInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetProtocolInfo_abi(
@@ -2261,8 +2701,8 @@ pub struct IInternetProtocolInfo_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetProtocolRoot(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetProtocolRoot(pub ::windows::runtime::IUnknown);
 impl IInternetProtocolRoot {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -2294,6 +2734,26 @@ unsafe impl ::windows::runtime::Interface for IInternetProtocolRoot {
     type Vtable = IInternetProtocolRoot_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430243, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IInternetProtocolRoot> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetProtocolRoot) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetProtocolRoot> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetProtocolRoot) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetProtocolRoot {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetProtocolRoot {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetProtocolRoot_abi(
@@ -2310,8 +2770,8 @@ pub struct IInternetProtocolRoot_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetProtocolSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetProtocolSink(pub ::windows::runtime::IUnknown);
 impl IInternetProtocolSink {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn Switch(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::runtime::Result<()> {
@@ -2336,6 +2796,26 @@ unsafe impl ::windows::runtime::Interface for IInternetProtocolSink {
     type Vtable = IInternetProtocolSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430245, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IInternetProtocolSink> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetProtocolSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetProtocolSink> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetProtocolSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetProtocolSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetProtocolSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetProtocolSink_abi(
@@ -2351,8 +2831,8 @@ pub struct IInternetProtocolSink_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetProtocolSinkStackable(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetProtocolSinkStackable(pub ::windows::runtime::IUnknown);
 impl IInternetProtocolSinkStackable {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn SwitchSink<'a, Param0: ::windows::runtime::IntoParam<'a, IInternetProtocolSink>>(&self, poiprotsink: Param0) -> ::windows::runtime::Result<()> {
@@ -2371,6 +2851,26 @@ unsafe impl ::windows::runtime::Interface for IInternetProtocolSinkStackable {
     type Vtable = IInternetProtocolSinkStackable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430256, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IInternetProtocolSinkStackable> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetProtocolSinkStackable) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetProtocolSinkStackable> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetProtocolSinkStackable) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetProtocolSinkStackable {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetProtocolSinkStackable {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetProtocolSinkStackable_abi(
@@ -2383,8 +2883,8 @@ pub struct IInternetProtocolSinkStackable_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetSecurityManager(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetSecurityManager(pub ::windows::runtime::IUnknown);
 impl IInternetSecurityManager {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn SetSecuritySite<'a, Param0: ::windows::runtime::IntoParam<'a, IInternetSecurityMgrSite>>(&self, psite: Param0) -> ::windows::runtime::Result<()> {
@@ -2429,6 +2929,26 @@ unsafe impl ::windows::runtime::Interface for IInternetSecurityManager {
     type Vtable = IInternetSecurityManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430254, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IInternetSecurityManager> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetSecurityManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetSecurityManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetSecurityManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetSecurityManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetSecurityManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetSecurityManager_abi(
@@ -2451,8 +2971,8 @@ pub struct IInternetSecurityManager_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetSecurityManagerEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetSecurityManagerEx(pub ::windows::runtime::IUnknown);
 impl IInternetSecurityManagerEx {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn SetSecuritySite<'a, Param0: ::windows::runtime::IntoParam<'a, IInternetSecurityMgrSite>>(&self, psite: Param0) -> ::windows::runtime::Result<()> {
@@ -2514,6 +3034,26 @@ unsafe impl ::windows::runtime::Interface for IInternetSecurityManagerEx {
     type Vtable = IInternetSecurityManagerEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4049923569, 52348, 20237, [154, 148, 52, 34, 38, 37, 195, 147]);
 }
+impl ::std::convert::From<IInternetSecurityManagerEx> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetSecurityManagerEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetSecurityManagerEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetSecurityManagerEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetSecurityManagerEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetSecurityManagerEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IInternetSecurityManagerEx> for IInternetSecurityManager {
     fn from(value: IInternetSecurityManagerEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2526,12 +3066,12 @@ impl ::std::convert::From<&IInternetSecurityManagerEx> for IInternetSecurityMana
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManager> for IInternetSecurityManagerEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetSecurityManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManager> for &IInternetSecurityManagerEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetSecurityManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2558,8 +3098,8 @@ pub struct IInternetSecurityManagerEx_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetSecurityManagerEx2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetSecurityManagerEx2(pub ::windows::runtime::IUnknown);
 impl IInternetSecurityManagerEx2 {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn SetSecuritySite<'a, Param0: ::windows::runtime::IntoParam<'a, IInternetSecurityMgrSite>>(&self, psite: Param0) -> ::windows::runtime::Result<()> {
@@ -2650,6 +3190,26 @@ unsafe impl ::windows::runtime::Interface for IInternetSecurityManagerEx2 {
     type Vtable = IInternetSecurityManagerEx2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4058317458, 42901, 16663, [142, 9, 43, 86, 10, 114, 172, 96]);
 }
+impl ::std::convert::From<IInternetSecurityManagerEx2> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetSecurityManagerEx2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetSecurityManagerEx2> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetSecurityManagerEx2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetSecurityManagerEx2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetSecurityManagerEx2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IInternetSecurityManagerEx2> for IInternetSecurityManagerEx {
     fn from(value: IInternetSecurityManagerEx2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2662,12 +3222,12 @@ impl ::std::convert::From<&IInternetSecurityManagerEx2> for IInternetSecurityMan
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManagerEx> for IInternetSecurityManagerEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManagerEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetSecurityManagerEx>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManagerEx> for &IInternetSecurityManagerEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManagerEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetSecurityManagerEx>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IInternetSecurityManagerEx2> for IInternetSecurityManager {
@@ -2682,12 +3242,12 @@ impl ::std::convert::From<&IInternetSecurityManagerEx2> for IInternetSecurityMan
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManager> for IInternetSecurityManagerEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetSecurityManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManager> for &IInternetSecurityManagerEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetSecurityManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2719,8 +3279,8 @@ pub struct IInternetSecurityManagerEx2_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetSecurityMgrSite(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetSecurityMgrSite(pub ::windows::runtime::IUnknown);
 impl IInternetSecurityMgrSite {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -2738,6 +3298,26 @@ unsafe impl ::windows::runtime::Interface for IInternetSecurityMgrSite {
     type Vtable = IInternetSecurityMgrSite_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430253, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IInternetSecurityMgrSite> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetSecurityMgrSite) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetSecurityMgrSite> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetSecurityMgrSite) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetSecurityMgrSite {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetSecurityMgrSite {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetSecurityMgrSite_abi(
@@ -2751,8 +3331,8 @@ pub struct IInternetSecurityMgrSite_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetSession(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetSession(pub ::windows::runtime::IUnknown);
 impl IInternetSession {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -2792,6 +3372,26 @@ unsafe impl ::windows::runtime::Interface for IInternetSession {
     type Vtable = IInternetSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430247, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IInternetSession> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetSession> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetSession_abi(
@@ -2813,8 +3413,8 @@ pub struct IInternetSession_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetThreadSwitch(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetThreadSwitch(pub ::windows::runtime::IUnknown);
 impl IInternetThreadSwitch {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn Prepare(&self) -> ::windows::runtime::Result<()> {
@@ -2829,6 +3429,26 @@ unsafe impl ::windows::runtime::Interface for IInternetThreadSwitch {
     type Vtable = IInternetThreadSwitch_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430248, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IInternetThreadSwitch> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetThreadSwitch) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetThreadSwitch> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetThreadSwitch) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetThreadSwitch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetThreadSwitch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetThreadSwitch_abi(
@@ -2840,8 +3460,8 @@ pub struct IInternetThreadSwitch_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetZoneManager(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetZoneManager(pub ::windows::runtime::IUnknown);
 impl IInternetZoneManager {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::runtime::Result<()> {
@@ -2899,6 +3519,26 @@ unsafe impl ::windows::runtime::Interface for IInternetZoneManager {
     type Vtable = IInternetZoneManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430255, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IInternetZoneManager> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetZoneManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetZoneManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetZoneManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetZoneManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetZoneManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInternetZoneManager_abi(
@@ -2922,8 +3562,8 @@ pub struct IInternetZoneManager_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetZoneManagerEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetZoneManagerEx(pub ::windows::runtime::IUnknown);
 impl IInternetZoneManagerEx {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::runtime::Result<()> {
@@ -2989,6 +3629,26 @@ unsafe impl ::windows::runtime::Interface for IInternetZoneManagerEx {
     type Vtable = IInternetZoneManagerEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2764190521, 36358, 17182, [155, 244, 126, 113, 28, 8, 86, 72]);
 }
+impl ::std::convert::From<IInternetZoneManagerEx> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetZoneManagerEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetZoneManagerEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetZoneManagerEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetZoneManagerEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetZoneManagerEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IInternetZoneManagerEx> for IInternetZoneManager {
     fn from(value: IInternetZoneManagerEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3001,12 +3661,12 @@ impl ::std::convert::From<&IInternetZoneManagerEx> for IInternetZoneManager {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManager> for IInternetZoneManagerEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetZoneManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManager> for &IInternetZoneManagerEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetZoneManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3034,8 +3694,8 @@ pub struct IInternetZoneManagerEx_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInternetZoneManagerEx2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInternetZoneManagerEx2(pub ::windows::runtime::IUnknown);
 impl IInternetZoneManagerEx2 {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::runtime::Result<()> {
@@ -3119,6 +3779,26 @@ unsafe impl ::windows::runtime::Interface for IInternetZoneManagerEx2 {
     type Vtable = IInternetZoneManagerEx2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3988878681, 56669, 18502, [142, 239, 139, 236, 186, 90, 74, 191]);
 }
+impl ::std::convert::From<IInternetZoneManagerEx2> for ::windows::runtime::IUnknown {
+    fn from(value: IInternetZoneManagerEx2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInternetZoneManagerEx2> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternetZoneManagerEx2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternetZoneManagerEx2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInternetZoneManagerEx2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IInternetZoneManagerEx2> for IInternetZoneManagerEx {
     fn from(value: IInternetZoneManagerEx2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3131,12 +3811,12 @@ impl ::std::convert::From<&IInternetZoneManagerEx2> for IInternetZoneManagerEx {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManagerEx> for IInternetZoneManagerEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManagerEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetZoneManagerEx>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManagerEx> for &IInternetZoneManagerEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManagerEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetZoneManagerEx>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IInternetZoneManagerEx2> for IInternetZoneManager {
@@ -3151,12 +3831,12 @@ impl ::std::convert::From<&IInternetZoneManagerEx2> for IInternetZoneManager {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManager> for IInternetZoneManagerEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetZoneManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManager> for &IInternetZoneManagerEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetZoneManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3190,8 +3870,8 @@ pub struct IInternetZoneManagerEx2_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IMonikerProp(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IMonikerProp(pub ::windows::runtime::IUnknown);
 impl IMonikerProp {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -3202,6 +3882,26 @@ impl IMonikerProp {
 unsafe impl ::windows::runtime::Interface for IMonikerProp {
     type Vtable = IMonikerProp_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2781503359, 6215, 19847, [156, 91, 145, 133, 9, 247, 81, 29]);
+}
+impl ::std::convert::From<IMonikerProp> for ::windows::runtime::IUnknown {
+    fn from(value: IMonikerProp) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMonikerProp> for ::windows::runtime::IUnknown {
+    fn from(value: &IMonikerProp) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMonikerProp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMonikerProp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3369,8 +4069,8 @@ unsafe impl ::windows::runtime::Abi for INTERNETFEATURELIST {
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IPersistMoniker(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IPersistMoniker(pub ::windows::runtime::IUnknown);
 impl IPersistMoniker {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn GetClassID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -3405,6 +4105,26 @@ unsafe impl ::windows::runtime::Interface for IPersistMoniker {
     type Vtable = IPersistMoniker_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430217, 47865, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IPersistMoniker> for ::windows::runtime::IUnknown {
+    fn from(value: IPersistMoniker) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPersistMoniker> for ::windows::runtime::IUnknown {
+    fn from(value: &IPersistMoniker) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPersistMoniker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPersistMoniker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPersistMoniker_abi(
@@ -3422,8 +4142,8 @@ pub struct IPersistMoniker_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISoftDistExt(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISoftDistExt(pub ::windows::runtime::IUnknown);
 impl ISoftDistExt {
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
@@ -3450,6 +4170,26 @@ unsafe impl ::windows::runtime::Interface for ISoftDistExt {
     type Vtable = ISoftDistExt_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2975567297, 51169, 4560, [134, 128, 0, 170, 0, 189, 203, 113]);
 }
+impl ::std::convert::From<ISoftDistExt> for ::windows::runtime::IUnknown {
+    fn from(value: ISoftDistExt) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISoftDistExt> for ::windows::runtime::IUnknown {
+    fn from(value: &ISoftDistExt) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISoftDistExt {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISoftDistExt {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISoftDistExt_abi(
@@ -3467,8 +4207,8 @@ pub struct ISoftDistExt_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IUriBuilderFactory(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IUriBuilderFactory(pub ::windows::runtime::IUnknown);
 impl IUriBuilderFactory {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn CreateIUriBuilder(&self, dwflags: u32, dwreserved: usize) -> ::windows::runtime::Result<super::IUriBuilder> {
@@ -3485,6 +4225,26 @@ unsafe impl ::windows::runtime::Interface for IUriBuilderFactory {
     type Vtable = IUriBuilderFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3917663816, 2966, 17420, [188, 55, 12, 134, 155, 39, 162, 158]);
 }
+impl ::std::convert::From<IUriBuilderFactory> for ::windows::runtime::IUnknown {
+    fn from(value: IUriBuilderFactory) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IUriBuilderFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &IUriBuilderFactory) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUriBuilderFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUriBuilderFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUriBuilderFactory_abi(
@@ -3496,8 +4256,8 @@ pub struct IUriBuilderFactory_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IUriContainer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IUriContainer(pub ::windows::runtime::IUnknown);
 impl IUriContainer {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn GetIUri(&self) -> ::windows::runtime::Result<super::IUri> {
@@ -3509,6 +4269,26 @@ unsafe impl ::windows::runtime::Interface for IUriContainer {
     type Vtable = IUriContainer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2706941488, 60783, 17915, [185, 135, 246, 134, 118, 245, 119, 82]);
 }
+impl ::std::convert::From<IUriContainer> for ::windows::runtime::IUnknown {
+    fn from(value: IUriContainer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IUriContainer> for ::windows::runtime::IUnknown {
+    fn from(value: &IUriContainer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUriContainer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUriContainer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUriContainer_abi(
@@ -3519,8 +4299,8 @@ pub struct IUriContainer_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWinInetCacheHints(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWinInetCacheHints(pub ::windows::runtime::IUnknown);
 impl IWinInetCacheHints {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -3531,6 +4311,26 @@ impl IWinInetCacheHints {
 unsafe impl ::windows::runtime::Interface for IWinInetCacheHints {
     type Vtable = IWinInetCacheHints_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3709780915, 33681, 20443, [169, 230, 52, 124, 60, 170, 167, 221]);
+}
+impl ::std::convert::From<IWinInetCacheHints> for ::windows::runtime::IUnknown {
+    fn from(value: IWinInetCacheHints) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWinInetCacheHints> for ::windows::runtime::IUnknown {
+    fn from(value: &IWinInetCacheHints) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinInetCacheHints {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinInetCacheHints {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3543,8 +4343,8 @@ pub struct IWinInetCacheHints_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWinInetCacheHints2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWinInetCacheHints2(pub ::windows::runtime::IUnknown);
 impl IWinInetCacheHints2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -3561,6 +4361,26 @@ unsafe impl ::windows::runtime::Interface for IWinInetCacheHints2 {
     type Vtable = IWinInetCacheHints2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2019012268, 54047, 18879, [136, 78, 221, 70, 223, 54, 120, 10]);
 }
+impl ::std::convert::From<IWinInetCacheHints2> for ::windows::runtime::IUnknown {
+    fn from(value: IWinInetCacheHints2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWinInetCacheHints2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWinInetCacheHints2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinInetCacheHints2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinInetCacheHints2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWinInetCacheHints2> for IWinInetCacheHints {
     fn from(value: IWinInetCacheHints2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3573,12 +4393,12 @@ impl ::std::convert::From<&IWinInetCacheHints2> for IWinInetCacheHints {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWinInetCacheHints> for IWinInetCacheHints2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWinInetCacheHints> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWinInetCacheHints>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWinInetCacheHints> for &IWinInetCacheHints2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWinInetCacheHints> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWinInetCacheHints>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3594,8 +4414,8 @@ pub struct IWinInetCacheHints2_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWinInetFileStream(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWinInetFileStream(pub ::windows::runtime::IUnknown);
 impl IWinInetFileStream {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn SetHandleForUnlock(&self, hwininetlockhandle: usize, dwreserved: usize) -> ::windows::runtime::Result<()> {
@@ -3610,6 +4430,26 @@ unsafe impl ::windows::runtime::Interface for IWinInetFileStream {
     type Vtable = IWinInetFileStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4046767287, 45560, 20085, [184, 134, 116, 185, 9, 67, 190, 203]);
 }
+impl ::std::convert::From<IWinInetFileStream> for ::windows::runtime::IUnknown {
+    fn from(value: IWinInetFileStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWinInetFileStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IWinInetFileStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinInetFileStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinInetFileStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinInetFileStream_abi(
@@ -3621,8 +4461,8 @@ pub struct IWinInetFileStream_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWinInetHttpInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWinInetHttpInfo(pub ::windows::runtime::IUnknown);
 impl IWinInetHttpInfo {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn QueryOption(&self, dwoption: u32, pbuffer: *mut ::std::ffi::c_void, pcbbuf: *mut u32) -> ::windows::runtime::Result<()> {
@@ -3637,6 +4477,26 @@ unsafe impl ::windows::runtime::Interface for IWinInetHttpInfo {
     type Vtable = IWinInetHttpInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430232, 47866, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IWinInetHttpInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IWinInetHttpInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWinInetHttpInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IWinInetHttpInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinInetHttpInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinInetHttpInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWinInetHttpInfo> for IWinInetInfo {
     fn from(value: IWinInetHttpInfo) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3649,12 +4509,12 @@ impl ::std::convert::From<&IWinInetHttpInfo> for IWinInetInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWinInetInfo> for IWinInetHttpInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWinInetInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWinInetInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWinInetInfo> for &IWinInetHttpInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWinInetInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWinInetInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3668,8 +4528,8 @@ pub struct IWinInetHttpInfo_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWinInetHttpTimeouts(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWinInetHttpTimeouts(pub ::windows::runtime::IUnknown);
 impl IWinInetHttpTimeouts {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn GetRequestTimeouts(&self, pdwconnecttimeout: *mut u32, pdwsendtimeout: *mut u32, pdwreceivetimeout: *mut u32) -> ::windows::runtime::Result<()> {
@@ -3679,6 +4539,26 @@ impl IWinInetHttpTimeouts {
 unsafe impl ::windows::runtime::Interface for IWinInetHttpTimeouts {
     type Vtable = IWinInetHttpTimeouts_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4068932182, 49661, 17008, [142, 103, 179, 235, 121, 10, 129, 232]);
+}
+impl ::std::convert::From<IWinInetHttpTimeouts> for ::windows::runtime::IUnknown {
+    fn from(value: IWinInetHttpTimeouts) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWinInetHttpTimeouts> for ::windows::runtime::IUnknown {
+    fn from(value: &IWinInetHttpTimeouts) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinInetHttpTimeouts {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinInetHttpTimeouts {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3690,8 +4570,8 @@ pub struct IWinInetHttpTimeouts_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWinInetInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWinInetInfo(pub ::windows::runtime::IUnknown);
 impl IWinInetInfo {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn QueryOption(&self, dwoption: u32, pbuffer: *mut ::std::ffi::c_void, pcbbuf: *mut u32) -> ::windows::runtime::Result<()> {
@@ -3701,6 +4581,26 @@ impl IWinInetInfo {
 unsafe impl ::windows::runtime::Interface for IWinInetInfo {
     type Vtable = IWinInetInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430230, 47866, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
+}
+impl ::std::convert::From<IWinInetInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IWinInetInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWinInetInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IWinInetInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinInetInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinInetInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3712,8 +4612,8 @@ pub struct IWinInetInfo_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWindowForBindingUI(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWindowForBindingUI(pub ::windows::runtime::IUnknown);
 impl IWindowForBindingUI {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -3726,6 +4626,26 @@ unsafe impl ::windows::runtime::Interface for IWindowForBindingUI {
     type Vtable = IWindowForBindingUI_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2045430229, 47866, 4558, [140, 130, 0, 170, 0, 75, 169, 11]);
 }
+impl ::std::convert::From<IWindowForBindingUI> for ::windows::runtime::IUnknown {
+    fn from(value: IWindowForBindingUI) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWindowForBindingUI> for ::windows::runtime::IUnknown {
+    fn from(value: &IWindowForBindingUI) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWindowForBindingUI {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWindowForBindingUI {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowForBindingUI_abi(
@@ -3737,8 +4657,8 @@ pub struct IWindowForBindingUI_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWrappedProtocol(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWrappedProtocol(pub ::windows::runtime::IUnknown);
 impl IWrappedProtocol {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn GetWrapperCode(&self, pncode: *mut i32, dwreserved: usize) -> ::windows::runtime::Result<()> {
@@ -3748,6 +4668,26 @@ impl IWrappedProtocol {
 unsafe impl ::windows::runtime::Interface for IWrappedProtocol {
     type Vtable = IWrappedProtocol_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1405634437, 33829, 19909, [151, 27, 229, 141, 156, 25, 249, 182]);
+}
+impl ::std::convert::From<IWrappedProtocol> for ::windows::runtime::IUnknown {
+    fn from(value: IWrappedProtocol) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWrappedProtocol> for ::windows::runtime::IUnknown {
+    fn from(value: &IWrappedProtocol) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWrappedProtocol {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWrappedProtocol {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3759,8 +4699,8 @@ pub struct IWrappedProtocol_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IZoneIdentifier(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IZoneIdentifier(pub ::windows::runtime::IUnknown);
 impl IZoneIdentifier {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn GetId(&self) -> ::windows::runtime::Result<u32> {
@@ -3780,6 +4720,26 @@ unsafe impl ::windows::runtime::Interface for IZoneIdentifier {
     type Vtable = IZoneIdentifier_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3443913093, 6945, 18658, [150, 123, 234, 215, 67, 168, 145, 78]);
 }
+impl ::std::convert::From<IZoneIdentifier> for ::windows::runtime::IUnknown {
+    fn from(value: IZoneIdentifier) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IZoneIdentifier> for ::windows::runtime::IUnknown {
+    fn from(value: &IZoneIdentifier) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IZoneIdentifier {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IZoneIdentifier {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IZoneIdentifier_abi(
@@ -3792,8 +4752,8 @@ pub struct IZoneIdentifier_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IZoneIdentifier2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IZoneIdentifier2(pub ::windows::runtime::IUnknown);
 impl IZoneIdentifier2 {
     #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
     pub unsafe fn GetId(&self) -> ::windows::runtime::Result<u32> {
@@ -3841,6 +4801,26 @@ unsafe impl ::windows::runtime::Interface for IZoneIdentifier2 {
     type Vtable = IZoneIdentifier2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3948836364, 2543, 17856, [181, 16, 112, 131, 12, 227, 30, 106]);
 }
+impl ::std::convert::From<IZoneIdentifier2> for ::windows::runtime::IUnknown {
+    fn from(value: IZoneIdentifier2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IZoneIdentifier2> for ::windows::runtime::IUnknown {
+    fn from(value: &IZoneIdentifier2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IZoneIdentifier2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IZoneIdentifier2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IZoneIdentifier2> for IZoneIdentifier {
     fn from(value: IZoneIdentifier2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3853,12 +4833,12 @@ impl ::std::convert::From<&IZoneIdentifier2> for IZoneIdentifier {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IZoneIdentifier> for IZoneIdentifier2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IZoneIdentifier> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IZoneIdentifier>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IZoneIdentifier> for &IZoneIdentifier2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IZoneIdentifier> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IZoneIdentifier>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3893,8 +4873,8 @@ pub unsafe fn IsAsyncMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsLoggingEnabledA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(pszurl: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3908,8 +4888,8 @@ pub unsafe fn IsLoggingEnabledA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsLoggingEnabledW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszurl: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3923,8 +4903,8 @@ pub unsafe fn IsLoggingEnabledW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsValidURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, szurl: Param1, dwreserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3981,8 +4961,8 @@ pub const MUTZ_NOSAVEDFILECHECK: u32 = 1u32;
 pub const MUTZ_REQUIRESAVEDFILECHECK: u32 = 1024u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const MUTZ_RESERVED: u32 = 512u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MkParseDisplayNameEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, szdisplayname: Param1, pcheaten: *mut u32, ppmk: *mut ::std::option::Option<super::IMoniker>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4010,8 +4990,8 @@ impl ::std::convert::From<i32> for OIBDG_FLAGS {
 unsafe impl ::windows::runtime::Abi for OIBDG_FLAGS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ObtainUserAgentString(dwoption: u32, pszuaout: super::super::super::Foundation::PSTR, cbsize: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4330,8 +5310,8 @@ pub unsafe fn RegisterFormatEnumerator<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterMediaTypeClass<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>>(pbc: Param0, ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgclsid: *const ::windows::runtime::GUID, reserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4345,8 +5325,8 @@ pub unsafe fn RegisterMediaTypeClass<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgcftypes: *mut u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4360,8 +5340,8 @@ pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const super::super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO) {
     #[cfg(windows)]
@@ -4627,8 +5607,8 @@ unsafe impl ::windows::runtime::Abi for SZM_FLAGS {
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const S_ASYNCHRONOUS: i32 = 262632i32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetAccessForIEAppContainer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hobject: Param0, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4642,8 +5622,8 @@ pub unsafe fn SetAccessForIEAppContainer<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSoftwareUpdateAdvertisementState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szdistunit: Param0, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4971,8 +5951,8 @@ pub const URLACTION_WINDOWS_BROWSER_APPLICATIONS: u32 = 9216u32;
 pub const URLACTION_WINFX_SETUP: u32 = 9728u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const URLACTION_XPS_DOCUMENTS: u32 = 9217u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLDownloadToCacheFileA<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: super::super::super::Foundation::PSTR, cchfilename: u32, param4: u32, param5: Param5) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4986,8 +5966,8 @@ pub unsafe fn URLDownloadToCacheFileA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLDownloadToCacheFileW<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: super::super::super::Foundation::PWSTR, cchfilename: u32, param4: u32, param5: Param5) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5001,8 +5981,8 @@ pub unsafe fn URLDownloadToCacheFileW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLDownloadToFileA<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: Param2, param3: u32, param4: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5016,8 +5996,8 @@ pub unsafe fn URLDownloadToFileA<'a, Param0: ::windows::runtime::IntoParam<'a, :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLDownloadToFileW<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: Param2, param3: u32, param4: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5047,8 +6027,8 @@ pub const URLOSTRM_GETNEWESTVERSION: u32 = 3u32;
 pub const URLOSTRM_USECACHEDCOPY: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const URLOSTRM_USECACHEDCOPY_ONLY: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLOpenBlockingStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: *mut ::std::option::Option<super::IStream>, param3: u32, param4: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5062,8 +6042,8 @@ pub unsafe fn URLOpenBlockingStreamA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLOpenBlockingStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: *mut ::std::option::Option<super::IStream>, param3: u32, param4: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5077,8 +6057,8 @@ pub unsafe fn URLOpenBlockingStreamW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLOpenPullStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5092,8 +6072,8 @@ pub unsafe fn URLOpenPullStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLOpenPullStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5107,8 +6087,8 @@ pub unsafe fn URLOpenPullStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLOpenStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5122,8 +6102,8 @@ pub unsafe fn URLOpenStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLOpenStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5340,8 +6320,8 @@ pub unsafe fn UrlMkSetSessionOption(dwoption: u32, pbuffer: *const ::std::ffi::c
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const WININETINFO_OPTION_LOCK_HANDLE: u32 = 65534u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]

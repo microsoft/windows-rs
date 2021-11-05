@@ -74,8 +74,8 @@ impl ::windows::runtime::DefaultType for GameChatMessageOrigin {
 }
 #[doc = "*Required features: `Gaming_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct GameChatMessageReceivedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct GameChatMessageReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl GameChatMessageReceivedEventArgs {
     #[doc = "*Required features: `Gaming_UI`*"]
     pub fn AppId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -128,12 +128,52 @@ unsafe impl ::windows::runtime::Interface for GameChatMessageReceivedEventArgs {
 impl ::windows::runtime::RuntimeName for GameChatMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatMessageReceivedEventArgs";
 }
+impl ::std::convert::From<GameChatMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: GameChatMessageReceivedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&GameChatMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &GameChatMessageReceivedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameChatMessageReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameChatMessageReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<GameChatMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: GameChatMessageReceivedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GameChatMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &GameChatMessageReceivedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameChatMessageReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameChatMessageReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GameChatMessageReceivedEventArgs {}
 unsafe impl ::std::marker::Sync for GameChatMessageReceivedEventArgs {}
 #[doc = "*Required features: `Gaming_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct GameChatOverlay(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct GameChatOverlay(pub ::windows::runtime::IInspectable);
 impl GameChatOverlay {
     #[doc = "*Required features: `Gaming_UI`*"]
     pub fn DesiredPosition(&self) -> ::windows::runtime::Result<GameChatOverlayPosition> {
@@ -175,6 +215,46 @@ unsafe impl ::windows::runtime::Interface for GameChatOverlay {
 impl ::windows::runtime::RuntimeName for GameChatOverlay {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatOverlay";
 }
+impl ::std::convert::From<GameChatOverlay> for ::windows::runtime::IUnknown {
+    fn from(value: GameChatOverlay) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&GameChatOverlay> for ::windows::runtime::IUnknown {
+    fn from(value: &GameChatOverlay) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameChatOverlay {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameChatOverlay {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<GameChatOverlay> for ::windows::runtime::IInspectable {
+    fn from(value: GameChatOverlay) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GameChatOverlay> for ::windows::runtime::IInspectable {
+    fn from(value: &GameChatOverlay) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameChatOverlay {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameChatOverlay {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GameChatOverlay {}
 unsafe impl ::std::marker::Sync for GameChatOverlay {}
 #[repr(C)]
@@ -182,8 +262,8 @@ unsafe impl ::std::marker::Sync for GameChatOverlay {}
 pub struct GameChatOverlayContract(pub u8);
 #[doc = "*Required features: `Gaming_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct GameChatOverlayMessageSource(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct GameChatOverlayMessageSource(pub ::windows::runtime::IInspectable);
 impl GameChatOverlayMessageSource {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -224,6 +304,46 @@ unsafe impl ::windows::runtime::Interface for GameChatOverlayMessageSource {
 impl ::windows::runtime::RuntimeName for GameChatOverlayMessageSource {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatOverlayMessageSource";
 }
+impl ::std::convert::From<GameChatOverlayMessageSource> for ::windows::runtime::IUnknown {
+    fn from(value: GameChatOverlayMessageSource) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&GameChatOverlayMessageSource> for ::windows::runtime::IUnknown {
+    fn from(value: &GameChatOverlayMessageSource) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameChatOverlayMessageSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameChatOverlayMessageSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<GameChatOverlayMessageSource> for ::windows::runtime::IInspectable {
+    fn from(value: GameChatOverlayMessageSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GameChatOverlayMessageSource> for ::windows::runtime::IInspectable {
+    fn from(value: &GameChatOverlayMessageSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameChatOverlayMessageSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameChatOverlayMessageSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GameChatOverlayMessageSource {}
 unsafe impl ::std::marker::Sync for GameChatOverlayMessageSource {}
 #[doc = "*Required features: `Gaming_UI`*"]
@@ -256,8 +376,8 @@ impl ::windows::runtime::DefaultType for GameChatOverlayPosition {
 }
 #[doc = "*Required features: `Gaming_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct GameUIProviderActivatedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct GameUIProviderActivatedEventArgs(pub ::windows::runtime::IInspectable);
 impl GameUIProviderActivatedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Gaming_UI`, `Foundation_Collections`*"]
@@ -312,6 +432,46 @@ unsafe impl ::windows::runtime::Interface for GameUIProviderActivatedEventArgs {
 impl ::windows::runtime::RuntimeName for GameUIProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameUIProviderActivatedEventArgs";
 }
+impl ::std::convert::From<GameUIProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: GameUIProviderActivatedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&GameUIProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &GameUIProviderActivatedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameUIProviderActivatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameUIProviderActivatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<GameUIProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: GameUIProviderActivatedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GameUIProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &GameUIProviderActivatedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameUIProviderActivatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameUIProviderActivatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::std::convert::TryFrom<GameUIProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
@@ -345,7 +505,7 @@ unsafe impl ::std::marker::Sync for GameUIProviderActivatedEventArgs {}
 pub struct GamingUIProviderContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameBarStatics(::windows::runtime::IInspectable);
+pub struct IGameBarStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameBarStatics {
     type Vtable = IGameBarStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(498705042, 52344, 16755, [190, 69, 182, 30, 103, 40, 62, 167]);
@@ -372,7 +532,7 @@ pub struct IGameBarStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameChatMessageReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IGameChatMessageReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameChatMessageReceivedEventArgs {
     type Vtable = IGameChatMessageReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2726429169, 16313, 20034, [164, 3, 122, 252, 226, 2, 59, 30]);
@@ -394,7 +554,7 @@ pub struct IGameChatMessageReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameChatOverlay(::windows::runtime::IInspectable);
+pub struct IGameChatOverlay(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameChatOverlay {
     type Vtable = IGameChatOverlay_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4224075877, 63228, 19016, [174, 7, 3, 172, 110, 212, 55, 4]);
@@ -414,7 +574,7 @@ pub struct IGameChatOverlay_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameChatOverlayMessageSource(::windows::runtime::IInspectable);
+pub struct IGameChatOverlayMessageSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameChatOverlayMessageSource {
     type Vtable = IGameChatOverlayMessageSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(504853399, 23035, 20303, [142, 154, 128, 172, 248, 23, 116, 60]);
@@ -437,7 +597,7 @@ pub struct IGameChatOverlayMessageSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameChatOverlayStatics(::windows::runtime::IInspectable);
+pub struct IGameChatOverlayStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameChatOverlayStatics {
     type Vtable = IGameChatOverlayStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2309813780, 30823, 18935, [150, 135, 37, 217, 219, 244, 68, 209]);
@@ -455,7 +615,7 @@ pub struct IGameChatOverlayStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameUIProviderActivatedEventArgs(::windows::runtime::IInspectable);
+pub struct IGameUIProviderActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameUIProviderActivatedEventArgs {
     type Vtable = IGameUIProviderActivatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2813534270, 51959, 19949, [187, 210, 71, 222, 67, 187, 109, 213]);

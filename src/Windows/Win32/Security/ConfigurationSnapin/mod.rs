@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISceSvcAttachmentData(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISceSvcAttachmentData(pub ::windows::runtime::IUnknown);
 impl ISceSvcAttachmentData {
     #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
     pub unsafe fn GetData(&self, scesvchandle: *mut ::std::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::std::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::runtime::Result<()> {
@@ -25,6 +25,26 @@ unsafe impl ::windows::runtime::Interface for ISceSvcAttachmentData {
     type Vtable = ISceSvcAttachmentData_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(398680030, 8205, 4561, [175, 251, 0, 192, 79, 185, 132, 249]);
 }
+impl ::std::convert::From<ISceSvcAttachmentData> for ::windows::runtime::IUnknown {
+    fn from(value: ISceSvcAttachmentData) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISceSvcAttachmentData> for ::windows::runtime::IUnknown {
+    fn from(value: &ISceSvcAttachmentData) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISceSvcAttachmentData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISceSvcAttachmentData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceSvcAttachmentData_abi(
@@ -38,8 +58,8 @@ pub struct ISceSvcAttachmentData_abi(
 );
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISceSvcAttachmentPersistInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISceSvcAttachmentPersistInfo(pub ::windows::runtime::IUnknown);
 impl ISceSvcAttachmentPersistInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`, `Win32_Foundation`*"]
@@ -59,6 +79,26 @@ unsafe impl ::windows::runtime::Interface for ISceSvcAttachmentPersistInfo {
     type Vtable = ISceSvcAttachmentPersistInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1838211280, 8205, 4561, [175, 251, 0, 192, 79, 185, 132, 249]);
 }
+impl ::std::convert::From<ISceSvcAttachmentPersistInfo> for ::windows::runtime::IUnknown {
+    fn from(value: ISceSvcAttachmentPersistInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISceSvcAttachmentPersistInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &ISceSvcAttachmentPersistInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISceSvcAttachmentPersistInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISceSvcAttachmentPersistInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceSvcAttachmentPersistInfo_abi(
@@ -70,14 +110,20 @@ pub struct ISceSvcAttachmentPersistInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lptemplatename: *mut i8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvdata: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub type PFSCE_FREE_INFO = unsafe extern "system" fn(pvserviceinfo: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub type PFSCE_LOG_INFO = unsafe extern "system" fn(errlevel: SCE_LOG_ERR_LEVEL, win32rc: u32, perrfmt: *mut i8) -> u32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFSCE_QUERY_INFO = unsafe extern "system" fn(scehandle: *mut ::std::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: super::super::Foundation::BOOL, ppvinfo: *mut *mut ::std::ffi::c_void, psceenumhandle: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFSCE_SET_INFO = unsafe extern "system" fn(scehandle: *mut ::std::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: super::super::Foundation::BOOL, pvinfo: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_ConfigAnalyzeService = unsafe extern "system" fn(pscecbinfo: *mut ::std::mem::ManuallyDrop<SCESVC_CALLBACK_INFO>) -> u32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_UpdateService = unsafe extern "system" fn(pscecbinfo: *mut ::std::mem::ManuallyDrop<SCESVC_CALLBACK_INFO>, serviceinfo: *mut SCESVC_CONFIGURATION_INFO) -> u32;
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]

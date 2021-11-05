@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationAttribute(::windows::runtime::IInspectable);
+pub struct ISyndicationAttribute(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationAttribute {
     type Vtable = ISyndicationAttribute_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1911093609, 21102, 16385, [154, 145, 232, 79, 131, 22, 26, 177]);
@@ -24,7 +24,7 @@ pub struct ISyndicationAttribute_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationAttributeFactory(::windows::runtime::IInspectable);
+pub struct ISyndicationAttributeFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationAttributeFactory {
     type Vtable = ISyndicationAttributeFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1649350041, 60734, 16911, [190, 134, 100, 4, 20, 136, 110, 75]);
@@ -42,7 +42,7 @@ pub struct ISyndicationAttributeFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationCategory(::windows::runtime::IInspectable);
+pub struct ISyndicationCategory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationCategory {
     type Vtable = ISyndicationCategory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2266325615, 3258, 19071, [137, 255, 236, 181, 40, 20, 35, 182]);
@@ -65,7 +65,7 @@ pub struct ISyndicationCategory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationCategoryFactory(::windows::runtime::IInspectable);
+pub struct ISyndicationCategoryFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationCategoryFactory {
     type Vtable = ISyndicationCategoryFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2873262127, 18912, 17701, [138, 178, 171, 69, 192, 37, 40, 255]);
@@ -83,9 +83,9 @@ pub struct ISyndicationCategoryFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, term: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, scheme: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, label: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Web_Syndication`*"]
-pub struct ISyndicationClient(::windows::runtime::IInspectable);
+pub struct ISyndicationClient(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationClient {
     type Vtable = ISyndicationClient_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2652416439, 29257, 19269, [178, 41, 125, 248, 149, 165, 161, 245]);
@@ -178,6 +178,46 @@ impl ISyndicationClient {
 unsafe impl ::windows::runtime::RuntimeType for ISyndicationClient {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{9e18a9b7-7249-4b45-b229-7df895a5a1f5}");
 }
+impl ::std::convert::From<ISyndicationClient> for ::windows::runtime::IUnknown {
+    fn from(value: ISyndicationClient) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ISyndicationClient> for ::windows::runtime::IUnknown {
+    fn from(value: &ISyndicationClient) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISyndicationClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISyndicationClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ISyndicationClient> for ::windows::runtime::IInspectable {
+    fn from(value: ISyndicationClient) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISyndicationClient> for ::windows::runtime::IInspectable {
+    fn from(value: &ISyndicationClient) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISyndicationClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISyndicationClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyndicationClient_abi(
@@ -207,7 +247,7 @@ pub struct ISyndicationClient_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationClientFactory(::windows::runtime::IInspectable);
+pub struct ISyndicationClientFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationClientFactory {
     type Vtable = ISyndicationClientFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(784642860, 42907, 16660, [178, 154, 5, 223, 251, 175, 185, 164]);
@@ -226,7 +266,7 @@ pub struct ISyndicationClientFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationContent(::windows::runtime::IInspectable);
+pub struct ISyndicationContent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationContent {
     type Vtable = ISyndicationContent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1178730238, 3669, 16592, [184, 208, 106, 44, 203, 169, 252, 124]);
@@ -247,7 +287,7 @@ pub struct ISyndicationContent_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationContentFactory(::windows::runtime::IInspectable);
+pub struct ISyndicationContentFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationContentFactory {
     type Vtable = ISyndicationContentFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1026538387, 38176, 16755, [147, 136, 126, 45, 243, 36, 168, 160]);
@@ -267,7 +307,7 @@ pub struct ISyndicationContentFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationErrorStatics(::windows::runtime::IInspectable);
+pub struct ISyndicationErrorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationErrorStatics {
     type Vtable = ISyndicationErrorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(532357985, 17863, 18483, [138, 160, 190, 95, 59, 88, 167, 244]);
@@ -285,7 +325,7 @@ pub struct ISyndicationErrorStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationFeed(::windows::runtime::IInspectable);
+pub struct ISyndicationFeed(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationFeed {
     type Vtable = ISyndicationFeed_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2147368146, 23398, 19810, [132, 3, 27, 193, 13, 145, 13, 107]);
@@ -346,7 +386,7 @@ pub struct ISyndicationFeed_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationFeedFactory(::windows::runtime::IInspectable);
+pub struct ISyndicationFeedFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationFeedFactory {
     type Vtable = ISyndicationFeedFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(591864370, 35817, 18615, [137, 52, 98, 5, 19, 29, 147, 87]);
@@ -365,7 +405,7 @@ pub struct ISyndicationFeedFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationGenerator(::windows::runtime::IInspectable);
+pub struct ISyndicationGenerator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationGenerator {
     type Vtable = ISyndicationGenerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2540221305, 64299, 20333, [180, 28, 8, 138, 88, 104, 130, 92]);
@@ -390,7 +430,7 @@ pub struct ISyndicationGenerator_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationGeneratorFactory(::windows::runtime::IInspectable);
+pub struct ISyndicationGeneratorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationGeneratorFactory {
     type Vtable = ISyndicationGeneratorFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2738914275, 7718, 19900, [186, 157, 26, 184, 75, 239, 249, 123]);
@@ -408,7 +448,7 @@ pub struct ISyndicationGeneratorFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationItem(::windows::runtime::IInspectable);
+pub struct ISyndicationItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationItem {
     type Vtable = ISyndicationItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1418573955, 50052, 17857, [138, 232, 163, 120, 196, 236, 72, 108]);
@@ -467,7 +507,7 @@ pub struct ISyndicationItem_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationItemFactory(::windows::runtime::IInspectable);
+pub struct ISyndicationItemFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationItemFactory {
     type Vtable = ISyndicationItemFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(622674767, 32184, 18554, [133, 228, 16, 209, 145, 230, 110, 187]);
@@ -486,7 +526,7 @@ pub struct ISyndicationItemFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationLink(::windows::runtime::IInspectable);
+pub struct ISyndicationLink(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationLink {
     type Vtable = ISyndicationLink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(659897021, 41230, 16821, [134, 189, 151, 89, 8, 110, 176, 197]);
@@ -517,7 +557,7 @@ pub struct ISyndicationLink_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationLinkFactory(::windows::runtime::IInspectable);
+pub struct ISyndicationLinkFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationLinkFactory {
     type Vtable = ISyndicationLinkFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1591239636, 21813, 18604, [152, 212, 193, 144, 153, 80, 128, 179]);
@@ -537,9 +577,9 @@ pub struct ISyndicationLinkFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Web_Syndication`*"]
-pub struct ISyndicationNode(::windows::runtime::IInspectable);
+pub struct ISyndicationNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationNode {
     type Vtable = ISyndicationNode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1966927736, 20984, 17856, [169, 245, 241, 113, 157, 236, 63, 178]);
@@ -643,6 +683,46 @@ impl ISyndicationNode {
 unsafe impl ::windows::runtime::RuntimeType for ISyndicationNode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{753cef78-51f8-45c0-a9f5-f1719dec3fb2}");
 }
+impl ::std::convert::From<ISyndicationNode> for ::windows::runtime::IUnknown {
+    fn from(value: ISyndicationNode) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ISyndicationNode> for ::windows::runtime::IUnknown {
+    fn from(value: &ISyndicationNode) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISyndicationNode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISyndicationNode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ISyndicationNode> for ::windows::runtime::IInspectable {
+    fn from(value: ISyndicationNode) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISyndicationNode> for ::windows::runtime::IInspectable {
+    fn from(value: &ISyndicationNode) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISyndicationNode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISyndicationNode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyndicationNode_abi(
@@ -673,7 +753,7 @@ pub struct ISyndicationNode_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationNodeFactory(::windows::runtime::IInspectable);
+pub struct ISyndicationNodeFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationNodeFactory {
     type Vtable = ISyndicationNodeFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(311435656, 19147, 18856, [183, 119, 165, 235, 146, 225, 138, 121]);
@@ -691,7 +771,7 @@ pub struct ISyndicationNodeFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationPerson(::windows::runtime::IInspectable);
+pub struct ISyndicationPerson(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationPerson {
     type Vtable = ISyndicationPerson_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4196328922, 42950, 17687, [160, 150, 1, 67, 250, 242, 147, 39]);
@@ -716,7 +796,7 @@ pub struct ISyndicationPerson_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationPersonFactory(::windows::runtime::IInspectable);
+pub struct ISyndicationPersonFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationPersonFactory {
     type Vtable = ISyndicationPersonFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3707013229, 8861, 19288, [164, 155, 243, 210, 240, 245, 201, 159]);
@@ -735,9 +815,9 @@ pub struct ISyndicationPersonFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Web_Syndication`*"]
-pub struct ISyndicationText(::windows::runtime::IInspectable);
+pub struct ISyndicationText(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationText {
     type Vtable = ISyndicationText_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3117178496, 12602, 16529, [162, 166, 36, 62, 14, 233, 35, 249]);
@@ -882,6 +962,46 @@ impl ISyndicationText {
 unsafe impl ::windows::runtime::RuntimeType for ISyndicationText {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{b9cc5e80-313a-4091-a2a6-243e0ee923f9}");
 }
+impl ::std::convert::From<ISyndicationText> for ::windows::runtime::IUnknown {
+    fn from(value: ISyndicationText) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ISyndicationText> for ::windows::runtime::IUnknown {
+    fn from(value: &ISyndicationText) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISyndicationText {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISyndicationText {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ISyndicationText> for ::windows::runtime::IInspectable {
+    fn from(value: ISyndicationText) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISyndicationText> for ::windows::runtime::IInspectable {
+    fn from(value: &ISyndicationText) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISyndicationText {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISyndicationText {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<ISyndicationText> for ISyndicationNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ISyndicationText) -> ::windows::runtime::Result<Self> {
@@ -924,7 +1044,7 @@ pub struct ISyndicationText_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISyndicationTextFactory(::windows::runtime::IInspectable);
+pub struct ISyndicationTextFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationTextFactory {
     type Vtable = ISyndicationTextFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4000531191, 4550, 19237, [171, 98, 229, 150, 189, 22, 41, 70]);
@@ -976,8 +1096,8 @@ impl ::windows::runtime::DefaultType for RetrievalProgress {
 }
 #[doc = "*Required features: `Web_Syndication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SyndicationAttribute(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SyndicationAttribute(pub ::windows::runtime::IInspectable);
 impl SyndicationAttribute {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1047,12 +1167,52 @@ unsafe impl ::windows::runtime::Interface for SyndicationAttribute {
 impl ::windows::runtime::RuntimeName for SyndicationAttribute {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationAttribute";
 }
+impl ::std::convert::From<SyndicationAttribute> for ::windows::runtime::IUnknown {
+    fn from(value: SyndicationAttribute) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SyndicationAttribute> for ::windows::runtime::IUnknown {
+    fn from(value: &SyndicationAttribute) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SyndicationAttribute {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SyndicationAttribute {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SyndicationAttribute> for ::windows::runtime::IInspectable {
+    fn from(value: SyndicationAttribute) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SyndicationAttribute> for ::windows::runtime::IInspectable {
+    fn from(value: &SyndicationAttribute) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SyndicationAttribute {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SyndicationAttribute {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SyndicationAttribute {}
 unsafe impl ::std::marker::Sync for SyndicationAttribute {}
 #[doc = "*Required features: `Web_Syndication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SyndicationCategory(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SyndicationCategory(pub ::windows::runtime::IInspectable);
 impl SyndicationCategory {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1223,6 +1383,46 @@ unsafe impl ::windows::runtime::Interface for SyndicationCategory {
 impl ::windows::runtime::RuntimeName for SyndicationCategory {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationCategory";
 }
+impl ::std::convert::From<SyndicationCategory> for ::windows::runtime::IUnknown {
+    fn from(value: SyndicationCategory) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SyndicationCategory> for ::windows::runtime::IUnknown {
+    fn from(value: &SyndicationCategory) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SyndicationCategory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SyndicationCategory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SyndicationCategory> for ::windows::runtime::IInspectable {
+    fn from(value: SyndicationCategory) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SyndicationCategory> for ::windows::runtime::IInspectable {
+    fn from(value: &SyndicationCategory) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SyndicationCategory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SyndicationCategory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SyndicationCategory> for ISyndicationNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SyndicationCategory) -> ::windows::runtime::Result<Self> {
@@ -1249,8 +1449,8 @@ unsafe impl ::std::marker::Send for SyndicationCategory {}
 unsafe impl ::std::marker::Sync for SyndicationCategory {}
 #[doc = "*Required features: `Web_Syndication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SyndicationClient(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SyndicationClient(pub ::windows::runtime::IInspectable);
 impl SyndicationClient {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1365,6 +1565,46 @@ unsafe impl ::windows::runtime::Interface for SyndicationClient {
 impl ::windows::runtime::RuntimeName for SyndicationClient {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationClient";
 }
+impl ::std::convert::From<SyndicationClient> for ::windows::runtime::IUnknown {
+    fn from(value: SyndicationClient) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SyndicationClient> for ::windows::runtime::IUnknown {
+    fn from(value: &SyndicationClient) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SyndicationClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SyndicationClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SyndicationClient> for ::windows::runtime::IInspectable {
+    fn from(value: SyndicationClient) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SyndicationClient> for ::windows::runtime::IInspectable {
+    fn from(value: &SyndicationClient) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SyndicationClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SyndicationClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<SyndicationClient> for ISyndicationClient {
     fn from(value: SyndicationClient) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1389,8 +1629,8 @@ unsafe impl ::std::marker::Send for SyndicationClient {}
 unsafe impl ::std::marker::Sync for SyndicationClient {}
 #[doc = "*Required features: `Web_Syndication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SyndicationContent(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SyndicationContent(pub ::windows::runtime::IInspectable);
 impl SyndicationContent {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1579,6 +1819,46 @@ unsafe impl ::windows::runtime::Interface for SyndicationContent {
 impl ::windows::runtime::RuntimeName for SyndicationContent {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationContent";
 }
+impl ::std::convert::From<SyndicationContent> for ::windows::runtime::IUnknown {
+    fn from(value: SyndicationContent) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SyndicationContent> for ::windows::runtime::IUnknown {
+    fn from(value: &SyndicationContent) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SyndicationContent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SyndicationContent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SyndicationContent> for ::windows::runtime::IInspectable {
+    fn from(value: SyndicationContent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SyndicationContent> for ::windows::runtime::IInspectable {
+    fn from(value: &SyndicationContent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SyndicationContent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SyndicationContent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SyndicationContent> for ISyndicationNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SyndicationContent) -> ::windows::runtime::Result<Self> {
@@ -1671,8 +1951,8 @@ impl ::windows::runtime::DefaultType for SyndicationErrorStatus {
 }
 #[doc = "*Required features: `Web_Syndication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SyndicationFeed(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SyndicationFeed(pub ::windows::runtime::IInspectable);
 impl SyndicationFeed {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2008,6 +2288,46 @@ unsafe impl ::windows::runtime::Interface for SyndicationFeed {
 impl ::windows::runtime::RuntimeName for SyndicationFeed {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationFeed";
 }
+impl ::std::convert::From<SyndicationFeed> for ::windows::runtime::IUnknown {
+    fn from(value: SyndicationFeed) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SyndicationFeed> for ::windows::runtime::IUnknown {
+    fn from(value: &SyndicationFeed) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SyndicationFeed {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SyndicationFeed {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SyndicationFeed> for ::windows::runtime::IInspectable {
+    fn from(value: SyndicationFeed) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SyndicationFeed> for ::windows::runtime::IInspectable {
+    fn from(value: &SyndicationFeed) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SyndicationFeed {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SyndicationFeed {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SyndicationFeed> for ISyndicationNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SyndicationFeed) -> ::windows::runtime::Result<Self> {
@@ -2060,8 +2380,8 @@ impl ::windows::runtime::DefaultType for SyndicationFormat {
 }
 #[doc = "*Required features: `Web_Syndication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SyndicationGenerator(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SyndicationGenerator(pub ::windows::runtime::IInspectable);
 impl SyndicationGenerator {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2227,6 +2547,46 @@ unsafe impl ::windows::runtime::Interface for SyndicationGenerator {
 impl ::windows::runtime::RuntimeName for SyndicationGenerator {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationGenerator";
 }
+impl ::std::convert::From<SyndicationGenerator> for ::windows::runtime::IUnknown {
+    fn from(value: SyndicationGenerator) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SyndicationGenerator> for ::windows::runtime::IUnknown {
+    fn from(value: &SyndicationGenerator) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SyndicationGenerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SyndicationGenerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SyndicationGenerator> for ::windows::runtime::IInspectable {
+    fn from(value: SyndicationGenerator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SyndicationGenerator> for ::windows::runtime::IInspectable {
+    fn from(value: &SyndicationGenerator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SyndicationGenerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SyndicationGenerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SyndicationGenerator> for ISyndicationNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SyndicationGenerator) -> ::windows::runtime::Result<Self> {
@@ -2253,8 +2613,8 @@ unsafe impl ::std::marker::Send for SyndicationGenerator {}
 unsafe impl ::std::marker::Sync for SyndicationGenerator {}
 #[doc = "*Required features: `Web_Syndication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SyndicationItem(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SyndicationItem(pub ::windows::runtime::IInspectable);
 impl SyndicationItem {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2585,6 +2945,46 @@ unsafe impl ::windows::runtime::Interface for SyndicationItem {
 impl ::windows::runtime::RuntimeName for SyndicationItem {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationItem";
 }
+impl ::std::convert::From<SyndicationItem> for ::windows::runtime::IUnknown {
+    fn from(value: SyndicationItem) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SyndicationItem> for ::windows::runtime::IUnknown {
+    fn from(value: &SyndicationItem) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SyndicationItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SyndicationItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SyndicationItem> for ::windows::runtime::IInspectable {
+    fn from(value: SyndicationItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SyndicationItem> for ::windows::runtime::IInspectable {
+    fn from(value: &SyndicationItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SyndicationItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SyndicationItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SyndicationItem> for ISyndicationNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SyndicationItem) -> ::windows::runtime::Result<Self> {
@@ -2611,8 +3011,8 @@ unsafe impl ::std::marker::Send for SyndicationItem {}
 unsafe impl ::std::marker::Sync for SyndicationItem {}
 #[doc = "*Required features: `Web_Syndication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SyndicationLink(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SyndicationLink(pub ::windows::runtime::IInspectable);
 impl SyndicationLink {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2826,6 +3226,46 @@ unsafe impl ::windows::runtime::Interface for SyndicationLink {
 impl ::windows::runtime::RuntimeName for SyndicationLink {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationLink";
 }
+impl ::std::convert::From<SyndicationLink> for ::windows::runtime::IUnknown {
+    fn from(value: SyndicationLink) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SyndicationLink> for ::windows::runtime::IUnknown {
+    fn from(value: &SyndicationLink) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SyndicationLink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SyndicationLink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SyndicationLink> for ::windows::runtime::IInspectable {
+    fn from(value: SyndicationLink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SyndicationLink> for ::windows::runtime::IInspectable {
+    fn from(value: &SyndicationLink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SyndicationLink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SyndicationLink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SyndicationLink> for ISyndicationNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SyndicationLink) -> ::windows::runtime::Result<Self> {
@@ -2852,8 +3292,8 @@ unsafe impl ::std::marker::Send for SyndicationLink {}
 unsafe impl ::std::marker::Sync for SyndicationLink {}
 #[doc = "*Required features: `Web_Syndication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SyndicationNode(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SyndicationNode(pub ::windows::runtime::IInspectable);
 impl SyndicationNode {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2978,6 +3418,46 @@ unsafe impl ::windows::runtime::Interface for SyndicationNode {
 impl ::windows::runtime::RuntimeName for SyndicationNode {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationNode";
 }
+impl ::std::convert::From<SyndicationNode> for ::windows::runtime::IUnknown {
+    fn from(value: SyndicationNode) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SyndicationNode> for ::windows::runtime::IUnknown {
+    fn from(value: &SyndicationNode) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SyndicationNode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SyndicationNode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SyndicationNode> for ::windows::runtime::IInspectable {
+    fn from(value: SyndicationNode) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SyndicationNode> for ::windows::runtime::IInspectable {
+    fn from(value: &SyndicationNode) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SyndicationNode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SyndicationNode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<SyndicationNode> for ISyndicationNode {
     fn from(value: SyndicationNode) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3002,8 +3482,8 @@ unsafe impl ::std::marker::Send for SyndicationNode {}
 unsafe impl ::std::marker::Sync for SyndicationNode {}
 #[doc = "*Required features: `Web_Syndication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SyndicationPerson(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SyndicationPerson(pub ::windows::runtime::IInspectable);
 impl SyndicationPerson {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3177,6 +3657,46 @@ unsafe impl ::windows::runtime::Interface for SyndicationPerson {
 impl ::windows::runtime::RuntimeName for SyndicationPerson {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationPerson";
 }
+impl ::std::convert::From<SyndicationPerson> for ::windows::runtime::IUnknown {
+    fn from(value: SyndicationPerson) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SyndicationPerson> for ::windows::runtime::IUnknown {
+    fn from(value: &SyndicationPerson) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SyndicationPerson {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SyndicationPerson {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SyndicationPerson> for ::windows::runtime::IInspectable {
+    fn from(value: SyndicationPerson) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SyndicationPerson> for ::windows::runtime::IInspectable {
+    fn from(value: &SyndicationPerson) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SyndicationPerson {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SyndicationPerson {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SyndicationPerson> for ISyndicationNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SyndicationPerson) -> ::windows::runtime::Result<Self> {
@@ -3203,8 +3723,8 @@ unsafe impl ::std::marker::Send for SyndicationPerson {}
 unsafe impl ::std::marker::Sync for SyndicationPerson {}
 #[doc = "*Required features: `Web_Syndication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SyndicationText(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SyndicationText(pub ::windows::runtime::IInspectable);
 impl SyndicationText {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3376,6 +3896,46 @@ unsafe impl ::windows::runtime::Interface for SyndicationText {
 }
 impl ::windows::runtime::RuntimeName for SyndicationText {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationText";
+}
+impl ::std::convert::From<SyndicationText> for ::windows::runtime::IUnknown {
+    fn from(value: SyndicationText) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SyndicationText> for ::windows::runtime::IUnknown {
+    fn from(value: &SyndicationText) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SyndicationText {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SyndicationText {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SyndicationText> for ::windows::runtime::IInspectable {
+    fn from(value: SyndicationText) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SyndicationText> for ::windows::runtime::IInspectable {
+    fn from(value: &SyndicationText) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SyndicationText {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SyndicationText {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<SyndicationText> for ISyndicationText {
     fn from(value: SyndicationText) -> Self {

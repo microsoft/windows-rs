@@ -4,8 +4,8 @@ pub mod Provider;
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct FileExtensionVector(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct FileExtensionVector(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl FileExtensionVector {
     #[cfg(feature = "Foundation_Collections")]
@@ -119,6 +119,54 @@ impl ::windows::runtime::RuntimeName for FileExtensionVector {
     const NAME: &'static str = "Windows.Storage.Pickers.FileExtensionVector";
 }
 #[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<FileExtensionVector> for ::windows::runtime::IUnknown {
+    fn from(value: FileExtensionVector) -> Self {
+        value.0 .0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<&FileExtensionVector> for ::windows::runtime::IUnknown {
+    fn from(value: &FileExtensionVector) -> Self {
+        value.0 .0.clone()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileExtensionVector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FileExtensionVector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<FileExtensionVector> for ::windows::runtime::IInspectable {
+    fn from(value: FileExtensionVector) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<&FileExtensionVector> for ::windows::runtime::IInspectable {
+    fn from(value: &FileExtensionVector) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FileExtensionVector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FileExtensionVector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<FileExtensionVector> for super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING> {
     fn from(value: FileExtensionVector) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -190,8 +238,8 @@ impl ::std::iter::IntoIterator for &FileExtensionVector {
 }
 #[doc = "*Required features: `Storage_Pickers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct FileOpenPicker(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct FileOpenPicker(pub ::windows::runtime::IInspectable);
 impl FileOpenPicker {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -355,13 +403,53 @@ unsafe impl ::windows::runtime::Interface for FileOpenPicker {
 impl ::windows::runtime::RuntimeName for FileOpenPicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FileOpenPicker";
 }
+impl ::std::convert::From<FileOpenPicker> for ::windows::runtime::IUnknown {
+    fn from(value: FileOpenPicker) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&FileOpenPicker> for ::windows::runtime::IUnknown {
+    fn from(value: &FileOpenPicker) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileOpenPicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FileOpenPicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<FileOpenPicker> for ::windows::runtime::IInspectable {
+    fn from(value: FileOpenPicker) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&FileOpenPicker> for ::windows::runtime::IInspectable {
+    fn from(value: &FileOpenPicker) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FileOpenPicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FileOpenPicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for FileOpenPicker {}
 unsafe impl ::std::marker::Sync for FileOpenPicker {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct FilePickerFileTypesOrderedMap(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct FilePickerFileTypesOrderedMap(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl FilePickerFileTypesOrderedMap {
     #[cfg(feature = "Foundation_Collections")]
@@ -445,6 +533,54 @@ impl ::windows::runtime::RuntimeName for FilePickerFileTypesOrderedMap {
     const NAME: &'static str = "Windows.Storage.Pickers.FilePickerFileTypesOrderedMap";
 }
 #[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<FilePickerFileTypesOrderedMap> for ::windows::runtime::IUnknown {
+    fn from(value: FilePickerFileTypesOrderedMap) -> Self {
+        value.0 .0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<&FilePickerFileTypesOrderedMap> for ::windows::runtime::IUnknown {
+    fn from(value: &FilePickerFileTypesOrderedMap) -> Self {
+        value.0 .0.clone()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FilePickerFileTypesOrderedMap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FilePickerFileTypesOrderedMap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<FilePickerFileTypesOrderedMap> for ::windows::runtime::IInspectable {
+    fn from(value: FilePickerFileTypesOrderedMap) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<&FilePickerFileTypesOrderedMap> for ::windows::runtime::IInspectable {
+    fn from(value: &FilePickerFileTypesOrderedMap) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FilePickerFileTypesOrderedMap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FilePickerFileTypesOrderedMap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<FilePickerFileTypesOrderedMap> for super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
     fn from(value: FilePickerFileTypesOrderedMap) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -519,8 +655,8 @@ impl ::std::iter::IntoIterator for &FilePickerFileTypesOrderedMap {
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct FilePickerSelectedFilesArray(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct FilePickerSelectedFilesArray(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl FilePickerSelectedFilesArray {
     #[cfg(feature = "Foundation_Collections")]
@@ -581,6 +717,54 @@ unsafe impl ::windows::runtime::Interface for FilePickerSelectedFilesArray {
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::runtime::RuntimeName for FilePickerSelectedFilesArray {
     const NAME: &'static str = "Windows.Storage.Pickers.FilePickerSelectedFilesArray";
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<FilePickerSelectedFilesArray> for ::windows::runtime::IUnknown {
+    fn from(value: FilePickerSelectedFilesArray) -> Self {
+        value.0 .0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<&FilePickerSelectedFilesArray> for ::windows::runtime::IUnknown {
+    fn from(value: &FilePickerSelectedFilesArray) -> Self {
+        value.0 .0.clone()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FilePickerSelectedFilesArray {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FilePickerSelectedFilesArray {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<FilePickerSelectedFilesArray> for ::windows::runtime::IInspectable {
+    fn from(value: FilePickerSelectedFilesArray) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<&FilePickerSelectedFilesArray> for ::windows::runtime::IInspectable {
+    fn from(value: &FilePickerSelectedFilesArray) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FilePickerSelectedFilesArray {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FilePickerSelectedFilesArray {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<FilePickerSelectedFilesArray> for super::super::Foundation::Collections::IVectorView<super::StorageFile> {
@@ -654,8 +838,8 @@ impl ::std::iter::IntoIterator for &FilePickerSelectedFilesArray {
 }
 #[doc = "*Required features: `Storage_Pickers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct FileSavePicker(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct FileSavePicker(pub ::windows::runtime::IInspectable);
 impl FileSavePicker {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -820,12 +1004,52 @@ unsafe impl ::windows::runtime::Interface for FileSavePicker {
 impl ::windows::runtime::RuntimeName for FileSavePicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FileSavePicker";
 }
+impl ::std::convert::From<FileSavePicker> for ::windows::runtime::IUnknown {
+    fn from(value: FileSavePicker) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&FileSavePicker> for ::windows::runtime::IUnknown {
+    fn from(value: &FileSavePicker) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileSavePicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FileSavePicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<FileSavePicker> for ::windows::runtime::IInspectable {
+    fn from(value: FileSavePicker) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&FileSavePicker> for ::windows::runtime::IInspectable {
+    fn from(value: &FileSavePicker) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FileSavePicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FileSavePicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for FileSavePicker {}
 unsafe impl ::std::marker::Sync for FileSavePicker {}
 #[doc = "*Required features: `Storage_Pickers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct FolderPicker(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct FolderPicker(pub ::windows::runtime::IInspectable);
 impl FolderPicker {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -951,11 +1175,51 @@ unsafe impl ::windows::runtime::Interface for FolderPicker {
 impl ::windows::runtime::RuntimeName for FolderPicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FolderPicker";
 }
+impl ::std::convert::From<FolderPicker> for ::windows::runtime::IUnknown {
+    fn from(value: FolderPicker) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&FolderPicker> for ::windows::runtime::IUnknown {
+    fn from(value: &FolderPicker) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FolderPicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FolderPicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<FolderPicker> for ::windows::runtime::IInspectable {
+    fn from(value: FolderPicker) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&FolderPicker> for ::windows::runtime::IInspectable {
+    fn from(value: &FolderPicker) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FolderPicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FolderPicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for FolderPicker {}
 unsafe impl ::std::marker::Sync for FolderPicker {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFileOpenPicker(::windows::runtime::IInspectable);
+pub struct IFileOpenPicker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPicker {
     type Vtable = IFileOpenPicker_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(749217674, 4805, 19551, [137, 119, 148, 84, 119, 147, 194, 65]);
@@ -986,7 +1250,7 @@ pub struct IFileOpenPicker_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFileOpenPicker2(::windows::runtime::IInspectable);
+pub struct IFileOpenPicker2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPicker2 {
     type Vtable = IFileOpenPicker2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2364239058, 46150, 18167, [178, 101, 144, 248, 229, 90, 214, 80]);
@@ -1007,7 +1271,7 @@ pub struct IFileOpenPicker2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFileOpenPicker3(::windows::runtime::IInspectable);
+pub struct IFileOpenPicker3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPicker3 {
     type Vtable = IFileOpenPicker3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3651519923, 50652, 23448, [189, 128, 168, 208, 202, 5, 132, 216]);
@@ -1026,7 +1290,7 @@ pub struct IFileOpenPicker3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFileOpenPickerStatics(::windows::runtime::IInspectable);
+pub struct IFileOpenPickerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPickerStatics {
     type Vtable = IFileOpenPickerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1747015483, 12034, 18483, [150, 212, 171, 191, 173, 114, 182, 123]);
@@ -1045,7 +1309,7 @@ pub struct IFileOpenPickerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFileOpenPickerStatics2(::windows::runtime::IInspectable);
+pub struct IFileOpenPickerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPickerStatics2 {
     type Vtable = IFileOpenPickerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3901846549, 60893, 23704, [182, 243, 54, 111, 223, 202, 211, 146]);
@@ -1064,7 +1328,7 @@ pub struct IFileOpenPickerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFileOpenPickerWithOperationId(::windows::runtime::IInspectable);
+pub struct IFileOpenPickerWithOperationId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPickerWithOperationId {
     type Vtable = IFileOpenPickerWithOperationId_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1062712681, 9506, 19621, [170, 115, 161, 85, 9, 241, 252, 191]);
@@ -1083,7 +1347,7 @@ pub struct IFileOpenPickerWithOperationId_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFileSavePicker(::windows::runtime::IInspectable);
+pub struct IFileSavePicker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePicker {
     type Vtable = IFileSavePicker_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(847708107, 24959, 19653, [175, 106, 179, 253, 242, 154, 209, 69]);
@@ -1116,7 +1380,7 @@ pub struct IFileSavePicker_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFileSavePicker2(::windows::runtime::IInspectable);
+pub struct IFileSavePicker2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePicker2 {
     type Vtable = IFileSavePicker2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(247665570, 53835, 17562, [129, 151, 232, 145, 4, 253, 66, 204]);
@@ -1136,7 +1400,7 @@ pub struct IFileSavePicker2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFileSavePicker3(::windows::runtime::IInspectable);
+pub struct IFileSavePicker3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePicker3 {
     type Vtable = IFileSavePicker3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1770712169, 47676, 20049, [189, 144, 74, 188, 187, 244, 207, 175]);
@@ -1155,7 +1419,7 @@ pub struct IFileSavePicker3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFileSavePicker4(::windows::runtime::IInspectable);
+pub struct IFileSavePicker4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePicker4 {
     type Vtable = IFileSavePicker4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3889707610, 56826, 24032, [139, 112, 200, 66, 194, 25, 136, 236]);
@@ -1174,7 +1438,7 @@ pub struct IFileSavePicker4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFileSavePickerStatics(::windows::runtime::IInspectable);
+pub struct IFileSavePickerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePickerStatics {
     type Vtable = IFileSavePickerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(686018462, 38428, 24108, [174, 215, 230, 71, 55, 244, 206, 55]);
@@ -1193,7 +1457,7 @@ pub struct IFileSavePickerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFolderPicker(::windows::runtime::IInspectable);
+pub struct IFolderPicker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFolderPicker {
     type Vtable = IFolderPicker_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(139425689, 62459, 16394, [153, 177, 123, 74, 119, 47, 214, 13]);
@@ -1222,7 +1486,7 @@ pub struct IFolderPicker_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFolderPicker2(::windows::runtime::IInspectable);
+pub struct IFolderPicker2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFolderPicker2 {
     type Vtable = IFolderPicker2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2394143383, 56453, 17942, [190, 148, 150, 96, 136, 31, 47, 93]);
@@ -1242,7 +1506,7 @@ pub struct IFolderPicker2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFolderPicker3(::windows::runtime::IInspectable);
+pub struct IFolderPicker3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFolderPicker3 {
     type Vtable = IFolderPicker3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1731927593, 54054, 21440, [189, 36, 162, 92, 113, 76, 238, 54]);
@@ -1261,7 +1525,7 @@ pub struct IFolderPicker3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFolderPickerStatics(::windows::runtime::IInspectable);
+pub struct IFolderPickerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFolderPickerStatics {
     type Vtable = IFolderPickerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2615363392, 31905, 22850, [163, 200, 70, 242, 85, 30, 207, 243]);

@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EasClientDeviceInformation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EasClientDeviceInformation(pub ::windows::runtime::IInspectable);
 impl EasClientDeviceInformation {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -86,10 +86,50 @@ unsafe impl ::windows::runtime::Interface for EasClientDeviceInformation {
 impl ::windows::runtime::RuntimeName for EasClientDeviceInformation {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation";
 }
+impl ::std::convert::From<EasClientDeviceInformation> for ::windows::runtime::IUnknown {
+    fn from(value: EasClientDeviceInformation) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EasClientDeviceInformation> for ::windows::runtime::IUnknown {
+    fn from(value: &EasClientDeviceInformation) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EasClientDeviceInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EasClientDeviceInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EasClientDeviceInformation> for ::windows::runtime::IInspectable {
+    fn from(value: EasClientDeviceInformation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EasClientDeviceInformation> for ::windows::runtime::IInspectable {
+    fn from(value: &EasClientDeviceInformation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EasClientDeviceInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EasClientDeviceInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EasClientSecurityPolicy(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EasClientSecurityPolicy(pub ::windows::runtime::IInspectable);
 impl EasClientSecurityPolicy {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -234,10 +274,50 @@ unsafe impl ::windows::runtime::Interface for EasClientSecurityPolicy {
 impl ::windows::runtime::RuntimeName for EasClientSecurityPolicy {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy";
 }
+impl ::std::convert::From<EasClientSecurityPolicy> for ::windows::runtime::IUnknown {
+    fn from(value: EasClientSecurityPolicy) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EasClientSecurityPolicy> for ::windows::runtime::IUnknown {
+    fn from(value: &EasClientSecurityPolicy) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EasClientSecurityPolicy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EasClientSecurityPolicy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EasClientSecurityPolicy> for ::windows::runtime::IInspectable {
+    fn from(value: EasClientSecurityPolicy) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EasClientSecurityPolicy> for ::windows::runtime::IInspectable {
+    fn from(value: &EasClientSecurityPolicy) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EasClientSecurityPolicy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EasClientSecurityPolicy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EasComplianceResults(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EasComplianceResults(pub ::windows::runtime::IInspectable);
 impl EasComplianceResults {
     #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn Compliant(&self) -> ::windows::runtime::Result<bool> {
@@ -329,6 +409,46 @@ unsafe impl ::windows::runtime::Interface for EasComplianceResults {
 }
 impl ::windows::runtime::RuntimeName for EasComplianceResults {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults";
+}
+impl ::std::convert::From<EasComplianceResults> for ::windows::runtime::IUnknown {
+    fn from(value: EasComplianceResults) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EasComplianceResults> for ::windows::runtime::IUnknown {
+    fn from(value: &EasComplianceResults) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EasComplianceResults {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EasComplianceResults {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EasComplianceResults> for ::windows::runtime::IInspectable {
+    fn from(value: EasComplianceResults) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EasComplianceResults> for ::windows::runtime::IInspectable {
+    fn from(value: &EasComplianceResults) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EasComplianceResults {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EasComplianceResults {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -595,7 +715,7 @@ impl ::windows::runtime::DefaultType for EasRequireEncryptionResult {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEasClientDeviceInformation(::windows::runtime::IInspectable);
+pub struct IEasClientDeviceInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasClientDeviceInformation {
     type Vtable = IEasClientDeviceInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423956353, 6504, 19619, [185, 88, 229, 149, 209, 101, 5, 235]);
@@ -618,7 +738,7 @@ pub struct IEasClientDeviceInformation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEasClientDeviceInformation2(::windows::runtime::IInspectable);
+pub struct IEasClientDeviceInformation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasClientDeviceInformation2 {
     type Vtable = IEasClientDeviceInformation2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4289943843, 47910, 19818, [129, 188, 22, 90, 238, 10, 215, 84]);
@@ -637,7 +757,7 @@ pub struct IEasClientDeviceInformation2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEasClientSecurityPolicy(::windows::runtime::IInspectable);
+pub struct IEasClientSecurityPolicy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasClientSecurityPolicy {
     type Vtable = IEasClientSecurityPolicy_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1169630050, 57274, 19099, [172, 237, 111, 226, 173, 203, 100, 32]);
@@ -677,7 +797,7 @@ pub struct IEasClientSecurityPolicy_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEasComplianceResults(::windows::runtime::IInspectable);
+pub struct IEasComplianceResults(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasComplianceResults {
     type Vtable = IEasComplianceResults_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1178347932, 32537, 19558, [180, 3, 203, 69, 221, 87, 162, 179]);
@@ -703,7 +823,7 @@ pub struct IEasComplianceResults_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEasComplianceResults2(::windows::runtime::IInspectable);
+pub struct IEasComplianceResults2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasComplianceResults2 {
     type Vtable = IEasComplianceResults2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(801005769, 6824, 18421, [136, 187, 203, 62, 240, 191, 251, 21]);

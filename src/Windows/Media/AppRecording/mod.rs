@@ -4,8 +4,8 @@
 pub struct AppRecordingContract(pub u8);
 #[doc = "*Required features: `Media_AppRecording`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct AppRecordingManager(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct AppRecordingManager(pub ::windows::runtime::IInspectable);
 impl AppRecordingManager {
     #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn GetStatus(&self) -> ::windows::runtime::Result<AppRecordingStatus> {
@@ -79,12 +79,52 @@ unsafe impl ::windows::runtime::Interface for AppRecordingManager {
 impl ::windows::runtime::RuntimeName for AppRecordingManager {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingManager";
 }
+impl ::std::convert::From<AppRecordingManager> for ::windows::runtime::IUnknown {
+    fn from(value: AppRecordingManager) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&AppRecordingManager> for ::windows::runtime::IUnknown {
+    fn from(value: &AppRecordingManager) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppRecordingManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppRecordingManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<AppRecordingManager> for ::windows::runtime::IInspectable {
+    fn from(value: AppRecordingManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppRecordingManager> for ::windows::runtime::IInspectable {
+    fn from(value: &AppRecordingManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppRecordingManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppRecordingManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AppRecordingManager {}
 unsafe impl ::std::marker::Sync for AppRecordingManager {}
 #[doc = "*Required features: `Media_AppRecording`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct AppRecordingResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct AppRecordingResult(pub ::windows::runtime::IInspectable);
 impl AppRecordingResult {
     #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn Succeeded(&self) -> ::windows::runtime::Result<bool> {
@@ -130,6 +170,46 @@ unsafe impl ::windows::runtime::Interface for AppRecordingResult {
 impl ::windows::runtime::RuntimeName for AppRecordingResult {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingResult";
 }
+impl ::std::convert::From<AppRecordingResult> for ::windows::runtime::IUnknown {
+    fn from(value: AppRecordingResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&AppRecordingResult> for ::windows::runtime::IUnknown {
+    fn from(value: &AppRecordingResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppRecordingResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppRecordingResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<AppRecordingResult> for ::windows::runtime::IInspectable {
+    fn from(value: AppRecordingResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppRecordingResult> for ::windows::runtime::IInspectable {
+    fn from(value: &AppRecordingResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppRecordingResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppRecordingResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AppRecordingResult {}
 unsafe impl ::std::marker::Sync for AppRecordingResult {}
 #[doc = "*Required features: `Media_AppRecording`*"]
@@ -156,8 +236,8 @@ impl ::windows::runtime::DefaultType for AppRecordingSaveScreenshotOption {
 }
 #[doc = "*Required features: `Media_AppRecording`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct AppRecordingSaveScreenshotResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct AppRecordingSaveScreenshotResult(pub ::windows::runtime::IInspectable);
 impl AppRecordingSaveScreenshotResult {
     #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn Succeeded(&self) -> ::windows::runtime::Result<bool> {
@@ -195,12 +275,52 @@ unsafe impl ::windows::runtime::Interface for AppRecordingSaveScreenshotResult {
 impl ::windows::runtime::RuntimeName for AppRecordingSaveScreenshotResult {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingSaveScreenshotResult";
 }
+impl ::std::convert::From<AppRecordingSaveScreenshotResult> for ::windows::runtime::IUnknown {
+    fn from(value: AppRecordingSaveScreenshotResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&AppRecordingSaveScreenshotResult> for ::windows::runtime::IUnknown {
+    fn from(value: &AppRecordingSaveScreenshotResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppRecordingSaveScreenshotResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppRecordingSaveScreenshotResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<AppRecordingSaveScreenshotResult> for ::windows::runtime::IInspectable {
+    fn from(value: AppRecordingSaveScreenshotResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppRecordingSaveScreenshotResult> for ::windows::runtime::IInspectable {
+    fn from(value: &AppRecordingSaveScreenshotResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppRecordingSaveScreenshotResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppRecordingSaveScreenshotResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AppRecordingSaveScreenshotResult {}
 unsafe impl ::std::marker::Sync for AppRecordingSaveScreenshotResult {}
 #[doc = "*Required features: `Media_AppRecording`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct AppRecordingSavedScreenshotInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct AppRecordingSavedScreenshotInfo(pub ::windows::runtime::IInspectable);
 impl AppRecordingSavedScreenshotInfo {
     #[cfg(feature = "Storage")]
     #[doc = "*Required features: `Media_AppRecording`, `Storage`*"]
@@ -230,12 +350,52 @@ unsafe impl ::windows::runtime::Interface for AppRecordingSavedScreenshotInfo {
 impl ::windows::runtime::RuntimeName for AppRecordingSavedScreenshotInfo {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo";
 }
+impl ::std::convert::From<AppRecordingSavedScreenshotInfo> for ::windows::runtime::IUnknown {
+    fn from(value: AppRecordingSavedScreenshotInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&AppRecordingSavedScreenshotInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &AppRecordingSavedScreenshotInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppRecordingSavedScreenshotInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppRecordingSavedScreenshotInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<AppRecordingSavedScreenshotInfo> for ::windows::runtime::IInspectable {
+    fn from(value: AppRecordingSavedScreenshotInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppRecordingSavedScreenshotInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &AppRecordingSavedScreenshotInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppRecordingSavedScreenshotInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppRecordingSavedScreenshotInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AppRecordingSavedScreenshotInfo {}
 unsafe impl ::std::marker::Sync for AppRecordingSavedScreenshotInfo {}
 #[doc = "*Required features: `Media_AppRecording`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct AppRecordingStatus(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct AppRecordingStatus(pub ::windows::runtime::IInspectable);
 impl AppRecordingStatus {
     #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn CanRecord(&self) -> ::windows::runtime::Result<bool> {
@@ -281,12 +441,52 @@ unsafe impl ::windows::runtime::Interface for AppRecordingStatus {
 impl ::windows::runtime::RuntimeName for AppRecordingStatus {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingStatus";
 }
+impl ::std::convert::From<AppRecordingStatus> for ::windows::runtime::IUnknown {
+    fn from(value: AppRecordingStatus) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&AppRecordingStatus> for ::windows::runtime::IUnknown {
+    fn from(value: &AppRecordingStatus) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppRecordingStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppRecordingStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<AppRecordingStatus> for ::windows::runtime::IInspectable {
+    fn from(value: AppRecordingStatus) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppRecordingStatus> for ::windows::runtime::IInspectable {
+    fn from(value: &AppRecordingStatus) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppRecordingStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppRecordingStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AppRecordingStatus {}
 unsafe impl ::std::marker::Sync for AppRecordingStatus {}
 #[doc = "*Required features: `Media_AppRecording`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct AppRecordingStatusDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct AppRecordingStatusDetails(pub ::windows::runtime::IInspectable);
 impl AppRecordingStatusDetails {
     #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn IsAnyAppBroadcasting(&self) -> ::windows::runtime::Result<bool> {
@@ -371,11 +571,51 @@ unsafe impl ::windows::runtime::Interface for AppRecordingStatusDetails {
 impl ::windows::runtime::RuntimeName for AppRecordingStatusDetails {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingStatusDetails";
 }
+impl ::std::convert::From<AppRecordingStatusDetails> for ::windows::runtime::IUnknown {
+    fn from(value: AppRecordingStatusDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&AppRecordingStatusDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &AppRecordingStatusDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppRecordingStatusDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppRecordingStatusDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<AppRecordingStatusDetails> for ::windows::runtime::IInspectable {
+    fn from(value: AppRecordingStatusDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppRecordingStatusDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &AppRecordingStatusDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppRecordingStatusDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppRecordingStatusDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AppRecordingStatusDetails {}
 unsafe impl ::std::marker::Sync for AppRecordingStatusDetails {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppRecordingManager(::windows::runtime::IInspectable);
+pub struct IAppRecordingManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingManager {
     type Vtable = IAppRecordingManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3890372726, 41028, 18658, [165, 18, 48, 148, 213, 116, 199, 204]);
@@ -401,7 +641,7 @@ pub struct IAppRecordingManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppRecordingManagerStatics(::windows::runtime::IInspectable);
+pub struct IAppRecordingManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingManagerStatics {
     type Vtable = IAppRecordingManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357318647, 14542, 19411, [157, 178, 231, 43, 190, 157, 225, 29]);
@@ -419,7 +659,7 @@ pub struct IAppRecordingManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppRecordingResult(::windows::runtime::IInspectable);
+pub struct IAppRecordingResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingResult {
     type Vtable = IAppRecordingResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(982517860, 50797, 18169, [178, 217, 91, 194, 218, 208, 112, 215]);
@@ -441,7 +681,7 @@ pub struct IAppRecordingResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppRecordingSaveScreenshotResult(::windows::runtime::IInspectable);
+pub struct IAppRecordingSaveScreenshotResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingSaveScreenshotResult {
     type Vtable = IAppRecordingSaveScreenshotResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2623245578, 2747, 17495, [170, 238, 36, 249, 193, 46, 199, 120]);
@@ -462,7 +702,7 @@ pub struct IAppRecordingSaveScreenshotResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppRecordingSavedScreenshotInfo(::windows::runtime::IInspectable);
+pub struct IAppRecordingSavedScreenshotInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingSavedScreenshotInfo {
     type Vtable = IAppRecordingSavedScreenshotInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2607033610, 6298, 19712, [191, 37, 225, 187, 18, 73, 213, 148]);
@@ -482,7 +722,7 @@ pub struct IAppRecordingSavedScreenshotInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppRecordingStatus(::windows::runtime::IInspectable);
+pub struct IAppRecordingStatus(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingStatus {
     type Vtable = IAppRecordingStatus_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(487376940, 48152, 19338, [166, 239, 18, 126, 250, 179, 181, 217]);
@@ -504,7 +744,7 @@ pub struct IAppRecordingStatus_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppRecordingStatusDetails(::windows::runtime::IInspectable);
+pub struct IAppRecordingStatusDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingStatusDetails {
     type Vtable = IAppRecordingStatusDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3040389552, 5357, 17426, [172, 69, 109, 103, 44, 156, 153, 73]);

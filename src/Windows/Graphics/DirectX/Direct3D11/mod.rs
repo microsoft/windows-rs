@@ -150,9 +150,9 @@ impl ::windows::runtime::DefaultType for Direct3DUsage {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
-pub struct IDirect3DDevice(::windows::runtime::IInspectable);
+pub struct IDirect3DDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3DDevice {
     type Vtable = IDirect3DDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2742428843, 36191, 18000, [157, 62, 158, 174, 61, 155, 198, 112]);
@@ -172,6 +172,46 @@ impl IDirect3DDevice {
 }
 unsafe impl ::windows::runtime::RuntimeType for IDirect3DDevice {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a37624ab-8d5f-4650-9d3e-9eae3d9bc670}");
+}
+impl ::std::convert::From<IDirect3DDevice> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DDevice) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IDirect3DDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DDevice) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IDirect3DDevice> for ::windows::runtime::IInspectable {
+    fn from(value: IDirect3DDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DDevice> for ::windows::runtime::IInspectable {
+    fn from(value: &IDirect3DDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IDirect3DDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IDirect3DDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<IDirect3DDevice> for super::super::super::Foundation::IClosable {
@@ -211,9 +251,9 @@ pub struct IDirect3DDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
-pub struct IDirect3DSurface(::windows::runtime::IInspectable);
+pub struct IDirect3DSurface(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3DSurface {
     type Vtable = IDirect3DSurface_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(200581446, 5057, 18068, [190, 227, 122, 191, 21, 234, 245, 134]);
@@ -236,6 +276,46 @@ impl IDirect3DSurface {
 }
 unsafe impl ::windows::runtime::RuntimeType for IDirect3DSurface {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{0bf4a146-13c1-4694-bee3-7abf15eaf586}");
+}
+impl ::std::convert::From<IDirect3DSurface> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DSurface) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IDirect3DSurface> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DSurface) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DSurface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DSurface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IDirect3DSurface> for ::windows::runtime::IInspectable {
+    fn from(value: IDirect3DSurface) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DSurface> for ::windows::runtime::IInspectable {
+    fn from(value: &IDirect3DSurface) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IDirect3DSurface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IDirect3DSurface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<IDirect3DSurface> for super::super::super::Foundation::IClosable {
