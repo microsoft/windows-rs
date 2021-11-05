@@ -78,6 +78,7 @@ impl TypeTree {
         self.get_namespace_pos(namespace, 0)
     }
 
+    // TODO: really need pos?
     fn get_namespace_pos(&self, namespace: &str, pos: usize) -> Option<&Self> {
         if let Some(next) = namespace[pos..].find('.') {
             let next = pos + next;
@@ -91,6 +92,7 @@ impl TypeTree {
         self.get_namespace_mut_pos(namespace, 0)
     }
 
+    // TODO: really need pos?
     fn get_namespace_mut_pos(&mut self, namespace: &str, pos: usize) -> Option<&mut Self> {
         self.include = true;
         if let Some(next) = namespace[pos..].find('.') {
@@ -102,5 +104,18 @@ impl TypeTree {
                 ns
             })
         }
+    }
+
+    pub fn exclude_namespace(&mut self, namespace: &str) {
+        if let Some(tree) = self.get_namespace_mut(namespace) {
+            tree.include = false;
+        }
+        // if let Some(next) = namespace.find('.') {
+        //     if let Some(tree) = self.namespaces.get_mut(&namespace[..next]) {
+        //         tree.remove_namespace(&namespace[next + 1..]);
+        //     }
+        // } else {
+        //     self.namespaces.remove(namespace);
+        // }
     }
 }
