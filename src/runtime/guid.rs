@@ -98,7 +98,7 @@ trait HexReader {
     fn next_u32(&mut self) -> u32;
 }
 
-impl HexReader for std::str::Bytes<'_> {
+impl HexReader for core::str::Bytes<'_> {
     fn next_u8(&mut self) -> u8 {
         let value = self.next().unwrap();
         match value {

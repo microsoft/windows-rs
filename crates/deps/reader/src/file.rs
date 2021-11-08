@@ -113,7 +113,7 @@ impl File {
 
         unsafe {
             let len = strlen(self.bytes.as_ptr().add(offset));
-            std::str::from_utf8_unchecked(&self.bytes[offset..offset + len])
+            core::str::from_utf8_unchecked(&self.bytes[offset..offset + len])
         }
     }
 

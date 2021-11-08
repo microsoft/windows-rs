@@ -56,7 +56,7 @@ impl TokenStream {
     /// Parse the token stream as something
     ///
     /// Mostly used with `proc_macro2::TokenStream` or `proc_macro::TokenStream`
-    pub fn parse<T: std::str::FromStr>(self) -> Result<T, T::Err> {
+    pub fn parse<T: core::str::FromStr>(self) -> Result<T, T::Err> {
         self.into_string().parse()
     }
 
@@ -150,7 +150,7 @@ impl Literal {
 
     pub fn byte_string(s: &[u8]) -> Self {
         Self {
-            inner: format!("b\"{}\"", std::str::from_utf8(s).expect("Could not turn bytes into byte literal")),
+            inner: format!("b\"{}\"", core::str::from_utf8(s).expect("Could not turn bytes into byte literal")),
         }
     }
 

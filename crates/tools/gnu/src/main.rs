@@ -13,7 +13,7 @@ fn main() {
         return;
     }
 
-    let output = unsafe { std::str::from_utf8_unchecked(&output.stdout) };
+    let output = unsafe { core::str::from_utf8_unchecked(&output.stdout) };
 
     let platform = if output.contains("mingw64") {
         "x86_64_gnu"

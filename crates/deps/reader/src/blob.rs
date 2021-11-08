@@ -59,7 +59,7 @@ impl Blob {
     pub fn read_str(&mut self) -> &'static str {
         let len = self.read_unsigned() as usize;
         self.offset += len;
-        std::str::from_utf8(&self.file.bytes[self.offset - len..self.offset]).unwrap()
+        core::str::from_utf8(&self.file.bytes[self.offset - len..self.offset]).unwrap()
     }
 
     pub fn read_utf16(&self) -> String {
