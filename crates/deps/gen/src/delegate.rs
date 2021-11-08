@@ -45,7 +45,7 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
         #cfg
         #doc
         #[repr(transparent)]
-        #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::std::clone::Clone, ::core::fmt::Debug)]
+        #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::clone::Clone, ::core::fmt::Debug)]
         pub struct #name(::windows::runtime::IUnknown, #(#struct_phantoms,)*) where #constraints;
         #cfg
         impl<#constraints> #name {

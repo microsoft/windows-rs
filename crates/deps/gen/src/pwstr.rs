@@ -2,7 +2,7 @@ use super::*;
 
 pub fn gen_pwstr() -> TokenStream {
     quote! {
-        #[derive(::std::clone::Clone, ::core::marker::Copy, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq)]
+        #[derive(::core::clone::Clone, ::core::marker::Copy, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq)]
         #[repr(transparent)]
         pub struct PWSTR(pub *mut u16);
         impl PWSTR {

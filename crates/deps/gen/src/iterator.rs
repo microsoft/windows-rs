@@ -91,7 +91,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
 
                     fn into_iter(self) -> Self::IntoIter {
                         // TODO: shouldn't need to clone - VectorViewIterator should hold a reference
-                        VectorViewIterator::new(::std::option::Option::Some(::std::clone::Clone::clone(self)))
+                        VectorViewIterator::new(::std::option::Option::Some(::core::clone::Clone::clone(self)))
                     }
                 }
             };
@@ -138,7 +138,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
 
                     fn into_iter(self) -> Self::IntoIter {
                         // TODO: shouldn't need to clone - VectorIterator should hold a reference
-                        VectorIterator::new(::std::option::Option::Some(::std::clone::Clone::clone(self)))
+                        VectorIterator::new(::std::option::Option::Some(::core::clone::Clone::clone(self)))
                     }
                 }
             };

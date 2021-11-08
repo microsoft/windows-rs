@@ -73,7 +73,7 @@ impl InterfaceInfo {
                     #cfg
                     impl<#constraints> ::std::convert::From<&#from> for #into {
                         fn from(value: &#from) -> Self {
-                            ::std::convert::From::from(::std::clone::Clone::clone(value))
+                            ::std::convert::From::from(::core::clone::Clone::clone(value))
                         }
                     }
                     #cfg

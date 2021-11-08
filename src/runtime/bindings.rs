@@ -1348,7 +1348,7 @@ pub mod Windows {
                     unsafe { ::std::slice::from_raw_parts(self.0 as *const u16, self.len()) }
                 }
             }
-            impl ::std::clone::Clone for BSTR {
+            impl ::core::clone::Clone for BSTR {
                 fn clone(&self) -> Self {
                     Self::from_wide(self.as_wide())
                 }
@@ -2223,7 +2223,7 @@ pub mod Windows {
                 }
                 impl ::std::convert::From<&ILanguageExceptionErrorInfo2> for ILanguageExceptionErrorInfo {
                     fn from(value: &ILanguageExceptionErrorInfo2) -> Self {
-                        ::std::convert::From::from(::std::clone::Clone::clone(value))
+                        ::std::convert::From::from(::core::clone::Clone::clone(value))
                     }
                 }
                 impl<'a> ::windows::runtime::IntoParam<'a, ILanguageExceptionErrorInfo> for ILanguageExceptionErrorInfo2 {

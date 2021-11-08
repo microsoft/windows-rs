@@ -151,7 +151,7 @@ impl Class {
                     #cfg
                     #doc
                     #[repr(transparent)]
-                    #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::std::clone::Clone, ::core::fmt::Debug)]
+                    #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::clone::Clone, ::core::fmt::Debug)]
                     pub struct #name(pub ::windows::runtime::IInspectable);
                     #cfg
                     impl #name {
@@ -202,7 +202,7 @@ impl Class {
             quote! {
                 #cfg
                 #[repr(transparent)]
-                #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::std::clone::Clone, ::core::fmt::Debug)]
+                #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::clone::Clone, ::core::fmt::Debug)]
                 #[doc(hidden)]
                 pub struct #name(pub ::windows::runtime::IInspectable);
                 #cfg
@@ -258,7 +258,7 @@ impl Class {
                 #cfg
                 impl<'a> ::windows::runtime::IntoParam<'a, #into> for &#from {
                     fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                        ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
+                        ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(::core::clone::Clone::clone(self)))
                     }
                 }
             }

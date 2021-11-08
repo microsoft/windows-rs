@@ -43,7 +43,7 @@ pub fn gen_bstr() -> TokenStream {
                 unsafe { ::std::slice::from_raw_parts(self.0 as *const u16, self.len()) }
             }
         }
-        impl ::std::clone::Clone for BSTR {
+        impl ::core::clone::Clone for BSTR {
             fn clone(&self) -> Self {
                 Self::from_wide(self.as_wide())
             }
