@@ -7,25 +7,25 @@ pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
         Some(return_sig) if return_sig.is_array => {
             quote! {
                 match #inner(#(#invoke_args,)*) {
-                    ::std::result::Result::Ok(ok__) => {
+                    ::core::result::Result::Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
                         *result__ = ok_data__;
                         *result_size__ = ok_data_len__;
                         ::windows::runtime::HRESULT(0)
                     }
-                    ::std::result::Result::Err(err) => err.into()
+                    ::core::result::Result::Err(err) => err.into()
                 }
             }
         }
         Some(_) => {
             quote! {
                 match #inner(#(#invoke_args,)*) {
-                    ::std::result::Result::Ok(ok__) => {
+                    ::core::result::Result::Ok(ok__) => {
                         *result__ = ::core::mem::transmute_copy(&ok__);
                         ::core::mem::forget(ok__);
                         ::windows::runtime::HRESULT(0)
                     }
-                    ::std::result::Result::Err(err) => err.into()
+                    ::core::result::Result::Err(err) => err.into()
                 }
             }
         }

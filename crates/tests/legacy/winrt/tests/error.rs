@@ -42,7 +42,7 @@ fn convertible() {
         Err(windows::runtime::Error::new(E_NOINTERFACE, "test message"))
     }
 
-    fn convertible_error() -> std::result::Result<(), Box<dyn std::error::Error>> {
+    fn convertible_error() -> core::result::Result<(), Box<dyn std::error::Error>> {
         windows_error()?;
         Ok(())
     }

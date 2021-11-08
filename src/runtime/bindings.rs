@@ -1371,13 +1371,13 @@ pub mod Windows {
             }
             impl<'a> ::core::convert::TryFrom<&'a BSTR> for ::std::string::String {
                 type Error = ::std::string::FromUtf16Error;
-                fn try_from(value: &BSTR) -> ::std::result::Result<Self, Self::Error> {
+                fn try_from(value: &BSTR) -> ::core::result::Result<Self, Self::Error> {
                     ::std::string::String::from_utf16(value.as_wide())
                 }
             }
             impl ::core::convert::TryFrom<BSTR> for ::std::string::String {
                 type Error = ::std::string::FromUtf16Error;
-                fn try_from(value: BSTR) -> ::std::result::Result<Self, Self::Error> {
+                fn try_from(value: BSTR) -> ::core::result::Result<Self, Self::Error> {
                     ::std::string::String::try_from(&value)
                 }
             }

@@ -1,6 +1,6 @@
 use super::*;
 use core::convert::TryFrom;
-use std::result::Result as StdResult;
+use core::result::Result as StdResult;
 
 // TODO: move to HSTRING generated code?
 

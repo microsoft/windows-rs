@@ -4,7 +4,7 @@ use bindings::*;
 use Windows::Win32::Foundation::GetLastError;
 use Windows::Win32::System::LibraryLoader::{FreeLibrary, GetProcAddress, LoadLibraryA};
 
-pub fn delay_load(library: &str, function: &str) -> std::result::Result<RawPtr, HRESULT> {
+pub fn delay_load(library: &str, function: &str) -> core::result::Result<RawPtr, HRESULT> {
     unsafe {
         let library = LoadLibraryA(library);
 

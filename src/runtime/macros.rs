@@ -6,9 +6,9 @@ macro_rules! demand_load {
     } )* ) => {
         $($(
             #[allow(non_snake_case)]
-            unsafe fn $sym( $( $param: $pty ),* ) -> ::std::result::Result<$rt, ::windows::runtime::HRESULT> {
+            unsafe fn $sym( $( $param: $pty ),* ) -> ::core::result::Result<$rt, ::windows::runtime::HRESULT> {
                 static ONCE: ::std::sync::Once = ::std::sync::Once::new();
-                static mut VALUE: ::core::mem::MaybeUninit<::std::result::Result<::windows::runtime::RawPtr, ::windows::runtime::HRESULT>> =
+                static mut VALUE: ::core::mem::MaybeUninit<::core::result::Result<::windows::runtime::RawPtr, ::windows::runtime::HRESULT>> =
                     ::core::mem::MaybeUninit::uninit();
 
                 ONCE.call_once(|| {
@@ -21,7 +21,7 @@ macro_rules! demand_load {
                 // function pointer, so it must be done here outside load_proc().
                 type FnPtr = extern "system" fn ( $( $param: $pty ),* ) -> $rt;
                 let f = ::core::mem::transmute::<::windows::runtime::RawPtr, FnPtr>(VALUE.assume_init()?);
-                ::std::result::Result::Ok( (f)( $( $param ),* ) )
+                ::core::result::Result::Ok( (f)( $( $param ),* ) )
             }
         )*)*
     };

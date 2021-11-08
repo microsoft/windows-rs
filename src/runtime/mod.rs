@@ -74,7 +74,7 @@ pub use weak_ref_count::*;
 
 // A [`Result`] type that provides Windows error information.
 #[must_use]
-pub type Result<T> = std::result::Result<T, Error>;
+pub type Result<T> = core::result::Result<T, Error>;
 
 #[doc(hidden)]
 pub use bindings::Windows::Win32::System::Com::IAgileObject;
