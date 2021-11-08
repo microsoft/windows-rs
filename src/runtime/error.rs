@@ -154,7 +154,7 @@ impl core::fmt::Display for Error {
 impl std::error::Error for Error {}
 
 demand_load! {
-    "combase.dll" {
+    "combase.dll\0" {
         fn RoOriginateError(code: HRESULT, message: core::mem::ManuallyDrop<HSTRING>) -> BOOL;
     }
 }

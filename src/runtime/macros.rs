@@ -15,7 +15,7 @@ macro_rules! demand_load {
                 let mut ptr = VALUE.load(::core::sync::atomic::Ordering::Relaxed);
 
                 if ptr.is_null() {
-                    ptr = ::windows::runtime::delay_load($library, ::core::stringify!($sym));
+                    ptr = ::windows::runtime::delay_load($library.as_bytes(), ::core::stringify!($sym));
 
                     if ptr.is_null() {
                         return None;

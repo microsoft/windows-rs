@@ -308,6 +308,7 @@ unsafe impl ::windows::runtime::Abi for BSTR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 pub type BSTR_abi = *mut u16;
+#[cfg(not(feature = "no_std"))]
 impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for &str {
     fn into_param(self) -> ::windows::runtime::Param<'a, BSTR> {
         ::windows::runtime::Param::Owned(self.into())

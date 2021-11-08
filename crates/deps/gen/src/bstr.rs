@@ -48,6 +48,7 @@ pub fn gen_bstr() -> TokenStream {
                 Self::from_wide(self.as_wide())
             }
         }
+        // TODO: these str traits should work with no_std
         #[cfg(not(feature = "no_std"))]
         impl ::core::convert::From<&str> for BSTR {
             fn from(value: &str) -> Self {
@@ -140,6 +141,8 @@ pub fn gen_bstr() -> TokenStream {
             type Abi = ::core::mem::ManuallyDrop<Self>;
         }
         pub type BSTR_abi = *mut u16;
+        // TODO: these str traits should work with no_std
+        #[cfg(not(feature = "no_std"))]
         impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for &str {
             fn into_param(self) -> ::windows::runtime::Param<'a, BSTR> {
                 ::windows::runtime::Param::Owned(self.into())

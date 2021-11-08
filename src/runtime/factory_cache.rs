@@ -90,11 +90,11 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
         while let Some(pos) = path.rfind('.') {
             path = &path[..pos];
 
-            let library = core::slice::from_raw_parts_mut(heap_alloc(path.len() + 4)? as *mut u8, path.len() + 4);
+            let library = core::slice::from_raw_parts_mut(heap_alloc(path.len() + 5)? as *mut u8, path.len() + 4);
             library.copy_from_slice(path.as_bytes());
-            library[path.len()..].copy_from_slice(b".dll");
+            library[path.len()..].copy_from_slice(b".dll\0");
 
-            let function = delay_load(core::str::from_utf8_unchecked(library), "DllGetActivationFactory");
+            let function = delay_load(library, "DllGetActivationFactory");
 
             if !function.is_null() {
                 let function: DllGetActivationFactory = core::mem::transmute(function);
@@ -115,10 +115,10 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 }
 
 demand_load! {
-    "ole32.dll" {
+    "ole32.dll\0" {
         fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> HRESULT;
     }
-    "combase.dll" {
+    "combase.dll\0" {
         fn RoGetActivationFactory(hstring: core::mem::ManuallyDrop<HSTRING>, interface: &GUID, result: *mut RawPtr) -> HRESULT;
     }
 }
