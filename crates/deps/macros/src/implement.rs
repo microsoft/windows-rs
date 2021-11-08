@@ -240,7 +240,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
             }
         }
         impl <#constraints> ::windows::runtime::Compose for #impl_ident {
-            unsafe fn compose<'a>(implementation: Self) -> (::windows::runtime::IInspectable, &'a mut std::option::Option<::windows::runtime::IInspectable>) {
+            unsafe fn compose<'a>(implementation: Self) -> (::windows::runtime::IInspectable, &'a mut core::option::Option<::windows::runtime::IInspectable>) {
                 let inspectable: ::windows::runtime::IInspectable = implementation.into();
                 let this = (&inspectable as *const _ as *mut ::windows::runtime::RawPtr).sub(1) as *mut #box_ident::<#(#generics,)*>;
                 (inspectable, &mut (*this).base)
@@ -248,7 +248,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
         }
         #[repr(C)]
         struct #box_ident<#(#generics,)*> where #constraints {
-            base: ::std::option::Option<::windows::runtime::IInspectable>,
+            base: ::core::option::Option<::windows::runtime::IInspectable>,
             identity_vtable: *const ::windows::runtime::IInspectable_abi,
             vtables: (#(*const #vtable_idents,)*),
             implementation: #impl_ident,
@@ -269,7 +269,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
             #query_constants
             fn new(implementation: #impl_ident) -> Self {
                 Self {
-                    base: ::std::option::Option::None,
+                    base: ::core::option::Option::None,
                     identity_vtable: &Self::IDENTITY_VTABLE,
                     vtables: (#(&Self::VTABLES.#vtable_ordinals,)*),
                     implementation,

@@ -129,7 +129,7 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
                     quote! { #name: #tokens, }
                 }
             } else if param.signature.kind.is_nullable() {
-                quote! { #name: &mut ::std::option::Option<#tokens>, }
+                quote! { #name: &mut ::core::option::Option<#tokens>, }
             } else if let ElementType::GenericParam(_) = param.signature.kind {
                 quote! { &mut <#tokens as ::windows::runtime::DefaultType>::DefaultType, }
             } else if param.signature.pointers > 0 {
@@ -186,7 +186,7 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
     // arguments to ensure the call succeeds in the non-aggregating case.
     let composable_args = match interface.kind {
         InterfaceKind::Composable => quote! {
-            ::core::ptr::null_mut(), &mut ::std::option::Option::<::windows::runtime::IInspectable>::None as *mut _ as _,
+            ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::runtime::IInspectable>::None as *mut _ as _,
         },
         InterfaceKind::Extend => quote! {
             ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _,
@@ -329,12 +329,12 @@ pub fn gen_winrt_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
         } else if param.signature.kind.is_primitive() {
             quote! { #tokens }
         } else if param.signature.kind.is_nullable() {
-            quote! { &::std::option::Option<#tokens> }
+            quote! { &::core::option::Option<#tokens> }
         } else {
             quote! { &#tokens }
         }
     } else if param.signature.kind.is_nullable() {
-        quote! { &mut ::std::option::Option<#tokens> }
+        quote! { &mut ::core::option::Option<#tokens> }
     } else {
         quote! { &mut #tokens }
     }

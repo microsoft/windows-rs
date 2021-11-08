@@ -41,7 +41,7 @@ fn gen_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream
 
     if sig.kind.is_nullable() {
         tokens.combine(&quote! {
-            ::std::option::Option<#kind>
+            ::core::option::Option<#kind>
         });
     } else {
         tokens.combine(&kind)

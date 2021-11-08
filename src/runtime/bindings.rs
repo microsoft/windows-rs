@@ -1862,12 +1862,12 @@ pub mod Windows {
                     unimplemented!("Unsupported target OS");
                 }
                 #[inline]
-                pub unsafe fn GetProcAddress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hmodule: Param0, lpprocname: Param1) -> ::std::option::Option<super::super::Foundation::FARPROC> {
+                pub unsafe fn GetProcAddress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hmodule: Param0, lpprocname: Param1) -> ::core::option::Option<super::super::Foundation::FARPROC> {
                     #[cfg(windows)]
                     {
                         #[link(name = "windows")]
                         extern "system" {
-                            fn GetProcAddress(hmodule: super::super::Foundation::HINSTANCE, lpprocname: super::super::Foundation::PSTR) -> ::std::option::Option<super::super::Foundation::FARPROC>;
+                            fn GetProcAddress(hmodule: super::super::Foundation::HINSTANCE, lpprocname: super::super::Foundation::PSTR) -> ::core::option::Option<super::super::Foundation::FARPROC>;
                         }
                         ::core::mem::transmute(GetProcAddress(hmodule.into_param().abi(), lpprocname.into_param().abi()))
                     }
@@ -2299,7 +2299,7 @@ pub mod Windows {
                 pub struct IWeakReference(pub ::windows::runtime::IUnknown);
                 impl IWeakReference {
                     pub unsafe fn Resolve<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-                        let mut result__ = ::std::option::Option::None;
+                        let mut result__ = ::core::option::Option::None;
                         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
                     }
                 }

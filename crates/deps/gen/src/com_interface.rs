@@ -168,7 +168,7 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
                 #cfg
                 #doc
                 pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(&self, #params) -> ::windows::runtime::Result<T> {
-                    let mut result__ = ::std::option::Option::None;
+                    let mut result__ = ::core::option::Option::None;
                     (::windows::runtime::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
                 }
             }
@@ -181,7 +181,7 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
             quote! {
                 #cfg
                 #doc
-                pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(&self, #params result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
+                pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(&self, #params result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
                     (::windows::runtime::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
                 }
             }

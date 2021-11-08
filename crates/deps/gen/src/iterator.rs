@@ -13,7 +13,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                 impl<T: ::windows::runtime::RuntimeType> ::std::iter::Iterator for IIterator<T> {
                     type Item = T;
 
-                    fn next(&mut self) -> ::std::option::Option<Self::Item> {
+                    fn next(&mut self) -> ::core::option::Option<Self::Item> {
                         let result = self.Current().ok();
 
                         if result.is_some() {
@@ -52,12 +52,12 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
         TypeName::IVectorView => {
             return quote! {
                 pub struct VectorViewIterator<T: ::windows::runtime::RuntimeType + 'static> {
-                    vector: ::std::option::Option<IVectorView<T>>,
+                    vector: ::core::option::Option<IVectorView<T>>,
                     current: u32,
                 }
 
                 impl<T: ::windows::runtime::RuntimeType> VectorViewIterator<T> {
-                    pub fn new(vector: ::std::option::Option<IVectorView<T>>) -> Self {
+                    pub fn new(vector: ::core::option::Option<IVectorView<T>>) -> Self {
                         Self { vector, current: 0 }
                     }
                 }
@@ -65,7 +65,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                 impl<T: ::windows::runtime::RuntimeType> ::std::iter::Iterator for VectorViewIterator<T> {
                     type Item = T;
 
-                    fn next(&mut self) -> ::std::option::Option<Self::Item> {
+                    fn next(&mut self) -> ::core::option::Option<Self::Item> {
                         self.vector.as_ref()
                             .and_then(|vector| {
                                 vector.GetAt(self.current).ok()
@@ -91,7 +91,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
 
                     fn into_iter(self) -> Self::IntoIter {
                         // TODO: shouldn't need to clone - VectorViewIterator should hold a reference
-                        VectorViewIterator::new(::std::option::Option::Some(::core::clone::Clone::clone(self)))
+                        VectorViewIterator::new(::core::option::Option::Some(::core::clone::Clone::clone(self)))
                     }
                 }
             };
@@ -99,12 +99,12 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
         TypeName::IVector => {
             return quote! {
                 pub struct VectorIterator<T: ::windows::runtime::RuntimeType + 'static> {
-                    vector: ::std::option::Option<IVector<T>>,
+                    vector: ::core::option::Option<IVector<T>>,
                     current: u32,
                 }
 
                 impl<T: ::windows::runtime::RuntimeType> VectorIterator<T> {
-                    pub fn new(vector: ::std::option::Option<IVector<T>>) -> Self {
+                    pub fn new(vector: ::core::option::Option<IVector<T>>) -> Self {
                         Self { vector, current: 0 }
                     }
                 }
@@ -112,7 +112,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                 impl<T: ::windows::runtime::RuntimeType> ::std::iter::Iterator for VectorIterator<T> {
                     type Item = T;
 
-                    fn next(&mut self) -> ::std::option::Option<Self::Item> {
+                    fn next(&mut self) -> ::core::option::Option<Self::Item> {
                         self.vector.as_ref()
                             .and_then(|vector| {
                                 vector.GetAt(self.current).ok()
@@ -138,7 +138,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
 
                     fn into_iter(self) -> Self::IntoIter {
                         // TODO: shouldn't need to clone - VectorIterator should hold a reference
-                        VectorIterator::new(::std::option::Option::Some(::core::clone::Clone::clone(self)))
+                        VectorIterator::new(::core::option::Option::Some(::core::clone::Clone::clone(self)))
                     }
                 }
             };
